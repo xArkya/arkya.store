@@ -118,12 +118,13 @@ export default function HomePage() {
     setActiveCategory(categoryId);
     setActiveSubcategory('');
     
-    // Actualizar URL con el parámetro de categoría
+    // Con HashRouter, no podemos usar window.history.replaceState directamente
+    // En su lugar, podemos usar un enfoque diferente para actualizar la URL
     const params = new URLSearchParams();
     if (categoryId !== 'todos') {
       params.set('category', categoryId);
     }
-    window.history.replaceState({}, '', `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`);
+    // No actualizamos la URL aquí para evitar problemas con HashRouter
   };
   
   // Función para manejar el clic en una subcategoría
@@ -131,11 +132,12 @@ export default function HomePage() {
     setActiveCategory(categoryId);
     setActiveSubcategory(subcategoryId);
     
-    // Actualizar URL con los parámetros de categoría y subcategoría
+    // Con HashRouter, no podemos usar window.history.replaceState directamente
+    // En su lugar, podemos usar un enfoque diferente para actualizar la URL
     const params = new URLSearchParams();
     params.set('category', categoryId);
     params.set('subcategory', subcategoryId);
-    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    // No actualizamos la URL aquí para evitar problemas con HashRouter
   };
 
   return (
