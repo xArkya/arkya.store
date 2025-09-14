@@ -54,10 +54,10 @@ jobs:
           # Commit de los cambios
           git commit -m "Deploy to GitHub Pages"
           
-          # Configurar el repositorio para desplegar en xarkya.github.io
-          git remote add personal https://x-access-token:${GITHUB_TOKEN}@github.com/xArkya/xarkya.github.io.git
+          # Usar el token de GitHub para autenticación
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           
-          # Forzar el push a la rama main del repositorio personal
-          git push -f personal gh-pages:main
+          # Forzar el push a la rama gh-pages
+          git push -f origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
