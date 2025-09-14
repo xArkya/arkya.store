@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redireccionando...</title>
+  <script>
+    // Obtener la URL actual
+    var currentPath = window.location.pathname;
+    
+    // Si estamos en la raíz del sitio, redirigir a la página principal
+    if (currentPath === '/arkya.store/' || currentPath === '/arkya.store') {
+      window.location.replace('/arkya.store/#/');
+    } else {
+      // Para cualquier otra ruta, redirigir a la ruta correspondiente con hash
+      var path = currentPath.replace('/arkya.store/', '');
+      if (path) {
+        window.location.replace('/arkya.store/#/' + path);
+      } else {
+        window.location.replace('/arkya.store/#/');
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Redireccionando...</h1>
+  <p>Si no eres redirigido automáticamente, haz clic <a id="redirect-link" href="/arkya.store/#/">aquí</a>.</p>
+</body>
+</html>
