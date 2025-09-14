@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0;url=/#/" />
   <title>Arkya Store</title>
   <style>
     body {
@@ -21,9 +20,11 @@
     h1 {
       color: #d53f8c;
       margin-bottom: 20px;
+      font-size: 2.5rem;
     }
     p {
       margin-bottom: 30px;
+      font-size: 1.2rem;
     }
     a {
       color: #d53f8c;
@@ -32,21 +33,38 @@
       padding: 10px 20px;
       border-radius: 4px;
       transition: all 0.3s ease;
+      font-size: 1.1rem;
     }
     a:hover {
       background-color: #d53f8c;
       color: white;
     }
+    .loader {
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      border-top: 5px solid #d53f8c;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
   <h1>Arkya Store</h1>
+  <div class="loader"></div>
   <p>Cargando la tienda...</p>
-  <a href="/#/">Ir a la tienda</a>
+  <a href="#/">Ir a la tienda</a>
   
   <script>
-    // Redirigir a la página principal
-    window.location.href = '/#/';
+    // Función para redirigir después de un breve retraso
+    setTimeout(function() {
+      window.location.href = '#/';
+    }, 1500);
   </script>
 </body>
 </html>
