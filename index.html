@@ -5,24 +5,6 @@
     <link rel="icon" type="image/png" href="images/logo2.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arkya Store</title>
-    <script>
-      // Verificar si estamos en la raíz sin hash y redirigir a la página principal
-      if (window.location.hash === '') {
-        window.location.replace('#/');
-      }
-      
-      // Asegurar que las rutas funcionen correctamente en GitHub Pages
-      (function() {
-        // Verificar si estamos en GitHub Pages
-        if (window.location.hostname.includes('github.io')) {
-          // Asegurar que el hash router funcione correctamente
-          const path = window.location.pathname;
-          if (path !== '/' && path !== '/arkya.store/' && !path.includes('#')) {
-            window.location.href = '/arkya.store/#' + path;
-          }
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
