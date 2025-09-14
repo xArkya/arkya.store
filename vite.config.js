@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => {
   
   // Solo usar base URL en producción (build), no en desarrollo
   if (command !== 'serve') {
-    config.base = '/instagram-store/'
+    config.base = '/arkya.store/'
   }
   
   return config
