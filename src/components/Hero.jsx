@@ -104,7 +104,7 @@ export default function Hero() {
                 align={'center'}
                 w={'100%'}
                 h={'100%'}
-                src={'images/hero.png'} // Ruta local a la imagen en la carpeta public/images
+                src={'./images/hero.png'} // Ruta relativa para GitHub Pages
               />
             </Box>
           </Flex>
