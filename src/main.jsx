@@ -49,7 +49,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <ChakraProvider theme={theme}>
-      <BrowserRouter basename="/arkya.store">
+      <BrowserRouter>
         <CartProvider>
           <App />
         </CartProvider>
