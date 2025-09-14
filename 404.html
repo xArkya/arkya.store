@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0;url=/arkya.store/" />
+  <meta charset="utf-8">
   <title>Arkya Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -55,14 +54,19 @@
     }
   </style>
   <script>
-    // Redirección inmediata
-    window.location.href = "/arkya.store/";
+    // Función para redirigir a la página principal
+    window.onload = function() {
+      // Redirigir a la página principal
+      setTimeout(function() {
+        window.location.href = '/arkya.store/';
+      }, 1500);
+    };
   </script>
 </head>
 <body>
   <h1>Arkya Store</h1>
   <div class="loader"></div>
-  <p>Redirigiendo a la tienda...</p>
+  <p>Redireccionando a la tienda...</p>
   <a href="/arkya.store/">Ir a la tienda</a>
 </body>
 </html>
