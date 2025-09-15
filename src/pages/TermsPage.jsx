@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function TermsPage() {
-  const bgColor = useColorModeValue('white', 'gray.800');
+  const bgColor = useColorModeValue('white', '#2a1c29');
   const textColor = useColorModeValue('gray.600', 'gray.300');
 
   return (

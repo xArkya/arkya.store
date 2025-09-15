@@ -44,18 +44,7 @@ export default function Hero() {
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={{ base: 'column', sm: 'row' }}>
-              <Button
-                as={'a'}
-                href={'#productos'}
-                rounded={'md'}
-                size={'md'}
-                fontWeight={'medium'}
-                px={6}
-                bg={'pink.400'}
-                color={'white'}
-                _hover={{ bg: 'pink.500' }}>
-                Ver Productos
-              </Button>
+
               <Button
                 as={'a'}
                 href={'https://instagram.com/arkya.store'}

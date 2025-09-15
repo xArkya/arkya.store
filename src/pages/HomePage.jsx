@@ -154,13 +154,13 @@ export default function HomePage() {
       </Box>
       <Hero />
       
-      <Box id="productos" py={10} bg="#453641">
+      <Box id="productos" name="productos" py={10} bg="#453641">
         <Container maxW={'7xl'}>
           <Heading as="h2" size="xl" mb={6} textAlign="center" color="white">
             Tienda
           </Heading>
           <Text fontSize="sm" color="gray.300" textAlign="center" mb={6}>
-            Mostrando 1-20 de 106 resultados
+            Mostrando {filteredProducts.length} {filteredProducts.length === 1 ? 'resultado' : 'resultados'}
           </Text>
           
           <Flex 
@@ -170,7 +170,7 @@ export default function HomePage() {
             mb={8}
             gap={4}
           >
-            <HStack spacing={2} overflow="auto" p={2} width={{ base: '100%', md: 'auto' }} justifyContent="center" css={{
+            <Flex flexWrap="wrap" gap={2} p={2} width={{ base: '100%', md: 'auto' }} justifyContent="center" css={{
               '&::-webkit-scrollbar': {
                 height: '8px',
               },
@@ -268,7 +268,7 @@ export default function HomePage() {
                   </Button>
                 )
               ))}
-            </HStack>
+            </Flex>
             
             <InputGroup maxW={{ base: '100%', md: '300px' }} mx="auto">
               <InputLeftElement pointerEvents="none">
@@ -290,7 +290,12 @@ export default function HomePage() {
           </Flex>
           
           {filteredProducts.length > 0 ? (
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={6}>
+            <SimpleGrid 
+              columns={{ base: 1, sm: 2, md: 3, lg: 4 }} 
+              spacing={6}
+              justifyItems="center"
+              mx="auto"
+            >
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

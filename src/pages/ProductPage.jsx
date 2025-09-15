@@ -140,40 +140,56 @@ export default function ProductPage() {
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
-      // Crear un elemento temporal para copiar el texto
-      const textArea = document.createElement("textarea");
       const message = `Hola, me interesa el producto: ${product.name}`;
       
-      // Configurar el elemento
-      textArea.value = message;
-      textArea.style.position = "fixed";
-      textArea.style.opacity = "0";
-      document.body.appendChild(textArea);
-      
-      // Seleccionar y copiar el texto
-      textArea.select();
-      document.execCommand('copy');
-      
-      // Limpiar
-      document.body.removeChild(textArea);
-      
-      // Mostrar notificación de éxito
-      toast({
-        title: "¡Mensaje copiado!",
-        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "top"
-      });
-      
-      // Cerrar modal
-      onClose();
-      
-      // Abrir Instagram después de un breve retraso
-      setTimeout(() => {
-        window.open("https://ig.me/m/arkya.store", "_blank");
-      }, 500);
+      // Usar la API moderna de Clipboard
+      navigator.clipboard.writeText(message)
+        .then(() => {
+          // Mostrar notificación de éxito
+          toast({
+            title: "¡Mensaje copiado!",
+            description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top"
+          });
+          
+          // Cerrar modal
+          onClose();
+          
+          // Abrir Instagram después de un breve retraso
+          setTimeout(() => {
+            window.open("https://ig.me/m/arkya.store", "_blank");
+          }, 500);
+        })
+        .catch(err => {
+          console.error('Error al copiar con Clipboard API:', err);
+          // Fallback al método antiguo si la API moderna falla
+          const textArea = document.createElement("textarea");
+          textArea.value = message;
+          textArea.style.position = "fixed";
+          textArea.style.opacity = "0";
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          
+          toast({
+            title: "¡Mensaje copiado!",
+            description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top"
+          });
+          
+          onClose();
+          
+          setTimeout(() => {
+            window.open("https://ig.me/m/arkya.store", "_blank");
+          }, 500);
+        });
     } catch (err) {
       console.error('Error al copiar:', err);
       toast({
@@ -294,6 +310,7 @@ export default function ProductPage() {
         <SimpleGrid 
           columns={{ base: 1, lg: 2 }} 
           spacing={{ base: 8, md: 10 }}
+          justifyItems={{ base: 'center', md: 'start' }}
           bg={productCardBgColor}
           p={{ base: 4, md: 8 }}
           borderRadius="xl"

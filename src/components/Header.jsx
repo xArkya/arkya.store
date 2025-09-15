@@ -62,9 +62,7 @@ export default function Header() {
           <RouterLink to="/">
             <Flex align="center">
               <Box mr={2}>
-                <Text fontSize="2xl" fontWeight="bold" color="pink.300" fontFamily="cursive">
-                  A
-                </Text>
+                <img src="/images/logo2.png" alt="Arkya Logo" width="30" height="30" />
               </Box>
               <Heading
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}

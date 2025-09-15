@@ -62,7 +62,7 @@ export default function ContactPage() {
   ];
   
   return (
-    <Box bg={bgColor} minH="90vh" py={12}>
+    <Box bg={bgColor} py={12}>
       <Container maxW="7xl">
         {/* Header */}
         <VStack spacing={6} textAlign="center" mb={12}>
