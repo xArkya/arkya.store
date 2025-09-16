@@ -39,11 +39,22 @@ import ProductForm from '../components/Admin/ProductForm';
 import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
 import { products as initialProducts } from '../data/products';
+import { offers as initialOffers } from '../data/offers';
 
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [offers, setOffers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(50); // Mostrar 50 productos por página
+  const [offers, setOffers] = useState(() => {
+    try {
+      const savedOffers = localStorage.getItem('offers');
+      return savedOffers ? JSON.parse(savedOffers) : initialOffers;
+    } catch (error) {
+      console.error('Error al cargar ofertas desde localStorage:', error);
+      return initialOffers;
+    }
+  });
   const [selectedOffer, setSelectedOffer] = useState(null);
   const [selectedProductForOffer, setSelectedProductForOffer] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -55,88 +66,101 @@ const AdminPage = () => {
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
   const textColor = useColorModeValue('gray.700', 'white');
   
-  // Cargar productos del localStorage o usar los iniciales
+  // Cargar productos y ofertas iniciales
   useEffect(() => {
-    const savedProducts = localStorage.getItem('adminProducts');
-    if (savedProducts) {
-      try {
-        setProducts(JSON.parse(savedProducts));
-      } catch (e) {
-        console.error('Error parsing products from localStorage', e);
-        setProducts(initialProducts);
-      }
-    } else {
-      setProducts(initialProducts);
-    }
+    // Cargar productos iniciales
+    setProducts(initialProducts);
     
-    const savedOffers = localStorage.getItem('adminOffers');
-    if (savedOffers) {
-      try {
+    // Intentar cargar ofertas desde localStorage
+    try {
+      const savedOffers = localStorage.getItem('adminOffers');
+      if (savedOffers) {
         setOffers(JSON.parse(savedOffers));
-      } catch (e) {
-        console.error('Error parsing offers from localStorage', e);
       }
+    } catch (e) {
+      console.error('Error al cargar ofertas:', e);
     }
   }, []);
   
+  // Guardar ofertas en localStorage cuando cambian
+  useEffect(() => {
+    if (offers.length > 0) {
+      try {
+        localStorage.setItem('adminOffers', JSON.stringify(offers));
+      } catch (error) {
+        console.error('Error al guardar ofertas en localStorage:', error);
+      }
+    }
+  }, [offers]);
+
   // Guardar productos en localStorage cuando cambian con manejo de errores
   useEffect(() => {
     if (products.length > 0) {
-      try {
-        // Intentar guardar todos los productos juntos
-        localStorage.setItem('adminProducts', JSON.stringify(products));
-        
-        // Si se guarda correctamente, limpiar cualquier fragmento anterior
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i);
-          if (key.startsWith('adminProducts_chunk_')) {
-            localStorage.removeItem(key);
-          }
-        }
-      } catch (error) {
-        console.error('Error al guardar productos en localStorage:', error);
-        
-        // Si falla por cuota excedida, dividir en fragmentos
-        if (error.name === 'QuotaExceededError' || error.code === 22) {
-          toast({
-            title: 'Advertencia',
-            description: 'Las imágenes son muy grandes. Se guardarán con menor calidad.',
-            status: 'warning',
-            duration: 5000,
-            isClosable: true,
-          });
+      // Usar IndexedDB en lugar de localStorage para almacenar los productos
+      const saveProductsToIndexedDB = async () => {
+        try {
+          // Abrir o crear la base de datos
+          const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
           
-          // Comprimir las imágenes antes de guardar
-          const compressedProducts = products.map(product => {
-            // Si el producto tiene imágenes, reducir su calidad
-            if (product.images && product.images.length > 0) {
-              return {
-                ...product,
-                // Mantener solo la primera imagen a máxima calidad
-                image: product.images[0],
-                // Reducir calidad de las imágenes adicionales
-                images: product.images.slice(0, 5) // Limitar a 5 imágenes por producto
-              };
+          // Crear el almacén de objetos si no existe
+          dbRequest.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains('products')) {
+              db.createObjectStore('products', { keyPath: 'id' });
             }
-            return product;
-          });
+          };
           
-          try {
-            localStorage.setItem('adminProducts', JSON.stringify(compressedProducts));
-          } catch (secondError) {
-            console.error('Error al guardar productos comprimidos:', secondError);
-            toast({
-              title: 'Error de almacenamiento',
-              description: 'No se pudieron guardar todos los productos. Considera exportar tus datos.',
-              status: 'error',
-              duration: 5000,
-              isClosable: true,
+          dbRequest.onerror = (event) => {
+            console.error('Error al abrir IndexedDB:', event.target.error);
+            // Intentar usar localStorage como respaldo
+            try {
+              // Guardar solo datos esenciales sin imágenes
+              const essentialProducts = products.map(product => ({
+                id: product.id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                subcategory: product.subcategory,
+                isNew: product.isNew,
+                inStock: product.inStock,
+                tags: product.tags
+              }));
+              localStorage.setItem('adminProducts', JSON.stringify(essentialProducts));
+            } catch (localStorageError) {
+              console.error('Error al guardar en localStorage:', localStorageError);
+            }
+          };
+          
+          dbRequest.onsuccess = (event) => {
+            const db = event.target.result;
+            const transaction = db.transaction(['products'], 'readwrite');
+            const store = transaction.objectStore('products');
+            
+            // Limpiar el almacén anterior
+            store.clear();
+            
+            // Guardar cada producto individualmente
+            products.forEach(product => {
+              store.add(product);
             });
-          }
+            
+            transaction.oncomplete = () => {
+              console.log('Productos guardados en IndexedDB correctamente');
+            };
+            
+            transaction.onerror = (event) => {
+              console.error('Error al guardar productos en IndexedDB:', event.target.error);
+            };
+          };
+        } catch (error) {
+          console.error('Error general al usar IndexedDB:', error);
         }
-      }
+      };
+      
+      saveProductsToIndexedDB();
     }
-  }, [products, toast]);
+  }, [products]);
   
   // Guardar ofertas en localStorage cuando cambian
   useEffect(() => {
@@ -254,39 +278,6 @@ const AdminPage = () => {
     });
   };
   
-  const importProducts = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      try {
-        const importedProducts = JSON.parse(e.target.result);
-        setProducts(importedProducts);
-        toast({
-          title: 'Productos importados',
-          description: `Se han importado ${importedProducts.length} productos`,
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
-        });
-      } catch {
-        toast({
-          title: 'Error al importar',
-          description: 'El archivo no tiene el formato correcto',
-          status: 'error',
-          duration: 3000,
-          isClosable: true,
-        });
-      }
-    };
-    reader.readAsText(file);
-  };
-  
-  const handleImportClick = () => {
-    document.getElementById('file-input').click();
-  };
-  
   const generateProductsJs = () => {
     const jsContent = `export const products = ${JSON.stringify(products, null, 2)};`;
     const dataUri = 'data:text/javascript;charset=utf-8,'+ encodeURIComponent(jsContent);
@@ -299,6 +290,44 @@ const AdminPage = () => {
     toast({
       title: 'Archivo JS generado',
       description: 'Se ha descargado el archivo products.js listo para usar en tu proyecto',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  const exportOffers = () => {
+    const dataStr = JSON.stringify(offers, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    
+    const exportFileDefaultName = 'offers.json';
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    
+    toast({
+      title: 'Ofertas exportadas',
+      description: 'Se ha descargado el archivo offers.json',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  const generateOffersJs = () => {
+    const jsContent = `export const offers = ${JSON.stringify(offers, null, 2)};`;
+    const dataUri = 'data:text/javascript;charset=utf-8,'+ encodeURIComponent(jsContent);
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', 'offers.js');
+    linkElement.click();
+    
+    toast({
+      title: 'Archivo JS generado',
+      description: 'Se ha descargado el archivo offers.js listo para usar en tu proyecto',
       status: 'success',
       duration: 3000,
       isClosable: true,
@@ -355,24 +384,64 @@ const AdminPage = () => {
                   </Button>
                 </HStack>
                 
-                <Table variant="simple">
-                  <Thead>
-                    <Tr>
-                      <Th>ID</Th>
-                      <Th>Nombre</Th>
-                      <Th>Categoría</Th>
-                      <Th>Precio</Th>
-                      <Th>Estado</Th>
-                      <Th>Oferta</Th>
-                      <Th>Acciones</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    {products.map((product) => (
+                <Box mb={4}>
+                  <HStack spacing={4} justify="space-between" mb={2}>
+                    <Text color="gray.600">
+                      Mostrando {Math.min((currentPage - 1) * productsPerPage + 1, products.length)} - {Math.min(currentPage * productsPerPage, products.length)} de {products.length} productos
+                    </Text>
+                    <HStack>
+                      <Button
+                        size="sm"
+                        onClick={() => setProductsPerPage(50)}
+                        colorScheme={productsPerPage === 50 ? "brand" : "gray"}
+                        variant={productsPerPage === 50 ? "solid" : "outline"}
+                      >
+                        50 por página
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => setProductsPerPage(100)}
+                        colorScheme={productsPerPage === 100 ? "brand" : "gray"}
+                        variant={productsPerPage === 100 ? "solid" : "outline"}
+                      >
+                        100 por página
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => setProductsPerPage(products.length)}
+                        colorScheme={productsPerPage === products.length ? "brand" : "gray"}
+                        variant={productsPerPage === products.length ? "solid" : "outline"}
+                      >
+                        Ver todos
+                      </Button>
+                    </HStack>
+                  </HStack>
+                  
+                  <Table variant="simple">
+                    <Thead>
+                      <Tr>
+                        <Th>ID</Th>
+                        <Th>Nombre</Th>
+                        <Th>Categoría</Th>
+                        <Th>Precio</Th>
+                        <Th>Estado</Th>
+                        <Th>Oferta</Th>
+                        <Th>Acciones</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      {products
+                        .slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage)
+                        .map((product) => (
                       <Tr key={product.id}>
                         <Td>{product.id}</Td>
                         <Td>{product.name}</Td>
-                        <Td>{product.category}</Td>
+                        <Td>
+                          {product.categories && product.categories.length > 0 
+                            ? product.categories.join(', ')
+                            : product.category
+                          }
+                        </Td>
                         <Td>${product.price.toLocaleString()}</Td>
                         <Td>
                           {product.isNew ? (
@@ -420,8 +489,75 @@ const AdminPage = () => {
                         </Td>
                       </Tr>
                     ))}
-                  </Tbody>
-                </Table>
+                    </Tbody>
+                  </Table>
+                  
+                  {/* Paginación */}
+                  {products.length > productsPerPage && (
+                    <HStack spacing={2} justify="center" mt={4}>
+                      <Button
+                        size="sm"
+                        onClick={() => setCurrentPage(1)}
+                        isDisabled={currentPage === 1}
+                      >
+                        Primera
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        isDisabled={currentPage === 1}
+                      >
+                        Anterior
+                      </Button>
+                      
+                      {/* Mostrar números de página */}
+                      {[...Array(Math.min(5, Math.ceil(products.length / productsPerPage)))].map((_, i) => {
+                        let pageNum;
+                        const totalPages = Math.ceil(products.length / productsPerPage);
+                        
+                        if (totalPages <= 5) {
+                          pageNum = i + 1;
+                        } else if (currentPage <= 3) {
+                          pageNum = i + 1;
+                        } else if (currentPage >= totalPages - 2) {
+                          pageNum = totalPages - 4 + i;
+                        } else {
+                          pageNum = currentPage - 2 + i;
+                        }
+                        
+                        if (pageNum > 0 && pageNum <= totalPages) {
+                          return (
+                            <Button
+                              key={pageNum}
+                              size="sm"
+                              onClick={() => setCurrentPage(pageNum)}
+                              colorScheme={currentPage === pageNum ? "brand" : "gray"}
+                              variant={currentPage === pageNum ? "solid" : "outline"}
+                            >
+                              {pageNum}
+                            </Button>
+                          );
+                        }
+                        return null;
+                      })}
+                      
+                      <Button
+                        size="sm"
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(products.length / productsPerPage)))}
+                        isDisabled={currentPage === Math.ceil(products.length / productsPerPage)}
+                      >
+                        Siguiente
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => setCurrentPage(Math.ceil(products.length / productsPerPage))}
+                        isDisabled={currentPage === Math.ceil(products.length / productsPerPage)}
+                      >
+                        Última
+                      </Button>
+                    </HStack>
+                  )}
+                </Box>
               </Box>
             </TabPanel>
             
@@ -570,27 +706,30 @@ const AdminPage = () => {
                       </Button>
                     </HStack>
                   </Box>
-                  
+
                   <Box>
-                    <Heading size="md" mb={4}>Importar Productos</Heading>
+                    <Heading size="md" mb={4}>Exportar Ofertas</Heading>
                     <Text mb={4}>
-                      Importa productos desde un archivo JSON previamente exportado.
+                      Exporta tus ofertas para hacer una copia de seguridad o para usarlas en otra instalación.
                     </Text>
-                    <input
-                      type="file"
-                      id="file-input"
-                      accept=".json"
-                      style={{ display: 'none' }}
-                      onChange={importProducts}
-                    />
-                    <Button 
-                      leftIcon={<FaUpload />} 
-                      colorScheme="teal" 
-                      onClick={handleImportClick}
-                    >
-                      Importar JSON
-                    </Button>
+                    <HStack>
+                      <Button 
+                        leftIcon={<FaDownload />} 
+                        colorScheme="blue" 
+                        onClick={exportOffers}
+                      >
+                        Exportar JSON
+                      </Button>
+                      <Button 
+                        leftIcon={<FaDownload />} 
+                        colorScheme="purple" 
+                        onClick={generateOffersJs}
+                      >
+                        Generar offers.js
+                      </Button>
+                    </HStack>
                   </Box>
+                  
                 </VStack>
               </Box>
             </TabPanel>

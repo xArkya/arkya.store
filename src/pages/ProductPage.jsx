@@ -34,12 +34,12 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { products } from '../data/products';
+import { offers } from '../data/offers';
 
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [liked, setLiked] = useState(false);
   const [error, setError] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
@@ -51,9 +51,6 @@ export default function ProductPage() {
   const textColor = useColorModeValue('gray.900', 'gray.400');
   const dividerColor = useColorModeValue('gray.200', 'gray.600');
   const descriptionColor = useColorModeValue('gray.500', 'gray.400');
-  const featureColor = useColorModeValue('brand.500', 'brand.300');
-  const backBtnBg = useColorModeValue('gray.200', 'gray.700');
-  const backBtnColor = useColorModeValue('gray.800', 'white');
   const likeBtnBg = useColorModeValue('gray.900', 'gray.50');
   const likeBtnColor = useColorModeValue('white', 'gray.900');
   const instaBtnBg = useColorModeValue('brand.500', 'brand.400');
@@ -67,7 +64,6 @@ export default function ProductPage() {
   const breadcrumbBgColor = useColorModeValue('#241521', '#241521');
   const breadcrumbTextColor = useColorModeValue('gray.600', 'gray.400');
   const productCardBgColor = useColorModeValue('#241521', '#241521');
-  const featureSectionBgColor = useColorModeValue('brand.50', 'rgba(125, 106, 116, 0.1)');
 
   useEffect(() => {
     // Simulate loading
@@ -84,13 +80,31 @@ export default function ProductPage() {
         console.log('Product ID requested:', numericId);
         console.log('Available products:', products.map(p => p.id));
         
-        const foundProduct = products.find(p => p.id === numericId);
+        let foundProduct = products.find(p => p.id === numericId);
         
         if (!foundProduct) {
           throw new Error(`Producto con ID ${numericId} no encontrado`);
         }
         
-        console.log('Found product:', foundProduct);
+        // Verificar si hay ofertas globales activas
+        const globalOffer = offers.find(offer => 
+          offer.isActive && 
+          offer.isGlobal && 
+          offer.discountType === 'percentage'
+        );
+        
+        // Si el producto no tiene oferta específica pero hay una oferta global, aplicarla
+        if (!foundProduct.isOnOffer && globalOffer) {
+          foundProduct = {
+            ...foundProduct,
+            isOnOffer: true,
+            discountPercentage: globalOffer.discountPercentage,
+            originalPrice: foundProduct.price,
+            price: Math.round(foundProduct.price * (1 - globalOffer.discountPercentage / 100))
+          };
+        }
+        
+        console.log('Found product with offers applied:', foundProduct);
         setProduct(foundProduct);
       } catch (err) {
         console.error('Error loading product:', err);
@@ -294,14 +308,29 @@ export default function ProductPage() {
               Inicio
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink 
-              as={RouterLink} 
-              to={`/#category-${product.category.toLowerCase()}`}
-              _hover={{ color: 'brand.500' }}>
-              {product.category}
-            </BreadcrumbLink>
-          </BreadcrumbItem>
+          {/* Mostrar todas las categorías en el breadcrumb */}
+          {product.categories && product.categories.length > 0 ? (
+            product.categories.map((cat, index) => (
+              <BreadcrumbItem key={index}>
+                <BreadcrumbLink 
+                  as={RouterLink} 
+                  to={`/#category-${cat.toLowerCase()}`}
+                  _hover={{ color: 'brand.500' }}>
+                  {cat}
+                </BreadcrumbLink>
+                {index < product.categories.length - 1 && " / "}
+              </BreadcrumbItem>
+            ))
+          ) : (
+            <BreadcrumbItem>
+              <BreadcrumbLink 
+                as={RouterLink} 
+                to={`/#category-${product.category.toLowerCase()}`}
+                _hover={{ color: 'brand.500' }}>
+                {product.category}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          )}
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink fontWeight="semibold">{product.name}</BreadcrumbLink>
           </BreadcrumbItem>
@@ -440,7 +469,7 @@ export default function ProductPage() {
                 : [product.image];
               
               return productImages.length > 1 && (
-                <Flex gap={2} overflowX="auto" w="100%" justify="center" maxW="100%">
+                <Flex gap={2} overflowX="auto" overflowY="hidden" w="100%" justify="center" maxW="100%">
                   {productImages.map((img, index) => (
                     <Box
                       key={index}
@@ -469,7 +498,7 @@ export default function ProductPage() {
           </VStack>
           
           {/* Información del producto con diseño mejorado */}
-          <Stack spacing={{ base: 6, md: 8 }}>
+          <Stack>
             <Box as={'header'}>
               <Heading
                 lineHeight={1.1}
@@ -479,18 +508,50 @@ export default function ProductPage() {
                 bgClip="text">
                 {product.name}
               </Heading>
-              <Flex align="center" mt={2}>
-                <Text
-                  color={textColor}
-                  fontWeight={500}
-                  fontSize={'3xl'}
-                  letterSpacing="tight">
-                  ${product.price}
-                </Text>
-                <Badge ml={3} colorScheme="green" variant="solid" px={2} py={1} borderRadius="md">
-                  Disponible
-                </Badge>
-              </Flex>
+              <VStack align="start" spacing={2} width="100%">
+                {product.isOnOffer ? (
+                  <>
+                    <Flex align="baseline" width="100%">
+                      <Text
+                        color="red.500"
+                        fontWeight={500}
+                        fontSize={'3xl'}
+                        letterSpacing="tight">
+                        ${parseInt(product.price)}
+                      </Text>
+                      <Text
+                        color={textColor}
+                        fontWeight={400}
+                        textDecoration="line-through"
+                        fontSize={'xl'}
+                        ml={2}>
+                        ${parseInt(product.originalPrice)}
+                      </Text>
+                    </Flex>
+                    <Flex width="100%">
+                      <Badge colorScheme="red" variant="solid" px={2} py={1} borderRadius="md" mr={2}>
+                        {product.discountPercentage}% OFF
+                      </Badge>
+                      <Badge colorScheme="green" variant="solid" px={2} py={1} borderRadius="md">
+                        DISPONIBLE
+                      </Badge>
+                    </Flex>
+                  </>
+                ) : (
+                  <>
+                    <Text
+                      color={textColor}
+                      fontWeight={500}
+                      fontSize={'3xl'}
+                      letterSpacing="tight">
+                      ${parseInt(product.price)}
+                    </Text>
+                    <Badge colorScheme="green" variant="solid" px={2} py={1} borderRadius="md">
+                      DISPONIBLE
+                    </Badge>
+                  </>
+                )}
+              </VStack>
             </Box>
 
             <Stack
@@ -505,108 +566,54 @@ export default function ProductPage() {
                 <Text 
                   fontSize={'lg'}
                   lineHeight="tall"
-                  fontWeight="medium">
+                  fontWeight="medium"
+                  whiteSpace="pre-line">
                   {product.description}
                 </Text>
+                
+                {/* Mostrar categorías del producto */}
+                <Box>
+                  <Text fontWeight="bold" mb={2}>Categorías:</Text>
+                  <Flex gap={2} flexWrap="wrap">
+                    {product.categories && product.categories.length > 0 ? (
+                      product.categories.map((cat, index) => (
+                        <Badge 
+                          key={index} 
+                          colorScheme="brand" 
+                          variant="solid" 
+                          px={2} 
+                          py={1} 
+                          borderRadius="md"
+                        >
+                          {cat}
+                        </Badge>
+                      ))
+                    ) : (
+                      <Badge 
+                        colorScheme="brand" 
+                        variant="solid" 
+                        px={2} 
+                        py={1} 
+                        borderRadius="md"
+                      >
+                        {product.category}
+                      </Badge>
+                    )}
+                  </Flex>
+                </Box>
+                
                 <Text
                   fontSize={'md'}
                   color={descriptionColor}
                   lineHeight="tall">
-                  {product.details}
                 </Text>
               </VStack>
               
-              {/* Características con iconos */}
-              <Box>
-                <Flex 
-                  align="center" 
-                  mb={4}
-                  bg={featureSectionBgColor}
-                  p={3}
-                  borderRadius="md">
-                  <Icon as={FaStar} color="brand.500" mr={2} />
-                  <Text
-                    fontSize={{ base: '16px', lg: '18px' }}
-                    color={featureColor}
-                    fontWeight={'600'}
-                    textTransform={'uppercase'}>
-                    Características
-                  </Text>
-                </Flex>
-
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
-                  <List spacing={3}>
-                    <ListItem display="flex" alignItems="center">
-                      <Icon as={FaCheck} color="green.500" mr={2} />
-                      <Text>Envío a todo el país</Text>
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center">
-                      <Icon as={FaCheck} color="green.500" mr={2} />
-                      <Text>Garantía de calidad</Text>
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center">
-                      <Icon as={FaCheck} color="green.500" mr={2} />
-                      <Text>Materiales premium</Text>
-                    </ListItem>
-                  </List>
-                  <List spacing={3}>
-                    <ListItem display="flex" alignItems="center">
-                      <Icon as={FaCheck} color="green.500" mr={2} />
-                      <Text>Diseño exclusivo</Text>
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center">
-                      <Icon as={FaCheck} color="green.500" mr={2} />
-                      <Text>Disponible en varios colores</Text>
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center">
-                      <Icon as={FaCheck} color="green.500" mr={2} />
-                      <Text>Atención personalizada</Text>
-                    </ListItem>
-                  </List>
-                </SimpleGrid>
-              </Box>
             </Stack>
 
             {/* Botones de acción con diseño mejorado */}
-            <VStack spacing={4} mt={4}>
-              <Flex justifyContent="space-between" alignItems="center" w="full">
-                <Button
-                  as={RouterLink}
-                  to="/"
-                  rounded={'md'}
-                  w={'full'}
-                  mr={2}
-                  size={'lg'}
-                  py={'7'}
-                  bg={backBtnBg}
-                  color={backBtnColor}
-                  fontWeight="bold"
-                  _hover={{
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'lg',
-                  }}
-                  leftIcon={<FaArrowLeft />}>
-                  Volver
-                </Button>
-                <Button
-                  rounded={'md'}
-                  w={'full'}
-                  ml={2}
-                  size={'lg'}
-                  py={'7'}
-                  bg={liked ? 'red.500' : likeBtnBg}
-                  color={likeBtnColor}
-                  fontWeight="bold"
-                  _hover={{
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'lg',
-                    bg: liked ? 'red.600' : 'gray.700'
-                  }}
-                  onClick={() => setLiked(!liked)}
-                  leftIcon={<FaHeart color={liked ? 'white' : undefined} />}>
-                  {liked ? 'Guardado' : 'Guardar'}
-                </Button>
-              </Flex>
+            <VStack spacing={4} >
+
 
               <Button
                 rounded={'md'}
@@ -615,6 +622,8 @@ export default function ProductPage() {
                 colorScheme="green"
                 fontWeight="bold"
                 w="full"
+                bg={likeBtnBg}
+                color={likeBtnColor}
                 _hover={{
                   transform: 'translateY(-2px)',
                   boxShadow: 'xl',

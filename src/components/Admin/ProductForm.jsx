@@ -89,8 +89,10 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     category: '', // Mantener para compatibilidad
     subcategory: '',
     isNew: true,
+    inStock: true, // Indicador de stock disponible
     details: '',
-    instagram: 'https://instagram.com/arkya.store'
+    instagram: 'https://instagram.com/arkya.store',
+    tags: [] // Array de etiquetas para búsqueda
   });
   
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -98,6 +100,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
 
   const [newCategory, setNewCategory] = useState('');
   const [newSubcategory, setNewSubcategory] = useState('');
+  const [newTag, setNewTag] = useState('');
   
   // Efecto para manejar compatibilidad con productos existentes
   useEffect(() => {
@@ -134,10 +137,21 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setProduct({
-      ...product,
-      [name]: type === 'checkbox' ? checked : value
-    });
+    
+    // Para campos de precio, asegurarse de que sean números enteros
+    if (name === 'price') {
+      // Convertir a número entero
+      const intValue = parseInt(value, 10);
+      setProduct({
+        ...product,
+        [name]: isNaN(intValue) ? '' : intValue
+      });
+    } else {
+      setProduct({
+        ...product,
+        [name]: type === 'checkbox' ? checked : value
+      });
+    }
     
     // Si cambia la categoría principal (para compatibilidad), actualizar las subcategorías disponibles
     if (name === 'category') {
@@ -160,6 +174,24 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
       
       // Si ya está seleccionada, quitarla
       if (currentCategories.includes(categoryName)) {
+        // Si es la categoría principal, actualizar el estado de la categoría seleccionada
+        if (prev.category === categoryName) {
+          const newCategories = currentCategories.filter(cat => cat !== categoryName);
+          const newCategory = newCategories.length > 0 ? newCategories[0] : '';
+          
+          // Actualizar la categoría seleccionada y las subcategorías disponibles
+          const selectedCat = categories.find(cat => cat.name === newCategory);
+          setSelectedCategory(selectedCat || null);
+          setAvailableSubcategories(selectedCat ? selectedCat.subcategories : []);
+          
+          return {
+            ...prev,
+            categories: newCategories,
+            category: newCategory,
+            subcategory: '' // Resetear subcategoría
+          };
+        }
+        
         return {
           ...prev,
           categories: currentCategories.filter(cat => cat !== categoryName)
@@ -167,9 +199,20 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
       } 
       // Si no está seleccionada, agregarla
       else {
+        const newCategories = [...currentCategories, categoryName];
+        const wasEmpty = currentCategories.length === 0;
+        
+        // Si es la primera categoría que se selecciona, actualizar también la categoría principal
+        if (wasEmpty) {
+          // Actualizar la categoría seleccionada y las subcategorías disponibles
+          const selectedCat = categories.find(cat => cat.name === categoryName);
+          setSelectedCategory(selectedCat || null);
+          setAvailableSubcategories(selectedCat ? selectedCat.subcategories : []);
+        }
+        
         return {
           ...prev,
-          categories: [...currentCategories, categoryName],
+          categories: newCategories,
           // Actualizar también la categoría principal si es la primera que se selecciona
           category: prev.category || categoryName
         };
@@ -549,6 +592,25 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     }
   };
 
+  const handleAddTag = () => {
+    if (newTag.trim()) {
+      // Separar por comas y procesar cada etiqueta
+      const tagsArray = newTag.split(',').map(tag => tag.trim().toLowerCase()).filter(tag => tag !== '');
+      
+      // Agregar etiquetas no duplicadas
+      const currentTags = product.tags || [];
+      const newTags = tagsArray.filter(tag => !currentTags.includes(tag));
+      
+      if (newTags.length > 0) {
+        setProduct({
+          ...product,
+          tags: [...currentTags, ...newTags]
+        });
+      }
+      setNewTag('');
+    }
+  };
+
   return (
     <Box 
       as="form" 
@@ -595,10 +657,10 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
             <Input
               name="price"
               type="number"
-              step="0.01"
+              step="1"
               value={product.price}
               onChange={handleChange}
-              placeholder="29.99"
+              placeholder="29"
             />
           </InputGroup>
         </FormControl>
@@ -810,7 +872,6 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
           </Button>
         </HStack>
         
-        {/* Subcategoría */}
         <FormControl>
           <FormLabel>Subcategoría {selectedCategory?.subcategories?.length > 0 && '(Opcional)'}</FormLabel>
           <Select
@@ -831,6 +892,11 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
               {availableSubcategories.length === 0 
                 ? 'Esta categoría no tiene subcategorías disponibles.' 
                 : 'Selecciona una subcategoría para este producto.'}
+            </FormHelperText>
+          )}
+          {product.category && !selectedCategory && (
+            <FormHelperText color="red.500">
+              Hay un problema con la categoría seleccionada. Por favor, vuelve a seleccionarla.
             </FormHelperText>
           )}
         </FormControl>
@@ -865,6 +931,50 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
             rows={4}
           />
         </FormControl>
+
+        <FormControl>
+          <FormLabel>Etiquetas (para búsqueda)</FormLabel>
+          <FormHelperText mb={2}>
+            Las etiquetas ayudan a encontrar el producto cuando los usuarios buscan términos específicos. No se muestran visualmente en la tienda.
+            Separa las etiquetas con comas.
+          </FormHelperText>
+          
+          <HStack mb={2}>
+            <Input
+              value={newTag}
+              onChange={(e) => setNewTag(e.target.value)}
+              placeholder="Etiquetas separadas por comas..."
+            />
+            <Button 
+              onClick={handleAddTag} 
+              colorScheme="brand"
+            >
+              Agregar
+            </Button>
+          </HStack>
+          
+          <Box mt={2}>
+            <Wrap spacing={2}>
+              {(!product.tags || product.tags.length === 0) ? (
+                <Text fontSize="sm" color="gray.500">No hay etiquetas agregadas</Text>
+              ) : (
+                product.tags.map((tag, index) => (
+                  <Tag key={index} size="md" colorScheme="blue" borderRadius="full">
+                    <TagLabel>{tag}</TagLabel>
+                    <TagCloseButton 
+                      onClick={() => {
+                        setProduct({
+                          ...product,
+                          tags: product.tags.filter((_, i) => i !== index)
+                        });
+                      }} 
+                    />
+                  </Tag>
+                ))
+              )}
+            </Wrap>
+          </Box>
+        </FormControl>
         
         <FormControl display="flex" alignItems="center">
           <FormLabel htmlFor="isNew" mb="0">
@@ -876,6 +986,19 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
             isChecked={product.isNew}
             onChange={handleChange}
             colorScheme="brand"
+          />
+        </FormControl>
+
+        <FormControl display="flex" alignItems="center" mt={4}>
+          <FormLabel htmlFor="inStock" mb="0">
+            ¿Hay stock disponible?
+          </FormLabel>
+          <Switch
+            id="inStock"
+            name="inStock"
+            isChecked={product.inStock !== false}
+            onChange={handleChange}
+            colorScheme="green"
           />
         </FormControl>
         

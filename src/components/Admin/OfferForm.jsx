@@ -35,6 +35,7 @@ const OfferForm = ({ onSaveOffer, initialValues = null }) => {
     applicableProducts: [], // IDs de productos aplicables
     applicableCategories: [], // Categorías aplicables
     isGlobal: false, // Si aplica a toda la tienda
+    offerType: 'promocional', // 'promocional' (con código) o 'descuento' (sin código)
   });
 
   const toast = useToast();
@@ -67,10 +68,11 @@ const OfferForm = ({ onSaveOffer, initialValues = null }) => {
       return;
     }
 
-    if (!formData.code.trim()) {
+    // Solo validar código si es una oferta promocional
+    if (formData.offerType === 'promocional' && !formData.code.trim()) {
       toast({
         title: 'Error',
-        description: 'El código de la oferta es requerido',
+        description: 'El código de la oferta es requerido para ofertas promocionales',
         status: 'error',
         duration: 3000,
         isClosable: true,
@@ -163,21 +165,36 @@ const OfferForm = ({ onSaveOffer, initialValues = null }) => {
           />
         </FormControl>
 
-        <HStack spacing={4}>
-          <FormControl isRequired>
-            <FormLabel>Código de la Oferta</FormLabel>
-            <HStack>
-              <Input
-                value={formData.code}
-                onChange={(e) => handleInputChange('code', e.target.value.toUpperCase())}
-                placeholder="DESCUENTO2025"
-              />
-              <Button onClick={generateCode} size="sm">
-                Generar
-              </Button>
-            </HStack>
-          </FormControl>
+        <FormControl mb={4}>
+          <FormLabel>Tipo de Oferta</FormLabel>
+          <Select
+            value={formData.offerType}
+            onChange={(e) => handleInputChange('offerType', e.target.value)}
+          >
+            <option value="promocional">Promocional (con código)</option>
+            <option value="descuento">Descuento (sin código)</option>
+          </Select>
+        </FormControl>
 
+        {formData.offerType === 'promocional' && (
+          <HStack spacing={4}>
+            <FormControl isRequired>
+              <FormLabel>Código de la Oferta</FormLabel>
+              <HStack>
+                <Input
+                  value={formData.code}
+                  onChange={(e) => handleInputChange('code', e.target.value.toUpperCase())}
+                  placeholder="DESCUENTO2025"
+                />
+                <Button onClick={generateCode} size="sm">
+                  Generar
+                </Button>
+              </HStack>
+            </FormControl>
+          </HStack>
+        )}
+
+        <HStack spacing={4}>
           <FormControl>
             <FormLabel>Tipo de Descuento</FormLabel>
             <Select
@@ -310,6 +327,54 @@ const OfferForm = ({ onSaveOffer, initialValues = null }) => {
             />
           </FormControl>
         </HStack>
+
+        {!formData.isGlobal && (
+          <FormControl>
+            <FormLabel>Aplicar a Categorías</FormLabel>
+            <Select
+              placeholder="Selecciona una categoría"
+              onChange={(e) => {
+                const categoryName = e.target.value;
+                if (categoryName && !formData.applicableCategories.includes(categoryName)) {
+                  handleInputChange('applicableCategories', [...formData.applicableCategories, categoryName]);
+                }
+              }}
+            >
+              <option value="Artbooks">Artbooks</option>
+              <option value="Figuras">Figuras</option>
+              <option value="Mangas">Mangas</option>
+              <option value="Revistas">Revistas</option>
+              <option value="Guide Books">Guide Books</option>
+              <option value="Character Books">Character Books</option>
+              <option value="Novelas">Novelas</option>
+              <option value="Peluches">Peluches</option>
+            </Select>
+            
+            {formData.applicableCategories.length > 0 && (
+              <Box mt={2}>
+                <FormLabel>Categorías seleccionadas:</FormLabel>
+                {formData.applicableCategories.map((category, index) => (
+                  <Button 
+                    key={index} 
+                    size="sm" 
+                    colorScheme="purple" 
+                    variant="outline" 
+                    mr={2} 
+                    mb={2}
+                    rightIcon={<span>×</span>}
+                    onClick={() => {
+                      handleInputChange('applicableCategories', 
+                        formData.applicableCategories.filter((_, i) => i !== index)
+                      );
+                    }}
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </Box>
+            )}
+          </FormControl>
+        )}
 
         <Button type="submit" colorScheme="brand" size="lg">
           {initialValues ? 'Actualizar Oferta' : 'Crear Oferta'}

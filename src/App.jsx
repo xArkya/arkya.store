@@ -22,7 +22,7 @@ function App() {
       overflowX="hidden"
     >
       <Header />
-      <Box flex="1" width="100%">
+      <Box width="100%">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage />} />

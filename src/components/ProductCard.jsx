@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   useColorModeValue,
@@ -20,7 +21,7 @@ import { useCart } from '../context/useCart';
 import { useState } from 'react';
 
 export default function ProductCard({ product }) {
-  const { id, name, price, image, images, category, isNew, description, isOnOffer, originalPrice, discountPercentage } = product;
+  const { id, name, price, image, images, category, isNew, description, isOnOffer, originalPrice, discountPercentage, inStock = true } = product;
   const { addToCart } = useCart();
   const toast = useToast();
   
@@ -37,7 +38,6 @@ export default function ProductCard({ product }) {
   const priceColor = useColorModeValue('#241521', 'brand.200');
   const categoryBg = useColorModeValue('#f8f6f7', 'whiteAlpha.200');
   const categoryColor = useColorModeValue('#241521', 'gray.200');
-  const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
   
   // Funciones para el carrusel
   const nextImage = (e) => {
@@ -54,7 +54,21 @@ export default function ProductCard({ product }) {
   
   // Función para añadir al carrito
   const handleAddToCart = (e) => {
-    e.preventDefault(); // Evitar navegación si se hace clic en el botón
+    e?.preventDefault();
+    e?.stopPropagation();
+    
+    if (!inStock) {
+      toast({
+        title: "Producto sin stock",
+        description: `${name} no está disponible en este momento.`,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right"
+      });
+      return;
+    }
+    
     addToCart(product);
     toast({
       title: "¡Producto agregado!",
@@ -62,7 +76,7 @@ export default function ProductCard({ product }) {
       status: "success",
       duration: 3000,
       isClosable: true,
-      position: "top"
+      position: "top-right"
     });
   };
 
@@ -74,16 +88,13 @@ export default function ProductCard({ product }) {
       borderRadius="lg"
       overflow="hidden"
       bg={cardBg}
-      borderWidth="1px"
-      borderColor={borderColor}
-      transition="all 0.3s ease"
-      _hover={{
-        transform: 'translateY(-5px)',
-        boxShadow: 'xl',
-        cursor: 'pointer'
-      }}
-      mb={4}
+      boxShadow="md"
+      transition="all 0.3s"
+      _hover={{ transform: inStock ? 'translateY(-5px)' : 'none', boxShadow: inStock ? 'lg' : 'md' }}
+      role="group"
       position="relative"
+      opacity={inStock ? 1 : 0.7}
+      filter={inStock ? 'none' : 'grayscale(30%)'}
     >
       {/* Imagen con overlay para efectos */}
       <Box position="relative" overflow="hidden">
@@ -157,50 +168,25 @@ export default function ProductCard({ product }) {
           </>
         )}
         
-        {/* Overlay con botones */}
+        {/* Overlay sutil al hacer hover */}
         <Box 
           position="absolute"
           top="0"
           left="0"
           right="0"
           bottom="0"
-          bg="blackAlpha.600"
+          bg="blackAlpha.300"
           opacity="0"
           transition="opacity 0.3s ease"
           _groupHover={{ opacity: 1 }}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
           className="product-overlay"
-        >
-          <HStack spacing={3}>
-            <IconButton
-              icon={<FaShoppingBag />}
-              colorScheme="brand"
-              variant="solid"
-              rounded="full"
-              size="md"
-              onClick={handleAddToCart}
-              aria-label="Añadir al carrito"
-            />
-            <IconButton
-              as={RouterLink}
-              to={`/product/${id}`}
-              icon={<FaEye />}
-              colorScheme="whiteAlpha"
-              variant="solid"
-              rounded="full"
-              size="md"
-              aria-label="Ver detalles"
-            />
-          </HStack>
-        </Box>
+        />
         
         {/* Badges */}
-        <Flex position="absolute" top={2} right={2} gap={2} direction="column">
+        <Flex position="absolute" top={2} right={2} gap={2} alignItems="flex-end" direction="column">
           {isOnOffer && (
             <Badge 
-              bg="red.500" 
+              bg="pink.400" 
               color="white" 
               borderRadius="full"
               px={2}
@@ -228,14 +214,48 @@ export default function ProductCard({ product }) {
               Nuevo
             </Badge>
           )}
+          {!inStock && (
+            <Badge 
+              bg="red.500" 
+              color="white" 
+              borderRadius="full"
+              px={2}
+              py={1}
+              fontWeight="bold"
+              fontSize="xs"
+              textTransform="uppercase"
+              boxShadow="md"
+            >
+              Sin Stock
+            </Badge>
+          )}
         </Flex>
       </Box>
       
       {/* Contenido */}
       <VStack p={4} align="start" spacing={2}>
-        <Badge bg={categoryBg} color={categoryColor} borderRadius="md" px={2} py={0.5} fontSize="xs">
-          {category}
-        </Badge>
+        {/* Mostrar múltiples categorías si existen */}
+        <Flex gap={1} flexWrap="wrap">
+          {product.categories && product.categories.length > 0 ? (
+            product.categories.map((cat, index) => (
+              <Badge 
+                key={index} 
+                bg={categoryBg} 
+                color={categoryColor} 
+                borderRadius="md" 
+                px={2} 
+                py={0.5} 
+                fontSize="xs"
+              >
+                {cat}
+              </Badge>
+            ))
+          ) : (
+            <Badge bg={categoryBg} color={categoryColor} borderRadius="md" px={2} py={0.5} fontSize="xs">
+              {category}
+            </Badge>
+          )}
+        </Flex>
         
         <Heading 
           as="h3" 
@@ -251,39 +271,48 @@ export default function ProductCard({ product }) {
         </Heading>
         
         <Text fontSize="sm" color={textColor} noOfLines={2} opacity={0.8}>
-          {description}
+          {description && description.split('\n').map((line, i) => (
+            <React.Fragment key={i}>
+              {line}
+              {i < description.split('\n').length - 1 && <br />}
+            </React.Fragment>
+          ))}
         </Text>
         
         <Flex w="100%" justify="space-between" align="center" mt={2}>
           <VStack align="start" spacing={0}>
             {isOnOffer ? (
               <>
-                <Text fontWeight="bold" fontSize="xl" color="red.500">
-                  ${price.toLocaleString()}
+                <Text fontWeight="bold" fontSize="xl" color="pink.400">
+                  ${parseInt(price).toLocaleString()}
                 </Text>
                 <Text 
                   fontSize="sm" 
                   color="gray.500" 
                   textDecoration="line-through"
                 >
-                  ${originalPrice?.toLocaleString()}
+                  ${parseInt(originalPrice || 0).toLocaleString()}
                 </Text>
               </>
             ) : (
               <Text fontWeight="bold" fontSize="xl" color={priceColor}>
-                ${price.toLocaleString()}
+                ${parseInt(price).toLocaleString()}
               </Text>
             )}
           </VStack>
           
           <Button
             size="sm"
-            colorScheme="green"
+            colorScheme={inStock ? "green" : "gray"}
             leftIcon={<FaShoppingBag />}
             onClick={handleAddToCart}
             borderRadius="md"
+            isDisabled={!inStock}
+            _hover={{
+              bg: inStock ? "green.500" : "gray.400"
+            }}
           >
-            Agregar
+            {inStock ? "Agregar" : "Sin Stock"}
           </Button>
         </Flex>
       </VStack>

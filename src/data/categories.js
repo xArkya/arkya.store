@@ -22,6 +22,16 @@ export const categories = [
   {
     id: 'revistas',
     name: 'Revistas',
+    subcategories: [
+      {
+        id: 'jump',
+        name: 'Shonen Jump'
+      },
+    ]
+  },
+  {
+    id: 'doujinshis',
+    name: 'Doujinshis',
     subcategories: []
   },
   {
@@ -35,9 +45,14 @@ export const categories = [
     subcategories: []
   },
   {
-    id: 'novelas',
-    name: 'Novelas',
-    subcategories: []
+    id: 'novela-ligera',
+    name: 'Novela Ligera',
+    subcategories: [
+      {
+        id: 'ediciones-especiales-ln',
+        name: 'Ediciones Especiales'
+      },
+    ]
   },
   {
     id: 'peluches',

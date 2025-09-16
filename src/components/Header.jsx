@@ -62,7 +62,7 @@ export default function Header() {
           <RouterLink to="/">
             <Flex align="center">
               <Box mr={2}>
-                <img src="/images/logo2.png" alt="Arkya Logo" width="30" height="30" />
+                <img src="./images/logo2.png" alt="Arkya Logo" width="30" height="30" />
               </Box>
               <Heading
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
@@ -97,19 +97,7 @@ export default function Header() {
             leftIcon={<FaInstagram />}>
             Instagram
           </Button>
-          <Button
-            as={RouterLink}
-            to="/"
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'gray.800'}
-            bg={'gray.100'}
-            _hover={{
-              bg: 'gray.200',
-            }}>
-            Productos
-          </Button>
+
         </Stack>
       </Flex>
 
@@ -346,61 +334,6 @@ const NAV_ITEMS = [
   {
     label: 'Inicio',
     href: '/',
-  },
-  {
-    label: 'Categorías',
-    children: [
-      {
-        label: 'Artbooks',
-        subLabel: 'Colecciones de ilustraciones',
-        href: '/?category=artbooks',
-      },
-      {
-        label: 'Figuras',
-        subLabel: 'Figuras coleccionables',
-        href: '/?category=figuras',
-      },
-      {
-        label: 'Mangas',
-        subLabel: 'Mangas y cómics japoneses',
-        href: '/?category=mangas',
-        children: [
-          {
-            label: 'Todos',
-            href: '/?category=mangas',
-          },
-          {
-            label: 'Ediciones Especiales',
-            href: '/?category=mangas&subcategory=ediciones-especiales',
-          }
-        ],
-      },
-      {
-        label: 'Revistas',
-        subLabel: 'Publicaciones periódicas',
-        href: '/?category=revistas',
-      },
-      {
-        label: 'Guide Books',
-        subLabel: 'Guías oficiales',
-        href: '/?category=guide-books',
-      },
-      {
-        label: 'Character Books',
-        subLabel: 'Libros de personajes',
-        href: '/?category=character-books',
-      },
-      {
-        label: 'Novelas',
-        subLabel: 'Light novels y novelas',
-        href: '/?category=novelas',
-      },
-      {
-        label: 'Peluches',
-        subLabel: 'Peluches de personajes',
-        href: '/?category=peluches',
-      },
-    ],
   },
   {
     label: 'Contacto',
