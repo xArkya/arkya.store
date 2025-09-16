@@ -222,7 +222,15 @@ export default function HomePage() {
         result.sort((a, b) => b.id - a.id);
         break;
       case 'offers':
-        result.sort((a, b) => (b.isOnOffer === a.isOnOffer) ? 0 : b.isOnOffer ? 1 : -1);
+        // Ordenar por porcentaje de descuento (de mayor a menor)
+        result.sort((a, b) => {
+          // Si ambos tienen oferta, comparar por porcentaje de descuento
+          if (a.isOnOffer && b.isOnOffer) {
+            return b.discountPercentage - a.discountPercentage;
+          }
+          // Si solo uno tiene oferta, ese va primero
+          return (b.isOnOffer === a.isOnOffer) ? 0 : b.isOnOffer ? 1 : -1;
+        });
         break;
       case 'name-asc':
         result.sort((a, b) => a.name.localeCompare(b.name));
@@ -479,7 +487,7 @@ export default function HomePage() {
                                sortOption === 'price-asc' ? 'Precio: menor a mayor' :
                                sortOption === 'price-desc' ? 'Precio: mayor a menor' :
                                sortOption === 'newest' ? 'Etiqueta nuevo' :
-                               sortOption === 'offers' ? 'Ofertas primero' :
+                               sortOption === 'offers' ? 'Mejores ofertas primero' :
                                sortOption === 'name-asc' ? 'Nombre: A-Z' :
                                sortOption === 'name-desc' ? 'Nombre: Z-A' : 'Más recientes'}
                 </MenuButton>
@@ -489,7 +497,7 @@ export default function HomePage() {
                     <MenuItem onClick={() => { setSortOption('price-asc'); setCurrentPage(1); }}>Precio: menor a mayor</MenuItem>
                     <MenuItem onClick={() => { setSortOption('price-desc'); setCurrentPage(1); }}>Precio: mayor a menor</MenuItem>
                     <MenuItem onClick={() => { setSortOption('newest'); setCurrentPage(1); }}>Etiqueta nuevo</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('offers'); setCurrentPage(1); }}>Ofertas primero</MenuItem>
+                    <MenuItem onClick={() => { setSortOption('offers'); setCurrentPage(1); }}>Mejores ofertas primero</MenuItem>
                     <MenuItem onClick={() => { setSortOption('name-asc'); setCurrentPage(1); }}>Nombre: A-Z</MenuItem>
                     <MenuItem onClick={() => { setSortOption('name-desc'); setCurrentPage(1); }}>Nombre: Z-A</MenuItem>
                   </MenuList>
