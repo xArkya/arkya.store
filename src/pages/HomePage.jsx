@@ -324,9 +324,18 @@ export default function HomePage() {
             align="center"
             mb={8}
             gap={4}
+            width="100%"
           >
            
-            <Flex flexWrap="wrap" gap={2} p={2} width={{ base: '100%', md: 'auto' }} justifyContent="center" css={{
+            <Flex 
+              flexWrap="wrap" 
+              gap={2} 
+              p={2} 
+              width={{ base: '100%', md: 'auto' }} 
+              justifyContent="center" 
+              overflowX={{ base: 'auto', md: 'visible' }}
+              maxWidth="100%"
+              css={{
                 '&::-webkit-scrollbar': {
                   height: '8px',
                 },
@@ -426,9 +435,16 @@ export default function HomePage() {
               ))}
               </Flex>
             
-            <Flex width="100%" justify="space-between" align="center" mb={4}>
+            <Flex 
+              width="100%" 
+              justify="space-between" 
+              align="center" 
+              mb={4}
+              direction={{ base: 'column', md: 'row' }}
+              gap={{ base: 3, md: 0 }}
+            >
               {/* Buscador (izquierda) */}
-              <InputGroup maxW={{ base: '100%', md: '300px' }}>
+              <InputGroup maxW={{ base: '100%', md: '300px' }} mb={{ base: 2, md: 0 }}>
                 <InputLeftElement pointerEvents="none">
                   <FaSearch color="white" />
                 </InputLeftElement>
@@ -447,7 +463,7 @@ export default function HomePage() {
               </InputGroup>
               
               {/* Selector de ordenación (derecha) */}
-              <Menu>
+              <Menu width={{ base: '100%', md: 'auto' }}>
                 <MenuButton 
                   as={Button} 
                   rightIcon={<ChevronDownIcon />}
@@ -457,6 +473,7 @@ export default function HomePage() {
                   bg="whiteAlpha.200"
                   color="white"
                   _hover={{ bg: 'whiteAlpha.300' }}
+                  width={{ base: '100%', md: 'auto' }}
                 >
                   Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' : 
                                sortOption === 'price-asc' ? 'Precio: menor a mayor' :

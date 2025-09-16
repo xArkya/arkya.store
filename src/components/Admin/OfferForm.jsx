@@ -348,6 +348,9 @@ const OfferForm = ({ onSaveOffer, initialValues = null }) => {
               <option value="Character Books">Character Books</option>
               <option value="Novelas">Novelas</option>
               <option value="Peluches">Peluches</option>
+              <option value="CD/DVD">CD/DVD</option>
+              <option value="Otros">Otros</option>
+              <option value="Cartas">Cartas</option>
             </Select>
             
             {formData.applicableCategories.length > 0 && (

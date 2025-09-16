@@ -45,6 +45,21 @@ export const categories = [
     subcategories: []
   },
   {
+    id: 'cartas',
+    name: 'Cartas',
+    subcategories: []
+  },
+  {
+    id: 'otros',
+    name: 'Otros',
+    subcategories: []
+  },
+  {
+    id: 'cd-dvd',
+    name: 'CD/DVD',
+    subcategories: []
+  },
+  {
     id: 'novela-ligera',
     name: 'Novela Ligera',
     subcategories: [
