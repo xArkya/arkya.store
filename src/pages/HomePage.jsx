@@ -25,8 +25,11 @@ import {
   Portal,
   ButtonGroup,
   IconButton,
+  Switch,
+  Tooltip,
+  Badge,
 } from '@chakra-ui/react';
-import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
@@ -43,6 +46,8 @@ export default function HomePage() {
   const [searchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState('newest-added');
+  const [showAdultContent, setShowAdultContent] = useState(true); // Mostrar contenido +18 por defecto
+  const [adultFilterActive, setAdultFilterActive] = useState(false);
   const PRODUCTS_PER_PAGE = 12;
   
   // Función para obtener el nombre de la categoría por su ID
@@ -164,7 +169,7 @@ export default function HomePage() {
     });
   }, []);
   
-  // Filtrar productos según la búsqueda, categoría y subcategoría
+  // Filtrar productos según la búsqueda, categoría, subcategoría y contenido adulto
   const filteredProducts = useMemo(() => {
     return productsWithOffers.filter(product => {
       // Buscar en nombre, descripción y etiquetas
@@ -179,6 +184,9 @@ export default function HomePage() {
       let matchesCategory = false;
       if (activeCategory === 'todos') {
         matchesCategory = true;
+      } else if (activeCategory === 'adultos') {
+        // Categoría especial para contenido adulto
+        matchesCategory = product.adultContent === true;
       } else {
         const categoryName = getCategoryNameById(activeCategory);
         // Comprobar si coincide con alguna de las categorías del producto
@@ -199,9 +207,17 @@ export default function HomePage() {
         matchesSubcategory = false;
       }
       
-      return matchesSearch && matchesCategory && matchesSubcategory;
+      // Filtrar por contenido adulto
+      let matchesAdultFilter = true;
+      if (adultFilterActive) {
+        matchesAdultFilter = product.adultContent === true;
+      } else if (!showAdultContent) {
+        matchesAdultFilter = product.adultContent !== true;
+      }
+      
+      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory]);
+  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {
@@ -371,13 +387,46 @@ export default function HomePage() {
                 color={activeCategory === 'todos' ? 'white' : 'gray.800'}
                 borderColor={activeCategory === 'todos' ? 'pink.400' : 'gray.300'}
                 variant={activeCategory === 'todos' ? 'solid' : 'outline'}
-                onClick={() => handleCategoryClick('todos')}
+                onClick={() => {
+                  handleCategoryClick('todos');
+                  setAdultFilterActive(false);
+                }}
                 _hover={{
                   bg: activeCategory === 'todos' ? 'pink.500' : 'gray.100',
                 }}
                 fontWeight="medium"
               >
                 Todos
+              </Button>
+              
+              {/* Botón para filtrar productos adultos */}
+              <Button
+                key="adultos"
+                size="md"
+                px={4}
+                py={2}
+                minW="80px"
+                height="40px"
+                bg={activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'white'}
+                color={activeCategory === 'adultos' || adultFilterActive ? 'white' : 'gray.800'}
+                borderColor={activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'gray.300'}
+                variant={activeCategory === 'adultos' || adultFilterActive ? 'solid' : 'outline'}
+                onClick={() => {
+                  if (activeCategory === 'adultos') {
+                    handleCategoryClick('todos');
+                    setAdultFilterActive(false);
+                  } else {
+                    handleCategoryClick('adultos');
+                    setAdultFilterActive(true);
+                  }
+                }}
+                _hover={{
+                  bg: activeCategory === 'adultos' || adultFilterActive ? 'red.600' : 'gray.100',
+                }}
+                fontWeight="medium"
+                leftIcon={<FaExclamationTriangle />}
+              >
+                +18
               </Button>
               
               {/* Botones para cada categoría */}
@@ -451,58 +500,146 @@ export default function HomePage() {
               direction={{ base: 'column', md: 'row' }}
               gap={{ base: 3, md: 0 }}
             >
-              {/* Buscador (izquierda) */}
-              <InputGroup maxW={{ base: '100%', md: '300px' }} mb={{ base: 2, md: 0 }}>
-                <InputLeftElement pointerEvents="none">
-                  <FaSearch color="white" />
-                </InputLeftElement>
-                <Input 
-                  placeholder="Buscar productos..." 
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  borderRadius="md"
-                  bg="whiteAlpha.200"
-                  color="white"
-                  borderColor="whiteAlpha.300"
-                  _placeholder={{ color: 'whiteAlpha.700' }}
-                  _hover={{ borderColor: 'whiteAlpha.400' }}
-                  _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
-                />
-              </InputGroup>
+              <Flex align="center" width={{ base: '100%', md: 'auto' }} justify={{ base: 'space-between', md: 'flex-start' }} gap={4}>
+                {/* Buscador */}
+                <InputGroup maxW={{ base: '100%', md: '300px' }} mb={{ base: 2, md: 0 }}>
+                  <InputLeftElement pointerEvents="none">
+                    <FaSearch color="white" />
+                  </InputLeftElement>
+                  <Input 
+                    placeholder="Buscar productos..." 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    borderRadius="md"
+                    bg="whiteAlpha.200"
+                    color="white"
+                    borderColor="whiteAlpha.300"
+                    _placeholder={{ color: 'whiteAlpha.700' }}
+                    _hover={{ borderColor: 'whiteAlpha.400' }}
+                    _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
+                  />
+                </InputGroup>
+                
+                {/* Toggle para mostrar/ocultar contenido adulto */}
+                <Tooltip label={showAdultContent ? "Ocultar contenido +18" : "Mostrar contenido +18"} placement="top">
+                  <Flex 
+                    align="center" 
+                    bg="whiteAlpha.200" 
+                    p={2} 
+                    borderRadius="md" 
+                    display={{ base: 'none', md: 'flex' }}
+                  >
+                    <Switch 
+                      colorScheme="red" 
+                      size="md" 
+                      isChecked={showAdultContent} 
+                      onChange={() => setShowAdultContent(!showAdultContent)}
+                      mr={2}
+                    />
+                    <Badge 
+                      colorScheme="red" 
+                      display="flex" 
+                      alignItems="center" 
+                      gap={1}
+                      fontSize="xs"
+                    >
+                      <FaExclamationTriangle size="0.8em" />
+                      +18
+                    </Badge>
+                  </Flex>
+                </Tooltip>
+              </Flex>
               
               {/* Selector de ordenación (derecha) */}
-              <Menu width={{ base: '100%', md: 'auto' }}>
-                <MenuButton 
-                  as={Button} 
-                  rightIcon={<ChevronDownIcon />}
-                  colorScheme="pink"
-                  variant="outline"
-                  size="md"
-                  bg="whiteAlpha.200"
-                  color="white"
-                  _hover={{ bg: 'whiteAlpha.300' }}
-                  width={{ base: '100%', md: 'auto' }}
-                >
-                  Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' : 
-                               sortOption === 'price-asc' ? 'Precio: menor a mayor' :
-                               sortOption === 'price-desc' ? 'Precio: mayor a menor' :
-                               sortOption === 'newest' ? 'Etiqueta nuevo' :
-                               sortOption === 'offers' ? 'Mejores ofertas primero' :
-                               sortOption === 'name-asc' ? 'Nombre: A-Z' :
-                               sortOption === 'name-desc' ? 'Nombre: Z-A' : 'Más recientes'}
-                </MenuButton>
-                <Portal>
-                  <MenuList zIndex={1000}>
-                    <MenuItem onClick={() => { setSortOption('newest-added'); setCurrentPage(1); }}>Más recientes</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('price-asc'); setCurrentPage(1); }}>Precio: menor a mayor</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('price-desc'); setCurrentPage(1); }}>Precio: mayor a menor</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('newest'); setCurrentPage(1); }}>Etiqueta nuevo</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('offers'); setCurrentPage(1); }}>Mejores ofertas primero</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('name-asc'); setCurrentPage(1); }}>Nombre: A-Z</MenuItem>
-                    <MenuItem onClick={() => { setSortOption('name-desc'); setCurrentPage(1); }}>Nombre: Z-A</MenuItem>
-                  </MenuList>
-                </Portal>
-              </Menu>
+              <Flex align="center" gap={4} width={{ base: '100%', md: 'auto' }}>
+                {/* Toggle para mostrar/ocultar contenido adulto (versión móvil) */}
+                <Tooltip label={showAdultContent ? "Ocultar contenido +18" : "Mostrar contenido +18"} placement="top">
+                  <Flex 
+                    align="center" 
+                    bg="whiteAlpha.200" 
+                    p={2} 
+                    borderRadius="md" 
+                    display={{ base: 'flex', md: 'none' }}
+                    width="100%"
+                    justify="space-between"
+                  >
+                    <Badge 
+                      colorScheme="red" 
+                      display="flex" 
+                      alignItems="center" 
+                      gap={1}
+                      fontSize="xs"
+                    >
+                      <FaExclamationTriangle size="0.8em" />
+                      Mostrar +18
+                    </Badge>
+                    <Switch 
+                      colorScheme="red" 
+                      size="md" 
+                      isChecked={showAdultContent} 
+                      onChange={() => setShowAdultContent(!showAdultContent)}
+                    />
+                  </Flex>
+                </Tooltip>
+                
+                {/* Selector de ordenación */}
+                <Menu width={{ base: '100%', md: 'auto' }}>
+                  <MenuButton 
+                    as={Button} 
+                    rightIcon={<ChevronDownIcon />}
+                    colorScheme="pink"
+                    variant="outline"
+                    size="md"
+                    bg="whiteAlpha.200"
+                    color="white"
+                    _hover={{ bg: 'whiteAlpha.300' }}
+                    width={{ base: '100%', md: 'auto' }}
+                    sx={{
+                      // Estilos para manejar el texto en dispositivos móviles
+                      '.chakra-button__icon': {
+                        ml: { base: 1, md: 2 }
+                      },
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                      display: 'flex',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <Box as="span" overflow="hidden" textOverflow="ellipsis" flex="1">
+                      <Box display={{ base: 'none', sm: 'block' }}>
+                        Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' : 
+                                sortOption === 'price-asc' ? 'Precio: menor a mayor' :
+                                sortOption === 'price-desc' ? 'Precio: mayor a menor' :
+                                sortOption === 'newest' ? 'Etiqueta nuevo' :
+                                sortOption === 'offers' ? 'Mejores ofertas primero' :
+                                sortOption === 'name-asc' ? 'Nombre: A-Z' :
+                                sortOption === 'name-desc' ? 'Nombre: Z-A' : 'Más recientes'}
+                      </Box>
+                      <Box display={{ base: 'block', sm: 'none' }}>
+                        Ordenar: {sortOption === 'newest-added' ? 'Recientes' : 
+                                sortOption === 'price-asc' ? 'Precio ↑' :
+                                sortOption === 'price-desc' ? 'Precio ↓' :
+                                sortOption === 'newest' ? 'Nuevos' :
+                                sortOption === 'offers' ? 'Ofertas' :
+                                sortOption === 'name-asc' ? 'A-Z' :
+                                sortOption === 'name-desc' ? 'Z-A' : 'Recientes'}
+                      </Box>
+                    </Box>
+                  </MenuButton>
+                  <Portal>
+                    <MenuList zIndex={1000}>
+                      <MenuItem onClick={() => { setSortOption('newest-added'); setCurrentPage(1); }}>Más recientes</MenuItem>
+                      <MenuItem onClick={() => { setSortOption('price-asc'); setCurrentPage(1); }}>Precio: menor a mayor</MenuItem>
+                      <MenuItem onClick={() => { setSortOption('price-desc'); setCurrentPage(1); }}>Precio: mayor a menor</MenuItem>
+                      <MenuItem onClick={() => { setSortOption('newest'); setCurrentPage(1); }}>Etiqueta nuevo</MenuItem>
+                      <MenuItem onClick={() => { setSortOption('offers'); setCurrentPage(1); }}>Mejores ofertas primero</MenuItem>
+                      <MenuItem onClick={() => { setSortOption('name-asc'); setCurrentPage(1); }}>Nombre: A-Z</MenuItem>
+                      <MenuItem onClick={() => { setSortOption('name-desc'); setCurrentPage(1); }}>Nombre: Z-A</MenuItem>
+                    </MenuList>
+                  </Portal>
+                </Menu>
+              </Flex>
             </Flex>
           </Flex>
           

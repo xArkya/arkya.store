@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react';
 import { useCart } from '../context/useCart';
+import { useAgeVerification } from '../context/useAgeVerification.js';
 import {
   Box,
   Container,
@@ -31,8 +32,9 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Center,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 
@@ -43,8 +45,14 @@ export default function ProductPage() {
   const [error, setError] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
+  // Usar el contexto global de verificación de edad
+  const { isAgeVerified, verifyAge } = useAgeVerification();
+  
   const toast = useToast();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // Modal para compra por Instagram
+  const { isOpen: isInstagramOpen, onOpen: onInstagramOpen, onClose: onInstagramClose } = useDisclosure();
+  // Modal para verificación de edad
+  const { isOpen: isAgeModalOpen, onOpen: onAgeModalOpen, onClose: onAgeModalClose } = useDisclosure();
   const { addToCart } = useCart();
   
   // Define all color mode values at the top level
@@ -106,6 +114,11 @@ export default function ProductPage() {
         
         console.log('Found product with offers applied:', foundProduct);
         setProduct(foundProduct);
+        
+        // Si el producto es para adultos y el usuario no ha verificado su edad, mostrar modal
+        if (foundProduct.adultContent && !isAgeVerified) {
+          onAgeModalOpen();
+        }
       } catch (err) {
         console.error('Error loading product:', err);
         setError(err.message);
@@ -115,7 +128,7 @@ export default function ProductPage() {
     }, 800);
 
     return () => clearTimeout(timer);
-  }, [id]);
+  }, [id, isAgeVerified, onAgeModalOpen]);
 
   if (loading) {
     return (
@@ -151,6 +164,12 @@ export default function ProductPage() {
     );
   }
 
+  // Función para confirmar edad
+  const handleConfirmAge = () => {
+    verifyAge();
+    onAgeModalClose();
+  };
+  
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
@@ -170,7 +189,7 @@ export default function ProductPage() {
           });
           
           // Cerrar modal
-          onClose();
+          onInstagramClose();
           
           // Abrir Instagram después de un breve retraso
           setTimeout(() => {
@@ -198,7 +217,7 @@ export default function ProductPage() {
             position: "top"
           });
           
-          onClose();
+          onInstagramClose();
           
           setTimeout(() => {
             window.open("https://ig.me/m/arkya.store", "_blank");
@@ -221,8 +240,49 @@ export default function ProductPage() {
 
   return (
     <Box bg={pageBgColor}>
+      {/* Modal de verificación de edad */}
+      <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
+        <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(10px)" />
+        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
+          <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
+            <Flex align="center" gap={2}>
+              <Icon as={FaExclamationTriangle} color="red.500" />
+              <Text>Verificación de edad requerida</Text>
+            </Flex>
+          </ModalHeader>
+          <ModalBody pb={6} pt={4}>
+            <VStack spacing={4} align="center">
+              <Icon as={FaExclamationTriangle} color="red.500" boxSize="50px" />
+              <Text fontWeight="bold" fontSize="xl" textAlign="center">
+                Contenido para adultos (+18)
+              </Text>
+              <Text textAlign="center">
+                El producto que intentas ver contiene contenido para adultos.
+                Debes confirmar que eres mayor de 18 años para continuar.
+              </Text>
+            </VStack>
+          </ModalBody>
+
+          <ModalFooter borderTopWidth="1px" borderColor={dividerColor} justifyContent="center">
+            <Button
+              colorScheme="red"
+              mr={3}
+              onClick={handleConfirmAge}
+              size="lg"
+              width="full"
+              borderRadius="md"
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}>
+              Confirmar que soy mayor de 18 años
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      
       {/* Modal de instrucciones */}
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size="md">
+      <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="md">
         <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
         <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
           <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
@@ -286,7 +346,7 @@ export default function ProductPage() {
               }}>
               Copiar y abrir Instagram
             </Button>
-            <Button variant="ghost" onClick={onClose}>Cancelar</Button>
+            <Button variant="ghost" onClick={onInstagramClose}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -385,16 +445,49 @@ export default function ProductPage() {
                 
                 return (
                   <>
-                    <Image
-                      alt={product.name}
-                      src={currentImage}
-                      fit={'cover'}
-                      align={'center'}
-                      w={'100%'}
-                      h={{ base: '400px', sm: '500px', lg: '600px' }}
-                      transition="transform 0.5s"
-                      _hover={{ transform: 'scale(1.03)' }}
-                    />
+                      <Image
+                        alt={product.name}
+                        src={currentImage}
+                        fit={'cover'}
+                        align={'center'}
+                        w={'100%'}
+                        h={{ base: '400px', sm: '500px', lg: '600px' }}
+                        transition="transform 0.5s"
+                        _hover={{ transform: 'scale(1.03)' }}
+                        filter={product.adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
+                      />
+                      
+                      {/* Overlay para contenido adulto */}
+                      {product.adultContent && !isAgeVerified && (
+                        <Center
+                          position="absolute"
+                          top="0"
+                          left="0"
+                          right="0"
+                          bottom="0"
+                          bg="blackAlpha.700"
+                          zIndex="3"
+                          flexDirection="column"
+                          p={4}
+                        >
+                          <Icon as={FaExclamationTriangle} color="red.500" boxSize="50px" mb={4} />
+                          <Text color="white" fontWeight="bold" fontSize="xl" textAlign="center" mb={2}>
+                            Contenido para adultos (+18)
+                          </Text>
+                          <Text color="white" textAlign="center" mb={4}>
+                            Este producto contiene contenido para adultos.
+                          </Text>
+                          <Button
+                            colorScheme="red"
+                            onClick={handleConfirmAge}
+                            size="lg"
+                            width="200px"
+                            borderRadius="md"
+                          >
+                            Confirmar edad
+                          </Button>
+                        </Center>
+                      )}
                     
                     {/* Controles del carrusel - solo mostrar si hay más de una imagen */}
                     {productImages.length > 1 && (
@@ -644,7 +737,7 @@ export default function ProductPage() {
               </Button>
 
               <Button
-                onClick={onOpen}
+                onClick={onInstagramOpen}
                 rounded={'md'}
                 size={'lg'}
                 py={'7'}

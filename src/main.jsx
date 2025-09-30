@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ChakraProvider, extendTheme, ColorModeScript } from '@chakra-ui/react'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import { CartProvider } from './context/CartProvider'
+import { AgeVerificationProvider } from './context/AgeVerificationContext'
 
 // Extend the theme to include custom colors, fonts, etc
 const theme = extendTheme({
@@ -49,11 +50,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <ChakraProvider theme={theme}>
-      <HashRouter>
+      <BrowserRouter>
         <CartProvider>
-          <App />
+          <AgeVerificationProvider>
+            <App />
+          </AgeVerificationProvider>
         </CartProvider>
-      </HashRouter>
+      </BrowserRouter>
     </ChakraProvider>
   </React.StrictMode>,
 )

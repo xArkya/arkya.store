@@ -90,6 +90,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     subcategory: '',
     isNew: true,
     inStock: true, // Indicador de stock disponible
+    adultContent: false, // Indicador de contenido para adultos (+18)
     details: '',
     instagram: 'https://instagram.com/arkya.store',
     tags: [] // Array de etiquetas para búsqueda
@@ -121,7 +122,8 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
         image: productImages[0] || initialValues.image || '',
         categories: productCategories,
         category: initialValues.category || '', // Mantener para compatibilidad
-        subcategory: initialValues.subcategory || ''
+        subcategory: initialValues.subcategory || '',
+        tags: initialValues.tags || [] // Asegurar que las etiquetas se carguen correctamente
       });
       
       // Configurar categoría seleccionada y subcategorías disponibles
@@ -1001,6 +1003,29 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
             colorScheme="green"
           />
         </FormControl>
+        
+        <FormControl display="flex" alignItems="center" mt={4}>
+          <FormLabel htmlFor="adultContent" mb="0" fontWeight="bold" color="red.600">
+            ¿Es contenido para adultos (+18)?
+          </FormLabel>
+          <Switch
+            id="adultContent"
+            name="adultContent"
+            isChecked={product.adultContent === true}
+            onChange={handleChange}
+            colorScheme="red"
+            size="lg"
+          />
+        </FormControl>
+        
+        {product.adultContent && (
+          <Box mt={2} p={3} bg="red.50" borderRadius="md" borderWidth="1px" borderColor="red.200">
+            <Text color="red.700">
+              <strong>Importante:</strong> Este producto se marcará como contenido para adultos. 
+              Las imágenes aparecerán borrosas y se requerirá verificación de edad para verlas.
+            </Text>
+          </Box>
+        )}
         
         <Button 
           onClick={handleSubmit}

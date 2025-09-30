@@ -34,7 +34,7 @@ import {
   AlertDescription,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle } from 'react-icons/fa';
 import ProductForm from '../components/Admin/ProductForm';
 import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
@@ -435,7 +435,23 @@ const AdminPage = () => {
                         .map((product) => (
                       <Tr key={product.id}>
                         <Td>{product.id}</Td>
-                        <Td>{product.name}</Td>
+                        <Td>
+                          <HStack>
+                            {product.adultContent && (
+                              <Badge 
+                                colorScheme="red" 
+                                variant="solid"
+                                display="flex"
+                                alignItems="center"
+                                gap={1}
+                              >
+                                <FaExclamationTriangle size="0.8em" />
+                                +18
+                              </Badge>
+                            )}
+                            <Text>{product.name}</Text>
+                          </HStack>
+                        </Td>
                         <Td>
                           {product.categories && product.categories.length > 0 
                             ? product.categories.join(', ')
@@ -444,11 +460,17 @@ const AdminPage = () => {
                         </Td>
                         <Td>${product.price.toLocaleString()}</Td>
                         <Td>
-                          {product.isNew ? (
-                            <Badge colorScheme="green">Nuevo</Badge>
-                          ) : (
-                            <Badge colorScheme="gray">Regular</Badge>
-                          )}
+                          <HStack spacing={2}>
+                            {product.isNew && (
+                              <Badge colorScheme="green">Nuevo</Badge>
+                            )}
+                            {product.adultContent && (
+                              <Badge colorScheme="red" variant="outline">+18</Badge>
+                            )}
+                            {!product.isNew && !product.adultContent && (
+                              <Badge colorScheme="gray">Regular</Badge>
+                            )}
+                          </HStack>
                         </Td>
                         <Td>
                           {product.isOnOffer ? (
