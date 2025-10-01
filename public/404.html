@@ -54,19 +54,47 @@
     }
   </style>
   <script>
-    // Función para redirigir a la página principal
-    window.onload = function() {
-      // Redirigir a la página principal
+    // Script to redirect to the correct path while preserving the route
+    (function() {
+      var pathSegmentsToKeep = 1; // Keep the 'arkya.store' segment
+      var l = window.location;
+      
+      // Don't redirect if we're already at the base path
+      if (l.pathname.split('/')[1] === 'arkya.store') {
+        return;
+      }
+      
+      // Redirect to the correct base path
+      var basePath = '/arkya.store/';
+      
+      // If we're at a subpath, append it to the base path
+      if (l.pathname.length > 0) {
+        // Remove any leading slashes and add the path to the base
+        var path = l.pathname.split('/').slice(pathSegmentsToKeep).join('/');
+        if (path) {
+          basePath += path;
+        }
+      }
+      
+      // Add any query parameters or hash
+      if (l.search) {
+        basePath += l.search;
+      }
+      if (l.hash) {
+        basePath += l.hash;
+      }
+      
+      // Redirect after a short delay
       setTimeout(function() {
-        window.location.href = '/';
+        window.location.href = basePath;
       }, 1500);
-    };
+    })();
   </script>
 </head>
 <body>
   <h1>Arkya Store</h1>
   <div class="loader"></div>
   <p>Redireccionando a la tienda...</p>
-  <a href="/">Ir a la tienda</a>
+  <a href="/arkya.store/">Ir a la tienda</a>
 </body>
 </html>
