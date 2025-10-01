@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ChakraProvider, extendTheme, ColorModeScript } from '@chakra-ui/react'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import { CartProvider } from './context/CartProvider'
@@ -50,13 +50,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <ChakraProvider theme={theme}>
-      <BrowserRouter>
+      <HashRouter>
         <CartProvider>
           <AgeVerificationProvider>
             <App />
           </AgeVerificationProvider>
         </CartProvider>
-      </BrowserRouter>
+      </HashRouter>
     </ChakraProvider>
   </React.StrictMode>,
 )
