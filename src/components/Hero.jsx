@@ -72,7 +72,7 @@ export default function Hero() {
             w={'full'}>
             <Box
               as="a"
-              href="https://www.instagram.com/p/DOra7bzD-Ls/"
+              href="https://www.instagram.com/arkya.store/"
               target="_blank"
               rel="noopener noreferrer"
               position={'relative'}
