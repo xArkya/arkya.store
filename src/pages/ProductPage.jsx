@@ -51,6 +51,8 @@ export default function ProductPage() {
   const toast = useToast();
   // Modal para compra por Instagram
   const { isOpen: isInstagramOpen, onOpen: onInstagramOpen, onClose: onInstagramClose } = useDisclosure();
+  // Modal para consulta por Instagram (para productos sin stock)
+  const { isOpen: isConsultOpen, onOpen: onConsultOpen, onClose: onConsultClose } = useDisclosure();
   // Modal para verificación de edad
   const { isOpen: isAgeModalOpen, onOpen: onAgeModalOpen, onClose: onAgeModalClose } = useDisclosure();
   const { addToCart } = useCart();
@@ -156,7 +158,19 @@ export default function ProductPage() {
           <Text fontSize="sm" color="gray.500">
             URL actual: /product/{id}
           </Text>
-          <Button as={RouterLink} to="/" leftIcon={<FaArrowLeft />} colorScheme="brand">
+          <Button 
+            as={RouterLink} 
+            to="/" 
+            leftIcon={<FaArrowLeft />} 
+            colorScheme="brand"
+            onClick={() => {
+              // Restaurar la página anterior al volver a la tienda
+              const lastPage = sessionStorage.getItem('lastViewedPage');
+              if (lastPage) {
+                sessionStorage.setItem('currentPage', lastPage);
+              }
+            }}
+          >
             Volver a la tienda
           </Button>
         </VStack>
@@ -281,7 +295,7 @@ export default function ProductPage() {
         </ModalContent>
       </Modal>
       
-      {/* Modal de instrucciones */}
+      {/* Modal de instrucciones para comprar por Instagram */}
       <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="md">
         <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
         <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
@@ -350,18 +364,152 @@ export default function ProductPage() {
           </ModalFooter>
         </ModalContent>
       </Modal>
+      
+      {/* Modal de consulta por Instagram para productos sin stock */}
+      <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="md">
+        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
+        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
+          <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
+            <Flex align="center" gap={2}>
+              <Icon as={FaInstagram} />
+              <Text>Consultar por Instagram</Text>
+            </Flex>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6} pt={4}>
+            <VStack spacing={4} align="start">
+              <Text>
+                Para consultar sobre este producto a través de Instagram, sigue estos pasos:
+              </Text>
+              <List spacing={3}>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>1</Badge>
+                  <Text>Haz clic en "Copiar y abrir Instagram"</Text>
+                </ListItem>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>2</Badge>
+                  <Text>Se copiará automáticamente un mensaje con el nombre del producto</Text>
+                </ListItem>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>3</Badge>
+                  <Text>Se abrirá Instagram en una nueva pestaña</Text>
+                </ListItem>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>4</Badge>
+                  <Text>Pega el mensaje (Ctrl+V o Cmd+V) en el chat</Text>
+                </ListItem>
+              </List>
+              <Text fontWeight="bold" mt={2}>
+                Mensaje que se copiará:
+              </Text>
+              <Box
+                p={4}
+                bg={modalBoxBgColor}
+                borderRadius="md"
+                width="100%"
+                borderLeft="4px solid"
+                borderColor="brand.500">
+                <Text fontStyle="italic">
+                  Hola, me interesa el producto: {product?.name} (actualmente sin stock)
+                </Text>
+              </Box>
+            </VStack>
+          </ModalBody>
+
+          <ModalFooter borderTopWidth="1px" borderColor={dividerColor}>
+            <Button
+              colorScheme="brand"
+              mr={3}
+              leftIcon={<FaInstagram />}
+              onClick={() => {
+                try {
+                  const message = `Hola, me interesa el producto: ${product.name} (actualmente sin stock)`;
+                  
+                  // Usar la API moderna de Clipboard
+                  navigator.clipboard.writeText(message)
+                    .then(() => {
+                      // Mostrar notificación de éxito
+                      toast({
+                        title: "\u00a1Mensaje copiado!",
+                        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+                        status: "success",
+                        duration: 5000,
+                        isClosable: true,
+                        position: "top"
+                      });
+                      
+                      // Cerrar modal
+                      onConsultClose();
+                      
+                      // Abrir Instagram después de un breve retraso
+                      setTimeout(() => {
+                        window.open("https://ig.me/m/arkya.store", "_blank");
+                      }, 500);
+                    })
+                    .catch(err => {
+                      console.error('Error al copiar con Clipboard API:', err);
+                      // Fallback al método antiguo si la API moderna falla
+                      const textArea = document.createElement("textarea");
+                      textArea.value = message;
+                      textArea.style.position = "fixed";
+                      textArea.style.opacity = "0";
+                      document.body.appendChild(textArea);
+                      textArea.select();
+                      document.execCommand('copy');
+                      document.body.removeChild(textArea);
+                      
+                      toast({
+                        title: "\u00a1Mensaje copiado!",
+                        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+                        status: "success",
+                        duration: 5000,
+                        isClosable: true,
+                        position: "top"
+                      });
+                      
+                      onConsultClose();
+                      
+                      setTimeout(() => {
+                        window.open("https://ig.me/m/arkya.store", "_blank");
+                      }, 500);
+                    });
+                } catch (err) {
+                  console.error('Error al copiar:', err);
+                  toast({
+                    title: "Error",
+                    description: "No se pudo copiar el mensaje. Por favor, inténtalo de nuevo.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                    position: "top"
+                  });
+                }
+              }}
+              size="lg"
+              borderRadius="md"
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}>
+              Copiar y abrir Instagram
+            </Button>
+            <Button variant="ghost" onClick={onConsultClose}>Cancelar</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
 
       <Container maxW={'7xl'} py={8}>
         {/* Migas de pan con estilo mejorado */}
-        <Breadcrumb 
-          mb={6} 
-          fontSize="sm" 
-          separator="/" 
-          color={breadcrumbTextColor}
-          bg={breadcrumbBgColor}
-          p={3}
-          borderRadius="md"
-          boxShadow="sm">
+        <Flex justify="space-between" align="center" mb={6}>
+          <Breadcrumb 
+            fontSize="sm" 
+            separator="/" 
+            color={breadcrumbTextColor}
+            bg={breadcrumbBgColor}
+            p={3}
+            borderRadius="md"
+            boxShadow="sm"
+            flex="1">
           <BreadcrumbItem>
             <BreadcrumbLink as={RouterLink} to="/" _hover={{ color: 'brand.500' }}>
               <Icon as={FaHome} mr={1} />
@@ -395,6 +543,26 @@ export default function ProductPage() {
             <BreadcrumbLink fontWeight="semibold">{product.name}</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
+        
+        <Button
+          as={RouterLink}
+          to="/"
+          leftIcon={<FaArrowLeft />}
+          colorScheme="brand"
+          variant="outline"
+          size="sm"
+          ml={3}
+          onClick={() => {
+            // Restaurar la página anterior al volver a la tienda
+            const lastPage = sessionStorage.getItem('lastViewedPage');
+            if (lastPage) {
+              sessionStorage.setItem('currentPage', lastPage);
+            }
+          }}
+        >
+          Volver a la tienda
+        </Button>
+      </Flex>
 
         <SimpleGrid 
           columns={{ base: 1, lg: 2 }} 
@@ -712,47 +880,57 @@ export default function ProductPage() {
                 rounded={'md'}
                 size={'lg'}
                 py={'7'}
-                colorScheme="green"
+                colorScheme={product.inStock ? "green" : "brand"}
                 fontWeight="bold"
                 w="full"
-                bg={likeBtnBg}
-                color={likeBtnColor}
+                bg={product.inStock ? likeBtnBg : instaBtnBg}
+                color={product.inStock ? likeBtnColor : 'white'}
                 _hover={{
                   transform: 'translateY(-2px)',
                   boxShadow: 'xl',
+                  bg: product.inStock ? undefined : instaBtnHoverBg,
                 }}
                 onClick={() => {
-                  addToCart(product);
-                  toast({
-                    title: "¡Producto agregado!",
-                    description: `${product.name} se ha añadido al carrito.`,
-                    status: "success",
-                    duration: 3000,
-                    isClosable: true,
-                    position: "top"
-                  });
+                  if (product.inStock) {
+                    // Funcionalidad normal de agregar al carrito
+                    addToCart(product);
+                    toast({
+                      title: "¡Producto agregado!",
+                      description: `${product.name} se ha añadido al carrito.`,
+                      status: "success",
+                      duration: 3000,
+                      isClosable: true,
+                      position: "top"
+                    });
+                  } else {
+                    // Abrir modal de consulta por Instagram
+                    onConsultOpen();
+                  }
                 }}
-                leftIcon={<FaShoppingBag />}>
-                Agregar al carrito
+                leftIcon={product.inStock ? <FaShoppingBag /> : <FaInstagram />}>
+                {product.inStock ? "Agregar al carrito" : "Consultar por Instagram"}
               </Button>
 
-              <Button
-                onClick={onInstagramOpen}
-                rounded={'md'}
-                size={'lg'}
-                py={'7'}
-                bg={instaBtnBg}
-                color={'white'}
-                fontWeight="bold"
-                w="full"
-                _hover={{
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'xl',
-                  bg: instaBtnHoverBg,
-                }}
-                leftIcon={<FaInstagram size={20} />}>
-                Comprar por Instagram
-              </Button>
+              {/* Mostrar el botón de comprar por Instagram solo si el producto tiene stock */}
+              {product.inStock && (
+                <Button
+                  onClick={onInstagramOpen}
+                  rounded={'md'}
+                  size={'lg'}
+                  py={'7'}
+                  bg={instaBtnBg}
+                  color={'white'}
+                  fontWeight="bold"
+                  w="full"
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'xl',
+                    bg: instaBtnHoverBg,
+                  }}
+                  leftIcon={<FaInstagram size={20} />}>
+                  Comprar por Instagram
+                </Button>
+              )}
             </VStack>
           </Stack>
         </SimpleGrid>

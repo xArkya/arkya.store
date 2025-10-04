@@ -10,14 +10,15 @@ export { AgeVerificationContext };
 export const AgeVerificationProvider = ({ children }) => {
   // Estado para controlar si el usuario ha verificado su edad
   const [isAgeVerified, setIsAgeVerified] = useState(() => {
-    // Verificar si hay una confirmación global de edad en localStorage
-    return localStorage.getItem('globalAgeConfirmed') === 'true';
+    // Verificar si hay una confirmación global de edad en sessionStorage
+    // Esto hace que la verificación de edad solo persista durante la sesión actual
+    return sessionStorage.getItem('globalAgeConfirmed') === 'true';
   });
 
   // Función para verificar la edad
   const verifyAge = () => {
     setIsAgeVerified(true);
-    localStorage.setItem('globalAgeConfirmed', 'true');
+    sessionStorage.setItem('globalAgeConfirmed', 'true');
   };
 
   // Exponer el estado y las funciones a través del contexto

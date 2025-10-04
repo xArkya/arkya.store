@@ -78,7 +78,7 @@ export default function Hero() {
               position={'relative'}
               rounded={'2xl'}
               boxShadow={'2xl'}
-              width={'550px'}
+              width={'500px'}
               overflow={'hidden'}
               backgroundImage="linear-gradient(45deg, #241521, #3a2235)"
               transform={'perspective(1000px) rotateY(-5deg)'}

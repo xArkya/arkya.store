@@ -11,6 +11,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Stack,
   FormControl,
   FormLabel,
@@ -30,7 +31,7 @@ import {
   Badge,
 } from '@chakra-ui/react';
 import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
-import { ChevronDownIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import { products } from '../data/products';
@@ -41,12 +42,24 @@ import { offers } from '../data/offers';
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategory, setActiveCategory] = useState('todos');
-  const [activeSubcategory, setActiveSubcategory] = useState('');
+  const [activeCategory, setActiveCategory] = useState(() => {
+    // Intentar recuperar la categoría activa del sessionStorage al cargar
+    const savedCategory = sessionStorage.getItem('activeCategory');
+    return savedCategory || 'todos';
+  });
+  const [activeSubcategory, setActiveSubcategory] = useState(() => {
+    // Intentar recuperar la subcategoría activa del sessionStorage al cargar
+    return sessionStorage.getItem('activeSubcategory') || '';
+  });
   const [searchParams] = useSearchParams();
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    // Intentar recuperar la página actual del sessionStorage al cargar
+    // Esto hace que la página guardada solo persista durante la sesión actual
+    const savedPage = sessionStorage.getItem('currentPage');
+    return savedPage ? parseInt(savedPage) : 1;
+  });
   const [sortOption, setSortOption] = useState('newest-added');
-  const [showAdultContent, setShowAdultContent] = useState(true); // Mostrar contenido +18 por defecto
+  const [showAdultContent] = useState(true); // Mostrar contenido +18 por defecto (siempre true ahora)
   const [adultFilterActive, setAdultFilterActive] = useState(false);
   const PRODUCTS_PER_PAGE = 12;
   
@@ -68,13 +81,40 @@ export default function HomePage() {
   
   // Leer categoría y subcategoría de URL params al cargar
   useEffect(() => {
+    // Verificar si hay categoría guardada en sessionStorage
+    const savedCategory = sessionStorage.getItem('activeCategory');
+    const savedSubcategory = sessionStorage.getItem('activeSubcategory');
+    
+    // Obtener categoría y subcategoría de la URL
     const categoryFromUrl = searchParams.get('category');
     const subcategoryFromUrl = searchParams.get('subcategory');
     
+    // Priorizar la categoría guardada en sessionStorage
+    if (savedCategory) {
+      const categoryExists = categories.some(cat => cat.id === savedCategory);
+      if (categoryExists) {
+        setActiveCategory(savedCategory);
+        
+        if (savedSubcategory) {
+          const category = categories.find(cat => cat.id === savedCategory);
+          if (category && category.subcategories) {
+            const subcategoryExists = category.subcategories.some(subcat => subcat.id === savedSubcategory);
+            if (subcategoryExists) {
+              setActiveSubcategory(savedSubcategory);
+              return; // Salir del useEffect si se encontró categoría y subcategoría válidas
+            }
+          }
+        }
+        return; // Salir del useEffect si se encontró categoría válida
+      }
+    }
+    
+    // Si no hay categoría guardada en sessionStorage o no es válida, usar la de la URL
     if (categoryFromUrl) {
       const categoryExists = categories.some(cat => cat.id === categoryFromUrl);
       if (categoryExists) {
         setActiveCategory(categoryFromUrl);
+        sessionStorage.setItem('activeCategory', categoryFromUrl);
         
         if (subcategoryFromUrl) {
           const category = categories.find(cat => cat.id === categoryFromUrl);
@@ -82,22 +122,29 @@ export default function HomePage() {
           
           if (subcategoryExists) {
             setActiveSubcategory(subcategoryFromUrl);
+            sessionStorage.setItem('activeSubcategory', subcategoryFromUrl);
           } else {
             setActiveSubcategory('');
+            sessionStorage.setItem('activeSubcategory', '');
           }
         } else {
           setActiveSubcategory('');
+          sessionStorage.setItem('activeSubcategory', '');
         }
       } else {
         setActiveCategory('todos');
         setActiveSubcategory('');
+        sessionStorage.setItem('activeCategory', 'todos');
+        sessionStorage.setItem('activeSubcategory', '');
       }
     } else {
-      // Si no hay parámetro de categoría, mostrar todos
+      // Si no hay parámetro de categoría ni categoría guardada, mostrar todos
       setActiveCategory('todos');
       setActiveSubcategory('');
+      sessionStorage.setItem('activeCategory', 'todos');
+      sessionStorage.setItem('activeSubcategory', '');
     }
-  }, [searchParams]);
+  }, [searchParams]); // categories es una constante importada, no necesita estar en las dependencias
 
   // Aplicar ofertas globales a los productos
   const productsWithOffers = useMemo(() => {
@@ -275,6 +322,23 @@ export default function HomePage() {
     setActiveCategory(categoryId);
     setActiveSubcategory('');
     
+    // Desactivar el filtro de adultos si se selecciona una categoría que no sea 'adultos'
+    if (categoryId !== 'adultos') {
+      setAdultFilterActive(false);
+    }
+    
+    // Guardar la categoría en sessionStorage
+    sessionStorage.setItem('activeCategory', categoryId);
+    sessionStorage.setItem('activeSubcategory', '');
+    
+    // Guardar la página actual antes de cambiar
+    if (searchTerm) {
+      sessionStorage.setItem('lastPage', currentPage);
+    }
+    
+    setCurrentPage(1); // Reiniciar a la primera página al cambiar de categoría
+    sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
+    
     // Con HashRouter, no podemos usar window.history.replaceState directamente
     // En su lugar, podemos usar un enfoque diferente para actualizar la URL
     const params = new URLSearchParams();
@@ -288,6 +352,21 @@ export default function HomePage() {
   const handleSubcategoryClick = (categoryId, subcategoryId) => {
     setActiveCategory(categoryId);
     setActiveSubcategory(subcategoryId);
+    
+    // Siempre desactivar el filtro de adultos al seleccionar una subcategoría
+    setAdultFilterActive(false);
+    
+    // Guardar la categoría y subcategoría en sessionStorage
+    sessionStorage.setItem('activeCategory', categoryId);
+    sessionStorage.setItem('activeSubcategory', subcategoryId);
+    
+    // Guardar la página actual antes de cambiar
+    if (searchTerm) {
+      sessionStorage.setItem('lastPage', currentPage);
+    }
+    
+    setCurrentPage(1); // Reiniciar a la primera página al cambiar de subcategoría
+    sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
     
     // Con HashRouter, no podemos usar window.history.replaceState directamente
     // En su lugar, podemos usar un enfoque diferente para actualizar la URL
@@ -310,6 +389,9 @@ export default function HomePage() {
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
+      // Guardar la página actual en sessionStorage para mantenerla al actualizar
+      // pero que no persista entre sesiones
+      sessionStorage.setItem('currentPage', newPage.toString());
       // Scroll al inicio de la sección de productos
       const productsSection = document.getElementById('productos');
       if (productsSection) {
@@ -412,6 +494,11 @@ export default function HomePage() {
                 borderColor={activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'gray.300'}
                 variant={activeCategory === 'adultos' || adultFilterActive ? 'solid' : 'outline'}
                 onClick={() => {
+                  // Guardar la página actual antes de cambiar
+                  if (searchTerm) {
+                    sessionStorage.setItem('lastPage', currentPage);
+                  }
+                  
                   if (activeCategory === 'adultos') {
                     handleCategoryClick('todos');
                     setAdultFilterActive(false);
@@ -419,6 +506,8 @@ export default function HomePage() {
                     handleCategoryClick('adultos');
                     setAdultFilterActive(true);
                   }
+                  setCurrentPage(1); // Reiniciar a la primera página al cambiar filtro de adultos
+                  sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
                 }}
                 _hover={{
                   bg: activeCategory === 'adultos' || adultFilterActive ? 'red.600' : 'gray.100',
@@ -440,8 +529,8 @@ export default function HomePage() {
                       py={2}
                       minW="80px"
                       height="40px"
-                      bg={activeCategory === category.id && !activeSubcategory ? 'pink.400' : 'white'}
-                      color={activeCategory === category.id && !activeSubcategory ? 'white' : 'gray.800'}
+                      bg={activeCategory === category.id ? 'pink.400' : 'white'}
+                      color={activeCategory === category.id ? 'white' : 'gray.800'}
                       borderColor={activeCategory === category.id ? 'pink.400' : 'gray.300'}
                       variant={activeCategory === category.id ? 'solid' : 'outline'}
                       _hover={{
@@ -509,7 +598,24 @@ export default function HomePage() {
                   <Input 
                     placeholder="Buscar productos..." 
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => {
+                      const newSearchTerm = e.target.value;
+                      setSearchTerm(newSearchTerm);
+                      
+                      // Solo reiniciar a la primera página si hay texto en la búsqueda
+                      // Si se está eliminando todo el texto, no cambiar de página
+                      if (newSearchTerm && !searchTerm) {
+                        // Guardar la página actual antes de buscar
+                        sessionStorage.setItem('lastPage', currentPage);
+                        setCurrentPage(1);
+                      } else if (!newSearchTerm && searchTerm) {
+                        // Si se borró toda la búsqueda, restaurar la página anterior
+                        const lastPage = sessionStorage.getItem('lastPage');
+                        if (lastPage) {
+                          setCurrentPage(parseInt(lastPage));
+                        }
+                      }
+                    }}
                     borderRadius="md"
                     bg="whiteAlpha.200"
                     color="white"
@@ -517,70 +623,37 @@ export default function HomePage() {
                     _placeholder={{ color: 'whiteAlpha.700' }}
                     _hover={{ borderColor: 'whiteAlpha.400' }}
                     _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
+                    pr="2.5rem" // Espacio para el botón de limpiar
                   />
+                  {searchTerm && (
+                    <InputRightElement width="2.5rem">
+                      <IconButton
+                        h="1.75rem"
+                        size="sm"
+                        icon={<CloseIcon />}
+                        onClick={() => {
+                          setSearchTerm('');
+                          // Restaurar la página anterior
+                          const lastPage = sessionStorage.getItem('lastPage');
+                          if (lastPage) {
+                            setCurrentPage(parseInt(lastPage));
+                          }
+                        }}
+                        variant="ghost"
+                        colorScheme="whiteAlpha"
+                        aria-label="Limpiar búsqueda"
+                        _hover={{ bg: 'whiteAlpha.300' }}
+                      />
+                    </InputRightElement>
+                  )}
                 </InputGroup>
                 
-                {/* Toggle para mostrar/ocultar contenido adulto */}
-                <Tooltip label={showAdultContent ? "Ocultar contenido +18" : "Mostrar contenido +18"} placement="top">
-                  <Flex 
-                    align="center" 
-                    bg="whiteAlpha.200" 
-                    p={2} 
-                    borderRadius="md" 
-                    display={{ base: 'none', md: 'flex' }}
-                  >
-                    <Switch 
-                      colorScheme="red" 
-                      size="md" 
-                      isChecked={showAdultContent} 
-                      onChange={() => setShowAdultContent(!showAdultContent)}
-                      mr={2}
-                    />
-                    <Badge 
-                      colorScheme="red" 
-                      display="flex" 
-                      alignItems="center" 
-                      gap={1}
-                      fontSize="xs"
-                    >
-                      <FaExclamationTriangle size="0.8em" />
-                      +18
-                    </Badge>
-                  </Flex>
-                </Tooltip>
+                {/* El toggle para mostrar/ocultar contenido adulto ha sido eliminado */}
               </Flex>
               
               {/* Selector de ordenación (derecha) */}
               <Flex align="center" gap={4} width={{ base: '100%', md: 'auto' }}>
-                {/* Toggle para mostrar/ocultar contenido adulto (versión móvil) */}
-                <Tooltip label={showAdultContent ? "Ocultar contenido +18" : "Mostrar contenido +18"} placement="top">
-                  <Flex 
-                    align="center" 
-                    bg="whiteAlpha.200" 
-                    p={2} 
-                    borderRadius="md" 
-                    display={{ base: 'flex', md: 'none' }}
-                    width="100%"
-                    justify="space-between"
-                  >
-                    <Badge 
-                      colorScheme="red" 
-                      display="flex" 
-                      alignItems="center" 
-                      gap={1}
-                      fontSize="xs"
-                    >
-                      <FaExclamationTriangle size="0.8em" />
-                      Mostrar +18
-                    </Badge>
-                    <Switch 
-                      colorScheme="red" 
-                      size="md" 
-                      isChecked={showAdultContent} 
-                      onChange={() => setShowAdultContent(!showAdultContent)}
-                    />
-                  </Flex>
-                </Tooltip>
+                {/* El toggle para mostrar/ocultar contenido adulto (versión móvil) ha sido eliminado */}
                 
                 {/* Selector de ordenación */}
                 <Menu width={{ base: '100%', md: 'auto' }}>
@@ -629,13 +702,69 @@ export default function HomePage() {
                   </MenuButton>
                   <Portal>
                     <MenuList zIndex={1000}>
-                      <MenuItem onClick={() => { setSortOption('newest-added'); setCurrentPage(1); }}>Más recientes</MenuItem>
-                      <MenuItem onClick={() => { setSortOption('price-asc'); setCurrentPage(1); }}>Precio: menor a mayor</MenuItem>
-                      <MenuItem onClick={() => { setSortOption('price-desc'); setCurrentPage(1); }}>Precio: mayor a menor</MenuItem>
-                      <MenuItem onClick={() => { setSortOption('newest'); setCurrentPage(1); }}>Etiqueta nuevo</MenuItem>
-                      <MenuItem onClick={() => { setSortOption('offers'); setCurrentPage(1); }}>Mejores ofertas primero</MenuItem>
-                      <MenuItem onClick={() => { setSortOption('name-asc'); setCurrentPage(1); }}>Nombre: A-Z</MenuItem>
-                      <MenuItem onClick={() => { setSortOption('name-desc'); setCurrentPage(1); }}>Nombre: Z-A</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('newest-added'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Más recientes</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('price-asc'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Precio: menor a mayor</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('price-desc'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Precio: mayor a menor</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('newest'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Etiqueta nuevo</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('offers'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Mejores ofertas primero</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('name-asc'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Nombre: A-Z</MenuItem>
+                      <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('name-desc'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Nombre: Z-A</MenuItem>
                     </MenuList>
                   </Portal>
                 </Menu>
@@ -668,31 +797,91 @@ export default function HomePage() {
                       aria-label="Página anterior"
                     />
                     
-                    {/* Mostrar números de página */}
-                    {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                      // Lógica para mostrar páginas cercanas a la actual cuando hay muchas páginas
-                      let pageNum;
-                      if (totalPages <= 5) {
-                        pageNum = i + 1;
-                      } else if (currentPage <= 3) {
-                        pageNum = i + 1;
-                      } else if (currentPage >= totalPages - 2) {
-                        pageNum = totalPages - 4 + i;
-                      } else {
-                        pageNum = currentPage - 2 + i;
-                      }
+                    {/* Mostrar números de página con puntos suspensivos */}
+                    {(() => {
+                      // Array para almacenar los botones de página que se mostrarán
+                      const pageButtons = [];
                       
-                      return (
+                      // Siempre mostrar la primera página
+                      pageButtons.push(
                         <Button 
-                          key={pageNum}
-                          onClick={() => handlePageChange(pageNum)}
-                          variant={currentPage === pageNum ? "solid" : "outline"}
+                          key={1}
+                          onClick={() => handlePageChange(1)}
+                          variant={currentPage === 1 ? "solid" : "outline"}
                           colorScheme="pink"
                         >
-                          {pageNum}
+                          1
                         </Button>
                       );
-                    })}
+                      
+                      // Lógica para mostrar puntos suspensivos y páginas intermedias
+                      if (totalPages > 6) {
+                        // Si la página actual está cerca del inicio
+                        if (currentPage <= 3) {
+                          pageButtons.push(
+                            <Button key={2} onClick={() => handlePageChange(2)} variant={currentPage === 2 ? "solid" : "outline"} colorScheme="pink">2</Button>,
+                            <Button key={3} onClick={() => handlePageChange(3)} variant={currentPage === 3 ? "solid" : "outline"} colorScheme="pink">3</Button>
+                          );
+                          pageButtons.push(
+                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                          );
+                        } 
+                        // Si la página actual está cerca del final
+                        else if (currentPage >= totalPages - 2) {
+                          pageButtons.push(
+                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                          );
+                          pageButtons.push(
+                            <Button key={totalPages-2} onClick={() => handlePageChange(totalPages-2)} variant={currentPage === totalPages-2 ? "solid" : "outline"} colorScheme="pink">{totalPages-2}</Button>,
+                            <Button key={totalPages-1} onClick={() => handlePageChange(totalPages-1)} variant={currentPage === totalPages-1 ? "solid" : "outline"} colorScheme="pink">{totalPages-1}</Button>
+                          );
+                        } 
+                        // Si la página actual está en el medio
+                        else {
+                          pageButtons.push(
+                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                          );
+                          pageButtons.push(
+                            <Button key={currentPage-1} onClick={() => handlePageChange(currentPage-1)} variant="outline" colorScheme="pink">{currentPage-1}</Button>,
+                            <Button key={currentPage} onClick={() => handlePageChange(currentPage)} variant="solid" colorScheme="pink">{currentPage}</Button>,
+                            <Button key={currentPage+1} onClick={() => handlePageChange(currentPage+1)} variant="outline" colorScheme="pink">{currentPage+1}</Button>
+                          );
+                          pageButtons.push(
+                            <Button key="ellipsis2" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                          );
+                        }
+                      } else if (totalPages > 1) {
+                        // Para menos páginas, mostrar todas sin puntos suspensivos
+                        for (let i = 2; i < totalPages; i++) {
+                          pageButtons.push(
+                            <Button 
+                              key={i}
+                              onClick={() => handlePageChange(i)}
+                              variant={currentPage === i ? "solid" : "outline"}
+                              colorScheme="pink"
+                            >
+                              {i}
+                            </Button>
+                          );
+                        }
+                      }
+                      
+                      // Siempre mostrar la última página si hay más de una página
+                      if (totalPages > 1) {
+                        pageButtons.push(
+                          <Button 
+                            key={totalPages}
+                            onClick={() => handlePageChange(totalPages)}
+                            variant={currentPage === totalPages ? "solid" : "outline"}
+                            colorScheme="pink"
+                          >
+                            {totalPages}
+                          </Button>
+                        );
+                      }
+                      
+                      return pageButtons;
+                    })()}
                     
                     <IconButton 
                       icon={<FaChevronRight />} 

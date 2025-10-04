@@ -22,9 +22,12 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Center
+  Center,
+  Icon,
+  List,
+  ListItem
 } from '@chakra-ui/react';
-import { FaShoppingBag, FaEye, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
+import { FaShoppingBag, FaEye, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaInstagram } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
@@ -34,7 +37,10 @@ export default function ProductCard({ product }) {
   const { id, name, price, image, images, category, isNew, description, isOnOffer, originalPrice, discountPercentage, inStock = true, adultContent = false } = product;
   const { addToCart } = useCart();
   const toast = useToast();
+  // Modal para verificación de edad
   const { isOpen, onOpen, onClose } = useDisclosure();
+  // Modal para consulta por Instagram
+  const { isOpen: isConsultOpen, onOpen: onConsultOpen, onClose: onConsultClose } = useDisclosure();
   
   // Usar el contexto global de verificación de edad
   const { isAgeVerified, verifyAge } = useAgeVerification();
@@ -58,6 +64,12 @@ export default function ProductCard({ product }) {
     if (adultContent && !isAgeVerified) {
       e.preventDefault();
       onOpen();
+    } else {
+      // Guardar la página actual en sessionStorage antes de navegar al producto
+      const currentPage = sessionStorage.getItem('currentPage');
+      if (currentPage) {
+        sessionStorage.setItem('lastViewedPage', currentPage);
+      }
     }
   };
   
@@ -406,16 +418,28 @@ export default function ProductCard({ product }) {
           
           <Button
             size="sm"
-            colorScheme={inStock ? "green" : "gray"}
-            leftIcon={<FaShoppingBag />}
-            onClick={handleAddToCart}
+            colorScheme={inStock ? "green" : "brand"}
+            leftIcon={inStock ? <FaShoppingBag /> : <FaInstagram />}
+            onClick={(e) => {
+              e?.preventDefault();
+              e?.stopPropagation();
+              
+              if (inStock) {
+                // Funcionalidad normal de agregar al carrito
+                handleAddToCart(e);
+              } else {
+                // Abrir modal de consulta por Instagram
+                onConsultOpen();
+              }
+            }}
             borderRadius="md"
-            isDisabled={!inStock}
             _hover={{
-              bg: inStock ? "green.500" : "gray.400"
+              bg: inStock ? "green.500" : "brand.500",
+              transform: !inStock ? 'translateY(-2px)' : 'none',
+              boxShadow: !inStock ? 'md' : 'none'
             }}
           >
-            {inStock ? "Agregar" : "Sin Stock"}
+            {inStock ? "Agregar" : "Consultar"}
           </Button>
         </Flex>
       </VStack>
@@ -469,6 +493,139 @@ export default function ProductCard({ product }) {
             <Button colorScheme="green" size="lg" onClick={handleConfirmAge} flex={1}>
               Sí, soy mayor de 18
             </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      
+      {/* Modal de consulta por Instagram */}
+      <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="md">
+        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
+        <ModalContent bg="#241521" color="white" borderRadius="lg" boxShadow="xl">
+          <ModalHeader borderBottomWidth="1px" borderColor="whiteAlpha.300">
+            <Flex align="center" gap={2}>
+              <Icon as={FaInstagram} />
+              <Text>Consultar por Instagram</Text>
+            </Flex>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6} pt={4}>
+            <VStack spacing={4} align="start">
+              <Text>
+                Para consultar sobre este producto a través de Instagram, sigue estos pasos:
+              </Text>
+              <List spacing={3}>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>1</Badge>
+                  <Text>Haz clic en "Copiar y abrir Instagram"</Text>
+                </ListItem>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>2</Badge>
+                  <Text>Se copiará automáticamente un mensaje con el nombre del producto</Text>
+                </ListItem>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>3</Badge>
+                  <Text>Se abrirá Instagram en una nueva pestaña</Text>
+                </ListItem>
+                <ListItem display="flex" alignItems="center">
+                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>4</Badge>
+                  <Text>Pega el mensaje (Ctrl+V o Cmd+V) en el chat</Text>
+                </ListItem>
+              </List>
+              <Text fontWeight="bold" mt={2}>
+                Mensaje que se copiará:
+              </Text>
+              <Box
+                p={4}
+                bg="whiteAlpha.100"
+                borderRadius="md"
+                width="100%"
+                borderLeft="4px solid"
+                borderColor="brand.500">
+                <Text fontStyle="italic">
+                  Hola, me interesa el producto: {name} (actualmente sin stock)
+                </Text>
+              </Box>
+            </VStack>
+          </ModalBody>
+
+          <ModalFooter borderTopWidth="1px" borderColor="whiteAlpha.300">
+            <Button
+              colorScheme="brand"
+              mr={3}
+              leftIcon={<FaInstagram />}
+              onClick={() => {
+                try {
+                  const message = `Hola, me interesa el producto: ${name} (actualmente sin stock)`;
+                  
+                  // Usar la API moderna de Clipboard
+                  navigator.clipboard.writeText(message)
+                    .then(() => {
+                      // Mostrar notificación de éxito
+                      toast({
+                        title: "\u00a1Mensaje copiado!",
+                        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+                        status: "success",
+                        duration: 5000,
+                        isClosable: true,
+                        position: "top-right"
+                      });
+                      
+                      // Cerrar modal
+                      onConsultClose();
+                      
+                      // Abrir Instagram después de un breve retraso
+                      setTimeout(() => {
+                        window.open("https://ig.me/m/arkya.store", "_blank");
+                      }, 500);
+                    })
+                    .catch(err => {
+                      console.error('Error al copiar con Clipboard API:', err);
+                      // Fallback al método antiguo si la API moderna falla
+                      const textArea = document.createElement("textarea");
+                      textArea.value = message;
+                      textArea.style.position = "fixed";
+                      textArea.style.opacity = "0";
+                      document.body.appendChild(textArea);
+                      textArea.select();
+                      document.execCommand('copy');
+                      document.body.removeChild(textArea);
+                      
+                      toast({
+                        title: "\u00a1Mensaje copiado!",
+                        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+                        status: "success",
+                        duration: 5000,
+                        isClosable: true,
+                        position: "top-right"
+                      });
+                      
+                      onConsultClose();
+                      
+                      setTimeout(() => {
+                        window.open("https://ig.me/m/arkya.store", "_blank");
+                      }, 500);
+                    });
+                } catch (err) {
+                  console.error('Error al copiar:', err);
+                  toast({
+                    title: "Error",
+                    description: "No se pudo copiar el mensaje. Por favor, inténtalo de nuevo.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                    position: "top-right"
+                  });
+                }
+              }}
+              size="lg"
+              borderRadius="md"
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}>
+              Copiar y abrir Instagram
+            </Button>
+            <Button variant="ghost" onClick={onConsultClose}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
