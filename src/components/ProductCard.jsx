@@ -110,15 +110,30 @@ export default function ProductCard({ product }) {
       return;
     }
     
-    addToCart(product);
-    toast({
-      title: "¡Producto agregado!",
-      description: `${name} se ha añadido al carrito.`,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-      position: "top-right"
-    });
+    // addToCart ahora devuelve true si se agregó el producto, false si ya estaba en el carrito
+    const added = addToCart(product);
+    
+    if (added) {
+      // Si se agregó correctamente
+      toast({
+        title: "¡Producto agregado!",
+        description: `${name} se ha añadido al carrito`,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right"
+      });
+    } else {
+      // Si el producto ya estaba en el carrito
+      toast({
+        title: "Producto ya en carrito",
+        description: `${name} ya está en tu carrito`,
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right"
+      });
+    }
   };
 
   return (

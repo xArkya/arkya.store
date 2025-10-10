@@ -2,18 +2,39 @@ import { useState, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import { useToast } from '@chakra-ui/react';
 
+const CART_PLACEHOLDER_IMAGE = `data:image/svg+xml;utf8,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none"><rect width="80" height="80" rx="10" fill="#F1F1F1"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666666">Sin imagen</text></svg>'
+)} `;
+
 // Función para optimizar los datos del producto antes de guardarlos
 const optimizeProductData = (product) => {
   // Extraer solo los campos absolutamente esenciales para el carrito
   // Reducimos al máximo para permitir muchos productos
+  // Asegurarse de que siempre tengamos una imagen válida
+  let imageValue;
+  const numericPrice = Number(product.price) || 0;
+  
+  if (!product.image) {
+    // Si no hay imagen, usar un placeholder
+    imageValue = CART_PLACEHOLDER_IMAGE;
+  } else if (typeof product.image === 'string') {
+    // Guardar la cadena tal cual (puede ser data URL o una URL remota)
+    imageValue = product.image;
+  } else {
+    // Para cualquier otro tipo, usar placeholder
+    imageValue = CART_PLACEHOLDER_IMAGE;
+  }
+  
+  // Asegurar que la imagen no sea undefined o null
+  if (!imageValue) {
+    imageValue = CART_PLACEHOLDER_IMAGE;
+  }
+  
   return {
     id: product.id,
     name: product.name,
-    price: product.price,
-    // Guardar solo la primera imagen o una referencia mínima
-    image: typeof product.image === 'string' && product.image.startsWith('data:') 
-      ? 'img_' + product.id // Para imágenes data:URL, solo guardar una referencia
-      : product.image,
+    price: numericPrice,
+    image: imageValue,
     // Solo guardar flags booleanos y valores numéricos esenciales
     ...(product.isOnOffer ? { isOnOffer: true } : {}),
     ...(product.discountPercentage ? { discountPercentage: product.discountPercentage } : {})
@@ -28,9 +49,10 @@ const compressCartData = (cart) => {
     const optimized = optimizeProductData(item);
     return {
       i: optimized.id, // id del producto
-      q: item.quantity, // cantidad
-      p: optimized.price, // precio
+      p: Number(item.price ?? optimized.price) || 0, // precio
+      q: typeof item.quantity === 'number' && !Number.isNaN(item.quantity) ? item.quantity : 1,
       n: optimized.name.substring(0, 20), // nombre truncado
+      img: item.image || optimized.image,
       ...(optimized.isOnOffer ? { o: optimized.discountPercentage } : {}) // descuento si hay oferta
     };
   });
@@ -42,12 +64,28 @@ const decompressCartData = (compressedCart, productsCache) => {
     // Intentar recuperar datos completos desde cache si están disponibles
     const cachedProduct = productsCache[item.i];
     
+    // Intentar obtener la imagen desde el caché o usar una URL de placeholder
+    let imageUrl = item.img || CART_PLACEHOLDER_IMAGE;
+    
+    if (cachedProduct && cachedProduct.image) {
+      imageUrl = cachedProduct.image;
+    } else if (typeof item.i === 'string' && item.i.startsWith('img_')) {
+      const productId = item.i.replace('img_', '');
+      const cachedImage = productsCache[productId]?.image;
+      if (cachedImage) {
+        imageUrl = cachedImage;
+      }
+    }
+    
+    const quantity = typeof item.q === 'number' && !Number.isNaN(item.q) ? item.q : 1;
+    const price = typeof item.p === 'number' && !Number.isNaN(item.p) ? item.p : Number(item.p) || 0;
+    
     return {
       id: item.i,
       name: item.n || (cachedProduct ? cachedProduct.name : `Producto ${item.i}`),
-      price: item.p,
-      image: cachedProduct ? cachedProduct.image : null,
-      quantity: item.q,
+      price,
+      image: imageUrl, // Nunca será null
+      quantity,
       ...(item.o ? { isOnOffer: true, discountPercentage: item.o } : {})
     };
   });
@@ -134,20 +172,6 @@ export const CartProvider = ({ children }) => {
       if (newErrorState !== storageError) {
         setStorageError(newErrorState);
       }
-      
-      // Solo mostrar notificación de error si realmente no se pudo guardar
-      // después de todos los intentos de optimización
-      if (newErrorState && !errorNotified) {
-        toast({
-          title: 'Advertencia de almacenamiento',
-          description: 'Algunos datos del carrito podrían no guardarse completamente. Tus productos están seguros, pero considera finalizar tu compra pronto.',
-          status: 'warning',
-          duration: 3000,
-          isClosable: true,
-          position: 'top'
-        });
-        setErrorNotified(true);
-      }
     } else {
       // Si el carrito está vacío, simplemente limpiarlo
       try {
@@ -158,7 +182,29 @@ export const CartProvider = ({ children }) => {
         console.error('Error al limpiar el carrito en localStorage:', error);
       }
     }
-  }, [cart, storageError, errorNotified, toast]);
+  }, [cart, storageError]);
+  
+  // Efecto separado para manejar las notificaciones
+  useEffect(() => {
+    // Solo mostrar notificación de error si realmente no se pudo guardar
+    // después de todos los intentos de optimización
+    if (storageError && !errorNotified) {
+      // Usamos setTimeout para asegurarnos de que la notificación se muestre después del renderizado
+      const timer = setTimeout(() => {
+        toast({
+          title: 'Advertencia de almacenamiento',
+          description: 'Algunos datos del carrito podrían no guardarse completamente. Tus productos están seguros, pero considera finalizar tu compra pronto.',
+          status: 'warning',
+          duration: 3000,
+          isClosable: true,
+          position: 'top'
+        });
+        setErrorNotified(true);
+      }, 0);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [storageError, errorNotified, toast]);
   
   // Actualizar cache de productos cuando se agregan al carrito
   useEffect(() => {
@@ -184,47 +230,40 @@ export const CartProvider = ({ children }) => {
   }, [cart, productsCache]);
 
   // Agregar un producto al carrito
-  const addToCart = (product, quantity = 1) => {
+  const addToCart = (product) => {
+    // Asegurarse de que el producto tenga una imagen válida antes de guardarlo en caché
+    const safeImage = product.image || CART_PLACEHOLDER_IMAGE;
+    const numericPrice = Number(product.price) || 0;
+    
     // Agregar al cache de productos para mantener datos completos en memoria
     setProductsCache(prev => ({
       ...prev,
       [product.id]: {
         name: product.name,
-        price: product.price,
-        image: product.image
+        price: numericPrice,
+        image: safeImage
       }
     }));
     
+    // Verificar si el producto ya está en el carrito antes de intentar agregarlo
+    const existingItemIndex = cart.findIndex(item => item.id === product.id);
+    
+    // Si el producto ya existe en el carrito, devolvemos false para indicar que no se agregó
+    if (existingItemIndex >= 0) {
+      return false;
+    }
+    
+    // Si el producto no existe en el carrito, lo agregamos
     setCart(prevCart => {
-      // Verificar si el producto ya está en el carrito
-      const existingItemIndex = prevCart.findIndex(item => item.id === product.id);
+      // Si el producto no existe, agregarlo al carrito con datos ultra-optimizados
+      const optimizedProduct = optimizeProductData(product);
+      const result = [...prevCart, { ...optimizedProduct, quantity: 1 }];
       
-      if (existingItemIndex >= 0) {
-        // Si el producto ya existe, actualizar la cantidad
-        const updatedCart = [...prevCart];
-        updatedCart[existingItemIndex] = {
-          ...updatedCart[existingItemIndex],
-          quantity: updatedCart[existingItemIndex].quantity + quantity
-        };
-        return updatedCart;
-      } else {
-        // Si el producto no existe, agregarlo al carrito con datos ultra-optimizados
-        const optimizedProduct = optimizeProductData(product);
-        const result = [...prevCart, { ...optimizedProduct, quantity }];
-        
-        // Mostrar notificación de éxito
-        toast({
-          title: 'Producto agregado',
-          description: `${product.name} se ha agregado al carrito`,
-          status: 'success',
-          duration: 2000,
-          isClosable: true,
-          position: 'top-right'
-        });
-        
-        return result;
-      }
+      return result;
     });
+    
+    // Devolvemos true para indicar que el producto se agregó correctamente
+    return true;
   };
 
   // Eliminar un producto del carrito
@@ -232,19 +271,7 @@ export const CartProvider = ({ children }) => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
 
-  // Actualizar la cantidad de un producto
-  const updateQuantity = (productId, quantity) => {
-    if (quantity <= 0) {
-      removeFromCart(productId);
-      return;
-    }
-
-    setCart(prevCart => 
-      prevCart.map(item => 
-        item.id === productId ? { ...item, quantity } : item
-      )
-    );
-  };
+  // Ya no permitimos actualizar la cantidad de productos en el carrito
 
   // Limpiar el carrito
   const clearCart = () => {
@@ -262,7 +289,6 @@ export const CartProvider = ({ children }) => {
     cart,
     addToCart,
     removeFromCart,
-    updateQuantity,
     clearCart,
     cartItemsCount,
     cartTotal,

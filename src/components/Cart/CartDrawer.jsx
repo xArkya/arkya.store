@@ -31,11 +31,16 @@ import {
   ListItem,
   ListIcon
 } from '@chakra-ui/react';
-import { FaTrash, FaPlus, FaMinus, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 import { useCart } from '../../context/useCart';
+import { Link as RouterLink } from 'react-router-dom';
+
+const CART_PLACEHOLDER_IMAGE = `data:image/svg+xml;utf8,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none"><rect width="80" height="80" rx="10" fill="#F1F1F1"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666666">Sin imagen</text></svg>'
+)} `;
 
 const CartDrawer = ({ isOpen, onClose }) => {
-  const { cart, removeFromCart, updateQuantity, clearCart, cartTotal } = useCart();
+  const { cart, removeFromCart, clearCart, cartTotal, productsCache } = useCart();
   const toast = useToast();
   const { isOpen: isInstructionsOpen, onOpen: onInstructionsOpen, onClose: onInstructionsClose } = useDisclosure();
   
@@ -145,46 +150,75 @@ const CartDrawer = ({ isOpen, onClose }) => {
               </Flex>
             ) : (
               <VStack spacing={4} align="stretch" divider={<Divider />}>
-                {cart.map((item) => (
-                  <Box key={item.id} p={3} borderRadius="md" bg={itemBgColor}>
-                    <Flex>
-                      <Image 
-                        src={item.image} 
-                        alt={item.name} 
-                        boxSize="80px" 
-                        objectFit="cover" 
-                        borderRadius="md"
-                        mr={3}
-                      />
-                      <Flex flex="1" direction="column" justify="space-between">
-                        <Text fontWeight="bold" color={textColor}>{item.name}</Text>
-                        <Text color={textColor}>${item.price.toLocaleString()}</Text>
-                        <HStack spacing={2}>
-                          <IconButton 
-                            icon={<FaMinus />} 
-                            size="xs" 
-                            aria-label="Decrease quantity" 
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                {cart.map((item) => {
+                  const resolveImage = () => {
+                    if (!item) return CART_PLACEHOLDER_IMAGE;
+
+                    if (item.image && typeof item.image === 'string') {
+                      if (item.image.startsWith('data:')) {
+                        return item.image;
+                      }
+
+                      if (item.image.startsWith('http')) {
+                        return item.image;
+                      }
+
+                      if (item.image.startsWith('img_')) {
+                        const cachedImage = productsCache?.[item.id]?.image;
+                        if (cachedImage) {
+                          return cachedImage;
+                        }
+                      } else {
+                        return item.image;
+                      }
+                    }
+
+                    const cachedImage = productsCache?.[item.id]?.image;
+                    if (cachedImage) {
+                      return cachedImage;
+                    }
+
+                    return CART_PLACEHOLDER_IMAGE;
+                  };
+
+                  const imageSrc = resolveImage();
+
+                  return (
+                    <Box key={item.id} p={3} borderRadius="md" bg={itemBgColor}>
+                      <Flex align="stretch" gap={3}>
+                        <RouterLink to={`/product/${item.id}`} style={{ display: 'flex' }} onClick={onClose}>
+                          <Image
+                            src={imageSrc}
+                            alt={item.name}
+                            boxSize="80px"
+                            objectFit="cover"
+                            borderRadius="md"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = CART_PLACEHOLDER_IMAGE;
+                            }}
                           />
-                          <Text color={textColor}>{item.quantity}</Text>
-                          <IconButton 
-                            icon={<FaPlus />} 
-                            size="xs" 
-                            aria-label="Increase quantity" 
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          />
-                          <IconButton 
-                            icon={<FaTrash />} 
-                            size="xs" 
-                            aria-label="Remove item" 
-                            onClick={() => removeFromCart(item.id)}
-                            ml="auto"
-                          />
-                        </HStack>
+                        </RouterLink>
+                        <Flex flex="1" direction="column" justify="space-between">
+                          <RouterLink to={`/product/${item.id}`} onClick={onClose}>
+                            <Text fontWeight="bold" color={textColor} _hover={{ textDecoration: 'underline' }}>
+                              {item.name}
+                            </Text>
+                          </RouterLink>
+                          <Text color={textColor}>${item.price.toLocaleString()}</Text>
+                          <Flex justify="flex-end" align="center" w="100%">
+                            <IconButton
+                              icon={<FaTrash />}
+                              size="xs"
+                              aria-label="Remove item"
+                              onClick={() => removeFromCart(item.id)}
+                            />
+                          </Flex>
+                        </Flex>
                       </Flex>
-                    </Flex>
-                  </Box>
-                ))}
+                    </Box>
+                  );
+                })}
               </VStack>
             )}
           </DrawerBody>

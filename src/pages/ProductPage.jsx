@@ -893,15 +893,29 @@ export default function ProductPage() {
                 onClick={() => {
                   if (product.inStock) {
                     // Funcionalidad normal de agregar al carrito
-                    addToCart(product);
-                    toast({
-                      title: "¡Producto agregado!",
-                      description: `${product.name} se ha añadido al carrito.`,
-                      status: "success",
-                      duration: 3000,
-                      isClosable: true,
-                      position: "top"
-                    });
+                    const added = addToCart(product);
+                    
+                    if (added) {
+                      // Si se agregó correctamente
+                      toast({
+                        title: "¡Producto agregado!",
+                        description: `${product.name} se ha añadido al carrito.`,
+                        status: "success",
+                        duration: 3000,
+                        isClosable: true,
+                        position: "top"
+                      });
+                    } else {
+                      // Si el producto ya estaba en el carrito
+                      toast({
+                        title: "Producto ya en carrito",
+                        description: `${product.name} ya está en tu carrito.`,
+                        status: "info",
+                        duration: 3000,
+                        isClosable: true,
+                        position: "top"
+                      });
+                    }
                   } else {
                     // Abrir modal de consulta por Instagram
                     onConsultOpen();
