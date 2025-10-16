@@ -51,7 +51,7 @@ const compressCartData = (cart) => {
       i: optimized.id, // id del producto
       p: Number(item.price ?? optimized.price) || 0, // precio
       q: typeof item.quantity === 'number' && !Number.isNaN(item.quantity) ? item.quantity : 1,
-      n: optimized.name.substring(0, 20), // nombre truncado
+      n: optimized.name, // nombre completo
       img: item.image || optimized.image,
       ...(optimized.isOnOffer ? { o: optimized.discountPercentage } : {}) // descuento si hay oferta
     };

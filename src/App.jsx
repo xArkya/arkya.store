@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { Box } from '@chakra-ui/react'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
@@ -30,6 +30,7 @@ function App() {
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/terminos" element={<TermsPage />} />
           <Route path="/preguntas-frecuentes" element={<FAQPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Box>
       <Footer />
