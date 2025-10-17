@@ -39,7 +39,7 @@ import {
   PopoverBody,
   PopoverArrow,
 } from '@chakra-ui/react';
-import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaTh, FaThLarge } from 'react-icons/fa';
+import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
@@ -72,17 +72,6 @@ export default function HomePage() {
     return savedPage ? parseInt(savedPage) : 1;
   });
   const [sortOption, setSortOption] = useState('newest-added');
-  
-  // Estado para modo de vista
-  const [viewMode, setViewMode] = useState(() => {
-    const saved = localStorage.getItem('viewMode');
-    return saved || 'grid'; // 'grid', 'list', 'compact'
-  });
-  
-  // Guardar modo de vista en localStorage
-  useEffect(() => {
-    localStorage.setItem('viewMode', viewMode);
-  }, [viewMode]);
   
   // Estado para búsqueda mejorada
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -1024,28 +1013,6 @@ export default function HomePage() {
                   </PopoverContent>
                 </Popover>
                 
-                {/* Botones de modo de vista */}
-                <ButtonGroup size="md" isAttached variant="outline" display={{ base: 'none', md: 'flex' }}>
-                  <IconButton
-                    icon={<FaTh />}
-                    aria-label="Vista en grilla"
-                    onClick={() => setViewMode('grid')}
-                    colorScheme={viewMode === 'grid' ? 'pink' : 'gray'}
-                    bg={viewMode === 'grid' ? 'pink.500' : 'whiteAlpha.200'}
-                    color="white"
-                    _hover={{ bg: viewMode === 'grid' ? 'pink.600' : 'whiteAlpha.300' }}
-                  />
-                  <IconButton
-                    icon={<FaThLarge />}
-                    aria-label="Vista compacta"
-                    onClick={() => setViewMode('compact')}
-                    colorScheme={viewMode === 'compact' ? 'pink' : 'gray'}
-                    bg={viewMode === 'compact' ? 'pink.500' : 'whiteAlpha.200'}
-                    color="white"
-                    _hover={{ bg: viewMode === 'compact' ? 'pink.600' : 'whiteAlpha.300' }}
-                  />
-                </ButtonGroup>
-                
                 {/* Selector de ordenación */}
                 <Menu width={{ base: '100%', md: 'auto' }}>
                   <MenuButton 
@@ -1166,11 +1133,8 @@ export default function HomePage() {
           {sortedProducts.length > 0 ? (
             <>
               <SimpleGrid 
-                columns={
-                  viewMode === 'compact' ? { base: 2, sm: 3, md: 4, lg: 6 } :
-                  { base: 1, sm: 2, md: 3, lg: 4 }
-                }
-                spacing={viewMode === 'compact' ? 4 : 6}
+                columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                spacing={6}
                 justifyItems="center"
                 mx="auto"
                 mb={8}

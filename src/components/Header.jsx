@@ -25,7 +25,6 @@ import {
 } from '@chakra-ui/icons';
 import { FaInstagram, FaShoppingBag } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
-import CartButton from './Cart/CartButton';
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
@@ -85,7 +84,6 @@ export default function Header() {
           direction={'row'}
           spacing={6}
           align="center">
-          <CartButton />
           <Button
             as={'a'}
             fontSize={'sm'}
