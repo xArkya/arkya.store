@@ -144,7 +144,6 @@ export default function ProductCard({ product }) {
       <MotionBox
         as={LinkBox}
         w="100%"
-        maxW="300px"
         borderRadius="lg"
         overflow="hidden"
         bg={cardBg}
@@ -407,12 +406,11 @@ export default function ProductCard({ product }) {
         </Heading>
         
         {/* Botón de compartir (copiar link) */}
-        <Box position="absolute" top={2} right={2} zIndex={2}>
+        <Box position="absolute" top={2} left={2} zIndex={2}>
           <IconButton
             icon={<FaShareAlt />}
             size="xs"
             variant="ghost"
-            colorScheme="whiteAlpha"
             aria-label="Copiar enlace"
             opacity={0.7}
             _groupHover={{ opacity: 1 }}
@@ -420,7 +418,7 @@ export default function ProductCard({ product }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              const url = `${window.location.origin}/#/product/${id}`;
+              const url = `${window.location.origin}/arkya.store/#/product/${id}`;
               navigator.clipboard.writeText(url).then(() => {
                 toast({
                   title: '¡Enlace copiado!',
@@ -501,51 +499,108 @@ export default function ProductCard({ product }) {
     </MotionBox>
 
       {/* Modal de confirmación de edad */}
-      <Modal isOpen={isOpen} onClose={onClose} isCentered closeOnOverlayClick={false}>
-        <ModalOverlay backdropFilter="blur(10px)" />
-        <ModalContent bg="#241521" color="white" borderRadius="lg" borderWidth="2px" borderColor="red.500">
-          <ModalHeader bg="red.600" borderTopRadius="lg" textAlign="center">
+      <Modal isOpen={isOpen} onClose={onClose} isCentered closeOnOverlayClick={false} size="md">
+        <ModalOverlay 
+          bg="blackAlpha.800" 
+          backdropFilter="blur(12px)" 
+        />
+        <ModalContent 
+          bg="#241521" 
+          color="white" 
+          borderRadius="xl" 
+          borderWidth="2px" 
+          borderColor="red.500"
+          overflow="hidden"
+          mx={4}
+        >
+          <ModalHeader 
+            bg="linear-gradient(135deg, #DC2626 0%, #991B1B 100%)" 
+            textAlign="center"
+            py={4}
+            fontSize={{ base: 'lg', md: 'xl' }}
+            fontWeight="bold"
+          >
             VERIFICACIÓN DE EDAD
           </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pt={6}>
-            <VStack spacing={4} align="center">
-              <Box position="relative" p={2}>
-                <FaExclamationTriangle size="4em" color="#FFC107" />
+          <ModalCloseButton color="white" _hover={{ bg: 'whiteAlpha.200' }} />
+          
+          <ModalBody py={8} px={6}>
+            <VStack spacing={6} align="center">
+              <Box position="relative">
+                <Box
+                  bg="yellow.500"
+                  borderRadius="full"
+                  p={6}
+                  boxShadow="0 0 30px rgba(251, 191, 36, 0.4)"
+                >
+                  <FaExclamationTriangle size="3em" color="#1A1A1A" />
+                </Box>
                 <Box 
                   position="absolute" 
-                  top="0" 
-                  right="-10px" 
+                  top="-5px" 
+                  right="-5px" 
                   bg="red.600" 
                   color="white" 
                   borderRadius="full" 
-                  width="30px" 
-                  height="30px"
+                  width="40px" 
+                  height="40px"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
                   fontWeight="bold"
+                  fontSize="lg"
+                  border="3px solid #241521"
+                  boxShadow="lg"
                 >
                   18+
                 </Box>
               </Box>
-              <Text fontSize="lg" textAlign="center">
-                Este producto contiene contenido exclusivo para adultos.
-              </Text>
-              <Text fontWeight="bold" fontSize="xl" textAlign="center">
-                ¿Confirmas que eres mayor de 18 años?
-              </Text>
-              <Text fontSize="sm" color="gray.300" textAlign="center">
-                Al confirmar, declaras que tienes la edad legal para ver este contenido.
-              </Text>
+              
+              <VStack spacing={3}>
+                <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" color="gray.200">
+                  Este producto contiene contenido exclusivo para adultos.
+                </Text>
+                <Text fontWeight="bold" fontSize={{ base: 'xl', md: '2xl' }} textAlign="center">
+                  ¿Confirmas que eres mayor de 18 años?
+                </Text>
+                <Text fontSize="sm" color="gray.400" textAlign="center" px={4}>
+                  Al confirmar, declaras que tienes la edad legal para ver este contenido.
+                </Text>
+              </VStack>
             </VStack>
           </ModalBody>
 
-          <ModalFooter justifyContent="center" gap={4}>
-            <Button colorScheme="red" size="lg" onClick={onClose} flex={1}>
+          <ModalFooter 
+            justifyContent="center" 
+            gap={3} 
+            pb={6}
+            px={6}
+            flexDirection={{ base: 'column', sm: 'row' }}
+          >
+            <Button 
+              colorScheme="red" 
+              size="lg" 
+              onClick={onClose} 
+              flex={1}
+              width={{ base: 'full', sm: 'auto' }}
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}
+            >
               No, salir
             </Button>
-            <Button colorScheme="green" size="lg" onClick={handleConfirmAge} flex={1}>
+            <Button 
+              colorScheme="green" 
+              size="lg" 
+              onClick={handleConfirmAge} 
+              flex={1}
+              width={{ base: 'full', sm: 'auto' }}
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}
+            >
               Sí, soy mayor de 18
             </Button>
           </ModalFooter>

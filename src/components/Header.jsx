@@ -33,9 +33,9 @@ export default function Header() {
     <Box>
       <Flex
         color={useColorModeValue('white', 'white')}
-        minH={'60px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
+        minH={{ base: '50px', md: '60px' }}
+        py={{ base: 1, md: 2 }}
+        px={{ base: 2, md: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('#342730', 'gray.900')}
@@ -60,14 +60,19 @@ export default function Header() {
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} align="center">
           <RouterLink to="/">
             <Flex align="center">
-              <Box mr={2}>
-                <img src="./images/logo2.png" alt="Arkya Logo" width="30" height="30" />
+              <Box mr={{ base: 1, md: 2 }}>
+                <img 
+                  src="./images/logo2.png" 
+                  alt="Arkya Logo" 
+                  width={useBreakpointValue({ base: '24', md: '30' })}
+                  height={useBreakpointValue({ base: '24', md: '30' })}
+                />
               </Box>
               <Heading
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                 fontFamily={'heading'}
                 color={useColorModeValue('white', 'white')}
-                fontSize="xl">
+                fontSize={{ base: 'md', md: 'xl' }}>
                 Arkya Store
               </Heading>
             </Flex>
@@ -82,18 +87,20 @@ export default function Header() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={6}
+          spacing={{ base: 2, md: 6 }}
           align="center">
           <Button
             as={'a'}
-            fontSize={'sm'}
+            fontSize={{ base: 'xs', md: 'sm' }}
             fontWeight={400}
             variant={'ghost'}
             color={'white'}
             href={'https://instagram.com/arkya.store'}
             target="_blank"
-            leftIcon={<FaInstagram />}>
-            Instagram
+            leftIcon={<FaInstagram />}
+            size={{ base: 'sm', md: 'md' }}
+            px={{ base: 2, md: 4 }}>
+            <Text display={{ base: 'none', sm: 'inline' }}>Instagram</Text>
           </Button>
 
         </Stack>

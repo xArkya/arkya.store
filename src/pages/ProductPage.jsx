@@ -21,9 +21,6 @@ import {
   ListIcon,
   Badge,
   Icon,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   Skeleton,
   Modal,
   ModalOverlay,
@@ -83,11 +80,12 @@ export default function ProductPage() {
   
   // Nuevos valores de color para el diseño mejorado
   const pageBgColor = useColorModeValue('gray.50', '#453641');
-  const breadcrumbBgColor = useColorModeValue('#241521', '#241521');
-  const breadcrumbTextColor = useColorModeValue('gray.600', 'gray.400');
   const productCardBgColor = useColorModeValue('#241521', '#241521');
 
   useEffect(() => {
+    // Scroll al top de la página cuando se carga el producto
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     // Simulate loading
     const timer = setTimeout(() => {
       try {
@@ -269,40 +267,88 @@ export default function ProductPage() {
     <Box bg={pageBgColor}>
       {/* Modal de verificación de edad */}
       <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
-        <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(10px)" />
-        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
-          <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
-            <Flex align="center" gap={2}>
-              <Icon as={FaExclamationTriangle} color="red.500" />
-              <Text>Verificación de edad requerida</Text>
-            </Flex>
+        <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(12px)" />
+        <ModalContent 
+          bg="#241521" 
+          color="white" 
+          borderRadius="xl" 
+          borderWidth="2px" 
+          borderColor="red.500"
+          overflow="hidden"
+          mx={4}
+        >
+          <ModalHeader 
+            bg="linear-gradient(135deg, #DC2626 0%, #991B1B 100%)" 
+            textAlign="center"
+            py={4}
+            fontSize={{ base: 'lg', md: 'xl' }}
+            fontWeight="bold"
+          >
+            VERIFICACIÓN DE EDAD
           </ModalHeader>
-          <ModalBody pb={6} pt={4}>
-            <VStack spacing={4} align="center">
-              <Icon as={FaExclamationTriangle} color="red.500" boxSize="50px" />
-              <Text fontWeight="bold" fontSize="xl" textAlign="center">
-                Contenido para adultos (+18)
-              </Text>
-              <Text textAlign="center">
-                El producto que intentas ver contiene contenido para adultos.
-                Debes confirmar que eres mayor de 18 años para continuar.
-              </Text>
+          
+          <ModalBody py={8} px={6}>
+            <VStack spacing={6} align="center">
+              <Box position="relative">
+                <Box
+                  bg="yellow.500"
+                  borderRadius="full"
+                  p={6}
+                  boxShadow="0 0 30px rgba(251, 191, 36, 0.4)"
+                >
+                  <Icon as={FaExclamationTriangle} boxSize="3em" color="#1A1A1A" />
+                </Box>
+                <Box 
+                  position="absolute" 
+                  top="-5px" 
+                  right="-5px" 
+                  bg="red.600" 
+                  color="white" 
+                  borderRadius="full" 
+                  width="40px" 
+                  height="40px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  fontWeight="bold"
+                  fontSize="lg"
+                  border="3px solid #241521"
+                  boxShadow="lg"
+                >
+                  18+
+                </Box>
+              </Box>
+              
+              <VStack spacing={3}>
+                <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" color="gray.200">
+                  Este producto contiene contenido exclusivo para adultos.
+                </Text>
+                <Text fontWeight="bold" fontSize={{ base: 'xl', md: '2xl' }} textAlign="center">
+                  ¿Confirmas que eres mayor de 18 años?
+                </Text>
+                <Text fontSize="sm" color="gray.400" textAlign="center" px={4}>
+                  Al confirmar, declaras que tienes la edad legal para ver este contenido.
+                </Text>
+              </VStack>
             </VStack>
           </ModalBody>
 
-          <ModalFooter borderTopWidth="1px" borderColor={dividerColor} justifyContent="center">
+          <ModalFooter 
+            justifyContent="center" 
+            pb={6}
+            px={6}
+          >
             <Button
-              colorScheme="red"
-              mr={3}
+              colorScheme="green"
               onClick={handleConfirmAge}
               size="lg"
               width="full"
-              borderRadius="md"
               _hover={{
                 transform: 'translateY(-2px)',
                 boxShadow: 'lg',
-              }}>
-              Confirmar que soy mayor de 18 años
+              }}
+            >
+              Sí, soy mayor de 18
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -554,70 +600,26 @@ export default function ProductPage() {
       </Modal>
 
       <Container maxW={'7xl'} py={8}>
-        {/* Migas de pan con estilo mejorado */}
-        <Flex justify="space-between" align="center" mb={6}>
-          <Breadcrumb 
-            fontSize="sm" 
-            separator="/" 
-            color={breadcrumbTextColor}
-            bg={breadcrumbBgColor}
-            p={3}
-            borderRadius="md"
-            boxShadow="sm"
-            flex="1">
-          <BreadcrumbItem>
-            <BreadcrumbLink as={RouterLink} to="/" _hover={{ color: 'brand.500' }}>
-              <Icon as={FaHome} mr={1} />
-              Inicio
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          {/* Mostrar todas las categorías en el breadcrumb */}
-          {product.categories && product.categories.length > 0 ? (
-            product.categories.map((cat, index) => (
-              <BreadcrumbItem key={index}>
-                <BreadcrumbLink 
-                  as={RouterLink} 
-                  to={`/#category-${cat.toLowerCase()}`}
-                  _hover={{ color: 'brand.500' }}>
-                  {cat}
-                </BreadcrumbLink>
-                {index < product.categories.length - 1 && " / "}
-              </BreadcrumbItem>
-            ))
-          ) : (
-            <BreadcrumbItem>
-              <BreadcrumbLink 
-                as={RouterLink} 
-                to={`/#category-${product.category.toLowerCase()}`}
-                _hover={{ color: 'brand.500' }}>
-                {product.category}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          )}
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink fontWeight="semibold">{product.name}</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-        
-        <Button
-          as={RouterLink}
-          to="/"
-          leftIcon={<FaArrowLeft />}
-          colorScheme="brand"
-          variant="outline"
-          size="sm"
-          ml={3}
-          onClick={() => {
-            // Restaurar la página anterior al volver a la tienda
-            const lastPage = sessionStorage.getItem('lastViewedPage');
-            if (lastPage) {
-              sessionStorage.setItem('currentPage', lastPage);
-            }
-          }}
-        >
-          Volver a la tienda
-        </Button>
-      </Flex>
+        {/* Botón de volver */}
+        <Flex mb={6}>
+          <Button
+            as={RouterLink}
+            to="/"
+            leftIcon={<FaArrowLeft />}
+            size={{ base: 'sm', md: 'md' }}
+            colorScheme="brand"
+            variant="outline"
+            onClick={() => {
+              // Restaurar la página anterior al volver a la tienda
+              const lastPage = sessionStorage.getItem('lastViewedPage');
+              if (lastPage) {
+                sessionStorage.setItem('currentPage', lastPage);
+              }
+            }}
+          >
+            Volver a la tienda
+          </Button>
+        </Flex>
 
         <SimpleGrid 
           columns={{ base: 1, lg: 2 }} 

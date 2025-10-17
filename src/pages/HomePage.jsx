@@ -1186,37 +1186,40 @@ export default function HomePage() {
                       );
                       
                       // Lógica para mostrar puntos suspensivos y páginas intermedias
-                      if (totalPages > 6) {
-                        // Si la página actual está cerca del inicio
-                        if (currentPage <= 3) {
-                          pageButtons.push(
-                            <Button key={2} onClick={() => handlePageChange(2)} variant={currentPage === 2 ? "solid" : "outline"} colorScheme="pink">2</Button>,
-                            <Button key={3} onClick={() => handlePageChange(3)} variant={currentPage === 3 ? "solid" : "outline"} colorScheme="pink">3</Button>
-                          );
+                      if (totalPages > 7) {
+                        // Si la página actual está cerca del inicio (páginas 1-4)
+                        if (currentPage <= 4) {
+                          for (let i = 2; i <= Math.min(5, totalPages - 1); i++) {
+                            pageButtons.push(
+                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink">{i}</Button>
+                            );
+                          }
                           pageButtons.push(
                             <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
                           );
                         } 
                         // Si la página actual está cerca del final
-                        else if (currentPage >= totalPages - 2) {
+                        else if (currentPage >= totalPages - 3) {
                           pageButtons.push(
                             <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
                           );
-                          pageButtons.push(
-                            <Button key={totalPages-2} onClick={() => handlePageChange(totalPages-2)} variant={currentPage === totalPages-2 ? "solid" : "outline"} colorScheme="pink">{totalPages-2}</Button>,
-                            <Button key={totalPages-1} onClick={() => handlePageChange(totalPages-1)} variant={currentPage === totalPages-1 ? "solid" : "outline"} colorScheme="pink">{totalPages-1}</Button>
-                          );
+                          for (let i = Math.max(2, totalPages - 4); i < totalPages; i++) {
+                            pageButtons.push(
+                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink">{i}</Button>
+                            );
+                          }
                         } 
                         // Si la página actual está en el medio
                         else {
                           pageButtons.push(
                             <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
                           );
-                          pageButtons.push(
-                            <Button key={currentPage-1} onClick={() => handlePageChange(currentPage-1)} variant="outline" colorScheme="pink">{currentPage-1}</Button>,
-                            <Button key={currentPage} onClick={() => handlePageChange(currentPage)} variant="solid" colorScheme="pink">{currentPage}</Button>,
-                            <Button key={currentPage+1} onClick={() => handlePageChange(currentPage+1)} variant="outline" colorScheme="pink">{currentPage+1}</Button>
-                          );
+                          // Mostrar 2 páginas antes, la actual, y 2 páginas después
+                          for (let i = currentPage - 2; i <= currentPage + 2; i++) {
+                            pageButtons.push(
+                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink">{i}</Button>
+                            );
+                          }
                           pageButtons.push(
                             <Button key="ellipsis2" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
                           );
