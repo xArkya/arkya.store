@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Drawer,
   DrawerBody,
@@ -29,20 +29,26 @@ import {
   useDisclosure,
   List,
   ListItem,
-  ListIcon
+  ListIcon,
+  Input,
+  InputGroup,
+  InputRightElement
 } from '@chakra-ui/react';
-import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes } from 'react-icons/fa';
 import { useCart } from '../../context/useCart';
 import { Link as RouterLink } from 'react-router-dom';
+import { validateCoupon } from '../../data/coupons';
 
 const CART_PLACEHOLDER_IMAGE = `data:image/svg+xml;utf8,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none"><rect width="80" height="80" rx="10" fill="#F1F1F1"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666666">Sin imagen</text></svg>'
 )} `;
 
 const CartDrawer = ({ isOpen, onClose }) => {
-  const { cart, removeFromCart, clearCart, cartTotal, productsCache } = useCart();
+  const { cart, removeFromCart, clearCart, cartTotal, productsCache, appliedCoupon, couponDiscount, applyCoupon, removeCoupon, finalTotal } = useCart();
   const toast = useToast();
   const { isOpen: isInstructionsOpen, onOpen: onInstructionsOpen, onClose: onInstructionsClose } = useDisclosure();
+  const [couponCode, setCouponCode] = useState('');
+  const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
   
   // Color mode values
   const bgColor = useColorModeValue('white', '#241521');
@@ -57,15 +63,80 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const generateInstagramMessage = () => {
     if (cart.length === 0) return '';
     
-    let message = 'Hola, me interesan los siguientes productos:\n\n';
+    let message = '🛍️ Hola! Me interesan los siguientes productos:\n';
+    message += '━━━━━━━━━━━━━━━━━━━━\n\n';
     
     cart.forEach((item, index) => {
-      message += `${index + 1}. ${item.name} - Cantidad: ${item.quantity}\n`;
+      message += `${index + 1}. ${item.name}\n`;
+      message += `   💰 $${item.price.toLocaleString()} x ${item.quantity}\n\n`;
     });
     
-    message += `\nTotal: $${cartTotal.toLocaleString()}`;
+    message += '━━━━━━━━━━━━━━━━━━━━\n';
+    
+    if (appliedCoupon) {
+      message += `🎟️ Cupón ${appliedCoupon.code}: -$${couponDiscount.toLocaleString()}\n`;
+      message += `━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `✨ TOTAL: $${finalTotal.toLocaleString()}`;
+    } else {
+      message += `✨ TOTAL: $${cartTotal.toLocaleString()}`;
+    }
     
     return message;
+  };
+  
+  // Función para aplicar cupón
+  const handleApplyCoupon = () => {
+    if (!couponCode.trim()) {
+      toast({
+        title: "Ingresa un cupón",
+        description: "Por favor ingresa un código de cupón válido",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+        position: "top"
+      });
+      return;
+    }
+    
+    setIsApplyingCoupon(true);
+    
+    const validation = validateCoupon(couponCode, cartTotal);
+    
+    if (validation.valid) {
+      applyCoupon(validation.coupon, validation.discount);
+      toast({
+        title: "¡Cupón aplicado!",
+        description: `Descuento de $${validation.discount.toLocaleString()} aplicado`,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        position: "top"
+      });
+      setCouponCode('');
+    } else {
+      toast({
+        title: "Cupón inválido",
+        description: validation.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top"
+      });
+    }
+    
+    setIsApplyingCoupon(false);
+  };
+  
+  // Función para remover cupón
+  const handleRemoveCoupon = () => {
+    removeCoupon();
+    toast({
+      title: "Cupón removido",
+      status: "info",
+      duration: 2000,
+      isClosable: true,
+      position: "top"
+    });
   };
   
   // Función para abrir el modal instructivo
@@ -224,11 +295,74 @@ const CartDrawer = ({ isOpen, onClose }) => {
           </DrawerBody>
 
           {cart.length > 0 && (
-            <DrawerFooter borderTopWidth="1px" borderColor={borderColor} flexDirection="column">
-              <Flex w="100%" justify="space-between" mb={4}>
-                <Text fontWeight="bold" color={textColor}>Total:</Text>
-                <Text fontWeight="bold" color={textColor}>${cartTotal.toLocaleString()}</Text>
-              </Flex>
+            <DrawerFooter borderTopWidth="1px" borderColor={borderColor} flexDirection="column" gap={3}>
+              {/* Campo de cupón */}
+              {!appliedCoupon ? (
+                <VStack w="100%" spacing={2}>
+                  <InputGroup size="sm">
+                    <Input
+                      placeholder="Código de cupón"
+                      value={couponCode}
+                      onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                      onKeyPress={(e) => e.key === 'Enter' && handleApplyCoupon()}
+                      color={textColor}
+                    />
+                    <InputRightElement width="4.5rem">
+                      <Button
+                        h="1.75rem"
+                        size="sm"
+                        onClick={handleApplyCoupon}
+                        isLoading={isApplyingCoupon}
+                        colorScheme="brand"
+                      >
+                        Aplicar
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </VStack>
+              ) : (
+                <Flex
+                  w="100%"
+                  bg="green.50"
+                  _dark={{ bg: "green.900" }}
+                  p={2}
+                  borderRadius="md"
+                  align="center"
+                  justify="space-between"
+                >
+                  <HStack>
+                    <FaTag color="green" />
+                    <Text fontSize="sm" fontWeight="bold" color="green.700" _dark={{ color: "green.200" }}>
+                      {appliedCoupon.code} - {appliedCoupon.discountPercentage}% OFF
+                    </Text>
+                  </HStack>
+                  <IconButton
+                    icon={<FaTimes />}
+                    size="xs"
+                    variant="ghost"
+                    colorScheme="red"
+                    onClick={handleRemoveCoupon}
+                    aria-label="Remover cupón"
+                  />
+                </Flex>
+              )}
+              
+              {/* Resumen de precios */}
+              <VStack w="100%" spacing={2}>
+
+                {appliedCoupon && (
+                  <Flex w="100%" justify="space-between" color="green.600" _dark={{ color: "green.300" }}>
+                    <Text>Descuento ({appliedCoupon.discountPercentage}%):</Text>
+                    <Text>-${couponDiscount.toLocaleString()}</Text>
+                  </Flex>
+                )}
+                <Divider />
+                <Flex w="100%" justify="space-between">
+                  <Text fontWeight="bold" fontSize="lg" color={textColor}>Total:</Text>
+                  <Text fontWeight="bold" fontSize="lg" color={textColor}>${finalTotal.toLocaleString()}</Text>
+                </Flex>
+              </VStack>
+              
               <HStack spacing={4} w="100%">
                 <Button variant="outline" onClick={clearCart} size="sm">
                   Vaciar carrito
@@ -248,45 +382,106 @@ const CartDrawer = ({ isOpen, onClose }) => {
       </Drawer>
 
       {/* Modal de instrucciones para compra por Instagram */}
-      <Modal isOpen={isInstructionsOpen} onClose={onInstructionsClose} isCentered>
-        <ModalOverlay />
-        <ModalContent bg={modalBgColor} color={modalTextColor}>
-          <ModalHeader>Comprar por Instagram</ModalHeader>
+      <Modal isOpen={isInstructionsOpen} onClose={onInstructionsClose} isCentered size="lg">
+        <ModalOverlay backdropFilter="blur(4px)" />
+        <ModalContent bg={modalBgColor} color={modalTextColor} mx={4}>
+          <ModalHeader fontSize="2xl" fontWeight="bold" pb={2}>
+            🛍️ Comprar por Instagram
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <VStack spacing={4} align="stretch">
-              <Text>
-                Estás a punto de realizar tu compra a través de Instagram. Sigue estos pasos:
+          <ModalBody pb={6}>
+            <VStack spacing={5} align="stretch">
+              <Text fontSize="md" color={useColorModeValue('gray.600', 'gray.300')}>
+                Estás a punto de realizar tu compra a través de Instagram. Sigue estos sencillos pasos:
               </Text>
-              <List spacing={3}>
-                <ListItem>
-                  <ListIcon as={FaClipboard} color={modalHighlightColor} />
-                  Al hacer clic en "Copiar y abrir Instagram", el mensaje con tu carrito se copiará automáticamente.
+              
+              <List spacing={4}>
+                <ListItem display="flex" alignItems="flex-start">
+                  <ListIcon as={FaClipboard} color={modalHighlightColor} mt={1} fontSize="xl" />
+                  <Box flex="1">
+                    <Text fontWeight="semibold" mb={1}>Paso 1: Copiar mensaje</Text>
+                    <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                      Al hacer clic en el botón, el mensaje con tu pedido se copiará automáticamente.
+                    </Text>
+                  </Box>
                 </ListItem>
-                <ListItem>
-                  <ListIcon as={FaInstagram} color={modalHighlightColor} />
-                  Se abrirá el chat de Instagram de @arkya.store en una nueva pestaña.
+                <ListItem display="flex" alignItems="flex-start">
+                  <ListIcon as={FaInstagram} color={modalHighlightColor} mt={1} fontSize="xl" />
+                  <Box flex="1">
+                    <Text fontWeight="semibold" mb={1}>Paso 2: Abrir Instagram</Text>
+                    <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                      Se abrirá automáticamente el chat de @arkya.store en una nueva pestaña.
+                    </Text>
+                  </Box>
                 </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color={modalHighlightColor} />
-                  Pega el mensaje en el chat (Ctrl+V o mantén presionado y selecciona "Pegar").
+                <ListItem display="flex" alignItems="flex-start">
+                  <ListIcon as={FaCheckCircle} color={modalHighlightColor} mt={1} fontSize="xl" />
+                  <Box flex="1">
+                    <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
+                    <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                      Pega el mensaje en el chat (Ctrl+V) y envíalo para completar tu pedido.
+                    </Text>
+                  </Box>
                 </ListItem>
               </List>
-              <Box bg="whiteAlpha.200" p={3} borderRadius="md" mt={2}>
-                <Text fontWeight="bold">Resumen del carrito:</Text>
-                <Text fontSize="sm" mt={2}>{generateInstagramMessage()}</Text>
+              
+              <Box 
+                bg={useColorModeValue('gray.50', 'whiteAlpha.100')} 
+                p={4} 
+                borderRadius="lg" 
+                borderWidth="1px"
+                borderColor={useColorModeValue('gray.200', 'whiteAlpha.200')}
+              >
+                <Text fontWeight="bold" mb={3} fontSize="md" color={modalHighlightColor}>
+                  📋 Vista previa del mensaje:
+                </Text>
+                <Box 
+                  bg={useColorModeValue('white', 'gray.800')} 
+                  p={3} 
+                  borderRadius="md"
+                  fontSize="sm"
+                  fontFamily="monospace"
+                  whiteSpace="pre-wrap"
+                  maxH="200px"
+                  overflowY="auto"
+                  css={{
+                    '&::-webkit-scrollbar': {
+                      width: '8px',
+                    },
+                    '&::-webkit-scrollbar-track': {
+                      background: useColorModeValue('white', '#1a202c'),
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                      background: useColorModeValue('#cbd5e0', '#4a5568'),
+                      borderRadius: '4px',
+                    },
+                    '&::-webkit-scrollbar-thumb:hover': {
+                      background: useColorModeValue('#a0aec0', '#718096'),
+                    },
+                  }}
+                >
+                  {generateInstagramMessage()}
+                </Box>
               </Box>
             </VStack>
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter gap={3}>
             <Button
               colorScheme="brand"
-              mr={3}
+              size="lg"
               leftIcon={<FaInstagram />}
-              onClick={handleCopyAndOpenInstagram}>
+              onClick={handleCopyAndOpenInstagram}
+              flex={1}
+            >
               Copiar y abrir Instagram
             </Button>
-            <Button variant="ghost" onClick={onInstructionsClose}>Cancelar</Button>
+            <Button 
+              variant="ghost" 
+              size="lg"
+              onClick={onInstructionsClose}
+            >
+              Cancelar
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

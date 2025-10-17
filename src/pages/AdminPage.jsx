@@ -34,12 +34,14 @@ import {
   AlertDescription,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle, FaTicketAlt } from 'react-icons/fa';
 import ProductForm from '../components/Admin/ProductForm';
 import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
+import CouponForm from '../components/Admin/CouponForm';
 import { products as initialProducts } from '../data/products';
 import { offers as initialOffers } from '../data/offers';
+import { coupons as initialCoupons } from '../data/coupons';
 
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
@@ -57,9 +59,20 @@ const AdminPage = () => {
   });
   const [selectedOffer, setSelectedOffer] = useState(null);
   const [selectedProductForOffer, setSelectedProductForOffer] = useState(null);
+  const [coupons, setCoupons] = useState(() => {
+    try {
+      const savedCoupons = localStorage.getItem('adminCoupons');
+      return savedCoupons ? JSON.parse(savedCoupons) : initialCoupons;
+    } catch (error) {
+      console.error('Error al cargar cupones desde localStorage:', error);
+      return initialCoupons;
+    }
+  });
+  const [selectedCoupon, setSelectedCoupon] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { isOpen: isOfferOpen, onOpen: onOfferOpen, onClose: onOfferClose } = useDisclosure();
   const { isOpen: isProductOfferOpen, onOpen: onProductOfferOpen, onClose: onProductOfferClose } = useDisclosure();
+  const { isOpen: isCouponOpen, onOpen: onCouponOpen, onClose: onCouponClose } = useDisclosure();
   const toast = useToast();
   
   const bgColor = useColorModeValue('white', '#2a1c29');
@@ -92,6 +105,17 @@ const AdminPage = () => {
       }
     }
   }, [offers]);
+  
+  // Guardar cupones en localStorage cuando cambian
+  useEffect(() => {
+    try {
+      localStorage.setItem('adminCoupons', JSON.stringify(coupons));
+      // También actualizar el archivo de cupones para que esté disponible en toda la app
+      localStorage.setItem('coupons', JSON.stringify(coupons));
+    } catch (error) {
+      console.error('Error al guardar cupones en localStorage:', error);
+    }
+  }, [coupons]);
 
   // Guardar productos en localStorage cuando cambian con manejo de errores
   useEffect(() => {
@@ -246,6 +270,65 @@ const AdminPage = () => {
     ));
   };
   
+  // Funciones para manejar cupones
+  const handleSaveCoupon = (coupon) => {
+    if (selectedCoupon) {
+      // Editar cupón existente
+      setCoupons(coupons.map(c => c.code === coupon.code ? coupon : c));
+      toast({
+        title: 'Cupón actualizado',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    } else {
+      // Verificar si el código ya existe
+      if (coupons.find(c => c.code === coupon.code)) {
+        toast({
+          title: 'Error',
+          description: 'Ya existe un cupón con ese código',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+        return;
+      }
+      // Agregar nuevo cupón
+      setCoupons([...coupons, coupon]);
+      toast({
+        title: 'Cupón creado',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+    onCouponClose();
+    setSelectedCoupon(null);
+  };
+  
+  const handleEditCoupon = (coupon) => {
+    setSelectedCoupon(coupon);
+    onCouponOpen();
+  };
+  
+  const handleDeleteCoupon = (code) => {
+    if (window.confirm('¿Estás seguro de que deseas eliminar este cupón?')) {
+      setCoupons(coupons.filter(c => c.code !== code));
+      toast({
+        title: 'Cupón eliminado',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
+  
+  const toggleCouponStatus = (code) => {
+    setCoupons(coupons.map(coupon => 
+      coupon.code === code ? { ...coupon, isActive: !coupon.isActive } : coupon
+    ));
+  };
+  
   // Funciones para manejar ofertas de productos
   const handleManageProductOffer = (product) => {
     setSelectedProductForOffer(product);
@@ -357,6 +440,7 @@ const AdminPage = () => {
           <TabList>
             <Tab>Productos</Tab>
             <Tab>Ofertas</Tab>
+            <Tab>Cupones</Tab>
             <Tab>Importar/Exportar</Tab>
           </TabList>
           
@@ -700,6 +784,95 @@ const AdminPage = () => {
             <TabPanel>
               <Box 
                 bg={bgColor}
+                p={4}
+                borderRadius="md"
+                borderWidth="1px"
+                borderColor={borderColor}
+              >
+                <HStack justify="space-between" mb={4}>
+                  <Heading size="md" color={textColor}>
+                    <HStack>
+                      <FaTicketAlt />
+                      <Text>Cupones de Descuento</Text>
+                    </HStack>
+                  </Heading>
+                  <Button
+                    leftIcon={<FaPlus />}
+                    colorScheme="brand"
+                    onClick={() => {
+                      setSelectedCoupon(null);
+                      onCouponOpen();
+                    }}
+                  >
+                    Nuevo Cupón
+                  </Button>
+                </HStack>
+                
+                {coupons.length === 0 ? (
+                  <Text color={textColor}>No hay cupones creados. Crea uno para empezar.</Text>
+                ) : (
+                  <Table variant="simple">
+                    <Thead>
+                      <Tr>
+                        <Th>Código</Th>
+                        <Th>Descuento</Th>
+                        <Th>Descripción</Th>
+                        <Th>Compra Mín.</Th>
+                        <Th>Expira</Th>
+                        <Th>Usos</Th>
+                        <Th>Estado</Th>
+                        <Th>Acciones</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      {coupons.map((coupon) => (
+                        <Tr key={coupon.code}>
+                          <Td fontWeight="bold" fontFamily="mono">{coupon.code}</Td>
+                          <Td>{coupon.discountPercentage}%</Td>
+                          <Td>{coupon.description}</Td>
+                          <Td>${coupon.minPurchase.toLocaleString()}</Td>
+                          <Td>{new Date(coupon.expiryDate).toLocaleDateString()}</Td>
+                          <Td>
+                            {coupon.usedCount} / {coupon.usageLimit || '∞'}
+                          </Td>
+                          <Td>
+                            <Badge
+                              colorScheme={coupon.isActive ? 'green' : 'red'}
+                              cursor="pointer"
+                              onClick={() => toggleCouponStatus(coupon.code)}
+                            >
+                              {coupon.isActive ? 'Activo' : 'Inactivo'}
+                            </Badge>
+                          </Td>
+                          <Td>
+                            <HStack spacing={2}>
+                              <IconButton
+                                icon={<FaEdit />}
+                                size="sm"
+                                colorScheme="blue"
+                                variant="outline"
+                                onClick={() => handleEditCoupon(coupon)}
+                              />
+                              <IconButton
+                                icon={<FaTrash />}
+                                size="sm"
+                                colorScheme="red"
+                                variant="outline"
+                                onClick={() => handleDeleteCoupon(coupon.code)}
+                              />
+                            </HStack>
+                          </Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                )}
+              </Box>
+            </TabPanel>
+            
+            <TabPanel>
+              <Box 
+                bg={bgColor}
                 p={6}
                 borderRadius="md"
                 borderWidth="1px"
@@ -805,6 +978,23 @@ const AdminPage = () => {
                 onUpdateProduct={handleUpdateProductOffer}
               />
             )}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+      
+      <Modal isOpen={isCouponOpen} onClose={onCouponClose} size="lg">
+        <ModalOverlay />
+        <ModalContent bg={bgColor} color={textColor}>
+          <ModalHeader>
+            {selectedCoupon ? 'Editar Cupón' : 'Nuevo Cupón'}
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <CouponForm 
+              coupon={selectedCoupon}
+              onSave={handleSaveCoupon}
+              onCancel={onCouponClose}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>

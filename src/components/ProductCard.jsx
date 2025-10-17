@@ -27,11 +27,14 @@ import {
   List,
   ListItem
 } from '@chakra-ui/react';
-import { FaShoppingBag, FaEye, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaInstagram } from 'react-icons/fa';
+import { FaShoppingBag, FaEye, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaInstagram, FaShareAlt } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+
+const MotionBox = motion(Box);
 
 export default function ProductCard({ product }) {
   const { id, name, price, image, images, category, isNew, description, isOnOffer, originalPrice, discountPercentage, inStock = true, adultContent = false } = product;
@@ -138,21 +141,24 @@ export default function ProductCard({ product }) {
 
   return (
     <>
-      <LinkBox 
-        as="article"
+      <MotionBox
+        as={LinkBox}
         w="100%"
         maxW="300px"
         borderRadius="lg"
         overflow="hidden"
         bg={cardBg}
         boxShadow="md"
-        transition="all 0.3s"
-        _hover={{ transform: inStock ? 'translateY(-5px)' : 'none', boxShadow: inStock ? 'lg' : 'md' }}
         role="group"
         position="relative"
         opacity={inStock ? 1 : 0.7}
         filter={inStock ? 'none' : 'grayscale(30%)'}
         onClick={handleContentClick}
+        whileHover={{ 
+          y: inStock ? -8 : 0,
+          boxShadow: inStock ? '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' : undefined
+        }}
+        transition={{ duration: 0.2 }}
       >
       {/* Imagen con overlay para efectos */}
       <Box position="relative" overflow="hidden">
@@ -400,6 +406,35 @@ export default function ProductCard({ product }) {
           </LinkOverlay>
         </Heading>
         
+        {/* Botón de compartir (copiar link) */}
+        <Box position="absolute" top={2} right={2} zIndex={2}>
+          <IconButton
+            icon={<FaShareAlt />}
+            size="xs"
+            variant="ghost"
+            colorScheme="whiteAlpha"
+            aria-label="Copiar enlace"
+            opacity={0.7}
+            _groupHover={{ opacity: 1 }}
+            transition="opacity 0.2s"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const url = `${window.location.origin}/#/product/${id}`;
+              navigator.clipboard.writeText(url).then(() => {
+                toast({
+                  title: '¡Enlace copiado!',
+                  description: 'El enlace del producto se copió al portapapeles',
+                  status: 'success',
+                  duration: 2000,
+                  isClosable: true,
+                  position: 'bottom-right',
+                });
+              });
+            }}
+          />
+        </Box>
+        
         <Text fontSize="sm" color={textColor} noOfLines={2} opacity={0.8}>
           {description && description.split('\n').map((line, i) => (
             <React.Fragment key={i}>
@@ -429,36 +464,41 @@ export default function ProductCard({ product }) {
                 ${parseInt(price).toLocaleString()}
               </Text>
             )}
+            {!inStock && (
+              <Text fontSize="xs" color="gray.500" fontStyle="italic">
+                (puede variar)
+              </Text>
+            )}
           </VStack>
           
           <Button
-            size="sm"
-            colorScheme={inStock ? "green" : "brand"}
-            leftIcon={inStock ? <FaShoppingBag /> : <FaInstagram />}
-            onClick={(e) => {
-              e?.preventDefault();
-              e?.stopPropagation();
-              
-              if (inStock) {
-                // Funcionalidad normal de agregar al carrito
-                handleAddToCart(e);
-              } else {
-                // Abrir modal de consulta por Instagram
-                onConsultOpen();
-              }
-            }}
-            borderRadius="md"
-            _hover={{
-              bg: inStock ? "green.500" : "brand.500",
-              transform: !inStock ? 'translateY(-2px)' : 'none',
-              boxShadow: !inStock ? 'md' : 'none'
-            }}
-          >
-            {inStock ? "Agregar" : "Consultar"}
-          </Button>
+              size="sm"
+              colorScheme={inStock ? "green" : "brand"}
+              leftIcon={inStock ? <FaShoppingBag /> : <FaInstagram />}
+              onClick={(e) => {
+                e?.preventDefault();
+                e?.stopPropagation();
+                
+                if (inStock) {
+                  // Funcionalidad normal de agregar al carrito
+                  handleAddToCart(e);
+                } else {
+                  // Abrir modal de consulta por Instagram
+                  onConsultOpen();
+                }
+              }}
+              borderRadius="md"
+              _hover={{
+                bg: inStock ? "green.500" : "brand.500",
+                transform: !inStock ? 'translateY(-2px)' : 'none',
+                boxShadow: !inStock ? 'md' : 'none'
+              }}
+            >
+              {inStock ? "Agregar" : "Consultar"}
+            </Button>
         </Flex>
       </VStack>
-    </LinkBox>
+    </MotionBox>
 
       {/* Modal de confirmación de edad */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered closeOnOverlayClick={false}>

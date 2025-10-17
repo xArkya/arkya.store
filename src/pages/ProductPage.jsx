@@ -18,6 +18,7 @@ import {
   useColorModeValue,
   List,
   ListItem,
+  ListIcon,
   Badge,
   Icon,
   Breadcrumb,
@@ -34,9 +35,10 @@ import {
   useDisclosure,
   Center,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
+import ProductCard from '../components/ProductCard';
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -47,6 +49,16 @@ export default function ProductPage() {
   
   // Usar el contexto global de verificación de edad
   const { isAgeVerified, verifyAge } = useAgeVerification();
+  
+  // Color mode values - definidos al inicio para evitar errores de hooks
+  const modalTextColorLight = useColorModeValue('gray.600', 'gray.300');
+  const modalTextColorDark = useColorModeValue('gray.600', 'gray.400');
+  const modalBoxBg = useColorModeValue('gray.50', 'whiteAlpha.100');
+  const modalBoxBorder = useColorModeValue('gray.200', 'whiteAlpha.200');
+  const modalInnerBoxBg = useColorModeValue('white', 'gray.800');
+  const scrollbarTrackBg = useColorModeValue('white', '#1a202c');
+  const scrollbarThumbBg = useColorModeValue('#cbd5e0', '#4a5568');
+  const scrollbarThumbHoverBg = useColorModeValue('#a0aec0', '#718096');
   
   const toast = useToast();
   // Modal para compra por Instagram
@@ -115,6 +127,7 @@ export default function ProductPage() {
         }
         
         console.log('Found product with offers applied:', foundProduct);
+        console.log('Product inStock value:', foundProduct.inStock);
         setProduct(foundProduct);
         
         // Si el producto es para adultos y el usuario no ha verificado su edad, mostrar modal
@@ -187,7 +200,7 @@ export default function ProductPage() {
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
-      const message = `Hola, me interesa el producto: ${product.name}`;
+      const message = `👋 Hola! Me interesa el siguiente producto:\n📦 ${product.name}\n💰 $${product.price.toLocaleString()}`;
       
       // Usar la API moderna de Clipboard
       navigator.clipboard.writeText(message)
@@ -195,7 +208,7 @@ export default function ProductPage() {
           // Mostrar notificación de éxito
           toast({
             title: "¡Mensaje copiado!",
-            description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+            description: "El mensaje ha sido copiado. Pégalo en el chat de Instagram.",
             status: "success",
             duration: 5000,
             isClosable: true,
@@ -296,71 +309,113 @@ export default function ProductPage() {
       </Modal>
       
       {/* Modal de instrucciones para comprar por Instagram */}
-      <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="md">
-        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
-          <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
-            <Flex align="center" gap={2}>
-              <Icon as={FaInstagram} />
-              <Text>Comprar por Instagram</Text>
-            </Flex>
+      <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="lg">
+        <ModalOverlay backdropFilter="blur(4px)" />
+        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl" mx={4}>
+          <ModalHeader fontSize="2xl" fontWeight="bold" pb={2} color={modalHeaderColor}>
+            🛍️ Comprar por Instagram
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody pb={6} pt={4}>
-            <VStack spacing={4} align="start">
-              <Text>
-                Para comprar este producto a través de Instagram, sigue estos pasos:
+          <ModalBody pb={6}>
+            <VStack spacing={5} align="stretch">
+              <Text fontSize="md" color={modalTextColorLight}>
+                Para comprar este producto a través de Instagram, sigue estos sencillos pasos:
               </Text>
-              <List spacing={3}>
-                <ListItem display="flex" alignItems="center">
-                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>1</Badge>
-                  <Text>Haz clic en "Copiar y abrir Instagram"</Text>
+              
+              <List spacing={4}>
+                <ListItem display="flex" alignItems="flex-start">
+                  <ListIcon as={FaClipboard} color="brand.500" mt={1} fontSize="xl" />
+                  <Box flex="1">
+                    <Text fontWeight="semibold" mb={1}>Paso 1: Copiar mensaje</Text>
+                    <Text fontSize="sm" color={modalTextColorDark}>
+                      Al hacer clic en el botón, el mensaje con el producto se copiará automáticamente.
+                    </Text>
+                  </Box>
                 </ListItem>
-                <ListItem display="flex" alignItems="center">
-                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>2</Badge>
-                  <Text>Se copiará automáticamente un mensaje con el nombre del producto</Text>
+                <ListItem display="flex" alignItems="flex-start">
+                  <ListIcon as={FaInstagram} color="brand.500" mt={1} fontSize="xl" />
+                  <Box flex="1">
+                    <Text fontWeight="semibold" mb={1}>Paso 2: Abrir Instagram</Text>
+                    <Text fontSize="sm" color={modalTextColorDark}>
+                      Se abrirá automáticamente el chat de @arkya.store en una nueva pestaña.
+                    </Text>
+                  </Box>
                 </ListItem>
-                <ListItem display="flex" alignItems="center">
-                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>3</Badge>
-                  <Text>Se abrirá Instagram en una nueva pestaña</Text>
-                </ListItem>
-                <ListItem display="flex" alignItems="center">
-                  <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>4</Badge>
-                  <Text>Pega el mensaje (Ctrl+V o Cmd+V) en el chat</Text>
+                <ListItem display="flex" alignItems="flex-start">
+                  <ListIcon as={FaCheckCircle} color="brand.500" mt={1} fontSize="xl" />
+                  <Box flex="1">
+                    <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
+                    <Text fontSize="sm" color={modalTextColorDark}>
+                      Pega el mensaje en el chat (Ctrl+V) y envíalo para completar tu pedido.
+                    </Text>
+                  </Box>
                 </ListItem>
               </List>
-              <Text fontWeight="bold" mt={2}>
-                Mensaje que se copiará:
-              </Text>
-              <Box
-                p={4}
-                bg={modalBoxBgColor}
-                borderRadius="md"
-                width="100%"
-                borderLeft="4px solid"
-                borderColor="brand.500">
-                <Text fontStyle="italic">
-                  Hola, me interesa el producto: {product?.name}
+              
+              <Box 
+                bg={modalBoxBg} 
+                p={4} 
+                borderRadius="lg" 
+                borderWidth="1px"
+                borderColor={modalBoxBorder}
+              >
+                <Text fontWeight="bold" mb={3} fontSize="md" color="brand.500">
+                  📋 Vista previa del mensaje:
                 </Text>
+                <Box 
+                  bg={modalInnerBoxBg} 
+                  p={3} 
+                  borderRadius="md"
+                  fontSize="sm"
+                  fontFamily="monospace"
+                  whiteSpace="pre-wrap"
+                  maxH="200px"
+                  overflowY="auto"
+                  css={{
+                    '&::-webkit-scrollbar': {
+                      width: '8px',
+                    },
+                    '&::-webkit-scrollbar-track': {
+                      background: scrollbarTrackBg,
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                      background: scrollbarThumbBg,
+                      borderRadius: '4px',
+                    },
+                    '&::-webkit-scrollbar-thumb:hover': {
+                      background: scrollbarThumbHoverBg,
+                    },
+                  }}
+                >
+                  👋 Hola! Me interesa el siguiente producto:
+📦 {product?.name}
+💰 ${product?.price.toLocaleString()}
+                </Box>
               </Box>
             </VStack>
           </ModalBody>
 
-          <ModalFooter borderTopWidth="1px" borderColor={dividerColor}>
+          <ModalFooter gap={3}>
             <Button
               colorScheme="brand"
-              mr={3}
+              size="lg"
               leftIcon={<FaInstagram />}
               onClick={handleCopyAndOpenInstagram}
-              size="lg"
-              borderRadius="md"
+              flex={1}
               _hover={{
                 transform: 'translateY(-2px)',
-                boxShadow: 'lg',
-              }}>
+                boxShadow: 'xl',
+              }}
+            >
               Copiar y abrir Instagram
             </Button>
-            <Button variant="ghost" onClick={onInstagramClose}>Cancelar</Button>
+            <Button 
+              variant="ghost" 
+              size="lg"
+              onClick={onInstagramClose}
+            >
+              Cancelar
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -788,27 +843,39 @@ export default function ProductPage() {
                         ml={2}>
                         ${parseInt(product.originalPrice)}
                       </Text>
+                      {!product.inStock && (
+                        <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
+                          (puede variar)
+                        </Text>
+                      )}
                     </Flex>
                     <Flex width="100%">
                       <Badge colorScheme="red" variant="solid" px={2} py={1} borderRadius="md" mr={2}>
                         {product.discountPercentage}% OFF
                       </Badge>
-                      <Badge colorScheme="green" variant="solid" px={2} py={1} borderRadius="md">
-                        DISPONIBLE
+                      <Badge colorScheme={product.inStock ? "green" : "red"} variant="solid" px={2} py={1} borderRadius="md">
+                        {product.inStock ? "DISPONIBLE" : "SIN STOCK"}
                       </Badge>
                     </Flex>
                   </>
                 ) : (
                   <>
-                    <Text
-                      color={textColor}
-                      fontWeight={500}
-                      fontSize={'3xl'}
-                      letterSpacing="tight">
-                      ${parseInt(product.price)}
-                    </Text>
-                    <Badge colorScheme="green" variant="solid" px={2} py={1} borderRadius="md">
-                      DISPONIBLE
+                    <Flex align="baseline" width="100%">
+                      <Text
+                        color={textColor}
+                        fontWeight={500}
+                        fontSize={'3xl'}
+                        letterSpacing="tight">
+                        ${parseInt(product.price)}
+                      </Text>
+                      {!product.inStock && (
+                        <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
+                          (puede variar)
+                        </Text>
+                      )}
+                    </Flex>
+                    <Badge colorScheme={product.inStock ? "green" : "red"} variant="solid" px={2} py={1} borderRadius="md">
+                      {product.inStock ? "DISPONIBLE" : "SIN STOCK"}
                     </Badge>
                   </>
                 )}
@@ -948,6 +1015,200 @@ export default function ProductPage() {
             </VStack>
           </Stack>
         </SimpleGrid>
+
+        {/* Sección de Productos Similares */}
+        {(() => {
+          // Función para calcular similitud entre dos strings
+          const calculateSimilarity = (str1, str2) => {
+            const s1 = str1.toLowerCase();
+            const s2 = str2.toLowerCase();
+            
+            // Eliminar caracteres especiales y normalizar
+            const normalize = (str) => str.replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim();
+            const n1 = normalize(s1);
+            const n2 = normalize(s2);
+            
+            // Palabras a ignorar
+            const stopWords = ['vol', 'de', 'la', 'el', 'en', 'y', 'a', 'con', 'edicion', 'limitada', 'especial'];
+            
+            const words1 = n1.split(' ').filter(w => w.length > 2 && !stopWords.includes(w));
+            const words2 = n2.split(' ').filter(w => w.length > 2 && !stopWords.includes(w));
+            
+            if (words1.length === 0 || words2.length === 0) return 0;
+            
+            let matches = 0;
+            
+            // Contar coincidencias exactas
+            words1.forEach(word => {
+              if (words2.includes(word)) {
+                matches += 1;
+              }
+            });
+            
+            // Retornar el ratio de coincidencias
+            return matches / Math.min(words1.length, words2.length);
+          };
+
+          // Primero, calcular similitud para TODOS los productos (sin filtrar por categoría)
+          const allProductsWithScore = products
+            .filter(p => p.id !== product.id) // Solo excluir el producto actual
+            .map(p => {
+              let score = 0;
+              
+              // Similitud en el nombre (peso: 5 - más importante)
+              const nameSimilarity = calculateSimilarity(product.name, p.name);
+              score += nameSimilarity * 5;
+              
+              // Similitud en tags (peso: 2)
+              // Comparar tags entre sí
+              if (product.tags && p.tags && product.tags.length > 0 && p.tags.length > 0) {
+                const commonTags = product.tags.filter(tag => 
+                  p.tags.some(pTag => pTag.toLowerCase() === tag.toLowerCase())
+                );
+                score += (commonTags.length / Math.max(product.tags.length, p.tags.length)) * 2;
+              }
+              
+              // Buscar palabras del nombre en los tags del otro producto (peso: 3)
+              const productNameWords = product.name.toLowerCase()
+                .replace(/[^\w\s]/g, ' ')
+                .split(/\s+/)
+                .filter(w => w.length > 3 && !['vol', 'de', 'la', 'el', 'en', 'y', 'a', 'con', 'edicion', 'limitada', 'especial'].includes(w));
+              
+              if (p.tags && p.tags.length > 0) {
+                const nameInTags = productNameWords.some(word =>
+                  p.tags.some(tag => tag.toLowerCase().includes(word))
+                );
+                if (nameInTags) {
+                  score += 3;
+                }
+              }
+              
+              // Buscar palabras del nombre del otro producto en los tags de este (peso: 3)
+              const pNameWords = p.name.toLowerCase()
+                .replace(/[^\w\s]/g, ' ')
+                .split(/\s+/)
+                .filter(w => w.length > 3 && !['vol', 'de', 'la', 'el', 'en', 'y', 'a', 'con', 'edicion', 'limitada', 'especial'].includes(w));
+              
+              if (product.tags && product.tags.length > 0) {
+                const pNameInTags = pNameWords.some(word =>
+                  product.tags.some(tag => tag.toLowerCase().includes(word))
+                );
+                if (pNameInTags) {
+                  score += 3;
+                }
+              }
+              
+              // Bonus por misma categoría (peso: 1)
+              let sameCategory = false;
+              if (product.categories && product.categories.length > 0) {
+                if (p.categories && p.categories.length > 0) {
+                  sameCategory = p.categories.some(cat => product.categories.includes(cat));
+                } else if (p.category) {
+                  sameCategory = product.categories.includes(p.category);
+                }
+              } else if (product.category) {
+                if (p.categories && p.categories.length > 0) {
+                  sameCategory = p.categories.includes(product.category);
+                } else if (p.category) {
+                  sameCategory = p.category === product.category;
+                }
+              }
+              
+              if (sameCategory) {
+                score += 1;
+              }
+              
+              // Bonus por misma subcategoría (peso: 0.5)
+              if (product.subcategory && p.subcategory && product.subcategory === p.subcategory) {
+                score += 0.5;
+              }
+              
+              return { ...p, similarityScore: score };
+            });
+
+          const productsWithScore = allProductsWithScore;
+
+          // Ordenar por score de similitud
+          productsWithScore.sort((a, b) => b.similarityScore - a.similarityScore);
+          
+          // Debug: mostrar los primeros 10 productos con sus scores
+          console.log('Productos similares encontrados:', productsWithScore.slice(0, 10).map(p => ({
+            name: p.name,
+            score: p.similarityScore
+          })));
+
+          // Seleccionar productos similares
+          let similarProducts = [];
+          
+          // Primero, tomar productos con score > 0 (tienen alguna similitud)
+          const productsWithSimilarity = productsWithScore.filter(p => p.similarityScore > 0);
+          
+          if (productsWithSimilarity.length >= 4) {
+            // Si hay 4 o más con similitud, tomar los 4 mejores
+            similarProducts = productsWithSimilarity.slice(0, 4);
+          } else if (productsWithSimilarity.length > 0) {
+            // Si hay algunos con similitud, tomarlos todos y completar con aleatorios
+            similarProducts = [...productsWithSimilarity];
+            
+            // Productos restantes (sin los que ya están seleccionados)
+            const remainingProducts = productsWithScore.filter(
+              p => !similarProducts.find(sp => sp.id === p.id)
+            );
+            
+            // Mezclar aleatoriamente los productos restantes
+            const shuffled = remainingProducts.sort(() => Math.random() - 0.5);
+            
+            // Completar hasta 4 productos
+            const needed = 4 - similarProducts.length;
+            similarProducts = [...similarProducts, ...shuffled.slice(0, needed)];
+          } else {
+            // Si no hay productos con similitud, tomar 4 aleatorios
+            const shuffled = productsWithScore.sort(() => Math.random() - 0.5);
+            similarProducts = shuffled.slice(0, 4);
+          }
+
+          // Aplicar ofertas globales a productos similares
+          const similarProductsWithOffers = similarProducts.map(p => {
+            const globalOffer = offers.find(offer => 
+              offer.isActive && 
+              offer.isGlobal && 
+              offer.discountType === 'percentage'
+            );
+            
+            if (!p.isOnOffer && globalOffer) {
+              return {
+                ...p,
+                isOnOffer: true,
+                discountPercentage: globalOffer.discountPercentage,
+                originalPrice: p.price,
+                price: Math.round(p.price * (1 - globalOffer.discountPercentage / 100))
+              };
+            }
+            return p;
+          });
+
+          return similarProductsWithOffers.length > 0 && (
+            <Box mt={16} mb={8}>
+              <Heading
+                fontSize={{ base: '2xl', md: '3xl' }}
+                fontWeight="bold"
+                mb={6}
+                bgGradient="linear(to-r, brand.400, pink.400)"
+                bgClip="text"
+              >
+                Productos Similares
+              </Heading>
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={6}>
+                {similarProductsWithOffers.map((similarProduct) => (
+                  <ProductCard
+                    key={similarProduct.id}
+                    product={similarProduct}
+                  />
+                ))}
+              </SimpleGrid>
+            </Box>
+          );
+        })()}
       </Container>
     </Box>
   );

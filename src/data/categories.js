@@ -73,5 +73,10 @@ export const categories = [
     id: 'peluches',
     name: 'Peluches',
     subcategories: []
+  },
+  {
+    id: 'fuera-de-stock',
+    name: 'Fuera de Stock',
+    subcategories: []
   }
 ];

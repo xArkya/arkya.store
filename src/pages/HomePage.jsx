@@ -29,11 +29,23 @@ import {
   Switch,
   Tooltip,
   Badge,
+  RangeSlider,
+  RangeSliderTrack,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverArrow,
 } from '@chakra-ui/react';
-import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
+import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaTh, FaThLarge } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
+import PromoBanner from '../components/PromoBanner';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { offers } from '../data/offers';
@@ -42,6 +54,7 @@ import { offers } from '../data/offers';
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [activeCategory, setActiveCategory] = useState(() => {
     // Intentar recuperar la categoría activa del sessionStorage al cargar
     const savedCategory = sessionStorage.getItem('activeCategory');
@@ -59,8 +72,38 @@ export default function HomePage() {
     return savedPage ? parseInt(savedPage) : 1;
   });
   const [sortOption, setSortOption] = useState('newest-added');
+  
+  // Estado para modo de vista
+  const [viewMode, setViewMode] = useState(() => {
+    const saved = localStorage.getItem('viewMode');
+    return saved || 'grid'; // 'grid', 'list', 'compact'
+  });
+  
+  // Guardar modo de vista en localStorage
+  useEffect(() => {
+    localStorage.setItem('viewMode', viewMode);
+  }, [viewMode]);
+  
+  // Estado para búsqueda mejorada
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [searchHistory, setSearchHistory] = useState(() => {
+    const saved = localStorage.getItem('searchHistory');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
+  
   const [showAdultContent] = useState(true); // Mostrar contenido +18 por defecto (siempre true ahora)
-  const [adultFilterActive, setAdultFilterActive] = useState(false);
+  const [adultFilterActive, setAdultFilterActive] = useState(() => {
+    // Inicializar desde sessionStorage o sincronizar con activeCategory
+    const savedAdultFilter = sessionStorage.getItem('adultFilterActive');
+    if (savedAdultFilter !== null) {
+      return savedAdultFilter === 'true';
+    }
+    // Si no hay valor guardado, verificar si la categoría activa es 'adultos'
+    const savedCategory = sessionStorage.getItem('activeCategory');
+    return savedCategory === 'adultos';
+  });
   const PRODUCTS_PER_PAGE = 12;
   
   // Función para obtener el nombre de la categoría por su ID
@@ -79,6 +122,21 @@ export default function HomePage() {
     return subcategory ? subcategory.name : '';
   };
   
+  // Sincronizar adultFilterActive con activeCategory cuando se carga la página
+  useEffect(() => {
+    if (activeCategory === 'adultos') {
+      setAdultFilterActive(true);
+      sessionStorage.setItem('adultFilterActive', 'true');
+    } else {
+      // Solo actualizar si no está en la categoría adultos
+      const savedAdultFilter = sessionStorage.getItem('adultFilterActive');
+      if (savedAdultFilter === 'true' && activeCategory !== 'adultos') {
+        setAdultFilterActive(false);
+        sessionStorage.setItem('adultFilterActive', 'false');
+      }
+    }
+  }, [activeCategory]);
+  
   // Leer categoría y subcategoría de URL params al cargar
   useEffect(() => {
     // Verificar si hay categoría guardada en sessionStorage
@@ -91,7 +149,7 @@ export default function HomePage() {
     
     // Priorizar la categoría guardada en sessionStorage
     if (savedCategory) {
-      const categoryExists = categories.some(cat => cat.id === savedCategory);
+      const categoryExists = categories.some(cat => cat.id === savedCategory) || savedCategory === 'adultos';
       if (categoryExists) {
         setActiveCategory(savedCategory);
         
@@ -216,6 +274,69 @@ export default function HomePage() {
     });
   }, []);
   
+  // Estado para el filtro de rango de precios
+  const [priceRange, setPriceRange] = useState([0, 100000]);
+  const [tempPriceRange, setTempPriceRange] = useState([0, 100000]);
+  
+  // Calcular precios mínimo y máximo de todos los productos
+  const { minPrice, maxPrice } = useMemo(() => {
+    const prices = productsWithOffers.map(p => p.price);
+    return {
+      minPrice: Math.floor(Math.min(...prices) / 1000) * 1000,
+      maxPrice: Math.ceil(Math.max(...prices) / 1000) * 1000
+    };
+  }, [productsWithOffers]);
+  
+  // Inicializar el rango de precios con los valores reales
+  useEffect(() => {
+    setPriceRange([minPrice, maxPrice]);
+    setTempPriceRange([minPrice, maxPrice]);
+  }, [minPrice, maxPrice]);
+  
+  // Generar sugerencias de búsqueda
+  useEffect(() => {
+    if (searchTerm.length >= 2) {
+      const searchLower = searchTerm.toLowerCase();
+      
+      // Buscar en nombres de productos
+      const suggestions = productsWithOffers
+        .filter(product => 
+          product.name.toLowerCase().includes(searchLower) ||
+          (product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchLower))) ||
+          (product.id && product.id.toString().includes(searchTerm))
+        )
+        .slice(0, 8) // Limitar a 8 sugerencias
+        .map(product => ({
+          type: 'product',
+          text: product.name,
+          id: product.id,
+          price: product.price,
+          image: product.image
+        }));
+      
+      setSearchSuggestions(suggestions);
+      setShowSuggestions(true);
+    } else {
+      setSearchSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [searchTerm, productsWithOffers]);
+  
+  // Función para agregar al historial
+  const addToSearchHistory = (term) => {
+    if (!term.trim()) return;
+    
+    const newHistory = [term, ...searchHistory.filter(h => h !== term)].slice(0, 10);
+    setSearchHistory(newHistory);
+    localStorage.setItem('searchHistory', JSON.stringify(newHistory));
+  };
+  
+  // Función para limpiar historial
+  const clearSearchHistory = () => {
+    setSearchHistory([]);
+    localStorage.removeItem('searchHistory');
+  };
+  
   // Filtrar productos según la búsqueda, categoría, subcategoría y contenido adulto
   const filteredProducts = useMemo(() => {
     return productsWithOffers.filter(product => {
@@ -234,6 +355,9 @@ export default function HomePage() {
       } else if (activeCategory === 'adultos') {
         // Categoría especial para contenido adulto
         matchesCategory = product.adultContent === true;
+      } else if (activeCategory === 'fuera-de-stock') {
+        // Categoría especial para productos sin stock
+        matchesCategory = product.inStock === false;
       } else {
         const categoryName = getCategoryNameById(activeCategory);
         // Comprobar si coincide con alguna de las categorías del producto
@@ -262,9 +386,12 @@ export default function HomePage() {
         matchesAdultFilter = product.adultContent !== true;
       }
       
-      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter;
+      // Filtrar por rango de precios
+      const matchesPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
+      
+      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive]);
+  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {
@@ -325,6 +452,10 @@ export default function HomePage() {
     // Desactivar el filtro de adultos si se selecciona una categoría que no sea 'adultos'
     if (categoryId !== 'adultos') {
       setAdultFilterActive(false);
+      sessionStorage.setItem('adultFilterActive', 'false');
+    } else {
+      setAdultFilterActive(true);
+      sessionStorage.setItem('adultFilterActive', 'true');
     }
     
     // Guardar la categoría en sessionStorage
@@ -355,6 +486,7 @@ export default function HomePage() {
     
     // Siempre desactivar el filtro de adultos al seleccionar una subcategoría
     setAdultFilterActive(false);
+    sessionStorage.setItem('adultFilterActive', 'false');
     
     // Guardar la categoría y subcategoría en sessionStorage
     sessionStorage.setItem('activeCategory', categoryId);
@@ -413,6 +545,16 @@ export default function HomePage() {
         Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank">Instagram</a>!
       </Box>
       <Hero />
+      
+      {/* Banner de promoción activa */}
+      {offers.find(o => o.isActive && o.isGlobal) && (
+        <PromoBanner offer={{
+          ...offers.find(o => o.isActive && o.isGlobal),
+          title: `¡${offers.find(o => o.isActive && o.isGlobal).discountPercentage}% de descuento en toda la tienda!`,
+          description: 'Aprovecha esta oferta especial por tiempo limitado',
+          endDate: '2025-10-31T23:59:59'
+        }} />
+      )}
       
       <Box id="productos" name="productos" py={10} bg="#453641">
         <Container maxW={'7xl'}>
@@ -501,10 +643,8 @@ export default function HomePage() {
                   
                   if (activeCategory === 'adultos') {
                     handleCategoryClick('todos');
-                    setAdultFilterActive(false);
                   } else {
                     handleCategoryClick('adultos');
-                    setAdultFilterActive(true);
                   }
                   setCurrentPage(1); // Reiniciar a la primera página al cambiar filtro de adultos
                   sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
@@ -588,72 +728,323 @@ export default function HomePage() {
               mb={4}
               direction={{ base: 'column', md: 'row' }}
               gap={{ base: 3, md: 0 }}
+              position="sticky"
+              top={0}
+              zIndex={10}
+              py={4}
+              px={{ base: 4, md: 0 }}
+              mx={{ base: -4, md: 0 }}
             >
               <Flex align="center" width={{ base: '100%', md: 'auto' }} justify={{ base: 'space-between', md: 'flex-start' }} gap={4}>
-                {/* Buscador */}
-                <InputGroup maxW={{ base: '100%', md: '300px' }} mb={{ base: 2, md: 0 }}>
-                  <InputLeftElement pointerEvents="none">
-                    <FaSearch color="white" />
-                  </InputLeftElement>
-                  <Input 
-                    placeholder="Buscar productos..." 
-                    value={searchTerm}
-                    onChange={(e) => {
-                      const newSearchTerm = e.target.value;
-                      setSearchTerm(newSearchTerm);
-                      
-                      // Solo reiniciar a la primera página si hay texto en la búsqueda
-                      // Si se está eliminando todo el texto, no cambiar de página
-                      if (newSearchTerm && !searchTerm) {
-                        // Guardar la página actual antes de buscar
-                        sessionStorage.setItem('lastPage', currentPage);
-                        setCurrentPage(1);
-                      } else if (!newSearchTerm && searchTerm) {
-                        // Si se borró toda la búsqueda, restaurar la página anterior
-                        const lastPage = sessionStorage.getItem('lastPage');
-                        if (lastPage) {
-                          setCurrentPage(parseInt(lastPage));
+                {/* Buscador mejorado con autocompletado */}
+                <Box position="relative" maxW={{ base: '100%', md: '300px' }} mb={{ base: 2, md: 0 }} width="100%">
+                  <InputGroup>
+                    <InputLeftElement pointerEvents="none">
+                      <FaSearch color="white" />
+                    </InputLeftElement>
+                    <Input 
+                      placeholder="Buscar productos..." 
+                      value={searchTerm}
+                      onFocus={() => {
+                        setIsSearchFocused(true);
+                        if (searchTerm.length === 0 && searchHistory.length > 0) {
+                          setShowSuggestions(true);
                         }
-                      }
-                    }}
-                    borderRadius="md"
-                    bg="whiteAlpha.200"
-                    color="white"
-                    borderColor="whiteAlpha.300"
-                    _placeholder={{ color: 'whiteAlpha.700' }}
-                    _hover={{ borderColor: 'whiteAlpha.400' }}
-                    _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
-                    pr="2.5rem" // Espacio para el botón de limpiar
-                  />
-                  {searchTerm && (
-                    <InputRightElement width="2.5rem">
-                      <IconButton
-                        h="1.75rem"
-                        size="sm"
-                        icon={<CloseIcon />}
-                        onClick={() => {
-                          setSearchTerm('');
-                          // Restaurar la página anterior
+                      }}
+                      onBlur={() => {
+                        // Delay para permitir clicks en sugerencias
+                        setTimeout(() => {
+                          setIsSearchFocused(false);
+                          setShowSuggestions(false);
+                          setSelectedSuggestionIndex(-1);
+                        }, 200);
+                      }}
+                      onChange={(e) => {
+                        const newSearchTerm = e.target.value;
+                        setSearchTerm(newSearchTerm);
+                        setSelectedSuggestionIndex(-1);
+                        
+                        if (newSearchTerm && !searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                          setCurrentPage(1);
+                        } else if (!newSearchTerm && searchTerm) {
                           const lastPage = sessionStorage.getItem('lastPage');
                           if (lastPage) {
                             setCurrentPage(parseInt(lastPage));
                           }
-                        }}
-                        variant="ghost"
-                        colorScheme="whiteAlpha"
-                        aria-label="Limpiar búsqueda"
-                        _hover={{ bg: 'whiteAlpha.300' }}
-                      />
-                    </InputRightElement>
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          if (selectedSuggestionIndex >= 0 && searchSuggestions[selectedSuggestionIndex]) {
+                            const suggestion = searchSuggestions[selectedSuggestionIndex];
+                            setSearchTerm(suggestion.text);
+                            addToSearchHistory(suggestion.text);
+                            setShowSuggestions(false);
+                          } else if (searchTerm) {
+                            addToSearchHistory(searchTerm);
+                            setShowSuggestions(false);
+                          }
+                        } else if (e.key === 'ArrowDown') {
+                          e.preventDefault();
+                          setSelectedSuggestionIndex(prev => 
+                            prev < searchSuggestions.length - 1 ? prev + 1 : prev
+                          );
+                        } else if (e.key === 'ArrowUp') {
+                          e.preventDefault();
+                          setSelectedSuggestionIndex(prev => prev > 0 ? prev - 1 : -1);
+                        } else if (e.key === 'Escape') {
+                          setShowSuggestions(false);
+                        }
+                      }}
+                      borderRadius="md"
+                      bg="whiteAlpha.200"
+                      color="white"
+                      borderColor="whiteAlpha.300"
+                      _placeholder={{ color: 'whiteAlpha.700' }}
+                      _hover={{ borderColor: 'whiteAlpha.400' }}
+                      _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
+                      pr="2.5rem"
+                    />
+                    {searchTerm && (
+                      <InputRightElement width="2.5rem">
+                        <IconButton
+                          h="1.75rem"
+                          size="sm"
+                          icon={<CloseIcon />}
+                          onClick={() => {
+                            setSearchTerm('');
+                            const lastPage = sessionStorage.getItem('lastPage');
+                            if (lastPage) {
+                              setCurrentPage(parseInt(lastPage));
+                            }
+                          }}
+                          variant="ghost"
+                          colorScheme="whiteAlpha"
+                          aria-label="Limpiar búsqueda"
+                          _hover={{ bg: 'whiteAlpha.300' }}
+                        />
+                      </InputRightElement>
+                    )}
+                  </InputGroup>
+                  
+                  {/* Panel de sugerencias */}
+                  {(showSuggestions && isSearchFocused) && (
+                    <Box
+                      position="absolute"
+                      top="100%"
+                      left={0}
+                      right={0}
+                      mt={2}
+                      bg="gray.800"
+                      borderRadius="md"
+                      boxShadow="xl"
+                      zIndex={1000}
+                      maxH="400px"
+                      overflowY="auto"
+                      border="1px solid"
+                      borderColor="gray.700"
+                    >
+                      {/* Historial de búsqueda */}
+                      {searchTerm.length === 0 && searchHistory.length > 0 && (
+                        <Box>
+                          <Flex justify="space-between" align="center" px={4} py={2} borderBottom="1px solid" borderColor="gray.700">
+                            <Text fontSize="xs" color="gray.400" fontWeight="bold">
+                              BÚSQUEDAS RECIENTES
+                            </Text>
+                            <Button
+                              size="xs"
+                              variant="ghost"
+                              colorScheme="pink"
+                              onClick={clearSearchHistory}
+                            >
+                              Limpiar
+                            </Button>
+                          </Flex>
+                          {searchHistory.map((term, index) => (
+                            <Box
+                              key={index}
+                              px={4}
+                              py={3}
+                              cursor="pointer"
+                              _hover={{ bg: 'whiteAlpha.100' }}
+                              onClick={() => {
+                                setSearchTerm(term);
+                                addToSearchHistory(term);
+                              }}
+                            >
+                              <Text color="white" fontSize="sm">
+                                {term}
+                              </Text>
+                            </Box>
+                          ))}
+                        </Box>
+                      )}
+                      
+                      {/* Sugerencias de productos */}
+                      {searchTerm.length >= 2 && searchSuggestions.length > 0 && (
+                        <Box>
+                          <Text fontSize="xs" color="gray.400" fontWeight="bold" px={4} py={2} borderBottom="1px solid" borderColor="gray.700">
+                            SUGERENCIAS
+                          </Text>
+                          {searchSuggestions.map((suggestion, index) => (
+                            <Flex
+                              key={suggestion.id}
+                              px={4}
+                              py={3}
+                              cursor="pointer"
+                              bg={selectedSuggestionIndex === index ? 'whiteAlpha.100' : 'transparent'}
+                              _hover={{ bg: 'whiteAlpha.100' }}
+                              onClick={() => {
+                                setSearchTerm(suggestion.text);
+                                addToSearchHistory(suggestion.text);
+                                setShowSuggestions(false);
+                              }}
+                              align="center"
+                              gap={3}
+                            >
+                              <Box
+                                width="40px"
+                                height="40px"
+                                borderRadius="md"
+                                overflow="hidden"
+                                flexShrink={0}
+                              >
+                                <img 
+                                  src={suggestion.image} 
+                                  alt={suggestion.text}
+                                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                              </Box>
+                              <Box flex={1}>
+                                <Text color="white" fontSize="sm" noOfLines={1}>
+                                  {suggestion.text}
+                                </Text>
+                                <Text color="pink.300" fontSize="xs" fontWeight="bold">
+                                  ${suggestion.price.toLocaleString()}
+                                </Text>
+                              </Box>
+                            </Flex>
+                          ))}
+                        </Box>
+                      )}
+                      
+                      {/* Sin resultados */}
+                      {searchTerm.length >= 2 && searchSuggestions.length === 0 && (
+                        <Box px={4} py={6} textAlign="center">
+                          <Text color="gray.400" fontSize="sm">
+                            No se encontraron productos
+                          </Text>
+                        </Box>
+                      )}
+                    </Box>
                   )}
-                </InputGroup>
+                </Box>
                 
                 {/* El toggle para mostrar/ocultar contenido adulto ha sido eliminado */}
               </Flex>
               
-              {/* Selector de ordenación (derecha) */}
+              {/* Selector de ordenación y filtro de precios (derecha) */}
               <Flex align="center" gap={4} width={{ base: '100%', md: 'auto' }}>
-                {/* El toggle para mostrar/ocultar contenido adulto (versión móvil) ha sido eliminado */}
+                {/* Filtro de rango de precios */}
+                <Popover placement="bottom-end">
+                  <PopoverTrigger>
+                    <Button
+                      colorScheme="pink"
+                      variant="outline"
+                      size="md"
+                      bg="whiteAlpha.200"
+                      color="white"
+                      _hover={{ bg: 'whiteAlpha.300' }}
+                      width={{ base: '100%', md: 'auto' }}
+                    >
+                      <Box as="span" overflow="hidden" textOverflow="ellipsis">
+                        <Box display={{ base: 'none', sm: 'block' }}>
+                          ${Math.floor(priceRange[0] / 1000)}k - ${Math.floor(priceRange[1] / 1000)}k
+                        </Box>
+                        <Box display={{ base: 'block', sm: 'none' }}>
+                          ${Math.floor(priceRange[0] / 1000)}k-${Math.floor(priceRange[1] / 1000)}k
+                        </Box>
+                      </Box>
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent bg="gray.800" borderColor="gray.700" width="300px">
+                    <PopoverArrow bg="gray.800" />
+                    <PopoverBody p={6}>
+                      <VStack spacing={4} align="stretch">
+                        <Text color="white" fontWeight="bold" fontSize="sm">
+                          Rango de precios
+                        </Text>
+                        <RangeSlider
+                          min={minPrice}
+                          max={maxPrice}
+                          step={1000}
+                          value={tempPriceRange}
+                          onChange={(val) => setTempPriceRange(val)}
+                          onChangeEnd={(val) => {
+                            setPriceRange(val);
+                            setCurrentPage(1);
+                          }}
+                          colorScheme="pink"
+                        >
+                          <RangeSliderTrack bg="gray.600">
+                            <RangeSliderFilledTrack bg="pink.400" />
+                          </RangeSliderTrack>
+                          <RangeSliderThumb index={0} boxSize={6}>
+                            <Box color="pink.400" />
+                          </RangeSliderThumb>
+                          <RangeSliderThumb index={1} boxSize={6}>
+                            <Box color="pink.400" />
+                          </RangeSliderThumb>
+                        </RangeSlider>
+                        <HStack justify="space-between">
+                          <Text color="gray.300" fontSize="sm">
+                            ${tempPriceRange[0].toLocaleString()}
+                          </Text>
+                          <Text color="gray.300" fontSize="sm">
+                            ${tempPriceRange[1].toLocaleString()}
+                          </Text>
+                        </HStack>
+                        {(priceRange[0] !== minPrice || priceRange[1] !== maxPrice) && (
+                          <Button
+                            size="sm"
+                            colorScheme="pink"
+                            variant="ghost"
+                            onClick={() => {
+                              setPriceRange([minPrice, maxPrice]);
+                              setTempPriceRange([minPrice, maxPrice]);
+                              setCurrentPage(1);
+                            }}
+                          >
+                            Restablecer
+                          </Button>
+                        )}
+                      </VStack>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover>
+                
+                {/* Botones de modo de vista */}
+                <ButtonGroup size="md" isAttached variant="outline" display={{ base: 'none', md: 'flex' }}>
+                  <IconButton
+                    icon={<FaTh />}
+                    aria-label="Vista en grilla"
+                    onClick={() => setViewMode('grid')}
+                    colorScheme={viewMode === 'grid' ? 'pink' : 'gray'}
+                    bg={viewMode === 'grid' ? 'pink.500' : 'whiteAlpha.200'}
+                    color="white"
+                    _hover={{ bg: viewMode === 'grid' ? 'pink.600' : 'whiteAlpha.300' }}
+                  />
+                  <IconButton
+                    icon={<FaThLarge />}
+                    aria-label="Vista compacta"
+                    onClick={() => setViewMode('compact')}
+                    colorScheme={viewMode === 'compact' ? 'pink' : 'gray'}
+                    bg={viewMode === 'compact' ? 'pink.500' : 'whiteAlpha.200'}
+                    color="white"
+                    _hover={{ bg: viewMode === 'compact' ? 'pink.600' : 'whiteAlpha.300' }}
+                  />
+                </ButtonGroup>
                 
                 {/* Selector de ordenación */}
                 <Menu width={{ base: '100%', md: 'auto' }}>
@@ -775,15 +1166,31 @@ export default function HomePage() {
           {sortedProducts.length > 0 ? (
             <>
               <SimpleGrid 
-                columns={{ base: 1, sm: 2, md: 3, lg: 4 }} 
-                spacing={6}
+                columns={
+                  viewMode === 'compact' ? { base: 2, sm: 3, md: 4, lg: 6 } :
+                  { base: 1, sm: 2, md: 3, lg: 4 }
+                }
+                spacing={viewMode === 'compact' ? 4 : 6}
                 justifyItems="center"
                 mx="auto"
                 mb={8}
               >
-                {currentProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+                <AnimatePresence mode="popLayout">
+                  {currentProducts.map((product) => (
+                    <motion.div
+                      key={product.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                    >
+                      <ProductCard 
+                        product={product}
+                      />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </SimpleGrid>
               
               {/* Controles de paginación */}

@@ -161,6 +161,10 @@ export const CartProvider = ({ children }) => {
   
   // Estado para evitar mostrar múltiples notificaciones
   const [errorNotified, setErrorNotified] = useState(false);
+  
+  // Estado para cupones de descuento
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [couponDiscount, setCouponDiscount] = useState(0);
 
   // Guardar el carrito en localStorage cada vez que cambie
   useEffect(() => {
@@ -283,6 +287,31 @@ export const CartProvider = ({ children }) => {
 
   // Calcular el precio total del carrito
   const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  
+  // Calcular ahorro total por ofertas
+  const totalSavings = cart.reduce((total, item) => {
+    if (item.isOnOffer && item.discountPercentage) {
+      const originalPrice = Math.round(item.price / (1 - item.discountPercentage / 100));
+      const savings = (originalPrice - item.price) * item.quantity;
+      return total + savings;
+    }
+    return total;
+  }, 0);
+  
+  // Aplicar cupón de descuento
+  const applyCoupon = (coupon, discount) => {
+    setAppliedCoupon(coupon);
+    setCouponDiscount(discount);
+  };
+  
+  // Remover cupón
+  const removeCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponDiscount(0);
+  };
+  
+  // Total final con cupón aplicado
+  const finalTotal = cartTotal - couponDiscount;
 
   // Valores y funciones que se proporcionarán a través del contexto
   const value = {
@@ -292,6 +321,12 @@ export const CartProvider = ({ children }) => {
     clearCart,
     cartItemsCount,
     cartTotal,
+    totalSavings,
+    appliedCoupon,
+    couponDiscount,
+    applyCoupon,
+    removeCoupon,
+    finalTotal,
     productsCache // Proporcionar el cache para acceso a datos completos
   };
 

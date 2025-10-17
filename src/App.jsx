@@ -8,6 +8,7 @@ import TermsPage from './pages/TermsPage'
 import FAQPage from './pages/FAQPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import FloatingCartButton from './components/Cart/FloatingCartButton'
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         </Routes>
       </Box>
       <Footer />
+      
+      {/* Botón flotante del carrito siempre visible */}
+      <FloatingCartButton />
     </Box>
   )
 }
