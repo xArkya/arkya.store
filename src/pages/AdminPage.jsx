@@ -39,12 +39,14 @@ import ProductForm from '../components/Admin/ProductForm';
 import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
 import CouponForm from '../components/Admin/CouponForm';
+import ProductSearch from '../components/Admin/ProductSearch';
 import { products as initialProducts } from '../data/products';
 import { offers as initialOffers } from '../data/offers';
 import { coupons as initialCoupons } from '../data/coupons';
 
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(50); // Mostrar 50 productos por página
@@ -83,6 +85,7 @@ const AdminPage = () => {
   useEffect(() => {
     // Cargar productos iniciales
     setProducts(initialProducts);
+    setFilteredProducts(initialProducts);
     
     // Intentar cargar ofertas desde localStorage
     try {
@@ -94,6 +97,11 @@ const AdminPage = () => {
       console.error('Error al cargar ofertas:', e);
     }
   }, []);
+
+  // Actualizar filteredProducts cuando cambian los productos
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
   
   // Guardar ofertas en localStorage cuando cambian
   useEffect(() => {
@@ -446,29 +454,38 @@ const AdminPage = () => {
           
           <TabPanels>
             <TabPanel>
-              <Box 
-                bg={bgColor}
-                p={4}
-                borderRadius="md"
-                borderWidth="1px"
-                borderColor={borderColor}
-                overflowX="auto"
-              >
-                <HStack justify="space-between" mb={4}>
-                  <Heading size="md">Lista de Productos</Heading>
-                  <Button 
-                    leftIcon={<FaPlus />} 
-                    colorScheme="brand" 
-                    onClick={() => {
-                      setSelectedProduct(null);
-                      onOpen();
-                    }}
-                  >
-                    Nuevo Producto
-                  </Button>
-                </HStack>
-                
-                <Box mb={4}>
+              <VStack spacing={4} align="stretch">
+                {/* Buscador de productos */}
+                <ProductSearch 
+                  products={products} 
+                  onFilterChange={setFilteredProducts}
+                />
+
+
+                {/* Lista de productos */}
+                <Box 
+                  bg={bgColor}
+                  p={4}
+                  borderRadius="md"
+                  borderWidth="1px"
+                  borderColor={borderColor}
+                  overflowX="auto"
+                >
+                  <HStack justify="space-between" mb={4}>
+                    <Heading size="md">Lista de Productos</Heading>
+                    <Button 
+                      leftIcon={<FaPlus />} 
+                      colorScheme="brand" 
+                      onClick={() => {
+                        setSelectedProduct(null);
+                        onOpen();
+                      }}
+                    >
+                      Nuevo Producto
+                    </Button>
+                  </HStack>
+                  
+                  <Box mb={4}>
                   <HStack spacing={4} justify="space-between" mb={2}>
                     <Text color="gray.600">
                       Mostrando {Math.min((currentPage - 1) * productsPerPage + 1, products.length)} - {Math.min(currentPage * productsPerPage, products.length)} de {products.length} productos
@@ -514,7 +531,7 @@ const AdminPage = () => {
                       </Tr>
                     </Thead>
                     <Tbody>
-                      {products
+                      {filteredProducts
                         .slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage)
                         .map((product) => (
                       <Tr key={product.id}>
@@ -665,6 +682,7 @@ const AdminPage = () => {
                   )}
                 </Box>
               </Box>
+              </VStack>
             </TabPanel>
             
             <TabPanel>

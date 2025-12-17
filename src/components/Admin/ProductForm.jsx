@@ -25,8 +25,9 @@ import {
   Tag,
   TagLabel,
   TagCloseButton,
+  Tooltip,
 } from '@chakra-ui/react';
-import { FaImage, FaDollarSign, FaSave, FaPlus, FaTrash, FaUpload } from 'react-icons/fa';
+import { FaImage, FaDollarSign, FaSave, FaPlus, FaTrash, FaUpload, FaGripVertical } from 'react-icons/fa';
 import { categories } from '../../data/categories';
 
 // Función para comprimir y convertir imagen a base64
@@ -102,6 +103,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
   const [newCategory, setNewCategory] = useState('');
   const [newSubcategory, setNewSubcategory] = useState('');
   const [newTag, setNewTag] = useState('');
+  const [draggedImageIndex, setDraggedImageIndex] = useState(null);
   
   // Efecto para manejar compatibilidad con productos existentes
   useEffect(() => {
@@ -412,6 +414,56 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     });
   };
 
+  // Funciones para drag-and-drop
+  const handleDragStart = (index) => {
+    setDraggedImageIndex(index);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e, targetIndex) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (draggedImageIndex === null || draggedImageIndex === targetIndex) {
+      setDraggedImageIndex(null);
+      return;
+    }
+
+    const currentImages = [...(product.images || [''])];
+    const draggedImage = currentImages[draggedImageIndex];
+    
+    // Remover la imagen arrastrada
+    currentImages.splice(draggedImageIndex, 1);
+    
+    // Insertar en la nueva posición
+    const newIndex = draggedImageIndex < targetIndex ? targetIndex - 1 : targetIndex;
+    currentImages.splice(newIndex, 0, draggedImage);
+
+    setProduct({
+      ...product,
+      images: currentImages,
+      image: currentImages[0]
+    });
+
+    setDraggedImageIndex(null);
+
+    toast({
+      title: 'Imagen reordenada',
+      description: 'Las imágenes se han reordenado correctamente',
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    });
+  };
+
+  const handleDragEnd = () => {
+    setDraggedImageIndex(null);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -674,7 +726,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
           </FormHelperText>
           <Box p={3} mb={3} bg="blue.50" borderRadius="md" borderWidth="1px" borderColor="blue.200">
             <Text fontWeight="medium" color="blue.700">
-              <strong>Tip:</strong> Usa los botones de flecha para reordenar las imágenes. La imagen en la posición #1 será la principal.
+              <strong>Tip:</strong> Arrastra las imágenes para reordenarlas o usa los botones de flecha. La imagen en la posición #1 será la principal.
             </Text>
           </Box>
           
@@ -684,14 +736,34 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                 key={index}
                 borderRadius="md"
                 p={2}
-                borderWidth="1px"
-                borderColor={index === 0 ? "purple.300" : "gray.200"}
-                bg={index === 0 ? "purple.50" : "transparent"}
+                borderWidth="2px"
+                borderColor={draggedImageIndex === index ? "purple.500" : (index === 0 ? "purple.300" : "gray.200")}
+                bg={draggedImageIndex === index ? "purple.100" : (index === 0 ? "purple.50" : "transparent")}
                 mb={2}
                 transition="all 0.2s"
                 _hover={{ bg: 'gray.50', borderColor: 'purple.200' }}
+                draggable
+                onDragStart={() => handleDragStart(index)}
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, index)}
+                onDragEnd={handleDragEnd}
+                cursor="move"
+                opacity={draggedImageIndex === index ? 0.6 : 1}
               >
                 <HStack spacing={2} mb={2}>
+                  {/* Ícono de arrastre */}
+                  <Tooltip label="Arrastra para reordenar" placement="top">
+                    <Box 
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      color="purple.500"
+                      fontSize="lg"
+                    >
+                      <FaGripVertical />
+                    </Box>
+                  </Tooltip>
+
                   {/* Indicador de posición */}
                   <Box 
                     bg={index === 0 ? "purple.200" : "gray.200"}
@@ -700,6 +772,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
+                    minW="40px"
                   >
                     <Text fontSize="sm" fontWeight="bold">{index + 1}</Text>
                   </Box>
@@ -743,20 +816,17 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                     colorScheme="blue"
                     variant="outline"
                     onClick={() => {
-                      // Crear un input de archivo temporal
                       const fileInput = document.createElement('input');
                       fileInput.type = 'file';
                       fileInput.accept = 'image/*';
                       fileInput.multiple = true;
                       
-                      // Manejar el cambio cuando se seleccionen archivos
                       fileInput.onchange = (e) => {
                         if (e.target.files && e.target.files.length > 0) {
                           handleImageUpload(index, e.target.files);
                         }
                       };
                       
-                      // Simular clic en el input
                       fileInput.click();
                     }}
                     leftIcon={<FaUpload />}
