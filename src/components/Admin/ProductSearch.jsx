@@ -16,18 +16,28 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 const ProductSearch = ({ products, onFilterChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('all');
+  const [stockFilter, setStockFilter] = useState('all'); // 'all', 'inStock', 'outOfStock'
   
   const bgColor = useColorModeValue('white', '#2a1c29');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
 
   const filteredProducts = useMemo(() => {
+    let result = products;
+
+    // Apply stock filter
+    if (stockFilter === 'inStock') {
+      result = result.filter(product => product.inStock !== false);
+    } else if (stockFilter === 'outOfStock') {
+      result = result.filter(product => product.inStock === false);
+    }
+
     if (!searchTerm.trim()) {
-      return products;
+      return result;
     }
 
     const term = searchTerm.toLowerCase();
 
-    return products.filter(product => {
+    return result.filter(product => {
       switch (searchType) {
         case 'name':
           return product.name.toLowerCase().includes(term);
@@ -59,20 +69,29 @@ const ProductSearch = ({ products, onFilterChange }) => {
           );
       }
     });
-  }, [searchTerm, searchType, products]);
+  }, [searchTerm, searchType, stockFilter, products]);
+
+  // Propagate filtered results whenever filters change
+  React.useEffect(() => {
+    onFilterChange(filteredProducts);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filteredProducts]);
 
   const handleSearch = (value) => {
     setSearchTerm(value);
-    onFilterChange(filteredProducts);
   };
 
   const handleClear = () => {
     setSearchTerm('');
-    onFilterChange(products);
+    setStockFilter('all');
   };
 
   const handleSearchTypeChange = (type) => {
     setSearchType(type);
+  };
+
+  const handleStockFilterChange = (filter) => {
+    setStockFilter(filter);
   };
 
   return (
@@ -159,6 +178,34 @@ const ProductSearch = ({ products, onFilterChange }) => {
             onClick={() => handleSearchTypeChange('tags')}
           >
             Etiquetas
+          </Button>
+        </HStack>
+
+        <HStack spacing={2} flexWrap="wrap">
+          <Text fontSize="sm" fontWeight="medium">Stock:</Text>
+          <Button
+            size="xs"
+            colorScheme={stockFilter === 'all' ? 'brand' : 'gray'}
+            variant={stockFilter === 'all' ? 'solid' : 'outline'}
+            onClick={() => handleStockFilterChange('all')}
+          >
+            Todos
+          </Button>
+          <Button
+            size="xs"
+            colorScheme={stockFilter === 'inStock' ? 'green' : 'gray'}
+            variant={stockFilter === 'inStock' ? 'solid' : 'outline'}
+            onClick={() => handleStockFilterChange('inStock')}
+          >
+            En Stock
+          </Button>
+          <Button
+            size="xs"
+            colorScheme={stockFilter === 'outOfStock' ? 'red' : 'gray'}
+            variant={stockFilter === 'outOfStock' ? 'solid' : 'outline'}
+            onClick={() => handleStockFilterChange('outOfStock')}
+          >
+            Fuera de Stock
           </Button>
         </HStack>
 

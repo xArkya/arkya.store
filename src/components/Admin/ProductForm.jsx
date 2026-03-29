@@ -414,6 +414,31 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     });
   };
 
+  // Move image to a specific position by number
+  const moveImageToPosition = (currentIndex, targetPosition) => {
+    const target = targetPosition - 1; // Convert from 1-indexed to 0-indexed
+    const currentImages = [...(product.images || [''])];
+    
+    if (target < 0 || target >= currentImages.length || target === currentIndex) return;
+    
+    const [movedImage] = currentImages.splice(currentIndex, 1);
+    currentImages.splice(target, 0, movedImage);
+    
+    setProduct({
+      ...product,
+      images: currentImages,
+      image: currentImages[0]
+    });
+    
+    toast({
+      title: 'Imagen reordenada',
+      description: `Imagen movida a la posición ${targetPosition}`,
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    });
+  };
+
   // Funciones para drag-and-drop
   const handleDragStart = (index) => {
     setDraggedImageIndex(index);
@@ -764,18 +789,37 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                     </Box>
                   </Tooltip>
 
-                  {/* Indicador de posición */}
-                  <Box 
-                    bg={index === 0 ? "purple.200" : "gray.200"}
-                    p={2} 
-                    borderRadius="md"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    minW="40px"
-                  >
-                    <Text fontSize="sm" fontWeight="bold">{index + 1}</Text>
-                  </Box>
+                  {/* Indicador de posición editable */}
+                  <Tooltip label="Escribí el número de posición y presioná Enter" placement="top">
+                    <Input
+                      size="sm"
+                      w="50px"
+                      textAlign="center"
+                      fontWeight="bold"
+                      bg={index === 0 ? "purple.200" : "gray.200"}
+                      borderRadius="md"
+                      defaultValue={index + 1}
+                      type="number"
+                      min={1}
+                      max={(product.images || ['']).length}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          const val = parseInt(e.target.value, 10);
+                          if (!isNaN(val)) {
+                            moveImageToPosition(index, val);
+                          }
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const val = parseInt(e.target.value, 10);
+                        if (!isNaN(val) && val !== index + 1) {
+                          moveImageToPosition(index, val);
+                        } else {
+                          e.target.value = index + 1;
+                        }
+                      }}
+                    />
+                  </Tooltip>
                   
                   {/* Botones para reordenar */}
                   <VStack spacing={1}>

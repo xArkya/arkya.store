@@ -123,7 +123,7 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
   };
 
   return (
-    <Box p={4} borderWidth="1px" borderRadius="md" bg="gray.50">
+    <Box p={4} borderWidth="1px" borderRadius="md" bg="purple.700" color="white">
       <VStack spacing={4} align="stretch">
         <Text fontWeight="bold" fontSize="lg">
           Gestionar Oferta - {product.name}
@@ -141,7 +141,7 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
         {offerData.isOnOffer && (
           <>
             <FormControl>
-              <FormLabel>Precio Original ($)</FormLabel>
+              <FormLabel color="white">Precio Original ($)</FormLabel>
               <NumberInput
                 value={offerData.originalPrice}
                 onChange={(valueString, valueNumber) => handleInputChange('originalPrice', valueNumber || 0)}
@@ -157,7 +157,7 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
             </FormControl>
 
             <FormControl>
-              <FormLabel>Porcentaje de Descuento (%)</FormLabel>
+              <FormLabel color="white">Porcentaje de Descuento (%)</FormLabel>
               <NumberInput
                 value={offerData.discountPercentage}
                 onChange={(valueString, valueNumber) => handleInputChange('discountPercentage', valueNumber || 0)}
@@ -186,7 +186,7 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
 
             <HStack spacing={4}>
               <FormControl>
-                <FormLabel>Fecha de Inicio</FormLabel>
+                <FormLabel color="white">Fecha de Inicio</FormLabel>
                 <Input
                   type="datetime-local"
                   value={offerData.startDate}
@@ -195,7 +195,7 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
               </FormControl>
 
               <FormControl>
-                <FormLabel>Fecha de Fin</FormLabel>
+                <FormLabel color="white">Fecha de Fin</FormLabel>
                 <Input
                   type="datetime-local"
                   value={offerData.endDate}

@@ -33,6 +33,8 @@ import {
   AlertTitle,
   AlertDescription,
   useColorModeValue,
+  Switch,
+  Image,
 } from '@chakra-ui/react';
 import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle, FaTicketAlt } from 'react-icons/fa';
 import ProductForm from '../components/Admin/ProductForm';
@@ -97,6 +99,40 @@ const AdminPage = () => {
       console.error('Error al cargar ofertas:', e);
     }
   }, []);
+
+  // Auto-remove offers from out-of-stock products
+  const stockKey = products.map(p => `${p.id}-${p.inStock}`).join(',');
+  useEffect(() => {
+    if (products.length > 0) {
+      let changed = false;
+      const updatedProducts = products.map(p => {
+        if (p.inStock === false && p.isOnOffer) {
+          changed = true;
+          return {
+            ...p,
+            isOnOffer: false,
+            discountPercentage: 0,
+            price: p.originalPrice || p.price,
+            originalPrice: undefined,
+            offerStartDate: undefined,
+            offerEndDate: undefined,
+          };
+        }
+        return p;
+      });
+      if (changed) {
+        setProducts(updatedProducts);
+        toast({
+          title: 'Ofertas removidas automáticamente',
+          description: 'Se eliminaron las ofertas de los productos fuera de stock.',
+          status: 'info',
+          duration: 4000,
+          isClosable: true,
+        });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stockKey]);
 
   // Actualizar filteredProducts cuando cambian los productos
   useEffect(() => {
@@ -230,6 +266,13 @@ const AdminPage = () => {
     }
   };
   
+  // Toggle stock status
+  const handleToggleStock = (productId) => {
+    setProducts(products.map(p => 
+      p.id === productId ? { ...p, inStock: !p.inStock } : p
+    ));
+  };
+
   // Funciones para manejar ofertas
   const handleSaveOffer = (offer) => {
     if (selectedOffer) {
@@ -521,10 +564,11 @@ const AdminPage = () => {
                   <Table variant="simple">
                     <Thead>
                       <Tr>
-                        <Th>ID</Th>
+                        <Th>Portada</Th>
                         <Th>Nombre</Th>
                         <Th>Categoría</Th>
                         <Th>Precio</Th>
+                        <Th>Stock</Th>
                         <Th>Estado</Th>
                         <Th>Oferta</Th>
                         <Th>Acciones</Th>
@@ -534,8 +578,17 @@ const AdminPage = () => {
                       {filteredProducts
                         .slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage)
                         .map((product) => (
-                      <Tr key={product.id}>
-                        <Td>{product.id}</Td>
+                      <Tr key={product.id} opacity={product.inStock === false ? 0.6 : 1}>
+                        <Td>
+                          <Image
+                            src={product.image || (product.images && product.images[0]) || ''}
+                            alt={product.name}
+                            boxSize="50px"
+                            objectFit="cover"
+                            borderRadius="md"
+                            fallbackSrc="https://via.placeholder.com/50?text=..."
+                          />
+                        </Td>
                         <Td>
                           <HStack>
                             {product.adultContent && (
@@ -560,6 +613,19 @@ const AdminPage = () => {
                           }
                         </Td>
                         <Td>${product.price.toLocaleString()}</Td>
+                        <Td>
+                          <HStack spacing={2}>
+                            <Switch
+                              isChecked={product.inStock !== false}
+                              onChange={() => handleToggleStock(product.id)}
+                              colorScheme="green"
+                              size="md"
+                            />
+                            <Badge colorScheme={product.inStock !== false ? "green" : "red"} fontSize="xs">
+                              {product.inStock !== false ? "En Stock" : "Sin Stock"}
+                            </Badge>
+                          </HStack>
+                        </Td>
                         <Td>
                           <HStack spacing={2}>
                             {product.isNew && (
@@ -984,7 +1050,7 @@ const AdminPage = () => {
       
       <Modal isOpen={isProductOfferOpen} onClose={onProductOfferClose} size="lg">
         <ModalOverlay />
-        <ModalContent bg={bgColor} color={textColor}>
+        <ModalContent bg="purple.800" color="white">
           <ModalHeader>
             Gestionar Oferta del Producto
           </ModalHeader>
