@@ -183,7 +183,8 @@ export default function ProductCard({ product }) {
             bg="blackAlpha.700"
             zIndex="3"
             flexDirection="column"
-            p={4}
+            justifyContent="end"
+            p={5}
             textAlign="center"
             borderWidth="3px"
             borderColor="red.500"
@@ -202,14 +203,14 @@ export default function ProductCard({ product }) {
               CONTENIDO PARA ADULTOS
             </Box>
             <FaExclamationTriangle size="2.5em" color="#FFC107" />
-            <Text color="white" fontWeight="bold" fontSize="lg" mt={3}>
+            <Text color="white" fontWeight="bold" fontSize="lg" mt={2}>
               Contenido +18
             </Text>
             <Text color="white" fontSize="sm" mt={2}>
               Haz clic para verificar tu edad
             </Text>
             <Button 
-              mt={4} 
+              mt={3} 
               size="sm" 
               colorScheme="red"
               onClick={(e) => {
