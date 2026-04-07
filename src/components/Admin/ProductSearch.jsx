@@ -17,6 +17,7 @@ const ProductSearch = ({ products, onFilterChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('all');
   const [stockFilter, setStockFilter] = useState('all'); // 'all', 'inStock', 'outOfStock'
+  const [feriaFilter, setFeriaFilter] = useState('all'); // 'all', 'feria', 'normal'
   
   const bgColor = useColorModeValue('white', '#2a1c29');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
@@ -29,6 +30,13 @@ const ProductSearch = ({ products, onFilterChange }) => {
       result = result.filter(product => product.inStock !== false);
     } else if (stockFilter === 'outOfStock') {
       result = result.filter(product => product.inStock === false);
+    }
+
+    // Apply feria filter
+    if (feriaFilter === 'feria') {
+      result = result.filter(product => product.isFeria === true);
+    } else if (feriaFilter === 'normal') {
+      result = result.filter(product => product.isFeria !== true);
     }
 
     if (!searchTerm.trim()) {
@@ -69,7 +77,7 @@ const ProductSearch = ({ products, onFilterChange }) => {
           );
       }
     });
-  }, [searchTerm, searchType, stockFilter, products]);
+  }, [searchTerm, searchType, stockFilter, feriaFilter, products]);
 
   // Propagate filtered results whenever filters change
   React.useEffect(() => {
@@ -84,6 +92,7 @@ const ProductSearch = ({ products, onFilterChange }) => {
   const handleClear = () => {
     setSearchTerm('');
     setStockFilter('all');
+    setFeriaFilter('all');
   };
 
   const handleSearchTypeChange = (type) => {
@@ -92,6 +101,10 @@ const ProductSearch = ({ products, onFilterChange }) => {
 
   const handleStockFilterChange = (filter) => {
     setStockFilter(filter);
+  };
+
+  const handleFeriaFilterChange = (filter) => {
+    setFeriaFilter(filter);
   };
 
   return (
@@ -206,6 +219,34 @@ const ProductSearch = ({ products, onFilterChange }) => {
             onClick={() => handleStockFilterChange('outOfStock')}
           >
             Fuera de Stock
+          </Button>
+        </HStack>
+
+        <HStack spacing={2} flexWrap="wrap">
+          <Text fontSize="sm" fontWeight="medium">Feria:</Text>
+          <Button
+            size="xs"
+            colorScheme={feriaFilter === 'all' ? 'brand' : 'gray'}
+            variant={feriaFilter === 'all' ? 'solid' : 'outline'}
+            onClick={() => handleFeriaFilterChange('all')}
+          >
+            Todos
+          </Button>
+          <Button
+            size="xs"
+            colorScheme={feriaFilter === 'feria' ? 'purple' : 'gray'}
+            variant={feriaFilter === 'feria' ? 'solid' : 'outline'}
+            onClick={() => handleFeriaFilterChange('feria')}
+          >
+            Solo Feria
+          </Button>
+          <Button
+            size="xs"
+            colorScheme={feriaFilter === 'normal' ? 'blue' : 'gray'}
+            variant={feriaFilter === 'normal' ? 'solid' : 'outline'}
+            onClick={() => handleFeriaFilterChange('normal')}
+          >
+            Productos Normales
           </Button>
         </HStack>
 

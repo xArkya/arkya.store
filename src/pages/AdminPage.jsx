@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -36,7 +37,7 @@ import {
   Switch,
   Image,
 } from '@chakra-ui/react';
-import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle, FaTicketAlt } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle, FaTicketAlt, FaStore } from 'react-icons/fa';
 import ProductForm from '../components/Admin/ProductForm';
 import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
@@ -47,6 +48,7 @@ import { offers as initialOffers } from '../data/offers';
 import { coupons as initialCoupons } from '../data/coupons';
 
 const AdminPage = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -273,6 +275,13 @@ const AdminPage = () => {
     ));
   };
 
+  // Toggle feria status
+  const handleToggleFeria = (productId) => {
+    setProducts(products.map(p => 
+      p.id === productId ? { ...p, isFeria: !p.isFeria } : p
+    ));
+  };
+
   // Funciones para manejar ofertas
   const handleSaveOffer = (offer) => {
     if (selectedOffer) {
@@ -472,8 +481,21 @@ const AdminPage = () => {
     <Container maxW="container.xl" py={8}>
       <VStack spacing={8} align="stretch">
         <Box>
-          <Heading as="h1" size="xl" mb={2}>Administración de Productos</Heading>
-          <Text>Gestiona los productos de tu tienda de Instagram</Text>
+          <HStack justify="space-between" align="center" mb={4}>
+            <Box>
+              <Heading as="h1" size="xl" mb={2}>Administración de Productos</Heading>
+              <Text>Gestiona los productos de tu tienda de Instagram</Text>
+            </Box>
+            <Button
+              leftIcon={<FaStore />}
+              colorScheme="purple"
+              variant="outline"
+              onClick={() => navigate('/admin/feria')}
+              size="lg"
+            >
+              Ver Productos de Feria
+            </Button>
+          </HStack>
         </Box>
         
         <Alert status="info" borderRadius="md">
@@ -569,6 +591,7 @@ const AdminPage = () => {
                         <Th>Categoría</Th>
                         <Th>Precio</Th>
                         <Th>Stock</Th>
+                        <Th>Feria</Th>
                         <Th>Estado</Th>
                         <Th>Oferta</Th>
                         <Th>Acciones</Th>
@@ -623,6 +646,19 @@ const AdminPage = () => {
                             />
                             <Badge colorScheme={product.inStock !== false ? "green" : "red"} fontSize="xs">
                               {product.inStock !== false ? "En Stock" : "Sin Stock"}
+                            </Badge>
+                          </HStack>
+                        </Td>
+                        <Td>
+                          <HStack spacing={2}>
+                            <Switch
+                              isChecked={product.isFeria === true}
+                              onChange={() => handleToggleFeria(product.id)}
+                              colorScheme="purple"
+                              size="md"
+                            />
+                            <Badge colorScheme={product.isFeria ? "purple" : "gray"} fontSize="xs">
+                              {product.isFeria ? "Feria" : "Normal"}
                             </Badge>
                           </HStack>
                         </Td>

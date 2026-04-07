@@ -92,6 +92,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     isNew: true,
     inStock: true, // Indicador de stock disponible
     adultContent: false, // Indicador de contenido para adultos (+18)
+    isFeria: false, // Indicador de producto de feria (solo visible para admin)
     details: '',
     instagram: 'https://instagram.com/arkya.store',
     tags: [] // Array de etiquetas para búsqueda
