@@ -30,49 +30,12 @@ import {
 import { FaImage, FaDollarSign, FaSave, FaPlus, FaTrash, FaUpload, FaGripVertical } from 'react-icons/fa';
 import { categories } from '../../data/categories';
 
-// Función para comprimir y convertir imagen a base64
-const compressAndConvertToBase64 = (file, maxWidth = 800, quality = 0.7) => {
-  return new Promise((resolve, reject) => {
-    // Primero convertimos el archivo a una URL de objeto
-    const objectUrl = URL.createObjectURL(file);
-    
-    // Creamos una imagen para obtener las dimensiones
-    const img = new Image();
-    img.onload = () => {
-      // Liberamos la URL del objeto
-      URL.revokeObjectURL(objectUrl);
-      
-      // Calculamos las nuevas dimensiones manteniendo la proporción
-      let width = img.width;
-      let height = img.height;
-      
-      if (width > maxWidth) {
-        height = Math.round((height * maxWidth) / width);
-        width = maxWidth;
-      }
-      
-      // Creamos un canvas para comprimir la imagen
-      const canvas = document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
-      
-      // Dibujamos la imagen en el canvas
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, width, height);
-      
-      // Convertimos el canvas a base64 con la calidad especificada
-      const base64 = canvas.toDataURL('image/jpeg', quality);
-      
-      resolve(base64);
-    };
-    
-    img.onerror = (error) => {
-      URL.revokeObjectURL(objectUrl);
-      reject(error);
-    };
-    
-    img.src = objectUrl;
-  });
+// Función para generar un nombre único para la imagen
+const generateImageFilename = (file) => {
+  const timestamp = Date.now();
+  const randomStr = Math.random().toString(36).substring(2, 8);
+  const extension = file.name.split('.').pop().toLowerCase();
+  return `img_${timestamp}_${randomStr}.${extension}`;
 };
 
 const ProductForm = ({ onSaveProduct, initialValues = null }) => {
@@ -245,9 +208,8 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     }
     
     try {
-      // Procesar todas las imágenes seleccionadas
-      const imagePromises = [];
       const validFiles = [];
+      const imagePaths = [];
       
       console.log(`Procesando ${files.length} archivos`);
       
@@ -257,9 +219,12 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
         console.log(`Archivo ${i+1}: ${file.name}, tipo: ${file.type}`);
         
         if (file.type.startsWith('image/')) {
-          // Usar la función de compresión en lugar de la conversión directa
-          imagePromises.push(compressAndConvertToBase64(file, 800, 0.6));
+          // Generar nombre único para la imagen
+          const filename = generateImageFilename(file);
+          const imagePath = `/arkya.store/images/products/${filename}`;
+          
           validFiles.push(file);
+          imagePaths.push(imagePath);
         } else {
           console.warn(`El archivo ${file.name} no es una imagen y será ignorado`);
         }
@@ -276,21 +241,16 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
         return;
       }
       
-      console.log(`Convirtiendo ${validFiles.length} imágenes válidas a base64`);
+      console.log(`Procesando ${validFiles.length} imágenes válidas`);
       
-      // Convertir todas las imágenes a base64
-      const base64Images = await Promise.all(imagePromises);
-      
-      console.log(`Conversión completada: ${base64Images.length} imágenes`);
-      
-      // Actualizar el estado con las nuevas imágenes
+      // Actualizar el estado con las nuevas rutas de imágenes
       const currentImages = [...(product.images || [''])];
       let newImages = [];
       
       // Si es una sola imagen y estamos en un campo vacío, simplemente reemplazamos
-      if (base64Images.length === 1 && (!currentImages[index] || currentImages[index] === '')) {
+      if (imagePaths.length === 1 && (!currentImages[index] || currentImages[index] === '')) {
         newImages = [...currentImages];
-        newImages[index] = base64Images[0];
+        newImages[index] = imagePaths[0];
       } 
       // Si son múltiples imágenes o estamos reemplazando una existente
       else {
@@ -299,13 +259,13 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
         
         // Reemplazar la imagen actual
         if (index < newImages.length) {
-          newImages[index] = base64Images[0];
+          newImages[index] = imagePaths[0];
         }
         
         // Agregar el resto de imágenes al final
-        if (base64Images.length > 1) {
-          for (let i = 1; i < base64Images.length; i++) {
-            newImages.push(base64Images[i]);
+        if (imagePaths.length > 1) {
+          for (let i = 1; i < imagePaths.length; i++) {
+            newImages.push(imagePaths[i]);
           }
         }
       }
@@ -328,9 +288,9 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
       
       toast({
         title: 'Imágenes cargadas',
-        description: `Se han cargado ${base64Images.length} imágenes correctamente`,
+        description: `Se han cargado ${validFiles.length} imágenes correctamente. Guarda el producto para completar la carga.`,
         status: 'success',
-        duration: 2000,
+        duration: 3000,
         isClosable: true,
       });
     } catch (error) {
@@ -409,31 +369,6 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     toast({
       title: 'Imagen movida',
       description: 'La imagen se ha movido hacia abajo',
-      status: 'success',
-      duration: 1000,
-      isClosable: true,
-    });
-  };
-
-  // Move image to a specific position by number
-  const moveImageToPosition = (currentIndex, targetPosition) => {
-    const target = targetPosition - 1; // Convert from 1-indexed to 0-indexed
-    const currentImages = [...(product.images || [''])];
-    
-    if (target < 0 || target >= currentImages.length || target === currentIndex) return;
-    
-    const [movedImage] = currentImages.splice(currentIndex, 1);
-    currentImages.splice(target, 0, movedImage);
-    
-    setProduct({
-      ...product,
-      images: currentImages,
-      image: currentImages[0]
-    });
-    
-    toast({
-      title: 'Imagen reordenada',
-      description: `Imagen movida a la posición ${targetPosition}`,
       status: 'success',
       duration: 1000,
       isClosable: true,
@@ -799,26 +734,13 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                       fontWeight="bold"
                       bg={index === 0 ? "purple.200" : "gray.200"}
                       borderRadius="md"
-                      defaultValue={index + 1}
+                      value={index + 1}
                       type="number"
                       min={1}
                       max={(product.images || ['']).length}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          const val = parseInt(e.target.value, 10);
-                          if (!isNaN(val)) {
-                            moveImageToPosition(index, val);
-                          }
-                        }
-                      }}
-                      onBlur={(e) => {
-                        const val = parseInt(e.target.value, 10);
-                        if (!isNaN(val) && val !== index + 1) {
-                          moveImageToPosition(index, val);
-                        } else {
-                          e.target.value = index + 1;
-                        }
-                      }}
+                      readOnly
+                      cursor="default"
+                      pointerEvents="none"
                     />
                   </Tooltip>
                   
