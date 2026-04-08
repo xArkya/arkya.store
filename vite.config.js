@@ -13,7 +13,5 @@ export default defineConfig({
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
-  server: {
-    historyApiFallback: true
-  }
+  publicDir: 'public'
 })

@@ -170,6 +170,8 @@ export default function ProductCard({ product }) {
           transition="transform 0.5s ease"
           _groupHover={{ transform: 'scale(1.05)' }}
           filter={adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
+          loading="lazy"
+          decoding="async"
         />
         
         {/* Overlay para contenido adulto */}

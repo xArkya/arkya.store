@@ -680,6 +680,8 @@ export default function ProductPage() {
                         transition="transform 0.5s"
                         _hover={{ transform: 'scale(1.03)' }}
                         filter={product.adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
+                        loading="lazy"
+                        decoding="async"
                       />
                       
                       {/* Overlay para contenido adulto */}
@@ -807,6 +809,8 @@ export default function ProductPage() {
                         w="80px"
                         h="80px"
                         objectFit="cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </Box>
                   ))}

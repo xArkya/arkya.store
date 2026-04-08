@@ -62,7 +62,7 @@ export default function Header() {
             <Flex align="center">
               <Box mr={{ base: 1, md: 2 }}>
                 <img 
-                  src="./images/logo2.png" 
+                  src="/arkya.store/images/logo2.png" 
                   alt="Arkya Logo" 
                   width={useBreakpointValue({ base: '24', md: '30' })}
                   height={useBreakpointValue({ base: '24', md: '30' })}

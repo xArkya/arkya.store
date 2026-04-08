@@ -93,7 +93,7 @@ export default function Hero() {
                 align={'center'}
                 w={'100%'}
                 h={'100%'}
-                src={'./images/hero.png'} // Ruta relativa para GitHub Pages
+                src={'/arkya.store/images/hero.png'}
               />
             </Box>
           </Flex>
