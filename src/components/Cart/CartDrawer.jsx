@@ -419,7 +419,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
                     <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
-                      Pega el mensaje en el chat (Ctrl+V) y envíalo para completar tu pedido.
+                      Pega el mensaje en el chat (Ctrl+V en PC o Cmd+V en MAC) y envíalo para completar tu pedido.
                     </Text>
                   </Box>
                 </ListItem>

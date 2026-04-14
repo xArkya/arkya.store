@@ -198,7 +198,7 @@ export default function ProductPage() {
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
-      const message = `👋 Hola! Me interesa el siguiente producto:\n📦 ${product.name}\n💰 $${product.price.toLocaleString()}`;
+      const message = `👋 Hola! Me interesa el siguiente producto:\n📦 ${product.name}\n💰 $${Math.floor(product.price).toLocaleString()}`;
       
       // Usar la API moderna de Clipboard
       navigator.clipboard.writeText(message)
@@ -392,7 +392,7 @@ export default function ProductPage() {
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
                     <Text fontSize="sm" color={modalTextColorDark}>
-                      Pega el mensaje en el chat (Ctrl+V) y envíalo para completar tu pedido.
+                      Pega el mensaje en el chat (Ctrl+V en PC o Cmd+V en MAC) y envíalo para completar tu pedido.
                     </Text>
                   </Box>
                 </ListItem>
@@ -435,7 +435,7 @@ export default function ProductPage() {
                 >
                   👋 Hola! Me interesa el siguiente producto:
 📦 {product?.name}
-💰 ${product?.price.toLocaleString()}
+💰 ${Math.floor(product?.price).toLocaleString()}
                 </Box>
               </Box>
             </VStack>
@@ -497,7 +497,7 @@ export default function ProductPage() {
                 </ListItem>
                 <ListItem display="flex" alignItems="center">
                   <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>4</Badge>
-                  <Text>Pega el mensaje (Ctrl+V o Cmd+V) en el chat</Text>
+                  <Text>Pega el mensaje (Ctrl+V en PC o Cmd+V en MAC) en el chat</Text>
                 </ListItem>
               </List>
               <Text fontWeight="bold" mt={2}>
@@ -902,7 +902,7 @@ export default function ProductPage() {
                   lineHeight="tall"
                   fontWeight="medium"
                   whiteSpace="pre-line">
-                  {product.description}
+                  {product.details || product.description}
                 </Text>
                 
                 {/* Mostrar categorías del producto */}

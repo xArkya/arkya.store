@@ -3,7 +3,6 @@ import { Box } from '@chakra-ui/react'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
 import AdminPage from './pages/AdminPage'
-import FeriaPage from './pages/FeriaPage'
 import ContactPage from './pages/ContactPage'
 import TermsPage from './pages/TermsPage'
 import FAQPage from './pages/FAQPage'
@@ -29,7 +28,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/admin/feria" element={<FeriaPage />} />
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/terminos" element={<TermsPage />} />
           <Route path="/preguntas-frecuentes" element={<FAQPage />} />

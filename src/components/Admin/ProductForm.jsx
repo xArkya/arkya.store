@@ -30,36 +30,29 @@ import {
 import { FaImage, FaDollarSign, FaSave, FaPlus, FaTrash, FaUpload, FaGripVertical } from 'react-icons/fa';
 import { categories } from '../../data/categories';
 
-// Función para generar un nombre único para la imagen
-const generateImageFilename = (file) => {
-  const timestamp = Date.now();
-  const randomStr = Math.random().toString(36).substring(2, 8);
-  const extension = file.name.split('.').pop().toLowerCase();
-  return `img_${timestamp}_${randomStr}.${extension}`;
-};
-
 const ProductForm = ({ onSaveProduct, initialValues = null }) => {
   const toast = useToast();
   const bgColor = useColorModeValue('white', '#2a1c29');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
   
-  const [product, setProduct] = useState(initialValues || {
+  const [product, setProduct] = useState({
     name: '',
     description: '',
+    details: '',
     price: '',
     image: '',
-    images: [''], // Array de imágenes
-    categories: [], // Array de categorías
-    category: '', // Mantener para compatibilidad
+    images: [''],
+    category: '',
     subcategory: '',
-    isNew: true,
-    inStock: true, // Indicador de stock disponible
-    adultContent: false, // Indicador de contenido para adultos (+18)
-    isFeria: false, // Indicador de producto de feria (solo visible para admin)
-    details: '',
-    instagram: 'https://instagram.com/arkya.store',
-    tags: [] // Array de etiquetas para búsqueda
+    isNew: false,
+    inStock: true,
+    tags: [],
+    adultContent: false,
+    instagram: '',
+    categories: [],
+    ...initialValues
   });
+  const [imagePreviews, setImagePreviews] = useState({});
   
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [availableSubcategories, setAvailableSubcategories] = useState([]);
@@ -200,6 +193,16 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     });
   };
   
+  // Función para convertir archivo a base64
+  const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  };
+
   // Función para manejar la carga de múltiples archivos de imagen
   const handleImageUpload = async (index, files) => {
     if (!files || files.length === 0) {
@@ -209,26 +212,37 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     
     try {
       const validFiles = [];
-      const imagePaths = [];
+      const imageDataUrls = [];
+      const newPreviews = { ...imagePreviews };
       
       console.log(`Procesando ${files.length} archivos`);
       
-      // Verificar que todos los archivos sean imágenes
+      // Verificar que todos los archivos sean imágenes y convertir a base64
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         console.log(`Archivo ${i+1}: ${file.name}, tipo: ${file.type}`);
         
         if (file.type.startsWith('image/')) {
-          // Generar nombre único para la imagen
-          const filename = generateImageFilename(file);
-          const imagePath = `/arkya.store/images/products/${filename}`;
-          
-          validFiles.push(file);
-          imagePaths.push(imagePath);
+          try {
+            // Convertir archivo a base64
+            const base64Data = await fileToBase64(file);
+            
+            // Crear URL temporal para vista previa
+            const previewUrl = URL.createObjectURL(file);
+            newPreviews[base64Data] = previewUrl;
+            
+            validFiles.push(file);
+            imageDataUrls.push(base64Data);
+          } catch (error) {
+            console.error(`Error al procesar el archivo ${file.name}:`, error);
+          }
         } else {
           console.warn(`El archivo ${file.name} no es una imagen y será ignorado`);
         }
       }
+      
+      // Actualizar previews
+      setImagePreviews(newPreviews);
       
       if (validFiles.length === 0) {
         toast({
@@ -243,14 +257,14 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
       
       console.log(`Procesando ${validFiles.length} imágenes válidas`);
       
-      // Actualizar el estado con las nuevas rutas de imágenes
+      // Actualizar el estado con las nuevas imágenes en base64
       const currentImages = [...(product.images || [''])];
       let newImages = [];
       
       // Si es una sola imagen y estamos en un campo vacío, simplemente reemplazamos
-      if (imagePaths.length === 1 && (!currentImages[index] || currentImages[index] === '')) {
+      if (imageDataUrls.length === 1 && (!currentImages[index] || currentImages[index] === '')) {
         newImages = [...currentImages];
-        newImages[index] = imagePaths[0];
+        newImages[index] = imageDataUrls[0];
       } 
       // Si son múltiples imágenes o estamos reemplazando una existente
       else {
@@ -259,13 +273,13 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
         
         // Reemplazar la imagen actual
         if (index < newImages.length) {
-          newImages[index] = imagePaths[0];
+          newImages[index] = imageDataUrls[0];
         }
         
         // Agregar el resto de imágenes al final
-        if (imagePaths.length > 1) {
-          for (let i = 1; i < imagePaths.length; i++) {
-            newImages.push(imagePaths[i]);
+        if (imageDataUrls.length > 1) {
+          for (let i = 1; i < imageDataUrls.length; i++) {
+            newImages.push(imageDataUrls[i]);
           }
         }
       }
@@ -686,7 +700,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
             La primera imagen será la principal. Puedes subir imágenes directamente o usar URLs.
           </FormHelperText>
           <Box p={3} mb={3} bg="blue.50" borderRadius="md" borderWidth="1px" borderColor="blue.200">
-            <Text fontWeight="medium" color="blue.700">
+            <Text fontWeight="600" color="blue.800" fontSize="sm">
               <strong>Tip:</strong> Arrastra las imágenes para reordenarlas o usa los botones de flecha. La imagen en la posición #1 será la principal.
             </Text>
           </Box>
@@ -825,7 +839,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                     borderColor="gray.200"
                   >
                     <img 
-                      src={imageUrl} 
+                      src={imagePreviews[imageUrl] || imageUrl} 
                       alt={`Vista previa ${index + 1}`} 
                       style={{ 
                         maxHeight: '150px', 
@@ -836,7 +850,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
                       onError={(e) => {
                         // Si la imagen no carga, mostrar un placeholder
                         if (!imageUrl.startsWith('data:')) {
-                          e.target.src = 'https://via.placeholder.com/150?text=Error+de+carga';
+                          e.target.src = 'https://via.placeholder.com/150?text=Imagen+no+disponible';
                         }
                       }}
                     />
@@ -857,8 +871,8 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
             Agregar Imagen
           </Button>
           
-          <Text mt={2} fontSize="sm" color="gray.600">
-            * Si subes imágenes y aparece "Selecciona uno o más archivos", simplemente haz clic en el botón "Guardar Producto" nuevamente.
+          <Text mt={2} fontSize="sm" color="gray.600" fontWeight="500">
+            * Las imágenes se convierten automáticamente a formato base64 y se guardan en los datos del producto.
           </Text>
         </FormControl>
         

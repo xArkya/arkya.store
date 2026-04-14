@@ -10,7 +10,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "extract-images": "node scripts/extract-images.js",
+    "extract:images": "node scripts/extract-images.js",
+    "fix-image-paths": "node scripts/fix-image-paths.js",
+    "fix:paths": "node scripts/fix-image-paths.js"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",

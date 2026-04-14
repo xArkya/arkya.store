@@ -641,7 +641,7 @@ export default function ProductCard({ product }) {
                 </ListItem>
                 <ListItem display="flex" alignItems="center">
                   <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>4</Badge>
-                  <Text>Pega el mensaje (Ctrl+V o Cmd+V) en el chat</Text>
+                  <Text>Pega el mensaje (Ctrl+V en PC o Cmd+V en MAC) en el chat</Text>
                 </ListItem>
               </List>
               <Text fontWeight="bold" mt={2}>

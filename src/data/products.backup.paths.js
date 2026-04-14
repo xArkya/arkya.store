@@ -5614,16 +5614,16 @@ export const products = [
     "name": "Noizi Ito Art Collection GU-RE-N",
     "description": "Colección de Ilustraciones de Shakugan no Shana",
     "price": 29999,
-    "image": "/arkya.store/images/products/img_1776143646059_hm1t2y_0.jpeg",
+    "image": "/images/products/img_1776143646059_hm1t2y_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646071_y0b7j3_0.jpeg",
-      "/arkya.store/images/products/img_1776143646073_zitls1_1.jpeg",
-      "/arkya.store/images/products/img_1776143646074_3lptml_2.jpeg",
-      "/arkya.store/images/products/img_1776143646076_t41ds3_3.jpeg",
-      "/arkya.store/images/products/img_1776143646078_699q2v_4.jpeg",
-      "/arkya.store/images/products/img_1776143646079_lr2qxu_5.jpeg",
-      "/arkya.store/images/products/img_1776143646080_yojoop_6.jpeg",
-      "/arkya.store/images/products/img_1776143646081_5kblh4_7.jpeg"
+      "/images/products/img_1776143646071_y0b7j3_0.jpeg",
+      "/images/products/img_1776143646073_zitls1_1.jpeg",
+      "/images/products/img_1776143646074_3lptml_2.jpeg",
+      "/images/products/img_1776143646076_t41ds3_3.jpeg",
+      "/images/products/img_1776143646078_699q2v_4.jpeg",
+      "/images/products/img_1776143646079_lr2qxu_5.jpeg",
+      "/images/products/img_1776143646080_yojoop_6.jpeg",
+      "/images/products/img_1776143646081_5kblh4_7.jpeg"
     ],
     "categories": [
       "Artbooks"
@@ -5648,10 +5648,10 @@ export const products = [
     "name": "Chobits Vol. 7 con Postal",
     "description": "La postal es original, viene con el tomo.",
     "price": 19999,
-    "image": "/arkya.store/images/products/img_1776143646082_nx4ctk_0.jpeg",
+    "image": "/images/products/img_1776143646082_nx4ctk_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646083_5llsfb_0.jpeg",
-      "/arkya.store/images/products/img_1776143646085_6wqbxb_1.jpeg"
+      "/images/products/img_1776143646083_5llsfb_0.jpeg",
+      "/images/products/img_1776143646085_6wqbxb_1.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -5671,19 +5671,19 @@ export const products = [
     "name": "Black Lagoon Vol. 10 Edición especial",
     "description": "Incluye artbook, poster bifaz, manga, y caja contenedora",
     "price": 44999,
-    "image": "/arkya.store/images/products/img_1776143646086_fpeuko_0.jpeg",
+    "image": "/images/products/img_1776143646086_fpeuko_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646086_i2d6ms_0.jpeg",
-      "/arkya.store/images/products/img_1776143646088_unfqd8_1.jpeg",
-      "/arkya.store/images/products/img_1776143646088_1m2qct_2.jpeg",
-      "/arkya.store/images/products/img_1776143646089_akt6yn_3.jpeg",
-      "/arkya.store/images/products/img_1776143646090_gquo1r_4.jpeg",
-      "/arkya.store/images/products/img_1776143646091_nsutt3_5.jpeg",
-      "/arkya.store/images/products/img_1776143646092_fjnser_6.jpeg",
-      "/arkya.store/images/products/img_1776143646093_icex78_7.jpeg",
-      "/arkya.store/images/products/img_1776143646095_xh2t3k_8.jpeg",
-      "/arkya.store/images/products/img_1776143646096_3c6xl2_9.jpeg",
-      "/arkya.store/images/products/img_1776143646098_o5nw2r_10.jpeg"
+      "/images/products/img_1776143646086_i2d6ms_0.jpeg",
+      "/images/products/img_1776143646088_unfqd8_1.jpeg",
+      "/images/products/img_1776143646088_1m2qct_2.jpeg",
+      "/images/products/img_1776143646089_akt6yn_3.jpeg",
+      "/images/products/img_1776143646090_gquo1r_4.jpeg",
+      "/images/products/img_1776143646091_nsutt3_5.jpeg",
+      "/images/products/img_1776143646092_fjnser_6.jpeg",
+      "/images/products/img_1776143646093_icex78_7.jpeg",
+      "/images/products/img_1776143646095_xh2t3k_8.jpeg",
+      "/images/products/img_1776143646096_3c6xl2_9.jpeg",
+      "/images/products/img_1776143646098_o5nw2r_10.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -5711,20 +5711,20 @@ export const products = [
     "name": "Pixiv Yearbook 2010",
     "description": "Colección de Ilustraciones de distintos artistas de Pixiv con datos interesantes de cada uno.",
     "price": 37999,
-    "image": "/arkya.store/images/products/img_1776143646101_l6c45u_0.jpeg",
+    "image": "/images/products/img_1776143646101_l6c45u_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646102_7jyzr8_0.jpeg",
-      "/arkya.store/images/products/img_1776143646103_gljheq_1.jpeg",
-      "/arkya.store/images/products/img_1776143646104_v7dmeb_2.jpeg",
-      "/arkya.store/images/products/img_1776143646105_glxmzo_3.jpeg",
-      "/arkya.store/images/products/img_1776143646106_mtl2xx_4.jpeg",
-      "/arkya.store/images/products/img_1776143646107_beyitb_5.jpeg",
-      "/arkya.store/images/products/img_1776143646108_vx6dsr_6.jpeg",
-      "/arkya.store/images/products/img_1776143646109_3wdd46_7.jpeg",
-      "/arkya.store/images/products/img_1776143646109_18vozp_8.jpeg",
-      "/arkya.store/images/products/img_1776143646111_0mbsgd_9.jpeg",
-      "/arkya.store/images/products/img_1776143646112_ejha9p_10.jpeg",
-      "/arkya.store/images/products/img_1776143646113_mi6907_11.jpeg"
+      "/images/products/img_1776143646102_7jyzr8_0.jpeg",
+      "/images/products/img_1776143646103_gljheq_1.jpeg",
+      "/images/products/img_1776143646104_v7dmeb_2.jpeg",
+      "/images/products/img_1776143646105_glxmzo_3.jpeg",
+      "/images/products/img_1776143646106_mtl2xx_4.jpeg",
+      "/images/products/img_1776143646107_beyitb_5.jpeg",
+      "/images/products/img_1776143646108_vx6dsr_6.jpeg",
+      "/images/products/img_1776143646109_3wdd46_7.jpeg",
+      "/images/products/img_1776143646109_18vozp_8.jpeg",
+      "/images/products/img_1776143646111_0mbsgd_9.jpeg",
+      "/images/products/img_1776143646112_ejha9p_10.jpeg",
+      "/images/products/img_1776143646113_mi6907_11.jpeg"
     ],
     "categories": [
       "Artbooks"
@@ -5749,14 +5749,14 @@ export const products = [
     "name": "Hatsune Miku Coloring Book All Stars",
     "description": "Libro para colorear de Vocaloid con más de 15 dibujos, también viene su versión pintada!",
     "price": 29999,
-    "image": "/arkya.store/images/products/img_1776143646114_ri67rm_0.jpeg",
+    "image": "/images/products/img_1776143646114_ri67rm_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646115_1jwc6u_0.jpeg",
-      "/arkya.store/images/products/img_1776143646115_qi1k8r_1.jpeg",
-      "/arkya.store/images/products/img_1776143646116_xq80xl_2.jpeg",
-      "/arkya.store/images/products/img_1776143646117_o2i16l_3.jpeg",
-      "/arkya.store/images/products/img_1776143646118_7q7by3_4.jpeg",
-      "/arkya.store/images/products/img_1776143646119_p2c7et_5.jpeg"
+      "/images/products/img_1776143646115_1jwc6u_0.jpeg",
+      "/images/products/img_1776143646115_qi1k8r_1.jpeg",
+      "/images/products/img_1776143646116_xq80xl_2.jpeg",
+      "/images/products/img_1776143646117_o2i16l_3.jpeg",
+      "/images/products/img_1776143646118_7q7by3_4.jpeg",
+      "/images/products/img_1776143646119_p2c7et_5.jpeg"
     ],
     "categories": [
       "Artbooks",
@@ -5789,11 +5789,11 @@ export const products = [
     "name": "Umamusume PisuPisu☆SupiSupi Vol.2 Edición Limitada",
     "description": "Incluye standees de acrílico!",
     "price": 39999,
-    "image": "/arkya.store/images/products/img_1776143646120_xn2sjt_0.jpeg",
+    "image": "/images/products/img_1776143646120_xn2sjt_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646120_v4rtd5_0.jpeg",
-      "/arkya.store/images/products/img_1776143646121_jidpu1_1.jpeg",
-      "/arkya.store/images/products/img_1776143646122_mi5b7j_2.jpeg"
+      "/images/products/img_1776143646120_v4rtd5_0.jpeg",
+      "/images/products/img_1776143646121_jidpu1_1.jpeg",
+      "/images/products/img_1776143646122_mi5b7j_2.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -5820,12 +5820,12 @@ export const products = [
     "name": "Magikano Vol. 10 Edición especial",
     "description": "Incluye Figura!",
     "price": 24999,
-    "image": "/arkya.store/images/products/img_1776143646123_2g80ej_0.jpeg",
+    "image": "/images/products/img_1776143646123_2g80ej_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646124_at1kvh_0.jpeg",
-      "/arkya.store/images/products/img_1776143646124_zb1knf_1.jpeg",
-      "/arkya.store/images/products/img_1776143646125_y4n4zv_2.jpeg",
-      "/arkya.store/images/products/img_1776143646126_4d8f91_3.jpeg"
+      "/images/products/img_1776143646124_at1kvh_0.jpeg",
+      "/images/products/img_1776143646124_zb1knf_1.jpeg",
+      "/images/products/img_1776143646125_y4n4zv_2.jpeg",
+      "/images/products/img_1776143646126_4d8f91_3.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -5850,13 +5850,13 @@ export const products = [
     "name": "When I returned to my hometown, my childhood friend was broken",
     "description": "One-shot de romance de Zyugoya.",
     "price": 18999,
-    "image": "/arkya.store/images/products/img_1776143646127_qee6a8_0.jpeg",
+    "image": "/images/products/img_1776143646127_qee6a8_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646127_7gwtl8_0.jpeg",
-      "/arkya.store/images/products/img_1776143646128_my8pz6_1.jpeg",
-      "/arkya.store/images/products/img_1776143646129_v5p2oa_2.jpeg",
-      "/arkya.store/images/products/img_1776143646129_rbm5q5_3.jpeg",
-      "/arkya.store/images/products/img_1776143646130_mhpp2x_4.jpeg"
+      "/images/products/img_1776143646127_7gwtl8_0.jpeg",
+      "/images/products/img_1776143646128_my8pz6_1.jpeg",
+      "/images/products/img_1776143646129_v5p2oa_2.jpeg",
+      "/images/products/img_1776143646129_rbm5q5_3.jpeg",
+      "/images/products/img_1776143646130_mhpp2x_4.jpeg"
     ],
     "categories": [
       "Mangas"
@@ -5880,12 +5880,12 @@ export const products = [
     "name": "Hatsune Miku Densetsu ",
     "description": "Doujin de Ilustraciones de distintos artistas",
     "price": 24999,
-    "image": "/arkya.store/images/products/img_1776143646131_zgl9ye_0.jpeg",
+    "image": "/images/products/img_1776143646131_zgl9ye_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646133_lnv0jh_0.jpeg",
-      "/arkya.store/images/products/img_1776143646133_zvdcr4_1.jpeg",
-      "/arkya.store/images/products/img_1776143646134_nexfoo_2.jpeg",
-      "/arkya.store/images/products/img_1776143646135_8d1s4o_3.jpeg"
+      "/images/products/img_1776143646133_lnv0jh_0.jpeg",
+      "/images/products/img_1776143646133_zvdcr4_1.jpeg",
+      "/images/products/img_1776143646134_nexfoo_2.jpeg",
+      "/images/products/img_1776143646135_8d1s4o_3.jpeg"
     ],
     "categories": [
       "Artbooks",
@@ -5912,13 +5912,13 @@ export const products = [
     "name": "Sword Art Online Memory Defrag",
     "description": "Antología de SAO con varias mini historias.",
     "price": 21999,
-    "image": "/arkya.store/images/products/img_1776143646136_bmhrgi_0.jpeg",
+    "image": "/images/products/img_1776143646136_bmhrgi_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646137_v5u81r_0.jpeg",
-      "/arkya.store/images/products/img_1776143646137_e5gxho_1.jpeg",
-      "/arkya.store/images/products/img_1776143646138_280opi_2.jpeg",
-      "/arkya.store/images/products/img_1776143646139_uppcks_3.jpeg",
-      "/arkya.store/images/products/img_1776143646140_zo6e5e_4.jpeg"
+      "/images/products/img_1776143646137_v5u81r_0.jpeg",
+      "/images/products/img_1776143646137_e5gxho_1.jpeg",
+      "/images/products/img_1776143646138_280opi_2.jpeg",
+      "/images/products/img_1776143646139_uppcks_3.jpeg",
+      "/images/products/img_1776143646140_zo6e5e_4.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -5945,14 +5945,14 @@ export const products = [
     "name": "Evangelion Edición Coleccionista Vol.7 Edición Especial ",
     "description": "Incluye 4 stands de acrílico, también se pueden conseguir por separado!",
     "price": 64999,
-    "image": "/arkya.store/images/products/img_1776143646141_08gpsw_0.jpeg",
+    "image": "/images/products/img_1776143646141_08gpsw_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646142_ezszd6_0.jpeg",
-      "/arkya.store/images/products/img_1776143646142_ixl9hh_1.jpeg",
-      "/arkya.store/images/products/img_1776143646143_wa45pd_2.jpeg",
-      "/arkya.store/images/products/img_1776143646144_l2apf1_3.jpeg",
-      "/arkya.store/images/products/img_1776143646144_06nk7r_4.jpeg",
-      "/arkya.store/images/products/img_1776143646146_2ivbbx_5.jpeg"
+      "/images/products/img_1776143646142_ezszd6_0.jpeg",
+      "/images/products/img_1776143646142_ixl9hh_1.jpeg",
+      "/images/products/img_1776143646143_wa45pd_2.jpeg",
+      "/images/products/img_1776143646144_l2apf1_3.jpeg",
+      "/images/products/img_1776143646144_06nk7r_4.jpeg",
+      "/images/products/img_1776143646146_2ivbbx_5.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -5982,15 +5982,15 @@ export const products = [
     "name": "Ruri-Hime Summer 2012",
     "description": "Revista que incluye ilustraciones de Type-Moon (Witch on The Holy Night) y de otros artistas conocidos como Akio Watanabe, y varios comics.",
     "price": 29999,
-    "image": "/arkya.store/images/products/img_1776143646147_dbjl0v_0.jpeg",
+    "image": "/images/products/img_1776143646147_dbjl0v_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646148_vu1xcr_0.jpeg",
-      "/arkya.store/images/products/img_1776143646148_c359g4_1.jpeg",
-      "/arkya.store/images/products/img_1776143646149_o3cnnk_2.jpeg",
-      "/arkya.store/images/products/img_1776143646150_djxrk1_3.jpeg",
-      "/arkya.store/images/products/img_1776143646150_ra5wv4_4.jpeg",
-      "/arkya.store/images/products/img_1776143646151_03ksyg_5.jpeg",
-      "/arkya.store/images/products/img_1776143646152_9ud0hh_6.jpeg"
+      "/images/products/img_1776143646148_vu1xcr_0.jpeg",
+      "/images/products/img_1776143646148_c359g4_1.jpeg",
+      "/images/products/img_1776143646149_o3cnnk_2.jpeg",
+      "/images/products/img_1776143646150_djxrk1_3.jpeg",
+      "/images/products/img_1776143646150_ra5wv4_4.jpeg",
+      "/images/products/img_1776143646151_03ksyg_5.jpeg",
+      "/images/products/img_1776143646152_9ud0hh_6.jpeg"
     ],
     "categories": [
       "Revistas"
@@ -6015,14 +6015,14 @@ export const products = [
     "name": "Touhou Project Tribute Arts Edición Especial",
     "description": "Incluye 22 Cartas de Tarot, un Artbook, y una caja contenedora",
     "price": 44999,
-    "image": "/arkya.store/images/products/img_1776143646153_xn9i9s_0.jpeg",
+    "image": "/images/products/img_1776143646153_xn9i9s_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646154_vham26_0.jpeg",
-      "/arkya.store/images/products/img_1776143646155_boqg9z_1.jpeg",
-      "/arkya.store/images/products/img_1776143646155_d7c1z2_2.jpeg",
-      "/arkya.store/images/products/img_1776143646156_7vyiww_3.jpeg",
-      "/arkya.store/images/products/img_1776143646157_cwalbj_4.jpeg",
-      "/arkya.store/images/products/img_1776143646158_v3r6bq_5.jpeg"
+      "/images/products/img_1776143646154_vham26_0.jpeg",
+      "/images/products/img_1776143646155_boqg9z_1.jpeg",
+      "/images/products/img_1776143646155_d7c1z2_2.jpeg",
+      "/images/products/img_1776143646156_7vyiww_3.jpeg",
+      "/images/products/img_1776143646157_cwalbj_4.jpeg",
+      "/images/products/img_1776143646158_v3r6bq_5.jpeg"
     ],
     "categories": [
       "Artbooks",
@@ -6052,13 +6052,13 @@ export const products = [
     "name": "Bakemonogatari Vol.1 Edición Limitada",
     "description": "Incluye 3 postales de ilustradores famosos y una caja contenedora",
     "price": 24999,
-    "image": "/arkya.store/images/products/img_1776143646158_h0cj32_0.jpeg",
+    "image": "/images/products/img_1776143646158_h0cj32_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646159_5i76m6_0.jpeg",
-      "/arkya.store/images/products/img_1776143646160_4c3307_1.jpeg",
-      "/arkya.store/images/products/img_1776143646161_2wvbbr_2.jpeg",
-      "/arkya.store/images/products/img_1776143646161_xlmaih_3.jpeg",
-      "/arkya.store/images/products/img_1776143646162_sob5e8_4.jpeg"
+      "/images/products/img_1776143646159_5i76m6_0.jpeg",
+      "/images/products/img_1776143646160_4c3307_1.jpeg",
+      "/images/products/img_1776143646161_2wvbbr_2.jpeg",
+      "/images/products/img_1776143646161_xlmaih_3.jpeg",
+      "/images/products/img_1776143646162_sob5e8_4.jpeg"
     ],
     "categories": [
       "Mangas",
@@ -6090,13 +6090,13 @@ export const products = [
     "name": "NO WORK NO LIFE ",
     "description": "Artbook Doujin de No Game No Life (y más) de Yuu Kamiya\n",
     "price": 39999,
-    "image": "/arkya.store/images/products/img_1776143646163_hcducr_0.jpeg",
+    "image": "/images/products/img_1776143646163_hcducr_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646163_pjz0yd_0.jpeg",
-      "/arkya.store/images/products/img_1776143646164_p7e096_1.jpeg",
-      "/arkya.store/images/products/img_1776143646165_u5kg62_2.jpeg",
-      "/arkya.store/images/products/img_1776143646166_ky48wk_3.jpeg",
-      "/arkya.store/images/products/img_1776143646167_8qgey2_4.jpeg"
+      "/images/products/img_1776143646163_pjz0yd_0.jpeg",
+      "/images/products/img_1776143646164_p7e096_1.jpeg",
+      "/images/products/img_1776143646165_u5kg62_2.jpeg",
+      "/images/products/img_1776143646166_ky48wk_3.jpeg",
+      "/images/products/img_1776143646167_8qgey2_4.jpeg"
     ],
     "categories": [
       "Doujinshis",
@@ -6123,14 +6123,14 @@ export const products = [
     "name": "Doujin Ganbare Douki-Chan Vol 1",
     "description": "Colección de Ilustraciones de @y_o_m_y_o_m\n\n$29999 cada uno o $49999 los dos\n\nSOLO QUEDA VOL. 1",
     "price": 29999,
-    "image": "/arkya.store/images/products/img_1776143646168_ekqpl9_0.jpeg",
+    "image": "/images/products/img_1776143646168_ekqpl9_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646168_xfk1m3_0.jpeg",
-      "/arkya.store/images/products/img_1776143646169_3wa0yn_1.jpeg",
-      "/arkya.store/images/products/img_1776143646170_17a7v9_2.jpeg",
-      "/arkya.store/images/products/img_1776143646170_v8342h_3.jpeg",
-      "/arkya.store/images/products/img_1776143646171_1xig6g_4.jpeg",
-      "/arkya.store/images/products/img_1776143646172_humohh_5.jpeg"
+      "/images/products/img_1776143646168_xfk1m3_0.jpeg",
+      "/images/products/img_1776143646169_3wa0yn_1.jpeg",
+      "/images/products/img_1776143646170_17a7v9_2.jpeg",
+      "/images/products/img_1776143646170_v8342h_3.jpeg",
+      "/images/products/img_1776143646171_1xig6g_4.jpeg",
+      "/images/products/img_1776143646172_humohh_5.jpeg"
     ],
     "categories": [
       "Artbooks",
@@ -6160,12 +6160,12 @@ export const products = [
     "description": "Primer volumen del manga de Yotsuba To!",
     "details": "Primer volumen del manga de Yotsuba To!\n\nTiene algunas manchas detras de la portada, si quieren fotos pidanme!",
     "price": 14999,
-    "image": "/arkya.store/images/products/img_1776143646173_7cq7ey_0.jpeg",
+    "image": "/images/products/img_1776143646173_7cq7ey_0.jpeg",
     "images": [
-      "/arkya.store/images/products/img_1776143646176_wdke9y_0.jpeg",
-      "/arkya.store/images/products/img_1776143646178_38fcc4_1.jpeg",
-      "/arkya.store/images/products/img_1776143646180_p9jyz3_2.jpeg",
-      "/arkya.store/images/products/img_1776143646181_jotgxk_3.jpeg"
+      "/images/products/img_1776143646176_wdke9y_0.jpeg",
+      "/images/products/img_1776143646178_38fcc4_1.jpeg",
+      "/images/products/img_1776143646180_p9jyz3_2.jpeg",
+      "/images/products/img_1776143646181_jotgxk_3.jpeg"
     ],
     "category": "Mangas",
     "subcategory": "",

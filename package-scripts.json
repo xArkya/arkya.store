@@ -1,0 +1,11 @@
+{
+  "name": "arkya-image-scripts",
+  "version": "1.0.0",
+  "description": "Scripts para manejo de imágenes del proyecto Arkya Store",
+  "scripts": {
+    "extract-images": "node scripts/extract-images.js",
+    "extract:images": "node scripts/extract-images.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

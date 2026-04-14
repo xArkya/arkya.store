@@ -275,12 +275,6 @@ const AdminPage = () => {
     ));
   };
 
-  // Toggle feria status
-  const handleToggleFeria = (productId) => {
-    setProducts(products.map(p => 
-      p.id === productId ? { ...p, isFeria: !p.isFeria } : p
-    ));
-  };
 
   // Funciones para manejar ofertas
   const handleSaveOffer = (offer) => {
@@ -486,15 +480,7 @@ const AdminPage = () => {
               <Heading as="h1" size="xl" mb={2}>Administración de Productos</Heading>
               <Text>Gestiona los productos de tu tienda de Instagram</Text>
             </Box>
-            <Button
-              leftIcon={<FaStore />}
-              colorScheme="purple"
-              variant="outline"
-              onClick={() => navigate('/admin/feria')}
-              size="lg"
-            >
-              Ver Productos de Feria
-            </Button>
+            
           </HStack>
         </Box>
         
@@ -591,7 +577,6 @@ const AdminPage = () => {
                         <Th>Categoría</Th>
                         <Th>Precio</Th>
                         <Th>Stock</Th>
-                        <Th>Feria</Th>
                         <Th>Estado</Th>
                         <Th>Oferta</Th>
                         <Th>Acciones</Th>
@@ -646,19 +631,6 @@ const AdminPage = () => {
                             />
                             <Badge colorScheme={product.inStock !== false ? "green" : "red"} fontSize="xs">
                               {product.inStock !== false ? "En Stock" : "Sin Stock"}
-                            </Badge>
-                          </HStack>
-                        </Td>
-                        <Td>
-                          <HStack spacing={2}>
-                            <Switch
-                              isChecked={product.isFeria === true}
-                              onChange={() => handleToggleFeria(product.id)}
-                              colorScheme="purple"
-                              size="md"
-                            />
-                            <Badge colorScheme={product.isFeria ? "purple" : "gray"} fontSize="xs">
-                              {product.isFeria ? "Feria" : "Normal"}
                             </Badge>
                           </HStack>
                         </Td>
