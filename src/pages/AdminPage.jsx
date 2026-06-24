@@ -305,7 +305,7 @@ const AdminPage = () => {
   const downloadInstagramImages = async (product) => {
     // Solo descargar si el producto viene de Instagram y tiene URLs de fbcdn.net
     if (product.extractedFrom !== 'instagram' || !product.images) {
-      return;
+      return product;
     }
 
     const instagramImages = product.images.filter(img => 
@@ -313,7 +313,7 @@ const AdminPage = () => {
     );
 
     if (instagramImages.length === 0) {
-      return;
+      return product;
     }
 
     try {

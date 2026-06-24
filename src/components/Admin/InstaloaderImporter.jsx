@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   VStack,
@@ -48,21 +48,46 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
   // Estado para la configuración del servidor
   const [serverStatus, setServerStatus] = useState('unknown'); // 'unknown', 'running', 'stopped'
 
+  // Listener para cerrar el modal con Escape
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        // Cerrar el modal de Chakra
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscapeKey);
+    return () => window.removeEventListener('keydown', handleEscapeKey);
+  }, [onClose]);
+
+  // Función para limpiar URL de Instagram (remover parámetros)
+  const cleanInstagramUrl = (url) => {
+    if (!url || typeof url !== 'string') return '';
+    // Remover todo después del ? (parámetros)
+    return url.split('?')[0].trim();
+  };
+
   // Función para validar URL de Instagram
   const isValidInstagramUrl = (url) => {
     if (!url || typeof url !== 'string') return false;
+    // Limpiar la URL primero
+    const cleanUrl = cleanInstagramUrl(url);
     // Solo permitir URLs de Instagram válidas
     const regex = /^https?:\/\/(www\.)?instagram\.com\/p\/[A-Za-z0-9_-]+\/?$/i;
-    return regex.test(url.trim());
+    return regex.test(cleanUrl);
   };
 
   // Función para extraer el shortcode del URL de Instagram
   const extractShortcode = (url) => {
-    if (!isValidInstagramUrl(url)) {
+    if (!url || typeof url !== 'string') return null;
+    // Limpiar la URL primero
+    const cleanUrl = cleanInstagramUrl(url);
+    if (!isValidInstagramUrl(cleanUrl)) {
       return null;
     }
     const regex = /instagram\.com\/p\/([A-Za-z0-9_-]+)/i;
-    const match = url.match(regex);
+    const match = cleanUrl.match(regex);
     return match ? match[1] : null;
   };
 
@@ -339,9 +364,10 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
       </VStack>
 
       {/* Modal de vista previa */}
-      <Modal isOpen={isOpen} onClose={onClose} size="2xl">
-        <ModalOverlay />
+      <Modal isOpen={isOpen} onClose={onClose} size="2xl" closeOnEsc={true} closeOnOverlayClick={true}>
+        <ModalOverlay onClick={onClose} />
         <ModalContent>
+          <ModalCloseButton />
           <ModalHeader>
             <HStack spacing={2}>
               <Icon as={FaPython} color="green.500" />
