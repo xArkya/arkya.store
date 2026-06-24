@@ -33,14 +33,10 @@ const AdminLoginPage = ({ onLogin }) => {
 
     // Simular pequeño delay para evitar ataques de fuerza bruta
     setTimeout(() => {
-      // Contraseña hasheada (en producción, esto debería ser más seguro)
-      // Hash SHA-256 de "admin123" = 0192023a7bbd73250516f069df18b500
-      const correctPasswordHash = '0192023a7bbd73250516f069df18b500';
-      
-      // Hash simple de la contraseña ingresada
-      const inputHash = simpleHash(password);
+      // Contraseña correcta: arkya2024
+      const correctPassword = 'arkya2024';
 
-      if (inputHash === correctPasswordHash && password.length > 0) {
+      if (password === correctPassword && password.length > 0) {
         // Guardar token de sesión en sessionStorage (no persiste después de cerrar navegador)
         sessionStorage.setItem('adminToken', 'authenticated_' + Date.now());
         onLogin();
@@ -50,18 +46,6 @@ const AdminLoginPage = ({ onLogin }) => {
       }
       setIsLoading(false);
     }, 500);
-  };
-
-  // Función simple de hash para demostración
-  // En producción, usar bcrypt o similar en el backend
-  const simpleHash = (str) => {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return Math.abs(hash).toString(16);
   };
 
   return (
