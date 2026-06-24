@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 import {
   Box,
   Container,
@@ -53,6 +54,7 @@ import { offers } from '../data/offers';
 // Nota: 'todos' es un ID especial para mostrar todos los productos
 
 export default function HomePage() {
+  const [allProducts, setAllProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [activeCategory, setActiveCategory] = useState(() => {
@@ -72,6 +74,7 @@ export default function HomePage() {
     return savedPage ? parseInt(savedPage) : 1;
   });
   const [sortOption, setSortOption] = useState('newest-added');
+  const [filterNewOnly, setFilterNewOnly] = useState(false);
   
   // Estado para búsqueda mejorada
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -94,6 +97,43 @@ export default function HomePage() {
     return savedCategory === 'adultos';
   });
   const PRODUCTS_PER_PAGE = 12;
+  
+  // Cargar productos desde IndexedDB al montar
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
+        
+        dbRequest.onsuccess = (event) => {
+          const db = event.target.result;
+          const transaction = db.transaction(['products'], 'readonly');
+          const store = transaction.objectStore('products');
+          const getAllRequest = store.getAll();
+          
+          getAllRequest.onsuccess = () => {
+            const savedProducts = getAllRequest.result;
+            if (savedProducts && savedProducts.length > 0) {
+              // Combinar productos estáticos con los guardados, evitando duplicados
+              const combinedProducts = [...products];
+              const staticIds = new Set(products.map(p => p.id));
+              
+              savedProducts.forEach(savedProduct => {
+                if (!staticIds.has(savedProduct.id)) {
+                  combinedProducts.push(savedProduct);
+                }
+              });
+              
+              setAllProducts(combinedProducts);
+            }
+          };
+        };
+      } catch (error) {
+        console.error('Error loading products from IndexedDB:', error);
+      }
+    };
+    
+    loadProducts();
+  }, []);
   
   // Función para obtener el nombre de la categoría por su ID
   const getCategoryNameById = (categoryId) => {
@@ -195,7 +235,7 @@ export default function HomePage() {
 
   // Aplicar ofertas globales a los productos
   const productsWithOffers = useMemo(() => {
-    return products.map(product => {
+    return allProducts.map(product => {
       // Si el producto no tiene stock, no aplicar ofertas
       if (product.inStock === false) {
         return {
@@ -261,7 +301,7 @@ export default function HomePage() {
       
       return product;
     });
-  }, []);
+  }, [allProducts]);
   
   // Estado para el filtro de rango de precios
   const [priceRange, setPriceRange] = useState([0, 100000]);
@@ -378,9 +418,12 @@ export default function HomePage() {
       // Filtrar por rango de precios
       const matchesPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
       
-      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange;
+      // Filtrar por productos nuevos
+      const matchesNewFilter = !filterNewOnly || product.isNew === true;
+      
+      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesNewFilter;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange]);
+  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterNewOnly]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {
@@ -522,7 +565,14 @@ export default function HomePage() {
   };
 
   return (
-    <Box>
+    <>
+      <SEO 
+        title="Arkya Store - Tienda Online de Productos Exclusivos"
+        description="Descubre productos exclusivos en Arkya Store con las mejores ofertas y envíos rápidos. Compra online de forma segura."
+        image="https://xarkya.github.io/arkya.store/images/logo2.png"
+        url="https://xarkya.github.io/arkya.store/"
+      />
+      <Box>
       <Box 
         py={2} 
         px={4} 
@@ -935,6 +985,28 @@ export default function HomePage() {
               
               {/* Selector de ordenación y filtro de precios (derecha) */}
               <Flex align="center" gap={4} width={{ base: '100%', md: 'auto' }}>
+                {/* Botón para filtrar productos nuevos */}
+                <Button
+                  colorScheme={filterNewOnly ? 'pink' : 'gray'}
+                  variant={filterNewOnly ? 'solid' : 'outline'}
+                  size="md"
+                  bg={filterNewOnly ? 'pink.500' : 'whiteAlpha.200'}
+                  color="white"
+                  _hover={{ bg: filterNewOnly ? 'pink.600' : 'whiteAlpha.300' }}
+                  onClick={() => {
+                    setFilterNewOnly(!filterNewOnly);
+                    setCurrentPage(1);
+                  }}
+                  width={{ base: '100%', md: 'auto' }}
+                >
+                  <Box display={{ base: 'none', sm: 'block' }}>
+                    {filterNewOnly ? '✓ Nuevos' : 'Nuevos'}
+                  </Box>
+                  <Box display={{ base: 'block', sm: 'none' }}>
+                    {filterNewOnly ? '✓ Nuevos' : 'Nuevos'}
+                  </Box>
+                </Button>
+                
                 {/* Filtro de rango de precios */}
                 <Popover placement="bottom-end">
                   <PopoverTrigger>
@@ -1275,5 +1347,6 @@ export default function HomePage() {
         </Container>
       </Box>
     </Box>
+    </>
   );
 }

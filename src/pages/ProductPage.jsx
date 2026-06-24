@@ -3,6 +3,7 @@ import { useParams, Link as RouterLink } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
+import { SEO } from '../components/SEO';
 import {
   Box,
   Container,
@@ -86,26 +87,9 @@ export default function ProductPage() {
     // Scroll al top de la página cuando se carga el producto
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
-    // Simulate loading
-    const timer = setTimeout(() => {
+    // Función auxiliar para aplicar ofertas y establecer el producto
+    const applyOffersAndSetProduct = (foundProduct) => {
       try {
-        // Parse the ID properly, ensuring it's a number
-        const numericId = parseInt(id, 10);
-        
-        if (isNaN(numericId)) {
-          throw new Error(`ID inválido: ${id}`);
-        }
-        
-        // Add console log for debugging
-        console.log('Product ID requested:', numericId);
-        console.log('Available products:', products.map(p => p.id));
-        
-        let foundProduct = products.find(p => p.id === numericId);
-        
-        if (!foundProduct) {
-          throw new Error(`Producto con ID ${numericId} no encontrado`);
-        }
-        
         // Verificar si hay ofertas globales activas
         const globalOffer = offers.find(offer => 
           offer.isActive && 
@@ -136,6 +120,67 @@ export default function ProductPage() {
         console.error('Error loading product:', err);
         setError(err.message);
       } finally {
+        setLoading(false);
+      }
+    };
+    
+    // Load product immediately without delay
+    const timer = setTimeout(() => {
+      try {
+        // Parse the ID properly, ensuring it's a number
+        const numericId = parseInt(id, 10);
+        
+        if (isNaN(numericId)) {
+          throw new Error(`ID inválido: ${id}`);
+        }
+        
+        // Add console log for debugging
+        console.log('Product ID requested:', numericId);
+        console.log('Available products:', products.map(p => p.id));
+        
+        // Primero buscar en el array estático
+        let foundProduct = products.find(p => p.id === numericId);
+        
+        // Si no se encuentra, buscar en IndexedDB
+        if (!foundProduct) {
+          const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
+          
+          dbRequest.onsuccess = (event) => {
+            const db = event.target.result;
+            const transaction = db.transaction(['products'], 'readonly');
+            const store = transaction.objectStore('products');
+            const getAllRequest = store.getAll();
+            
+            getAllRequest.onsuccess = () => {
+              const savedProducts = getAllRequest.result;
+              const product = savedProducts.find(p => p.id === numericId);
+              
+              if (product) {
+                applyOffersAndSetProduct(product);
+              } else {
+                setError(`Producto con ID ${numericId} no encontrado`);
+                setLoading(false);
+              }
+            };
+            
+            getAllRequest.onerror = () => {
+              setError(`Producto con ID ${numericId} no encontrado`);
+              setLoading(false);
+            };
+          };
+          
+          dbRequest.onerror = () => {
+            setError(`Producto con ID ${numericId} no encontrado`);
+            setLoading(false);
+          };
+          
+          return;
+        }
+        
+        applyOffersAndSetProduct(foundProduct);
+      } catch (err) {
+        console.error('Error loading product:', err);
+        setError(err.message);
         setLoading(false);
       }
     }, 800);
@@ -198,7 +243,7 @@ export default function ProductPage() {
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
-      const message = `👋 Hola! Me interesa el siguiente producto:\n📦 ${product.name}\n💰 $${Math.floor(product.price).toLocaleString()}`;
+      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.floor(product.price).toLocaleString()}`;
       
       // Usar la API moderna de Clipboard
       navigator.clipboard.writeText(message)
@@ -264,7 +309,14 @@ export default function ProductPage() {
   // Las variables de color del modal ya están definidas al inicio del componente
 
   return (
-    <Box bg={pageBgColor}>
+    <>
+      <SEO 
+        title={`${product?.name} - Arkya Store`}
+        description={product?.description || product?.details || 'Descubre este producto exclusivo en Arkya Store'}
+        image={product?.image || 'https://xarkya.github.io/arkya.store/images/logo2.png'}
+        url={`https://xarkya.github.io/arkya.store/product/${product?.id}`}
+      />
+      <Box bg={pageBgColor}>
       {/* Modal de verificación de edad */}
       <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(12px)" />
@@ -677,7 +729,7 @@ export default function ProductPage() {
                         align={'center'}
                         w={'100%'}
                         h={{ base: '400px', sm: '500px', lg: '600px' }}
-                        transition="transform 0.5s"
+                        transition="transform 0.2s"
                         _hover={{ transform: 'scale(1.03)' }}
                         filter={product.adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
                         loading="lazy"
@@ -770,7 +822,7 @@ export default function ProductPage() {
                               bg={index === currentImageIndex ? 'white' : 'whiteAlpha.500'}
                               cursor="pointer"
                               onClick={() => setCurrentImageIndex(index)}
-                              transition="all 0.2s"
+                              transition="all 0.1s"
                               _hover={{ bg: 'white' }}
                             />
                           ))}
@@ -799,7 +851,7 @@ export default function ProductPage() {
                       overflow="hidden"
                       border={index === currentImageIndex ? '3px solid' : '2px solid transparent'}
                       borderColor={index === currentImageIndex ? 'brand.500' : 'transparent'}
-                      transition="all 0.2s"
+                      transition="all 0.1s"
                       _hover={{ transform: 'scale(1.05)' }}
                       flexShrink={0}
                     >
@@ -1217,5 +1269,6 @@ export default function ProductPage() {
         })()}
       </Container>
     </Box>
+    </>
   );
 }

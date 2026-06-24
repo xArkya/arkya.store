@@ -63,12 +63,12 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const generateInstagramMessage = () => {
     if (cart.length === 0) return '';
     
-    let message = '🛍️ Hola! Me interesan los siguientes productos:\n';
+    let message = 'Hola! Me interesan los siguientes productos:\n';
     message += '━━━━━━━━━━━━━━━━━━━━\n\n';
     
     cart.forEach((item, index) => {
       message += `${index + 1}. ${item.name}\n`;
-      message += `   💰 $${item.price.toLocaleString()} x ${item.quantity}\n\n`;
+      message += `   $${item.price.toLocaleString()} x ${item.quantity}\n\n`;
     });
     
     message += '━━━━━━━━━━━━━━━━━━━━\n';

@@ -6,7 +6,7 @@
   "homepage": "https://xarkya.github.io/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/generate-sitemap.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
@@ -14,7 +14,10 @@
     "extract-images": "node scripts/extract-images.js",
     "extract:images": "node scripts/extract-images.js",
     "fix-image-paths": "node scripts/fix-image-paths.js",
-    "fix:paths": "node scripts/fix-image-paths.js"
+    "fix:paths": "node scripts/fix-image-paths.js",
+    "server": "node server.cjs",
+    "install-python-deps": "pip install instaloader selenium webdriver-manager",
+    "install-selenium": "pip install selenium webdriver-manager"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -40,5 +43,9 @@
     "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "vite": "^7.0.4"
+  },
+  "optionalDependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.2"
   }
 }

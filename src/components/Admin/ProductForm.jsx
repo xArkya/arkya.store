@@ -30,7 +30,7 @@ import {
 import { FaImage, FaDollarSign, FaSave, FaPlus, FaTrash, FaUpload, FaGripVertical } from 'react-icons/fa';
 import { categories } from '../../data/categories';
 
-const ProductForm = ({ onSaveProduct, initialValues = null }) => {
+const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) => {
   const toast = useToast();
   const bgColor = useColorModeValue('white', '#2a1c29');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
@@ -96,16 +96,53 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     }
   }, [initialValues]);
 
+  // Función para validar y sanitizar datos
+  const sanitizeInput = (value, inputType) => {
+    if (!value) return value;
+    
+    if (inputType === 'number') {
+      // Solo permitir números positivos
+      const num = parseFloat(value);
+      return isNaN(num) || num < 0 ? 0 : num;
+    } else if (inputType === 'text') {
+      // Remover caracteres peligrosos
+      return String(value).replace(/[<>]/g, '');
+    } else if (inputType === 'url') {
+      // Validar que sea una URL válida
+      try {
+        new URL(value);
+        return value;
+      } catch {
+        return '';
+      }
+    }
+    return value;
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     
     // Para campos de precio, asegurarse de que sean números enteros
     if (name === 'price') {
-      // Convertir a número entero
-      const intValue = parseInt(value, 10);
+      // Convertir a número entero y sanitizar
+      const intValue = parseInt(sanitizeInput(value, 'number'), 10);
       setProduct({
         ...product,
         [name]: isNaN(intValue) ? '' : intValue
+      });
+    } else if (name === 'instagram') {
+      // Validar URL de Instagram
+      const sanitized = sanitizeInput(value, 'url');
+      setProduct({
+        ...product,
+        [name]: sanitized
+      });
+    } else if (name === 'name' || name === 'description' || name === 'details') {
+      // Sanitizar texto para evitar inyecciones
+      const sanitized = sanitizeInput(value, 'text');
+      setProduct({
+        ...product,
+        [name]: sanitized
       });
     } else {
       setProduct({
@@ -492,6 +529,11 @@ const ProductForm = ({ onSaveProduct, initialValues = null }) => {
     };
     
     onSaveProduct(newProduct);
+    
+    // Cerrar el modal después de guardar
+    if (onClose) {
+      onClose();
+    }
     
     toast({
       title: 'Producto guardado',

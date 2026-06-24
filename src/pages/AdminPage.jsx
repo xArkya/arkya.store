@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AdminLoginPage from '../components/Admin/AdminLoginPage';
 import {
   Box,
   Container,
@@ -43,12 +44,18 @@ import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
 import CouponForm from '../components/Admin/CouponForm';
 import ProductSearch from '../components/Admin/ProductSearch';
+import InstagramImporter from '../components/Admin/InstagramImporter';
+import InstaloaderImporter from '../components/Admin/InstaloaderImporter';
 import { products as initialProducts } from '../data/products';
 import { offers as initialOffers } from '../data/offers';
 import { coupons as initialCoupons } from '../data/coupons';
 
 const AdminPage = () => {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    // Verificar si hay token válido en sessionStorage
+    return !!sessionStorage.getItem('adminToken');
+  });
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -87,9 +94,65 @@ const AdminPage = () => {
   
   // Cargar productos y ofertas iniciales
   useEffect(() => {
-    // Cargar productos iniciales
-    setProducts(initialProducts);
-    setFilteredProducts(initialProducts);
+    const loadProducts = async () => {
+      try {
+        // Intentar cargar desde IndexedDB primero
+        const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
+        
+        dbRequest.onsuccess = (event) => {
+          const db = event.target.result;
+          const transaction = db.transaction(['products'], 'readonly');
+          const store = transaction.objectStore('products');
+          const getAllRequest = store.getAll();
+          
+          getAllRequest.onsuccess = () => {
+            const savedProducts = getAllRequest.result;
+            if (savedProducts && savedProducts.length > 0) {
+              console.log('Productos cargados desde IndexedDB:', savedProducts.length);
+              setProducts(savedProducts);
+              setFilteredProducts(savedProducts);
+            } else {
+              // Si no hay productos en IndexedDB, usar los iniciales
+              console.log('No hay productos en IndexedDB, usando iniciales');
+              setProducts(initialProducts);
+              setFilteredProducts(initialProducts);
+            }
+          };
+          
+          getAllRequest.onerror = () => {
+            console.error('Error al cargar productos desde IndexedDB');
+            setProducts(initialProducts);
+            setFilteredProducts(initialProducts);
+          };
+        };
+        
+        dbRequest.onerror = () => {
+          console.error('Error al abrir IndexedDB, usando localStorage');
+          // Fallback a localStorage
+          try {
+            const savedProducts = localStorage.getItem('adminProducts');
+            if (savedProducts) {
+              const parsed = JSON.parse(savedProducts);
+              setProducts(parsed);
+              setFilteredProducts(parsed);
+            } else {
+              setProducts(initialProducts);
+              setFilteredProducts(initialProducts);
+            }
+          } catch (e) {
+            console.error('Error al cargar desde localStorage:', e);
+            setProducts(initialProducts);
+            setFilteredProducts(initialProducts);
+          }
+        };
+      } catch (error) {
+        console.error('Error general al cargar productos:', error);
+        setProducts(initialProducts);
+        setFilteredProducts(initialProducts);
+      }
+    };
+    
+    loadProducts();
     
     // Intentar cargar ofertas desde localStorage
     try {
@@ -239,17 +302,92 @@ const AdminPage = () => {
     }
   }, [offers]);
   
-  const handleSaveProduct = (product) => {
-    if (selectedProduct) {
+  const downloadInstagramImages = async (product) => {
+    // Solo descargar si el producto viene de Instagram y tiene URLs de fbcdn.net
+    if (product.extractedFrom !== 'instagram' || !product.images) {
+      return;
+    }
+
+    const instagramImages = product.images.filter(img => 
+      img && typeof img === 'string' && img.includes('fbcdn.net')
+    );
+
+    if (instagramImages.length === 0) {
+      return;
+    }
+
+    try {
+      console.log(`📥 Descargando ${instagramImages.length} imágenes de Instagram para producto ${product.id}`);
+      
+      const response = await fetch('http://localhost:3001/api/instagram/download-images', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: product.id,
+          imageUrls: instagramImages
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Error descargando imágenes');
+      }
+
+      const result = await response.json();
+      
+      if (result.success && result.downloadedImages.length > 0) {
+        console.log(`✅ ${result.successCount} imágenes descargadas exitosamente`);
+        
+        // Reemplazar URLs de Instagram con URLs locales
+        const updatedProduct = {
+          ...product,
+          images: result.downloadedImages,
+          image: result.downloadedImages[0] || product.image
+        };
+        
+        return updatedProduct;
+      }
+    } catch (error) {
+      console.error('Error descargando imágenes de Instagram:', error);
+      // Continuar sin descargar, usar las URLs de Instagram
+    }
+
+    return product;
+  };
+
+  const handleSaveProduct = async (product) => {
+    // Descargar imágenes de Instagram si es necesario
+    let finalProduct = product;
+    if (product.extractedFrom === 'instagram') {
+      finalProduct = await downloadInstagramImages(product);
+    }
+
+    // Verificar si el producto ya existe en la lista
+    const productExists = products.some(p => p.id === finalProduct.id);
+    
+    if (productExists) {
       // Editar producto existente
-      setProducts(products.map(p => p.id === product.id ? product : p));
+      setProducts(products.map(p => p.id === finalProduct.id ? finalProduct : p));
     } else {
       // Agregar nuevo producto
-      setProducts([...products, product]);
+      setProducts([...products, finalProduct]);
     }
     onClose();
     setSelectedProduct(null);
   };
+
+  // Función para manejar datos extraídos de Instagram
+  const handleInstagramDataExtracted = (productData) => {
+    setSelectedProduct(productData);
+  };
+  
+  // Abrir modal cuando se establece selectedProduct desde Instagram
+  useEffect(() => {
+    if (selectedProduct && selectedProduct.extractedFrom === 'instagram') {
+      onOpen();
+    }
+  }, [selectedProduct, onOpen]);
   
   const handleEditProduct = (product) => {
     setSelectedProduct(product);
@@ -471,6 +609,11 @@ const AdminPage = () => {
     });
   };
 
+  // Mostrar login si no está autenticado
+  if (!isAuthenticated) {
+    return <AdminLoginPage onLogin={() => setIsAuthenticated(true)} />;
+  }
+
   return (
     <Container maxW="container.xl" py={8}>
       <VStack spacing={8} align="stretch">
@@ -506,6 +649,11 @@ const AdminPage = () => {
           <TabPanels>
             <TabPanel>
               <VStack spacing={4} align="stretch">
+                {/* Importador de Instagram con Instaloader */}
+                <InstaloaderImporter 
+                  onProductDataExtracted={handleInstagramDataExtracted}
+                />
+
                 {/* Buscador de productos */}
                 <ProductSearch 
                   products={products} 
@@ -1035,6 +1183,7 @@ const AdminPage = () => {
             <ProductForm 
               onSaveProduct={handleSaveProduct} 
               initialValues={selectedProduct}
+              onClose={onClose}
             />
           </ModalBody>
         </ModalContent>
