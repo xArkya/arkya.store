@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xarkya.github.io/arkya.store/sitemap.xml
+Sitemap: https://arkya.store/sitemap.xml

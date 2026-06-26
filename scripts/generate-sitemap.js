@@ -22,6 +22,23 @@ function generateSitemap() {
   xml += '    <priority>1.0</priority>\n';
   xml += '  </url>\n';
 
+  // URLs estáticas del sitio
+  const staticRoutes = [
+    { path: '/contacto', priority: '0.6' },
+    { path: '/terminos', priority: '0.4' },
+    { path: '/preguntas-frecuentes', priority: '0.5' },
+    { path: '/mis-me-gustas', priority: '0.5' },
+  ];
+
+  staticRoutes.forEach(route => {
+    xml += '  <url>\n';
+    xml += `    <loc>${baseUrl}${route.path}</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += '    <changefreq>monthly</changefreq>\n';
+    xml += `    <priority>${route.priority}</priority>\n`;
+    xml += '  </url>\n';
+  });
+
   // URLs de productos
   products.forEach(product => {
     xml += '  <url>\n';
