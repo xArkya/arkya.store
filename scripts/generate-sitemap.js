@@ -14,18 +14,18 @@ function generateSitemap() {
 
   const today = new Date().toISOString().split('T')[0];
 
-  // URL principal (HashRouter usa #/)
+  // URL principal
   xml += '  <url>\n';
-  xml += `    <loc>${baseUrl}/#/</loc>\n`;
+  xml += `    <loc>${baseUrl}/</loc>\n`;
   xml += `    <lastmod>${today}</lastmod>\n`;
   xml += '    <changefreq>weekly</changefreq>\n';
   xml += '    <priority>1.0</priority>\n';
   xml += '  </url>\n';
 
-  // URLs de productos (HashRouter usa #/)
+  // URLs de productos
   products.forEach(product => {
     xml += '  <url>\n';
-    xml += `    <loc>${baseUrl}/#/product/${product.id}</loc>\n`;
+    xml += `    <loc>${baseUrl}/product/${product.id}</loc>\n`;
     xml += `    <lastmod>${today}</lastmod>\n`;
     xml += '    <changefreq>monthly</changefreq>\n';
     xml += '    <priority>0.8</priority>\n';

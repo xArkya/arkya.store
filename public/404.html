@@ -3,7 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>Arkya Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+    // Truco SPA para GitHub Pages - Guarda la ruta y redirige
+    var segmentCount = 1; // /arkya.store/
+    var l = window.location;
+    var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/arkya.store/';
+    
+    // Guardar la ruta completa para recuperarla en index.html
+    var path = l.pathname;
+    var search = l.search;
+    var hash = l.hash;
+    
+    sessionStorage.setItem('spa-redirect', JSON.stringify({
+      path: path,
+      search: search,
+      hash: hash
+    }));
+    
+    // Redirigir a la raiz
+    l.replace(redirectUrl);
+  </script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -16,28 +35,6 @@
       height: 100vh;
       margin: 0;
       text-align: center;
-    }
-    h1 {
-      color: #d53f8c;
-      margin-bottom: 20px;
-      font-size: 2.5rem;
-    }
-    p {
-      margin-bottom: 30px;
-      font-size: 1.2rem;
-    }
-    a {
-      color: #d53f8c;
-      text-decoration: none;
-      border: 1px solid #d53f8c;
-      padding: 10px 20px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-    }
-    a:hover {
-      background-color: #d53f8c;
-      color: white;
     }
     .loader {
       border: 5px solid rgba(255, 255, 255, 0.2);
@@ -53,17 +50,9 @@
       100% { transform: rotate(360deg); }
     }
   </style>
-  <script>
-    // Redirect to home page after 2 seconds
-    setTimeout(function() {
-      window.location.href = '/arkya.store/';
-    }, 2000);
-  </script>
 </head>
 <body>
-  <h1>Arkya Store</h1>
   <div class="loader"></div>
-  <p>Redireccionando a la tienda...</p>
-  <a href="/arkya.store/">Ir a la tienda</a>
+  <p>Redireccionando...</p>
 </body>
 </html>

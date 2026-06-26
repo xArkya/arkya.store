@@ -18,6 +18,25 @@
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/javascript">
+      // Truco SPA para GitHub Pages - Recuperar ruta guardada por 404.html
+      (function() {
+        var redirect = sessionStorage.getItem('spa-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa-redirect');
+          try {
+            var data = JSON.parse(redirect);
+            // Reconstruir la URL completa
+            var path = data.path.replace('/arkya.store', '');
+            var newUrl = path + data.search + data.hash;
+            // Usar history.replaceState para cambiar la URL sin recargar
+            if (newUrl && newUrl !== '/') {
+              window.history.replaceState(null, null, newUrl);
+            }
+          } catch (e) {}
+        }
+      })();
+    </script>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
