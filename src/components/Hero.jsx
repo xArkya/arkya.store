@@ -22,6 +22,7 @@ export default function Hero() {
           direction={{ base: 'column', md: 'row' }}>
           <Stack flex={1} spacing={{ base: 5, md: 10 }}>
             <Heading
+              as="h1"
               lineHeight={1.1}
               fontWeight={700}
               fontSize={{ base: '3xl', sm: '4xl', lg: '5xl' }}>
@@ -33,13 +34,14 @@ export default function Hero() {
               </Text>
               <br />
               <Text as={'span'} color={'pink.300'} fontStyle="italic">
-                Tienda Online
+                Artículos Importados de Japón
               </Text>
             </Heading>
             <Text color={'gray.300'} fontSize={"md"}>
-              Productos exclusivos de alta calidad. Encuentra lo que buscas en nuestra tienda
-              y contáctanos directamente por Instagram para realizar tu compra.
-              ¡Envíos a todo el país! @arkya.store
+              Descubrí Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales y merchandising
+              exclusivo importado directamente desde Japón. Productos originales de calidad
+              que no encontrás en ningún otro lado. Hacemos envíos a todo el país y también
+              traemos artículos a pedido. Contactanos por Instagram @arkya.store
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import {
   Box,
@@ -40,7 +40,7 @@ import {
   PopoverBody,
   PopoverArrow,
 } from '@chakra-ui/react';
-import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle } from 'react-icons/fa';
+import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
@@ -569,8 +569,8 @@ export default function HomePage() {
   return (
     <>
       <SEO 
-        title="Arkya Store - Tienda Online de Productos Exclusivos"
-        description="Descubre productos exclusivos en Arkya Store con las mejores ofertas y envíos rápidos. Compra online de forma segura."
+        title="Arkya Store - Artbooks, Doujinshi y Mangas Importados de Japón"
+        description="Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido."
         image="https://arkya.store/images/logo2.png"
         url="https://arkya.store/"
       />
@@ -1370,6 +1370,146 @@ export default function HomePage() {
           )}
         </Container>
       </Box>
+
+      {/* Sección SEO - Contenido textual para motores de búsqueda */}
+      <Box bg="#241521" py={12} color="white">
+        <Container maxW="7xl">
+          <Stack spacing={8}>
+            <Heading as="h2" size="xl" color="pink.300">
+              Sobre Arkya Store
+            </Heading>
+            <Text fontSize="md" color="gray.300" lineHeight={1.8}>
+              Arkya Store es tu tienda online especializada en artículos importados directamente desde Japón.
+              Ofrecemos una cuidada selección de Artbooks oficiales, Dōjinshi (Doujinshi) de artistas independientes,
+              Mangas en japonés, Guías oficiales de videojuegos, figuras coleccionables y merchandising exclusivo.
+              Todos nuestros productos son 100% originales y se importan directamente desde Japón para garantizar
+              la máxima calidad y autenticidad.
+            </Text>
+            <Text fontSize="md" color="gray.300" lineHeight={1.8}>
+              Nuestro catálogo incluye títulos de las principales editoriales japonesas y obras de círculos
+              independientes reconocidos. Si buscás material específico que no tenemos en stock, ofrecemos el
+              servicio de pedidos personalizados: contactanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer" style={{color: '#d53f8c', textDecoration: 'underline'}}>Instagram</a> y
+              nos encargamos de conseguirlo por vos. Realizamos envíos a todo el territorio argentino con
+              seguimiento y embalaje seguro para proteger tus productos durante el traslado.
+            </Text>
+            <Text fontSize="md" color="gray.300" lineHeight={1.8}>
+              En Arkya Store entendemos la pasión por la cultura japonesa. Por eso trabajamos constantemente
+              para ampliar nuestro inventario con los lanzamientos más recientes y las ediciones más buscadas
+              por coleccionistas. Desde Artbooks de anime y manga hasta Doujinshi de eventos como Comiket,
+              traemos lo mejor del mercado japonés para los fans de Argentina.
+            </Text>
+
+            {/* Links internos */}
+            <Box>
+              <Heading as="h3" size="md" color="pink.300" mb={3}>
+                Navegación del sitio
+              </Heading>
+              <Flex wrap="wrap" gap={3}>
+                <Button as={Link} to="/" size="sm" variant="outline" colorScheme="pink">
+                  Inicio
+                </Button>
+                <Button as={Link} to="/" onClick={() => document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
+                  Catálogo de Productos
+                </Button>
+                <Button as={Link} to="/contacto" size="sm" variant="outline" colorScheme="pink">
+                  Contacto
+                </Button>
+                <Button as={Link} to="/terminos" size="sm" variant="outline" colorScheme="pink">
+                  Términos y Condiciones
+                </Button>
+                <Button as={Link} to="/preguntas-frecuentes" size="sm" variant="outline" colorScheme="pink">
+                  Preguntas Frecuentes
+                </Button>
+                <Button as={Link} to="/mis-me-gustas" size="sm" variant="outline" colorScheme="pink">
+                  Mis Favoritos
+                </Button>
+              </Flex>
+            </Box>
+
+            {/* Links externos */}
+            <Box>
+              <Heading as="h3" size="md" color="pink.300" mb={3}>
+                Seguinos en redes sociales
+              </Heading>
+              <Flex wrap="wrap" gap={3}>
+                <Button
+                  as="a"
+                  href="https://instagram.com/arkya.store"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  leftIcon={<FaInstagram />}
+                  colorScheme="pink"
+                  variant="solid"
+                >
+                  Instagram @arkya.store
+                </Button>
+              </Flex>
+            </Box>
+
+            {/* Botones de compartir */}
+            <Box>
+              <Heading as="h3" size="md" color="pink.300" mb={3}>
+                Compartí Arkya Store
+              </Heading>
+              <Flex wrap="wrap" gap={3}>
+                <Button
+                  as="a"
+                  href={`https://wa.me/?text=Conocé%20Arkya%20Store%20-%20Artículos%20importados%20de%20Japón:%20https://arkya.store`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  leftIcon={<FaWhatsapp />}
+                  bg="#25D366"
+                  color="white"
+                  _hover={{ bg: '#128C7E' }}
+                  size="sm"
+                >
+                  WhatsApp
+                </Button>
+                <Button
+                  as="a"
+                  href={`https://twitter.com/intent/tweet?text=Arkya%20Store%20-%20Artículos%20importados%20de%20Japón&url=https://arkya.store`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  leftIcon={<FaTwitter />}
+                  bg="#1DA1F2"
+                  color="white"
+                  _hover={{ bg: '#0d8bd9' }}
+                  size="sm"
+                >
+                  Twitter
+                </Button>
+                <Button
+                  as="a"
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://arkya.store`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  leftIcon={<FaFacebook />}
+                  bg="#4267B2"
+                  color="white"
+                  _hover={{ bg: '#365899' }}
+                  size="sm"
+                >
+                  Facebook
+                </Button>
+                <Button
+                  as="a"
+                  href={`https://instagram.com/arkya.store`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  leftIcon={<FaInstagram />}
+                  bg="#E4405F"
+                  color="white"
+                  _hover={{ bg: '#c13584' }}
+                  size="sm"
+                >
+                  Instagram
+                </Button>
+              </Flex>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
+
     </Box>
     </>
   );
