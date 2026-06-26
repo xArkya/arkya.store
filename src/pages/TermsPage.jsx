@@ -23,8 +23,9 @@ export default function TermsPage() {
         <VStack spacing={8} align="stretch">
           {/* Header */}
           <VStack spacing={4} textAlign="center">
-            <Heading 
-              size="2xl" 
+            <Heading
+              as="h1"
+              size="2xl"
               color="white"
               bgGradient="linear(to-r, pink.400, purple.500)"
               bgClip="text"

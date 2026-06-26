@@ -79,7 +79,7 @@ const FloatingCartButton = () => {
                 borderRadius="full"
                 boxShadow="2xl"
                 variant={likedProducts.length > 0 ? 'solid' : 'ghost'}
-                bg={likedProducts.length > 0 ? 'pink.500' : 'whiteAlpha.200'}
+                bg={likedProducts.length > 0 ? 'pink.500' : '#241521'}
                 onClick={() => {
                   navigate('/mis-me-gustas');
                 }}

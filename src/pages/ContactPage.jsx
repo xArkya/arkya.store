@@ -67,6 +67,7 @@ export default function ContactPage() {
         {/* Header */}
         <VStack spacing={6} textAlign="center" mb={12}>
           <Heading
+            as="h1"
             fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
             bgGradient="linear(to-r, brand.400, pink.400)"
             bgClip="text"

@@ -592,7 +592,7 @@ export default function HomePage() {
       <SEO 
         title="Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón"
         description="Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido."
-        image="https://arkya.store/images/logo2.png"
+        image="https://arkya.store/images/logo2.webp"
         url="https://arkya.store/"
       />
       <Box>
@@ -607,7 +607,7 @@ export default function HomePage() {
         top={0}
         zIndex={1000}
       >
-        Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank">Instagram</a>!
+        Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
       </Box>
       <Hero />
       
@@ -640,12 +640,12 @@ export default function HomePage() {
             width="100%"
           >
            
-            <Flex 
-              flexWrap="wrap" 
-              gap={2} 
-              p={2} 
-              width={{ base: '100%', md: 'auto' }} 
-              justifyContent="center" 
+            <Flex
+              flexWrap="wrap"
+              gap={2}
+              p={2}
+              width={{ base: '100%', md: 'auto' }}
+              justifyContent="flex-start"
               overflowX={{ base: 'auto', md: 'visible' }}
               maxWidth="100%"
               css={{

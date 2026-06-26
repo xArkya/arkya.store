@@ -52,6 +52,7 @@ export default function Hero() {
                 as={'a'}
                 href={'https://instagram.com/arkya.store'}
                 target="_blank"
+                rel="noopener noreferrer"
                 rounded={'md'}
                 size={'md'}
                 fontWeight={'medium'}
@@ -82,6 +83,7 @@ export default function Hero() {
               rounded={'2xl'}
               boxShadow={'2xl'}
               width={'500px'}
+              height={'auto'}
               overflow={'hidden'}
               backgroundImage="linear-gradient(45deg, #241521, #3a2235)"
               transform={'perspective(1000px) rotateY(-5deg)'}
@@ -91,12 +93,12 @@ export default function Hero() {
                 transform: 'perspective(1000px) rotateY(0deg)',
               }}>
               <Image
-                alt={'Hero Image'}
+                alt={'Artículos importados de Japón - Arkya Store'}
                 fit={'cover'}
                 align={'center'}
                 w={'100%'}
                 h={'100%'}
-                src={'/images/hero.png'}
+                src={'/images/hero.webp'}
               />
             </Box>
           </Flex>

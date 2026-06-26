@@ -200,7 +200,6 @@ export default function ProductPage() {
         
         applyOffersAndSetProduct(foundProduct);
       } catch (err) {
-        console.error('Error loading product:', err);
         setError(err.message);
         setLoading(false);
       }
@@ -287,8 +286,7 @@ export default function ProductPage() {
             window.open("https://ig.me/m/arkya.store", "_blank");
           }, 500);
         })
-        .catch(err => {
-          console.error('Error al copiar con Clipboard API:', err);
+        .catch(() => {
           // Fallback al método antiguo si la API moderna falla
           const textArea = document.createElement("textarea");
           textArea.value = message;
@@ -314,8 +312,7 @@ export default function ProductPage() {
             window.open("https://ig.me/m/arkya.store", "_blank");
           }, 500);
         });
-    } catch (err) {
-      console.error('Error al copiar:', err);
+    } catch {
       toast({
         title: "Error",
         description: "No se pudo copiar el mensaje. Por favor, inténtalo de nuevo.",
@@ -361,12 +358,52 @@ export default function ProductPage() {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={`${product?.name} - Arkya Store`}
         description={product?.description || product?.details || 'Descubre este producto exclusivo en Arkya Store'}
-        image={product?.image || 'https://arkya.store/images/logo2.png'}
+        image={product?.image || 'https://arkya.store/images/logo2.webp'}
         url={`https://arkya.store/product/${product?.id}`}
       />
+      {/* Structured Data (JSON-LD) para SEO */}
+      {product && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              name: product.name,
+              image: productImages.filter(Boolean),
+              description: product.description || product.details || '',
+              sku: String(product.id),
+              brand: {
+                '@type': 'Brand',
+                name: product.brand || 'Arkya Store',
+              },
+              offers: {
+                '@type': 'Offer',
+                url: `https://arkya.store/product/${product.id}`,
+                priceCurrency: 'ARS',
+                price: String(Math.floor(product.price)),
+                availability: product.inStock !== false
+                  ? 'https://schema.org/InStock'
+                  : 'https://schema.org/OutOfStock',
+                seller: {
+                  '@type': 'Organization',
+                  name: 'Arkya Store',
+                },
+              },
+              aggregateRating: product.rating
+                ? {
+                    '@type': 'AggregateRating',
+                    ratingValue: String(product.rating),
+                    reviewCount: String(product.reviewCount || 1),
+                  }
+                : undefined,
+            }),
+          }}
+        />
+      )}
       <Box bg={pageBgColor}>
       {/* Modal de verificación de edad */}
       <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
@@ -996,6 +1033,7 @@ export default function ProductPage() {
             <Box as={'header'}>
               <Flex align="center" gap={3} mb={2}>
                 <Heading
+                  as="h1"
                   lineHeight={1.1}
                   fontWeight={600}
                   fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}

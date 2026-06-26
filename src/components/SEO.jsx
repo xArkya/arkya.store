@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export function SEO({ 
   title = 'Arkya Store', 
   description = 'Tienda online con productos exclusivos, ofertas especiales y envíos rápidos.',
-  image = 'https://arkya.store/images/logo2.png',
+  image = 'https://arkya.store/images/logo2.webp',
   url = 'https://arkya.store/',
   type = 'website'
 }) {

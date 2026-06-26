@@ -61,11 +61,11 @@ export default function Header() {
           <RouterLink to="/">
             <Flex align="center">
               <Box mr={{ base: 1, md: 2 }}>
-                <img 
-                  src="/images/logo2.png" 
-                  alt="Arkya Logo" 
-                  width={useBreakpointValue({ base: '24', md: '30' })}
-                  height={useBreakpointValue({ base: '24', md: '30' })}
+                <img
+                  src="/images/logo2.webp"
+                  alt="Arkya Store Logo"
+                  width={useBreakpointValue({ base: 24, md: 30 })}
+                  height={useBreakpointValue({ base: 24, md: 30 })}
                 />
               </Box>
               <Heading
@@ -97,6 +97,7 @@ export default function Header() {
             color={'white'}
             href={'https://instagram.com/arkya.store'}
             target="_blank"
+            rel="noopener noreferrer"
             leftIcon={<FaInstagram />}
             size={{ base: 'sm', md: 'md' }}
             px={{ base: 2, md: 4 }}>

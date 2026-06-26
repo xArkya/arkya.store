@@ -391,9 +391,9 @@ export default function ProductCard({ product }) {
         {/* Badges */}
         <Flex position="absolute" top={2} right={2} gap={2} alignItems="flex-end" direction="column">
           {adultContent && (
-            <Badge 
-              bg="red.600" 
-              color="white" 
+            <Badge
+              bg="red.600"
+              color="white"
               borderRadius="full"
               px={2}
               py={1}
@@ -471,8 +471,37 @@ export default function ProductCard({ product }) {
             </Badge>
           )}
         </Flex>
+
+        {/* Botón de like — sobre la imagen, abajo a la derecha, sin fondo */}
+        <Box position="absolute" bottom={2} right={2} zIndex={4}>
+          <IconButton
+            size="sm"
+            icon={<FaHeart />}
+            aria-label="Me gusta"
+            variant="ghost"
+            bg="transparent"
+            color={isLiked(id) ? 'pink.400' : 'white'}
+            _hover={{ bg: 'blackAlpha.400' }}
+            onClick={(e) => {
+              e?.preventDefault();
+              e?.stopPropagation();
+              if (!getLikeUser()) {
+                setPendingLike(true);
+                onLikeModalOpen();
+                return;
+              }
+              const liked = toggleLike(product);
+              toast({
+                title: liked ? '¡Me gusta!' : 'Like removido',
+                status: liked ? 'success' : 'info',
+                duration: 2000,
+                isClosable: true,
+              });
+            }}
+          />
+        </Box>
       </Box>
-      
+
       {/* Contenido */}
       <VStack p={4} align="start" spacing={2}>
         {/* Mostrar múltiples categorías si existen */}
@@ -576,31 +605,6 @@ export default function ProductCard({ product }) {
           </VStack>
           
           <HStack spacing={2}>
-            <IconButton
-              size="sm"
-              icon={<FaHeart />}
-              aria-label="Me gusta"
-              colorScheme="pink"
-              bg={isLiked(id) ? 'pink.600' : 'transparent'}
-              color={isLiked(id) ? 'white' : 'white'}
-              variant={isLiked(id) ? "solid" : "ghost"}
-              onClick={(e) => {
-                e?.preventDefault();
-                e?.stopPropagation();
-                if (!getLikeUser()) {
-                  setPendingLike(true);
-                  onLikeModalOpen();
-                  return;
-                }
-                const liked = toggleLike(product);
-                toast({
-                  title: liked ? '¡Me gusta!' : 'Like removido',
-                  status: liked ? 'success' : 'info',
-                  duration: 2000,
-                  isClosable: true,
-                });
-              }}
-            />
             <Button
               size="sm"
               colorScheme={inStock ? "green" : "brand"}
@@ -608,7 +612,7 @@ export default function ProductCard({ product }) {
               onClick={(e) => {
                 e?.preventDefault();
                 e?.stopPropagation();
-                
+
                 if (inStock) {
                   // Funcionalidad normal de agregar al carrito
                   handleAddToCart(e);

@@ -49,6 +49,7 @@ export default function MisLikesPage() {
           <Flex align="center" gap={3}>
             <Icon as={FaHeart} color="pink.500" boxSize={8} />
             <Heading
+              as="h1"
               color={textColor}
               fontSize={{ base: '2xl', md: '4xl' }}
               fontWeight={600}

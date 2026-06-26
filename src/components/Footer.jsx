@@ -28,6 +28,7 @@ const SocialButton = ({
       as={'a'}
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
       display={'inline-flex'}
       alignItems={'center'}
       justifyContent={'center'}
@@ -75,6 +76,7 @@ export default function Footer() {
             <Link 
               href="https://instagram.com/arkya.store" 
               target="_blank"
+              rel="noopener noreferrer"
               color="#ed64a6"
               fontWeight="bold"
               display="inline-flex"
