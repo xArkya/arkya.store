@@ -34,8 +34,9 @@ import {
   ModalCloseButton,
   useDisclosure,
   Center,
+  IconButton,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
@@ -46,6 +47,10 @@ export default function ProductPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const minSwipeDistance = 50;
   
   // Usar el contexto global de verificación de edad
   const { isAgeVerified, verifyAge } = useAgeVerification();
@@ -128,8 +133,6 @@ export default function ProductPage() {
           };
         }
         
-        console.log('Found product with offers applied:', foundProduct);
-        console.log('Product inStock value:', foundProduct.inStock);
         setProduct(foundProduct);
         
         // Si el producto es para adultos y el usuario no ha verificado su edad, mostrar modal
@@ -155,8 +158,6 @@ export default function ProductPage() {
         }
         
         // Add console log for debugging
-        console.log('Product ID requested:', numericId);
-        console.log('Available products:', products.map(p => p.id));
         
         // Primero buscar en el array estático
         let foundProduct = products.find(p => p.id === numericId);
@@ -327,6 +328,36 @@ export default function ProductPage() {
   };
 
   // Las variables de color del modal ya están definidas al inicio del componente
+
+  // Datos del carrusel de imágenes
+  const productImages = product?.images && product.images.length > 0
+    ? product.images.filter(img => img.trim() !== '')
+    : [product?.image].filter(Boolean);
+  const currentImage = productImages[currentImageIndex] || product?.image;
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % (productImages.length || 1));
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + (productImages.length || 1)) % (productImages.length || 1));
+  };
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) nextImage();
+    if (distance < -minSwipeDistance) prevImage();
+  };
 
   return (
     <>
@@ -768,7 +799,15 @@ export default function ProductPage() {
           {/* Carrusel de imágenes del producto */}
           <VStack spacing={4}>
             {/* Imagen principal */}
-            <Box position="relative" overflow="hidden" borderRadius="lg" w="100%">
+            <Box
+              position="relative"
+              overflow="hidden"
+              borderRadius="lg"
+              w="100%"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               {product.isNew && (
                 <Badge
                   position="absolute"
@@ -785,172 +824,171 @@ export default function ProductPage() {
                   Nuevo
                 </Badge>
               )}
-              
-              {(() => {
-                // Usar images si existe, sino usar image como fallback
-                const productImages = product.images && product.images.length > 0 
-                  ? product.images.filter(img => img.trim() !== '') 
-                  : [product.image];
-                const currentImage = productImages[currentImageIndex] || product.image;
-                
-                // Funciones del carrusel
-                const nextImage = () => {
-                  setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
-                };
-                
-                const prevImage = () => {
-                  setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
-                };
-                
-                return (
-                  <>
-                      <Image
-                        alt={product.name}
-                        src={currentImage}
-                        fit={'cover'}
-                        align={'center'}
-                        w={'100%'}
-                        h={{ base: '400px', sm: '500px', lg: '600px' }}
-                        transition="transform 0.2s"
-                        _hover={{ transform: 'scale(1.03)' }}
-                        filter={product.adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
-                        loading="lazy"
-                        decoding="async"
+
+              <Image
+                alt={product.name}
+                src={currentImage}
+                fit={'cover'}
+                align={'center'}
+                w={'100%'}
+                h={{ base: '400px', sm: '500px', lg: '600px' }}
+                transition="transform 0.2s"
+                _hover={{ transform: 'scale(1.03)', cursor: 'pointer' }}
+                filter={product.adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                userSelect="none"
+                onClick={() => {
+                  if (!product.adultContent || isAgeVerified) {
+                    setIsLightboxOpen(true);
+                  }
+                }}
+              />
+
+              {/* Botón de expandir imagen */}
+              {(!product.adultContent || isAgeVerified) && (
+                <IconButton
+                  icon={<FaExpand />}
+                  position="absolute"
+                  top={4}
+                  left={4}
+                  size="sm"
+                  colorScheme="whiteAlpha"
+                  bg="blackAlpha.600"
+                  color="white"
+                  _hover={{ bg: 'blackAlpha.800' }}
+                  onClick={() => setIsLightboxOpen(true)}
+                  zIndex={2}
+                  borderRadius="full"
+                  aria-label="Expandir imagen"
+                />
+              )}
+
+              {/* Overlay para contenido adulto */}
+              {product.adultContent && !isAgeVerified && (
+                <Center
+                  position="absolute"
+                  top="0"
+                  left="0"
+                  right="0"
+                  bottom="0"
+                  bg="blackAlpha.700"
+                  zIndex="3"
+                  flexDirection="column"
+                  p={4}
+                >
+                  <Icon as={FaExclamationTriangle} color="red.500" boxSize="50px" mb={4} />
+                  <Text color="white" fontWeight="bold" fontSize="xl" textAlign="center" mb={2}>
+                    Contenido para adultos (+18)
+                  </Text>
+                  <Text color="white" textAlign="center" mb={4}>
+                    Este producto contiene contenido para adultos.
+                  </Text>
+                  <Button
+                    colorScheme="red"
+                    onClick={handleConfirmAge}
+                    size="lg"
+                    width="200px"
+                    borderRadius="md"
+                  >
+                    Confirmar edad
+                  </Button>
+                </Center>
+              )}
+
+              {/* Controles del carrusel - solo mostrar si hay más de una imagen */}
+              {productImages.length > 1 && (
+                <>
+                  <Button
+                    position="absolute"
+                    left="4"
+                    top="50%"
+                    transform="translateY(-50%)"
+                    size="lg"
+                    colorScheme="whiteAlpha"
+                    bg="blackAlpha.600"
+                    color="white"
+                    _hover={{ bg: 'blackAlpha.800' }}
+                    onClick={prevImage}
+                    zIndex={2}
+                    borderRadius="full"
+                  >
+                    <FaChevronLeft />
+                  </Button>
+                  <Button
+                    position="absolute"
+                    right="4"
+                    top="50%"
+                    transform="translateY(-50%)"
+                    size="lg"
+                    colorScheme="whiteAlpha"
+                    bg="blackAlpha.600"
+                    color="white"
+                    _hover={{ bg: 'blackAlpha.800' }}
+                    onClick={nextImage}
+                    zIndex={2}
+                    borderRadius="full"
+                  >
+                    <FaChevronRight />
+                  </Button>
+
+                  {/* Indicadores de imagen */}
+                  <Flex
+                    position="absolute"
+                    bottom="4"
+                    left="50%"
+                    transform="translateX(-50%)"
+                    gap={2}
+                    zIndex={2}
+                  >
+                    {productImages.map((_, index) => (
+                      <Box
+                        key={index}
+                        w="12px"
+                        h="12px"
+                        borderRadius="full"
+                        bg={index === currentImageIndex ? 'white' : 'whiteAlpha.500'}
+                        cursor="pointer"
+                        onClick={() => setCurrentImageIndex(index)}
+                        transition="all 0.1s"
+                        _hover={{ bg: 'white' }}
                       />
-                      
-                      {/* Overlay para contenido adulto */}
-                      {product.adultContent && !isAgeVerified && (
-                        <Center
-                          position="absolute"
-                          top="0"
-                          left="0"
-                          right="0"
-                          bottom="0"
-                          bg="blackAlpha.700"
-                          zIndex="3"
-                          flexDirection="column"
-                          p={4}
-                        >
-                          <Icon as={FaExclamationTriangle} color="red.500" boxSize="50px" mb={4} />
-                          <Text color="white" fontWeight="bold" fontSize="xl" textAlign="center" mb={2}>
-                            Contenido para adultos (+18)
-                          </Text>
-                          <Text color="white" textAlign="center" mb={4}>
-                            Este producto contiene contenido para adultos.
-                          </Text>
-                          <Button
-                            colorScheme="red"
-                            onClick={handleConfirmAge}
-                            size="lg"
-                            width="200px"
-                            borderRadius="md"
-                          >
-                            Confirmar edad
-                          </Button>
-                        </Center>
-                      )}
-                    
-                    {/* Controles del carrusel - solo mostrar si hay más de una imagen */}
-                    {productImages.length > 1 && (
-                      <>
-                        <Button
-                          position="absolute"
-                          left="4"
-                          top="50%"
-                          transform="translateY(-50%)"
-                          size="lg"
-                          colorScheme="whiteAlpha"
-                          bg="blackAlpha.600"
-                          color="white"
-                          _hover={{ bg: 'blackAlpha.800' }}
-                          onClick={prevImage}
-                          zIndex={2}
-                          borderRadius="full"
-                        >
-                          <FaChevronLeft />
-                        </Button>
-                        <Button
-                          position="absolute"
-                          right="4"
-                          top="50%"
-                          transform="translateY(-50%)"
-                          size="lg"
-                          colorScheme="whiteAlpha"
-                          bg="blackAlpha.600"
-                          color="white"
-                          _hover={{ bg: 'blackAlpha.800' }}
-                          onClick={nextImage}
-                          zIndex={2}
-                          borderRadius="full"
-                        >
-                          <FaChevronRight />
-                        </Button>
-                        
-                        {/* Indicadores de imagen */}
-                        <Flex
-                          position="absolute"
-                          bottom="4"
-                          left="50%"
-                          transform="translateX(-50%)"
-                          gap={2}
-                          zIndex={2}
-                        >
-                          {productImages.map((_, index) => (
-                            <Box
-                              key={index}
-                              w="12px"
-                              h="12px"
-                              borderRadius="full"
-                              bg={index === currentImageIndex ? 'white' : 'whiteAlpha.500'}
-                              cursor="pointer"
-                              onClick={() => setCurrentImageIndex(index)}
-                              transition="all 0.1s"
-                              _hover={{ bg: 'white' }}
-                            />
-                          ))}
-                        </Flex>
-                      </>
-                    )}
-                  </>
-                );
-              })()}
+                    ))}
+                  </Flex>
+                </>
+              )}
             </Box>
             
             {/* Miniaturas de imágenes */}
-            {(() => {
-              const productImages = product.images && product.images.length > 0 
-                ? product.images.filter(img => img.trim() !== '') 
-                : [product.image];
-              
-              return productImages.length > 1 && (
-                <Flex gap={2} overflowX="auto" overflowY="hidden" w="100%" justify="center" maxW="100%">
-                  {productImages.map((img, index) => (
-                    <Box
-                      key={index}
-                      cursor="pointer"
-                      onClick={() => setCurrentImageIndex(index)}
-                      borderRadius="md"
-                      overflow="hidden"
-                      border={index === currentImageIndex ? '3px solid' : '2px solid transparent'}
-                      borderColor={index === currentImageIndex ? 'brand.500' : 'transparent'}
-                      transition="all 0.1s"
-                      _hover={{ transform: 'scale(1.05)' }}
-                      flexShrink={0}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${product.name} - imagen ${index + 1}`}
-                        w="80px"
-                        h="80px"
-                        objectFit="cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </Box>
-                  ))}
-                </Flex>
-              );
-            })()}
+            {productImages.length > 1 && (
+              <Flex gap={2} overflowX="auto" overflowY="hidden" w="100%" justify="center" maxW="100%">
+                {productImages.map((img, index) => (
+                  <Box
+                    key={index}
+                    cursor="pointer"
+                    onClick={() => setCurrentImageIndex(index)}
+                    borderRadius="md"
+                    overflow="hidden"
+                    border={index === currentImageIndex ? '3px solid' : '2px solid transparent'}
+                    borderColor={index === currentImageIndex ? 'brand.500' : 'transparent'}
+                    transition="all 0.1s"
+                    _hover={{ transform: 'scale(1.05)' }}
+                    flexShrink={0}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${product.name} - imagen ${index + 1}`}
+                      w="80px"
+                      h="80px"
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </Box>
+                ))}
+              </Flex>
+            )}
           </VStack>
           
           {/* Información del producto con diseño mejorado */}
@@ -1020,8 +1058,8 @@ export default function ProductPage() {
                       <Badge colorScheme="red" variant="solid" px={2} py={1} borderRadius="md" mr={2}>
                         {product.discountPercentage}% OFF (ahorrá ${Math.round(product.originalPrice - product.price).toLocaleString()})
                       </Badge>
-                      <Badge colorScheme={product.inStock ? "green" : "red"} variant="solid" px={2} py={1} borderRadius="md">
-                        {product.inStock ? "DISPONIBLE" : "SIN STOCK"}
+                      <Badge colorScheme={product.inStock ? "orange" : "red"} variant="solid" px={2} py={1} borderRadius="md">
+                        {product.inStock ? "ÚLTIMA UNIDAD" : "SIN STOCK"}
                       </Badge>
                     </Flex>
                   </>
@@ -1041,8 +1079,8 @@ export default function ProductPage() {
                         </Text>
                       )}
                     </Flex>
-                    <Badge colorScheme={product.inStock ? "green" : "red"} variant="solid" px={2} py={1} borderRadius="md">
-                      {product.inStock ? "DISPONIBLE" : "SIN STOCK"}
+                    <Badge colorScheme={product.inStock ? "orange" : "red"} variant="solid" px={2} py={1} borderRadius="md">
+                      {product.inStock ? "ÚLTIMA UNIDAD" : "SIN STOCK"}
                     </Badge>
                   </>
                 )}
@@ -1303,10 +1341,7 @@ export default function ProductPage() {
           productsWithScore.sort((a, b) => b.similarityScore - a.similarityScore);
           
           // Debug: mostrar los primeros 10 productos con sus scores
-          console.log('Productos similares encontrados:', productsWithScore.slice(0, 10).map(p => ({
-            name: p.name,
-            score: p.similarityScore
-          })));
+
 
           // Seleccionar productos similares
           let similarProducts = [];
@@ -1382,6 +1417,82 @@ export default function ProductPage() {
         })()}
       </Container>
     </Box>
+
+    {/* Lightbox - Modal para ver imagen ampliada */}
+    <Modal isOpen={isLightboxOpen} onClose={() => setIsLightboxOpen(false)} size="full" isCentered>
+      <ModalOverlay bg="blackAlpha.900" backdropFilter="blur(8px)" />
+      <ModalContent bg="transparent" boxShadow="none" maxW="100vw" maxH="100vh">
+        <ModalCloseButton color="white" size="lg" zIndex={2} />
+        <ModalBody
+          p={0}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          position="relative"
+          onTouchStart={(e) => {
+            setTouchEnd(null);
+            setTouchStart(e.targetTouches[0].clientX);
+          }}
+          onTouchMove={(e) => setTouchEnd(e.targetTouches[0].clientX)}
+          onTouchEnd={() => {
+            if (touchStart === null || touchEnd === null) return;
+            const distance = touchStart - touchEnd;
+            if (distance > 50 && currentImageIndex < productImages.length - 1) nextImage();
+            if (distance < -50 && currentImageIndex > 0) prevImage();
+            setTouchStart(null);
+            setTouchEnd(null);
+          }}
+        >
+          <Image
+            src={currentImage}
+            alt={product?.name}
+            maxH="90vh"
+            maxW="90vw"
+            objectFit="contain"
+            borderRadius="md"
+            draggable={false}
+            userSelect="none"
+          />
+
+          {productImages.length > 1 && (
+            <>
+              <Button
+                position="absolute"
+                left="4"
+                top="50%"
+                transform="translateY(-50%)"
+                size="lg"
+                colorScheme="whiteAlpha"
+                bg="blackAlpha.600"
+                color="white"
+                _hover={{ bg: 'blackAlpha.800' }}
+                onClick={prevImage}
+                zIndex={2}
+                borderRadius="full"
+              >
+                <FaChevronLeft />
+              </Button>
+              <Button
+                position="absolute"
+                right="4"
+                top="50%"
+                transform="translateY(-50%)"
+                size="lg"
+                colorScheme="whiteAlpha"
+                bg="blackAlpha.600"
+                color="white"
+                _hover={{ bg: 'blackAlpha.800' }}
+                onClick={nextImage}
+                zIndex={2}
+                borderRadius="full"
+              >
+                <FaChevronRight />
+              </Button>
+            </>
+          )}
+        </ModalBody>
+      </ModalContent>
+    </Modal>
     </>
   );
 }

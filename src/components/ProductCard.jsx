@@ -33,7 +33,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
 import { useLikes, getLikeUser, setLikeUser } from '../hooks/useLikes';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
@@ -57,10 +57,27 @@ export default function ProductCard({ product }) {
   
   // Estado para el carrusel de imágenes
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+  const containerRef = useRef(null);
+  const carouselRef = useRef(null);
+  const [slideWidth, setSlideWidth] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef(0);
+  const shouldPreventClick = useRef(false);
+
+  // Medir ancho del contenedor para el carrusel
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const updateWidth = () => setSlideWidth(el.offsetWidth);
+    updateWidth();
+    const ro = new ResizeObserver(updateWidth);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   // Usar images si existe, sino usar image como fallback
   const productImages = images && images.length > 0 ? images.filter(img => img.trim() !== '') : [image];
-  const currentImage = productImages[currentImageIndex] || image;
   
   // Función para confirmar edad usando el contexto global
   const handleConfirmAge = () => {
@@ -75,11 +92,12 @@ export default function ProductCard({ product }) {
       e.preventDefault();
       onOpen();
     } else {
-      // Guardar la página actual en sessionStorage antes de navegar al producto
+      // Guardar la página actual y la posición de scroll antes de navegar al producto
       const currentPage = sessionStorage.getItem('currentPage');
       if (currentPage) {
         sessionStorage.setItem('lastViewedPage', currentPage);
       }
+      sessionStorage.setItem('homeScrollPosition', window.scrollY);
     }
   };
   
@@ -92,15 +110,47 @@ export default function ProductCard({ product }) {
   
   // Funciones para el carrusel
   const nextImage = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    e?.preventDefault();
+    e?.stopPropagation();
     setCurrentImageIndex((prev) => (prev + 1) % productImages.length);
   };
-  
+
   const prevImage = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    e?.preventDefault();
+    e?.stopPropagation();
     setCurrentImageIndex((prev) => (prev - 1 + productImages.length) % productImages.length);
+  };
+
+  const onCarouselTouchStart = (e) => {
+    shouldPreventClick.current = false;
+    dragStartX.current = e.touches[0].clientX;
+    setDragOffset(0);
+    setIsDragging(true);
+  };
+
+  const onCarouselTouchMove = (e) => {
+    if (!isDragging) return;
+    const delta = e.touches[0].clientX - dragStartX.current;
+    setDragOffset(delta);
+    if (Math.abs(delta) > 10) {
+      shouldPreventClick.current = true;
+    }
+  };
+
+  const onCarouselTouchEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const threshold = slideWidth * 0.2;
+
+    if (Math.abs(dragOffset) > threshold) {
+      if (dragOffset < 0 && currentImageIndex < productImages.length - 1) {
+        nextImage();
+      } else if (dragOffset > 0 && currentImageIndex > 0) {
+        prevImage();
+      }
+    }
+    setDragOffset(0);
+    setTimeout(() => { shouldPreventClick.current = false; }, 50);
   };
   
   // Función para añadir al carrito
@@ -159,7 +209,14 @@ export default function ProductCard({ product }) {
         position="relative"
         opacity={inStock ? 1 : 0.7}
         filter={inStock ? 'none' : 'grayscale(30%)'}
-        onClick={handleContentClick}
+        onClick={(e) => {
+          if (shouldPreventClick.current) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+          }
+          handleContentClick(e);
+        }}
         whileHover={{ 
           y: inStock ? -8 : 0,
           boxShadow: inStock ? '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' : undefined
@@ -167,19 +224,42 @@ export default function ProductCard({ product }) {
         transition={{ duration: 0.2 }}
       >
       {/* Imagen con overlay para efectos */}
-      <Box position="relative" overflow="hidden">
-        <Image
-          src={currentImage}
-          alt={name}
-          w="100%"
-          h="220px"
-          objectFit="cover"
-          transition="transform 0.5s ease"
-          _groupHover={{ transform: 'scale(1.05)' }}
-          filter={adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
-          loading="lazy"
-          decoding="async"
-        />
+      <Box
+        position="relative"
+        overflow="hidden"
+        ref={(node) => {
+          containerRef.current = node;
+          carouselRef.current = node;
+        }}
+        onTouchStart={onCarouselTouchStart}
+        onTouchMove={onCarouselTouchMove}
+        onTouchEnd={onCarouselTouchEnd}
+        sx={{ touchAction: 'pan-y' }}
+      >
+        <Box
+          display="flex"
+          transform={`translateX(calc(-${currentImageIndex * (100 / productImages.length)}% + ${dragOffset}px))`}
+          transition={isDragging ? 'none' : 'transform 0.25s ease-out'}
+          width={`${productImages.length * 100}%`}
+        >
+          {productImages.map((img, i) => (
+            <Box key={i} width={`${100 / productImages.length}%`} flexShrink={0}>
+              <Image
+                src={img}
+                alt={`${name} - ${i + 1}`}
+                w="100%"
+                h="220px"
+                objectFit="cover"
+                filter={adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                userSelect="none"
+                style={{ pointerEvents: 'none' }}
+              />
+            </Box>
+          ))}
+        </Box>
         
         {/* Overlay para contenido adulto */}
         {adultContent && !isAgeVerified && (
@@ -294,7 +374,7 @@ export default function ProductCard({ product }) {
         )}
         
         {/* Overlay sutil al hacer hover */}
-        <Box 
+        <Box
           position="absolute"
           top="0"
           left="0"
@@ -305,6 +385,7 @@ export default function ProductCard({ product }) {
           transition="opacity 0.3s ease"
           _groupHover={{ opacity: 1 }}
           className="product-overlay"
+          pointerEvents="none"
         />
         
         {/* Badges */}

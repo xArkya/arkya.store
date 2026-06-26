@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
@@ -25,6 +25,10 @@ export default function MisLikesPage() {
   const likedItems = useMemo(() => {
     return products.filter(p => likedProducts.includes(String(p.id)));
   }, [likedProducts]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Box minH="100vh" bg="#241521" pt={8} pb={20}>

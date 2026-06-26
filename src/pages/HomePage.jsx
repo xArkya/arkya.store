@@ -99,6 +99,27 @@ export default function HomePage() {
   });
   const PRODUCTS_PER_PAGE = 12;
   
+  // Restaurar posición de scroll al volver desde ProductPage
+  useEffect(() => {
+    const savedScroll = sessionStorage.getItem('homeScrollPosition');
+    if (savedScroll) {
+      const scrollY = parseInt(savedScroll, 10);
+      sessionStorage.removeItem('homeScrollPosition');
+      // Esperar a que React termine de renderizar y el DOM esté listo
+      const restoreScroll = () => {
+        requestAnimationFrame(() => {
+          window.scrollTo(0, scrollY);
+          // Verificar que realmente scrolleó (algunos navegadores lo sobreescriben)
+          if (Math.abs(window.scrollY - scrollY) > 50) {
+            setTimeout(() => window.scrollTo(0, scrollY), 300);
+          }
+        });
+      };
+      // Doble RAF para asegurar que todo el layout esté calculado
+      requestAnimationFrame(restoreScroll);
+    }
+  }, []);
+  
   // Cargar productos desde IndexedDB al montar
   useEffect(() => {
     const loadProducts = async () => {
@@ -582,6 +603,9 @@ export default function HomePage() {
         color="gray.700" 
         textAlign="center"
         fontSize="md"
+        position="sticky"
+        top={0}
+        zIndex={1000}
       >
         Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank">Instagram</a>!
       </Box>
@@ -986,12 +1010,12 @@ export default function HomePage() {
               </Flex>
               
               {/* Selector de ordenación y filtro de precios (derecha) */}
-              <Flex align="center" gap={4} width={{ base: '100%', md: 'auto' }}>
+              <Flex align="center" gap={{ base: 2, md: 4 }} width={{ base: '100%', md: 'auto' }} flexWrap="wrap" justifyContent={{ base: 'flex-start', md: 'flex-end' }}>
                 {/* Botón para filtrar productos en oferta */}
                 <Button
                   colorScheme={filterOffersOnly ? 'pink' : 'gray'}
                   variant={filterOffersOnly ? 'solid' : 'outline'}
-                  size="md"
+                  size={{ base: 'sm', md: 'md' }}
                   bg={filterOffersOnly ? 'pink.500' : 'whiteAlpha.200'}
                   color="white"
                   _hover={{ bg: filterOffersOnly ? 'pink.600' : 'whiteAlpha.300' }}
@@ -999,7 +1023,7 @@ export default function HomePage() {
                     setFilterOffersOnly(!filterOffersOnly);
                     setCurrentPage(1);
                   }}
-                  width={{ base: '100%', md: 'auto' }}
+                  width="auto"
                 >
                   <Box display={{ base: 'none', sm: 'block' }}>
                     {filterOffersOnly ? '✓ Ofertas' : 'Ofertas'}
@@ -1013,7 +1037,7 @@ export default function HomePage() {
                 <Button
                   colorScheme={filterNewOnly ? 'pink' : 'gray'}
                   variant={filterNewOnly ? 'solid' : 'outline'}
-                  size="md"
+                  size={{ base: 'sm', md: 'md' }}
                   bg={filterNewOnly ? 'pink.500' : 'whiteAlpha.200'}
                   color="white"
                   _hover={{ bg: filterNewOnly ? 'pink.600' : 'whiteAlpha.300' }}
@@ -1021,7 +1045,7 @@ export default function HomePage() {
                     setFilterNewOnly(!filterNewOnly);
                     setCurrentPage(1);
                   }}
-                  width={{ base: '100%', md: 'auto' }}
+                  width="auto"
                 >
                   <Box display={{ base: 'none', sm: 'block' }}>
                     {filterNewOnly ? '✓ Nuevos' : 'Nuevos'}
@@ -1037,11 +1061,11 @@ export default function HomePage() {
                     <Button
                       colorScheme="pink"
                       variant="outline"
-                      size="md"
+                      size={{ base: 'sm', md: 'md' }}
                       bg="whiteAlpha.200"
                       color="white"
                       _hover={{ bg: 'whiteAlpha.300' }}
-                      width={{ base: '100%', md: 'auto' }}
+                      width="auto"
                     >
                       <Box as="span" overflow="hidden" textOverflow="ellipsis">
                         <Box display={{ base: 'none', sm: 'block' }}>
@@ -1116,11 +1140,11 @@ export default function HomePage() {
                     rightIcon={<ChevronDownIcon />}
                     colorScheme="pink"
                     variant="outline"
-                    size="md"
+                    size={{ base: 'sm', md: 'md' }}
                     bg="whiteAlpha.200"
                     color="white"
                     _hover={{ bg: 'whiteAlpha.300' }}
-                    width={{ base: '100%', md: 'auto' }}
+                    width="auto"
                     sx={{
                       // Estilos para manejar el texto en dispositivos móviles
                       '.chakra-button__icon': {
