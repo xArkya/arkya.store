@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import { Box } from '@chakra-ui/react'
+import { useAnalytics } from './hooks/useAnalytics'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
@@ -17,6 +18,7 @@ const AdminPage = import.meta.env.VITE_ENABLE_ADMIN === 'true'
   : null
 
 function App() {
+  useAnalytics()
   return (
     <Box 
       minH="100vh" 
