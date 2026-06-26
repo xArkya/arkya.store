@@ -569,8 +569,8 @@ export default function HomePage() {
   return (
     <>
       <SEO 
-        title="Arkya Store - Artbooks, Doujinshi y Mangas Importados de Japón"
-        description="Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido."
+        title="Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón"
+        description="Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido."
         image="https://arkya.store/images/logo2.png"
         url="https://arkya.store/"
       />
@@ -1381,14 +1381,17 @@ export default function HomePage() {
             <Text fontSize="md" color="gray.300" lineHeight={1.8}>
               Arkya Store es tu tienda online especializada en artículos importados directamente desde Japón.
               Ofrecemos una cuidada selección de Artbooks oficiales, Dōjinshi (Doujinshi) de artistas independientes,
-              Mangas en japonés, Guías oficiales de videojuegos, figuras coleccionables y merchandising exclusivo.
+              Mangas en japonés, Novelas Ligeras (Light Novels), Revistas semanales como Weekly Shōnen Jump,
+              Guías oficiales de videojuegos, figuras coleccionables y merchandising exclusivo.
               Todos nuestros productos son 100% originales y se importan directamente desde Japón para garantizar
               la máxima calidad y autenticidad.
             </Text>
             <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-              Nuestro catálogo incluye títulos de las principales editoriales japonesas y obras de círculos
-              independientes reconocidos. Si buscás material específico que no tenemos en stock, ofrecemos el
-              servicio de pedidos personalizados: contactanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer" style={{color: '#d53f8c', textDecoration: 'underline'}}>Instagram</a> y
+              Nuestro catálogo incluye títulos de las principales editoriales japonesas como Shueisha, Kodansha y
+              Square Enix, además de obras de círculos independientes reconocidos. Encontrá las últimas revistas
+              Jump con los capítulos más recientes de One Piece, Jujutsu Kaisen, My Hero Academia y más.
+              Si buscás material específico que no tenemos en stock, ofrecemos el servicio de pedidos personalizados:
+              contactanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer" style={{color: '#d53f8c', textDecoration: 'underline'}}>Instagram</a> y
               nos encargamos de conseguirlo por vos. Realizamos envíos a todo el territorio argentino con
               seguimiento y embalaje seguro para proteger tus productos durante el traslado.
             </Text>
@@ -1396,7 +1399,8 @@ export default function HomePage() {
               En Arkya Store entendemos la pasión por la cultura japonesa. Por eso trabajamos constantemente
               para ampliar nuestro inventario con los lanzamientos más recientes y las ediciones más buscadas
               por coleccionistas. Desde Artbooks de anime y manga hasta Doujinshi de eventos como Comiket,
-              traemos lo mejor del mercado japonés para los fans de Argentina.
+              Novelas Ligeras de las series más populares y Revistas Jump semanales, traemos lo mejor del
+              mercado japonés para los fans de Argentina.
             </Text>
 
             {/* Links internos */}
