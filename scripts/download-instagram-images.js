@@ -101,7 +101,7 @@ async function downloadProductImages(productId, imageUrls) {
         await downloadImage(url, filename);
         
         // Guardar la URL local relativa
-        const localUrl = `/arkya.store/images/products/${filename}`;
+        const localUrl = `/images/products/${filename}`;
         downloadedImages[i] = localUrl;
         successCount++;
         console.log(`  ✅ Guardado: ${localUrl}`);
@@ -151,7 +151,7 @@ Este script descarga imágenes de Instagram y las guarda en:
   public/images/products/
 
 Las URLs locales se devuelven en formato:
-  /arkya.store/images/products/product-<id>-<index>.jpg
+  /images/products/product-<id>-<index>.jpg
     `);
     process.exit(1);
   }

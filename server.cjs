@@ -13,7 +13,7 @@ const PORT = 3001;
 // Restringir CORS solo a tu dominio
 app.use(cors({
   origin: [
-    'https://xarkya.github.io',
+    'https://arkya.store',
     'http://localhost:3000',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
@@ -162,7 +162,7 @@ app.post('/api/instagram/download-images', async (req, res) => {
         console.log(`  [${i + 1}/${imageUrls.length}] Descargando: ${filename}`);
         await downloadImage(url, filepath);
         
-        const localUrl = `/arkya.store/images/products/${filename}`;
+        const localUrl = `/images/products/${filename}`;
         downloadedImages.push(localUrl);
         successCount++;
         console.log(`  ✅ Guardado: ${localUrl}`);

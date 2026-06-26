@@ -84,7 +84,7 @@ function extractImages() {
       if (imageData) {
         const filename = generateImageFilename(imageData.extension);
         const filepath = path.join(IMAGES_DIR, filename);
-        const relativePath = `/arkya.store/images/products/${filename}`;
+        const relativePath = `/images/products/${filename}`;
         
         // Guardar imagen como archivo
         fs.writeFileSync(filepath, imageData.data, 'base64');
@@ -106,7 +106,7 @@ function extractImages() {
           if (imageData) {
             const filename = generateImageFilename(imageData.extension, imgIndex);
             const filepath = path.join(IMAGES_DIR, filename);
-            const relativePath = `/arkya.store/images/products/${filename}`;
+            const relativePath = `/images/products/${filename}`;
             
             // Guardar imagen como archivo
             fs.writeFileSync(filepath, imageData.data, 'base64');
