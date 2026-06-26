@@ -6,6 +6,7 @@ import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import TermsPage from './pages/TermsPage'
 import FAQPage from './pages/FAQPage'
+import MisLikesPage from './pages/MisLikesPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FloatingCartButton from './components/Cart/FloatingCartButton'
@@ -42,6 +43,7 @@ function App() {
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/terminos" element={<TermsPage />} />
           <Route path="/preguntas-frecuentes" element={<FAQPage />} />
+          <Route path="/mis-me-gustas" element={<MisLikesPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Box>

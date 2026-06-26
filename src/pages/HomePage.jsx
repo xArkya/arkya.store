@@ -75,6 +75,7 @@ export default function HomePage() {
   });
   const [sortOption, setSortOption] = useState('newest-added');
   const [filterNewOnly, setFilterNewOnly] = useState(false);
+  const [filterOffersOnly, setFilterOffersOnly] = useState(false);
   
   // Estado para búsqueda mejorada
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -420,10 +421,11 @@ export default function HomePage() {
       
       // Filtrar por productos nuevos
       const matchesNewFilter = !filterNewOnly || product.isNew === true;
+      const matchesOffersFilter = !filterOffersOnly || product.isOnOffer === true;
       
-      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesNewFilter;
+      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesNewFilter && matchesOffersFilter;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterNewOnly]);
+  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterNewOnly, filterOffersOnly]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {
@@ -569,8 +571,8 @@ export default function HomePage() {
       <SEO 
         title="Arkya Store - Tienda Online de Productos Exclusivos"
         description="Descubre productos exclusivos en Arkya Store con las mejores ofertas y envíos rápidos. Compra online de forma segura."
-        image="https://xarkya.github.io/arkya.store/images/logo2.png"
-        url="https://xarkya.github.io/arkya.store/"
+        image="https://arkya.store/images/logo2.png"
+        url="https://arkya.store/"
       />
       <Box>
       <Box 
@@ -985,6 +987,28 @@ export default function HomePage() {
               
               {/* Selector de ordenación y filtro de precios (derecha) */}
               <Flex align="center" gap={4} width={{ base: '100%', md: 'auto' }}>
+                {/* Botón para filtrar productos en oferta */}
+                <Button
+                  colorScheme={filterOffersOnly ? 'pink' : 'gray'}
+                  variant={filterOffersOnly ? 'solid' : 'outline'}
+                  size="md"
+                  bg={filterOffersOnly ? 'pink.500' : 'whiteAlpha.200'}
+                  color="white"
+                  _hover={{ bg: filterOffersOnly ? 'pink.600' : 'whiteAlpha.300' }}
+                  onClick={() => {
+                    setFilterOffersOnly(!filterOffersOnly);
+                    setCurrentPage(1);
+                  }}
+                  width={{ base: '100%', md: 'auto' }}
+                >
+                  <Box display={{ base: 'none', sm: 'block' }}>
+                    {filterOffersOnly ? '✓ Ofertas' : 'Ofertas'}
+                  </Box>
+                  <Box display={{ base: 'block', sm: 'none' }}>
+                    {filterOffersOnly ? '✓ Ofertas' : 'Ofertas'}
+                  </Box>
+                </Button>
+                
                 {/* Botón para filtrar productos nuevos */}
                 <Button
                   colorScheme={filterNewOnly ? 'pink' : 'gray'}

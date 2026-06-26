@@ -210,6 +210,9 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
       .filter(line => line && line !== '.' && line !== '...' && line !== '....' && line !== '.....')
       .join('\n');
 
+    // Borrar contenido entre corchetes [texto]
+    cleanedDesc = cleanedDesc.replace(/\[.*?\]/g, '').trim();
+
     // Extraer hashtags
     const hashtagRegex = /#[\w]+/g;
     const hashtags = cleanedDesc.match(hashtagRegex) || [];
@@ -219,21 +222,68 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
     cleanedDesc = cleanedDesc.replace(hashtagRegex, '').trim();
 
     // Extraer precio (buscar patrón $número)
-    const priceRegex = /\$\s*([\d,]+(?:\.\d{2})?)/;
+    const priceRegex = /\$\s*([\d.,]+)/;
     const priceMatch = cleanedDesc.match(priceRegex);
     let price = 10000;
     let title = '';
 
     if (priceMatch) {
-      // Convertir precio a número (remover comas)
-      price = Math.round(parseFloat(priceMatch[1].replace(/,/g, '')) * 1000);
+      const priceRaw = priceMatch[1];
+      let priceNum;
+
+      // Detectar formato: 36.999,00 (punto miles + coma decimal) o 36,999 (coma miles) o 36999 (sin separador)
+      const hasCommaDecimal = /,\d{2}$/.test(priceRaw); // termina en ,xx → coma es decimal
+      if (hasCommaDecimal) {
+        // Formato europeo/latino: 36.999,00 → punto=miles, coma=decimal
+        priceNum = parseFloat(priceRaw.replace(/\./g, '').replace(',', '.'));
+      } else if (priceRaw.includes('.') && priceRaw.includes(',')) {
+        // Ambos presentes: 1.234,56 → punto=miles, coma=decimal
+        priceNum = parseFloat(priceRaw.replace(/\./g, '').replace(',', '.'));
+      } else if (priceRaw.includes('.') && !priceRaw.includes(',')) {
+        // Solo punto: puede ser 36.999 (miles) o 36.99 (decimal)
+        const parts = priceRaw.split('.');
+        if (parts.length === 2 && parts[1].length === 3) {
+          // 36.999 → punto separador de miles
+          priceNum = parseFloat(priceRaw.replace(/\./g, ''));
+        } else {
+          // 36.99 → punto decimal
+          priceNum = parseFloat(priceRaw);
+        }
+      } else if (priceRaw.includes(',')) {
+        // Solo coma: 36,999 → coma separador de miles (formato argentino)
+        priceNum = parseFloat(priceRaw.replace(/,/g, ''));
+      } else {
+        // Sin separadores
+        priceNum = parseFloat(priceRaw);
+      }
+
+      price = Math.round(priceNum);
       
       // Extraer título (lo que va antes del $)
       const priceIndex = cleanedDesc.indexOf('$');
       title = cleanedDesc.substring(0, priceIndex).trim();
       
-      // Remover el precio de la descripción
+      // Remover título y precio de la descripción
+      cleanedDesc = cleanedDesc.substring(priceIndex);
       cleanedDesc = cleanedDesc.replace(priceRegex, '').trim();
+      
+      // Limpiar caracteres sueltos al inicio de la descripción
+      while (cleanedDesc.startsWith(')') || cleanedDesc.startsWith(']') || cleanedDesc.startsWith('}') ||
+             cleanedDesc.startsWith('(') || cleanedDesc.startsWith('[') || cleanedDesc.startsWith('{') ||
+             cleanedDesc.startsWith('-') || cleanedDesc.startsWith('–') || cleanedDesc.startsWith('—')) {
+        cleanedDesc = cleanedDesc.slice(1).trim();
+      }
+    }
+
+    // Limpiar título: remover paréntesis, corchetes y caracteres sueltos al inicio y final
+    while (title.startsWith('(') || title.startsWith('[') || title.startsWith('{') ||
+           title.startsWith('-') || title.startsWith('–') || title.startsWith('—')) {
+      title = title.slice(1).trim();
+    }
+    while (title.endsWith('(') || title.endsWith('[') || title.endsWith('{') ||
+           title.endsWith(')') || title.endsWith(']') || title.endsWith('}') ||
+           title.endsWith('-') || title.endsWith('–') || title.endsWith('—')) {
+      title = title.slice(0, -1).trim();
     }
 
     // Si no hay título, usar las primeras palabras de la descripción
@@ -262,6 +312,7 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
       images: extractedData.images,
       name: parsed.title,
       description: parsed.description,
+      details: parsed.description,
       price: parsed.price,
       category: '',
       subcategory: '',

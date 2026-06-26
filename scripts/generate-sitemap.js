@@ -6,7 +6,7 @@ import { products } from '../src/data/products.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const baseUrl = 'https://xarkya.github.io/arkya.store';
+const baseUrl = 'https://arkya.store';
 
 function generateSitemap() {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';

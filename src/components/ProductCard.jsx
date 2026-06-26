@@ -23,14 +23,16 @@ import {
   ModalCloseButton,
   useDisclosure,
   Center,
+  Input,
   Icon,
   List,
   ListItem
 } from '@chakra-ui/react';
-import { FaShoppingBag, FaEye, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaInstagram, FaShareAlt } from 'react-icons/fa';
+import { FaShoppingBag, FaEye, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaInstagram, FaShareAlt, FaHeart } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
+import { useLikes, getLikeUser, setLikeUser } from '../hooks/useLikes';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -39,11 +41,16 @@ const MotionBox = motion(Box);
 export default function ProductCard({ product }) {
   const { id, name, price, image, images, category, isNew, description, isOnOffer, originalPrice, discountPercentage, inStock = true, adultContent = false } = product;
   const { addToCart } = useCart();
+  const { isLiked, toggleLike } = useLikes();
   const toast = useToast();
   // Modal para verificación de edad
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Modal para consulta por Instagram
   const { isOpen: isConsultOpen, onOpen: onConsultOpen, onClose: onConsultClose } = useDisclosure();
+  // Modal para pedir Instagram/email al dar like
+  const { isOpen: isLikeModalOpen, onOpen: onLikeModalOpen, onClose: onLikeModalClose } = useDisclosure();
+  const [likeUserInput, setLikeUserInput] = useState(getLikeUser());
+  const [pendingLike, setPendingLike] = useState(false);
   
   // Usar el contexto global de verificación de edad
   const { isAgeVerified, verifyAge } = useAgeVerification();
@@ -334,7 +341,7 @@ export default function ProductCard({ product }) {
               textTransform="uppercase"
               boxShadow="md"
             >
-              -{discountPercentage}%
+              -{discountPercentage}% (ahorrá ${Math.round(originalPrice - price).toLocaleString()})
             </Badge>
           )}
           {isNew && (
@@ -365,6 +372,21 @@ export default function ProductCard({ product }) {
               boxShadow="md"
             >
               Sin Stock
+            </Badge>
+          )}
+          {inStock && (
+            <Badge 
+              bg="orange.400" 
+              color="white" 
+              borderRadius="full"
+              px={2}
+              py={1}
+              fontWeight="bold"
+              fontSize="xs"
+              textTransform="uppercase"
+              boxShadow="md"
+            >
+              Última unidad
             </Badge>
           )}
         </Flex>
@@ -421,7 +443,7 @@ export default function ProductCard({ product }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              const url = `${window.location.origin}/arkya.store/#/product/${id}`;
+              const url = `${window.location.origin}/product/${id}`;
               navigator.clipboard.writeText(url).then(() => {
                 toast({
                   title: '¡Enlace copiado!',
@@ -467,12 +489,38 @@ export default function ProductCard({ product }) {
             )}
             {!inStock && (
               <Text fontSize="xs" color="gray.500" fontStyle="italic">
-                (puede variar)
+                (puede bajar o subir)
               </Text>
             )}
           </VStack>
           
-          <Button
+          <HStack spacing={2}>
+            <IconButton
+              size="sm"
+              icon={<FaHeart />}
+              aria-label="Me gusta"
+              colorScheme="pink"
+              bg={isLiked(id) ? 'pink.600' : 'transparent'}
+              color={isLiked(id) ? 'white' : 'white'}
+              variant={isLiked(id) ? "solid" : "ghost"}
+              onClick={(e) => {
+                e?.preventDefault();
+                e?.stopPropagation();
+                if (!getLikeUser()) {
+                  setPendingLike(true);
+                  onLikeModalOpen();
+                  return;
+                }
+                const liked = toggleLike(product);
+                toast({
+                  title: liked ? '¡Me gusta!' : 'Like removido',
+                  status: liked ? 'success' : 'info',
+                  duration: 2000,
+                  isClosable: true,
+                });
+              }}
+            />
+            <Button
               size="sm"
               colorScheme={inStock ? "green" : "brand"}
               leftIcon={inStock ? <FaShoppingBag /> : <FaInstagram />}
@@ -497,6 +545,7 @@ export default function ProductCard({ product }) {
             >
               {inStock ? "Agregar" : "Consultar"}
             </Button>
+          </HStack>
         </Flex>
       </VStack>
     </MotionBox>
@@ -739,6 +788,69 @@ export default function ProductCard({ product }) {
               Copiar y abrir Instagram
             </Button>
             <Button variant="ghost" onClick={onConsultClose}>Cancelar</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
+      {/* Modal para pedir Instagram/Email al dar like */}
+      <Modal isOpen={isLikeModalOpen} onClose={onLikeModalClose} isCentered size="sm">
+        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
+        <ModalContent bg="#241521" color="white" borderRadius="lg" boxShadow="xl">
+          <ModalHeader borderBottomWidth="1px" borderColor="whiteAlpha.300">
+            <Flex align="center" gap={2}>
+              <FaHeart />
+              <Text>Dejanos tu contacto</Text>
+            </Flex>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6} pt={4}>
+            <VStack spacing={4} align="start">
+              <Text fontSize="sm">
+                Dejanos tu Instagram o email y te avisamos cuando vuelva a estar en stock o cuando hagamos un pedido. Solo te lo pedimos una vez.
+              </Text>
+              <Input
+                placeholder="@instagram o email@gmail.com"
+                value={likeUserInput}
+                onChange={(e) => setLikeUserInput(e.target.value)}
+                bg="whiteAlpha.100"
+                borderColor="whiteAlpha.300"
+                _focus={{ borderColor: 'pink.400' }}
+                color="white"
+              />
+            </VStack>
+          </ModalBody>
+          <ModalFooter borderTopWidth="1px" borderColor="whiteAlpha.300">
+            <Button
+              colorScheme="pink"
+              mr={3}
+              onClick={() => {
+                if (!likeUserInput.trim()) {
+                  toast({
+                    title: 'Campo vacio',
+                    description: 'Por favor ingresa tu Instagram o email',
+                    status: 'warning',
+                    duration: 3000,
+                    isClosable: true,
+                  });
+                  return;
+                }
+                setLikeUser(likeUserInput.trim());
+                onLikeModalClose();
+                if (pendingLike) {
+                  const liked = toggleLike(product);
+                  toast({
+                    title: liked ? '¡Me gusta!' : 'Like removido',
+                    status: liked ? 'success' : 'info',
+                    duration: 2000,
+                    isClosable: true,
+                  });
+                  setPendingLike(false);
+                }
+              }}
+            >
+              Guardar
+            </Button>
+            <Button variant="ghost" onClick={() => { setPendingLike(false); onLikeModalClose(); }}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://xarkya.github.io/",
+  "homepage": "https://arkya.store",
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-sitemap.js && vite build",

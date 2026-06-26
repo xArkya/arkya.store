@@ -3,6 +3,7 @@ import { useParams, Link as RouterLink } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
+import { useLikes, getLikeUser, setLikeUser } from '../hooks/useLikes';
 import { SEO } from '../components/SEO';
 import {
   Box,
@@ -17,6 +18,7 @@ import {
   SimpleGrid,
   StackDivider,
   useColorModeValue,
+  Input,
   List,
   ListItem,
   ListIcon,
@@ -47,6 +49,10 @@ export default function ProductPage() {
   
   // Usar el contexto global de verificación de edad
   const { isAgeVerified, verifyAge } = useAgeVerification();
+  const { isLiked, toggleLike } = useLikes();
+  const [likeUserInput, setLikeUserInput] = useState(getLikeUser());
+  const [pendingLike, setPendingLike] = useState(false);
+  const { isOpen: isLikeModalOpen, onOpen: onLikeModalOpen, onClose: onLikeModalClose } = useDisclosure();
   
   // Color mode values - definidos al inicio para evitar errores de hooks
   const modalTextColorLight = useColorModeValue('gray.600', 'gray.300');
@@ -78,6 +84,20 @@ export default function ProductPage() {
   const modalBgColor = useColorModeValue('white', '#241521');
   const modalHeaderColor = useColorModeValue('gray.00', 'white');
   const modalBoxBgColor = useColorModeValue('gray.100', 'whiteAlpha.100');
+  const likeInputBg = useColorModeValue('gray.50', 'whiteAlpha.100');
+  const likeInputBorder = useColorModeValue('gray.200', 'whiteAlpha.300');
+  
+  // Función para generar un número de vistas pseudoaleatorio basado en fecha + id del producto
+  const getDailyViewers = (productId) => {
+    const date = new Date().toISOString().split('T')[0];
+    let hash = 0;
+    const str = `${productId}-${date}`;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return 30 + (Math.abs(hash) % 121);
+  };
   
   // Nuevos valores de color para el diseño mejorado
   const pageBgColor = useColorModeValue('gray.50', '#453641');
@@ -313,8 +333,8 @@ export default function ProductPage() {
       <SEO 
         title={`${product?.name} - Arkya Store`}
         description={product?.description || product?.details || 'Descubre este producto exclusivo en Arkya Store'}
-        image={product?.image || 'https://xarkya.github.io/arkya.store/images/logo2.png'}
-        url={`https://xarkya.github.io/arkya.store/product/${product?.id}`}
+        image={product?.image || 'https://arkya.store/images/logo2.png'}
+        url={`https://arkya.store/product/${product?.id}`}
       />
       <Box bg={pageBgColor}>
       {/* Modal de verificación de edad */}
@@ -651,6 +671,68 @@ export default function ProductPage() {
         </ModalContent>
       </Modal>
 
+      {/* Modal para pedir Instagram/Email al dar like */}
+      <Modal isOpen={isLikeModalOpen} onClose={onLikeModalClose} isCentered size="sm">
+        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
+        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
+          <ModalHeader borderBottomWidth="1px" borderColor={dividerColor}>
+            <Flex align="center" gap={2}>
+              <FaHeart />
+              <Text>Dejanos tu contacto</Text>
+            </Flex>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6} pt={4}>
+            <VStack spacing={4} align="start">
+              <Text fontSize="sm">
+                Dejanos tu Instagram o email y te avisamos cuando vuelva a estar en stock o cuando hagamos un pedido. Solo te lo pedimos una vez.
+              </Text>
+              <Input
+                placeholder="@instagram o email@gmail.com"
+                value={likeUserInput}
+                onChange={(e) => setLikeUserInput(e.target.value)}
+                bg={likeInputBg}
+                borderColor={likeInputBorder}
+                _focus={{ borderColor: 'pink.400' }}
+              />
+            </VStack>
+          </ModalBody>
+          <ModalFooter borderTopWidth="1px" borderColor={dividerColor}>
+            <Button
+              colorScheme="pink"
+              mr={3}
+              onClick={() => {
+                if (!likeUserInput.trim()) {
+                  toast({
+                    title: 'Campo vacio',
+                    description: 'Por favor ingresa tu Instagram o email',
+                    status: 'warning',
+                    duration: 3000,
+                    isClosable: true,
+                  });
+                  return;
+                }
+                setLikeUser(likeUserInput.trim());
+                onLikeModalClose();
+                if (pendingLike) {
+                  const liked = toggleLike(product);
+                  toast({
+                    title: liked ? '¡Me gusta!' : 'Like removido',
+                    status: liked ? 'success' : 'info',
+                    duration: 2000,
+                    isClosable: true,
+                  });
+                  setPendingLike(false);
+                }
+              }}
+            >
+              Guardar
+            </Button>
+            <Button variant="ghost" onClick={() => { setPendingLike(false); onLikeModalClose(); }}>Cancelar</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
       <Container maxW={'7xl'} py={8}>
         {/* Botón de volver */}
         <Flex mb={6}>
@@ -874,14 +956,41 @@ export default function ProductPage() {
           {/* Información del producto con diseño mejorado */}
           <Stack>
             <Box as={'header'}>
-              <Heading
-                lineHeight={1.1}
-                fontWeight={600}
-                fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
-                bgGradient="linear(to-r, brand.400, pink.400)"
-                bgClip="text">
-                {product.name}
-              </Heading>
+              <Flex align="center" gap={3} mb={2}>
+                <Heading
+                  lineHeight={1.1}
+                  fontWeight={600}
+                  fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
+                  bgGradient="linear(to-r, brand.400, pink.400)"
+                  bgClip="text">
+                  {product.name}
+                </Heading>
+                <Button
+                  size="md"
+                  leftIcon={<FaHeart />}
+                  colorScheme="pink"
+                  bg={isLiked(product.id) ? 'pink.600' : 'transparent'}
+                  color={isLiked(product.id) ? 'white' : 'white'}
+                  variant={isLiked(product.id) ? "solid" : "ghost"}
+                  px={4}
+                  onClick={() => {
+                    if (!getLikeUser()) {
+                      setPendingLike(true);
+                      onLikeModalOpen();
+                      return;
+                    }
+                    const liked = toggleLike(product);
+                    toast({
+                      title: liked ? '¡Me gusta!' : 'Like removido',
+                      status: liked ? 'success' : 'info',
+                      duration: 2000,
+                      isClosable: true,
+                    });
+                  }}
+                >
+                  {isLiked(product.id) ? 'Te gusta' : 'Me gusta'}
+                </Button>
+              </Flex>
               <VStack align="start" spacing={2} width="100%">
                 {product.isOnOffer ? (
                   <>
@@ -903,13 +1012,13 @@ export default function ProductPage() {
                       </Text>
                       {!product.inStock && (
                         <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
-                          (puede variar)
+                          (puede bajar o subir)
                         </Text>
                       )}
                     </Flex>
                     <Flex width="100%">
                       <Badge colorScheme="red" variant="solid" px={2} py={1} borderRadius="md" mr={2}>
-                        {product.discountPercentage}% OFF
+                        {product.discountPercentage}% OFF (ahorrá ${Math.round(product.originalPrice - product.price).toLocaleString()})
                       </Badge>
                       <Badge colorScheme={product.inStock ? "green" : "red"} variant="solid" px={2} py={1} borderRadius="md">
                         {product.inStock ? "DISPONIBLE" : "SIN STOCK"}
@@ -928,7 +1037,7 @@ export default function ProductPage() {
                       </Text>
                       {!product.inStock && (
                         <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
-                          (puede variar)
+                          (puede bajar o subir)
                         </Text>
                       )}
                     </Flex>
@@ -955,6 +1064,10 @@ export default function ProductPage() {
                   fontWeight="medium"
                   whiteSpace="pre-line">
                   {product.details || product.description}
+                </Text>
+                
+                <Text fontSize="sm" color={descriptionColor} fontWeight="medium">
+                  👀 {getDailyViewers(product.id)} personas vieron este producto hoy
                 </Text>
                 
                 {/* Mostrar categorías del producto */}

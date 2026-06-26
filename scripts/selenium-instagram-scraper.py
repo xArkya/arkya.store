@@ -275,7 +275,7 @@ def extract_data_multiple_strategies(driver, post_url, shortcode, images_collect
         desc_spans = driver.find_elements(By.CSS_SELECTOR, "span.x193iq5w.xeuugli.x13faqbe.x1vvkbs.xt0psk2")
         for span in desc_spans:
             text = span.text
-            if text and len(text) > 20 and "#" in text:  # Asegurar que tiene contenido significativo y hashtags
+            if text and len(text) > 20:  # Asegurar que tiene contenido significativo
                 description = text
                 break
         

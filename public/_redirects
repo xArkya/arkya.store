@@ -1,5 +1,5 @@
-# Serve index.html for all routes within /arkya.store/
-/arkya.store/*    /arkya.store/index.html   200
+# Serve index.html for all routes
+/*    /index.html   200
 
 # Handle 404s by redirecting to the 404.html page
-/*    /404.html   404
+/404    /404.html   200

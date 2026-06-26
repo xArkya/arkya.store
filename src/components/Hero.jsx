@@ -93,7 +93,7 @@ export default function Hero() {
                 align={'center'}
                 w={'100%'}
                 h={'100%'}
-                src={'/arkya.store/images/hero.png'}
+                src={'/images/hero.png'}
               />
             </Box>
           </Flex>
