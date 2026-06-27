@@ -59,16 +59,16 @@ function downloadImage(url, filename) {
  */
 function getFileExtension(url) {
   const urlPath = url.split('?')[0]; // Remover query params
-  const ext = path.extname(urlPath) || '.jpg';
+  let ext = path.extname(urlPath) || '.jpg';
+  if (ext === '.heic' || ext === '.heif') ext = '.jpg';
   return ext;
 }
 
 /**
  * Generar nombre de archivo único
  */
-function generateFilename(productId, index) {
-  const timestamp = Date.now();
-  const ext = '.jpg';
+function generateFilename(productId, index, url) {
+  const ext = getFileExtension(url);
   return `product-${productId}-${index}${ext}`;
 }
 
@@ -93,7 +93,7 @@ async function downloadProductImages(productId, imageUrls) {
 
   for (let i = 0; i < imageUrls.length; i++) {
     const url = imageUrls[i];
-    const filename = generateFilename(productId, i);
+    const filename = generateFilename(productId, i, url);
     
     const downloadPromise = (async () => {
       try {

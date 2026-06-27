@@ -100,30 +100,43 @@ const AdminPage = () => {
         const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
         
         dbRequest.onsuccess = (event) => {
-          const db = event.target.result;
-          const transaction = db.transaction(['products'], 'readonly');
-          const store = transaction.objectStore('products');
-          const getAllRequest = store.getAll();
-          
-          getAllRequest.onsuccess = () => {
-            const savedProducts = getAllRequest.result;
-            if (savedProducts && savedProducts.length > 0) {
-              console.log('Productos cargados desde IndexedDB:', savedProducts.length);
-              setProducts(savedProducts);
-              setFilteredProducts(savedProducts);
-            } else {
-              // Si no hay productos en IndexedDB, usar los iniciales
-              console.log('No hay productos en IndexedDB, usando iniciales');
+          try {
+            const db = event.target.result;
+            // Verificar que el object store exista
+            if (!db.objectStoreNames.contains('products')) {
+              console.warn('IndexedDB existe pero no tiene object store "products", usando iniciales');
               setProducts(initialProducts);
               setFilteredProducts(initialProducts);
+              return;
             }
-          };
-          
-          getAllRequest.onerror = () => {
-            console.error('Error al cargar productos desde IndexedDB');
+            const transaction = db.transaction(['products'], 'readonly');
+            const store = transaction.objectStore('products');
+            const getAllRequest = store.getAll();
+            
+            getAllRequest.onsuccess = () => {
+              const savedProducts = getAllRequest.result;
+              if (savedProducts && savedProducts.length > 0) {
+                console.log('Productos cargados desde IndexedDB:', savedProducts.length);
+                setProducts(savedProducts);
+                setFilteredProducts(savedProducts);
+              } else {
+                // Si no hay productos en IndexedDB, usar los iniciales
+                console.log('No hay productos en IndexedDB, usando iniciales');
+                setProducts(initialProducts);
+                setFilteredProducts(initialProducts);
+              }
+            };
+            
+            getAllRequest.onerror = () => {
+              console.error('Error al cargar productos desde IndexedDB');
+              setProducts(initialProducts);
+              setFilteredProducts(initialProducts);
+            };
+          } catch (dbError) {
+            console.error('Error accediendo a IndexedDB:', dbError);
             setProducts(initialProducts);
             setFilteredProducts(initialProducts);
-          };
+          }
         };
         
         dbRequest.onerror = () => {

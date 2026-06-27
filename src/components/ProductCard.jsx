@@ -246,7 +246,7 @@ export default function ProductCard({ product }) {
             <Box key={i} width={`${100 / productImages.length}%`} flexShrink={0}>
               <Image
                 src={img}
-                alt={`${name} - ${i + 1}`}
+                alt={`${name} - imagen ${i + 1} de ${productImages.length} - Arkya Store`}
                 w="100%"
                 h="220px"
                 objectFit="cover"
@@ -255,6 +255,8 @@ export default function ProductCard({ product }) {
                 decoding="async"
                 draggable={false}
                 userSelect="none"
+                htmlWidth={300}
+                htmlHeight={400}
                 style={{ pointerEvents: 'none' }}
               />
             </Box>
@@ -535,7 +537,7 @@ export default function ProductCard({ product }) {
           noOfLines={1}
           mt={1}
         >
-          <LinkOverlay as={RouterLink} to={`/product/${id}`}>
+          <LinkOverlay as={RouterLink} to={`/product/${id}/`}>
             {name}
           </LinkOverlay>
         </Heading>
@@ -553,7 +555,7 @@ export default function ProductCard({ product }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              const url = `${window.location.origin}/product/${id}`;
+              const url = `${window.location.origin}/product/${id}/`;
               navigator.clipboard.writeText(url).then(() => {
                 toast({
                   title: '¡Enlace copiado!',

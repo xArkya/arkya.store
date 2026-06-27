@@ -98,6 +98,14 @@ app.post('/api/instagram/scrape', async (req, res) => {
   }
 });
 
+// Obtener extensión del archivo desde URL
+function getFileExtension(url) {
+  const urlPath = url.split('?')[0];
+  let ext = require('path').extname(urlPath) || '.jpg';
+  if (ext === '.heic' || ext === '.heif') ext = '.jpg';
+  return ext;
+}
+
 // Función para descargar una imagen
 function downloadImage(url, filepath) {
   return new Promise((resolve, reject) => {
@@ -155,7 +163,8 @@ app.post('/api/instagram/download-images', async (req, res) => {
 
     for (let i = 0; i < imageUrls.length; i++) {
       const url = imageUrls[i];
-      const filename = `product-${productId}-${i}.jpg`;
+      const ext = getFileExtension(url);
+      const filename = `product-${productId}-${i}${ext}`;
       const filepath = path.join(imagesDir, filename);
       
       try {

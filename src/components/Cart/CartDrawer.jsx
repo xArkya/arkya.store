@@ -257,7 +257,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   return (
                     <Box key={item.id} p={3} borderRadius="md" bg={itemBgColor}>
                       <Flex align="stretch" gap={3}>
-                        <RouterLink to={`/product/${item.id}`} style={{ display: 'flex' }} onClick={onClose}>
+                        <RouterLink to={`/product/${item.id}/`} style={{ display: 'flex' }} onClick={onClose}>
                           <Image
                             src={imageSrc}
                             alt={item.name}
@@ -271,7 +271,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                           />
                         </RouterLink>
                         <Flex flex="1" direction="column" justify="space-between">
-                          <RouterLink to={`/product/${item.id}`} onClick={onClose}>
+                          <RouterLink to={`/product/${item.id}/`} onClick={onClose}>
                             <Text fontWeight="bold" color={textColor} _hover={{ textDecoration: 'underline' }}>
                               {item.name}
                             </Text>

@@ -99,6 +99,11 @@ export default function Hero() {
                 w={'100%'}
                 h={'100%'}
                 src={'/images/hero.webp'}
+                htmlWidth={500}
+                htmlHeight={500}
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
               />
             </Box>
           </Flex>

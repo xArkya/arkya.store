@@ -1,1785 +1,3377 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://arkya.store/</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://arkya.store/contacto</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://arkya.store/terminos</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://arkya.store/preguntas-frecuentes</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://arkya.store/mis-me-gustas</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757807988697</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757807988697/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757807988697-main.webp</image:loc>
+      <image:title>One Piece Color Walk 1</image:title>
+      <image:caption>Coleccion de ilustraciones de One Piece en formato A4</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757820687876</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757820687876/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757820687876-main.webp</image:loc>
+      <image:title>Monthly Comic Alive 8/25</image:title>
+      <image:caption>Incluye 3 Posters B2 (Los de la tercera imagen)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757820721298</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757820721298/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757820721298-main.webp</image:loc>
+      <image:title>Meguridokoro </image:title>
+      <image:caption>Manga ecchi creado a partir del Hentai con el mismo nombre</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757820770122</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757820770122/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757820770122-main.webp</image:loc>
+      <image:title>Desire Pandora Vol. 1 Edición limitada</image:title>
+      <image:caption>Incluye una almohadita para el sudor de la axila</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757983174742</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757983174742/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757983174742-main.webp</image:loc>
+      <image:title>Arcueid Pinky Fanbook</image:title>
+      <image:caption>Colaboracion Type-Moon x Pinky street con figura de Arcueid y la creatura, y un librito.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757983316275</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757983316275/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757983316275-main.webp</image:loc>
+      <image:title>FGO set de Yokkora Pencil</image:title>
+      <image:caption>Incluye Artbook, carpeta, 2 postales y un mini poster</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757983418513</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757983418513/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757983418513-main.webp</image:loc>
+      <image:title>Pack Kahahonbu C97</image:title>
+      <image:caption>Incluye carpeta y dos artbooks doujinshi de FGO (mayoritariamente)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757984069121</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757984069121/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757984069121-main.webp</image:loc>
+      <image:title>My dress-up darling Vol. 13 Edición limitada</image:title>
+      <image:caption>Incluye manga y acrílico</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757984159211</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757984159211/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757984159211-main.webp</image:loc>
+      <image:title>Figura Miku Nakano Bunny de Quintessential quintuplets</image:title>
+      <image:caption>Marca Furyu Tryo-Try-IT</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757984215096</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757984215096/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757984215096-main.webp</image:loc>
+      <image:title>Fate Artbook (Doujinshi) &quot;Natsuiro Emaki&quot; de Itou Noiji </image:title>
+      <image:caption>Colección de ilustraciones de Itou Noiji del videojuego FGO</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757984358066</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757984358066/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757984358066-main.webp</image:loc>
+      <image:title>To Aru Majutsu no Index Vol. 7 Edición limitada</image:title>
+      <image:caption>Incluye manga y llaveros</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757984413967</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757984413967/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757984413967-main.webp</image:loc>
+      <image:title>Pilgrim of Type-Moon</image:title>
+      <image:caption>Booklet de Type-Moon con varios diseños y datos interesantes</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757988375923</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757988375923/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757988375923-main.webp</image:loc>
+      <image:title>Guía de Houseki no Kuni</image:title>
+      <image:caption>Incluye diseños y muchos datos interesantes de las gemas y lunarians.  Es la guía que viene con la edición especial del Volumen 11, se puede conseguir con el manga pero es más caro.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757988565463</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757988565463/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757988565463-main.webp</image:loc>
+      <image:title>Oregairu Novela Vol. 4 Edición limitada con artbook</image:title>
+      <image:caption>Incluye Novela, artbook y caja contenedora</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757989661405</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757989661405/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757989661405-main.webp</image:loc>
+      <image:title>Revista Card Gamer Weiss Schwarz Special</image:title>
+      <image:caption>Incluye 2 Cartas Weiss Schwarz, una de Hololive y otra de Bang Dream</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757989994250</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757989994250/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757989994250-main.webp</image:loc>
+      <image:title>Revista Comptiq Agosto 2008</image:title>
+      <image:caption>Revista con portada de Lucky Star y contenido de muchos juegos  NO incluye carta</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757990116478</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757990116478/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757990116478-main.webp</image:loc>
+      <image:title>Revista Kirara MAX </image:title>
+      <image:caption>NO incluye la púa</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757993084827</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757993084827/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757993084827-main.webp</image:loc>
+      <image:title>Fate Return to Avalon Artbook</image:title>
+      <image:caption>Gran coleccion de ilustraciones de fate con tapa dura</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757993206394</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757993206394/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757993206394-main.webp</image:loc>
+      <image:title>Figura Deku (Izuku Midoriya) Combination battle Finale Bandai </image:title>
+      <image:caption>13Cm de altura</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757993317907</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757993317907/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757993317907-main.webp</image:loc>
+      <image:title>Jump GIGA 2024 Spring</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1757993726969</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1757993726969/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1757993726969-main.webp</image:loc>
+      <image:title>Panfleto Digimon Adventure tri. Capítulo 1</image:title>
+      <image:caption>Panfleto de Digimon sobre la primera película de la saga «Adventure tri.» que muestra diseños de los personajes, objetos y lugares.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758039593989</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758039593989/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758039593989-main.webp</image:loc>
+      <image:title>Pixiv×TYPE-MOON Illustration Collection 10th Anniversary Special Edition</image:title>
+      <image:caption>Celebra una década de colaboración artística entre Pixiv y TYPE-MOON con esta extraordinaria colección de ilustraciones.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758039667788</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758039667788/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758039667788-main.webp</image:loc>
+      <image:title>Fate/Grand Order 3rd Anniversary album</image:title>
+      <image:caption>Celebra el tercer aniversario de Fate/Grand Order con este álbum oficial lleno de arte exclusivo.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758039738631</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758039738631/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758039738631-main.webp</image:loc>
+      <image:title>Shooting Star Journey YZQ×DRRR</image:title>
+      <image:caption>Comic Crossover de Durarara!! y  Yozakura Quartet.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758039902711</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758039902711/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758039902711-main.webp</image:loc>
+      <image:title>Neon Genesis Evangelion Vol.13 (Edición Limitada Premium)</image:title>
+      <image:caption>Volumen 13 del manga de Evangelion que incluye varios artículos que a cualquier fan le encantarían.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040205789</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040205789/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040205789-main.webp</image:loc>
+      <image:title>Dragon Ball Z: Budokai Tenkaichi 2 Guía</image:title>
+      <image:caption>Libro Guía de la segunda edición de la saga de juegos &quot;Budokai Tenkaichi&quot; del anime &quot;Dragon Ball Z&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040294516</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040294516/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040294516-main.webp</image:loc>
+      <image:title>Rockman EXE Official Complete Works</image:title>
+      <image:caption>Colección de ilustraciones, bocetos, conceptos, entrevistas, y más de Rockman, también conocido como Mega Man</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040442694</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040442694/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040442694-main.webp</image:loc>
+      <image:title>Dragon Ball Z: Budokai Tenkaichi Guía (Sparking) </image:title>
+      <image:caption>Libro Guía de la primera edición de la saga de juegos &quot;Budokai Tenkaichi&quot; del anime &quot;Dragon Ball Z&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040558479</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040558479/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040558479-main.webp</image:loc>
+      <image:title>Yozakura Quartet Artbook Shooting Star Carnaval </image:title>
+      <image:caption>Artbook de 128 páginas de Yozakura Quartet por Suzuhito Yasuda.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040611371</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040611371/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040611371-main.webp</image:loc>
+      <image:title>Evangelion Photo File EVE </image:title>
+      <image:caption>Libro con una recopilación de fotos, ilustraciones y momentos del famoso anime Evangelion.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040748409</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040748409/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040748409-main.webp</image:loc>
+      <image:title>Set de 4 volúmenes de la autora Takarai, Rihito, autora de Ten Count.</image:title>
+      <image:caption>Incluye &quot;Hana nomi zo Shiru&quot; completa (3 libros) y el spin-off &quot;Hana no Miyako de&quot; en idioma japonés .</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040882706</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040882706/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040882706-main.webp</image:loc>
+      <image:title>JOJO Magazine 2022 Spring</image:title>
+      <image:caption>Revista de JOJO que viene con stickers y una postal</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758040947754</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758040947754/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758040947754-main.webp</image:loc>
+      <image:title>Blue lock Vol.25 edición limitada</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758041123064</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758041123064/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758041123064-main.webp</image:loc>
+      <image:title>Blue Lock Vol. 33 Edición limitada </image:title>
+      <image:caption>Incluye 3 planchas de stickers gorditos</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758041203214</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758041203214/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758041203214-main.webp</image:loc>
+      <image:title>JUMP GIGA SUMMER 2024</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758041245606</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758041245606/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758041245606-main.webp</image:loc>
+      <image:title>Blue Lock Vol. 28 - Edición especial</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758041544758</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758041544758/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758041544758-main.webp</image:loc>
+      <image:title>Blue Lock Vol. 26 - Edición especial</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758041879343</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758041879343/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758041879343-main.webp</image:loc>
+      <image:title>Attack on titan volumen 11 edición limitada</image:title>
+      <image:caption>Viene con 4 planchas de stickers y 2 postales 3D</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758047175175</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758047175175/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758047175175-main.webp</image:loc>
+      <image:title>Fate Grand Order Duel Vol. 1 Edicion limitada </image:title>
+      <image:caption>Incluye 1 pack de cartas, el manga, una caja contenedora, y una figura</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758047417209</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758047417209/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758047417209-main.webp</image:loc>
+      <image:title>Jump GIGA 2024 autumn </image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758056624135</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758056624135/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758056624135-main.webp</image:loc>
+      <image:title>Carpetas transparentes para documentos de FREE!</image:title>
+      <image:caption>Con Rin, Haruka, y Makoto en las portadas.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758056673789</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758056673789/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758056673789-main.webp</image:loc>
+      <image:title>Fate/Grand Order Memories II </image:title>
+      <image:caption>Explora el mundo de Fate/Grand Order con esta edición especial que reúne contenido exclusivo para los verdaderos fans.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758056709499</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758056709499/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758056709499-main.webp</image:loc>
+      <image:title>Blue Lock Vol. 29 - Edición especial </image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758056842963</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758056842963/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758056842963-main.webp</image:loc>
+      <image:title>Reborn Colore</image:title>
+      <image:caption>Artbook de Katekyo Hitman Reborn que incluye stickers</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758056879237</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758056879237/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758056879237-main.webp</image:loc>
+      <image:title>Revista Young Animal, Mayo 24, 2024</image:title>
+      <image:caption>Incluye poster bifaz de Enako, DVD, y Capitulos de distintos mangas cómo Berserk</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758057003289</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758057003289/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758057003289-main.webp</image:loc>
+      <image:title>Mekakucity Talkers Vol. 1 Edición limitada con CD </image:title>
+      <image:caption>El CD incluye la canción Tomodachi no Uta</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758057040053</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758057040053/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758057040053-main.webp</image:loc>
+      <image:title>Berserk Vol. 41 Edición limitada</image:title>
+      <image:caption>Incluye manga, cuadro, CD Drama y desplegable</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758057170128</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758057170128/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758057170128-main.webp</image:loc>
+      <image:title>Attack on Titan / Shingeki no Kyojin Vol. 17</image:title>
+      <image:caption>Incluye 9 señaladores con la imagen de los personajes y el Vol. 1 Edición Kansai</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758057261203</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758057261203/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758057261203-main.webp</image:loc>
+      <image:title>Jujutsu Kaisen: Fuwakororin [Max Limited]</image:title>
+      <image:caption>[SOLO QUEDA TOGE]</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1758057899821</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1758057899821/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1758057899821-main.webp</image:loc>
+      <image:title>Fullmetal Alchemist Art Book 2 </image:title>
+      <image:caption>Fullmetal Alchemist Art Book 2 de Hiromu Arakawa es una recopilación de ilustraciones de Fullmetal Alchemist realizadas entre los años 2001 y 2003.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759240808017</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759240808017/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759240808017-main.webp</image:loc>
+      <image:title>Shining Force EXA Design Works</image:title>
+      <image:caption>Colección de Ilustraciones y datos interesantes del videojuego Shining Force EXA</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759240949163</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759240949163/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759240949163-main.webp</image:loc>
+      <image:title>Ikki Tousen Official Visual Fan Book</image:title>
+      <image:caption>Colección de ilustraciones de distintos artistas de Ikki Tousen Great Guardians</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241033650</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241033650/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241033650-main.webp</image:loc>
+      <image:title>Maken-Ki! Full Color Selection </image:title>
+      <image:caption>Colección de capítulos de Maken-Ki! a todo color, se puede conseguir el Vol. 2 también!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241074163</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241074163/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241074163-main.webp</image:loc>
+      <image:title>TenSura Vol. 22 Edición limitada</image:title>
+      <image:caption>Incluye funda de peluche de Rimuru.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241134841</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241134841/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241134841-main.webp</image:loc>
+      <image:title>Chain Chronicle 1st Season Illustrations</image:title>
+      <image:caption>Colección de ilustraciones de distintos artistas (Wada arco, Yuu Kamiya, etc) del juego tower defense Chain Chronicle.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241267998</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241267998/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241267998-main.webp</image:loc>
+      <image:title>Artbook rainbow spectrum colors</image:title>
+      <image:caption>Colección de Ilustraciones de Toaru Majutsu no Index con 190 páginas.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241315576</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241315576/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241315576-main.webp</image:loc>
+      <image:title>WILD FLOWER Shunya Yamashita Artworks II</image:title>
+      <image:caption>Colección de Ilustraciones del famoso ilustrador y diseñador de personajes Shunya Yamashita</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241395885</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241395885/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241395885-main.webp</image:loc>
+      <image:title>Naruto Uzumaki Illustrated Collection 1</image:title>
+      <image:caption>Colección de Ilustraciones en formato A4 de Naruto, también contiene un tutorial de dibujo al final del libro.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241433525</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241433525/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241433525-main.webp</image:loc>
+      <image:title>My Dress-Up Darling Vol.10 Edición especial</image:title>
+      <image:caption>Incluye acrílico</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241457264</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241457264/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241457264-main.webp</image:loc>
+      <image:title>Umamusume PisuPisu☆SupiSupi Vol. 1 Edición Limitada</image:title>
+      <image:caption>Incluye standees de acrílico</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759241579157</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759241579157/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759241579157-main.webp</image:loc>
+      <image:title>The Hero Wants a Married Woman as a Reward Vol. 1-3</image:title>
+      <image:caption>Los 3 por $57999 o cada uno por $21999</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759242823905</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759242823905/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759242823905-main.webp</image:loc>
+      <image:title>Libro de stickers de Sumikkogurashi</image:title>
+      <image:caption>Más de 280 stickers con varias actividades para hacer!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247166054</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247166054/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247166054-main.webp</image:loc>
+      <image:title>A lollypop or a bullet Vol. 1 </image:title>
+      <image:caption>Primer volumen del manga</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247236406</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247236406/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247236406-main.webp</image:loc>
+      <image:title>Touhou Project Tribute Arts Extra Side 2 Edición especial</image:title>
+      <image:caption>Gran colección de ilustraciones, datos interesantes y más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247350573</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247350573/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247350573-main.webp</image:loc>
+      <image:title>Love Hina Mugendai</image:title>
+      <image:caption>Incluye stickers, ilustraciones, entrevistas, datos interesantes y más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247439558</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247439558/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247439558-main.webp</image:loc>
+      <image:title>Touhou Project Extra Side Edición especial</image:title>
+      <image:caption>Incluye artbook, 2 CDs, y una caja protectora.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247519611</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247519611/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247519611-main.webp</image:loc>
+      <image:title>The Art of Ponyo on the Cliff by the Sea</image:title>
+      <image:caption>Colección de ilustraciones y datos interesantes de la famoso película Ponyo de Ghibli</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247572707</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247572707/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247572707-main.webp</image:loc>
+      <image:title>Evangelion Anima Artbook</image:title>
+      <image:caption>Colección de Ilustraciones lanzada este año de Ikuto Yamashita, con más de 150 páginas.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247630265</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247630265/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247630265-main.webp</image:loc>
+      <image:title>Artbook Made in Abyss &quot;Doorbeetle Reco&quot; </image:title>
+      <image:caption>Ilustraciones de Tsukushi Akihito, el autor de Made in Abyss, hechas desde 2011 hasta 2017, con varios datos interesantes!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247679389</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247679389/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247679389-main.webp</image:loc>
+      <image:title>Dareka no Yumemiru Kōfuku na Parareru Wārudo</image:title>
+      <image:caption>Novela derivada de la famosa VN &quot;The House in Fata Morgana&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247742134</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247742134/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247742134-main.webp</image:loc>
+      <image:title>Revista Artist Side Vol. 2 </image:title>
+      <image:caption>Incluye poster</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247847547</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247847547/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247847547-main.webp</image:loc>
+      <image:title>Marry or die Vol. 1 &amp; 2</image:title>
+      <image:caption>Manga ecchi</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759247949427</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759247949427/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759247949427-main.webp</image:loc>
+      <image:title>Katekyo Hitman Reborn Innocent Gravity Vol. 1 y 2</image:title>
+      <image:caption>Resumen de los arcos de la Familia Simon en esta edición Jump Remix</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759248038699</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759248038699/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759248038699-main.webp</image:loc>
+      <image:title>Katekyo Hitman Reborn White Reign Vol. 1-5</image:title>
+      <image:caption>La version Jump Remix del Future Arc, si tenes suerte a veces viene con postales</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759289533323</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759289533323/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759289533323-main.webp</image:loc>
+      <image:title>Nozomi Art Works Vol. 2</image:title>
+      <image:caption>Colección de fanarts de Nozomi, incluye un artbook y un sketchbook.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759289698967</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759289698967/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759289698967-main.webp</image:loc>
+      <image:title>My dress-up darling Vol. 15</image:title>
+      <image:caption>Último Volumen del manga</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759289791500</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759289791500/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759289791500-main.webp</image:loc>
+      <image:title>Revista Oekaki Club con acrílico LED</image:title>
+      <image:caption>el acrilico LED cambia de colores</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759289853859</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759289853859/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759289853859-main.webp</image:loc>
+      <image:title>The Blend Artbook</image:title>
+      <image:caption>Colección de ilustraciones de Coffee Kizoku</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759289912255</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759289912255/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759289912255-main.webp</image:loc>
+      <image:title>Nino Nakano Visual Book</image:title>
+      <image:caption>Más de 350 páginas de ilustraciones de Nino nakano del anime de las quintillizas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759450461483</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759450461483/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759450461483-main.webp</image:loc>
+      <image:title>Bakunyuu Bunny Obasan Vol. 1 y 2</image:title>
+      <image:caption>Manga ecchi de la tía conejita</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759450499260</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759450499260/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759450499260-main.webp</image:loc>
+      <image:title>Natsume Book of friends Vol. 30 Edición limitada</image:title>
+      <image:caption>Incluye manga y acrílico (El acrílico no es opaco, tiene un papelito protector para que no se raye que se puede sacar)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759450565473</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759450565473/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759450565473-main.webp</image:loc>
+      <image:title>Touhou Project Tribute Arts 2</image:title>
+      <image:caption>Pack de dos libros con Ilustraciones de Touhou, uno a color y otro en blanco y negro</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759450907218</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759450907218/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759450907218-main.webp</image:loc>
+      <image:title>Young Animal Mayo 2018</image:title>
+      <image:caption>Incluye 2 carpetas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759450947885</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759450947885/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759450947885-main.webp</image:loc>
+      <image:title>Tsukihime Fanbook WADAMEMO</image:title>
+      <image:caption>Colección de ilustraciones de Wada Arco</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759450981152</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759450981152/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759450981152-main.webp</image:loc>
+      <image:title>Durarara!! no Subete</image:title>
+      <image:caption>Guía oficial del anime Durarara!! publicado apenas terminó la primera temporada</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451040590</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451040590/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451040590-main.webp</image:loc>
+      <image:title>R.O.D (Read or Die) OVA 3 DVD Edición limitada</image:title>
+      <image:caption>Incluye carta y panfleto con diseños</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451089534</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451089534/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451089534-main.webp</image:loc>
+      <image:title>Revista Newtype Diciembre 2022</image:title>
+      <image:caption>Con portada de Chainsaw man, incluye dos poster bifaz</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451125934</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451125934/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451125934-main.webp</image:loc>
+      <image:title>Carpeta de Sword Art Online</image:title>
+      <image:caption>Para guardar hojas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451181529</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451181529/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451181529-main.webp</image:loc>
+      <image:title>Utahime Summer 2013</image:title>
+      <image:caption>Colección de ilustraciones, capítulos de manga y datos interesantes</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451224775</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451224775/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451224775-main.webp</image:loc>
+      <image:title>Mob Psycho 100 Official Guidebook</image:title>
+      <image:caption>Guia de mob Psycho con diseños, Ilustraciones, datos interesantes y mucho más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451255112</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451255112/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451255112-main.webp</image:loc>
+      <image:title>Durarara!! Concept Artworks</image:title>
+      <image:caption>Colección de bocetos de Durarara!!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759451296368</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759451296368/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759451296368-main.webp</image:loc>
+      <image:title>Artbook Saber Marionette J</image:title>
+      <image:caption>Colección de ilustraciones de 112 páginas del anime Saber Marionette J</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454246115</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454246115/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454246115-main.webp</image:loc>
+      <image:title>Slayers Artbook</image:title>
+      <image:caption>Incluye desplegable</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454314465</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454314465/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454314465-main.webp</image:loc>
+      <image:title>Revista Young Gangan Abril 18, 2025</image:title>
+      <image:caption>Incluye carpeta, varias fotos de Modelos, y varios capítulos de manga como el de dress-up darling</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454373606</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454373606/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454373606-main.webp</image:loc>
+      <image:title>My dress-up Darling Vol.12 Edición limitada</image:title>
+      <image:caption>Incluye manga y acrílico de Marin</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454434875</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454434875/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454434875-main.webp</image:loc>
+      <image:title>Heaven&apos;s Prision Vol. 3 Limited Box edition</image:title>
+      <image:caption>Incluye figura, manga con desplegable, y caja contenedora</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454519302</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454519302/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454519302-main.webp</image:loc>
+      <image:title> Itadori Yuji Heroes Photobook</image:title>
+      <image:caption>Artbook de 8 páginas que incluye 3 postales</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454605297</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454605297/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454605297-main.webp</image:loc>
+      <image:title>Vivid Color by Tatsuki Amaduyu</image:title>
+      <image:caption>Colección de ilustraciones desde 1995 a 2010, con varios fan arts y otros personajes originales del artista</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454661558</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454661558/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454661558-main.webp</image:loc>
+      <image:title>Takagi-san Vol. 7 Edición limitada</image:title>
+      <image:caption>Incluye manga y Calendario</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454734825</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454734825/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454734825-main.webp</image:loc>
+      <image:title>The promised neverland Art book World</image:title>
+      <image:caption>Artbook de Yakusoku no neverland</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1759454808118</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1759454808118/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1759454808118-main.webp</image:loc>
+      <image:title>Chiikawa Vol. 2 Edición limitada</image:title>
+      <image:caption>Incluye manga y picture book</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760084526748</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760084526748/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760084526748-main.webp</image:loc>
+      <image:title>Soul Eater Original Art Exhibition</image:title>
+      <image:caption>Colección de Ilustraciones por el 20 aniversario de Soul Eater</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760084695419</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760084695419/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760084695419-main.webp</image:loc>
+      <image:title>Tawawa on Monday Tribute Artbook</image:title>
+      <image:caption>Coleccion de ilustraciones de 79 páginas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760084808642</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760084808642/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760084808642-main.webp</image:loc>
+      <image:title>The First Slam Dunk re:Source</image:title>
+      <image:caption>Guía con ilustraciones de la película de slam dunk, cuenta con storyboards, arte, entrevistas, etc.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760084884711</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760084884711/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760084884711-main.webp</image:loc>
+      <image:title>Ctrl+T Inio Asano Works mini</image:title>
+      <image:caption>Colección de ilustraciones de Inio Asano</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760084963425</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760084963425/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760084963425-main.webp</image:loc>
+      <image:title>Houseki no Kuni Artbook: Pseudomorph of Love</image:title>
+      <image:caption>Colección de ilustraciones de Houseki no Kuni y algunas otras obras de Haruko Ichikawa</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760085083549</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760085083549/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760085083549-main.webp</image:loc>
+      <image:title>Volumen 5 de Chobits edicion limitada</image:title>
+      <image:caption>Viene con una lata y un rompecabezas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760085143355</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760085143355/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760085143355-main.webp</image:loc>
+      <image:title>Tokyo Revengers TV Anime Official Guidebook</image:title>
+      <image:caption>Esta primera guía oficial del anime de Tokyo Revengers abarca los primeros 12 capítulos de la serie.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760085270170</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760085270170/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760085270170-main.webp</image:loc>
+      <image:title>Zero no Tsukaima Illustration Collection</image:title>
+      <image:caption>Incluye desplegable bifaz</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760085317791</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760085317791/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760085317791-main.webp</image:loc>
+      <image:title>Revista Brutus Edición especial de Takehiko Inoue</image:title>
+      <image:caption>Incluye poster y notas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760085394546</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760085394546/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760085394546-main.webp</image:loc>
+      <image:title>LoveLive! School Idol Festival Official Illustration Book 1</image:title>
+      <image:caption>Este libro contiene una colección de ilustraciones de los personajes de LoveLive! que salió a la venta en Julio 19, 2014.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760085447301</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760085447301/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760085447301-main.webp</image:loc>
+      <image:title>Attack on Titan: No regrets Vol. 2 Edición especial</image:title>
+      <image:caption>Incluye cajita contenedora para los dos libros</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760596145628</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760596145628/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760596145628-main.webp</image:loc>
+      <image:title>My dress-up Darling Vol. 11 Edición limitada</image:title>
+      <image:caption>Incluye manga y stand acrílico</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760596231346</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760596231346/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760596231346-main.webp</image:loc>
+      <image:title>Takagi-san Guía oficial 2 + artbook 3</image:title>
+      <image:caption>Incluye la guía de la segunda temporada del anime y el tercer volumen del artbook, todo en una caja contenedora</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760596390387</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760596390387/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760596390387-main.webp</image:loc>
+      <image:title>My dress-up Darling Vol. 14 Edición limitada</image:title>
+      <image:caption>Incluye acrílico</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760678848972</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760678848972/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760678848972-main.webp</image:loc>
+      <image:title>Chobits Vol. 3 Edición especial</image:title>
+      <image:caption>Incluye manga y carpetita para postales (NO incluye las postales)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760678887704</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760678887704/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760678887704-main.webp</image:loc>
+      <image:title>Chobits Vol. 8 Edición limitada</image:title>
+      <image:caption>Incluye manga, Caja contenedora para los 8 volumenes, y mousepad</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679110878</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679110878/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679110878-main.webp</image:loc>
+      <image:title>Bayonetta Witch of Vigrid</image:title>
+      <image:caption>Colección de momentos del famoso juego Bayonetta</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679163224</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679163224/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679163224-main.webp</image:loc>
+      <image:title>Metal Gear Rising Guía</image:title>
+      <image:caption>Guía oficial del famoso juego de la saga Metal Gear, con mucha información, datos curiosos, diseños y arte</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679424909</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679424909/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679424909-main.webp</image:loc>
+      <image:title>Splatoon 3 Ikasu Artbook</image:title>
+      <image:caption>Incluye mucho contenido del famoso juego de Nintendo, desde diseños hasta galerías de arte.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679590411</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679590411/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679590411-main.webp</image:loc>
+      <image:title>5 Centimeters Per Second Vol. 1 &amp; 2</image:title>
+      <image:caption>Pack de los 2 volumenes del manga de 5 centímetros por segundo</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679630951</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679630951/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679630951-main.webp</image:loc>
+      <image:title>Chobits Vol.4 Edición limitada</image:title>
+      <image:caption>Incluye anotador</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679761658</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679761658/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679761658-main.webp</image:loc>
+      <image:title>Weekly Shonen Jump, Marzo 29, 2021 N°15</image:title>
+      <image:caption>Con portada de Dr. Stone y capitulos de Jujutsu Kaisen, Dr. Stone, Black clover, BNHA, etc</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760679811810</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760679811810/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760679811810-main.webp</image:loc>
+      <image:title>Houseki no Kuni Vol. 9 edición limitada</image:title>
+      <image:caption>Incluye artbook temática estatuas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680078109</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680078109/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680078109-main.webp</image:loc>
+      <image:title> Communication with Sonico Vol. 1 Edición limitada</image:title>
+      <image:caption>Incluye CD</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680458905</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680458905/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680458905-main.webp</image:loc>
+      <image:title>Artbook Esquisse de Misato Mitsumi y Tatsuki Amaduyu</image:title>
+      <image:caption>Incluye muchos fanarts y diseños originales de estos artistas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680539892</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680539892/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680539892-main.webp</image:loc>
+      <image:title>Re:Zero Art Works Re:BOX</image:title>
+      <image:caption>Incluye artbook con desplegable, 2 novelas ligeras, y la caja contenedora.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680573435</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680573435/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680573435-main.webp</image:loc>
+      <image:title>Paletta Vol. 10 2004 Winter</image:title>
+      <image:caption>Con portada de R.O.D The TV</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680628641</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680628641/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680628641-main.webp</image:loc>
+      <image:title>Code Gueass Acrílico</image:title>
+      <image:caption>Formaba parte de un Ichiban Kuji</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680674774</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680674774/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680674774-main.webp</image:loc>
+      <image:title>Revista Charapafe Marzo 2024</image:title>
+      <image:caption>Incluye tres figuras de chiikawa con sellos, y muchas cosas para recortar</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680725133</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680725133/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680725133-main.webp</image:loc>
+      <image:title>Revista Sho-Comi Octubre 5, 2024</image:title>
+      <image:caption>Incluye bolsita para que guardes tus cosas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680768835</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680768835/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680768835-main.webp</image:loc>
+      <image:title>Revista HP Vol. 4</image:title>
+      <image:caption>Con portada de Baccano, y un poster bifaz de este mismo anime</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680811285</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680811285/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680811285-main.webp</image:loc>
+      <image:title>Revista Paletta Vol.8 2003, Summer</image:title>
+      <image:caption>Incluye poster</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680858125</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680858125/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680858125-main.webp</image:loc>
+      <image:title>Revista E☆2 Frontier Vol. 6 2023</image:title>
+      <image:caption>Incluye 2 carpetas y contiene muchos dibujos de distintos artistas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760680916012</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760680916012/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760680916012-main.webp</image:loc>
+      <image:title>Fate Today&apos;s menu for Emiya family Vol. 9 Edición limitada</image:title>
+      <image:caption>Incluye artbook &quot;My favorite things&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760681019198</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760681019198/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760681019198-main.webp</image:loc>
+      <image:title>PACK Imaizumin: DEEP Vol. 2-5-6-7</image:title>
+      <image:caption>El famoso hentai que recibió una adaptación a manga de romance.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728387687</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728387687/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728387687-main.webp</image:loc>
+      <image:title>Akamaru Jump Invierno 2007</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728426467</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728426467/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728426467-main.webp</image:loc>
+      <image:title> Imaizumin: DEEP Vol. 1</image:title>
+      <image:caption>El famoso hentai que recibió una adaptación a manga de romance.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728455396</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728455396/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728455396-main.webp</image:loc>
+      <image:title>Artbook Hakusei/Kitora by @avogado6_jp</image:title>
+      <image:caption>Al rededor de 200 paginas de ilustraciones del famoso artista japonés avogado6</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728502598</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728502598/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728502598-main.webp</image:loc>
+      <image:title>MoguMogu Summer Nishirohato</image:title>
+      <image:caption>Artbook de Hololive Doujinshi</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728589975</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728589975/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728589975-main.webp</image:loc>
+      <image:title>Dear Girl: Stories PERFECT ART WORKS</image:title>
+      <image:caption>Artbook de la adaptación al manga/videojuego del famoso programa de radio &quot;Dear girl: Stories&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728838200</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728838200/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728838200-main.webp</image:loc>
+      <image:title>Revista PASH! Diciembre 2017</image:title>
+      <image:caption>Con portada de Houseki no Kuni</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728918457</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728918457/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728918457-main.webp</image:loc>
+      <image:title>JUMP GIGA 2019 WINTER vol. 2</image:title>
+      <image:caption>Incluye:</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760728975071</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760728975071/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760728975071-main.webp</image:loc>
+      <image:title>Comptiq 2012 Diciembre</image:title>
+      <image:caption>Incluye 2 cartas de Hatsune Miku y CD Drama de Fate/Prototype</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760729948425</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760729948425/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760729948425-main.webp</image:loc>
+      <image:title>Miss Kobayashi’s Dragon Maid Full Color</image:title>
+      <image:caption>Colección de 11 de los mejores capitulos del manga a todo color</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760729984313</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760729984313/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760729984313-main.webp</image:loc>
+      <image:title>Persona 3 Reload Artbook</image:title>
+      <image:caption>Colección de Ilustraciones de tapa dura del remake de Persona 3</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760730029287</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760730029287/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760730029287-main.webp</image:loc>
+      <image:title>TenSura Vol. 22 Edición limitada</image:title>
+      <image:caption>Incluye funda de peluche de Rimuru.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760730177252</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760730177252/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760730177252-main.webp</image:loc>
+      <image:title>PACK Aria Monthly Undine Vol 4-6</image:title>
+      <image:caption>Cada caja incluye 2 figuras y 1 revista, los precios varían dependiendo el volumen.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1760730223864</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1760730223864/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1760730223864-main.webp</image:loc>
+      <image:title>Maya Takamura Artbook Edición Deluxe</image:title>
+      <image:caption>Incluye espada de metal, artbook, 5 posters, y caja contenedora. Las Ilustraciones son de Zektbatch y Beatmania IIDX</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100322835</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100322835/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100322835-main.webp</image:loc>
+      <image:title>Revista Animage Enero 2018</image:title>
+      <image:caption>incluye poster de Houseki no Kuni y dos carpetas de Free!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100411655</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100411655/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100411655-main.webp</image:loc>
+      <image:title>End of Eternity Design Works</image:title>
+      <image:caption>Colección de ilustraciones, diseños, ubicaciones, etc del juego End of eternity/Resonance of fate.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100502421</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100502421/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100502421-main.webp</image:loc>
+      <image:title>Demon slayer Original Image collection Set</image:title>
+      <image:caption>Incluye caja contenedora, storyboard, cuadrito, acrílico, stickers, y lámina con dibujo</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100549110</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100549110/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100549110-main.webp</image:loc>
+      <image:title>Mairiro Gashu Toilet-Bound Hanako-kun 2</image:title>
+      <image:caption>Segunda colección de ilustraciones del famoso anime Toilet-Bound Hanako-kun (9Jibaku Shōnen Hanako-kun).</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100649840</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100649840/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100649840-main.webp</image:loc>
+      <image:title>Jujutsu Kaisen Key Animation 1</image:title>
+      <image:caption>Guía de animación de la primera temporada de Jujutsu Kaisen</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100711664</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100711664/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100711664-main.webp</image:loc>
+      <image:title>Houseki no Kuni &lt;3 Vol. 3 Edición limitada</image:title>
+      <image:caption>Incluye Portada Alternativa con Phosita toda tierna y un libro de arte y poemas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100755952</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100755952/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100755952-main.webp</image:loc>
+      <image:title>Revista Afternoon Junio 2024</image:title>
+      <image:caption>Contiene portada de Houseki no Kuni y el capítulo final de la misma.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100821871</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100821871/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100821871-main.webp</image:loc>
+      <image:title>Mofusand Artbook</image:title>
+      <image:caption>Colección de Ilustraciones de los famosos gatitos mofusand</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100856044</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100856044/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100856044-main.webp</image:loc>
+      <image:title>Tama Artworks</image:title>
+      <image:caption>Colección de ilustraciones de 91 páginas de Tama, ilustrador de varios Videos musicales Vocaloid</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1761100948963</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1761100948963/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1761100948963-main.webp</image:loc>
+      <image:title>Heisei Tribute 1989-2019</image:title>
+      <image:caption>Colección de ilustraciones de 292 páginas con más de 150 artistas y más de 250 personajes.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774744773420</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774744773420/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774744773420-0.webp</image:loc>
+      <image:title>The Lord of the Rings Art Book </image:title>
+      <image:caption>Libro de arte de The Lord of the Rings con ilustraciones y material visual de la película.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774744932875</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774744932875/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774744932875-0.webp</image:loc>
+      <image:title>Biohazard 4 Guide Book Kaitai Shinsho Revised Edition</image:title>
+      <image:caption>Guía japonesa de Resident Evil 4 (Biohazard 4) con estrategias, personajes y secretos del juego.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774745667706</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774745667706/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774745667706-0.webp</image:loc>
+      <image:title>Super Mario 64 Guide Book</image:title>
+      <image:caption>Libro japonés de Super Mario 64 con ilustraciones y contenido del juego.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774745833774</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774745833774/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774745833774-0.webp</image:loc>
+      <image:title>Castlevania Official Perfect Guide</image:title>
+      <image:caption>Guía oficial japonesa de Castlevania para PlayStation 2.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774745941852</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774745941852/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774745941852-0.webp</image:loc>
+      <image:title>Metal Gear Solid 3 Guía Oficial</image:title>
+      <image:caption>Guía oficial de Metal Gear Solid 3 Snake Eater.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774746430416</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774746430416/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774746430416-0.webp</image:loc>
+      <image:title>Sonic Adventure DX Complete Guide </image:title>
+      <image:caption>Guía japonesa completa de Sonic Adventure DX con estrategias, mapas y secretos del juego.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774746650684</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774746650684/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774746650684-0.webp</image:loc>
+      <image:title>Persona 3 FES Official Perfect Guide</image:title>
+      <image:caption>Libro japonés de Persona 3 FES con ilustraciones y material oficial del juego.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774746844708</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774746844708/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774746844708-0.webp</image:loc>
+      <image:title>Namco × Capcom Official Navigation Guide &amp; Illustration Book</image:title>
+      <image:caption>Guía oficial japonesa de Namco × Capcom para PlayStation 2.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774746966426</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774746966426/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774746966426-0.webp</image:loc>
+      <image:title>The Legend of Zelda Ocarina of Time Strategy Guide </image:title>
+      <image:caption>La versión de bolsillo de la guía completa del clásico de Nintendo 64 con mapas, capturas y explicaciones del mundo de Hyrule.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774752274069</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774752274069/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774752274069-0.webp</image:loc>
+      <image:title>Devil May Cry Guide Book</image:title>
+      <image:caption>Guía japonesa de Devil May Cry con estrategias, enemigos y detalles del juego.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774934670703</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774934670703/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774934670703-0.webp</image:loc>
+      <image:title>Dragon Magazine 1994 Vol.3</image:title>
+      <image:caption>Revista japonesa Dragon Magazine con ilustraciones, contenido de anime y novelas ligeras.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774934752021</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774934752021/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774934752021-0.webp</image:loc>
+      <image:title>Dragon Magazine 1997 Vol.2 </image:title>
+      <image:caption>Revista japonesa Dragon Magazine con ilustraciones, contenido de anime y novelas ligeras.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774934971314</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774934971314/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774934971314-0.webp</image:loc>
+      <image:title>Urusei Yatsura Vol.8 – Shonen Sunday Graphic</image:title>
+      <image:caption>Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774935112045</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774935112045/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774935112045-0.webp</image:loc>
+      <image:title>Sailor Moon TV Picture Book Vol.1</image:title>
+      <image:caption>Libro ilustrado oficial de Sailor Moon publicado en Japón por Kodansha.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774935239136</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774935239136/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774935239136-0.webp</image:loc>
+      <image:title>Almohadones de Neko-Chan</image:title>
+      <image:caption>Almohadones de 40cm de la mascota de Twitter de nekochan3232!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774935347263</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774935347263/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774935347263-0.webp</image:loc>
+      <image:title>Sanrio Strawberry News Marzo 2025</image:title>
+      <image:caption>Incluye posters y un porta tarjeta sorpresa!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1774936127738</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1774936127738/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1774936127738-main.webp</image:loc>
+      <image:title>Dear Girl Stories Vol. 3 y 4</image:title>
+      <image:caption>Pack de 2 volumenes con portada match</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775250413161</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775250413161/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775250413161-0.webp</image:loc>
+      <image:title>MEGANEKO E=MC2 Illustrations</image:title>
+      <image:caption>Colección de ilustraciones de Chicas gato con lentes con más de 190 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775250536573</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775250536573/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775250536573-0.webp</image:loc>
+      <image:title>Natsuiro Rei: Melonbooks Girls Collection Verano 2021</image:title>
+      <image:caption>Doujinshi con más de 170 páginas de ilustraciones de distintos artistas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775250592810</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775250592810/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775250592810-0.webp</image:loc>
+      <image:title>Peluche Sumikkogurashi XL</image:title>
+      <image:caption>Mide 45cm!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775250664777</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775250664777/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775250664777-0.webp</image:loc>
+      <image:title>Sumikkogurashi Peluche Caliente</image:title>
+      <image:caption>Peluche de Sumikkogurashi que se calienta por USB para los días fríos!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775540094693</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775540094693/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775540094693-0.webp</image:loc>
+      <image:title>The Sneaker Otoño 1993/9</image:title>
+      <image:caption>Revista japonesa The Sneaker edición 1993.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775540388768</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775540388768/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775540388768-0.webp</image:loc>
+      <image:title>The Sneaker Special – Fantasy Special Otoño 1994</image:title>
+      <image:caption>Revista japonesa The Sneaker con ilustraciones y contenido de fantasy y anime.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775540503405</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775540503405/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775540503405-0.webp</image:loc>
+      <image:title>Evangelion: DEATH Film Book</image:title>
+      <image:caption>Libro japonés de Evangelion con imágenes y material del anime.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775540580525</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775540580525/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775540580525-0.webp</image:loc>
+      <image:title>The End of Evangelion: Air Film Book</image:title>
+      <image:caption>Libro japonés de Evangelion con ilustraciones y material de la película.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775540768887</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775540768887/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775540768887-0.webp</image:loc>
+      <image:title>Monedero Gorra de Luigi</image:title>
+      <image:caption>Monedero con forma del Gorro de Luigi</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775541717550</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775541717550/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775541717550-0.webp</image:loc>
+      <image:title>Jujutsu Kaisen Konto · Kowai Hanashi</image:title>
+      <image:caption>Fanbook no oficial &quot;Sketches de Comedia · Historias de Miedo&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775542035144</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775542035144/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775542035144-main.webp</image:loc>
+      <image:title>Uo Dekka - Kyonyuu Kyojiri Koushinchou Gyaru-chan wa Boku ni Koi Shiteru - Anthology Comic</image:title>
+      <image:caption>Antología ecchi tambien conocido como &quot;Damn, Those are Huge! The Tall, Big-Breasted Big-Assed Gyaru-chan is in Love with Me: Anthology Comics&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775542263288</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775542263288/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775542263288-0.webp</image:loc>
+      <image:title>Ikki Tousen Vol. 13 Edición Limitada</image:title>
+      <image:caption>Edicion limitada que viene con figura de Sonsaku Hakufu y caja contenedora!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775543600923</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775543600923/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775543600923-0.webp</image:loc>
+      <image:title>Recently, My Sister Is Unusual Sleep Box Book </image:title>
+      <image:caption>Libro de la caja para dormir (Mitsuki no Hajirai Soine Box) de Recently, My Sister Is Unusual (Saikin, Imoto no Yosu ga Chotto Okaishiin Da Ga.)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775543759473</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775543759473/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775543759473-0.webp</image:loc>
+      <image:title>Recently, My Sister Is Unusual CD para Dormir</image:title>
+      <image:caption>CD para dormir de Recently, My Sister Is Unusual (Saikin, Imoto no Yosu ga Chotto Okaishiin Da Ga) de la Sleeping Box (Mitsuki no Hajirai Soine BOX)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775544246450</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775544246450/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1775544246450-0.webp</image:loc>
+      <image:title>HIYOKO BRAND: Oku-sama wa Joshi Kosei BOX</image:title>
+      <image:caption>Caja con figura, poster, y artbook de Hiyoko brand (mi esposa es una chica de secundaria)</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608409668</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608409668/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646059_hm1t2y_0.webp</image:loc>
+      <image:title>Noizi Ito Art Collection GU-RE-N</image:title>
+      <image:caption>Colección de Ilustraciones de Shakugan no Shana</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608444628</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608444628/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646082_nx4ctk_0.webp</image:loc>
+      <image:title>Chobits Vol. 7 con Postal</image:title>
+      <image:caption>La postal es original, viene con el tomo.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608508184</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608508184/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646086_fpeuko_0.webp</image:loc>
+      <image:title>Black Lagoon Vol. 10 Edición especial</image:title>
+      <image:caption>Incluye artbook, poster bifaz, manga, y caja contenedora</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608590641</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608590641/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646101_l6c45u_0.webp</image:loc>
+      <image:title>Pixiv Yearbook 2010</image:title>
+      <image:caption>Colección de Ilustraciones de distintos artistas de Pixiv con datos interesantes de cada uno.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608646281</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608646281/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646114_ri67rm_0.webp</image:loc>
+      <image:title>Hatsune Miku Coloring Book All Stars</image:title>
+      <image:caption>Libro para colorear de Vocaloid con más de 15 dibujos, también viene su versión pintada!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608723576</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608723576/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646120_xn2sjt_0.webp</image:loc>
+      <image:title>Umamusume PisuPisu☆SupiSupi Vol.2 Edición Limitada</image:title>
+      <image:caption>Incluye standees de acrílico!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608772032</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608772032/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646123_2g80ej_0.webp</image:loc>
+      <image:title>Magikano Vol. 10 Edición especial</image:title>
+      <image:caption>Incluye Figura!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608821528</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608821528/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646127_qee6a8_0.webp</image:loc>
+      <image:title>When I returned to my hometown, my childhood friend was broken</image:title>
+      <image:caption>One-shot de romance de Zyugoya.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608870810</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608870810/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646131_zgl9ye_0.webp</image:loc>
+      <image:title>Hatsune Miku Densetsu </image:title>
+      <image:caption>Doujin de Ilustraciones de distintos artistas</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775608954226</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775608954226/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646136_bmhrgi_0.webp</image:loc>
+      <image:title>Sword Art Online Memory Defrag</image:title>
+      <image:caption>Antología de SAO con varias mini historias.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775624696800</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775624696800/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646141_08gpsw_0.webp</image:loc>
+      <image:title>Evangelion Edición Coleccionista Vol.7 Edición Especial </image:title>
+      <image:caption>Incluye 4 stands de acrílico, también se pueden conseguir por separado!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775625788587</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775625788587/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646147_dbjl0v_0.webp</image:loc>
+      <image:title>Ruri-Hime Summer 2012</image:title>
+      <image:caption>Revista que incluye ilustraciones de Type-Moon (Witch on The Holy Night) y de otros artistas conocidos como Akio Watanabe, y varios comics.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775628134670</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775628134670/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646153_xn9i9s_0.webp</image:loc>
+      <image:title>Touhou Project Tribute Arts Edición Especial</image:title>
+      <image:caption>Incluye 22 Cartas de Tarot, un Artbook, y una caja contenedora</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775632316608</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775632316608/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646158_h0cj32_0.webp</image:loc>
+      <image:title>Bakemonogatari Vol.1 Edición Limitada</image:title>
+      <image:caption>Incluye 3 postales de ilustradores famosos y una caja contenedora</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775632374085</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775632374085/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646163_hcducr_0.webp</image:loc>
+      <image:title>NO WORK NO LIFE </image:title>
+      <image:caption>Artbook Doujin de No Game No Life (y más) de Yuu Kamiya</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775632447591</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775632447591/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646168_ekqpl9_0.webp</image:loc>
+      <image:title>Doujin Ganbare Douki-Chan Vol 1</image:title>
+      <image:caption>Colección de Ilustraciones de @y_o_m_y_o_m</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1775702191560</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1775702191560/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/img_1776143646176_wdke9y_0.webp</image:loc>
+      <image:title>Yotsuba To! Vol.1</image:title>
+      <image:caption>Primer volumen del manga de Yotsuba To!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1778261167300</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1778261167300/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-base64-1.webp</image:loc>
+      <image:title>Weekly Shonen Jump 11/2004 Vol. 48</image:title>
+      <image:caption>Con portada de Katekyo Hitman Reborn! Y dentro tiene capítulos de mangas conocidos, cómo Bleach, Naruto, y Death note.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1778261272289</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1778261272289/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-base64-8.webp</image:loc>
+      <image:title>Character Parfait Octubre 2024</image:title>
+      <image:caption>Revista kawaii que incluye Maquinita para hacer stickers!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782247976699</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782247976699/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782247976699-0.webp</image:loc>
+      <image:title>Megumi Fushiguro Heroes Photo Book</image:title>
+      <image:caption>Colección de Ilustraciones de Megumi de Jujutsu Kaisen, incluye 3 postales!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782248136394</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782248136394/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782248136394-0.webp</image:loc>
+      <image:title>VISIONS 2025 Illustrators Book</image:title>
+      <image:caption>Colección de Ilustraciones, de +300 páginas, de artistas de Pixiv con toda su información y redes, con ilustradores como @explosionpsycho</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782262376903</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782262376903/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782262376903-0.webp</image:loc>
+      <image:title>Final Fantasy VII Remake Ultimania</image:title>
+      <image:caption>Guía de este famoso juego con más de 700 páginas, diseños, Ilustraciones, entrevistas, mapas, estrategias, y más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782262660733</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782262660733/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782262660733-0.webp</image:loc>
+      <image:title>COADVENTURE Summon Night Artbook</image:title>
+      <image:caption>Colección de Ilustraciones de Takeshi Iizuka a lo largo de la franquicia RPG Summon Night, con más de 150 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782262735571</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782262735571/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782262735571-0.webp</image:loc>
+      <image:title>Illust Station</image:title>
+      <image:caption>Colección de Ilustraciones estilo moe de más de 100 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782262822988</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782262822988/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782262822988-0.webp</image:loc>
+      <image:title>The slayers next Film book 3</image:title>
+      <image:caption>Tercer libro con ilustraciones y datos interesantes de Slayers Next!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782262900406</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782262900406/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782262900406-0.webp</image:loc>
+      <image:title>Revista anan Vol. 2429</image:title>
+      <image:caption>Incluye portada y stickers de chiikawa!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782263286609</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782263286609/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782263286609-0.webp</image:loc>
+      <image:title>NieR Series Eco bag with 10th Anniversary Mook</image:title>
+      <image:caption>Libro de la franquicia NieR que viene con una bolsa que se puede transformar en llavero con la carita de Emil para llevar a todos lados!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782263388102</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782263388102/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782263388102-0.webp</image:loc>
+      <image:title>ARKNIGHTS - Animation Artworks</image:title>
+      <image:caption>Cuarta entrega de los artbooks del famoso videojuego Arknights!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782263632839</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782263632839/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782263632839-0.webp</image:loc>
+      <image:title>Dragon Ball Daizenshū 4: World Guide</image:title>
+      <image:caption>Este libro de tapa dura es una guía oficial del universo de Dragon Ball, con ilustraciones e información de personajes y escenarios!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782266659188</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782266659188/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782266659188-0.webp</image:loc>
+      <image:title>The slayers next Film book 2</image:title>
+      <image:caption>Segundo libro con ilustraciones y datos interesantes de Slayers Next!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782274218064</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782274218064/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782274218064-0.webp</image:loc>
+      <image:title>Re:Zero Art works Re:BOX 2nd</image:title>
+      <image:caption>Caja con el segundo Artbook y una novela de Re:Zero!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782274300999</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782274300999/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782274300999-0.webp</image:loc>
+      <image:title>Otona anime Vol.13 2009/8</image:title>
+      <image:caption>Revista con portada de monogatari y contenido de diferentes animes!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782274415941</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782274415941/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782274415941-0.webp</image:loc>
+      <image:title>Dear Vol. 2 Edición especial</image:title>
+      <image:caption>Incluye figura y portada alternativa!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782274690933</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782274690933/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782274690933-0.webp</image:loc>
+      <image:title>Lightning Returns Final Fantasy XIII Ultimania</image:title>
+      <image:caption>Libro guía del videojuego Final Fantasy 13, con ilustraciones, explicaciones, datos interesantes, y más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782274984339</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782274984339/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782274984339-0.webp</image:loc>
+      <image:title>Super Mario 64 Strategy Guide</image:title>
+      <image:caption>Incluye Ilustraciones, estrategias para los distintos niveles, e historias cortas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782278291816</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782278291816/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782278291816-0.webp</image:loc>
+      <image:title>Weekly Shonen Jump No.38 2011</image:title>
+      <image:caption>Con portada y posters de Katekyo Hitman Reborn!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782278369807</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782278369807/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782278369807-0.webp</image:loc>
+      <image:title>toi8 Fantasy Girl Artworks</image:title>
+      <image:caption>Colección de Ilustraciones del famoso ilustrador toi8!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782278449043</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782278449043/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782278449043-0.webp</image:loc>
+      <image:title>Artbook Haruhi Suzumiya no Garoku</image:title>
+      <image:caption>Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782278507752</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782278507752/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782278507752-0.webp</image:loc>
+      <image:title>Vasito de vidrio de Rilakkuma LAWSON 2016</image:title>
+      <image:caption>No hay mucho mas que decir, muy lindo</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782366827731</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782366827731/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782366827731-0.webp</image:loc>
+      <image:title>JOJO Magazine Winter 2022</image:title>
+      <image:caption>Revista enfocada en contenido de la franquicia JOJOs, con noticias, Ilustraciones, entrevistas, y más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782366931765</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782366931765/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782366931765-0.webp</image:loc>
+      <image:title>Miss Kobayashi&apos;s Dragon Maid Official Fanbook Marugoto Kanna</image:title>
+      <image:caption>Fanbook enfocado en Kanna Kamui con contenido exclusivo, y stickers!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782428164428</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782428164428/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782428164428-0.webp</image:loc>
+      <image:title>Type-Moon Ace Vol. 8</image:title>
+      <image:caption>Incluye dos novelas ligeras, Fate/Apocrypha y Fire Girl, y un calendario con Ilustraciones de la franquicia!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782428296370</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782428296370/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782428296370-0.webp</image:loc>
+      <image:title>Koupen-chan Book Vol.2</image:title>
+      <image:caption>Libro japonés de Koupen-chan con ilustraciones kawaii del personaje.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782428392916</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782428392916/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782428392916-0.webp</image:loc>
+      <image:title>Granblue Fantasy Graphic Archive I</image:title>
+      <image:caption>Primera colección de Ilustraciones de Granblue Fantasy con más de 300 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782428453809</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782428453809/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782428453809-0.webp</image:loc>
+      <image:title>My Favorite Atom</image:title>
+      <image:caption>Libro de ilustraciones de homenaje de 100 artistas a Astro Boy (Tetsuwan Atom)!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782428519738</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782428519738/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782428519738-0.webp</image:loc>
+      <image:title>Fate GO MEMO 5</image:title>
+      <image:caption>Colección de Ilustraciones de Wada Arco del videojuego Fate/Grand Order!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782428621465</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782428621465/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782428621465-0.webp</image:loc>
+      <image:title>Kagerou Daze Official Visual Fanbook</image:title>
+      <image:caption>Artbook oficial de Kagerou Daze con ilustraciones y contenido visual.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782429012806</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782429012806/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782429012806-0.webp</image:loc>
+      <image:title>Blue Archive Official Artworks</image:title>
+      <image:caption>La primera edición de las colecciones de Ilustraciones del famoso juego Blue Archive!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782429125048</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782429125048/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782429125048-0.webp</image:loc>
+      <image:title>My Happy Marriage Artbook</image:title>
+      <image:caption>Colección de Ilustraciones de Rito Takasaka!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782429366739</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782429366739/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782429366739-0.webp</image:loc>
+      <image:title>Final Fantasy XV world prologue</image:title>
+      <image:caption>Libro guía del mundo de Final Fantasy XV con muchos datos interesantes, ilustraciones, e imagenes del juego!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782434765539</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782434765539/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-insta-1.webp</image:loc>
+      <image:title>Ladies VS Butlers - Himitsu no Rough Art Collection</image:title>
+      <image:caption>Libro de arte con ilustraciones estilo moe / ecchi de Ladies VS Butlers!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782435071782</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782435071782/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782435071782-0.webp</image:loc>
+      <image:title>Arknights Illustration Colecction Vol. 1</image:title>
+      <image:caption>Colección de Ilustraciones del videojuego Arknights con más de 100 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782435901854</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782435901854/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782435901854-0.webp</image:loc>
+      <image:title>Alberich 2</image:title>
+      <image:caption>Manga de Machiko Chino con un arte hermoso a todo color!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782435963745</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782435963745/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782435963745-0.webp</image:loc>
+      <image:title>Mahoromatic Vol. 6 Edición Limitada</image:title>
+      <image:caption>Incluye figura, manga, y base para la figura con espacios para otras figuras de la colección!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782436021488</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782436021488/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782436021488-0.webp</image:loc>
+      <image:title>You&apos;re Under Arrest File-X</image:title>
+      <image:caption>Libro con contenido de todas las adaptaciones de &quot;You&apos;re Under Arrest!&quot; Tanto del manga, como del OVA y la serie.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782436553126</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782436553126/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782436553126-0.webp</image:loc>
+      <image:title>Final Fantasy VII Ultimania Omega</image:title>
+      <image:caption>Guía oficial del FF7 con ilustraciones, diseños, entrevistas, y más!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782436698166</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782436698166/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782436698166-0.webp</image:loc>
+      <image:title>Mochila Momoiro Clover Z de Kanako Momota</image:title>
+      <image:caption>Mochila oficial de la banda Momoiro Clover Z, se le pueden sacar las alas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782436856917</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782436856917/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782436856917-0.webp</image:loc>
+      <image:title>Granblue Fantasy Graphic Archive IV</image:title>
+      <image:caption>Colección de ilustraciones de Granblue Fantasy con más de 300 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437058789</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437058789/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437058789-0.webp</image:loc>
+      <image:title>Fate/Grand Order material III</image:title>
+      <image:caption>Libro con material de FGO, incluye ilustraciones, información, etc.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437335294</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437335294/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437335294-0.webp</image:loc>
+      <image:title>CompTiq TCG Verano 2001</image:title>
+      <image:caption>Revista de juegos de cartas que incluye 5 cartas de disintos juegos de esa epoca!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437394899</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437394899/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437394899-0.webp</image:loc>
+      <image:title>CompTiq Enero 2010</image:title>
+      <image:caption>Revista retro que incluye llavero de Magical Girl Lyrical Nanoha, y postal de LovePlus!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437551213</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437551213/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437551213-0.webp</image:loc>
+      <image:title>works SCA-DI (SCA自) illustrations</image:title>
+      <image:caption>Colección de ilustraciones de SCA-DI, artista de varias Novelas Visuales, cómo SubaHibi o Moekan.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437661401</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437661401/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437661401-0.webp</image:loc>
+      <image:title>Made in Abyss Official Anthology 4</image:title>
+      <image:caption>Cuarta antología de Made in Abyss</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437739370</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437739370/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437739370-0.webp</image:loc>
+      <image:title>Tezukuri Parfait Chiikawa Shaka Shaka</image:title>
+      <image:caption>Incluye 4 llaveros &quot;Shaka Shaka&quot; para armar!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437797925</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437797925/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437797925-0.webp</image:loc>
+      <image:title>Granblue Fantasy Graphic Archive III</image:title>
+      <image:caption>Colección de ilustraciones de Granblue Fantasy con más de 350 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437856733</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437856733/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437856733-0.webp</image:loc>
+      <image:title>Tokyo Ghoul</image:title>
+      <image:caption>Versión redibujada del primer capitulo de Tokyo Ghoul de Sui Ishida!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782437979221</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782437979221/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782437979221-0.webp</image:loc>
+      <image:title>Comp AG Vol.2</image:title>
+      <image:caption>Revista retro de juegos, incluye CD-ROM!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782438033297</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782438033297/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782438033297-0.webp</image:loc>
+      <image:title>PARTNER Verano 1999 Vol. 9</image:title>
+      <image:caption>Revista retro con portada de ToHeart!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782438087020</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782438087020/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782438087020-0.webp</image:loc>
+      <image:title>works Motoyon (基4%) illustrations</image:title>
+      <image:caption>Colección de ilustraciones de Motoyon, artista de varias Novelas Visuales, cómo SubaHibi o Atri.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782438217047</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782438217047/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782438217047-0.webp</image:loc>
+      <image:title>Hiro Illustrations - Footprints to Akebi</image:title>
+      <image:caption>Artbook de Akebi-chan no Sailor Fuku con más de 150 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782438336607</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782438336607/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782438336607-0.webp</image:loc>
+      <image:title>Revista I Love Pug</image:title>
+      <image:caption>Revista para los fans de los pugs, con muchas fotos! También hay de otras razas.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782442635319</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782442635319/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782442635319-0.webp</image:loc>
+      <image:title>Animage Agosto 2008</image:title>
+      <image:caption>Revista con portada de Ponyo, incluye cartas de Code Geass, un CD de Neo Angelic Abyss, y un poster!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782442787162</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782442787162/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782442787162-0.webp</image:loc>
+      <image:title>Sanrio Strawberry News Febrero 2025</image:title>
+      <image:caption>Incluye posters y una bolsita sorpresa!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782442842195</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782442842195/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782442842195-0.webp</image:loc>
+      <image:title>Touhou Rougashu Project Pixiv 2009</image:title>
+      <image:caption>Colección de ilustraciones de el videojuego Touhou con más de 150 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782442999920</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782442999920/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782442999920-0.webp</image:loc>
+      <image:title>Made in Abyss Official Anthology 3</image:title>
+      <image:caption>Tercer antología de Made in Abyss</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782443386603</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782443386603/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782443386603-0.webp</image:loc>
+      <image:title>Magi-Q Honkikyu Vol. 1</image:title>
+      <image:caption>Libro extra que venia en una de las revistas Magi-Q Premium del 2001.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782443584207</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782443584207/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782443584207-0.webp</image:loc>
+      <image:title>Melon Revival Collection 4</image:title>
+      <image:caption>Colección de Ilustraciones de 2009-2010 de distintos ilustradores de melon-chan.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782443633099</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782443633099/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782443633099-0.webp</image:loc>
+      <image:title>Colorful Adventure Game Girls</image:title>
+      <image:caption>Colección de ilustraciones de chicas de distintos juegos, cómo Higurashi, corpse party, Steins, etc!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782443709253</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782443709253/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782443709253-0.webp</image:loc>
+      <image:title>Granblue Fantasy Fes 2023 Artbook</image:title>
+      <image:caption>Colección de Ilustraciones de Granblue Fantasy</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782443917847</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782443917847/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782443917847-0.webp</image:loc>
+      <image:title>Fate/Grand Order material II</image:title>
+      <image:caption>Libro con material de FGO, incluye ilustraciones, información, etc.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782444102137</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782444102137/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782444102137-0.webp</image:loc>
+      <image:title>Yozakura Quartet Vol. 22 Edición Limitada</image:title>
+      <image:caption>Incluye mazo de cartas para el juego &quot;Love Letter&quot;</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782450661593</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782450661593/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782450661593-0.webp</image:loc>
+      <image:title>Memories 3/Colors</image:title>
+      <image:caption>Colección de ilustraciones originales y borradores descartados de distintos artistas, cómo por ejemplo Naru Nanao!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782450706440</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782450706440/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782450706440-0.webp</image:loc>
+      <image:title>ARKNIGHTS - Illustration Collection Vol.4</image:title>
+      <image:caption>Cuarta entrega de los artbooks del famoso videojuego Arknights!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782450760938</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782450760938/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782450760938-0.webp</image:loc>
+      <image:title>Megami Magazine Deluxe Vol.12</image:title>
+      <image:caption>Revista megami con muchas Ilustraciones, incluye portada de Clannad y varias Ilustraciones del anime!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782450875753</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782450875753/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782450875753-0.webp</image:loc>
+      <image:title>Made in Abyss Official Anthology 1</image:title>
+      <image:caption>Primer antología de Made in Abyss</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782450949820</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782450949820/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782450949820-0.webp</image:loc>
+      <image:title>Hyperdimension Neptunia +mk2 Artbook</image:title>
+      <image:caption>Colección de Ilustraciones y diseños de personajes de Hyperdimension Neptunia.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451021955</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451021955/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451021955-0.webp</image:loc>
+      <image:title>Nagasarete Airantou Vol. 8 Edición Limitada</image:title>
+      <image:caption>Incluye manga, figura, carta, y caja contenedora.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451080308</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451080308/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451080308-0.webp</image:loc>
+      <image:title>Jump-Ryu! 23 (Gintama)</image:title>
+      <image:caption>Incluye revista, DVD, 1  Dibujo de Gintoki, y un panel del manga en A4, y la caja para guardar todo.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451148836</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451148836/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451148836-0.webp</image:loc>
+      <image:title>Peluche Nyanko Sensei</image:title>
+      <image:caption>Peluche que era premio B del ichiban kuji de Natsume&apos;s book of friends! Mide 45cm~!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451199346</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451199346/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451199346-0.webp</image:loc>
+      <image:title>Hanafuda Material</image:title>
+      <image:caption>Artbook que ciene con la edición limitada de Fate/Hollow Ataraxia de PSVita</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451264820</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451264820/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451264820-0.webp</image:loc>
+      <image:title>Quarterly S Invierno 2004 Vol. 5</image:title>
+      <image:caption>Incluye desplegable</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451326683</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451326683/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451326683-0.webp</image:loc>
+      <image:title>Air gear Vol.13 Edición Limitada</image:title>
+      <image:caption>Incluye figura Pinky:St. de Agito y una caja contenedora que simula ser una caja de Air Trecks.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451455190</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451455190/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451455190-0.webp</image:loc>
+      <image:title>Aurora Gem</image:title>
+      <image:caption>Colección de Ilustraciones de Yamamoto Yamato, artista de Owari no Seraph, com más de 90 páginas!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451506990</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451506990/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451506990-0.webp</image:loc>
+      <image:title>Final Fantasy XIV: Stormblood - Art of the Revolution</image:title>
+      <image:caption>Artbook de la segunda expansión del FF14, incluye stickers y muchisimas ilustraciones!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451576574</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451576574/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451576574-0.webp</image:loc>
+      <image:title>Dear Girl Stories Hibiki Gachi De Visual Book</image:title>
+      <image:caption>Incluye desplegable y muchas Ilustraciones!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451637250</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451637250/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451637250-0.webp</image:loc>
+      <image:title>Bakemonogatari Guía Oficial</image:title>
+      <image:caption>5 libritos de Bakemonogatari con mucha información e Ilustraciones, incluye poster!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451718835</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451718835/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451718835-0.webp</image:loc>
+      <image:title>Disney&apos;s Twisted Wonderland Riddle Rosehearts Character Book</image:title>
+      <image:caption>Libritonde información y arte que viene con un peluchito!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451814902</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451814902/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451814902-0.webp</image:loc>
+      <image:title>D.Gray-Man Anime Visual Collection</image:title>
+      <image:caption>Colección de Ilustraciones del anime de D.Gray-Man, incluye desplegable bifaz.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451871908</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451871908/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451871908-0.webp</image:loc>
+      <image:title>Comptiq 181 Marzo 1998</image:title>
+      <image:caption>Revista con portada de To Heart, incluye CD-ROM</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782451947300</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782451947300/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782451947300-0.webp</image:loc>
+      <image:title>Weekly Shonen Jump Issue No. 29, 2005</image:title>
+      <image:caption>Con portada de Katekyo Hitman Reborn!</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://arkya.store/product/1782452001847</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://arkya.store/product/1782452001847/</loc>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782452001847-0.webp</image:loc>
+      <image:title>Blue Lock Vol. 27 Edición especial</image:title>
+      <image:caption>Incluye stickers, pins, y carta transparente de Reo y Nagi!</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782519335782/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782519335782-0.webp</image:loc>
+      <image:title>DURARARA!! Izaya vs Shizuo Kenka CD 1 &amp; 2</image:title>
+      <image:caption>(34999 c/u)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782519418764/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782519418764-0.webp</image:loc>
+      <image:title>Twisted Wonderland Magical Archives</image:title>
+      <image:caption>Guidebook del juego con muchas Ilustraciones e información en más de 200 páginas!</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782519636693/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782519636693-0.webp</image:loc>
+      <image:title>Love Hina 0</image:title>
+      <image:caption>Guía de Love Hina! Incluye stickers.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782519756661/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782519756661-0.webp</image:loc>
+      <image:title>Deadman Wonderland: The Irration</image:title>
+      <image:caption>Guía de Deadman Wonderland con más de 150 páginas!</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782519893069/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782519893069-0.webp</image:loc>
+      <image:title>Nagasarete Airantou Vol. 10 Edición Limitada</image:title>
+      <image:caption>Incluye manga, figura, carta, y caja contenedora</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782520604921/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782520604921-0.webp</image:loc>
+      <image:title>Houseki no Kuni Vol. 12 Edición Limitada</image:title>
+      <image:caption>Incluye manga, Artbook &quot;The Party At The End&quot; en caja, y tarjeta.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782520697923/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782520697923-0.webp</image:loc>
+      <image:title>REBORN! élDLIVE character&apos;s 365</image:title>
+      <image:caption>Artbook de Katekyo Hitman Reborn! y elDLIVE de Akira Amano, con 192 páginas.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782520830422/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782520830422-0.webp</image:loc>
+      <image:title>Bleach - All Colour But The Black</image:title>
+      <image:caption>Artbook de Bleach, ilustrado por Tite Kubo en formato A4</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782520953202/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782520953202-0.webp</image:loc>
+      <image:title>NHK ni Youkoso! Novela</image:title>
+      <image:caption>Novela ligera de NHK!</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782521029131/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782521029131-0.webp</image:loc>
+      <image:title>Hajirau Kimi ga Mitainda/Quiero verte avergonzada Full Color</image:title>
+      <image:caption>Los mejores capítulos a color!</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782521123935/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782521123935-0.webp</image:loc>
+      <image:title>Horimiya Graduation Album</image:title>
+      <image:caption>Colección de ilustraciones de Horimiya con más de 200 páginas a color.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://arkya.store/product/1782521276404/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://arkya.store/images/products/product-1782521276404-0.webp</image:loc>
+      <image:title>Mushi to Uta</image:title>
+      <image:caption>Colección de historias de Haruko Ichikawa, la autora de Houseki no Kuni.</image:caption>
+    </image:image>
   </url>
 </urlset>

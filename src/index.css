@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Fuente cargada en index.html via <link> para mejor performance */
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

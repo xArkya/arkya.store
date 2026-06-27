@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import sharp from 'sharp';
 
 // Configuración para ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -25,15 +26,15 @@ function parseBase64Image(base64String) {
   };
 }
 
-// Función para generar un nombre de archivo único
-function generateImageFilename(extension, index = 0) {
+// Función para generar un nombre de archivo único (siempre .webp)
+function generateImageFilename(index = 0) {
   const timestamp = Date.now();
   const randomStr = Math.random().toString(36).substring(2, 8);
-  return `img_${timestamp}_${randomStr}_${index}.${extension}`;
+  return `img_${timestamp}_${randomStr}_${index}.webp`;
 }
 
 // Función principal
-function extractImages() {
+async function extractImages() {
   console.log('Iniciando extracción de imágenes base64...');
   
   // Verificar que el archivo de productos exista
@@ -74,7 +75,8 @@ function extractImages() {
   let totalImages = 0;
   
   // Procesar cada producto
-  products.forEach((product, productIndex) => {
+  for (let productIndex = 0; productIndex < products.length; productIndex++) {
+    const product = products[productIndex];
     console.log(`\nProcesando producto ${productIndex + 1}: ${product.name}`);
     
     // Procesar imagen principal
@@ -82,12 +84,13 @@ function extractImages() {
       totalImages++;
       const imageData = parseBase64Image(product.image);
       if (imageData) {
-        const filename = generateImageFilename(imageData.extension);
+        const filename = generateImageFilename();
         const filepath = path.join(IMAGES_DIR, filename);
         const relativePath = `/images/products/${filename}`;
         
-        // Guardar imagen como archivo
-        fs.writeFileSync(filepath, imageData.data, 'base64');
+        // Convertir a webp usando sharp
+        const buffer = Buffer.from(imageData.data, 'base64');
+        await sharp(buffer).webp({ quality: 85 }).toFile(filepath);
         
         // Actualizar ruta en el producto
         product.image = relativePath;
@@ -99,17 +102,18 @@ function extractImages() {
     
     // Procesar array de imágenes
     if (product.images && Array.isArray(product.images)) {
-      product.images = product.images.map((img, imgIndex) => {
+      product.images = await Promise.all(product.images.map(async (img, imgIndex) => {
         if (img && img.startsWith('data:image/')) {
           totalImages++;
           const imageData = parseBase64Image(img);
           if (imageData) {
-            const filename = generateImageFilename(imageData.extension, imgIndex);
+            const filename = generateImageFilename(imgIndex);
             const filepath = path.join(IMAGES_DIR, filename);
             const relativePath = `/images/products/${filename}`;
             
-            // Guardar imagen como archivo
-            fs.writeFileSync(filepath, imageData.data, 'base64');
+            // Convertir a webp usando sharp
+            const buffer = Buffer.from(imageData.data, 'base64');
+            await sharp(buffer).webp({ quality: 85 }).toFile(filepath);
             
             console.log(`  Imagen ${imgIndex + 1} guardada: ${filename}`);
             convertedImages++;
@@ -118,9 +122,9 @@ function extractImages() {
           }
         }
         return img;
-      });
+      }));
     }
-  });
+  }
   
   // Generar nuevo contenido del archivo
   const newContent = `export const products = ${JSON.stringify(products, null, 2)};`;
@@ -145,6 +149,9 @@ function extractImages() {
 }
 
 // Ejecutar el script
-extractImages();
+extractImages().catch(err => {
+  console.error('Error en extractImages:', err);
+  process.exit(1);
+});
 
 export { extractImages };

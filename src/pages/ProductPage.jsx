@@ -129,7 +129,8 @@ export default function ProductPage() {
             isOnOffer: true,
             discountPercentage: globalOffer.discountPercentage,
             originalPrice: foundProduct.price,
-            price: Math.round(foundProduct.price * (1 - globalOffer.discountPercentage / 100))
+            price: Math.round(foundProduct.price * (1 - globalOffer.discountPercentage / 100)),
+            offerEndDate: globalOffer.endDate || null,
           };
         }
         
@@ -392,6 +393,7 @@ export default function ProductPage() {
                   '@type': 'Organization',
                   name: 'Arkya Store',
                 },
+                ...(product.offerEndDate ? { priceValidUntil: product.offerEndDate } : {}),
               },
               aggregateRating: product.rating
                 ? {
@@ -400,6 +402,39 @@ export default function ProductPage() {
                     reviewCount: String(product.reviewCount || 1),
                   }
                 : undefined,
+            }),
+          }}
+        />
+      )}
+      {/* BreadcrumbList JSON-LD */}
+      {product && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Inicio',
+                  item: 'https://arkya.store/',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: (product.categories && product.categories.length > 0)
+                    ? product.categories[0]
+                    : (product.category || 'Productos'),
+                  item: 'https://arkya.store/',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 3,
+                  name: product.name,
+                },
+              ],
             }),
           }}
         />
@@ -863,7 +898,7 @@ export default function ProductPage() {
               )}
 
               <Image
-                alt={product.name}
+                alt={`${product.name} - imagen principal del producto - Arkya Store`}
                 src={currentImage}
                 fit={'cover'}
                 align={'center'}
@@ -872,10 +907,13 @@ export default function ProductPage() {
                 transition="transform 0.2s"
                 _hover={{ transform: 'scale(1.03)', cursor: 'pointer' }}
                 filter={product.adultContent && !isAgeVerified ? 'blur(15px) grayscale(0.5)' : 'none'}
-                loading="lazy"
+                loading="eager"
+                fetchpriority="high"
                 decoding="async"
                 draggable={false}
                 userSelect="none"
+                htmlWidth={800}
+                htmlHeight={600}
                 onClick={() => {
                   if (!product.adultContent || isAgeVerified) {
                     setIsLightboxOpen(true);
@@ -1015,12 +1053,14 @@ export default function ProductPage() {
                   >
                     <Image
                       src={img}
-                      alt={`${product.name} - imagen ${index + 1}`}
+                      alt={`${product.name} - miniatura ${index + 1} de ${productImages.length}`}
                       w="80px"
                       h="80px"
                       objectFit="cover"
                       loading="lazy"
                       decoding="async"
+                      htmlWidth={80}
+                      htmlHeight={80}
                     />
                   </Box>
                 ))}
