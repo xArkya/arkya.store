@@ -273,6 +273,7 @@ async function prerender() {
           returnMethod: 'https://schema.org/ReturnByMail',
           returnFees: 'https://schema.org/ReturnShippingFees',
           returnPolicyCountry: 'AR',
+          applicableCountry: 'AR',
         },
         ...(offerEndDate ? { priceValidUntil: offerEndDate } : {}),
       },

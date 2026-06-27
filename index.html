@@ -27,6 +27,11 @@
     <meta name="twitter:description" content="Artbooks, Doujinshi, Mangas y más desde Japón. Envíos a todo Argentina." />
     <meta name="twitter:image" content="https://arkya.store/images/logo.png" />
     <link rel="canonical" href="https://arkya.store/" />
+    <script>
+      if (window.location.hostname.indexOf('github.io') !== -1) {
+        window.location.href = 'https://arkya.store' + window.location.pathname + window.location.search + window.location.hash;
+      }
+    </script>
 
     <!-- Preconnect a dominios externos para acelerar carga -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
