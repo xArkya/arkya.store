@@ -245,13 +245,11 @@ async function prerender() {
         },
         ...(offerEndDate ? { priceValidUntil: offerEndDate } : {}),
       },
-      ...(product.rating ? {
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: String(product.rating),
-          reviewCount: String(product.reviewCount || 1),
-        },
-      } : {}),
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: String(product.rating || 5),
+        reviewCount: String(product.reviewCount || 1),
+      },
     };
 
     const html = injectMetaTags(baseHtml, {
