@@ -227,6 +227,7 @@ async function prerender() {
       image: productImages.filter(Boolean).map(toAbsoluteUrl),
       description: description,
       sku: String(product.id),
+      itemCondition: 'https://schema.org/UsedCondition',
       brand: {
         '@type': 'Brand',
         name: product.brand || 'Arkya Store',
@@ -242,6 +243,36 @@ async function prerender() {
         seller: {
           '@type': 'Organization',
           name: 'Arkya Store',
+        },
+        shippingDetails: {
+          '@type': 'OfferShippingDetails',
+          shippingDestination: {
+            '@type': 'DefinedRegion',
+            addressCountry: 'AR',
+          },
+          deliveryTime: {
+            '@type': 'ShippingDeliveryTime',
+            handlingTime: {
+              '@type': 'QuantitativeValue',
+              minValue: 1,
+              maxValue: 3,
+              unitCode: 'DAY',
+            },
+            transitTime: {
+              '@type': 'QuantitativeValue',
+              minValue: 3,
+              maxValue: 14,
+              unitCode: 'DAY',
+            },
+          },
+        },
+        hasMerchantReturnPolicy: {
+          '@type': 'MerchantReturnPolicy',
+          returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+          merchantReturnDays: 14,
+          returnMethod: 'https://schema.org/ReturnByMail',
+          returnFees: 'https://schema.org/ReturnShippingFees',
+          returnPolicyCountry: 'AR',
         },
         ...(offerEndDate ? { priceValidUntil: offerEndDate } : {}),
       },
