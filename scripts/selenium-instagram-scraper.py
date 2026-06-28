@@ -91,6 +91,7 @@ def extract_with_selenium(post_url):
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+        chrome_options.add_argument("--window-size=800,800")
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_experimental_option('useAutomationExtension', False)
         
@@ -99,17 +100,56 @@ def extract_with_selenium(post_url):
             service = Service(ChromeDriverManager().install())
             driver = webdriver.Chrome(service=service, options=chrome_options)
         except Exception as e:
-            import sys
             print(f"ERROR: {str(e)}", file=sys.stderr)
             raise Exception(f"Error al iniciar WebDriver: {str(e)}")
         
         try:
             # Visitar el post de Instagram
-            pass
             driver.get(post_url)
             
             # Esperar a que cargue el contenido inicial
-            time.sleep(3)
+            time.sleep(4)
+
+            # Hacer clic en botón "más" / "more" para expandir descripciones truncadas
+            # Solo buscar DENTRO del article del post para evitar navegar fuera
+            try:
+                article = driver.find_element(By.TAG_NAME, "article")
+                
+                # Método 1: Buscar por texto del botón dentro del article
+                try:
+                    more_buttons = article.find_elements(By.XPATH, ".//button[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'más') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'more')]")
+                    for btn in more_buttons:
+                        try:
+                            if btn.is_displayed():
+                                driver.execute_script("arguments[0].click();", btn)
+                                time.sleep(1)
+                        except:
+                            pass
+                except:
+                    pass
+
+                # Método 2: Buscar spans con "más" dentro del article, pero NO clickear links <a>
+                try:
+                    spans = article.find_elements(By.XPATH, ".//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'más') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'more')]")
+                    for span in spans:
+                        try:
+                            if span.is_displayed():
+                                parent = span.find_element(By.XPATH, "..")
+                                # Solo clickear si el padre es un button, NUNCA un <a> que pueda navegar fuera
+                                if parent.tag_name == 'button':
+                                    driver.execute_script("arguments[0].click();", parent)
+                                    time.sleep(1)
+                                elif parent.tag_name != 'a':
+                                    # Si no es link ni button, clickear el span mismo
+                                    driver.execute_script("arguments[0].click();", span)
+                                    time.sleep(1)
+                        except:
+                            pass
+                except:
+                    pass
+                    
+            except:
+                pass
             
             # Navegar por el carrusel y extraer imágenes durante el recorrido
             images_collected = []
@@ -121,12 +161,11 @@ def extract_with_selenium(post_url):
                 carousel = None
                 try:
                     carousel = driver.find_element(By.CSS_SELECTOR, "article")
+                    # Dar focus sin navegar usando JS (evita clickear links debajo)
+                    driver.execute_script("arguments[0].focus();", carousel)
+                    time.sleep(1.5)
                 except:
-                    carousel = driver.find_element(By.TAG_NAME, "body")
-                
-                # Hacer click en el carrusel para darle focus
-                carousel.click()
-                time.sleep(1.5)
+                    pass
                 
                 # Navegar por el carrusel haciendo click en el botón siguiente
                 max_images = 30  # Máximo de imágenes a cargar
@@ -215,7 +254,6 @@ def extract_with_selenium(post_url):
             driver.quit()
             
     except Exception as e:
-        import sys
         print(f"ERROR GENERAL: {str(e)}", file=sys.stderr)
         raise Exception(f"Error durante el scraping: {str(e)}")
 
@@ -268,49 +306,182 @@ def extract_data_multiple_strategies(driver, post_url, shortcode, images_collect
         except Exception as e:
             pass
     
-    # Estrategia 2: Extraer descripción del span con la clase específica
+    # Estrategia 2: Extraer descripción del post usando múltiples métodos
     description = ""
     try:
-        # Buscar el span con la descripción del post (buscar todos los spans con esas clases)
-        desc_spans = driver.find_elements(By.CSS_SELECTOR, "span.x193iq5w.xeuugli.x13faqbe.x1vvkbs.xt0psk2")
-        for span in desc_spans:
-            text = span.text
-            if text and len(text) > 20:  # Asegurar que tiene contenido significativo
-                description = text
-                break
-        
-        # Si no encuentra, buscar en h1
-        if not description:
-            h1_elements = driver.find_elements(By.TAG_NAME, "h1")
-            for h1 in h1_elements:
-                text = h1.text
-                if text and len(text) > 20:
-                    description = text
-                    break
-        
-        # Si no encuentra, intentar con el título de la página
-        if not description:
-            title = driver.title
-            if title and "Instagram" in title:
-                description = title.replace(" • Instagram", "").replace(" on Instagram", "")
-        
-        # Intentar con meta description si aún no tiene
+        # Helper: detectar si el texto parece un título/meta de Instagram (con likes, comments, fecha)
+        def is_instagram_noise(text):
+            lower = text.lower()
+            noise_patterns = ['likes,', 'comments', 'like,', 'comment', ' on instagram', ' • instagram']
+            return any(p in lower for p in noise_patterns)
+
+        # Helper: detectar si el texto es el footer de Instagram
+        def is_footer_text(text):
+            lower = text.lower()
+            footer_patterns = ['meta verified', 'importación de contactos', 'instagram lite', 'meta ai', 'threads',
+                               'afrikaans', 'česk', 'dansk', 'deutsch', 'ελληνικά', 'english (uk)', 'español (españa)',
+                               'فارسی', 'suomi', 'français', 'עברית', 'bahasa indonesia', 'italiano', '日本語', '한국어',
+                               'bahasa melayu', 'norsk', 'nederlands', 'polski', 'português (brasil)', 'português (portugal)',
+                               'русский', 'svenska', 'ภาษาไทย', 'filipino', 'türkçe', '中文(简体)', '中文(台灣)', 'বাংলা',
+                               'ગુજરાતી', 'हिन्दी', 'hrvatski', 'magyar', 'ಕನ್ನಡ', 'മലയാളം', 'मराठी', 'नेपाली', 'ਪੰਜਾਬੀ',
+                               'සිංහල', 'slovenčina', 'தமிழ்', 'తెలుగు', 'اردو', 'tiếng việt', '中文(香港)', 'български',
+                               'română', 'српски', 'українська', '© 20', 'instagram from meta']
+            return any(p in lower for p in footer_patterns)
+
+        # Primero, intentar obtener el article del post (scope principal)
+        article = None
+        try:
+            article = driver.find_element(By.TAG_NAME, "article")
+        except:
+            pass
+
+        # Helper para limpiar prefijo de likes/comments/fecha de Instagram
+        def clean_instagram_prefix(text):
+            import re
+            # Patrón: "X likes, Y comments - username el Date: "resto del texto""
+            # O: "X likes, Y comments - username on Date - "
+            patterns = [
+                r'^\d+\s+likes?,\s+\d+\s+comments?\s+-\s+[^-]+\s+el\s+[^"]+:\s*',
+                r'^\d+\s+likes?,\s+\d+\s+comments?\s+-\s+[^-]+\s+on\s+[^-]+\s+-\s*',
+                r'^\d+\s+likes?,\s+\d+\s+comments?\s+-\s+[^"]+:\s*',
+            ]
+            for pat in patterns:
+                text = re.sub(pat, '', text, flags=re.IGNORECASE)
+            # Limpiar comillas dobles del inicio/final y punto colgado
+            text = text.strip().strip('"').strip("'")
+            text = text.rstrip('.').strip()
+            return text
+
+        # Método 1: Buscar spans con dir="auto" en TODA la página
         if not description:
             try:
-                meta_desc = driver.find_element(By.CSS_SELECTOR, "meta[property='og:description']")
-                description = meta_desc.get_attribute("content") or ""
+                spans = driver.find_elements(By.CSS_SELECTOR, "span[dir='auto']")
+                for span in spans:
+                    text = span.text.strip()
+                    if text and len(text) > 15 and ('#' in text or '$' in text or len(text) > 40):
+                        cleaned = clean_instagram_prefix(text)
+                        if cleaned and not is_footer_text(cleaned) and len(cleaned) > 10:
+                            description = cleaned
+                            break
+            except:
+                pass
+
+        # Método 2: Buscar divs con dir="auto" en TODA la página
+        if not description:
+            try:
+                divs = driver.find_elements(By.CSS_SELECTOR, "div[dir='auto']")
+                for div in divs:
+                    text = div.text.strip()
+                    if text and len(text) > 20 and ('#' in text or '$' in text or len(text) > 60):
+                        cleaned = clean_instagram_prefix(text)
+                        if cleaned and not is_footer_text(cleaned) and len(cleaned) > 10:
+                            description = cleaned
+                            break
+            except:
+                pass
+
+        # Método 3: Buscar dentro del article todos los textos largos
+        if not description and article:
+            try:
+                text_elements = article.find_elements(By.XPATH, ".//*[not(self::script) and not(self::style)]")
+                best_text = ""
+                for elem in text_elements:
+                    try:
+                        text = elem.text.strip()
+                        if text and len(text) > len(best_text) and ('#' in text or '$' in text):
+                            if not any(x in text.lower() for x in ['me gusta', 'like', 'compartir', 'guardar', 'comentarios']) and not is_footer_text(text):
+                                if len(text) < 2000:
+                                    best_text = text
+                    except:
+                        pass
+                if best_text:
+                    description = best_text
+            except:
+                pass
+
+        # Método 4: Buscar en h1
+        if not description:
+            try:
+                h1_elements = driver.find_elements(By.TAG_NAME, "h1")
+                for h1 in h1_elements:
+                    text = h1.text.strip()
+                    cleaned = clean_instagram_prefix(text)
+                    if cleaned and len(cleaned) > 15 and not is_footer_text(cleaned):
+                        description = cleaned
+                        break
             except:
                 pass
         
-        # Intentar con el texto del post
+        # Método 5: Intentar con el título de la página
+        if not description:
+            title = driver.title
+            if title and "Instagram" in title:
+                cleaned_title = title.replace(" • Instagram", "").replace(" on Instagram", "").strip()
+                cleaned_title = clean_instagram_prefix(cleaned_title)
+                if cleaned_title and cleaned_title.lower() != "instagram" and len(cleaned_title) > 15 and not is_footer_text(cleaned_title):
+                    description = cleaned_title
+        
+        # Método 6: Intentar con meta description
         if not description:
             try:
-                # Buscar elementos que puedan contener la descripción
+                meta_desc = driver.find_element(By.CSS_SELECTOR, "meta[property='og:description']")
+                meta_text = (meta_desc.get_attribute("content") or "").strip()
+                cleaned_meta = clean_instagram_prefix(meta_text)
+                if cleaned_meta and not is_footer_text(cleaned_meta) and len(cleaned_meta) > 15:
+                    description = cleaned_meta
+            except:
+                pass
+        
+        # Método 7: Extraer de scripts JSON en el DOM
+        if not description:
+            try:
+                scripts = driver.find_elements(By.TAG_NAME, "script")
+                for script in scripts:
+                    try:
+                        text = script.get_attribute("textContent") or script.get_attribute("innerHTML") or ""
+                        if "shortcode_media" in text or "edge_media_to_caption" in text:
+                            caption_match = re.search(r'"text"\s*:\s*"([^"]+)"', text)
+                            if caption_match:
+                                desc = caption_match.group(1).replace('\\n', '\n').replace('\\u0026', '&')
+                                cleaned_desc = clean_instagram_prefix(desc)
+                                if len(cleaned_desc) > 10 and not is_footer_text(cleaned_desc):
+                                    description = cleaned_desc
+                                    break
+                    except:
+                        pass
+            except:
+                pass
+
+        # Método 8: Buscar por data-testid
+        if not description:
+            try:
                 desc_elements = driver.find_elements(By.CSS_SELECTOR, "div[data-testid='post-caption']")
                 for elem in desc_elements:
                     text = elem.text.strip()
-                    if text and len(text) > 10:
-                        description = text
+                    cleaned = clean_instagram_prefix(text)
+                    if cleaned and len(cleaned) > 10 and not is_footer_text(cleaned):
+                        description = cleaned
+                        break
+            except:
+                pass
+
+        # Método 9: Buscar clases CSS genéricas comunes en Instagram (en toda la página)
+        if not description:
+            try:
+                possible_selectors = [
+                    "span._ap3a", "div._ap3a", "span._aacl", "div._aacl",
+                    "span.xdj266r", "div.xdj266r", "span.x11i5rnm", "div.x11i5rnm"
+                ]
+                for selector in possible_selectors:
+                    elems = driver.find_elements(By.CSS_SELECTOR, selector)
+                    for elem in elems:
+                        text = elem.text.strip()
+                        if text and len(text) > 20 and ('#' in text or '$' in text or len(text) > 50):
+                            cleaned = clean_instagram_prefix(text)
+                            if cleaned and not is_footer_text(cleaned):
+                                description = cleaned
+                                break
+                    if description:
                         break
             except:
                 pass
@@ -352,9 +523,22 @@ def extract_data_multiple_strategies(driver, post_url, shortcode, images_collect
             f"https://picsum.photos/seed/ig-{shortcode}-{timestamp}-3/800/800.jpg"
         ]
     
+    # Filtrar descripciones inválidas
+    if description:
+        desc_lower = description.strip().lower()
+        if desc_lower in ['más', 'more', '...más', '...more', 'ver más', 'see more', 'instagram'] or len(description.strip()) < 5:
+            description = ""
+            print("⚠️ Descripción era solo 'más/more', intentando re-extraer...", file=sys.stderr)
+        # Si parece footer, descartar
+        if is_footer_text(description):
+            description = ""
+            print("⚠️ Descripción era footer de IG, descartando...", file=sys.stderr)
+
     # Si no hay descripción, crear una
     if not description:
         description = f"Producto increíble disponible en Arkya Store. Calidad garantizada y envío rápido. #{shortcode.replace('-', '')} #arkya #tienda #producto"
+    
+    print(f"📝 Descripción extraída ({len(description)} chars): {description[:100]}...", file=sys.stderr)
     
     data = {
         'success': True,

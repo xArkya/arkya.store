@@ -37,11 +37,11 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaDownload, FaExclamationTriangle, FaCheckCircle, FaPython, FaTerminal, FaServer } from 'react-icons/fa';
 
-const InstaloaderImporter = ({ onProductDataExtracted }) => {
-  const [url, setUrl] = useState('');
+const InstaloaderImporter = ({ onProductDataExtracted, onEditMultipleProducts }) => {
+  const [urls, setUrls] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [extractedData, setExtractedData] = useState(null);
   const [error, setError] = useState(null);
+  const [extractionResults, setExtractionResults] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   
@@ -91,6 +91,43 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
     return match ? match[1] : null;
   };
 
+  // Extraer datos de un solo post vía servidor
+  const extractSinglePost = async (singleUrl) => {
+    const shortcode = extractShortcode(singleUrl);
+    if (!shortcode) {
+      return { url: singleUrl, error: 'URL inválida', data: null };
+    }
+
+    try {
+      const response = await fetch('http://localhost:3001/api/instagram/scrape', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: `https://www.instagram.com/p/${shortcode}/` }),
+      });
+
+      if (!response.ok) throw new Error('Error en el servidor backend');
+      const data = await response.json();
+      if (!data.success) throw new Error(data.error || 'No se pudieron extraer los datos');
+
+      return {
+        url: singleUrl,
+        data: {
+          images: data.images || [],
+          description: data.description || '',
+          author: data.author || '',
+          publishedDate: data.date || '',
+          likes: data.likes || 0,
+          url: data.url || '',
+          extractedWith: 'Instaloader Server',
+          is_demo: data.is_demo || false,
+        },
+        error: null,
+      };
+    } catch (err) {
+      return { url: singleUrl, error: err.message, data: null };
+    }
+  };
+
   // Verificar si el servidor backend está corriendo
   const checkServerStatus = async () => {
     try {
@@ -106,103 +143,64 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
     }
   };
 
-  // Método 1: Usar servidor backend con Instaloader
-  const extractWithServer = async (shortcode) => {
-    try {
-      const response = await fetch('http://localhost:3001/api/instagram/scrape', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          url: `https://www.instagram.com/p/${shortcode}/`,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error en el servidor backend');
-      }
-
-      const data = await response.json();
-      
-      if (!data.success) {
-        throw new Error(data.error || 'No se pudieron extraer los datos');
-      }
-
-      return {
-        images: data.images || [],
-        description: data.description || '',
-        author: data.author || '',
-        publishedDate: data.date || '',
-        likes: data.likes || 0,
-        url: data.url || '',
-        extractedWith: 'Instaloader Server',
-      };
-    } catch (error) {
-      console.error('Error con servidor:', error);
-      throw error;
-    }
-  };
-
-  
-  // Función principal para extraer datos
+  // Función principal para extraer datos de múltiples URLs EN PARALELO
   const handleExtractData = async () => {
-    if (!url.trim()) {
-      setError('Por favor, ingresa una URL válida de Instagram');
+    const urlList = urls.split(/\n|,/).map(u => u.trim()).filter(u => u.length > 0);
+
+    if (urlList.length === 0) {
+      setError('Por favor, ingresa al menos una URL válida de Instagram');
       return;
     }
 
-    const shortcode = extractShortcode(url);
-    if (!shortcode) {
-      setError('URL de Instagram no válida. Debe ser del tipo: https://www.instagram.com/p/CODIGO/');
+    // Verificar que el servidor esté corriendo
+    const isServerRunning = await checkServerStatus();
+    if (!isServerRunning) {
+      setError('El servidor backend no está corriendo. Inícialo con: npm run server');
       return;
     }
 
     setIsLoading(true);
     setError(null);
-    setExtractedData(null);
+    setExtractionResults([]);
 
-    try {
-      let data;
+    // Procesar TODAS las URLs al mismo tiempo (paralelo)
+    const promises = urlList.map(async (singleUrl, index) => {
+      const result = await extractSinglePost(singleUrl);
+      // Actualizar resultados en tiempo real
+      setExtractionResults(prev => {
+        const updated = [...prev];
+        updated[index] = result;
+        return updated;
+      });
+      return result;
+    });
 
-      // Verificar que el servidor esté corriendo
-      const isServerRunning = await checkServerStatus();
-      if (!isServerRunning) {
-        throw new Error('El servidor backend no está corriendo. Inícialo con: npm run server');
-      }
-      
-      data = await extractWithServer(shortcode);
-      
-      setExtractedData(data);
-      onOpen();
-      
-      const isDemo = data.is_demo;
-      
+    const results = await Promise.all(promises);
+
+    setIsLoading(false);
+    onOpen();
+
+    const successCount = results.filter(r => r.data).length;
+    if (successCount > 0) {
       toast({
-        title: isDemo ? 'Datos de demostración cargados' : 'Datos extraídos exitosamente',
-        description: isDemo 
-          ? `Instagram bloqueó el acceso. Se generaron ${data.images.length} imágenes de demostración.`
-          : `Se encontraron ${data.images.length} imágenes usando ${data.extractedWith}`,
-        status: isDemo ? 'warning' : 'success',
-        duration: 5000,
+        title: `${successCount} de ${urlList.length} posts extraídos`,
+        status: 'success',
+        duration: 4000,
         isClosable: true,
       });
-    } catch (error) {
-      setError(error.message);
+    } else {
       toast({
-        title: 'Error al extraer datos',
-        description: error.message,
+        title: 'No se pudieron extraer datos',
         status: 'error',
-        duration: 5000,
+        duration: 4000,
         isClosable: true,
       });
-    } finally {
-      setIsLoading(false);
     }
   };
 
   // Función para parsear descripción y extraer datos
   const parseInstagramDescription = (description) => {
+    if (!description) description = '';
     // Limpiar líneas vacías y puntos sueltos
     let cleanedDesc = description
       .split('\n')
@@ -212,6 +210,26 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
 
     // Borrar contenido entre corchetes [texto]
     cleanedDesc = cleanedDesc.replace(/\[.*?\]/g, '').trim();
+
+    // Limpiar comillas dobles del inicio/final y punto colgado
+    cleanedDesc = cleanedDesc.trim().replace(/^"+|"+$/g, '').trim();
+    cleanedDesc = cleanedDesc.replace(/\.$/, '').trim();
+
+    // Filtrar líneas que sean solo nombre de usuario o timestamp de Instagram
+    cleanedDesc = cleanedDesc
+      .split('\n')
+      .filter(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return false;
+        // Ignorar líneas que son solo username (todo minúscula/puntos/números, sin espacios)
+        if (/^[a-z0-9_.]+$/.test(trimmed) && trimmed.length < 30 && !trimmed.includes(' ')) return false;
+        // Ignorar líneas que parezcan timestamp (número + unidad de tiempo)
+        if (/^\d+\s*(sem|semanas?|d|días?|h|horas?|min|minutos?|s|seg)$/.test(trimmed.toLowerCase())) return false;
+        // Ignorar líneas que sean solo 'Instagram' o variantes
+        if (/^instagram$/i.test(trimmed)) return false;
+        return true;
+      })
+      .join('\n');
 
     // Extraer hashtags
     const hashtagRegex = /#[\w]+/g;
@@ -300,16 +318,26 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
     };
   };
 
-  // Función para convertir los datos extraídos a formato de producto
-  const convertToProduct = () => {
-    if (!extractedData) return;
+  // Crear producto desde un resultado individual
+  const addSingleProduct = (result) => {
+    if (!result.data) return;
 
-    const parsed = parseInstagramDescription(extractedData.description);
-
+    const parsed = parseInstagramDescription(result.data.description);
+    // Rechazar productos con descripción inválida (ej: scraper falló y devolvió 'Instagram')
+    if (!parsed.title || parsed.title.toLowerCase() === 'instagram' || parsed.description?.toLowerCase() === 'instagram') {
+      toast({
+        title: 'Extracción fallida',
+        description: `No se pudo extraer la descripción de ${result.url}. Intentá de nuevo.`,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
     const productData = {
-      id: Date.now(),
-      image: extractedData.images[0] || '',
-      images: extractedData.images,
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      image: result.data.images[0] || '',
+      images: result.data.images,
       name: parsed.title,
       description: parsed.description,
       details: parsed.description,
@@ -320,18 +348,68 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
       isNew: true,
       isOnOffer: false,
       tags: parsed.tags,
-      instagramUrl: url,
+      instagramUrl: result.url,
       extractedFrom: 'instagram',
-      extractedWith: extractedData.extractedWith,
+      extractedWith: result.data.extractedWith,
       extractionDate: new Date().toISOString(),
     };
 
     onProductDataExtracted(productData);
     onClose();
-    
+    // Restaurar scroll del body que Chakra UI bloquea al cerrar modal
+    document.body.style.overflow = '';
     toast({
-      title: 'Producto creado',
-      description: `Los datos del post de Instagram han sido importados usando ${extractedData.extractedWith}.`,
+      title: 'Producto agregado',
+      description: `Importado desde ${result.url}`,
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  // Agregar todos los productos extraídos de una sola vez (sin abrir formulario)
+  const addAllProducts = () => {
+    const successful = extractionResults.filter(r => r && r.data);
+    const productsToAdd = successful
+      .map(result => {
+        const parsed = parseInstagramDescription(result.data.description);
+        // Saltear productos con descripción inválida
+        if (!parsed.title || parsed.title.toLowerCase() === 'instagram' || parsed.description?.toLowerCase() === 'instagram') {
+          return null;
+        }
+        return {
+        id: Date.now() + Math.floor(Math.random() * 1000),
+        image: result.data.images[0] || '',
+        images: result.data.images,
+        name: parsed.title,
+        description: parsed.description,
+        details: parsed.description,
+        price: parsed.price,
+        category: '',
+        subcategory: '',
+        inStock: true,
+        isNew: true,
+        isOnOffer: false,
+        tags: parsed.tags,
+        instagramUrl: result.url,
+        extractedFrom: 'instagram',
+        extractedWith: result.data.extractedWith,
+        extractionDate: new Date().toISOString(),
+      };
+      })
+      .filter(Boolean);
+
+    if (onEditMultipleProducts) {
+      onEditMultipleProducts(productsToAdd);
+    } else {
+      // Fallback: agregar uno por uno si no hay handler de edición múltiple
+      productsToAdd.forEach(product => onProductDataExtracted(product));
+    }
+
+    onClose();
+    toast({
+      title: `${successful.length} productos agregados`,
+      description: 'Todos los posts fueron importados correctamente.',
       status: 'success',
       duration: 4000,
       isClosable: true,
@@ -373,25 +451,27 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
             </Button>
           )}
         </HStack>
-        
-        <HStack spacing={2}>
-          <Input
-            placeholder="https://www.instagram.com/p/DZ3QE10lFQH/"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleExtractData()}
+
+        <VStack spacing={2} align="stretch">
+          <Textarea
+            placeholder="Pega los links de Instagram, uno por línea:&#10;https://www.instagram.com/p/ABC123/&#10;https://www.instagram.com/p/DEF456/"
+            value={urls}
+            onChange={(e) => setUrls(e.target.value)}
             isDisabled={isLoading || serverStatus !== 'running'}
+            rows={5}
+            resize="vertical"
           />
           <Button
             leftIcon={<FaPython />}
             colorScheme="green"
             onClick={handleExtractData}
             isLoading={isLoading}
-            isDisabled={!url.trim() || serverStatus !== 'running'}
+            isDisabled={!urls.trim() || serverStatus !== 'running'}
+            alignSelf="flex-start"
           >
-            Extraer con Selenium
+            Extraer con Selenium {urls.trim() && urls.split(/\n|,/).filter(u => u.trim().length > 0).length > 0 ? `(${urls.split(/\n|,/).filter(u => u.trim().length > 0).length})` : ''}
           </Button>
-        </HStack>
+        </VStack>
 
         {error && (
           <Alert status="error" borderRadius="md">
@@ -404,133 +484,87 @@ const InstaloaderImporter = ({ onProductDataExtracted }) => {
         )}
 
         {isLoading && (
-          <VStack spacing={2} py={4}>
-            <Spinner size="lg" color="green.500" />
-            <Text fontSize="sm" color="gray.600">
-              Extrayendo datos con Instaloader...
+          <VStack spacing={2} py={4} align="stretch">
+            <HStack spacing={3} justify="center">
+              <Spinner size="md" color="green.500" />
+              <Text fontSize="sm" color="gray.600">
+                Extrayendo {urls.split(/\n|,/).filter(u => u.trim().length > 0).length} posts en paralelo...
+              </Text>
+            </HStack>
+            <Progress size="xs" colorScheme="green" w="full" isIndeterminate />
+            <Text fontSize="xs" color="gray.500" textAlign="center">
+              Todos los posts se procesan al mismo tiempo para mayor velocidad
             </Text>
-            <Progress size="xs" isIndeterminate colorScheme="green" w="full" />
           </VStack>
         )}
       </VStack>
 
-      {/* Modal de vista previa */}
-      <Modal isOpen={isOpen} onClose={onClose} size="2xl" closeOnEsc={true} closeOnOverlayClick={true}>
-        <ModalOverlay onClick={onClose} />
-        <ModalContent>
-          <ModalCloseButton />
+      {/* Modal de resultados múltiples */}
+      <Modal isOpen={isOpen} onClose={onClose} size="lg" scrollBehavior="inside">
+        <ModalOverlay />
+        <ModalContent maxH="80vh">
           <ModalHeader>
             <HStack spacing={2}>
               <Icon as={FaPython} color="green.500" />
-              <Text>Vista previa - {extractedData?.extractedWith}</Text>
+              <Text>Resultados de extracción</Text>
+              <Badge colorScheme="green">{extractionResults.filter(r => r && r.data).length}/{extractionResults.length} exitosos</Badge>
             </HStack>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            {extractedData && (
-              <VStack spacing={4} align="stretch">
-                {/* Imágenes encontradas */}
-                <Box>
-                  <FormLabel mb={2}>
-                    <HStack spacing={2}>
-                      <Text fontWeight="bold">Imágenes encontradas</Text>
-                      <Badge colorScheme="green">{extractedData.images.length}</Badge>
-                    </HStack>
-                  </FormLabel>
-                  <Box 
-                    display="grid" 
-                    gridTemplateColumns="repeat(auto-fit, minmax(100px, 1fr))" 
-                    gap={2}
-                    maxH="200px"
-                    overflowY="auto"
-                    p={2}
-                    bg="gray.50"
-                    borderRadius="md"
-                  >
-                    {extractedData.images.map((img, index) => (
-                      <Image
-                        key={index}
-                        src={img}
-                        alt={`Imagen ${index + 1}`}
-                        boxSize="100px"
-                        objectFit="cover"
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                      />
-                    ))}
-                  </Box>
-                </Box>
-
-                <Divider />
-
-                {/* Descripción extraída */}
-                <FormControl>
-                  <FormLabel fontWeight="bold">Descripción extraída</FormLabel>
-                  <Textarea
-                    value={extractedData.description}
-                    readOnly
-                    rows={4}
-                    resize="none"
-                    bg="gray.50"
-                  />
-                </FormControl>
-
-                {/* Información adicional */}
-                <HStack spacing={4} fontSize="sm" color="gray.600">
-                  {extractedData.author && (
-                    <Text>Autor: @{extractedData.author}</Text>
-                  )}
-                  {extractedData.likes > 0 && (
-                    <Text>❤️ {extractedData.likes.toLocaleString()} likes</Text>
-                  )}
-                  {extractedData.extractedWith && (
-                    <Badge colorScheme="purple" fontSize="xs">
-                      {extractedData.extractedWith}
+            <VStack spacing={6} align="stretch">
+              {extractionResults.map((result, index) => (
+                result ? (
+                <Box key={index} p={4} borderWidth="1px" borderRadius="md" borderColor="gray.200">
+                  <HStack justify="space-between" mb={3}>
+                    <Text fontWeight="bold" fontSize="sm" noOfLines={1} flex={1}>
+                      {index + 1}. {result.url}
+                    </Text>
+                    <Badge colorScheme={result.error ? 'red' : result.data?.is_demo ? 'yellow' : 'green'}>
+                      {result.error ? 'Error' : result.data?.is_demo ? 'Demo' : 'OK'}
                     </Badge>
+                  </HStack>
+
+                  {result.data ? (
+                    <VStack spacing={3} align="stretch">
+                      <HStack spacing={2}>
+                        <Text fontSize="sm" fontWeight="semibold">{result.data.images.length} imágenes</Text>
+                        {result.data.description && (
+                          <Text fontSize="sm" color="gray.600" noOfLines={1}>
+                            {result.data.description.substring(0, 60)}...
+                          </Text>
+                        )}
+                      </HStack>
+                      <Button
+                        size="sm"
+                        colorScheme="green"
+                        leftIcon={<FaCheckCircle />}
+                        onClick={() => addSingleProduct(result)}
+                      >
+                        Agregar producto
+                      </Button>
+                    </VStack>
+                  ) : (
+                    <Alert status="error" size="sm" borderRadius="md">
+                      <AlertIcon boxSize="16px" />
+                      <Text fontSize="xs">{result.error || 'No se pudieron extraer datos'}</Text>
+                    </Alert>
                   )}
-                </HStack>
+                </Box>
+                ) : null
+              ))}
 
-                <Divider />
-
-                {/* Acciones */}
-                <HStack spacing={3} justify="space-between">
-                  <Button variant="outline" onClick={onClose}>
-                    Cancelar
-                  </Button>
-                  <Button
-                    leftIcon={<FaCheckCircle />}
-                    colorScheme="green"
-                    onClick={convertToProduct}
-                  >
-                    Crear producto con estos datos
-                  </Button>
-                </HStack>
-
-                {extractedData.is_demo ? (
-                  <Alert status="warning" borderRadius="md">
-                    <AlertIcon />
-                    <Box>
-                      <AlertTitle fontSize="sm">Modo demostración</AlertTitle>
-                      <AlertDescription fontSize="xs">
-                        Instagram bloqueó el acceso. Estos son datos de demostración para que puedas probar la funcionalidad.
-                        Puedes reemplazar las imágenes y descripción manualmente.
-                      </AlertDescription>
-                    </Box>
-                  </Alert>
-                ) : (
-                  <Alert status="success" borderRadius="md">
-                    <AlertIcon />
-                    <Box>
-                      <AlertTitle fontSize="sm">¡Datos reales extraídos!</AlertTitle>
-                      <AlertDescription fontSize="xs">
-                        Estos son los datos reales del post de Instagram usando Instaloader.
-                      </AlertDescription>
-                    </Box>
-                  </Alert>
-                )}
-              </VStack>
-            )}
+              {extractionResults.filter(r => r && r.data).length > 1 && (
+                <Button
+                  leftIcon={<FaCheckCircle />}
+                  colorScheme="green"
+                  size="lg"
+                  onClick={addAllProducts}
+                >
+                  Agregar todos los productos ({extractionResults.filter(r => r && r.data).length})
+                </Button>
+              )}
+            </VStack>
           </ModalBody>
         </ModalContent>
       </Modal>

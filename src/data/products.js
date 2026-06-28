@@ -417,7 +417,7 @@ export const products = [
     "category": ""
   },
   {
-    "name": "Revista Card Gamer Weiss Schwarz Special",
+    "name": "Card Gamer Weiss Schwarz Special",
     "description": "Incluye 2 Cartas Weiss Schwarz, una de Hololive y otra de Bang Dream",
     "price": 44999.1,
     "image": "/images/products/product-1757989661405-main.webp",
@@ -459,7 +459,7 @@ export const products = [
     "offerEndDate": ""
   },
   {
-    "name": "Revista Comptiq Agosto 2008",
+    "name": "Comptiq Agosto 2008",
     "description": "Revista con portada de Lucky Star y contenido de muchos juegos  NO incluye carta",
     "price": 14999,
     "image": "/images/products/product-1757989994250-main.webp",
@@ -491,7 +491,7 @@ export const products = [
     "id": 1757989994250
   },
   {
-    "name": "Revista Kirara MAX ",
+    "name": "Kirara MAX Octubre 2023",
     "description": "NO incluye la púa",
     "price": 14999,
     "image": "/images/products/product-1757990116478-main.webp",
@@ -1356,7 +1356,7 @@ export const products = [
     "id": 1758056842963
   },
   {
-    "name": "Revista Young Animal, Mayo 24, 2024",
+    "name": "Young Animal, Mayo 24, 2024",
     "description": "Incluye poster bifaz de Enako, DVD, y Capitulos de distintos mangas cómo Berserk",
     "price": 39999,
     "image": "/images/products/product-1758056879237-main.webp",
@@ -1608,30 +1608,6 @@ export const products = [
     "id": 1759241033650
   },
   {
-    "name": "TenSura Vol. 22 Edición limitada",
-    "description": "Incluye funda de peluche de Rimuru.",
-    "price": 34999,
-    "image": "/images/products/product-1759241074163-main.webp",
-    "images": [
-      "/images/products/product-1759241074163-0.webp",
-      "/images/products/product-1759241074163-1.webp",
-      "/images/products/product-1759241074163-2.webp"
-    ],
-    "categories": [
-      "Mangas",
-      "Peluches"
-    ],
-    "category": "Mangas",
-    "subcategory": "Ediciones Especiales",
-    "isNew": false,
-    "inStock": false,
-    "adultContent": false,
-    "details": "",
-    "instagram": "https://instagram.com/arkya.store",
-    "tags": [],
-    "id": 1759241074163
-  },
-  {
     "name": "Chain Chronicle 1st Season Illustrations",
     "description": "Colección de ilustraciones de distintos artistas (Wada arco, Yuu Kamiya, etc) del juego tower defense Chain Chronicle.",
     "price": 39999,
@@ -1663,7 +1639,7 @@ export const products = [
     "id": 1759241134841
   },
   {
-    "name": "Artbook rainbow spectrum colors",
+    "name": "Rainbow spectrum colors",
     "description": "Colección de Ilustraciones de Toaru Majutsu no Index con 190 páginas.",
     "price": 31999,
     "image": "/images/products/product-1759241267998-main.webp",
@@ -1978,7 +1954,7 @@ export const products = [
   {
     "name": "The Art of Ponyo on the Cliff by the Sea",
     "description": "Colección de ilustraciones y datos interesantes de la famoso película Ponyo de Ghibli",
-    "price": 69998,
+    "price": 69999,
     "image": "/images/products/product-1759247519611-main.webp",
     "images": [
       "/images/products/product-1759247519611-0.webp",
@@ -2034,7 +2010,7 @@ export const products = [
     "id": 1759247572707
   },
   {
-    "name": "Artbook Made in Abyss \"Doorbeetle Reco\" ",
+    "name": "Made in Abyss \"Doorbeetle Reco\" ",
     "description": "Ilustraciones de Tsukushi Akihito, el autor de Made in Abyss, hechas desde 2011 hasta 2017, con varios datos interesantes!\n\nEs un doujinshi publicado en el Comiket de hace varios años.",
     "price": 119999,
     "image": "/images/products/product-1759247630265-main.webp",
@@ -2088,7 +2064,7 @@ export const products = [
     "id": 1759247679389
   },
   {
-    "name": "Revista Artist Side Vol. 2 ",
+    "name": "Artist Side Vol. 2 ",
     "description": "Incluye poster",
     "price": 21999,
     "image": "/images/products/product-1759247742134-main.webp",
@@ -2249,7 +2225,7 @@ export const products = [
     "id": 1759289698967
   },
   {
-    "name": "Revista Oekaki Club con acrílico LED",
+    "name": "Oekaki Club con acrílico LED",
     "description": "el acrilico LED cambia de colores",
     "price": 24999,
     "image": "/images/products/product-1759289791500-main.webp",
@@ -2526,7 +2502,7 @@ export const products = [
     "id": 1759451040590
   },
   {
-    "name": "Revista Newtype Diciembre 2022",
+    "name": "Newtype Diciembre 2022",
     "description": "Con portada de Chainsaw man, incluye dos poster bifaz",
     "price": 24999,
     "image": "/images/products/product-1759451089534-main.webp",
@@ -2718,7 +2694,7 @@ export const products = [
     "id": 1759454246115
   },
   {
-    "name": "Revista Young Gangan Abril 18, 2025",
+    "name": "Young Gangan Abril 18, 2025",
     "description": "Incluye carpeta, varias fotos de Modelos, y varios capítulos de manga como el de dress-up darling",
     "price": 29999,
     "image": "/images/products/product-1759454314465-main.webp",
@@ -3145,7 +3121,7 @@ export const products = [
     "id": 1760085270170
   },
   {
-    "name": "Revista Brutus Edición especial de Takehiko Inoue",
+    "name": "Brutus Edición especial de Takehiko Inoue",
     "description": "Incluye poster y notas",
     "price": 39599.34,
     "image": "/images/products/product-1760085317791-main.webp",
@@ -3573,7 +3549,7 @@ export const products = [
     "id": 1760680078109
   },
   {
-    "name": "Artbook Esquisse de Misato Mitsumi y Tatsuki Amaduyu",
+    "name": "Esquisse de Misato Mitsumi y Tatsuki Amaduyu",
     "description": "Incluye muchos fanarts y diseños originales de estos artistas",
     "price": 29999,
     "image": "/images/products/product-1760680458905-main.webp",
@@ -3685,7 +3661,7 @@ export const products = [
     "id": 1760680628641
   },
   {
-    "name": "Revista Charapafe Marzo 2024",
+    "name": "Charapafe Marzo 2024",
     "description": "Incluye tres figuras de chiikawa con sellos, y muchas cosas para recortar",
     "price": 29999,
     "image": "/images/products/product-1760680674774-main.webp",
@@ -3711,7 +3687,7 @@ export const products = [
     "id": 1760680674774
   },
   {
-    "name": "Revista Sho-Comi Octubre 5, 2024",
+    "name": "Sho-Comi Octubre 5, 2024",
     "description": "Incluye bolsita para que guardes tus cosas",
     "price": 29999,
     "image": "/images/products/product-1760680725133-main.webp",
@@ -3741,7 +3717,7 @@ export const products = [
     "id": 1760680725133
   },
   {
-    "name": "Revista HP Vol. 4",
+    "name": "HP Vol. 4",
     "description": "Con portada de Baccano, y un poster bifaz de este mismo anime",
     "price": 19999,
     "image": "/images/products/product-1760680768835-main.webp",
@@ -3767,7 +3743,7 @@ export const products = [
     "id": 1760680768835
   },
   {
-    "name": "Revista Paletta Vol.8 2003, Summer",
+    "name": "Paletta Vol.8 2003, Summer",
     "description": "Incluye poster",
     "price": 24999,
     "image": "/images/products/product-1760680811285-main.webp",
@@ -3795,7 +3771,7 @@ export const products = [
     "id": 1760680811285
   },
   {
-    "name": "Revista E☆2 Frontier Vol. 6 2023",
+    "name": "E☆2 Frontier Vol. 6 2023",
     "description": "Incluye 2 carpetas y contiene muchos dibujos de distintos artistas",
     "price": 29999,
     "image": "/images/products/product-1760680858125-main.webp",
@@ -3947,7 +3923,7 @@ export const products = [
     "id": 1760728426467
   },
   {
-    "name": "Artbook Hakusei/Kitora by @avogado6_jp",
+    "name": "Hakusei/Kitora by @avogado6_jp",
     "description": "Al rededor de 200 paginas de ilustraciones del famoso artista japonés avogado6",
     "price": 24999,
     "image": "/images/products/product-1760728455396-main.webp",
@@ -4026,7 +4002,7 @@ export const products = [
     "id": 1760728589975
   },
   {
-    "name": "Revista PASH! Diciembre 2017",
+    "name": "PASH! Diciembre 2017",
     "description": "Con portada de Houseki no Kuni\n\nIncluye poster bifaz (Houseki no kuni y Bungou stray dogs) y carpeta para documentos de Houseki no kuni",
     "price": 39999,
     "image": "/images/products/product-1760728838200-main.webp",
@@ -4267,7 +4243,7 @@ export const products = [
     "id": 1760730223864
   },
   {
-    "name": "Revista Animage Enero 2018",
+    "name": "Animage Enero 2018",
     "description": "incluye poster de Houseki no Kuni y dos carpetas de Free!",
     "price": 29999,
     "image": "/images/products/product-1761100322835-main.webp",
@@ -4441,7 +4417,7 @@ export const products = [
     "id": 1761100711664
   },
   {
-    "name": "Revista Afternoon Junio 2024",
+    "name": "Afternoon Junio 2024",
     "description": "Contiene portada de Houseki no Kuni y el capítulo final de la misma.",
     "price": 39999,
     "image": "/images/products/product-1761100755952-main.webp",
@@ -4642,7 +4618,7 @@ export const products = [
   {
     "name": "Super Mario 64 Guide Book",
     "description": "Libro japonés de Super Mario 64 con ilustraciones y contenido del juego.",
-    "price": 44997,
+    "price": 44999,
     "image": "/images/products/product-1774745667706-0.webp",
     "images": [
       "/images/products/product-1774745667706-0.webp",
@@ -6493,7 +6469,7 @@ export const products = [
       "/images/products/product-1782262900406-2.webp",
       "/images/products/product-1782262900406-3.webp"
     ],
-    "name": "Revista anan Vol. 2429",
+    "name": "anan Vol. 2429",
     "description": "Incluye portada y stickers de chiikawa!",
     "price": 24999,
     "category": "Revistas",
@@ -6959,7 +6935,7 @@ export const products = [
       "/images/products/product-1782278449043-3.webp",
       "/images/products/product-1782278449043-4.webp"
     ],
-    "name": "Artbook Haruhi Suzumiya no Garoku",
+    "name": "Haruhi Suzumiya no Garoku",
     "description": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
     "price": 19999,
     "category": "Artbooks",
@@ -8161,7 +8137,7 @@ export const products = [
       "/images/products/product-1782438336607-3.webp",
       "/images/products/product-1782438336607-4.webp"
     ],
-    "name": "Revista I Love Pug",
+    "name": "I Love Pug",
     "description": "Revista para los fans de los pugs, con muchas fotos! También hay de otras razas.",
     "details": "Revista para los fans de los pugs, con muchas fotos! También hay de otras razas.",
     "price": 19999,
@@ -9538,6 +9514,2659 @@ export const products = [
     "extractionDate": "2026-06-27T00:47:56.404Z",
     "categories": [
       "Mangas"
+    ]
+  },
+  {
+    "id": 1782596491282,
+    "image": "/images/products/product-1782596491282-0.jpg",
+    "images": [
+      "/images/products/product-1782596491282-0.jpg",
+      "/images/products/product-1782596491282-1.jpg",
+      "/images/products/product-1782596491282-2.jpg",
+      "/images/products/product-1782596491282-3.jpg",
+      "/images/products/product-1782596491282-4.jpg",
+      "/images/products/product-1782596491282-5.jpg"
+    ],
+    "name": "Yu-Gi-Oh! Character Guidebook: The Gospel of Truth",
+    "description": "Este libro contiene perfiles detallados de los personajes y datos canónicos, escrito por Kazuki Takahashi y publicado por Jump Comics en noviembre de 2002.",
+    "details": "Este libro contiene perfiles detallados de los personajes y datos canónicos, escrito por Kazuki Takahashi y publicado por Jump Comics en noviembre de 2002.",
+    "price": 34999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "yugioh",
+      "yugi",
+      "retroanime",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaGeNWiljsf/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:41:31.282Z",
+    "categories": [
+      "Guide Books",
+      "Character Books"
+    ]
+  },
+  {
+    "id": 1782596551909,
+    "image": "/images/products/product-1782596551909-0.jpg",
+    "images": [
+      "/images/products/product-1782596551909-0.jpg",
+      "/images/products/product-1782596551909-1.jpg",
+      "/images/products/product-1782596551909-2.jpg",
+      "/images/products/product-1782596551909-3.jpg",
+      "/images/products/product-1782596551909-4.jpg",
+      "/images/products/product-1782596551909-5.jpg"
+    ],
+    "name": "Final Fantasy V Basic Knowledge",
+    "description": "Guía de 1992 de Final Fantasy 5, con mapas, estadisticas, Ilustraciones, y ayudas para superar el juego!",
+    "details": "Guía de 1992 de Final Fantasy 5, con mapas, estadisticas, Ilustraciones, y ayudas para superar el juego!",
+    "price": 34999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "finalfantasy",
+      "finalfantasyv",
+      "ffv",
+      "ff5",
+      "retrogames"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaEHNkNFv-f/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:42:31.909Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782596647448,
+    "image": "/images/products/product-1782596647448-0.jpg",
+    "images": [
+      "/images/products/product-1782596647448-0.jpg",
+      "/images/products/product-1782596647448-1.jpg",
+      "/images/products/product-1782596647448-2.jpg",
+      "/images/products/product-1782596647448-3.jpg",
+      "/images/products/product-1782596647448-4.jpg",
+      "/images/products/product-1782596647448-5.jpg",
+      "/images/products/product-1782596647448-6.jpg",
+      "/images/products/product-1782596647448-7.jpg",
+      "/images/products/product-1782596647448-8.jpg",
+      "/images/products/product-1782596647448-9.jpg"
+    ],
+    "name": "TORANOANA Chronicle 1996~2005",
+    "description": "Colección de Ilustraciones de TORANOANA, de distintos ilustradores.\nIncluye 2 Artbooks y una caja contenedora.",
+    "details": "Colección de Ilustraciones de TORANOANA, de distintos ilustradores.\nIncluye 2 Artbooks y una caja contenedora.",
+    "price": 44999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DRS5iV1DzLY/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:44:07.448Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1782596690398,
+    "image": "/images/products/product-1782596690398-0.jpg",
+    "images": [
+      "/images/products/product-1782596690398-0.jpg",
+      "/images/products/product-1782596690398-1.jpg",
+      "/images/products/product-1782596690398-2.jpg",
+      "/images/products/product-1782596690398-3.jpg",
+      "/images/products/product-1782596690398-4.jpg",
+      "/images/products/product-1782596690398-5.jpg",
+      "/images/products/product-1782596690398-6.jpg"
+    ],
+    "name": "Yotsuba Anime Visual Book",
+    "description": "Colección de Ilustraciones de Yotsuba Nakano de las quintillizas.",
+    "details": "Colección de Ilustraciones de Yotsuba Nakano de las quintillizas.",
+    "price": 47999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "quintillizas",
+      "nakano",
+      "gotobun",
+      "goutobun",
+      "quintessential",
+      "yotsuba"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DRQLdU1D1Xf/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:44:50.398Z",
+    "categories": [
+      "Artbooks",
+      "Character Books"
+    ]
+  },
+  {
+    "id": 1782596755570,
+    "image": "/images/products/product-1782596755570-0.jpg",
+    "images": [
+      "/images/products/product-1782596755570-0.jpg",
+      "/images/products/product-1782596755570-1.jpg",
+      "/images/products/product-1782596755570-2.jpg",
+      "/images/products/product-1782596755570-3.jpg",
+      "/images/products/product-1782596755570-4.jpg",
+      "/images/products/product-1782596755570-5.jpg"
+    ],
+    "name": "Blue Lock Egoist Bible Vol.2",
+    "description": "Colección de datos e Ilustraciones de Blue Lock.",
+    "details": "Colección de datos e Ilustraciones de Blue Lock.",
+    "price": 24999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "rin",
+      "nagi",
+      "reo",
+      "bachira",
+      "isagi",
+      "sae"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DRNbMq6D7rR/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:45:55.570Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782596814754,
+    "image": "/images/products/product-1782596814754-0.jpg",
+    "images": [
+      "/images/products/product-1782596814754-0.jpg",
+      "/images/products/product-1782596814754-1.jpg",
+      "/images/products/product-1782596814754-2.jpg",
+      "/images/products/product-1782596814754-3.jpg",
+      "/images/products/product-1782596814754-4.jpg",
+      "/images/products/product-1782596814754-5.jpg"
+    ],
+    "name": "Memoriatechnica de Satoru Yuiga",
+    "description": "Artbook de Satoru Yuiga de tapa dura",
+    "details": "Artbook de Satoru Yuiga de tapa dura",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DRIm91CD-ZE/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:46:54.754Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782596915379,
+    "image": "/images/products/product-1782596915379-0.jpg",
+    "images": [
+      "/images/products/product-1782596915379-0.jpg",
+      "/images/products/product-1782596915379-1.jpg",
+      "/images/products/product-1782596915379-2.jpg",
+      "/images/products/product-1782596915379-3.jpg",
+      "/images/products/product-1782596915379-4.jpg",
+      "/images/products/product-1782596915379-5.jpg",
+      "/images/products/product-1782596915379-6.jpg",
+      "/images/products/product-1782596915379-7.jpg"
+    ],
+    "name": "Bocchi the Rock Antología Vol.4 Edición Especial",
+    "description": "Incluye postal.",
+    "details": "Incluye postal.",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "bochi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DRAuu7jD9v9/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:48:35.379Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ],
+    "adultContent": false
+  },
+  {
+    "id": 1782596976763,
+    "image": "/images/products/product-1782596976763-0.jpg",
+    "images": [
+      "/images/products/product-1782596976763-0.jpg",
+      "/images/products/product-1782596976763-1.jpg",
+      "/images/products/product-1782596976763-2.jpg",
+      "/images/products/product-1782596976763-3.jpg",
+      "/images/products/product-1782596976763-4.jpg",
+      "/images/products/product-1782596976763-5.jpg"
+    ],
+    "name": "Yusuke Nakamura Artbook Blue",
+    "description": "Colección de Ilustraciones del artista de Tatami Galaxy y varias portadas de álbumes famosos cómo de Asian Kung Fu Generation.",
+    "details": "Colección de Ilustraciones del artista de Tatami Galaxy y varias portadas de álbumes famosos cómo de Asian Kung Fu Generation.",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "asian kung fu"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DQ-JXPkD9As/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:49:36.763Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782597028447,
+    "image": "/images/products/product-1782597028447-0.jpg",
+    "images": [
+      "/images/products/product-1782597028447-0.jpg",
+      "/images/products/product-1782597028447-1.jpg",
+      "/images/products/product-1782597028447-2.jpg",
+      "/images/products/product-1782597028447-3.jpg",
+      "/images/products/product-1782597028447-4.jpg",
+      "/images/products/product-1782597028447-5.jpg"
+    ],
+    "name": "Dengeki Online Games Collaboration Vol.1",
+    "description": "Revista sobre videojuegos multijugador con portada de Pangya! el famoso juego de golf que se hizo popular últimamente.",
+    "details": "Revista sobre videojuegos multijugador con portada de Pangya! el famoso juego de golf que se hizo popular últimamente.",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQ7ZYaFD2Qg/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:50:28.447Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1782597083042,
+    "image": "/images/products/product-1782597083042-0.jpg",
+    "images": [
+      "/images/products/product-1782597083042-0.jpg",
+      "/images/products/product-1782597083042-1.jpg",
+      "/images/products/product-1782597083042-2.jpg",
+      "/images/products/product-1782597083042-3.jpg"
+    ],
+    "name": "Natsume Book of friends Vol. 23 Limitado",
+    "description": "Incluye llavero.",
+    "details": "Incluye llavero.",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQxbei_D6F1/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:51:23.042Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782597134330,
+    "image": "/images/products/product-1782597134330-0.jpg",
+    "images": [
+      "/images/products/product-1782597134330-0.jpg",
+      "/images/products/product-1782597134330-1.jpg",
+      "/images/products/product-1782597134330-2.jpg",
+      "/images/products/product-1782597134330-3.jpg",
+      "/images/products/product-1782597134330-4.jpg",
+      "/images/products/product-1782597134330-5.jpg",
+      "/images/products/product-1782597134330-6.jpg"
+    ],
+    "name": "VISIONS 2023",
+    "description": "Libro de Ilustraciones de distintos artistas supervisado por Pixiv, con información sobre cada artista, algunos como @wataboku__ y @yoneyamai",
+    "details": "Libro de Ilustraciones de distintos artistas supervisado por Pixiv, con información sobre cada artista, algunos como @wataboku__ y @yoneyamai",
+    "price": 49999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "artists",
+      "animeart",
+      "pixiv",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DQuh5NQj9AW/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:52:14.330Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782597201200,
+    "image": "/images/products/product-1782597201200-0.jpg",
+    "images": [
+      "/images/products/product-1782597201200-0.jpg",
+      "/images/products/product-1782597201200-1.jpg",
+      "/images/products/product-1782597201200-2.jpg",
+      "/images/products/product-1782597201200-3.jpg",
+      "/images/products/product-1782597201200-4.jpg",
+      "/images/products/product-1782597201200-5.jpg"
+    ],
+    "name": "Pokémon Ruby y Zafiro Guía",
+    "description": "Guía de Pokémon Ruby y Zafiro",
+    "details": "Guía de Pokémon Ruby y Zafiro",
+    "price": 24999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "guide",
+      "pocket",
+      "monster",
+      "mudkip",
+      "pikachu",
+      "torchic",
+      "treeko",
+      "rayquaza",
+      "pokemon"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DQsJG-OD4yv/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:53:21.200Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782597315391,
+    "image": "/images/products/product-1782597315391-0.jpg",
+    "images": [
+      "/images/products/product-1782597315391-0.jpg",
+      "/images/products/product-1782597315391-1.jpg",
+      "/images/products/product-1782597315391-2.jpg",
+      "/images/products/product-1782597315391-3.jpg",
+      "/images/products/product-1782597315391-4.jpg",
+      "/images/products/product-1782597315391-5.jpg",
+      "/images/products/product-1782597315391-6.jpg"
+    ],
+    "name": "Koupen Chan 1",
+    "description": "Colección de Ilustraciones de Rurutea, incluye stickers.",
+    "details": "Colección de Ilustraciones de Rurutea, incluye stickers.",
+    "price": 25999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQp16GWjJIM/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:55:15.391Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782597368824,
+    "image": "/images/products/product-1782597368824-0.jpg",
+    "images": [
+      "/images/products/product-1782597368824-0.jpg",
+      "/images/products/product-1782597368824-1.jpg",
+      "/images/products/product-1782597368824-2.jpg",
+      "/images/products/product-1782597368824-3.jpg",
+      "/images/products/product-1782597368824-4.jpg",
+      "/images/products/product-1782597368824-5.jpg",
+      "/images/products/product-1782597368824-6.jpg"
+    ],
+    "name": "Vongola 77 Character book",
+    "description": "Colección de datos interesantes de los personajes y la serie de Katekyo Hitman Reborn, con varias ilustraciones en blanco y negro.",
+    "details": "Colección de datos interesantes de los personajes y la serie de Katekyo Hitman Reborn, con varias ilustraciones en blanco y negro.",
+    "price": 24999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQnUOyPDJEQ/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:56:08.824Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782597411706,
+    "image": "/images/products/product-1782597411706-0.jpg",
+    "images": [
+      "/images/products/product-1782597411706-0.jpg",
+      "/images/products/product-1782597411706-1.jpg",
+      "/images/products/product-1782597411706-2.jpg"
+    ],
+    "name": "Hatsune Miku Fanbook de Indico Lite (Doujin",
+    "description": "Colección de ilustraciones en blanco y negro",
+    "details": "Colección de ilustraciones en blanco y negro",
+    "price": 14999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQkWmvaD48o/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:56:51.706Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ],
+    "adultContent": false
+  },
+  {
+    "id": 1782597464625,
+    "image": "/images/products/product-1782597464625-0.jpg",
+    "images": [
+      "/images/products/product-1782597464625-0.jpg",
+      "/images/products/product-1782597464625-1.jpg",
+      "/images/products/product-1782597464625-2.jpg",
+      "/images/products/product-1782597464625-3.jpg"
+    ],
+    "name": "Evangelion Original Illustration Book I",
+    "description": "Artbook incluído originalmente en la edición limitada del Vol.4 Coleccionista (Se puede conseguir el pack)",
+    "details": "Artbook incluído originalmente en la edición limitada del Vol.4 Coleccionista (Se puede conseguir el pack)",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "asuka",
+      "shinji",
+      "rei"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DQiBLrrD86y/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:57:44.625Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782597530328,
+    "image": "/images/products/product-1782597530328-0.jpg",
+    "images": [
+      "/images/products/product-1782597530328-0.jpg",
+      "/images/products/product-1782597530328-1.jpg",
+      "/images/products/product-1782597530328-2.jpg",
+      "/images/products/product-1782597530328-3.jpg",
+      "/images/products/product-1782597530328-4.jpg",
+      "/images/products/product-1782597530328-5.jpg"
+    ],
+    "name": "Sumikogurashi Fanbook",
+    "description": "Incluye Tote Bag",
+    "details": "Incluye Tote Bag",
+    "price": 27999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQXtyPHD8Jj/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T21:58:50.328Z",
+    "categories": [
+      "Otros",
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1782597601601,
+    "image": "/images/products/product-1782597601601-0.jpg",
+    "images": [
+      "/images/products/product-1782597601601-0.jpg",
+      "/images/products/product-1782597601601-1.jpg",
+      "/images/products/product-1782597601601-2.jpg",
+      "/images/products/product-1782597601601-3.jpg",
+      "/images/products/product-1782597601601-4.jpg",
+      "/images/products/product-1782597601601-5.jpg",
+      "/images/products/product-1782597601601-6.jpg",
+      "/images/products/product-1782597601601-7.jpg",
+      "/images/products/product-1782597601601-8.jpg",
+      "/images/products/product-1782597601601-9.jpg"
+    ],
+    "name": "Granblue Fantasy Graphic Archive V",
+    "description": "Quinta Colección de Ilustraciones de Grandblue Fantasy que incluye diseños de colaboraciones como Persona 5 y Princess Connect.",
+    "details": "Quinta Colección de Ilustraciones de Grandblue Fantasy que incluye diseños de colaboraciones como Persona 5 y Princess Connect.",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQSMLFAj8JD/?img_index=3",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:00:01.601Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782597681004,
+    "image": "/images/products/product-1782597681004-0.jpg",
+    "images": [
+      "/images/products/product-1782597681004-0.jpg",
+      "/images/products/product-1782597681004-1.jpg",
+      "/images/products/product-1782597681004-2.jpg",
+      "/images/products/product-1782597681004-3.jpg",
+      "/images/products/product-1782597681004-4.jpg",
+      "/images/products/product-1782597681004-5.jpg",
+      "/images/products/product-1782597681004-6.jpg",
+      "/images/products/product-1782597681004-7.jpg",
+      "/images/products/product-1782597681004-8.jpg",
+      "/images/products/product-1782597681004-9.jpg"
+    ],
+    "name": "Kikan S Octubre 2023",
+    "description": "Incluye Flipbook de @yoneyamai y un poster bifaz",
+    "details": "Incluye Flipbook de @yoneyamai y un poster bifaz",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "yoneyamai",
+      "mai",
+      "yoneyama"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DQKxxgpD4tr/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:01:21.004Z",
+    "categories": [
+      "Revistas",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782597735199,
+    "image": "/images/products/product-1782597735199-0.jpg",
+    "images": [
+      "/images/products/product-1782597735199-0.jpg",
+      "/images/products/product-1782597735199-1.jpg",
+      "/images/products/product-1782597735199-2.jpg",
+      "/images/products/product-1782597735199-3.jpg",
+      "/images/products/product-1782597735199-4.jpg"
+    ],
+    "name": "Sono Bisque Doll de Chu\nSpin-off de My dress-up...",
+    "description": "Sono Bisque Doll de Chu\nSpin-off de My dress-up darling",
+    "details": "Sono Bisque Doll de Chu\nSpin-off de My dress-up darling",
+    "price": 24999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQIZnBQjNZ3/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:02:15.199Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1782598011235,
+    "image": "/images/products/product-1782598011235-0.jpg",
+    "images": [
+      "/images/products/product-1782598011235-0.jpg",
+      "/images/products/product-1782598011235-1.jpg",
+      "/images/products/product-1782598011235-2.jpg",
+      "/images/products/product-1782598011235-3.jpg",
+      "/images/products/product-1782598011235-4.jpg",
+      "/images/products/product-1782598011235-5.jpg",
+      "/images/products/product-1782598011235-6.jpg",
+      "/images/products/product-1782598011235-7.jpg"
+    ],
+    "name": "ANTENGAI II - Capricho Nocturno",
+    "description": "Parte 2 de este libro que combina tanto manga, como artbook con un diseño precioso.",
+    "details": "Parte 2 de este libro que combina tanto manga, como artbook con un diseño precioso.",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQFkHjZj3_H/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:06:51.235Z",
+    "categories": [
+      "Artbooks",
+      "Mangas"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1782598162395,
+    "image": "/images/products/product-1782598162395-0.jpg",
+    "images": [
+      "/images/products/product-1782598162395-0.jpg",
+      "/images/products/product-1782598162395-1.jpg",
+      "/images/products/product-1782598162395-2.jpg",
+      "/images/products/product-1782598162395-3.jpg",
+      "/images/products/product-1782598162395-4.jpg",
+      "/images/products/product-1782598162395-5.jpg",
+      "/images/products/product-1782598162395-6.jpg"
+    ],
+    "name": "Higurashi no Naku Koro Ni Official Complete Guide",
+    "description": "Guía de When they cry con ilustraciones, diseños, y datos interesantes del juego.",
+    "details": "Guía de When they cry con ilustraciones, diseños, y datos interesantes del juego.",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DQAUgvBD_qV/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:09:22.395Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782598243566,
+    "image": "/images/products/product-1782598243566-0.jpg",
+    "images": [
+      "/images/products/product-1782598243566-0.jpg",
+      "/images/products/product-1782598243566-1.jpg",
+      "/images/products/product-1782598243566-2.jpg",
+      "/images/products/product-1782598243566-3.jpg",
+      "/images/products/product-1782598243566-4.jpg",
+      "/images/products/product-1782598243566-5.jpg",
+      "/images/products/product-1782598243566-6.jpg",
+      "/images/products/product-1782598243566-7.jpg",
+      "/images/products/product-1782598243566-8.jpg"
+    ],
+    "name": "Jump Ryu Vol. 21 (Hunter x Hunter)",
+    "description": "Incluye revista, DVD con tutorial de dibujo, 1 dibujo de Kurapika y 1 dibujo de YYH para enmarcar, y la caja para guardar todo",
+    "details": "Incluye revista, DVD con tutorial de dibujo, 1 dibujo de Kurapika y 1 dibujo de YYH para enmarcar, y la caja para guardar todo",
+    "price": 59999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "hxh",
+      "kurapika",
+      "gon",
+      "killua"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DP6-mgkj2ou/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:10:43.566Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782598354620,
+    "image": "/images/products/product-1782598354620-0.jpg",
+    "images": [
+      "/images/products/product-1782598354620-0.jpg",
+      "/images/products/product-1782598354620-1.jpg",
+      "/images/products/product-1782598354620-2.jpg",
+      "/images/products/product-1782598354620-3.jpg",
+      "/images/products/product-1782598354620-4.jpg",
+      "/images/products/product-1782598354620-5.jpg",
+      "/images/products/product-1782598354620-6.jpg"
+    ],
+    "name": "Fate/Zero Material",
+    "description": "Colección de Ilustraciones y diseños de personajes de Fate/Zero",
+    "details": "Colección de Ilustraciones y diseños de personajes de Fate/Zero",
+    "price": 27999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "saber",
+      "artoria",
+      "gilgamesh",
+      "sakura"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DP4t-MND68m/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:12:34.620Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782598425926,
+    "image": "/images/products/product-1782598425926-0.jpg",
+    "images": [
+      "/images/products/product-1782598425926-0.jpg",
+      "/images/products/product-1782598425926-1.jpg",
+      "/images/products/product-1782598425926-2.jpg",
+      "/images/products/product-1782598425926-3.jpg"
+    ],
+    "name": "Ebiten Box Fanbook",
+    "description": "Solo el Fanbook de la caja de Ebiten",
+    "details": "Solo el Fanbook de la caja de Ebiten",
+    "price": 21999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DP2HZmwjz0N/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:13:45.926Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782598501728,
+    "image": "/images/products/product-1782598501728-0.jpg",
+    "images": [
+      "/images/products/product-1782598501728-0.jpg",
+      "/images/products/product-1782598501728-1.jpg",
+      "/images/products/product-1782598501728-2.jpg",
+      "/images/products/product-1782598501728-3.jpg",
+      "/images/products/product-1782598501728-4.jpg",
+      "/images/products/product-1782598501728-5.jpg",
+      "/images/products/product-1782598501728-6.jpg",
+      "/images/products/product-1782598501728-7.jpg",
+      "/images/products/product-1782598501728-8.jpg",
+      "/images/products/product-1782598501728-9.jpg"
+    ],
+    "name": "Touhou Project Tribute Arts 3 Edición especial",
+    "description": "Incluye 2 artbooks, uno a color y otro de sketches, y una caja contenedora",
+    "details": "Incluye 2 artbooks, uno a color y otro de sketches, y una caja contenedora",
+    "price": 36999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "toho"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DPzjUwVj7OF/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:15:01.728Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis"
+    ]
+  },
+  {
+    "id": 1782598561288,
+    "image": "/images/products/product-1782598561288-0.jpg",
+    "images": [
+      "/images/products/product-1782598561288-0.jpg",
+      "/images/products/product-1782598561288-1.jpg",
+      "/images/products/product-1782598561288-2.jpg",
+      "/images/products/product-1782598561288-3.jpg",
+      "/images/products/product-1782598561288-4.jpg",
+      "/images/products/product-1782598561288-5.jpg"
+    ],
+    "name": "Kingdom Hearts II Ultimania",
+    "description": "Libro de información de Kingom Hearts 2 con contenido exclusivo del juego.",
+    "details": "Libro de información de Kingom Hearts 2 con contenido exclusivo del juego.",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DPxFWGWDMR2/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:16:01.288Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782598747927,
+    "image": "/images/products/product-1782598747927-0.jpg",
+    "images": [
+      "/images/products/product-1782598747927-0.jpg",
+      "/images/products/product-1782598747927-1.jpg",
+      "/images/products/product-1782598747927-2.jpg",
+      "/images/products/product-1782598747927-3.jpg"
+    ],
+    "name": "Mahoyome Vol. 4 Edición limitada",
+    "description": "Viene con llavero y 5 cartas",
+    "details": "Viene con llavero y 5 cartas",
+    "price": 29999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DPuafVFj0jN/?img_index=5",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T22:19:07.927Z",
+    "categories": [
+      "Guide Books",
+      "Cartas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782603876558,
+    "image": "/images/products/product-1782603876558-0.jpg",
+    "images": [
+      "/images/products/product-1782603876558-0.jpg",
+      "/images/products/product-1782603876558-1.jpg",
+      "/images/products/product-1782603876558-2.jpg",
+      "/images/products/product-1782603876558-3.jpg",
+      "/images/products/product-1782603876558-4.jpg",
+      "/images/products/product-1782603876558-5.jpg",
+      "/images/products/product-1782603876558-6.jpg",
+      "/images/products/product-1782603876558-7.jpg"
+    ],
+    "name": "Katekyo Hitman Reborn Libro del Guardiano",
+    "description": "Incluye carta y desplegable",
+    "details": "Incluye carta y desplegable",
+    "price": 29999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DPhZdRQjzpq/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-27T23:44:36.558Z",
+    "categories": [
+      "Guide Books",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1782606262923,
+    "image": "/images/products/product-1782606262923-0.jpg",
+    "images": [
+      "/images/products/product-1782606262923-0.jpg",
+      "/images/products/product-1782606262923-1.jpg",
+      "/images/products/product-1782606262923-2.jpg"
+    ],
+    "name": "Tanoshii Kindergarten Noviembre 2022",
+    "description": "Incluye 5 figuras de chiikawa y una garra para armar y jugar!",
+    "details": "Incluye 5 figuras de chiikawa y una garra para armar y jugar!",
+    "price": 44999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DPcdyRWDF98/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:24:22.433Z",
+    "categories": [
+      "Revistas",
+      "Figuras",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782606263421,
+    "image": "/images/products/product-1782606263421-0.jpg",
+    "images": [
+      "/images/products/product-1782606263421-0.jpg",
+      "/images/products/product-1782606263421-1.jpg",
+      "/images/products/product-1782606263421-2.jpg"
+    ],
+    "name": "My dress-up darling Vol. 7 Edición limitada",
+    "description": "Incluye llavero de acrílico",
+    "details": "Incluye llavero de acrílico",
+    "price": 59999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DPW-rUSEavj/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:24:22.433Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782606392706,
+    "image": "/images/products/product-1782606392706-0.jpg",
+    "images": [
+      "/images/products/product-1782606392706-0.jpg",
+      "/images/products/product-1782606392706-1.jpg",
+      "/images/products/product-1782606392706-2.jpg",
+      "/images/products/product-1782606392706-3.jpg",
+      "/images/products/product-1782606392706-4.jpg",
+      "/images/products/product-1782606392706-5.jpg"
+    ],
+    "name": "Spoon.2Di Vol. 11",
+    "description": "Incluye 2 posters",
+    "details": "Incluye 2 posters",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "durarara"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DPSGC0Xj9tQ/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:26:31.937Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1782606392685,
+    "image": "/images/products/product-1782606392685-0.jpg",
+    "images": [
+      "/images/products/product-1782606392685-0.jpg",
+      "/images/products/product-1782606392685-1.jpg",
+      "/images/products/product-1782606392685-2.jpg",
+      "/images/products/product-1782606392685-3.jpg",
+      "/images/products/product-1782606392685-4.jpg",
+      "/images/products/product-1782606392685-5.jpg",
+      "/images/products/product-1782606392685-6.jpg"
+    ],
+    "name": "The House in Fata Morgana Artbook \"The Anniversary\"",
+    "description": "Colección de Ilustraciones de la famosa novela visual",
+    "details": "Colección de Ilustraciones de la famosa novela visual",
+    "price": 79999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fata"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DPO4Q8VjsjO/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:26:31.937Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782607369964,
+    "image": "/images/products/product-1782607369964-0.jpg",
+    "images": [
+      "/images/products/product-1782607369964-0.jpg",
+      "/images/products/product-1782607369964-1.jpg",
+      "/images/products/product-1782607369964-2.jpg",
+      "/images/products/product-1782607369964-3.jpg",
+      "/images/products/product-1782607369964-4.jpg",
+      "/images/products/product-1782607369964-5.jpg",
+      "/images/products/product-1782607369964-6.jpg",
+      "/images/products/product-1782607369964-7.jpg",
+      "/images/products/product-1782607369964-8.jpg"
+    ],
+    "name": "Read or Die Official Archive",
+    "description": "Colección de Ilustraciones, diseños, y datos interesantes de R.O.D. (tanto el OVA, como la serie)",
+    "details": "Colección de Ilustraciones, diseños, y datos interesantes de R.O.D. (tanto el OVA, como la serie)",
+    "price": 49999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "rod",
+      "r.o.d.",
+      "yomiko",
+      "readman"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DPHo8x6j1cB/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:42:49.381Z",
+    "categories": [
+      "Artbooks",
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782607369853,
+    "image": "/images/products/product-1782607369853-0.jpg",
+    "images": [
+      "/images/products/product-1782607369853-0.jpg",
+      "/images/products/product-1782607369853-1.jpg",
+      "/images/products/product-1782607369853-2.jpg",
+      "/images/products/product-1782607369853-3.jpg",
+      "/images/products/product-1782607369853-4.jpg",
+      "/images/products/product-1782607369853-5.jpg",
+      "/images/products/product-1782607369853-6.jpg",
+      "/images/products/product-1782607369853-7.jpg",
+      "/images/products/product-1782607369853-8.jpg"
+    ],
+    "name": "Fate/EXTELLA material",
+    "description": "Colección de Ilustraciones del videojuego Fate/EXTELLA",
+    "details": "Colección de Ilustraciones del videojuego Fate/EXTELLA",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "wada arco",
+      "saber",
+      "nero",
+      "jeanne",
+      "artoria"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DOzAWNJDzXb/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:42:49.381Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1782607369496,
+    "image": "/images/products/product-1782607369496-0.jpg",
+    "images": [
+      "/images/products/product-1782607369496-0.jpg",
+      "/images/products/product-1782607369496-1.jpg",
+      "/images/products/product-1782607369496-2.jpg",
+      "/images/products/product-1782607369496-3.jpg",
+      "/images/products/product-1782607369496-4.jpg",
+      "/images/products/product-1782607369496-5.jpg",
+      "/images/products/product-1782607369496-6.jpg",
+      "/images/products/product-1782607369496-7.jpg",
+      "/images/products/product-1782607369496-8.jpg",
+      "/images/products/product-1782607369496-9.jpg"
+    ],
+    "name": "JOJO A GO!GO! Ultimate Edition",
+    "description": "Incluye caja contenedora con 3 libros:\n- Artbook de tapa dura\n- Databook de stands\n- Databook de Araki Hirohiko\nAdemás la caja tiene una rueda giratoria que muestra distintos personajes!",
+    "details": "Incluye caja contenedora con 3 libros:\n- Artbook de tapa dura\n- Databook de stands\n- Databook de Araki Hirohiko\nAdemás la caja tiene una rueda giratoria que muestra distintos personajes!",
+    "price": 99999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "jojos",
+      "dio"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DOv9bRNDswj/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:42:49.381Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782607566967,
+    "image": "/images/products/product-1782607566967-0.jpg",
+    "images": [
+      "/images/products/product-1782607566967-0.jpg",
+      "/images/products/product-1782607566967-1.jpg",
+      "/images/products/product-1782607566967-2.jpg",
+      "/images/products/product-1782607566967-3.jpg",
+      "/images/products/product-1782607566967-4.jpg",
+      "/images/products/product-1782607566967-5.jpg",
+      "/images/products/product-1782607566967-6.jpg"
+    ],
+    "name": "Fruits Basket Illustrations",
+    "description": "Colección de ilustraciones de Fruits basket hechas por Natsuki Takaya",
+    "details": "Colección de ilustraciones de Fruits basket hechas por Natsuki Takaya",
+    "price": 42999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fruba"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DOg8icgj2eK/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:46:06.454Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782607746052,
+    "image": "/images/products/product-1782607746052-0.jpg",
+    "images": [
+      "/images/products/product-1782607746052-0.jpg",
+      "/images/products/product-1782607746052-1.jpg",
+      "/images/products/product-1782607746052-2.jpg",
+      "/images/products/product-1782607746052-3.jpg",
+      "/images/products/product-1782607746052-4.jpg"
+    ],
+    "name": "Disney's Twisted Wonderland Azul Ashengrotto Character Book",
+    "description": "Librito de información y arte de que viene con un peluchito\n",
+    "details": "Librito de información y arte de que viene con un peluchito\n",
+    "price": 46999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DOb9UvDj4b7/?img_index=2",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:49:05.994Z",
+    "categories": [
+      "Artbooks",
+      "Peluches"
+    ]
+  },
+  {
+    "id": 1782608273794,
+    "image": "/images/products/product-1782608273794-0.jpg",
+    "images": [
+      "/images/products/product-1782608273794-0.jpg",
+      "/images/products/product-1782608273794-1.jpg",
+      "/images/products/product-1782608273794-2.jpg",
+      "/images/products/product-1782608273794-3.jpg",
+      "/images/products/product-1782608273794-4.jpg",
+      "/images/products/product-1782608273794-5.jpg",
+      "/images/products/product-1782608273794-6.jpg"
+    ],
+    "name": "MAIDRA Collection",
+    "description": "Colección de Ilustraciones de Kobayashi-san Chi no Maid Dragon.",
+    "details": "Colección de Ilustraciones de Kobayashi-san Chi no Maid Dragon.",
+    "price": 64999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "tohrum",
+      "kanna",
+      "maidragon"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DOEvgZIjy4C/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:57:53.336Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782608389316,
+    "image": "/images/products/product-1782608389316-0.jpg",
+    "images": [
+      "/images/products/product-1782608389316-0.jpg",
+      "/images/products/product-1782608389316-1.jpg",
+      "/images/products/product-1782608389316-2.jpg",
+      "/images/products/product-1782608389316-3.jpg",
+      "/images/products/product-1782608389316-4.jpg",
+      "/images/products/product-1782608389316-5.jpg",
+      "/images/products/product-1782608389316-6.jpg",
+      "/images/products/product-1782608389316-7.jpg",
+      "/images/products/product-1782608389316-8.jpg"
+    ],
+    "name": "Kara no Kyoukai Complete Artbook + Mirai Fukuin",
+    "description": "Artbook de 145 páginas que incluye el manga extra chorus",
+    "details": "Artbook de 145 páginas que incluye el manga extra chorus",
+    "price": 49999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DMxxDb-ui-h/?img_index=4",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:59:48.643Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782608388645,
+    "image": "/images/products/product-1782608388645-0.jpg",
+    "images": [
+      "/images/products/product-1782608388645-0.jpg",
+      "/images/products/product-1782608388645-1.jpg",
+      "/images/products/product-1782608388645-2.jpg",
+      "/images/products/product-1782608388645-3.jpg",
+      "/images/products/product-1782608388645-4.jpg",
+      "/images/products/product-1782608388645-5.jpg"
+    ],
+    "name": "Utawarerumono Artbook",
+    "description": "Colección de ilustraciones, diseños y datos de Utawarerumono",
+    "details": "Colección de ilustraciones, diseños y datos de Utawarerumono",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DMqzwBoPHmA/?img_index=4",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:59:48.643Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782608388756,
+    "image": "/images/products/product-1782608388756-0.jpg",
+    "images": [
+      "/images/products/product-1782608388756-0.jpg",
+      "/images/products/product-1782608388756-1.jpg",
+      "/images/products/product-1782608388756-2.jpg",
+      "/images/products/product-1782608388756-3.jpg",
+      "/images/products/product-1782608388756-4.jpg",
+      "/images/products/product-1782608388756-5.jpg"
+    ],
+    "name": "Esquisse de Misato Mitsumi y Tatsuki Amaduyu",
+    "description": "Incluye muchos fanarts y diseños originales de estos artistas",
+    "details": "Incluye muchos fanarts y diseños originales de estos artistas",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DMNuC49M_8M/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:59:48.643Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1782608389558,
+    "image": "/images/products/product-1782608389558-0.jpg",
+    "images": [
+      "/images/products/product-1782608389558-0.jpg",
+      "/images/products/product-1782608389558-1.jpg",
+      "/images/products/product-1782608389558-2.jpg",
+      "/images/products/product-1782608389558-3.jpg",
+      "/images/products/product-1782608389558-4.jpg",
+      "/images/products/product-1782608389558-5.jpg",
+      "/images/products/product-1782608389558-6.jpg",
+      "/images/products/product-1782608389558-7.jpg"
+    ],
+    "name": "Nier:Automata World Guide",
+    "description": "Guía del famoso videojuego de Yoko Taro, Nier:Automata.",
+    "details": "Guía del famoso videojuego de Yoko Taro, Nier:Automata.",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "nier",
+      "nierautomata",
+      "yokotaro",
+      "2b",
+      "Anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DMIqi1kshTl/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:59:48.643Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782608389326,
+    "image": "/images/products/product-1782608389326-0.jpg",
+    "images": [
+      "/images/products/product-1782608389326-0.jpg",
+      "/images/products/product-1782608389326-1.jpg",
+      "/images/products/product-1782608389326-2.jpg",
+      "/images/products/product-1782608389326-3.jpg",
+      "/images/products/product-1782608389326-4.jpg"
+    ],
+    "name": "Fun Kindergarten Julio 2024",
+    "description": "Incluye un gachapon funcional con 5 figuras de chiikawa, stickers, y algunas cosas mas para armar!",
+    "details": "Incluye un gachapon funcional con 5 figuras de chiikawa, stickers, y algunas cosas mas para armar!",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DMBZ5jevXKb/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T00:59:48.643Z",
+    "categories": [
+      "Revistas",
+      "Otros",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782620195747,
+    "image": "/images/products/product-1782620195747-0.jpg",
+    "images": [
+      "/images/products/product-1782620195747-0.jpg",
+      "/images/products/product-1782620195747-1.jpg",
+      "/images/products/product-1782620195747-2.jpg",
+      "/images/products/product-1782620195747-3.jpg",
+      "/images/products/product-1782620195747-4.jpg"
+    ],
+    "name": "Houseki no Kuni Vol. 10 Edición limitada",
+    "description": "Incluye manga, artbook y stickers",
+    "details": "Incluye manga, artbook y stickers",
+    "price": 59999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "tierra de las gemas",
+      "land of the lustrous",
+      "phos"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DK5QqooxHlM/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T04:16:35.269Z",
+    "categories": [
+      "Mangas",
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782620195623,
+    "image": "/images/products/product-1782620195623-0.jpg",
+    "images": [
+      "/images/products/product-1782620195623-0.jpg",
+      "/images/products/product-1782620195623-1.jpg",
+      "/images/products/product-1782620195623-2.jpg",
+      "/images/products/product-1782620195623-3.jpg",
+      "/images/products/product-1782620195623-4.jpg",
+      "/images/products/product-1782620195623-5.jpg"
+    ],
+    "name": "Tezukuri Parfait Sumikko Gurashi Juice Jihanki",
+    "description": "Revista con muchos tutoriales de DIYs\nIncluye todo para hacer un facil DIY de una máquina expendedora de cartón funcional con 6 gomas de borrar",
+    "details": "Revista con muchos tutoriales de DIYs\nIncluye todo para hacer un facil DIY de una máquina expendedora de cartón funcional con 6 gomas de borrar",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "chiikawa",
+      "chikawa",
+      "sumikkogurashi",
+      "sumiko"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DK2xxAVxfUu/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T04:16:35.269Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782620195932,
+    "image": "/images/products/product-1782620195932-0.jpg",
+    "images": [
+      "/images/products/product-1782620195932-0.jpg",
+      "/images/products/product-1782620195932-1.jpg",
+      "/images/products/product-1782620195932-2.jpg",
+      "/images/products/product-1782620195932-3.jpg",
+      "/images/products/product-1782620195932-4.jpg",
+      "/images/products/product-1782620195932-5.jpg"
+    ],
+    "name": "Banana fish TV Animation Official Guide Moment",
+    "description": "Guía del anime de banana fish, incluye poster de la portada",
+    "details": "Guía del anime de banana fish, incluye poster de la portada",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DK0Ou_mxpd2/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T04:16:35.269Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782620196135,
+    "image": "/images/products/product-1782620196135-0.jpg",
+    "images": [
+      "/images/products/product-1782620196135-0.jpg",
+      "/images/products/product-1782620196135-1.jpg",
+      "/images/products/product-1782620196135-2.jpg",
+      "/images/products/product-1782620196135-3.jpg",
+      "/images/products/product-1782620196135-4.jpg",
+      "/images/products/product-1782620196135-5.jpg",
+      "/images/products/product-1782620196135-6.jpg"
+    ],
+    "name": "Baccano Artbook",
+    "description": "Colección de Ilustraciones de 112 páginas de Baccano y algunas otras novelas del ilustrador.\nTapa dura!",
+    "details": "Colección de Ilustraciones de 112 páginas de Baccano y algunas otras novelas del ilustrador.\nTapa dura!",
+    "price": 49999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "durarara"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DKk1eLjx5HO/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T04:16:35.269Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782620195977,
+    "image": "/images/products/product-1782620195977-0.jpg",
+    "images": [
+      "/images/products/product-1782620195977-0.jpg",
+      "/images/products/product-1782620195977-1.jpg",
+      "/images/products/product-1782620195977-2.jpg",
+      "/images/products/product-1782620195977-3.jpg",
+      "/images/products/product-1782620195977-4.jpg",
+      "/images/products/product-1782620195977-5.jpg"
+    ],
+    "name": "Photo book de Houshou Marine y Shirogane Noel Hololive edición limiada",
+    "description": "Colección de fotos de las dos famosas Vtubers de 92 páginas, incluye una postal y 3 mini fotos.",
+    "details": "Colección de fotos de las dos famosas Vtubers de 92 páginas, incluye una postal y 3 mini fotos.\nAguante marine carajo mierda",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DKiNdApxOEK/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T04:16:35.269Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1782633664856,
+    "image": "/images/products/product-1782633664856-0.jpg",
+    "images": [
+      "/images/products/product-1782633664856-0.jpg",
+      "/images/products/product-1782633664856-1.jpg",
+      "/images/products/product-1782633664856-2.jpg",
+      "/images/products/product-1782633664856-3.jpg"
+    ],
+    "name": "Vanitas Vol. 10 Edición limitada",
+    "description": "Incluye artbook",
+    "details": "Incluye artbook",
+    "price": 34999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DKPUZfFxvkc/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:01:04.024Z",
+    "categories": [
+      "Mangas",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782633664989,
+    "image": "/images/products/product-1782633664989-0.jpg",
+    "images": [
+      "/images/products/product-1782633664989-0.jpg",
+      "/images/products/product-1782633664989-1.jpg",
+      "/images/products/product-1782633664989-2.jpg"
+    ],
+    "name": "Evangelion Vol. 7 Edición limitada",
+    "description": "Incluye figura de Asuka",
+    "details": "Incluye figura de Asuka",
+    "price": 44999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "asuka",
+      "rei",
+      "eva"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DKLYat_R3_g/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:01:04.024Z",
+    "categories": [
+      "Mangas",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782633664343,
+    "image": "/images/products/product-1782633664343-0.jpg",
+    "images": [
+      "/images/products/product-1782633664343-0.jpg",
+      "/images/products/product-1782633664343-1.jpg",
+      "/images/products/product-1782633664343-2.jpg",
+      "/images/products/product-1782633664343-3.jpg",
+      "/images/products/product-1782633664343-4.jpg",
+      "/images/products/product-1782633664343-5.jpg"
+    ],
+    "name": "Fullmetal Alchemist Complete Best",
+    "description": "Incluye:\n- CD con todos los openings y endings de FMA y su guía\n- DVD con todos los openings y endings de FMA y su guía\n- Mini guía del anime",
+    "details": "Incluye:\n- CD con todos los openings y endings de FMA y su guía\n- DVD con todos los openings y endings de FMA y su guía\n- Mini guía del anime",
+    "price": 59999,
+    "category": "CD/DVD",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DKAa8AyR4p6/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:01:04.024Z",
+    "categories": [
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1782633803319,
+    "image": "/images/products/product-1782633803319-0.jpg",
+    "images": [
+      "/images/products/product-1782633803319-0.jpg",
+      "/images/products/product-1782633803319-1.jpg",
+      "/images/products/product-1782633803319-2.jpg"
+    ],
+    "name": "Made in Abyss Original Soundtrack 1",
+    "description": "Dos discos con el soundtrack completo de la primera temporada de Made in Abyss, hecho por el gran Kevin Penkin",
+    "details": "Dos discos con el soundtrack completo de la primera temporada de Made in Abyss, hecho por el gran Kevin Penkin",
+    "price": 59999,
+    "category": "CD/DVD",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJ7UYDFRRRQ/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:03:22.862Z",
+    "categories": [
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1782633803029,
+    "image": "/images/products/product-1782633803029-0.jpg",
+    "images": [
+      "/images/products/product-1782633803029-0.jpg",
+      "/images/products/product-1782633803029-1.jpg",
+      "/images/products/product-1782633803029-2.jpg",
+      "/images/products/product-1782633803029-3.jpg",
+      "/images/products/product-1782633803029-4.jpg",
+      "/images/products/product-1782633803029-5.jpg",
+      "/images/products/product-1782633803029-6.jpg",
+      "/images/products/product-1782633803029-7.jpg"
+    ],
+    "name": "Quintillizas Ameusagi pack",
+    "description": "Incluye:\n- Carpeta\n- Pañuelo\n- Postal de Miku\n- Llavero de Miku\n- Artbook",
+    "details": "Incluye:\n- Carpeta\n- Pañuelo\n- Postal de Miku\n- Llavero de Miku\n- Artbook",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "nakano",
+      "quintessential",
+      "hanayome",
+      "gotobun",
+      "goutobun"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJ7D7yqxvOH/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:03:22.862Z",
+    "categories": [
+      "Artbooks",
+      "Otros",
+      "Doujinshis"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1782633803602,
+    "image": "/images/products/product-1782633803602-0.jpg",
+    "images": [
+      "/images/products/product-1782633803602-0.jpg",
+      "/images/products/product-1782633803602-1.jpg",
+      "/images/products/product-1782633803602-2.jpg",
+      "/images/products/product-1782633803602-3.jpg"
+    ],
+    "name": "Houseki no Kuni Vol. 4 Edición Limitada",
+    "description": "Incluye un mazo de cartas para el juego de mesa",
+    "details": "Incluye un mazo de cartas para el juego de mesa",
+    "price": 199999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "tierra de las gemas",
+      "phos",
+      "land of the lustrous"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJ5FI9gRB8X/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:03:22.862Z",
+    "categories": [
+      "Mangas",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1782633803072,
+    "image": "/images/products/product-1782633803072-0.jpg",
+    "images": [
+      "/images/products/product-1782633803072-0.jpg"
+    ],
+    "name": "Revista Animage con portada de Wind Breaker",
+    "description": "Incluye un dibujo aparte de Hanako-kun",
+    "details": "Incluye un dibujo aparte de Hanako-kun",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJ4ZKFlR09d/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:03:22.862Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1782634081538,
+    "image": "/images/products/product-1782634081538-0.jpg",
+    "images": [
+      "/images/products/product-1782634081538-0.jpg",
+      "/images/products/product-1782634081538-1.jpg",
+      "/images/products/product-1782634081538-2.jpg",
+      "/images/products/product-1782634081538-3.jpg",
+      "/images/products/product-1782634081538-4.jpg",
+      "/images/products/product-1782634081538-5.jpg",
+      "/images/products/product-1782634081538-6.jpg",
+      "/images/products/product-1782634081538-7.jpg",
+      "/images/products/product-1782634081538-8.jpg",
+      "/images/products/product-1782634081538-9.jpg"
+    ],
+    "name": "Made in Abyss Official Artworks",
+    "description": "Coleccion de 3 libros:\n- Background Artbook\n- Pictorial Record of Cave Riders (Artbook y Guía)\n- Storyboard",
+    "details": "Coleccion de 3 libros:\n- Background Artbook\n- Pictorial Record of Cave Riders (Artbook y Guía)\n- Storyboard",
+    "price": 109999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "nanache",
+      "faputa",
+      "reg",
+      "riko"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJ15anjR7Du/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:08:01.166Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782634290278,
+    "image": "/images/products/product-1782634290278-0.jpg",
+    "images": [
+      "/images/products/product-1782634290278-0.jpg",
+      "/images/products/product-1782634290278-1.jpg",
+      "/images/products/product-1782634290278-2.jpg"
+    ],
+    "name": "Attack on Titan Shingeki no Kyojin Vol. 1 Edición Kansai",
+    "description": "Volumen 1 de Shingeki no Kyojin versión Kansai que incluye portada alternativa y diferencia en la forma de escribir los textos.\nSe puede comprar en pack con el volumen 17 edición limitada a $34999",
+    "details": "Volumen 1 de Shingeki no Kyojin versión Kansai que incluye portada alternativa y diferencia en la forma de escribir los textos.\nSe puede comprar en pack con el volumen 17 edición limitada a $34999",
+    "price": 19999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": true,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "attack on titan"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJz7Wohxr5h/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:11:30.012Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1782634290696,
+    "image": "/images/products/product-1782634290696-0.jpg",
+    "images": [
+      "/images/products/product-1782634290696-0.jpg",
+      "/images/products/product-1782634290696-1.jpg",
+      "/images/products/product-1782634290696-2.jpg",
+      "/images/products/product-1782634290696-3.jpg",
+      "/images/products/product-1782634290696-4.jpg",
+      "/images/products/product-1782634290696-5.jpg"
+    ],
+    "name": "Dino Crisis 2 Guía",
+    "description": "Incluye diseños, mapas, desplegables, información, etc",
+    "details": "Incluye diseños, mapas, desplegables, información, etc",
+    "price": 24999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJz38hSxqul/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:11:30.012Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782634290220,
+    "image": "/images/products/product-1782634290220-0.jpg",
+    "images": [
+      "/images/products/product-1782634290220-0.jpg",
+      "/images/products/product-1782634290220-1.jpg",
+      "/images/products/product-1782634290220-2.jpg",
+      "/images/products/product-1782634290220-3.jpg"
+    ],
+    "name": "Weekly Shonen Jump Febrero 2008",
+    "description": "Con portada de Reborn",
+    "details": "Con portada de Reborn",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "Shonen Jump",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "death note",
+      "bleach"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJzrtbCx7m7/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:11:30.012Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1782634290341,
+    "image": "/images/products/product-1782634290341-0.jpg",
+    "images": [
+      "/images/products/product-1782634290341-0.jpg",
+      "/images/products/product-1782634290341-1.jpg"
+    ],
+    "name": "Editado•Peluche Hachiware con su armita",
+    "description": "Mide 30cm",
+    "details": "Mide 30cm",
+    "price": 29999,
+    "category": "Peluches",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "chiikawa",
+      "chikawa",
+      "usagi",
+      "hardware",
+      "tupperware"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJxch7WRO1i/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:11:30.012Z",
+    "categories": [
+      "Peluches"
+    ]
+  },
+  {
+    "id": 1782634290154,
+    "image": "/images/products/product-1782634290154-0.jpg",
+    "images": [
+      "/images/products/product-1782634290154-0.jpg",
+      "/images/products/product-1782634290154-1.jpg",
+      "/images/products/product-1782634290154-2.jpg",
+      "/images/products/product-1782634290154-3.jpg"
+    ],
+    "name": "Chiikawa Vol. 3 Edición especial",
+    "description": "Incluye el manga y el juego de mesa Karuta con muchas cartas de los personajes",
+    "details": "Incluye el manga y el juego de mesa Karuta con muchas cartas de los personajes",
+    "price": 49999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJxcLOSRpBE/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:11:30.012Z",
+    "categories": [
+      "Mangas",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1782634290289,
+    "image": "/images/products/product-1782634290289-0.jpg",
+    "images": [
+      "/images/products/product-1782634290289-0.jpg",
+      "/images/products/product-1782634290289-1.jpg",
+      "/images/products/product-1782634290289-2.jpg",
+      "/images/products/product-1782634290289-3.jpg",
+      "/images/products/product-1782634290289-4.jpg",
+      "/images/products/product-1782634290289-5.jpg",
+      "/images/products/product-1782634290289-6.jpg",
+      "/images/products/product-1782634290289-7.jpg"
+    ],
+    "name": "Editado\n•\n Demon slayer Original Image collection Set 2",
+    "description": "Incluye caja contenedora, storyboard, cuadrito, acrílico, stickers, y lámina con dibujo",
+    "details": "Incluye caja contenedora, storyboard, cuadrito, acrílico, stickers, y lámina con dibujo",
+    "price": 44999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJxNGfcx90h/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:11:30.012Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782634459385,
+    "image": "/images/products/product-1782634459385-0.jpg",
+    "images": [
+      "/images/products/product-1782634459385-0.jpg",
+      "/images/products/product-1782634459385-1.jpg",
+      "/images/products/product-1782634459385-2.jpg",
+      "/images/products/product-1782634459385-3.jpg",
+      "/images/products/product-1782634459385-4.jpg"
+    ],
+    "name": "Steins;Gate Visual Works Edición Limitada",
+    "description": "Incluye Artbook, señalador y carpeta",
+    "details": "Incluye Artbook, señalador y carpeta",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJxMvDSRJxz/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:14:18.808Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782634459525,
+    "image": "/images/products/product-1782634459525-0.jpg",
+    "images": [
+      "/images/products/product-1782634459525-0.jpg",
+      "/images/products/product-1782634459525-1.jpg",
+      "/images/products/product-1782634459525-2.jpg",
+      "/images/products/product-1782634459525-3.jpg",
+      "/images/products/product-1782634459525-4.jpg"
+    ],
+    "name": "Editado\n•\n Dragon Ball Sparking Zero Guía",
+    "description": "Libro guía de la cuarta edición de la saga de juegos \"Budokai Tenkaichi\"\nContiene Ilustraciones, guías, diseños, etc\n",
+    "details": "Libro guía de la cuarta edición de la saga de juegos \"Budokai Tenkaichi\"\nContiene Ilustraciones, guías, diseños, etc\n",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJu6zEQxaHy/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:14:18.808Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1782634459665,
+    "image": "/images/products/product-1782634459665-0.jpg",
+    "images": [
+      "/images/products/product-1782634459665-0.jpg"
+    ],
+    "name": "Peluche Bachira Delfín de Blue lock",
+    "description": "Mide 10cm aprox",
+    "details": "Mide 10cm aprox",
+    "price": 24999,
+    "category": "Peluches",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJu5YwkR0tr/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:14:18.808Z",
+    "categories": [
+      "Peluches"
+    ]
+  },
+  {
+    "id": 1782634458967,
+    "image": "/images/products/product-1782634458967-0.jpg",
+    "images": [
+      "/images/products/product-1782634458967-0.jpg",
+      "/images/products/product-1782634458967-1.jpg"
+    ],
+    "name": "Peluches llavero mochimochi Hinata Shouyou y Medusa",
+    "description": "SOLO HINATA EN STOCK\n\niden 8,5cm de largo y 5cm de ancho",
+    "details": "Miden 8,5cm de largo y 5cm de ancho",
+    "price": 24999,
+    "category": "Peluches",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "haikyuu"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJuu0jdxfCr/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:14:18.809Z",
+    "categories": [
+      "Peluches"
+    ]
+  },
+  {
+    "id": 1782634458964,
+    "image": "/images/products/product-1782634458964-0.jpg",
+    "images": [
+      "/images/products/product-1782634458964-0.jpg",
+      "/images/products/product-1782634458964-1.jpg",
+      "/images/products/product-1782634458964-2.jpg",
+      "/images/products/product-1782634458964-3.jpg",
+      "/images/products/product-1782634458964-4.jpg",
+      "/images/products/product-1782634458964-5.jpg"
+    ],
+    "name": "Hunter x Hunter Treasure 9",
+    "description": "Esta revista es el volumen 9 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de las hormigas\n- Tapa de manga alternativa de Meruem para alguno de tus mangas\n- Páginas: 400 aprox.\n- Idioma: Japonés",
+    "details": "Esta revista es el volumen 9 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de las hormigas\n- Tapa de manga alternativa de Meruem para alguno de tus mangas\n- Páginas: 400 aprox.\n- Idioma: Japonés",
+    "price": 27999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "hxh"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJuGZySx4sx/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:14:18.809Z",
+    "categories": [
+      "Revistas",
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1782634656130,
+    "image": "/images/products/product-1782634656130-0.jpg",
+    "images": [
+      "/images/products/product-1782634656130-0.jpg",
+      "/images/products/product-1782634656130-1.jpg",
+      "/images/products/product-1782634656130-2.jpg"
+    ],
+    "name": "Ternurines de Chiikawa y Hachiware",
+    "description": "Ternurines de Chiikawa y Hachiware",
+    "details": "Ternurines de Chiikawa y Hachiware\nHay de muchos personajes más!",
+    "price": 29999,
+    "category": "Figuras",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJuD3IBxrtJ/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:17:35.439Z",
+    "categories": [
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782634655899,
+    "image": "/images/products/product-1782634655899-0.jpg",
+    "images": [
+      "/images/products/product-1782634655899-0.jpg"
+    ],
+    "name": "Chobits Vol. 1 & 6 Edición especial",
+    "description": "El 1 viene con Mousepad y una postal, y el 6 con un cartoncito, una tarjeta, y una postal",
+    "details": "El 1 viene con Mousepad y una postal, y el 6 con un cartoncito fachero, una tarjeta, y una postal",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJuDm69xhRj/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:17:35.439Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1782634656057,
+    "image": "/images/products/product-1782634656057-0.jpg",
+    "images": [
+      "/images/products/product-1782634656057-0.jpg",
+      "/images/products/product-1782634656057-1.jpg",
+      "/images/products/product-1782634656057-2.jpg",
+      "/images/products/product-1782634656057-3.jpg",
+      "/images/products/product-1782634656057-4.jpg"
+    ],
+    "name": "Katekyo Hitman Reborn Secret Bullet",
+    "description": "Novela que incluye algunas ilustraciones, un desplegable doble faz y un sobre",
+    "details": "Novela que incluye algunas ilustraciones, un desplegable doble faz y un sobre",
+    "price": 21999,
+    "category": "Novela Ligera",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJsxa_uMg-m/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:17:35.439Z",
+    "categories": [
+      "Novela Ligera"
+    ]
+  },
+  {
+    "id": 1782634655761,
+    "image": "/images/products/product-1782634655761-0.jpg",
+    "images": [
+      "/images/products/product-1782634655761-0.jpg",
+      "/images/products/product-1782634655761-1.jpg"
+    ],
+    "name": "Anillo del Rayo Katekyo Hitman Reborn",
+    "description": "Anillo del Rayo del anime Katekyo Hitman Reborn, el de Lambo",
+    "details": "Anillo del Rayo del anime Katekyo Hitman Reborn, el de Lambo",
+    "price": 34999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJsdx3QRgUS/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:17:35.439Z",
+    "categories": [
+      "Otros",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782635422010,
+    "image": "/images/products/product-1782635422010-0.jpg",
+    "images": [
+      "/images/products/product-1782635422010-0.jpg",
+      "/images/products/product-1782635422010-1.jpg"
+    ],
+    "name": "Banana Fish Artbook Angel Eyes ",
+    "description": "Colección de ilustraciones de Banana Fish de Akimi Yoshida",
+    "details": "Colección de ilustraciones de Banana Fish de Akimi Yoshida",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJsfVbwx4bw/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:30:21.849Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782635422216,
+    "image": "/images/products/product-1782635422216-0.jpg",
+    "images": [
+      "/images/products/product-1782635422216-0.jpg",
+      "/images/products/product-1782635422216-1.jpg"
+    ],
+    "name": "Atarashii Gakko CD Ichijikikoku Deluxe",
+    "description": "CD del album",
+    "details": "",
+    "price": 49999,
+    "category": "CD/DVD",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJ7UsFixZ2c/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:30:21.849Z",
+    "categories": [
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1782635422378,
+    "image": "/images/products/product-1782635422378-0.jpg",
+    "images": [
+      "/images/products/product-1782635422378-0.jpg",
+      "/images/products/product-1782635422378-1.jpg",
+      "/images/products/product-1782635422378-2.jpg",
+      "/images/products/product-1782635422378-3.jpg",
+      "/images/products/product-1782635422378-4.jpg",
+      "/images/products/product-1782635422378-5.jpg"
+    ],
+    "name": "Kaguya-Sama Love is War Fanbook",
+    "description": "Recopilación de información e ilustraciones de este fantástico romcom",
+    "details": "Recopilación de información e ilustraciones de este fantástico romcom",
+    "price": 23999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJsT9tFxZbi/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:30:21.849Z",
+    "categories": [
+      "Guide Books",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782635421960,
+    "image": "/images/products/product-1782635421960-0.jpg",
+    "images": [
+      "/images/products/product-1782635421960-0.jpg",
+      "/images/products/product-1782635421960-1.jpg"
+    ],
+    "name": "Evangelion Vol. 7 Edición Limitada",
+    "description": "Incluye figura de Rei Navidad",
+    "details": "",
+    "price": 39999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJrtVh9RcQn/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:30:21.849Z",
+    "categories": [
+      "Mangas",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782635688575,
+    "image": "/images/products/product-1782635688575-0.jpg",
+    "images": [
+      "/images/products/product-1782635688575-0.jpg",
+      "/images/products/product-1782635688575-1.jpg",
+      "/images/products/product-1782635688575-2.jpg",
+      "/images/products/product-1782635688575-3.jpg",
+      "/images/products/product-1782635688575-4.jpg"
+    ],
+    "name": "Trigun Multiple Bullets",
+    "description": "Manga de Trigun con distintos capitulos escritos e ilustrados por distintos autores, cómo Boichi, el autor de Dr. Stone",
+    "details": "Manga de Trigun con distintos capitulos escritos e ilustrados por distintos autores, cómo Boichi, el autor de Dr. Stone",
+    "price": 24999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "boichi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJrtksgR8p1/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:34:47.910Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1782635687971,
+    "image": "/images/products/product-1782635687971-0.jpg",
+    "images": [
+      "/images/products/product-1782635687971-0.jpg",
+      "/images/products/product-1782635687971-1.jpg",
+      "/images/products/product-1782635687971-2.jpg"
+    ],
+    "name": "Figura Faputa Coreful",
+    "description": "Figura Faputa Coreful",
+    "details": "Figura Faputa Coreful",
+    "price": 59999,
+    "category": "Figuras",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "made in abyss"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJdCZGvRZL_/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:34:47.910Z",
+    "categories": [
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782635688034,
+    "image": "/images/products/product-1782635688034-0.jpg",
+    "images": [
+      "/images/products/product-1782635688034-0.jpg",
+      "/images/products/product-1782635688034-1.jpg"
+    ],
+    "name": "CD Migma Shelter / Svaha Eraser",
+    "description": "CD del album",
+    "details": "CD del album",
+    "price": 34999,
+    "category": "CD/DVD",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJdCPqkximh/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:34:47.910Z",
+    "categories": [
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1782635688030,
+    "image": "/images/products/product-1782635688030-0.jpg",
+    "images": [
+      "/images/products/product-1782635688030-0.jpg",
+      "/images/products/product-1782635688030-1.jpg",
+      "/images/products/product-1782635688030-2.jpg",
+      "/images/products/product-1782635688030-3.jpg"
+    ],
+    "name": "Figura Nanachi Coreful temporada 2",
+    "description": "Con trajesito azul",
+    "details": "Con trajesito azul",
+    "price": 48999,
+    "category": "Figuras",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "made in abyss"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJdB5g5xirA/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:34:47.910Z",
+    "categories": [
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1782635688433,
+    "image": "/images/products/product-1782635688433-0.jpg",
+    "images": [
+      "/images/products/product-1782635688433-0.jpg",
+      "/images/products/product-1782635688433-1.jpg",
+      "/images/products/product-1782635688433-2.jpg",
+      "/images/products/product-1782635688433-3.jpg",
+      "/images/products/product-1782635688433-4.jpg"
+    ],
+    "name": "Bungo Stray Dogs- HARUKAWA35 Art Works",
+    "description": "Artbook formato B5, con sobrecubierta y solo páginas a color.",
+    "details": "Artbook formato B5, con sobrecubierta y solo páginas a color.",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "dazai"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJFxU3ixPvU/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:34:47.910Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782635688413,
+    "image": "/images/products/product-1782635688413-0.jpg",
+    "images": [
+      "/images/products/product-1782635688413-0.jpg",
+      "/images/products/product-1782635688413-1.jpg",
+      "/images/products/product-1782635688413-2.jpg",
+      "/images/products/product-1782635688413-3.jpg"
+    ],
+    "name": "Chainsaw Man Start guide",
+    "description": "Incluye poster bifaz y stickers",
+    "details": "Incluye poster bifaz y stickers",
+    "price": 26999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "denji",
+      "makima",
+      "pochita"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DJFpcvUR4wa/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:34:47.910Z",
+    "categories": [
+      "Guide Books",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782635898452,
+    "image": "/images/products/product-1782635898452-0.jpg",
+    "images": [
+      "/images/products/product-1782635898452-0.jpg",
+      "/images/products/product-1782635898452-1.jpg"
+    ],
+    "name": "The ancient magus bride Vol. 10 Edición limitada",
+    "description": "Incluye manga, libro extra con historias, y un acrílico",
+    "details": "Incluye manga, libro extra con historias, y un acrílico",
+    "price": 34999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJFpNeSRxIV/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:38:17.627Z",
+    "categories": [
+      "Mangas",
+      "Otros",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1782635897697,
+    "image": "/images/products/product-1782635897697-0.jpg",
+    "images": [
+      "/images/products/product-1782635897697-0.jpg",
+      "/images/products/product-1782635897697-1.jpg",
+      "/images/products/product-1782635897697-2.jpg",
+      "/images/products/product-1782635897697-3.jpg"
+    ],
+    "name": "Katekyo Hitman Reborn Jump Remix",
+    "description": "Volúmenes recopilatorios de los arcos de Katekyo Hitman Reborn\n\nEn estas imagenes se ven:\n\n- Blood of Vongole - Kokuyo Arc\n- Katekyō Hitman Reborn! Ring Royal 1\n- Katekyō Hitman Reborn! Ring Royal 2\n\nSi tenés suerte vienen con una postal",
+    "details": "Volúmenes recopilatorios de los arcos de Katekyo Hitman Reborn\n\nEn estas imagenes se ven:\n\n- Blood of Vongole - Kokuyo Arc\n- Katekyō Hitman Reborn! Ring Royal 1\n- Katekyō Hitman Reborn! Ring Royal 2\n\nSi tenés suerte vienen con una postal",
+    "price": 24999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJEpKnrRPfF/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:38:17.627Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782635898343,
+    "image": "/images/products/product-1782635898343-0.jpg",
+    "images": [
+      "/images/products/product-1782635898343-0.jpg",
+      "/images/products/product-1782635898343-1.jpg",
+      "/images/products/product-1782635898343-2.jpg"
+    ],
+    "name": "Kimetsu no Yaiba (Demon slayer) Vol. 22 Edición limitada",
+    "description": "Incluye 6 pines chicos y 2 grandes, y un libro con información e ilustraciones",
+    "details": "Incluye 6 pines chicos y 2 grandes, y un libro con información e ilustraciones",
+    "price": 24999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DJEiyq5RgvY/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:38:17.627Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782635897846,
+    "image": "/images/products/product-1782635897846-0.jpg",
+    "images": [
+      "/images/products/product-1782635897846-0.jpg",
+      "/images/products/product-1782635897846-1.jpg",
+      "/images/products/product-1782635897846-2.jpg",
+      "/images/products/product-1782635897846-3.jpg"
+    ],
+    "name": "Figura Sega Evangelion de Rei Ayanami",
+    "description": "Figura Sega Evangelion de Rei Ayanami",
+    "details": "Figura Sega Evangelion de Rei Ayanami",
+    "price": 54999,
+    "category": "Figuras",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/p/DI-XeyFRD7L/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-06-28T08:38:17.627Z",
+    "categories": [
+      "Figuras"
     ]
   }
 ];

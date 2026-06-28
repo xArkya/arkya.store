@@ -393,15 +393,48 @@ export default function ProductPage() {
                   '@type': 'Organization',
                   name: 'Arkya Store',
                 },
+                shippingDetails: {
+                  '@type': 'OfferShippingDetails',
+                  shippingRate: {
+                    '@type': 'MonetaryAmount',
+                    value: '7000',
+                    currency: 'ARS',
+                  },
+                  shippingDestination: {
+                    '@type': 'DefinedRegion',
+                    addressCountry: 'AR',
+                  },
+                  deliveryTime: {
+                    '@type': 'ShippingDeliveryTime',
+                    handlingTime: {
+                      '@type': 'QuantitativeValue',
+                      minValue: 1,
+                      maxValue: 7,
+                      unitCode: 'DAY',
+                    },
+                    transitTime: {
+                      '@type': 'QuantitativeValue',
+                      minValue: 3,
+                      maxValue: 14,
+                      unitCode: 'DAY',
+                    },
+                  },
+                },
+                hasMerchantReturnPolicy: {
+                  '@type': 'MerchantReturnPolicy',
+                  returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                  merchantReturnDays: 14,
+                  returnMethod: 'https://schema.org/ReturnByMail',
+                  returnFees: 'https://schema.org/ReturnShippingFees',
+                  returnShippingFeesAmount: {
+                    '@type': 'MonetaryAmount',
+                    value: '0',
+                    currency: 'ARS',
+                  },
+                  applicableCountry: 'AR',
+                },
                 ...(product.offerEndDate ? { priceValidUntil: product.offerEndDate } : {}),
               },
-              aggregateRating: product.rating
-                ? {
-                    '@type': 'AggregateRating',
-                    ratingValue: String(product.rating),
-                    reviewCount: String(product.reviewCount || 1),
-                  }
-                : undefined,
             }),
           }}
         />

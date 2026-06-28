@@ -246,6 +246,11 @@ async function prerender() {
         },
         shippingDetails: {
           '@type': 'OfferShippingDetails',
+          shippingRate: {
+            '@type': 'MonetaryAmount',
+            value: '0',
+            currency: 'ARS',
+          },
           shippingDestination: {
             '@type': 'DefinedRegion',
             addressCountry: 'AR',
@@ -272,15 +277,14 @@ async function prerender() {
           merchantReturnDays: 14,
           returnMethod: 'https://schema.org/ReturnByMail',
           returnFees: 'https://schema.org/ReturnShippingFees',
-          returnPolicyCountry: 'AR',
+          returnShippingFeesAmount: {
+            '@type': 'MonetaryAmount',
+            value: '0',
+            currency: 'ARS',
+          },
           applicableCountry: 'AR',
         },
         ...(offerEndDate ? { priceValidUntil: offerEndDate } : {}),
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: String(product.rating || 5),
-        reviewCount: String(product.reviewCount || 1),
       },
     };
 

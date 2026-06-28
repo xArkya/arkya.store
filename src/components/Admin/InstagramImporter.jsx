@@ -30,11 +30,11 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaDownload, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
 
-const InstagramImporter = ({ onProductDataExtracted }) => {
-  const [url, setUrl] = useState('');
+const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) => {
+  const [urls, setUrls] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [extractedData, setExtractedData] = useState(null);
   const [error, setError] = useState(null);
+  const [extractionResults, setExtractionResults] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
@@ -565,63 +565,200 @@ const InstagramImporter = ({ onProductDataExtracted }) => {
     };
   };
 
-  // Función principal para extraer datos del post
-  const handleExtractData = async () => {
-    if (!url.trim()) {
-      setError('Por favor, ingresa una URL válida de Instagram');
-      return;
+  // Función para extraer datos de un solo post
+  const extractSinglePost = async (singleUrl) => {
+    const shortcode = extractShortcode(singleUrl);
+    if (!shortcode) {
+      return { url: singleUrl, error: 'URL no válida', data: null };
     }
 
-    const shortcode = extractShortcode(url);
-    if (!shortcode) {
-      setError('URL de Instagram no válida. Debe ser del tipo: https://www.instagram.com/p/CODIGO/');
+    try {
+      const html = await fetchInstagramPost(shortcode);
+      const data = extractDataFromHTML(html);
+      const isDemoData = data.images.some(img => img.includes('picsum.photos'));
+      return { url: singleUrl, shortcode, data, isDemoData, error: null };
+    } catch (err) {
+      return { url: singleUrl, shortcode, data: null, isDemoData: true, error: err.message };
+    }
+  };
+
+  // Función principal para extraer datos de múltiples posts
+  const handleExtractData = async () => {
+    const urlList = urls.split(/\n|,/).map(u => u.trim()).filter(u => u.length > 0);
+    
+    if (urlList.length === 0) {
+      setError('Por favor, ingresa al menos una URL válida de Instagram');
       return;
     }
 
     setIsLoading(true);
     setError(null);
-    setExtractedData(null);
+    setExtractionResults([]);
 
-    try {
-      const html = await fetchInstagramPost(shortcode);
-      const data = extractDataFromHTML(html);
-      
-      setExtractedData(data);
-      onOpen();
-      
-      // Verificar si se usaron datos de demostración
-      const isDemoData = data.images.some(img => img.includes('picsum.photos'));
-      
+    // Procesar TODAS las URLs al mismo tiempo (paralelo)
+    const promises = urlList.map(async (singleUrl, index) => {
+      const result = await extractSinglePost(singleUrl);
+      setExtractionResults(prev => {
+        const updated = [...prev];
+        updated[index] = result;
+        return updated;
+      });
+      return result;
+    });
+
+    const results = await Promise.all(promises);
+
+    setIsLoading(false);
+
+    const successCount = results.filter(r => r.data && !r.error).length;
+    const demoCount = results.filter(r => r.isDemoData).length;
+
+    if (successCount > 0) {
       toast({
-        title: isDemoData ? 'Datos de demostración cargados' : 'Datos extraídos exitosamente',
-        description: isDemoData 
-          ? 'Se usaron datos de demostración debido a restricciones de Instagram. Puedes editar las imágenes y descripción.'
-          : `Se encontraron ${data.images.length} imágenes`,
-        status: isDemoData ? 'warning' : 'success',
+        title: `Extracción completada: ${successCount}/${urlList.length}`,
+        description: demoCount > 0 
+          ? `${demoCount} usaron datos de demostración debido a restricciones de Instagram.`
+          : 'Todos los posts fueron extraídos correctamente.',
+        status: demoCount > 0 ? 'warning' : 'success',
         duration: 4000,
         isClosable: true,
       });
-    } catch (error) {
-      setError(error.message);
+      onOpen();
+    } else {
+      setError('No se pudieron extraer datos de ninguna URL. Verifica los links e intenta de nuevo.');
       toast({
-        title: 'Error al extraer datos',
-        description: error.message,
+        title: 'Error en extracción',
+        description: 'Ninguna URL pudo ser procesada correctamente.',
         status: 'error',
         duration: 5000,
         isClosable: true,
       });
-    } finally {
-      setIsLoading(false);
     }
+  };
+
+  // Agregar un producto individual desde los resultados
+  const addSingleProduct = (result) => {
+    if (!result.data) return;
+
+    const parsed = parseInstagramDescription(result.data.description);
+    // Rechazar productos con descripción inválida (ej: scraper falló y devolvió 'Instagram')
+    if (!parsed.title || parsed.title.toLowerCase() === 'instagram' || parsed.description?.toLowerCase() === 'instagram') {
+      toast({
+        title: 'Extracción fallida',
+        description: `No se pudo extraer la descripción de ${result.url}. Intentá de nuevo.`,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+    const productData = {
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      image: result.data.images[0] || '',
+      images: result.data.images,
+      name: parsed.title,
+      description: parsed.description,
+      price: parsed.price,
+      category: '',
+      subcategory: '',
+      inStock: true,
+      isNew: true,
+      isOnOffer: false,
+      tags: parsed.tags,
+      instagramUrl: result.url,
+      extractedFrom: 'instagram',
+      extractionDate: new Date().toISOString(),
+    };
+
+    onProductDataExtracted(productData);
+    onClose();
+    // Restaurar scroll del body que Chakra UI bloquea al cerrar modal
+    document.body.style.overflow = '';
+    toast({
+      title: 'Producto agregado',
+      description: `"${parsed.title || 'Producto'}" ha sido importado correctamente.`,
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
+  // Agregar todos los productos extraídos de una sola vez (sin abrir formulario)
+  const addAllProducts = () => {
+    const validResults = extractionResults.filter(r => r && r.data);
+    const productsToAdd = validResults
+      .map((result, index) => {
+        const parsed = parseInstagramDescription(result.data.description);
+        // Saltear productos con descripción inválida
+        if (!parsed.title || parsed.title.toLowerCase() === 'instagram' || parsed.description?.toLowerCase() === 'instagram') {
+          return null;
+        }
+        return {
+        id: Date.now() + index,
+        image: result.data.images[0] || '',
+        images: result.data.images,
+        name: parsed.title,
+        description: parsed.description,
+        price: parsed.price,
+        category: '',
+        subcategory: '',
+        inStock: true,
+        isNew: true,
+        isOnOffer: false,
+        tags: parsed.tags,
+        instagramUrl: result.url,
+        extractedFrom: 'instagram',
+        extractionDate: new Date().toISOString(),
+      };
+      })
+      .filter(Boolean);
+
+    if (onEditMultipleProducts) {
+      onEditMultipleProducts(productsToAdd);
+    } else {
+      // Fallback: agregar uno por uno si no hay handler de edición múltiple
+      productsToAdd.forEach(product => onProductDataExtracted(product));
+    }
+
+    toast({
+      title: `${productsToAdd.length} productos agregados`,
+      description: 'Todos los productos extraídos han sido importados.',
+      status: 'success',
+      duration: 4000,
+      isClosable: true,
+    });
+
+    onClose();
   };
 
   // Función para parsear descripción y extraer datos
   const parseInstagramDescription = (description) => {
+    if (!description) description = '';
     // Limpiar líneas vacías y puntos sueltos
     let cleanedDesc = description
       .split('\n')
       .map(line => line.trim())
       .filter(line => line && line !== '.' && line !== '...' && line !== '....' && line !== '.....')
+      .join('\n');
+
+    // Limpiar comillas dobles del inicio/final y punto colgado
+    cleanedDesc = cleanedDesc.trim().replace(/^"+|"+$/g, '').trim();
+    cleanedDesc = cleanedDesc.replace(/\.$/, '').trim();
+
+    // Filtrar líneas que sean solo nombre de usuario o timestamp de Instagram
+    cleanedDesc = cleanedDesc
+      .split('\n')
+      .filter(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return false;
+        // Ignorar líneas que son solo username (todo minúscula/puntos/números, sin espacios)
+        if (/^[a-z0-9_.]+$/.test(trimmed) && trimmed.length < 30 && !trimmed.includes(' ')) return false;
+        // Ignorar líneas que parezcan timestamp (número + unidad de tiempo)
+        if (/^\d+\s*(sem|semanas?|d|días?|h|horas?|min|minutos?|s|seg)$/.test(trimmed.toLowerCase())) return false;
+        // Ignorar líneas que sean solo 'Instagram' o variantes
+        if (/^instagram$/i.test(trimmed)) return false;
+        return true;
+      })
       .join('\n');
 
     // Extraer hashtags
@@ -664,55 +801,6 @@ const InstagramImporter = ({ onProductDataExtracted }) => {
     };
   };
 
-  // Función para convertir los datos extraídos a formato de producto
-  const convertToProduct = () => {
-    if (!extractedData) return;
-
-    const parsed = parseInstagramDescription(extractedData.description);
-
-    const productData = {
-      // Generar un ID único basado en el timestamp
-      id: Date.now(),
-      
-      // Usar la primera imagen como imagen principal
-      image: extractedData.images[0] || '',
-      
-      // Guardar todas las imágenes
-      images: extractedData.images,
-      
-      // Usar título extraído
-      name: parsed.title,
-      
-      // Descripción limpia
-      description: parsed.description,
-      
-      // Precio extraído de la descripción
-      price: parsed.price,
-      category: '',
-      subcategory: '',
-      inStock: true,
-      isNew: true,
-      isOnOffer: false,
-      tags: parsed.tags,
-      
-      // Metadatos del post de Instagram
-      instagramUrl: url,
-      extractedFrom: 'instagram',
-      extractionDate: new Date().toISOString(),
-    };
-
-    onProductDataExtracted(productData);
-    onClose();
-    
-    toast({
-      title: 'Producto creado',
-      description: 'Los datos del post de Instagram han sido importados. Ahora puedes personalizar los detalles.',
-      status: 'success',
-      duration: 4000,
-      isClosable: true,
-    });
-  };
-
   return (
     <Box>
       <VStack spacing={4} align="stretch">
@@ -741,24 +829,26 @@ const InstagramImporter = ({ onProductDataExtracted }) => {
           </Box>
         </Alert>
 
-        <HStack spacing={2}>
-          <Input
-            placeholder="https://www.instagram.com/p/DZ3QE10lFQH/"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleExtractData()}
+        <VStack spacing={2} align="stretch">
+          <Textarea
+            placeholder="Pega los links de Instagram, uno por línea:&#10;https://www.instagram.com/p/ABC123/&#10;https://www.instagram.com/p/DEF456/"
+            value={urls}
+            onChange={(e) => setUrls(e.target.value)}
             isDisabled={isLoading}
+            rows={5}
+            resize="vertical"
           />
           <Button
             leftIcon={<FaDownload />}
             colorScheme="pink"
             onClick={handleExtractData}
             isLoading={isLoading}
-            isDisabled={!url.trim()}
+            isDisabled={!urls.trim()}
+            alignSelf="flex-start"
           >
-            Extraer
+            Extraer {urls.trim() && urls.split(/\n|,/).filter(u => u.trim().length > 0).length > 0 ? `(${urls.split(/\n|,/).filter(u => u.trim().length > 0).length})` : ''}
           </Button>
-        </HStack>
+        </VStack>
 
         {error && (
           <Alert status="error" borderRadius="md">
@@ -771,127 +861,87 @@ const InstagramImporter = ({ onProductDataExtracted }) => {
         )}
 
         {isLoading && (
-          <VStack spacing={2} py={4}>
-            <Spinner size="lg" color="pink.500" />
-            <Text fontSize="sm" color="gray.600">
-              Extrayendo datos del post de Instagram...
+          <VStack spacing={2} py={4} align="stretch">
+            <HStack spacing={3} justify="center">
+              <Spinner size="md" color="pink.500" />
+              <Text fontSize="sm" color="gray.600">
+                Extrayendo {urls.split(/\n|,/).filter(u => u.trim().length > 0).length} posts en paralelo...
+              </Text>
+            </HStack>
+            <Progress size="xs" colorScheme="pink" w="full" isIndeterminate />
+            <Text fontSize="xs" color="gray.500" textAlign="center">
+              Todos los posts se procesan al mismo tiempo para mayor velocidad
             </Text>
-            <Progress size="xs" isIndeterminate colorScheme="pink" w="full" />
           </VStack>
         )}
       </VStack>
 
-      {/* Modal de vista previa */}
-      <Modal isOpen={isOpen} onClose={onClose} size="2xl">
+      {/* Modal de vista previa múltiple */}
+      <Modal isOpen={isOpen} onClose={onClose} size="2xl" scrollBehavior="inside">
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent maxH="90vh">
           <ModalHeader>
             <HStack spacing={2}>
               <Icon as={FaInstagram} color="pink.500" />
-              <Text>Vista previa de datos extraídos</Text>
+              <Text>Resultados de extracción</Text>
+              <Badge colorScheme="green">{extractionResults.filter(r => r && r.data).length}/{extractionResults.length} exitosos</Badge>
             </HStack>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            {extractedData && (
-              <VStack spacing={4} align="stretch">
-                {/* Imágenes encontradas */}
-                <Box>
-                  <FormLabel mb={2}>
-                    <HStack spacing={2}>
-                      <Text fontWeight="bold">Imágenes encontradas</Text>
-                      <Badge colorScheme="green">{extractedData.images.length}</Badge>
-                    </HStack>
-                  </FormLabel>
-                  <Box 
-                    display="grid" 
-                    gridTemplateColumns="repeat(auto-fit, minmax(100px, 1fr))" 
-                    gap={2}
-                    maxH="200px"
-                    overflowY="auto"
-                    p={2}
-                    bg="gray.50"
-                    borderRadius="md"
-                  >
-                    {extractedData.images.map((img, index) => (
-                      <Image
-                        key={index}
-                        src={img}
-                        alt={`Imagen ${index + 1}`}
-                        boxSize="100px"
-                        objectFit="cover"
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                      />
-                    ))}
-                  </Box>
+            <VStack spacing={6} align="stretch">
+              {extractionResults.map((result, index) => (
+                result ? (
+                <Box key={index} p={4} borderWidth="1px" borderRadius="md" borderColor="gray.200">
+                  <HStack justify="space-between" mb={3}>
+                    <Text fontWeight="bold" fontSize="sm" noOfLines={1} flex={1}>
+                      {index + 1}. {result.url}
+                    </Text>
+                    <Badge colorScheme={result.error ? 'red' : result.isDemoData ? 'yellow' : 'green'}>
+                      {result.error ? 'Error' : result.isDemoData ? 'Demo' : 'OK'}
+                    </Badge>
+                  </HStack>
+
+                  {result.data ? (
+                    <VStack spacing={3} align="stretch">
+                      <HStack spacing={2}>
+                        <Text fontSize="sm" fontWeight="semibold">{result.data.images.length} imágenes</Text>
+                        {result.data.description && (
+                          <Text fontSize="sm" color="gray.600" noOfLines={1}>
+                            {result.data.description.substring(0, 60)}...
+                          </Text>
+                        )}
+                      </HStack>
+                      <Button
+                        size="sm"
+                        colorScheme="green"
+                        leftIcon={<FaCheckCircle />}
+                        onClick={() => addSingleProduct(result)}
+                      >
+                        Agregar producto
+                      </Button>
+                    </VStack>
+                  ) : (
+                    <Alert status="error" size="sm" borderRadius="md">
+                      <AlertIcon boxSize="16px" />
+                      <Text fontSize="xs">{result.error || 'No se pudieron extraer datos'}</Text>
+                    </Alert>
+                  )}
                 </Box>
+                ) : null
+              ))}
 
-                <Divider />
-
-                {/* Descripción extraída */}
-                <FormControl>
-                  <FormLabel fontWeight="bold">Descripción extraída</FormLabel>
-                  <Textarea
-                    value={extractedData.description}
-                    readOnly
-                    rows={4}
-                    resize="none"
-                    bg="gray.50"
-                  />
-                </FormControl>
-
-                {/* Información adicional */}
-                <HStack spacing={4} fontSize="sm" color="gray.600">
-                  {extractedData.author && (
-                    <Text>Autor: {extractedData.author}</Text>
-                  )}
-                  {extractedData.likes > 0 && (
-                    <Text>❤️ {extractedData.likes.toLocaleString()} likes</Text>
-                  )}
-                </HStack>
-
-                <Divider />
-
-                {/* Acciones */}
-                <HStack spacing={3} justify="space-between">
-                  <Button variant="outline" onClick={onClose}>
-                    Cancelar
-                  </Button>
-                  <Button
-                    leftIcon={<FaCheckCircle />}
-                    colorScheme="green"
-                    onClick={convertToProduct}
-                  >
-                    Crear producto con estos datos
-                  </Button>
-                </HStack>
-
-                {extractedData.images.some(img => img.includes('picsum.photos')) && (
-                <Alert status="warning" borderRadius="md">
-                  <AlertIcon />
-                  <Box>
-                    <AlertTitle fontSize="sm">Modo demostración</AlertTitle>
-                    <AlertDescription fontSize="xs">
-                      Estas son imágenes de demostración generadas automáticamente. 
-                      Reemplaza las imágenes con las reales del post de Instagram y ajusta la descripción según necesites.
-                    </AlertDescription>
-                  </Box>
-                </Alert>
+              {extractionResults.filter(r => r && r.data).length > 1 && (
+                <Button
+                  leftIcon={<FaCheckCircle />}
+                  colorScheme="green"
+                  size="lg"
+                  onClick={addAllProducts}
+                >
+                  Agregar todos los productos ({extractionResults.filter(r => r && r.data).length})
+                </Button>
               )}
-
-                <Alert status="success" borderRadius="md">
-                  <AlertIcon />
-                  <Box>
-                    <AlertTitle fontSize="sm">¡Datos listos!</AlertTitle>
-                    <AlertDescription fontSize="xs">
-                      Podrás personalizar el nombre, precio, categorías y otros detalles después de crear el producto.
-                    </AlertDescription>
-                  </Box>
-                </Alert>
-              </VStack>
-            )}
+            </VStack>
           </ModalBody>
         </ModalContent>
       </Modal>

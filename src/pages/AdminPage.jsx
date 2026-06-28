@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import AdminLoginPage from '../components/Admin/AdminLoginPage';
 import {
   Box,
@@ -51,7 +50,6 @@ import { offers as initialOffers } from '../data/offers';
 import { coupons as initialCoupons } from '../data/coupons';
 
 const AdminPage = () => {
-  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     // Verificar si hay token válido en sessionStorage
     return !!sessionStorage.getItem('adminToken');
@@ -59,6 +57,7 @@ const AdminPage = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const pendingEditQueue = useRef([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(50); // Mostrar 50 productos por página
   const [offers, setOffers] = useState(() => {
@@ -380,28 +379,57 @@ const AdminPage = () => {
     const productExists = products.some(p => p.id === finalProduct.id);
     
     if (productExists) {
-      // Editar producto existente
       setProducts(products.map(p => p.id === finalProduct.id ? finalProduct : p));
     } else {
-      // Agregar nuevo producto
       setProducts([...products, finalProduct]);
     }
-    onClose();
-    setSelectedProduct(null);
+    // NO cerramos ni avanzamos la cola aquí — eso lo maneja handleModalClose
   };
 
-  // Función para manejar datos extraídos de Instagram
+  // Función para manejar datos extraídos de Instagram (abre formulario de edición)
   const handleInstagramDataExtracted = (productData) => {
     setSelectedProduct(productData);
   };
-  
+
+  // Función para editar múltiples productos uno tras otro
+  const handleEditMultipleProducts = (productsList) => {
+    if (!productsList || productsList.length === 0) return;
+    pendingEditQueue.current = [...productsList];
+    setSelectedProduct(productsList[0]);
+    onOpen();
+  };
+
   // Abrir modal cuando se establece selectedProduct desde Instagram
   useEffect(() => {
     if (selectedProduct && selectedProduct.extractedFrom === 'instagram') {
       onOpen();
     }
   }, [selectedProduct, onOpen]);
-  
+
+  // Función para manejar cierre del modal (avanza la cola de edición)
+  const handleModalClose = () => {
+    // Si hay una cola de edición activa, avanzar al siguiente producto
+    if (pendingEditQueue.current.length > 0) {
+      const remaining = pendingEditQueue.current.slice(1);
+      pendingEditQueue.current = remaining;
+      if (remaining.length > 0) {
+        // Forzar refresco del ProductForm con el siguiente producto
+        setSelectedProduct(null);
+        setTimeout(() => {
+          setSelectedProduct(remaining[0]);
+        }, 100);
+      } else {
+        // No hay más productos en la cola, cerrar definitivamente
+        onClose();
+        setSelectedProduct(null);
+      }
+    } else {
+      // Sin cola, cierre normal
+      onClose();
+      setSelectedProduct(null);
+    }
+  };
+
   const handleEditProduct = (product) => {
     setSelectedProduct(product);
     onOpen();
@@ -665,6 +693,7 @@ const AdminPage = () => {
                 {/* Importador de Instagram con Instaloader */}
                 <InstaloaderImporter 
                   onProductDataExtracted={handleInstagramDataExtracted}
+                  onEditMultipleProducts={handleEditMultipleProducts}
                 />
 
                 {/* Buscador de productos */}
@@ -1185,18 +1214,23 @@ const AdminPage = () => {
         </Tabs>
       </VStack>
       
-      <Modal isOpen={isOpen} onClose={onClose} size="xl">
+      <Modal isOpen={isOpen} onClose={handleModalClose} size="xl">
         <ModalOverlay />
         <ModalContent bg={bgColor} color={textColor}>
           <ModalHeader>
             {selectedProduct ? 'Editar Producto' : 'Nuevo Producto'}
+            {pendingEditQueue.current.length > 1 && (
+              <Text fontSize="sm" color="gray.500" ml={2}>
+                ({pendingEditQueue.current.length - 1} más)
+              </Text>
+            )}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <ProductForm 
               onSaveProduct={handleSaveProduct} 
               initialValues={selectedProduct}
-              onClose={onClose}
+              onClose={handleModalClose}
             />
           </ModalBody>
         </ModalContent>
