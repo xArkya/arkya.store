@@ -40,9 +40,10 @@ import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaChe
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
+import { findProductBySlugOrId, getProductSlug } from '../utils/slugify';
 
 export default function ProductPage() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -151,17 +152,12 @@ export default function ProductPage() {
     // Load product immediately without delay
     const timer = setTimeout(() => {
       try {
-        // Parse the ID properly, ensuring it's a number
-        const numericId = parseInt(id, 10);
-        
-        if (isNaN(numericId)) {
-          throw new Error(`ID inválido: ${id}`);
+        if (!slug) {
+          throw new Error('Slug no proporcionado');
         }
         
-        // Add console log for debugging
-        
-        // Primero buscar en el array estático
-        let foundProduct = products.find(p => p.id === numericId);
+        // Buscar por slug o ID numérico (compatibilidad hacia atrás)
+        let foundProduct = findProductBySlugOrId(slug, products);
         
         // Si no se encuentra, buscar en IndexedDB
         if (!foundProduct) {
@@ -175,24 +171,24 @@ export default function ProductPage() {
             
             getAllRequest.onsuccess = () => {
               const savedProducts = getAllRequest.result;
-              const product = savedProducts.find(p => p.id === numericId);
+              const product = findProductBySlugOrId(slug, savedProducts);
               
               if (product) {
                 applyOffersAndSetProduct(product);
               } else {
-                setError(`Producto con ID ${numericId} no encontrado`);
+                setError(`Producto no encontrado: ${slug}`);
                 setLoading(false);
               }
             };
             
             getAllRequest.onerror = () => {
-              setError(`Producto con ID ${numericId} no encontrado`);
+              setError(`Producto no encontrado: ${slug}`);
               setLoading(false);
             };
           };
           
           dbRequest.onerror = () => {
-            setError(`Producto con ID ${numericId} no encontrado`);
+            setError(`Producto no encontrado: ${slug}`);
             setLoading(false);
           };
           
@@ -207,7 +203,7 @@ export default function ProductPage() {
     }, 800);
 
     return () => clearTimeout(timer);
-  }, [id, isAgeVerified, onAgeModalOpen]);
+  }, [slug, isAgeVerified, onAgeModalOpen]);
 
   if (loading) {
     return (
@@ -233,7 +229,7 @@ export default function ProductPage() {
           <Heading>Producto no encontrado</Heading>
           <Text>{error || 'Lo sentimos, el producto que buscas no existe.'}</Text>
           <Text fontSize="sm" color="gray.500">
-            URL actual: /product/{id}
+            URL actual: /product/{slug}
           </Text>
           <Button 
             as={RouterLink} 
@@ -375,7 +371,7 @@ export default function ProductPage() {
             title={title}
             description={description}
             image={product?.image || 'https://arkya.store/images/logo2.webp'}
-            url={`https://arkya.store/product/${product?.id}`}
+            url={`https://arkya.store/product/${product ? getProductSlug(product) : ''}`}
           />
         );
       })()}
@@ -397,7 +393,7 @@ export default function ProductPage() {
               },
               offers: {
                 '@type': 'Offer',
-                url: `https://arkya.store/product/${product.id}`,
+                url: `https://arkya.store/product/${getProductSlug(product)}`,
                 priceCurrency: 'ARS',
                 price: String(Math.floor(product.price)),
                 availability: product.inStock !== false
@@ -1128,14 +1124,15 @@ export default function ProductPage() {
                   bgClip="text">
                   {product.name}
                 </Heading>
-                <Button
+                <IconButton
+                  aria-label="Me gusta"
+                  icon={<FaHeart />}
                   size="md"
-                  leftIcon={<FaHeart />}
                   colorScheme="pink"
                   bg={isLiked(product.id) ? 'pink.600' : 'transparent'}
                   color={isLiked(product.id) ? 'white' : 'white'}
                   variant={isLiked(product.id) ? "solid" : "ghost"}
-                  px={4}
+                  borderRadius="full"
                   onClick={() => {
                     if (!getLikeUser()) {
                       setPendingLike(true);
@@ -1150,9 +1147,7 @@ export default function ProductPage() {
                       isClosable: true,
                     });
                   }}
-                >
-                  {isLiked(product.id) ? 'Te gusta' : 'Me gusta'}
-                </Button>
+                />
               </Flex>
               <VStack align="start" spacing={2} width="100%">
                 {product.isOnOffer ? (

@@ -35,6 +35,7 @@ import { useAgeVerification } from '../context/useAgeVerification.js';
 import { useLikes, getLikeUser, setLikeUser } from '../hooks/useLikes';
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { getProductSlug } from '../utils/slugify';
 
 const MotionBox = motion(Box);
 
@@ -537,7 +538,7 @@ export default function ProductCard({ product }) {
           noOfLines={1}
           mt={1}
         >
-          <LinkOverlay as={RouterLink} to={`/product/${id}/`}>
+          <LinkOverlay as={RouterLink} to={`/product/${getProductSlug(product)}/`}>
             {name}
           </LinkOverlay>
         </Heading>
@@ -555,7 +556,7 @@ export default function ProductCard({ product }) {
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              const url = `${window.location.origin}/product/${id}/`;
+              const url = `${window.location.origin}/product/${getProductSlug(product)}/`;
               navigator.clipboard.writeText(url).then(() => {
                 toast({
                   title: '¡Enlace copiado!',

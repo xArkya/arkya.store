@@ -35,7 +35,7 @@ function App() {
       <Box width="100%">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/product/:slug" element={<ProductPage />} />
           {import.meta.env.VITE_ENABLE_ADMIN === 'true' && AdminPage && (
             <Route path="/admin" element={
               <Suspense fallback={<Box>Cargando...</Box>}>

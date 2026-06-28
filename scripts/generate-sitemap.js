@@ -3,6 +3,25 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { products } from '../src/data/products.js';
 
+function slugify(text) {
+  if (!text) return '';
+  return text
+    .toString()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/--+/g, '-');
+}
+
+function getProductSlug(product) {
+  const base = slugify(product.name);
+  const suffix = String(product.id).slice(-4);
+  return `${base}-${suffix}`;
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -76,7 +95,8 @@ function generateSitemap() {
   // URLs de productos
   products.forEach(product => {
     xml += '  <url>\n';
-    xml += `    <loc>${baseUrl}/product/${product.id}/</loc>\n`;
+    const productSlug = getProductSlug(product);
+    xml += `    <loc>${baseUrl}/product/${productSlug}/</loc>\n`;
     xml += `    <lastmod>${today}</lastmod>\n`;
     xml += '    <changefreq>monthly</changefreq>\n';
     xml += '    <priority>0.8</priority>\n';

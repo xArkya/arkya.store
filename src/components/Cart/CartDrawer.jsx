@@ -38,6 +38,7 @@ import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, 
 import { useCart } from '../../context/useCart';
 import { Link as RouterLink } from 'react-router-dom';
 import { validateCoupon } from '../../data/coupons';
+import { getProductSlug } from '../../utils/slugify';
 
 const CART_PLACEHOLDER_IMAGE = `data:image/svg+xml;utf8,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" fill="none"><rect width="80" height="80" rx="10" fill="#F1F1F1"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666666">Sin imagen</text></svg>'
@@ -257,7 +258,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   return (
                     <Box key={item.id} p={3} borderRadius="md" bg={itemBgColor}>
                       <Flex align="stretch" gap={3}>
-                        <RouterLink to={`/product/${item.id}/`} style={{ display: 'flex' }} onClick={onClose}>
+                        <RouterLink to={`/product/${getProductSlug(item)}/`} style={{ display: 'flex' }} onClick={onClose}>
                           <Image
                             src={imageSrc}
                             alt={item.name}
@@ -271,7 +272,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                           />
                         </RouterLink>
                         <Flex flex="1" direction="column" justify="space-between">
-                          <RouterLink to={`/product/${item.id}/`} onClick={onClose}>
+                          <RouterLink to={`/product/${getProductSlug(item)}/`} onClick={onClose}>
                             <Text fontWeight="bold" color={textColor} _hover={{ textDecoration: 'underline' }}>
                               {item.name}
                             </Text>
