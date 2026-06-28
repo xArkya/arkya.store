@@ -49,6 +49,30 @@ function generateSitemap() {
     xml += '  </url>\n';
   });
 
+  // URLs de categorías (para SEO de palabras clave como "artbooks japon", "revistas japonesas")
+  const categoryRoutes = [
+    { path: '/?category=artbooks', name: 'Artbooks' },
+    { path: '/?category=figuras', name: 'Figuras' },
+    { path: '/?category=mangas', name: 'Mangas' },
+    { path: '/?category=revistas', name: 'Revistas' },
+    { path: '/?category=doujinshis', name: 'Doujinshis' },
+    { path: '/?category=guide-books', name: 'Guide Books' },
+    { path: '/?category=character-books', name: 'Character Books' },
+    { path: '/?category=cartas', name: 'Cartas' },
+    { path: '/?category=cd-dvd', name: 'CD/DVD' },
+    { path: '/?category=novela-ligera', name: 'Novela Ligera' },
+    { path: '/?category=peluches', name: 'Peluches' },
+  ];
+
+  categoryRoutes.forEach(route => {
+    xml += '  <url>\n';
+    xml += `    <loc>${baseUrl}${route.path}</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.9</priority>\n';
+    xml += '  </url>\n';
+  });
+
   // URLs de productos
   products.forEach(product => {
     xml += '  <url>\n';

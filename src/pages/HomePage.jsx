@@ -66,7 +66,7 @@ export default function HomePage() {
     // Intentar recuperar la subcategoría activa del sessionStorage al cargar
     return sessionStorage.getItem('activeSubcategory') || '';
   });
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(() => {
     // Intentar recuperar la página actual del sessionStorage al cargar
     // Esto hace que la página guardada solo persista durante la sesión actual
@@ -125,35 +125,47 @@ export default function HomePage() {
     const loadProducts = async () => {
       try {
         const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
-        
+
+        dbRequest.onerror = () => {
+          // Silenciar error si no se puede abrir la DB
+        };
+
         dbRequest.onsuccess = (event) => {
           const db = event.target.result;
+          // Verificar que el object store 'products' exista antes de usarlo
+          if (!db.objectStoreNames.contains('products')) {
+            return;
+          }
           const transaction = db.transaction(['products'], 'readonly');
           const store = transaction.objectStore('products');
           const getAllRequest = store.getAll();
-          
+
           getAllRequest.onsuccess = () => {
             const savedProducts = getAllRequest.result;
             if (savedProducts && savedProducts.length > 0) {
               // Combinar productos estáticos con los guardados, evitando duplicados
               const combinedProducts = [...products];
               const staticIds = new Set(products.map(p => p.id));
-              
+
               savedProducts.forEach(savedProduct => {
                 if (!staticIds.has(savedProduct.id)) {
                   combinedProducts.push(savedProduct);
                 }
               });
-              
+
               setAllProducts(combinedProducts);
             }
+          };
+
+          transaction.onerror = () => {
+            // Silenciar error de transacción
           };
         };
       } catch (error) {
         console.error('Error loading products from IndexedDB:', error);
       }
     };
-    
+
     loadProducts();
   }, []);
   
@@ -188,47 +200,23 @@ export default function HomePage() {
     }
   }, [activeCategory]);
   
-  // Leer categoría y subcategoría de URL params al cargar
+  // Leer categoría y subcategoría: URL tiene prioridad sobre sessionStorage
   useEffect(() => {
-    // Verificar si hay categoría guardada en sessionStorage
-    const savedCategory = sessionStorage.getItem('activeCategory');
-    const savedSubcategory = sessionStorage.getItem('activeSubcategory');
-    
-    // Obtener categoría y subcategoría de la URL
     const categoryFromUrl = searchParams.get('category');
     const subcategoryFromUrl = searchParams.get('subcategory');
-    
-    // Priorizar la categoría guardada en sessionStorage
-    if (savedCategory) {
-      const categoryExists = categories.some(cat => cat.id === savedCategory) || savedCategory === 'adultos';
-      if (categoryExists) {
-        setActiveCategory(savedCategory);
-        
-        if (savedSubcategory) {
-          const category = categories.find(cat => cat.id === savedCategory);
-          if (category && category.subcategories) {
-            const subcategoryExists = category.subcategories.some(subcat => subcat.id === savedSubcategory);
-            if (subcategoryExists) {
-              setActiveSubcategory(savedSubcategory);
-              return; // Salir del useEffect si se encontró categoría y subcategoría válidas
-            }
-          }
-        }
-        return; // Salir del useEffect si se encontró categoría válida
-      }
-    }
-    
-    // Si no hay categoría guardada en sessionStorage o no es válida, usar la de la URL
+    const savedCategory = sessionStorage.getItem('activeCategory');
+    const savedSubcategory = sessionStorage.getItem('activeSubcategory');
+
+    // 1. Si hay categoría en la URL, usarla (los links de categoría funcionan así)
     if (categoryFromUrl) {
       const categoryExists = categories.some(cat => cat.id === categoryFromUrl);
       if (categoryExists) {
         setActiveCategory(categoryFromUrl);
         sessionStorage.setItem('activeCategory', categoryFromUrl);
-        
+
         if (subcategoryFromUrl) {
           const category = categories.find(cat => cat.id === categoryFromUrl);
-          const subcategoryExists = category.subcategories.some(subcat => subcat.id === subcategoryFromUrl);
-          
+          const subcategoryExists = category?.subcategories?.some(subcat => subcat.id === subcategoryFromUrl);
           if (subcategoryExists) {
             setActiveSubcategory(subcategoryFromUrl);
             sessionStorage.setItem('activeSubcategory', subcategoryFromUrl);
@@ -240,20 +228,33 @@ export default function HomePage() {
           setActiveSubcategory('');
           sessionStorage.setItem('activeSubcategory', '');
         }
-      } else {
-        setActiveCategory('todos');
-        setActiveSubcategory('');
-        sessionStorage.setItem('activeCategory', 'todos');
-        sessionStorage.setItem('activeSubcategory', '');
+        return;
       }
-    } else {
-      // Si no hay parámetro de categoría ni categoría guardada, mostrar todos
-      setActiveCategory('todos');
-      setActiveSubcategory('');
-      sessionStorage.setItem('activeCategory', 'todos');
-      sessionStorage.setItem('activeSubcategory', '');
     }
-  }, [searchParams]); // categories es una constante importada, no necesita estar en las dependencias
+
+    // 2. Si no hay URL param, usar sessionStorage como fallback
+    if (savedCategory) {
+      const categoryExists = categories.some(cat => cat.id === savedCategory) || savedCategory === 'adultos';
+      if (categoryExists) {
+        setActiveCategory(savedCategory);
+        if (savedSubcategory) {
+          const category = categories.find(cat => cat.id === savedCategory);
+          if (category?.subcategories?.some(subcat => subcat.id === savedSubcategory)) {
+            setActiveSubcategory(savedSubcategory);
+            return;
+          }
+        }
+        setActiveSubcategory('');
+        return;
+      }
+    }
+
+    // 3. Default: mostrar todos
+    setActiveCategory('todos');
+    setActiveSubcategory('');
+    sessionStorage.setItem('activeCategory', 'todos');
+    sessionStorage.setItem('activeSubcategory', '');
+  }, [searchParams]);
 
   // Aplicar ofertas globales a los productos
   const productsWithOffers = useMemo(() => {
@@ -501,9 +502,6 @@ export default function HomePage() {
   
   // Función para manejar el clic en una categoría
   const handleCategoryClick = (categoryId) => {
-    setActiveCategory(categoryId);
-    setActiveSubcategory('');
-    
     // Desactivar el filtro de adultos si se selecciona una categoría que no sea 'adultos'
     if (categoryId !== 'adultos') {
       setAdultFilterActive(false);
@@ -512,55 +510,50 @@ export default function HomePage() {
       setAdultFilterActive(true);
       sessionStorage.setItem('adultFilterActive', 'true');
     }
-    
+
     // Guardar la categoría en sessionStorage
     sessionStorage.setItem('activeCategory', categoryId);
     sessionStorage.setItem('activeSubcategory', '');
-    
+
     // Guardar la página actual antes de cambiar
     if (searchTerm) {
       sessionStorage.setItem('lastPage', currentPage);
     }
-    
+
     setCurrentPage(1); // Reiniciar a la primera página al cambiar de categoría
-    sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
-    
-    // Con HashRouter, no podemos usar window.history.replaceState directamente
-    // En su lugar, podemos usar un enfoque diferente para actualizar la URL
+    sessionStorage.setItem('currentPage', '1');
+
+    // Actualizar la URL para que refleje la categoría (SEO y navegación)
     const params = new URLSearchParams();
     if (categoryId !== 'todos') {
       params.set('category', categoryId);
     }
-    // No actualizamos la URL aquí para evitar problemas con HashRouter
+    setSearchParams(params);
   };
-  
+
   // Función para manejar el clic en una subcategoría
   const handleSubcategoryClick = (categoryId, subcategoryId) => {
-    setActiveCategory(categoryId);
-    setActiveSubcategory(subcategoryId);
-    
     // Siempre desactivar el filtro de adultos al seleccionar una subcategoría
     setAdultFilterActive(false);
     sessionStorage.setItem('adultFilterActive', 'false');
-    
+
     // Guardar la categoría y subcategoría en sessionStorage
     sessionStorage.setItem('activeCategory', categoryId);
     sessionStorage.setItem('activeSubcategory', subcategoryId);
-    
+
     // Guardar la página actual antes de cambiar
     if (searchTerm) {
       sessionStorage.setItem('lastPage', currentPage);
     }
-    
+
     setCurrentPage(1); // Reiniciar a la primera página al cambiar de subcategoría
-    sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
-    
-    // Con HashRouter, no podemos usar window.history.replaceState directamente
-    // En su lugar, podemos usar un enfoque diferente para actualizar la URL
+    sessionStorage.setItem('currentPage', '1');
+
+    // Actualizar la URL para que refleje la categoría y subcategoría
     const params = new URLSearchParams();
     params.set('category', categoryId);
     params.set('subcategory', subcategoryId);
-    // No actualizamos la URL aquí para evitar problemas con HashRouter
+    setSearchParams(params);
   };
 
   // Calcular el número total de páginas
@@ -589,12 +582,80 @@ export default function HomePage() {
 
   return (
     <>
-      <SEO 
-        title="Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón"
-        description="Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido."
-        image="https://arkya.store/images/logo2.webp"
-        url="https://arkya.store/"
-      />
+      {(() => {
+        // SEO dinámico según categoría activa para mejorar posicionamiento en Google
+        const seoMap = {
+          todos: {
+            title: 'Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón',
+            desc: 'Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido.',
+            url: 'https://arkya.store/',
+          },
+          artbooks: {
+            title: 'Artbooks de Anime y Manga Japoneses en Argentina | Arkya Store',
+            desc: 'Comprá Artbooks originales de Japón: ilustraciones oficiales de One Piece, Fate, Evangelion, Jujutsu Kaisen y más. 100% originales, importados desde Japón. Envíos a todo el país.',
+            url: 'https://arkya.store/?category=artbooks',
+          },
+          figuras: {
+            title: 'Figuras de Anime Japonesas Importadas | Arkya Store',
+            desc: 'Figuras coleccionables de anime importadas desde Japón. Bandai, Furyu y más marcas. 100% originales con envío a todo Argentina.',
+            url: 'https://arkya.store/?category=figuras',
+          },
+          mangas: {
+            title: 'Mangas en Japonés Originales Importados | Arkya Store',
+            desc: 'Mangas en idioma japonés directo desde Japón. Ediciones especiales con artbooks, acrílicos, stickers y más. Shueisha, Kodansha, Square Enix.',
+            url: 'https://arkya.store/?category=mangas',
+          },
+          revistas: {
+            title: 'Revistas Japonesas de Anime - Jump, Comptiq, Kirara | Arkya Store',
+            desc: 'Revistas japonesas semanales y mensuales: Weekly Shōnen Jump, Jump GIGA, Comptiq, Manga Time Kirara, Young Animal y más. Importadas desde Japón.',
+            url: 'https://arkya.store/?category=revistas',
+          },
+          doujinshis: {
+            title: 'Doujinshi Japonés - Comiket, Fanzines de Anime | Arkya Store',
+            desc: 'Doujinshi (dōjinshi) originales de Japón. Fanzines de Comiket, ilustraciones independientes de artistas japoneses. 100% originales.',
+            url: 'https://arkya.store/?category=doujinshis',
+          },
+          'guide-books': {
+            title: 'Guide Books y Guías Oficiales de Videojuegos Japoneses | Arkya Store',
+            desc: 'Guías oficiales de videojuegos japoneses: Dragon Ball, Fate/Grand Order, Evangelion, Rockman y más. Mapas, estadísticas e ilustraciones.',
+            url: 'https://arkya.store/?category=guide-books',
+          },
+          'character-books': {
+            title: 'Character Books de Anime y Manga Japoneses | Arkya Store',
+            desc: 'Character books y fanbooks oficiales de anime y manga japoneses. Diseños de personajes, datos exclusivos e ilustraciones.',
+            url: 'https://arkya.store/?category=character-books',
+          },
+          cartas: {
+            title: 'Cartas y Trading Cards de Anime Japonesas | Arkya Store',
+            desc: 'Cartas coleccionables de anime importadas desde Japón. Weiss Schwarz, cartas promocionales y más.',
+            url: 'https://arkya.store/?category=cartas',
+          },
+          'cd-dvd': {
+            title: 'CDs y DVDs de Anime y Manga Importados de Japón | Arkya Store',
+            desc: 'CDs y DVDs de anime y manga importados directamente desde Japón. Bandas sonoras, dramas y más.',
+            url: 'https://arkya.store/?category=cd-dvd',
+          },
+          'novela-ligera': {
+            title: 'Novelas Ligeras Japonesas (Light Novels) Importadas | Arkya Store',
+            desc: 'Novelas ligeras japonesas en idioma japonés. Ediciones especiales con artbooks, cajas contenedoras y extras.',
+            url: 'https://arkya.store/?category=novela-ligera',
+          },
+          peluches: {
+            title: 'Peluches de Anime Japoneses Importados | Arkya Store',
+            desc: 'Peluches de personajes de anime importados desde Japón. Sumikkogurashi y más personajes kawaii.',
+            url: 'https://arkya.store/?category=peluches',
+          },
+        };
+        const seo = seoMap[activeCategory] || seoMap.todos;
+        return (
+          <SEO
+            title={seo.title}
+            description={seo.desc}
+            image="https://arkya.store/images/logo2.webp"
+            url={seo.url}
+          />
+        );
+      })()}
       <Box>
       <Box 
         py={2} 
@@ -624,7 +685,35 @@ export default function HomePage() {
       <Box id="productos" name="productos" py={10} bg="#453641">
         <Container maxW={'7xl'}>
           <Heading as="h2" size="xl" mb={6} textAlign="center" color="white">
-            Tienda
+            {activeCategory === 'todos'
+              ? 'Tienda de Productos Importados de Japón'
+              : activeCategory === 'adultos'
+              ? 'Productos para mayores de 18'
+              : activeCategory === 'artbooks'
+              ? 'Artbooks de Anime y Manga'
+              : activeCategory === 'figuras'
+              ? 'Figuras de Anime'
+              : activeCategory === 'mangas'
+              ? 'Mangas en Japonés'
+              : activeCategory === 'revistas'
+              ? 'Revistas Japonesas de Anime y Manga'
+              : activeCategory === 'doujinshis'
+              ? 'Doujinshis'
+              : activeCategory === 'guide-books'
+              ? 'Guide Books y Guías de Videojuegos'
+              : activeCategory === 'character-books'
+              ? 'Character Books de Anime'
+              : activeCategory === 'cartas'
+              ? 'Cartas y Trading Cards de Anime'
+              : activeCategory === 'cd-dvd'
+              ? 'CDs y DVDs Japoneses'
+              : activeCategory === 'novela-ligera'
+              ? 'Novelas Ligeras Japonesas (Light Novels)'
+              : activeCategory === 'peluches'
+              ? 'Peluches Japoneses'
+              : activeCategory === 'fuera-de-stock'
+              ? 'Productos Fuera de Stock'
+              : getCategoryNameById(activeCategory)}
           </Heading>
           <Text fontSize="sm" color="gray.300" textAlign="center" mb={6}>
             Mostrando {currentProducts.length} de {sortedProducts.length} {sortedProducts.length === 1 ? 'resultado' : 'resultados'}
@@ -748,7 +837,7 @@ export default function HomePage() {
                     <Portal>
                       <MenuList zIndex={1000}>
                         <MenuItem onClick={() => handleCategoryClick(category.id)}>
-                          Todos los {category.name}
+                          Ver todos
                         </MenuItem>
                         {category.subcategories.map((subcategory) => (
                           <MenuItem 
@@ -1279,13 +1368,14 @@ export default function HomePage() {
               
               {/* Controles de paginación */}
               {totalPages > 1 && (
-                <Flex justify="center" mt={8} mb={4}>
-                  <ButtonGroup variant="outline" spacing={2} colorScheme="pink">
-                    <IconButton 
-                      icon={<FaChevronLeft />} 
+                <Flex justify="center" mt={8} mb={4} overflowX="auto" px={2}>
+                  <ButtonGroup variant="outline" spacing={{ base: 1, md: 2 }} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>
+                    <IconButton
+                      icon={<FaChevronLeft />}
                       onClick={() => handlePageChange(currentPage - 1)}
                       isDisabled={currentPage === 1}
                       aria-label="Página anterior"
+                      size={{ base: 'sm', md: 'md' }}
                     />
                     
                     {/* Mostrar números de página con puntos suspensivos */}
@@ -1295,11 +1385,12 @@ export default function HomePage() {
                       
                       // Siempre mostrar la primera página
                       pageButtons.push(
-                        <Button 
+                        <Button
                           key={1}
                           onClick={() => handlePageChange(1)}
                           variant={currentPage === 1 ? "solid" : "outline"}
                           colorScheme="pink"
+                          size={{ base: 'sm', md: 'md' }}
                         >
                           1
                         </Button>
@@ -1311,48 +1402,49 @@ export default function HomePage() {
                         if (currentPage <= 4) {
                           for (let i = 2; i <= Math.min(5, totalPages - 1); i++) {
                             pageButtons.push(
-                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink">{i}</Button>
+                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
                             );
                           }
                           pageButtons.push(
-                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
                           );
-                        } 
+                        }
                         // Si la página actual está cerca del final
                         else if (currentPage >= totalPages - 3) {
                           pageButtons.push(
-                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
                           );
                           for (let i = Math.max(2, totalPages - 4); i < totalPages; i++) {
                             pageButtons.push(
-                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink">{i}</Button>
+                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
                             );
                           }
-                        } 
+                        }
                         // Si la página actual está en el medio
                         else {
                           pageButtons.push(
-                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
                           );
                           // Mostrar 2 páginas antes, la actual, y 2 páginas después
                           for (let i = currentPage - 2; i <= currentPage + 2; i++) {
                             pageButtons.push(
-                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink">{i}</Button>
+                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
                             );
                           }
                           pageButtons.push(
-                            <Button key="ellipsis2" isDisabled _hover={{ cursor: "default" }} variant="ghost">...</Button>
+                            <Button key="ellipsis2" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
                           );
                         }
                       } else if (totalPages > 1) {
                         // Para menos páginas, mostrar todas sin puntos suspensivos
                         for (let i = 2; i < totalPages; i++) {
                           pageButtons.push(
-                            <Button 
+                            <Button
                               key={i}
                               onClick={() => handlePageChange(i)}
                               variant={currentPage === i ? "solid" : "outline"}
                               colorScheme="pink"
+                              size={{ base: 'sm', md: 'md' }}
                             >
                               {i}
                             </Button>
@@ -1363,11 +1455,12 @@ export default function HomePage() {
                       // Siempre mostrar la última página si hay más de una página
                       if (totalPages > 1) {
                         pageButtons.push(
-                          <Button 
+                          <Button
                             key={totalPages}
                             onClick={() => handlePageChange(totalPages)}
                             variant={currentPage === totalPages ? "solid" : "outline"}
                             colorScheme="pink"
+                            size={{ base: 'sm', md: 'md' }}
                           >
                             {totalPages}
                           </Button>
@@ -1377,11 +1470,12 @@ export default function HomePage() {
                       return pageButtons;
                     })()}
                     
-                    <IconButton 
-                      icon={<FaChevronRight />} 
+                    <IconButton
+                      icon={<FaChevronRight />}
                       onClick={() => handlePageChange(currentPage + 1)}
                       isDisabled={currentPage === totalPages}
                       aria-label="Página siguiente"
+                      size={{ base: 'sm', md: 'md' }}
                     />
                   </ButtonGroup>
                 </Flex>
@@ -1404,9 +1498,9 @@ export default function HomePage() {
             </Heading>
             <Text fontSize="md" color="gray.300" lineHeight={1.8}>
               Arkya Store es tu tienda online especializada en artículos importados directamente desde Japón.
-              Ofrecemos una cuidada selección de Artbooks oficiales, Dōjinshi (Doujinshi) de artistas independientes,
-              Mangas en japonés, Novelas Ligeras (Light Novels), Revistas semanales como Weekly Shōnen Jump,
-              Guías oficiales de videojuegos, figuras coleccionables y merchandising exclusivo.
+              Ofrecemos una cuidada selección de Artbooks japoneses oficiales, Dōjinshi (Doujinshi) de artistas independientes,
+              Mangas en japonés originales, Novelas Ligeras (Light Novels) japonesas, Revistas japonesas semanales como Weekly Shōnen Jump,
+              Guías oficiales de videojuegos japoneses, figuras coleccionables de anime japonesas y merchandising exclusivo.
               Todos nuestros productos son 100% originales y se importan directamente desde Japón para garantizar
               la máxima calidad y autenticidad.
             </Text>
@@ -1426,6 +1520,45 @@ export default function HomePage() {
               Novelas Ligeras de las series más populares y Revistas Jump semanales, traemos lo mejor del
               mercado japonés para los fans de Argentina.
             </Text>
+
+            {/* Links internos de categorías para SEO */}
+            <Box>
+              <Heading as="h3" size="md" color="pink.300" mb={3}>
+                Categorías de productos
+              </Heading>
+              <Flex wrap="wrap" gap={3}>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('artbooks'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Artbooks Japoneses
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('mangas'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Mangas en Japonés
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('revistas'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Revistas Japonesas
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('doujinshis'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Doujinshis
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('guide-books'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Guide Books
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('character-books'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Character Books
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('novela-ligera'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Novelas Ligeras Japonesas
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('figuras'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Figuras de Anime
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('cd-dvd'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  CDs/DVDs Japoneses
+                </Button>
+                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('todos'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Ver Todo
+                </Button>
+              </Flex>
+            </Box>
 
             {/* Links internos */}
             <Box>

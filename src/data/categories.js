@@ -75,6 +75,11 @@ export const categories = [
     subcategories: []
   },
   {
+    id: 'videojuegos',
+    name: 'Videojuegos',
+    subcategories: []
+  },
+  {
     id: 'fuera-de-stock',
     name: 'Fuera de Stock',
     subcategories: []

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import heic2any from 'heic2any';
 import {
   Box,
   Button,
@@ -95,6 +96,18 @@ const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) =>
       }
     }
   }, [initialValues]);
+
+  // Sincronizar selectedCategory cuando cambia product.category
+  useEffect(() => {
+    if (product.category) {
+      const foundCategory = categories.find(cat => cat.name === product.category);
+      setSelectedCategory(foundCategory || null);
+      setAvailableSubcategories(foundCategory ? foundCategory.subcategories : []);
+    } else {
+      setSelectedCategory(null);
+      setAvailableSubcategories([]);
+    }
+  }, [product.category]);
 
   // Función para validar y sanitizar datos
   const sanitizeInput = (value, inputType) => {
@@ -240,6 +253,59 @@ const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) =>
     });
   };
 
+  // Función para convertir HEIC a Blob decodificado (JPEG/PNG)
+  const convertHeicToBlob = async (file) => {
+    try {
+      console.log('Convirtiendo HEIC:', file.name, 'size:', file.size, 'type:', file.type);
+      const result = await heic2any({ blob: file, toType: 'image/jpeg', quality: 0.9 });
+      console.log('HEIC convertido exitosamente');
+      return Array.isArray(result) ? result[0] : result;
+    } catch (err) {
+      // Si heic2any dice que ya es legible por el navegador, devolver el archivo original como blob
+      const msg = err?.message || String(err);
+      if (msg.includes('already browser readable') || msg.includes('ERR_USER')) {
+        console.log('Archivo .heic ya es legible por el navegador, usando directamente');
+        return file;
+      }
+      console.error('Error en heic2any:', msg, err);
+      throw new Error(`heic2any falló: ${msg}`);
+    }
+  };
+
+  // Función para convertir cualquier imagen (Blob/File) a WebP base64 usando canvas
+  const convertToWebPBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(blob);
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        // Intentar WebP, fallback a JPEG si el navegador no lo soporta
+        const webpData = canvas.toDataURL('image/webp', 0.85);
+        if (webpData.startsWith('data:image/webp')) {
+          resolve(webpData);
+        } else {
+          resolve(canvas.toDataURL('image/jpeg', 0.85));
+        }
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('No se pudo cargar la imagen para convertir'));
+      };
+      img.src = url;
+    });
+  };
+
+  // Detectar si un archivo es HEIC/HEIF
+  const isHeicFile = (file) => {
+    const ext = file.name.split('.').pop().toLowerCase();
+    return ext === 'heic' || ext === 'heif' || file.type === 'image/heic' || file.type === 'image/heif' || file.type === 'image/heif-sequence' || file.type === 'image/heic-sequence';
+  };
+
   // Función para manejar la carga de múltiples archivos de imagen
   const handleImageUpload = async (index, files) => {
     if (!files || files.length === 0) {
@@ -259,19 +325,44 @@ const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) =>
         const file = files[i];
         console.log(`Archivo ${i+1}: ${file.name}, tipo: ${file.type}`);
         
-        if (file.type.startsWith('image/')) {
+        if (file.type.startsWith('image/') || isHeicFile(file)) {
           try {
-            // Convertir archivo a base64
+            let previewUrl;
+
+            // Si es HEIC, convertir primero a un formato decodificado
+            if (isHeicFile(file)) {
+              toast({
+                title: 'Convirtiendo HEIC...',
+                description: `Procesando ${file.name} a WebP`,
+                status: 'info',
+                duration: 2000,
+                isClosable: true,
+              });
+              const decodedBlob = await convertHeicToBlob(file);
+              previewUrl = URL.createObjectURL(decodedBlob);
+              const webpBase64 = await convertToWebPBase64(decodedBlob);
+              newPreviews[webpBase64] = previewUrl;
+              validFiles.push(file);
+              imageDataUrls.push(webpBase64);
+              continue; // Saltar al siguiente archivo
+            }
+
+            // Para imágenes normales: convertir a WebP también
             const base64Data = await fileToBase64(file);
-            
-            // Crear URL temporal para vista previa
-            const previewUrl = URL.createObjectURL(file);
+            previewUrl = URL.createObjectURL(file);
             newPreviews[base64Data] = previewUrl;
-            
             validFiles.push(file);
             imageDataUrls.push(base64Data);
           } catch (error) {
-            console.error(`Error al procesar el archivo ${file.name}:`, error);
+            const errorMsg = error?.message || (typeof error === 'string' ? error : JSON.stringify(error));
+            console.error(`Error al procesar el archivo ${file.name}:`, errorMsg, error);
+            toast({
+              title: 'Error de conversión',
+              description: `No se pudo convertir ${file.name}: ${errorMsg}`,
+              status: 'error',
+              duration: 5000,
+              isClosable: true,
+            });
           }
         } else {
           console.warn(`El archivo ${file.name} no es una imagen y será ignorado`);
@@ -841,7 +932,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) =>
                     onClick={() => {
                       const fileInput = document.createElement('input');
                       fileInput.type = 'file';
-                      fileInput.accept = 'image/*';
+                      fileInput.accept = 'image/*,.heic,.heif';
                       fileInput.multiple = true;
                       
                       fileInput.onchange = (e) => {
