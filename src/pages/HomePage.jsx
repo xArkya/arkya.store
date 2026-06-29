@@ -73,8 +73,7 @@ export default function HomePage() {
     const savedPage = sessionStorage.getItem('currentPage');
     return savedPage ? parseInt(savedPage) : 1;
   });
-  const [sortOption, setSortOption] = useState('newest-added');
-  const [filterNewOnly, setFilterNewOnly] = useState(false);
+  const [sortOption, setSortOption] = useState('newest');
   const [filterOffersOnly, setFilterOffersOnly] = useState(false);
   
   // Estado para búsqueda mejorada
@@ -263,7 +262,8 @@ export default function HomePage() {
       if (product.inStock === false) {
         return {
           ...product,
-          isOnOffer: false // Asegurarse de que no tenga oferta
+          isOnOffer: false, // Asegurarse de que no tenga oferta
+          isNew: false      // Quitar etiqueta nuevo si no hay stock
         };
       }
       
@@ -441,13 +441,11 @@ export default function HomePage() {
       // Filtrar por rango de precios
       const matchesPriceRange = product.price >= priceRange[0] && product.price <= priceRange[1];
       
-      // Filtrar por productos nuevos
-      const matchesNewFilter = !filterNewOnly || product.isNew === true;
-      const matchesOffersFilter = !filterOffersOnly || product.isOnOffer === true;
+      const matchesOffersFilter = !filterOffersOnly || (product.isOnOffer === true && product.discountPercentage > 0);
       
-      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesNewFilter && matchesOffersFilter;
+      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesOffersFilter;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterNewOnly, filterOffersOnly]);
+  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterOffersOnly]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {
@@ -470,12 +468,14 @@ export default function HomePage() {
       case 'offers':
         // Ordenar por porcentaje de descuento (de mayor a menor)
         result.sort((a, b) => {
-          // Si ambos tienen oferta, comparar por porcentaje de descuento
-          if (a.isOnOffer && b.isOnOffer) {
+          const aHasDiscount = a.isOnOffer && a.discountPercentage > 0;
+          const bHasDiscount = b.isOnOffer && b.discountPercentage > 0;
+          // Si ambos tienen oferta real, comparar por porcentaje de descuento
+          if (aHasDiscount && bHasDiscount) {
             return b.discountPercentage - a.discountPercentage;
           }
-          // Si solo uno tiene oferta, ese va primero
-          return (b.isOnOffer === a.isOnOffer) ? 0 : b.isOnOffer ? 1 : -1;
+          // Si solo uno tiene oferta real, ese va primero
+          return (bHasDiscount === aHasDiscount) ? 0 : bHasDiscount ? 1 : -1;
         });
         break;
       case 'name-asc':
@@ -676,9 +676,8 @@ export default function HomePage() {
       {offers.find(o => o.isActive && o.isGlobal) && (
         <PromoBanner offer={{
           ...offers.find(o => o.isActive && o.isGlobal),
-          title: `¡${offers.find(o => o.isActive && o.isGlobal).discountPercentage}% de descuento en toda la tienda!`,
-          description: 'Aprovecha esta oferta especial por tiempo limitado',
-          endDate: '2025-10-31T23:59:59'
+          title: '¡Descuentos por toda la tienda!',
+          description: 'Aprovecha esta oferta especial'
         }} />
       )}
       
@@ -921,6 +920,13 @@ export default function HomePage() {
                         if (newSearchTerm && !searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                           setCurrentPage(1);
+                          // Al empezar a buscar, cambiar a categoría "todos"
+                          setActiveCategory('todos');
+                          setActiveSubcategory('');
+                          sessionStorage.setItem('activeCategory', 'todos');
+                          sessionStorage.setItem('activeSubcategory', '');
+                          const params = new URLSearchParams();
+                          setSearchParams(params);
                         } else if (!newSearchTerm && searchTerm) {
                           const lastPage = sessionStorage.getItem('lastPage');
                           if (lastPage) {
@@ -930,6 +936,14 @@ export default function HomePage() {
                       }}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') {
+                          // Al buscar, siempre cambiar a la categoría "todos"
+                          setActiveCategory('todos');
+                          setActiveSubcategory('');
+                          sessionStorage.setItem('activeCategory', 'todos');
+                          sessionStorage.setItem('activeSubcategory', '');
+                          const params = new URLSearchParams();
+                          setSearchParams(params);
+
                           if (selectedSuggestionIndex >= 0 && searchSuggestions[selectedSuggestionIndex]) {
                             const suggestion = searchSuggestions[selectedSuggestionIndex];
                             setSearchTerm(suggestion.text);
@@ -1025,6 +1039,12 @@ export default function HomePage() {
                               onClick={() => {
                                 setSearchTerm(term);
                                 addToSearchHistory(term);
+                                setActiveCategory('todos');
+                                setActiveSubcategory('');
+                                sessionStorage.setItem('activeCategory', 'todos');
+                                sessionStorage.setItem('activeSubcategory', '');
+                                const params = new URLSearchParams();
+                                setSearchParams(params);
                               }}
                             >
                               <Text color="white" fontSize="sm">
@@ -1053,6 +1073,12 @@ export default function HomePage() {
                                 setSearchTerm(suggestion.text);
                                 addToSearchHistory(suggestion.text);
                                 setShowSuggestions(false);
+                                setActiveCategory('todos');
+                                setActiveSubcategory('');
+                                sessionStorage.setItem('activeCategory', 'todos');
+                                sessionStorage.setItem('activeSubcategory', '');
+                                const params = new URLSearchParams();
+                                setSearchParams(params);
                               }}
                               align="center"
                               gap={3}
@@ -1119,28 +1145,6 @@ export default function HomePage() {
                   </Box>
                   <Box display={{ base: 'block', sm: 'none' }}>
                     {filterOffersOnly ? '✓ Ofertas' : 'Ofertas'}
-                  </Box>
-                </Button>
-                
-                {/* Botón para filtrar productos nuevos */}
-                <Button
-                  colorScheme={filterNewOnly ? 'pink' : 'gray'}
-                  variant={filterNewOnly ? 'solid' : 'outline'}
-                  size={{ base: 'sm', md: 'md' }}
-                  bg={filterNewOnly ? 'pink.500' : 'whiteAlpha.200'}
-                  color="white"
-                  _hover={{ bg: filterNewOnly ? 'pink.600' : 'whiteAlpha.300' }}
-                  onClick={() => {
-                    setFilterNewOnly(!filterNewOnly);
-                    setCurrentPage(1);
-                  }}
-                  width="auto"
-                >
-                  <Box display={{ base: 'none', sm: 'block' }}>
-                    {filterNewOnly ? '✓ Nuevos' : 'Nuevos'}
-                  </Box>
-                  <Box display={{ base: 'block', sm: 'none' }}>
-                    {filterNewOnly ? '✓ Nuevos' : 'Nuevos'}
                   </Box>
                 </Button>
                 
@@ -1251,7 +1255,7 @@ export default function HomePage() {
                         Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' : 
                                 sortOption === 'price-asc' ? 'Precio: menor a mayor' :
                                 sortOption === 'price-desc' ? 'Precio: mayor a menor' :
-                                sortOption === 'newest' ? 'Etiqueta nuevo' :
+                                sortOption === 'newest' ? 'Nuevos productos' :
                                 sortOption === 'offers' ? 'Mejores ofertas primero' :
                                 sortOption === 'name-asc' ? 'Nombre: A-Z' :
                                 sortOption === 'name-desc' ? 'Nombre: Z-A' : 'Más recientes'}
@@ -1269,6 +1273,15 @@ export default function HomePage() {
                   </MenuButton>
                   <Portal>
                     <MenuList zIndex={1000}>
+                                           <MenuItem onClick={() => { 
+                        // Guardar la página actual antes de cambiar
+                        if (searchTerm) {
+                          sessionStorage.setItem('lastPage', currentPage);
+                        }
+                        setSortOption('newest'); 
+                        setCurrentPage(1);
+                        localStorage.setItem('currentPage', '1');
+                      }}>Nuevos productos</MenuItem>
                       <MenuItem onClick={() => { 
                         // Guardar la página actual antes de cambiar
                         if (searchTerm) {
@@ -1296,15 +1309,7 @@ export default function HomePage() {
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Precio: mayor a menor</MenuItem>
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('newest'); 
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Etiqueta nuevo</MenuItem>
+ 
                       <MenuItem onClick={() => { 
                         // Guardar la página actual antes de cambiar
                         if (searchTerm) {

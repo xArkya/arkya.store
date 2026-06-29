@@ -47,10 +47,10 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
   };
 
   const handleSaveOffer = () => {
-    if (offerData.isOnOffer && offerData.discountPercentage <= 0) {
+    if (offerData.isOnOffer && offerData.discountPercentage < 0) {
       toast({
         title: 'Error',
-        description: 'El porcentaje de descuento debe ser mayor a 0',
+        description: 'El porcentaje de descuento no puede ser negativo',
         status: 'error',
         duration: 3000,
         isClosable: true,
@@ -79,12 +79,20 @@ const ProductOfferManager = ({ product, onUpdateProduct }) => {
       offerEndDate: offerData.endDate,
     };
 
+    // Si el descuento es 0%, es una oferta de exclusión de oferta global
+    if (offerData.isOnOffer && offerData.discountPercentage === 0) {
+      updatedProduct.price = product.price;
+      updatedProduct.originalPrice = product.price;
+    }
+
     onUpdateProduct(updatedProduct);
 
     toast({
       title: offerData.isOnOffer ? 'Oferta aplicada' : 'Oferta removida',
       description: offerData.isOnOffer 
-        ? `Se aplicó un descuento del ${offerData.discountPercentage}% al producto`
+        ? (offerData.discountPercentage === 0 
+          ? 'Producto excluido de ofertas globales' 
+          : `Se aplicó un descuento del ${offerData.discountPercentage}% al producto`)
         : 'Se removió la oferta del producto',
       status: 'success',
       duration: 3000,

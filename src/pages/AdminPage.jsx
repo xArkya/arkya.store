@@ -211,10 +211,8 @@ const AdminPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stockKey]);
 
-  // Actualizar filteredProducts cuando cambian los productos
-  useEffect(() => {
-    setFilteredProducts(products);
-  }, [products]);
+  // NOTA: No resetear filteredProducts aquí cuando products cambia.
+  // ProductSearch ya recalcula los filtros automáticamente y llama a onFilterChange.
   
   // Guardar ofertas en localStorage cuando cambian
   useEffect(() => {

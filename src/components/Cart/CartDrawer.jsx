@@ -69,17 +69,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
     
     cart.forEach((item, index) => {
       message += `${index + 1}. ${item.name}\n`;
-      message += `   $${item.price.toLocaleString()} x ${item.quantity}\n\n`;
+      message += `   $${Math.round(item.price).toLocaleString()} x ${item.quantity}\n\n`;
     });
     
     message += '━━━━━━━━━━━━━━━━━━━━\n';
     
     if (appliedCoupon) {
-      message += `🎟️ Cupón ${appliedCoupon.code}: -$${couponDiscount.toLocaleString()}\n`;
+      message += `🎟️ Cupón ${appliedCoupon.code}: -$${Math.round(couponDiscount).toLocaleString()}\n`;
       message += `━━━━━━━━━━━━━━━━━━━━\n`;
-      message += `✨ TOTAL: $${finalTotal.toLocaleString()}`;
+      message += `✨ TOTAL: $${Math.round(finalTotal).toLocaleString()}`;
     } else {
-      message += `✨ TOTAL: $${cartTotal.toLocaleString()}`;
+      message += `✨ TOTAL: $${Math.round(cartTotal).toLocaleString()}`;
     }
     
     return message;
@@ -277,7 +277,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                               {item.name}
                             </Text>
                           </RouterLink>
-                          <Text color={textColor}>${item.price.toLocaleString()}</Text>
+                          <Text color={textColor}>${Math.round(item.price).toLocaleString()}</Text>
                           <Flex justify="flex-end" align="center" w="100%">
                             <IconButton
                               icon={<FaTrash />}
@@ -354,13 +354,13 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 {appliedCoupon && (
                   <Flex w="100%" justify="space-between" color="green.600" _dark={{ color: "green.300" }}>
                     <Text>Descuento ({appliedCoupon.discountPercentage}%):</Text>
-                    <Text>-${couponDiscount.toLocaleString()}</Text>
+                    <Text>-${Math.round(couponDiscount).toLocaleString()}</Text>
                   </Flex>
                 )}
                 <Divider />
                 <Flex w="100%" justify="space-between">
                   <Text fontWeight="bold" fontSize="lg" color={textColor}>Total:</Text>
-                  <Text fontWeight="bold" fontSize="lg" color={textColor}>${finalTotal.toLocaleString()}</Text>
+                  <Text fontWeight="bold" fontSize="lg" color={textColor}>${Math.round(finalTotal).toLocaleString()}</Text>
                 </Flex>
               </VStack>
               

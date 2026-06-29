@@ -260,7 +260,7 @@ export default function ProductPage() {
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
-      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.floor(product.price).toLocaleString()}`;
+      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.round(product.price).toLocaleString()}`;
       
       // Usar la API moderna de Clipboard
       navigator.clipboard.writeText(message)
@@ -653,7 +653,7 @@ export default function ProductPage() {
                 >
                   👋 Hola! Me interesa el siguiente producto:
 📦 {product?.name}
-💰 ${Math.floor(product?.price).toLocaleString()}
+💰 ${Math.round(product?.price).toLocaleString()}
                 </Box>
               </Box>
             </VStack>
@@ -1150,7 +1150,7 @@ export default function ProductPage() {
                 />
               </Flex>
               <VStack align="start" spacing={2} width="100%">
-                {product.isOnOffer ? (
+                {product.isOnOffer && product.discountPercentage > 0 ? (
                   <>
                     <Flex align="baseline" width="100%">
                       <Text

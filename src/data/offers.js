@@ -15,5 +15,26 @@ export const offers = [
     "minPurchaseAmount": 0,
     "createdAt": "2025-10-02T19:47:30.262Z",
     "updatedAt": "2025-10-02T19:47:30.262Z"
+  },
+  {
+    "title": "Actualización de tienda",
+    "description": "Festejo por actualizar tienda",
+    "discountPercentage": 10,
+    "discountAmount": 0,
+    "discountType": "percentage",
+    "startDate": "",
+    "endDate": "",
+    "isActive": true,
+    "minPurchaseAmount": 0,
+    "maxUses": 0,
+    "currentUses": 0,
+    "code": "",
+    "applicableProducts": [],
+    "applicableCategories": [],
+    "isGlobal": true,
+    "offerType": "descuento",
+    "id": "1782690348998",
+    "createdAt": "2026-06-28T23:45:48.998Z",
+    "updatedAt": "2026-06-28T23:45:48.998Z"
   }
 ];

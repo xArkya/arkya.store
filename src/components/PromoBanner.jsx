@@ -48,7 +48,7 @@ export default function PromoBanner({ offer }) {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      bg="linear-gradient(135deg, #d53f8c 0%, #b83280 100%)"
       py={4}
       position="relative"
       overflow="hidden"
@@ -75,7 +75,7 @@ export default function PromoBanner({ offer }) {
             <FaTag size="24px" color="white" />
             <Box>
               <Text color="white" fontWeight="bold" fontSize={{ base: 'lg', md: 'xl' }}>
-                {offer.title || `¡${offer.discountPercentage}% de descuento!`}
+                {offer.title || 'descuentos en toda la tienda'}
               </Text>
               <Text color="whiteAlpha.900" fontSize={{ base: 'sm', md: 'md' }}>
                 {offer.description || 'En productos seleccionados'}
@@ -83,7 +83,7 @@ export default function PromoBanner({ offer }) {
             </Box>
           </HStack>
 
-          {offer.endDate && (
+          {offer.endDate && timeLeft && timeLeft !== '¡Oferta finalizada!' && (
             <HStack
               spacing={3}
               bg="whiteAlpha.200"
@@ -103,18 +103,6 @@ export default function PromoBanner({ offer }) {
               </Box>
             </HStack>
           )}
-
-          <Button
-            colorScheme="whiteAlpha"
-            bg="white"
-            color="purple.600"
-            size={{ base: 'sm', md: 'md' }}
-            fontWeight="bold"
-            _hover={{ transform: 'scale(1.05)', boxShadow: 'xl' }}
-            transition="all 0.2s"
-          >
-            Ver Ofertas
-          </Button>
         </Flex>
       </Container>
 
