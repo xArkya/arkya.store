@@ -14672,7 +14672,7 @@ export const products = [
     "name": "Maken-ki Full Color Extreme",
     "description": "Colección de capítulos e Ilustraciones de Maken-ki a todo color, también incluye 4 desplegables doble faz.",
     "details": "Colección de capítulos e Ilustraciones de Maken-ki a todo color, también incluye 4 desplegables doble faz.",
-    "price": 24999,
+    "price": 29999,
     "image": "/images/products/img_1782690666627_r2cqie_0.webp",
     "images": [
       "/images/products/img_1782690666707_31mwle_0.webp",
@@ -14705,7 +14705,7 @@ export const products = [
     "id": 1782687656744,
     "isOnOffer": true,
     "discountPercentage": 0,
-    "originalPrice": 24999,
+    "originalPrice": 29999,
     "offerStartDate": "",
     "offerEndDate": ""
   },
