@@ -36,7 +36,7 @@ import {
   Center,
   IconButton,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
@@ -321,6 +321,48 @@ export default function ProductPage() {
     }
   };
 
+  // Función para compartir el producto
+  const handleShare = async () => {
+    const shareUrl = `https://arkya.store/product/${getProductSlug(product)}`;
+    const shareTitle = product?.name || 'Producto en Arkya Store';
+    const shareText = `${shareTitle} — $${Math.floor(product?.price || 0).toLocaleString()}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl,
+        });
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.error('Error sharing:', err);
+        }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(`${shareTitle}\n${shareUrl}`);
+        toast({
+          title: 'Link copiado',
+          description: 'El link del producto se copió al portapapeles.',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+          position: 'top',
+        });
+      } catch {
+        toast({
+          title: 'No se pudo copiar',
+          description: 'Por favor copiá el link manualmente.',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+          position: 'top',
+        });
+      }
+    }
+  };
+
   // Las variables de color del modal ya están definidas al inicio del componente
 
   // Datos del carrusel de imágenes
@@ -366,12 +408,22 @@ export default function ProductPage() {
         const description = isJapanese && !desc.toLowerCase().includes('japon')
           ? `${desc} Producto original importado de Japón.`
           : desc;
+        const absoluteImage = product?.image?.startsWith('http')
+          ? product.image
+          : `https://arkya.store${product.image}`;
+        const productDescription = product?.price
+          ? `${description} — $${Math.floor(product.price).toLocaleString()}`
+          : description;
         return (
           <SEO
             title={title}
-            description={description}
-            image={product?.image || 'https://arkya.store/images/logo2.webp'}
+            description={productDescription}
+            image={absoluteImage}
             url={`https://arkya.store/product/${product ? getProductSlug(product) : ''}`}
+            type="product"
+            price={product?.price || 0}
+            currency="ARS"
+            availability={product?.inStock !== false ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'}
           />
         );
       })()}
@@ -1114,40 +1166,57 @@ export default function ProductPage() {
           {/* Información del producto con diseño mejorado */}
           <Stack>
             <Box as={'header'}>
-              <Flex align="center" gap={3} mb={2}>
+              <Flex align="flex-start" gap={3} mb={2}>
                 <Heading
                   as="h1"
                   lineHeight={1.1}
                   fontWeight={600}
                   fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
                   bgGradient="linear(to-r, brand.400, pink.400)"
-                  bgClip="text">
+                  bgClip="text"
+                  flex={1}
+                  wordBreak="break-word">
                   {product.name}
                 </Heading>
-                <IconButton
-                  aria-label="Me gusta"
-                  icon={<FaHeart />}
-                  size="md"
-                  colorScheme="pink"
-                  bg={isLiked(product.id) ? 'pink.600' : 'transparent'}
-                  color={isLiked(product.id) ? 'white' : 'white'}
-                  variant={isLiked(product.id) ? "solid" : "ghost"}
-                  borderRadius="full"
-                  onClick={() => {
-                    if (!getLikeUser()) {
-                      setPendingLike(true);
-                      onLikeModalOpen();
-                      return;
-                    }
-                    const liked = toggleLike(product);
-                    toast({
-                      title: liked ? '¡Me gusta!' : 'Like removido',
-                      status: liked ? 'success' : 'info',
-                      duration: 2000,
-                      isClosable: true,
-                    });
-                  }}
-                />
+                <Flex gap={2} ml="auto" align="center">
+                  <IconButton
+                    aria-label="Me gusta"
+                    icon={<FaHeart />}
+                    size="md"
+                    colorScheme="pink"
+                    bg={isLiked(product.id) ? 'pink.600' : 'transparent'}
+                    color={isLiked(product.id) ? 'white' : 'white'}
+                    variant={isLiked(product.id) ? "solid" : "ghost"}
+                    borderRadius="full"
+                    onClick={() => {
+                      if (!getLikeUser()) {
+                        setPendingLike(true);
+                        onLikeModalOpen();
+                        return;
+                      }
+                      const liked = toggleLike(product);
+                      toast({
+                        title: liked ? '¡Me gusta!' : 'Like removido',
+                        status: liked ? 'success' : 'info',
+                        duration: 2000,
+                        isClosable: true,
+                      });
+                    }}
+                  />
+                  <IconButton
+                    aria-label="Compartir producto"
+                    icon={<FaShareAlt />}
+                    size="md"
+                    colorScheme="brand"
+                    bg="whiteAlpha.200"
+                    color="white"
+                    variant="ghost"
+                    borderRadius="full"
+                    onClick={handleShare}
+                    _hover={{ bg: 'whiteAlpha.300', transform: 'scale(1.1)' }}
+                    transition="all 0.2s"
+                  />
+                </Flex>
               </Flex>
               <VStack align="start" spacing={2} width="100%">
                 {product.isOnOffer && product.discountPercentage > 0 ? (
@@ -1541,7 +1610,7 @@ export default function ProductPage() {
     {/* Lightbox - Modal para ver imagen ampliada */}
     <Modal isOpen={isLightboxOpen} onClose={() => setIsLightboxOpen(false)} size="full" isCentered>
       <ModalOverlay bg="blackAlpha.900" backdropFilter="blur(8px)" />
-      <ModalContent bg="transparent" boxShadow="none" maxW="100vw" maxH="100vh">
+      <ModalContent bg="transparent" boxShadow="none" maxW="100vw" maxH="100vh" onClick={() => setIsLightboxOpen(false)}>
         <ModalCloseButton color="white" size="lg" zIndex={2} />
         <ModalBody
           p={0}
@@ -1563,53 +1632,55 @@ export default function ProductPage() {
             setTouchEnd(null);
           }}
         >
-          <Image
-            src={currentImage}
-            alt={product?.name}
-            maxH="90vh"
-            maxW="90vw"
-            objectFit="contain"
-            borderRadius="md"
-            draggable={false}
-            userSelect="none"
-          />
+          <Box onClick={(e) => e.stopPropagation()} display="flex" alignItems="center" justifyContent="center" w="100%" h="100%">
+            <Image
+              src={currentImage}
+              alt={product?.name}
+              maxH="90vh"
+              maxW="90vw"
+              objectFit="contain"
+              borderRadius="md"
+              draggable={false}
+              userSelect="none"
+            />
 
-          {productImages.length > 1 && (
-            <>
-              <Button
-                position="absolute"
-                left="4"
-                top="50%"
-                transform="translateY(-50%)"
-                size="lg"
-                colorScheme="whiteAlpha"
-                bg="blackAlpha.600"
-                color="white"
-                _hover={{ bg: 'blackAlpha.800' }}
-                onClick={prevImage}
-                zIndex={2}
-                borderRadius="full"
-              >
-                <FaChevronLeft />
-              </Button>
-              <Button
-                position="absolute"
-                right="4"
-                top="50%"
-                transform="translateY(-50%)"
-                size="lg"
-                colorScheme="whiteAlpha"
-                bg="blackAlpha.600"
-                color="white"
-                _hover={{ bg: 'blackAlpha.800' }}
-                onClick={nextImage}
-                zIndex={2}
-                borderRadius="full"
-              >
-                <FaChevronRight />
-              </Button>
-            </>
-          )}
+            {productImages.length > 1 && (
+              <>
+                <Button
+                  position="absolute"
+                  left="4"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  size="lg"
+                  colorScheme="whiteAlpha"
+                  bg="blackAlpha.600"
+                  color="white"
+                  _hover={{ bg: 'blackAlpha.800' }}
+                  onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                  zIndex={2}
+                  borderRadius="full"
+                >
+                  <FaChevronLeft />
+                </Button>
+                <Button
+                  position="absolute"
+                  right="4"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  size="lg"
+                  colorScheme="whiteAlpha"
+                  bg="blackAlpha.600"
+                  color="white"
+                  _hover={{ bg: 'blackAlpha.800' }}
+                  onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                  zIndex={2}
+                  borderRadius="full"
+                >
+                  <FaChevronRight />
+                </Button>
+              </>
+            )}
+          </Box>
         </ModalBody>
       </ModalContent>
     </Modal>

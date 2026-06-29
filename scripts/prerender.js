@@ -11,6 +11,9 @@ const DIST_DIR = path.resolve(__dirname, '..', 'dist');
 const INDEX_HTML = path.join(DIST_DIR, 'index.html');
 const BASE_URL = 'https://arkya.store';
 
+// Importar slugify para generar slugs amigables
+const { getProductSlug } = await import('../src/utils/slugify.js');
+
 // Rutas estáticas
 const staticRoutes = [
   { path: '/', title: 'Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón', description: 'Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido.', image: '/images/logo.png', priority: 1.0 },
@@ -61,11 +64,14 @@ function injectMetaTags(html, { title, description, image, url, type = 'website'
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="${escapeHtml(toAbsoluteUrl(image))}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="${escapeHtml(url)}" />
     <meta property="og:type" content="${type}" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="Arkya Store" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@arkya.store" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${escapeHtml(toAbsoluteUrl(image))}" />
@@ -211,9 +217,14 @@ async function prerender() {
 
   // Prerender productos
   for (const product of products) {
-    const productUrl = `${BASE_URL}/product/${product.id}/`;
+    const slug = getProductSlug(product);
+    const productUrlBySlug = `${BASE_URL}/product/${slug}/`;
+    const productUrlById = `${BASE_URL}/product/${product.id}/`;
     const title = `${product.name} - Arkya Store`;
-    const description = (product.description || product.details || 'Descubrí este producto exclusivo en Arkya Store').trim();
+    const rawDescription = (product.description || product.details || 'Descubrí este producto exclusivo en Arkya Store').trim();
+    const description = product.price
+      ? `${rawDescription} — $${Math.floor(product.price).toLocaleString()}`
+      : rawDescription;
     const image = product.image || '/images/logo.png';
     const productImages = product.images && product.images.length > 0
       ? product.images.filter(img => img.trim() !== '')
@@ -225,7 +236,7 @@ async function prerender() {
       '@type': 'Product',
       name: product.name,
       image: productImages.filter(Boolean).map(toAbsoluteUrl),
-      description: description,
+      description: rawDescription,
       sku: String(product.id),
       itemCondition: 'https://schema.org/UsedCondition',
       brand: {
@@ -234,7 +245,7 @@ async function prerender() {
       },
       offers: {
         '@type': 'Offer',
-        url: productUrl,
+        url: productUrlBySlug,
         priceCurrency: 'ARS',
         price: String(Math.floor(product.price)),
         availability: product.inStock !== false
@@ -292,14 +303,20 @@ async function prerender() {
       title,
       description,
       image,
-      url: productUrl,
+      url: productUrlBySlug,
       type: 'product',
       jsonLd,
     });
 
-    const outPath = path.join(DIST_DIR, 'product', String(product.id), 'index.html');
-    writeHtmlToDir(outPath, html);
+    // Generar página con ID numérico (compatibilidad)
+    const outPathById = path.join(DIST_DIR, 'product', String(product.id), 'index.html');
+    writeHtmlToDir(outPathById, html);
     console.log(`✓ Prerender: /product/${product.id}`);
+
+    // Generar página con slug amigable (principal para SEO y compartir)
+    const outPathBySlug = path.join(DIST_DIR, 'product', slug, 'index.html');
+    writeHtmlToDir(outPathBySlug, html);
+    console.log(`✓ Prerender: /product/${slug}`);
   }
 
   console.log('\nPrerender completado. HTML estático generado para todas las rutas.');
