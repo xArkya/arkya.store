@@ -7072,7 +7072,7 @@ export const products = [
     ],
     "name": "Haruhi Suzumiya no Garoku",
     "description": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
-    "price": 19999,
+    "price": 18999.05,
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
@@ -7093,7 +7093,7 @@ export const products = [
       "Artbooks"
     ],
     "details": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
-    "discountPercentage": 0,
+    "discountPercentage": 5,
     "originalPrice": 19999,
     "offerStartDate": "",
     "offerEndDate": ""
