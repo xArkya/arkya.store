@@ -260,7 +260,8 @@ export default function ProductPage() {
   // Función para copiar el mensaje y abrir Instagram
   const handleCopyAndOpenInstagram = () => {
     try {
-      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.round(product.price).toLocaleString()}`;
+      const productUrl = `https://arkya.store/product/${getProductSlug(product)}`;
+      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.round(product.price).toLocaleString()}\n ${productUrl}`;
       
       // Usar la API moderna de Clipboard
       navigator.clipboard.writeText(message)
@@ -536,11 +537,13 @@ export default function ProductPage() {
             px={6}
           >
             <Button
-              colorScheme="green"
+              bg="pink.400"
+              color="white"
               onClick={handleConfirmAge}
               size="lg"
               width="full"
               _hover={{
+                bg: 'pink.500',
                 transform: 'translateY(-2px)',
                 boxShadow: 'lg',
               }}
@@ -556,7 +559,7 @@ export default function ProductPage() {
         <ModalOverlay backdropFilter="blur(4px)" />
         <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl" mx={4}>
           <ModalHeader fontSize="2xl" fontWeight="bold" pb={2} color={modalHeaderColor}>
-            🛍️ Comprar por Instagram
+            Comprar por Instagram
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
@@ -630,34 +633,37 @@ export default function ProductPage() {
                     },
                   }}
                 >
-                  👋 Hola! Me interesa el siguiente producto:
-📦 {product?.name}
-💰 ${Math.round(product?.price).toLocaleString()}
+                  {['Hola! Me interesa el siguiente producto:', product?.name, `$${Math.round(product?.price || 0).toLocaleString()}`, `https://arkya.store/product/${getProductSlug(product)}`].map((line, i, arr) => (
+                    <>
+                      {line}
+                      {i < arr.length - 1 && <br />}
+                    </>
+                  ))}
                 </Box>
               </Box>
             </VStack>
           </ModalBody>
 
-          <ModalFooter gap={3}>
-            <Button
-              colorScheme="brand"
-              size="lg"
-              leftIcon={<FaInstagram />}
-              onClick={handleCopyAndOpenInstagram}
-              flex={1}
-              _hover={{
-                transform: 'translateY(-2px)',
-                boxShadow: 'xl',
-              }}
-            >
-              Copiar y abrir Instagram
-            </Button>
+          <ModalFooter gap={3} justifyContent="center">
             <Button 
               variant="ghost" 
               size="lg"
               onClick={onInstagramClose}
             >
               Cancelar
+            </Button>
+            <Button
+              colorScheme="pink"
+              size="lg"
+              leftIcon={<FaInstagram />}
+              onClick={handleCopyAndOpenInstagram}
+              _hover={{
+                bg: 'pink.500',
+                transform: 'translateY(-2px)',
+                boxShadow: 'xl',
+              }}
+            >
+              Copiar y abrir Instagram
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -983,7 +989,8 @@ export default function ProductPage() {
                     Este producto contiene contenido para adultos.
                   </Text>
                   <Button
-                    colorScheme="red"
+                    bg="pink.400"
+                    color="white"
                     onClick={handleConfirmAge}
                     size="lg"
                     width="200px"
@@ -1324,14 +1331,14 @@ export default function ProductPage() {
                   rounded={'md'}
                   size={'lg'}
                   py={'7'}
-                  bg={instaBtnBg}
+                  bg="pink.400"
                   color={'white'}
                   fontWeight="bold"
                   w="full"
                   _hover={{
+                    bg: 'pink.500',
                     transform: 'translateY(-2px)',
                     boxShadow: 'xl',
-                    bg: instaBtnHoverBg,
                   }}
                   leftIcon={<FaInstagram size={20} />}>
                   Comprar por Instagram

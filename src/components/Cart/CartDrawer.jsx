@@ -68,8 +68,10 @@ const CartDrawer = ({ isOpen, onClose }) => {
     message += '━━━━━━━━━━━━━━━━━━━━\n\n';
     
     cart.forEach((item, index) => {
+      const itemSlug = getProductSlug(item);
       message += `${index + 1}. ${item.name}\n`;
-      message += `   $${Math.round(item.price).toLocaleString()} x ${item.quantity}\n\n`;
+      message += `   $${Math.round(item.price).toLocaleString()}\n`;
+      message += `   https://arkya.store/product/${itemSlug}\n\n`;
     });
     
     message += '━━━━━━━━━━━━━━━━━━━━\n';
@@ -77,9 +79,9 @@ const CartDrawer = ({ isOpen, onClose }) => {
     if (appliedCoupon) {
       message += `🎟️ Cupón ${appliedCoupon.code}: -$${Math.round(couponDiscount).toLocaleString()}\n`;
       message += `━━━━━━━━━━━━━━━━━━━━\n`;
-      message += `✨ TOTAL: $${Math.round(finalTotal).toLocaleString()}`;
+      message += `TOTAL: $${Math.round(finalTotal).toLocaleString()}`;
     } else {
-      message += `✨ TOTAL: $${Math.round(cartTotal).toLocaleString()}`;
+      message += `TOTAL: $${Math.round(cartTotal).toLocaleString()}`;
     }
     
     return message;
@@ -277,7 +279,18 @@ const CartDrawer = ({ isOpen, onClose }) => {
                               {item.name}
                             </Text>
                           </RouterLink>
-                          <Text color={textColor}>${Math.round(item.price).toLocaleString()}</Text>
+                          {item.isOnOffer && item.discountPercentage > 0 ? (
+                            <VStack align="start" spacing={0}>
+                              <Text color={textColor} fontWeight="bold">
+                                ${Math.round(item.price).toLocaleString()}
+                              </Text>
+                              <Text color="gray.500" fontSize="sm" textDecoration="line-through">
+                                ${Math.round(item.price / (1 - item.discountPercentage / 100)).toLocaleString()}
+                              </Text>
+                            </VStack>
+                          ) : (
+                            <Text color={textColor}>${Math.round(item.price).toLocaleString()}</Text>
+                          )}
                           <Flex justify="flex-end" align="center" w="100%">
                             <IconButton
                               icon={<FaTrash />}
@@ -369,10 +382,16 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   Vaciar carrito
                 </Button>
                 <Button 
-                  colorScheme="brand" 
+                  bg="pink.400"
+                  color="white"
                   leftIcon={<FaInstagram />} 
                   onClick={handleBuyClick}
                   flex="1"
+                  _hover={{
+                    bg: 'pink.500',
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'md',
+                  }}
                 >
                   Comprar por Instagram
                 </Button>
@@ -383,11 +402,11 @@ const CartDrawer = ({ isOpen, onClose }) => {
       </Drawer>
 
       {/* Modal de instrucciones para compra por Instagram */}
-      <Modal isOpen={isInstructionsOpen} onClose={onInstructionsClose} isCentered size="lg">
-        <ModalOverlay backdropFilter="blur(4px)" />
-        <ModalContent bg={modalBgColor} color={modalTextColor} mx={4}>
+      <Modal isOpen={isInstructionsOpen} onClose={onInstructionsClose} isCentered size="lg" scrollBehavior="inside">
+        <ModalOverlay />
+        <ModalContent bg={modalBgColor} color={modalTextColor} mx={4} maxH="85vh" overflowY="auto">
           <ModalHeader fontSize="2xl" fontWeight="bold" pb={2}>
-            🛍️ Comprar por Instagram
+            Comprar por Instagram
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
@@ -466,22 +485,27 @@ const CartDrawer = ({ isOpen, onClose }) => {
               </Box>
             </VStack>
           </ModalBody>
-          <ModalFooter gap={3}>
-            <Button
-              colorScheme="brand"
-              size="lg"
-              leftIcon={<FaInstagram />}
-              onClick={handleCopyAndOpenInstagram}
-              flex={1}
-            >
-              Copiar y abrir Instagram
-            </Button>
+          <ModalFooter gap={3} justifyContent="center">
             <Button 
               variant="ghost" 
               size="lg"
               onClick={onInstructionsClose}
             >
               Cancelar
+            </Button>
+            <Button
+              bg="pink.400"
+              color="white"
+              size="lg"
+              leftIcon={<FaInstagram />}
+              onClick={handleCopyAndOpenInstagram}
+              _hover={{
+                bg: 'pink.500',
+                transform: 'translateY(-2px)',
+                boxShadow: 'xl',
+              }}
+            >
+              Copiar y abrir Instagram
             </Button>
           </ModalFooter>
         </ModalContent>
