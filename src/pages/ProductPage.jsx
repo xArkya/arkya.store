@@ -401,9 +401,10 @@ export default function ProductPage() {
         const isJapanese = product?.categories?.some(c =>
           ['artbooks','mangas','revistas','doujinshis','guide-books','character-books','novela-ligera','cd-dvd'].includes(c.toLowerCase())
         ) || product?.tags?.some(t => t.toLowerCase().includes('japon') || t.toLowerCase().includes('japanese'));
-        const title = isJapanese
-          ? `${product?.name} - Importado de Japón | Arkya Store`
-          : `${product?.name} - Arkya Store`;
+        const priceStr = product?.price
+          ? `ARS ${Math.floor(product.price).toLocaleString('es-AR')}`
+          : '';
+        const title = `Comprar ${product?.name} | Arkya Store`;
         const desc = product?.description || product?.details || 'Descubrí este producto exclusivo en Arkya Store';
         const description = isJapanese && !desc.toLowerCase().includes('japon')
           ? `${desc} Producto original importado de Japón.`
@@ -412,8 +413,8 @@ export default function ProductPage() {
           ? product.image
           : `https://arkya.store${product.image}`;
         const productDescription = product?.price
-          ? `${description} — $${Math.floor(product.price).toLocaleString()}`
-          : description;
+          ? `${description} Precio: ${priceStr}. Envíos a todo el país.`
+          : `${description} Envíos a todo el país.`;
         return (
           <SEO
             title={title}

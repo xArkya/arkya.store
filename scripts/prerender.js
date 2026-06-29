@@ -220,11 +220,14 @@ async function prerender() {
     const slug = getProductSlug(product);
     const productUrlBySlug = `${BASE_URL}/product/${slug}/`;
     const productUrlById = `${BASE_URL}/product/${product.id}/`;
-    const title = `${product.name} - Arkya Store`;
+    const priceStr = product.price
+      ? `ARS ${Math.floor(product.price).toLocaleString('es-AR')}`
+      : '';
+    const title = `Comprar ${product.name} | Arkya Store`;
     const rawDescription = (product.description || product.details || 'Descubrí este producto exclusivo en Arkya Store').trim();
     const description = product.price
-      ? `${rawDescription} — $${Math.floor(product.price).toLocaleString()}`
-      : rawDescription;
+      ? `${rawDescription} Precio: ${priceStr}. Envíos a todo el país.`
+      : `${rawDescription} Envíos a todo el país.`;
     const image = product.image || '/images/logo.png';
     const productImages = product.images && product.images.length > 0
       ? product.images.filter(img => img.trim() !== '')

@@ -275,25 +275,13 @@ export default function ProductCard({ product }) {
             bg="blackAlpha.700"
             zIndex="3"
             flexDirection="column"
-            justifyContent="end"
+            justifyContent="center"
             p={5}
             textAlign="center"
             borderWidth="3px"
             borderColor="red.500"
             borderStyle="solid"
           >
-            <Box
-              position="absolute"
-              top="0"
-              left="0"
-              right="0"
-              py={1}
-              bg="red.600"
-              textAlign="center"
-              fontWeight="bold"
-            >
-              CONTENIDO PARA ADULTOS
-            </Box>
             <FaExclamationTriangle size="2.5em" color="#FFC107" />
             <Text color="white" fontWeight="bold" fontSize="lg" mt={2}>
               Contenido +18
@@ -304,7 +292,7 @@ export default function ProductCard({ product }) {
             <Button 
               mt={3} 
               size="sm" 
-              colorScheme="red"
+              colorScheme="pink"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -543,31 +531,44 @@ export default function ProductCard({ product }) {
           </LinkOverlay>
         </Heading>
         
-        {/* Botón de compartir (copiar link) */}
+        {/* Botón de compartir */}
         <Box position="absolute" top={2} left={2} zIndex={2}>
           <IconButton
             icon={<FaShareAlt />}
-            size="xs"
+            size="sm"
+            colorScheme="brand"
+            bg="whiteAlpha.200"
+            color="white"
             variant="ghost"
-            aria-label="Copiar enlace"
-            opacity={0.7}
+            borderRadius="full"
+            aria-label="Compartir producto"
+            opacity={0.8}
             _groupHover={{ opacity: 1 }}
-            transition="opacity 0.2s"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              const url = `${window.location.origin}/product/${getProductSlug(product)}/`;
-              navigator.clipboard.writeText(url).then(() => {
-                toast({
-                  title: '¡Enlace copiado!',
-                  description: 'El enlace del producto se copió al portapapeles',
-                  status: 'success',
-                  duration: 2000,
-                  isClosable: true,
-                  position: 'bottom-right',
+              const shareUrl = `${window.location.origin}/product/${getProductSlug(product)}/`;
+              const shareTitle = product?.name || 'Producto en Arkya Store';
+              if (navigator.share) {
+                navigator.share({
+                  title: shareTitle,
+                  url: shareUrl,
+                }).catch(() => {});
+              } else {
+                navigator.clipboard.writeText(`${shareTitle}\n${shareUrl}`).then(() => {
+                  toast({
+                    title: 'Link copiado',
+                    description: 'El link del producto se copió al portapapeles.',
+                    status: 'success',
+                    duration: 2000,
+                    isClosable: true,
+                    position: 'bottom-right',
+                  });
                 });
-              });
+              }
             }}
+            _hover={{ bg: 'whiteAlpha.300', transform: 'scale(1.1)' }}
+            transition="all 0.2s"
           />
         </Box>
         
@@ -610,7 +611,7 @@ export default function ProductCard({ product }) {
           <HStack spacing={2}>
             <Button
               size="sm"
-              colorScheme={inStock ? "green" : "brand"}
+              colorScheme="pink"
               leftIcon={inStock ? <FaShoppingBag /> : <FaInstagram />}
               onClick={(e) => {
                 e?.preventDefault();
@@ -626,9 +627,9 @@ export default function ProductCard({ product }) {
               }}
               borderRadius="md"
               _hover={{
-                bg: inStock ? "green.500" : "brand.500",
-                transform: !inStock ? 'translateY(-2px)' : 'none',
-                boxShadow: !inStock ? 'md' : 'none'
+                bg: "pink.500",
+                transform: 'translateY(-2px)',
+                boxShadow: 'md'
               }}
             >
               {inStock ? "Agregar" : "Consultar"}
