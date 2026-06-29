@@ -1953,8 +1953,8 @@ export const products = [
   {
     "name": "Love Hina Mugendai",
     "description": "Incluye stickers, ilustraciones, entrevistas, datos interesantes y más!",
-    "price": 24999,
-    "image": "/images/products/product-1759247350573-main.webp",
+    "price": 25999,
+    "image": "/images/products/product-1759247350573-0.webp",
     "images": [
       "/images/products/product-1759247350573-0.webp",
       "/images/products/product-1759247350573-1.webp",
@@ -1970,8 +1970,8 @@ export const products = [
     ],
     "category": "Artbooks",
     "subcategory": "",
-    "isNew": false,
-    "inStock": false,
+    "isNew": true,
+    "inStock": true,
     "adultContent": true,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -9388,9 +9388,9 @@ export const products = [
     "price": 26999,
     "category": "Guide Books",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [],
     "instagramUrl": "https://www.instagram.com/p/DSi3uPzDMKd/?img_index=1",
     "extractedFrom": "instagram",
@@ -9401,10 +9401,7 @@ export const products = [
       "Otros"
     ],
     "adultContent": true,
-    "discountPercentage": 0,
-    "originalPrice": 26999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1782519756661,

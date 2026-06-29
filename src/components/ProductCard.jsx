@@ -401,10 +401,10 @@ export default function ProductCard({ product }) {
               +18
             </Badge>
           )}
-          {isOnOffer && discountPercentage > 0 && (
-            <Badge 
-              bg="pink.400" 
-              color="white" 
+          {isOnOffer && discountPercentage > 0 && inStock && (
+            <Badge
+              bg="pink.400"
+              color="white"
               borderRadius="full"
               px={2}
               py={1}
@@ -583,14 +583,14 @@ export default function ProductCard({ product }) {
         
         <Flex w="100%" justify="space-between" align="center" mt={2}>
           <VStack align="start" spacing={0}>
-            {isOnOffer && discountPercentage > 0 ? (
+            {isOnOffer && discountPercentage > 0 && inStock ? (
               <>
                 <Text fontWeight="bold" fontSize="xl" color="pink.400">
                   ${parseInt(price).toLocaleString()}
                 </Text>
-                <Text 
-                  fontSize="sm" 
-                  color="gray.500" 
+                <Text
+                  fontSize="sm"
+                  color="gray.500"
                   textDecoration="line-through"
                 >
                   ${parseInt(originalPrice || 0).toLocaleString()}

@@ -90,7 +90,6 @@ const AdminPage = () => {
   const bgColor = useColorModeValue('white', '#2a1c29');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
   const textColor = useColorModeValue('gray.700', 'white');
-  
   // Cargar productos y ofertas iniciales
   useEffect(() => {
     const loadProducts = async () => {
