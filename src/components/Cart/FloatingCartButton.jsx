@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { IconButton, Badge, Box, useDisclosure, Tooltip, VStack } from '@chakra-ui/react';
 import { FaShoppingCart, FaHeart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +14,12 @@ const FloatingCartButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { cartItemsCount } = useCart();
   const { likedProducts } = useLikes();
+
+  useEffect(() => {
+    const handleOpenCart = () => onOpen();
+    window.addEventListener('open-cart', handleOpenCart);
+    return () => window.removeEventListener('open-cart', handleOpenCart);
+  }, [onOpen]);
 
   return (
     <>

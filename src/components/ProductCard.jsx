@@ -183,22 +183,26 @@ export default function ProductCard({ product }) {
         render: ({ onClose }) => (
           <Box
             color="white"
-            p={3}
-            bg="gray.800"
-            borderRadius="lg"
-            boxShadow="lg"
+            p={5}
+            bg="#2a1c29"
+            borderRadius="xl"
+            boxShadow="0 10px 40px rgba(0,0,0,0.5)"
             borderLeft="4px solid"
             borderLeftColor="pink.400"
-            minW="280px"
+            minW="380px"
+            borderWidth="1px"
+            borderColor="whiteAlpha.100"
           >
-            <Flex gap={3} align="center">
+            <Flex gap={4} align="center">
               <Box
-                w="48px"
-                h="48px"
+                w="56px"
+                h="56px"
                 borderRadius="md"
                 overflow="hidden"
                 flexShrink={0}
                 bg="gray.700"
+                borderWidth="1px"
+                borderColor="whiteAlpha.100"
               >
                 <Image
                   src={productImages[0]}
@@ -209,25 +213,29 @@ export default function ProductCard({ product }) {
                   fallbackSrc="/images/logo2.webp"
                 />
               </Box>
-              <Box flex="1">
-                <Text fontWeight="bold" fontSize="sm" noOfLines={1}>
+              <Box flex="1" minW={0}>
+                <Text fontWeight="bold" fontSize="md" noOfLines={1} color="white">
                   ¡Agregado al carrito!
                 </Text>
-                <Text fontSize="xs" color="gray.300" noOfLines={1}>
+                <Text fontSize="sm" color="pink.200" noOfLines={1}>
                   {name}
                 </Text>
               </Box>
             </Flex>
-            <Flex mt={2} gap={2} justify="flex-end">
-              <Button size="xs" variant="ghost" colorScheme="whiteAlpha" onClick={onClose}>
+            <Flex mt={4} gap={3} justify="flex-end">
+              <Button size="sm" variant="outline" colorScheme="whiteAlpha" onClick={onClose} fontSize="sm" borderColor="whiteAlpha.300" color="white">
                 Cerrar
               </Button>
               <Button
-                size="xs"
-                colorScheme="pink"
+                size="sm"
+                bg="#d53f8c"
+                color="white"
+                fontSize="sm"
+                fontWeight="bold"
+                _hover={{ bg: '#b83280' }}
                 onClick={() => {
                   onClose();
-                  window.location.href = '/cart';
+                  window.dispatchEvent(new CustomEvent('open-cart'));
                 }}
               >
                 Ver carrito

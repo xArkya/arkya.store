@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IconButton, Badge, Box, useDisclosure } from '@chakra-ui/react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useCart } from '../../context/useCart';
@@ -7,6 +7,12 @@ import CartDrawer from './CartDrawer';
 const CartButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { cartItemsCount } = useCart();
+
+  useEffect(() => {
+    const handleOpenCart = () => onOpen();
+    window.addEventListener('open-cart', handleOpenCart);
+    return () => window.removeEventListener('open-cart', handleOpenCart);
+  }, [onOpen]);
 
   return (
     <>

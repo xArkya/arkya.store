@@ -82,7 +82,7 @@ export default function Hero() {
               position={'relative'}
               rounded={'2xl'}
               boxShadow={'2xl'}
-              width={'500px'}
+              width={'400px'}
               height={'auto'}
               overflow={'hidden'}
               backgroundImage="linear-gradient(45deg, #241521, #3a2235)"

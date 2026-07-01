@@ -80,6 +80,10 @@ export default function ProductPage() {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomPan, setZoomPan] = useState({ x: 0, y: 0 });
+  const [isPanning, setIsPanning] = useState(false);
+  const [panStart, setPanStart] = useState({ x: 0, y: 0 });
   const minSwipeDistance = 50;
   
   // Usar el contexto global de verificación de edad
@@ -1634,16 +1638,18 @@ export default function ProductPage() {
     </Box>
 
     {/* Lightbox - Modal para ver imagen ampliada */}
-    <Modal isOpen={isLightboxOpen} onClose={() => setIsLightboxOpen(false)} size="full" isCentered>
+    <Modal isOpen={isLightboxOpen} onClose={() => { setIsLightboxOpen(false); setIsZoomed(false); setZoomPan({ x: 0, y: 0 }); }} size="full" isCentered>
       <ModalOverlay bg="blackAlpha.900" backdropFilter="blur(8px)" />
-      <ModalContent bg="transparent" boxShadow="none" maxW="100vw" maxH="100vh" onClick={() => setIsLightboxOpen(false)}>
-        <ModalCloseButton color="white" size="lg" zIndex={2} />
+      <ModalContent bg="transparent" boxShadow="none" maxW="100vw" maxH="100vh" pointerEvents="none">
+        <ModalCloseButton color="white" size="lg" zIndex={2} pointerEvents="auto" />
         <ModalBody
           p={0}
           display="flex"
           alignItems="center"
           justifyContent="center"
           position="relative"
+          overflow={isZoomed ? 'hidden' : 'hidden'}
+          pointerEvents="none"
           onTouchStart={(e) => {
             setTouchEnd(null);
             setTouchStart(e.targetTouches[0].clientX);
@@ -1657,17 +1663,52 @@ export default function ProductPage() {
             setTouchStart(null);
             setTouchEnd(null);
           }}
+          onMouseDown={(e) => {
+            if (!isZoomed) return;
+            setIsPanning(true);
+            setPanStart({ x: e.clientX - zoomPan.x, y: e.clientY - zoomPan.y });
+          }}
+          onMouseMove={(e) => {
+            if (!isPanning || !isZoomed) return;
+            setZoomPan({ x: e.clientX - panStart.x, y: e.clientY - panStart.y });
+          }}
+          onMouseUp={() => setIsPanning(false)}
+          onMouseLeave={() => setIsPanning(false)}
+          cursor={isZoomed ? (isPanning ? 'grabbing' : 'grab') : 'default'}
         >
-          <Box onClick={(e) => e.stopPropagation()} display="flex" alignItems="center" justifyContent="center" w="100%" h="100%">
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            w="100%"
+            h="100%"
+            pointerEvents="none"
+          >
             <Image
               src={currentImage}
               alt={product?.name}
-              maxH="90vh"
-              maxW="90vw"
+              maxH={isZoomed ? 'none' : '90vh'}
+              maxW={isZoomed ? 'none' : '90vw'}
+              w={isZoomed ? 'auto' : 'auto'}
+              h={isZoomed ? 'auto' : 'auto'}
+              transform={`translate(${zoomPan.x}px, ${zoomPan.y}px) scale(${isZoomed ? 2.5 : 1})`}
+              transformOrigin="center center"
+              transition={isPanning ? 'none' : 'transform 0.3s ease'}
               objectFit="contain"
               borderRadius="md"
               draggable={false}
               userSelect="none"
+              cursor={isZoomed ? (isPanning ? 'grabbing' : 'grab') : 'zoom-in'}
+              pointerEvents="auto"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (isZoomed) {
+                  setIsZoomed(false);
+                  setZoomPan({ x: 0, y: 0 });
+                } else {
+                  setIsZoomed(true);
+                }
+              }}
             />
 
             {productImages.length > 1 && (
