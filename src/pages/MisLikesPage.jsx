@@ -31,7 +31,7 @@ export default function MisLikesPage() {
   }, []);
 
   return (
-    <Box minH="100vh" bg="#241521" pt={8} pb={20}>
+    <Box minH="100vh" bg="#453641" pt={8} pb={20}>
       <Container maxW="7xl">
         <Flex mb={6} gap={4}>
           <Button

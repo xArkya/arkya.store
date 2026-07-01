@@ -34,7 +34,7 @@ import {
   InputGroup,
   InputRightElement
 } from '@chakra-ui/react';
-import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes } from 'react-icons/fa';
+import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes, FaShieldAlt, FaPlane } from 'react-icons/fa';
 import { useCart } from '../../context/useCart';
 import { Link as RouterLink } from 'react-router-dom';
 import { validateCoupon } from '../../data/coupons';
@@ -64,7 +64,10 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const generateInstagramMessage = () => {
     if (cart.length === 0) return '';
     
-    let message = 'Hola! Me interesan los siguientes productos:\n';
+    const isSingle = cart.length === 1;
+    let message = isSingle
+      ? 'Hola! Me interesa el siguiente producto:\n'
+      : 'Hola! Me interesan los siguientes productos:\n';
     message += '━━━━━━━━━━━━━━━━━━━━\n\n';
     
     cart.forEach((item, index) => {
@@ -377,14 +380,38 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 </Flex>
               </VStack>
               
+              {/* Badges de confianza */}
+              <HStack
+                w="100%"
+                justify="center"
+                spacing={4}
+                py={2}
+                px={3}
+                borderRadius="md"
+                bg="whiteAlpha.100"
+              >
+                <HStack spacing={1}>
+                  <FaShieldAlt color="#68D391" size={14} />
+                  <Text fontSize="xs" color="green.200" fontWeight="medium">
+                    Compra segura
+                  </Text>
+                </HStack>
+                <HStack spacing={1}>
+                  <FaPlane color="#F6AD55" size={14} />
+                  <Text fontSize="xs" color="orange.200" fontWeight="medium">
+                    Importado desde Japón
+                  </Text>
+                </HStack>
+              </HStack>
+
               <HStack spacing={4} w="100%">
                 <Button variant="outline" onClick={clearCart} size="sm">
                   Vaciar carrito
                 </Button>
-                <Button 
+                <Button
                   bg="pink.400"
                   color="white"
-                  leftIcon={<FaInstagram />} 
+                  leftIcon={<FaInstagram />}
                   onClick={handleBuyClick}
                   flex="1"
                   _hover={{

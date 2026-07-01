@@ -9,6 +9,8 @@ import TermsPage from './pages/TermsPage'
 import FAQPage from './pages/FAQPage'
 import MisLikesPage from './pages/MisLikesPage'
 import NotFoundPage from './pages/NotFoundPage'
+import AnimeGamePage from './pages/AnimeGamePage'
+import GuidesPage from './pages/GuidesPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FloatingCartButton from './components/Cart/FloatingCartButton'
@@ -25,14 +27,14 @@ function App() {
       minH="100vh" 
       display="flex" 
       flexDirection="column" 
-      bg="#241521" 
+      bg="#453641" 
       width="100%" 
       margin="0" 
       padding="0"
       overflowX="hidden"
     >
       <Header />
-      <Box width="100%">
+      <Box width="100%" flex="1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:slug" element={<ProductPage />} />
@@ -47,6 +49,8 @@ function App() {
           <Route path="/terminos" element={<TermsPage />} />
           <Route path="/preguntas-frecuentes" element={<FAQPage />} />
           <Route path="/mis-me-gustas" element={<MisLikesPage />} />
+          <Route path="/adivina-el-anime" element={<AnimeGamePage />} />
+          <Route path="/guias" element={<GuidesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Box>

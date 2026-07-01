@@ -23,7 +23,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import { FaInstagram, FaShoppingBag } from 'react-icons/fa';
+import { FaInstagram, FaShoppingBag, FaGamepad, FaBookOpen } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 
 export default function Header() {
@@ -32,6 +32,7 @@ export default function Header() {
   return (
     <Box>
       <Flex
+        bg={useColorModeValue('#241521', '#241521')}
         color={useColorModeValue('white', 'white')}
         minH={{ base: '50px', md: '60px' }}
         py={{ base: 1, md: 2 }}
@@ -87,8 +88,32 @@ export default function Header() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={{ base: 2, md: 6 }}
+          spacing={{ base: 1, md: 6 }}
           align="center">
+          {/* Juego oculto temporalmente */}
+          {/* <Button
+            as={RouterLink}
+            to="/adivina-el-anime"
+            fontSize={{ base: 'xs', md: 'sm' }}
+            fontWeight={600}
+            colorScheme="pink"
+            size={{ base: 'sm', md: 'md' }}
+            px={{ base: 0, md: 4 }}
+            py={{ base: 0, md: 2 }}
+            w={{ base: '36px', sm: 'auto' }}
+            h={{ base: '36px', sm: 'auto' }}
+            borderRadius="full"
+            bg="pink.500"
+            color="white"
+            boxShadow="0 0 15px rgba(236, 72, 153, 0.6)"
+            _hover={{ transform: 'translateY(-1px)', boxShadow: '0 0 25px rgba(236, 72, 153, 0.9)', bg: 'pink.400' }}
+          >
+            <FaGamepad size={16} />
+            <Text display={{ base: 'none', md: 'inline' }} ml={2}>
+              GANÁ DESCUENTOS
+            </Text>
+          </Button> */}
+
           <Button
             as={'a'}
             fontSize={{ base: 'xs', md: 'sm' }}
@@ -98,10 +123,10 @@ export default function Header() {
             href={'https://instagram.com/arkya.store'}
             target="_blank"
             rel="noopener noreferrer"
-            leftIcon={<FaInstagram />}
             size={{ base: 'sm', md: 'md' }}
-            px={{ base: 2, md: 4 }}>
-            <Text display={{ base: 'none', sm: 'inline' }}>Instagram</Text>
+            px={{ base: 1, md: 4 }}>
+            <FaInstagram size={16} />
+            <Text display={{ base: 'none', md: 'inline' }} ml={2}>Instagram</Text>
           </Button>
 
         </Stack>
@@ -340,6 +365,14 @@ const NAV_ITEMS = [
   {
     label: 'Inicio',
     href: '/',
+  },
+  {
+    label: 'Guías',
+    href: '/guias',
+  },
+  {
+    label: 'Preguntas Frecuentes',
+    href: '/preguntas-frecuentes',
   },
   {
     label: 'Contacto',

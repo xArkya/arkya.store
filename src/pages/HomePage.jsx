@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import {
@@ -39,23 +39,47 @@ import {
   PopoverContent,
   PopoverBody,
   PopoverArrow,
+  Checkbox,
+  useDisclosure,
 } from '@chakra-ui/react';
-import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook, FaGamepad, FaArrowUp } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
+import { useGameCountdown } from '../hooks/useGameCountdown';
 import ProductCard from '../components/ProductCard';
+import ProductCardSkeleton from '../components/ProductCardSkeleton';
+import InstagramFeed from '../components/InstagramFeed';
+function GameCountdownBadge() {
+  const { timeLeft, isExpired } = useGameCountdown();
+  if (!timeLeft || isExpired) return null;
+  return (
+    <Text
+      fontSize={{ base: '2xl', md: '4xl' }}
+      fontWeight="extrabold"
+      color="whiteAlpha.900"
+      lineHeight="1"
+      textShadow="0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(236,72,153,0.3)"
+      letterSpacing="widest"
+    >
+      {timeLeft}
+    </Text>
+  );
+}
+
 import PromoBanner from '../components/PromoBanner';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { offers } from '../data/offers';
+import { GAME_CONFIG } from '../data/animeGame';
 
 // Nota: 'todos' es un ID especial para mostrar todos los productos
 
 export default function HomePage() {
   const [allProducts, setAllProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [activeCategory, setActiveCategory] = useState(() => {
     // Intentar recuperar la categoría activa del sessionStorage al cargar
@@ -67,6 +91,9 @@ export default function HomePage() {
     return sessionStorage.getItem('activeSubcategory') || '';
   });
   const [searchParams, setSearchParams] = useSearchParams();
+  const hasMounted = useRef(false);
+  const isWritingUrl = useRef(false);
+  const priceFromUrlRef = useRef(false);
   const [currentPage, setCurrentPage] = useState(() => {
     // Intentar recuperar la página actual del sessionStorage al cargar
     // Esto hace que la página guardada solo persista durante la sesión actual
@@ -75,6 +102,10 @@ export default function HomePage() {
   });
   const [sortOption, setSortOption] = useState('newest');
   const [filterOffersOnly, setFilterOffersOnly] = useState(false);
+  const [excludedCategories, setExcludedCategories] = useState(() => {
+    const saved = sessionStorage.getItem('excludedCategories');
+    return saved ? JSON.parse(saved) : [];
+  });
   
   // Estado para búsqueda mejorada
   const [searchSuggestions, setSearchSuggestions] = useState([]);
@@ -85,6 +116,7 @@ export default function HomePage() {
   });
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
   
+  const [isLoading, setIsLoading] = useState(true);
   const [showAdultContent] = useState(true); // Mostrar contenido +18 por defecto (siempre true ahora)
   const [adultFilterActive, setAdultFilterActive] = useState(() => {
     // Inicializar desde sessionStorage o sincronizar con activeCategory
@@ -96,7 +128,15 @@ export default function HomePage() {
     const savedCategory = sessionStorage.getItem('activeCategory');
     return savedCategory === 'adultos';
   });
-  const PRODUCTS_PER_PAGE = 12;
+  // Control del Popover de excluir categorías + ref para scroll
+  const { isOpen: isExcludeOpen, onOpen: onExcludeOpen, onClose: onExcludeClose } = useDisclosure();
+  const excludeScrollRef = useRef(null);
+  
+  useEffect(() => {
+    if (isExcludeOpen && excludeScrollRef.current) {
+      excludeScrollRef.current.scrollTop = 0;
+    }
+  }, [isExcludeOpen]);
   
   // Restaurar posición de scroll al volver desde ProductPage
   useEffect(() => {
@@ -126,13 +166,14 @@ export default function HomePage() {
         const dbRequest = indexedDB.open('ArkyaStoreDB', 1);
 
         dbRequest.onerror = () => {
-          // Silenciar error si no se puede abrir la DB
+          setIsLoading(false);
         };
 
         dbRequest.onsuccess = (event) => {
           const db = event.target.result;
           // Verificar que el object store 'products' exista antes de usarlo
           if (!db.objectStoreNames.contains('products')) {
+            setIsLoading(false);
             return;
           }
           const transaction = db.transaction(['products'], 'readonly');
@@ -154,14 +195,16 @@ export default function HomePage() {
 
               setAllProducts(combinedProducts);
             }
+            setIsLoading(false);
           };
 
           transaction.onerror = () => {
-            // Silenciar error de transacción
+            setIsLoading(false);
           };
         };
       } catch (error) {
         console.error('Error loading products from IndexedDB:', error);
+        setIsLoading(false);
       }
     };
 
@@ -199,60 +242,97 @@ export default function HomePage() {
     }
   }, [activeCategory]);
   
-  // Leer categoría y subcategoría: URL tiene prioridad sobre sessionStorage
+  // Leer filtros desde URL (evita loops cuando escribimos nosotros mismos)
   useEffect(() => {
+    if (isWritingUrl.current) {
+      isWritingUrl.current = false;
+      return;
+    }
+
     const categoryFromUrl = searchParams.get('category');
     const subcategoryFromUrl = searchParams.get('subcategory');
+    const searchFromUrl = searchParams.get('search') || '';
+    const sortFromUrl = searchParams.get('sort') || 'newest';
+    const offersFromUrl = searchParams.get('offers') === 'true';
+    const excludedFromUrl = searchParams.get('excluded') ? searchParams.get('excluded').split(',') : [];
+    const pageFromUrl = parseInt(searchParams.get('page') || '1');
+    const perPageFromUrl = parseInt(searchParams.get('perPage') || '12');
+    const priceMinFromUrl = searchParams.get('priceMin');
+    const priceMaxFromUrl = searchParams.get('priceMax');
+
     const savedCategory = sessionStorage.getItem('activeCategory');
     const savedSubcategory = sessionStorage.getItem('activeSubcategory');
 
-    // 1. Si hay categoría en la URL, usarla (los links de categoría funcionan así)
+    // --- Categoría / Subcategoría ---
     if (categoryFromUrl) {
       const categoryExists = categories.some(cat => cat.id === categoryFromUrl);
       if (categoryExists) {
-        setActiveCategory(categoryFromUrl);
+        if (activeCategory !== categoryFromUrl) setActiveCategory(categoryFromUrl);
         sessionStorage.setItem('activeCategory', categoryFromUrl);
-
         if (subcategoryFromUrl) {
-          const category = categories.find(cat => cat.id === categoryFromUrl);
-          const subcategoryExists = category?.subcategories?.some(subcat => subcat.id === subcategoryFromUrl);
-          if (subcategoryExists) {
-            setActiveSubcategory(subcategoryFromUrl);
+          const cat = categories.find(c => c.id === categoryFromUrl);
+          const subExists = cat?.subcategories?.some(s => s.id === subcategoryFromUrl);
+          if (subExists) {
+            if (activeSubcategory !== subcategoryFromUrl) setActiveSubcategory(subcategoryFromUrl);
             sessionStorage.setItem('activeSubcategory', subcategoryFromUrl);
-          } else {
+          } else if (activeSubcategory !== '') {
             setActiveSubcategory('');
             sessionStorage.setItem('activeSubcategory', '');
           }
-        } else {
+        } else if (activeSubcategory !== '') {
           setActiveSubcategory('');
           sessionStorage.setItem('activeSubcategory', '');
         }
-        return;
       }
-    }
-
-    // 2. Si no hay URL param, usar sessionStorage como fallback
-    if (savedCategory) {
+    } else if (savedCategory) {
       const categoryExists = categories.some(cat => cat.id === savedCategory) || savedCategory === 'adultos';
-      if (categoryExists) {
+      if (categoryExists && activeCategory !== savedCategory) {
         setActiveCategory(savedCategory);
         if (savedSubcategory) {
-          const category = categories.find(cat => cat.id === savedCategory);
-          if (category?.subcategories?.some(subcat => subcat.id === savedSubcategory)) {
-            setActiveSubcategory(savedSubcategory);
-            return;
+          const cat = categories.find(c => c.id === savedCategory);
+          if (cat?.subcategories?.some(s => s.id === savedSubcategory)) {
+            if (activeSubcategory !== savedSubcategory) setActiveSubcategory(savedSubcategory);
+          } else if (activeSubcategory !== '') {
+            setActiveSubcategory('');
           }
+        } else if (activeSubcategory !== '') {
+          setActiveSubcategory('');
         }
+      } else if (!categoryExists && activeCategory !== 'todos') {
+        setActiveCategory('todos');
         setActiveSubcategory('');
-        return;
+        sessionStorage.setItem('activeCategory', 'todos');
+        sessionStorage.setItem('activeSubcategory', '');
       }
+    } else if (activeCategory !== 'todos') {
+      setActiveCategory('todos');
+      setActiveSubcategory('');
+      sessionStorage.setItem('activeCategory', 'todos');
+      sessionStorage.setItem('activeSubcategory', '');
     }
 
-    // 3. Default: mostrar todos
-    setActiveCategory('todos');
-    setActiveSubcategory('');
-    sessionStorage.setItem('activeCategory', 'todos');
-    sessionStorage.setItem('activeSubcategory', '');
+    // --- Resto de filtros ---
+    if (searchTerm !== searchFromUrl) {
+      setSearchTerm(searchFromUrl);
+      setInputValue(searchFromUrl);
+    }
+    if (sortOption !== sortFromUrl) setSortOption(sortFromUrl);
+    if (filterOffersOnly !== offersFromUrl) setFilterOffersOnly(offersFromUrl);
+    if (JSON.stringify(excludedCategories) !== JSON.stringify(excludedFromUrl)) setExcludedCategories(excludedFromUrl);
+    if (currentPage !== pageFromUrl) setCurrentPage(pageFromUrl);
+    if (productsPerPage !== perPageFromUrl) setProductsPerPage(perPageFromUrl);
+
+    // --- Rango de precios ---
+    if (priceMinFromUrl !== null && priceMaxFromUrl !== null) {
+      const min = parseInt(priceMinFromUrl);
+      const max = parseInt(priceMaxFromUrl);
+      if (priceRange[0] !== min || priceRange[1] !== max) {
+        priceFromUrlRef.current = true;
+        setPriceRange([min, max]);
+        setTempPriceRange([min, max]);
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   // Aplicar ofertas globales a los productos
@@ -339,24 +419,51 @@ export default function HomePage() {
     };
   }, [productsWithOffers]);
   
-  // Inicializar el rango de precios con los valores reales
+  // Inicializar el rango de precios con los valores reales (respeta URL)
   useEffect(() => {
+    if (priceFromUrlRef.current) return;
     setPriceRange([minPrice, maxPrice]);
     setTempPriceRange([minPrice, maxPrice]);
   }, [minPrice, maxPrice]);
   
+  // Debounce: actualizar searchTerm solo después de dejar de escribir
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSearchTerm(inputValue);
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [inputValue]);
+
   // Generar sugerencias de búsqueda
   useEffect(() => {
-    if (searchTerm.length >= 2) {
-      const searchLower = searchTerm.toLowerCase();
+    if (inputValue.length >= 2) {
+      const searchLower = inputValue.toLowerCase();
       
-      // Buscar en nombres de productos
+      // Buscar en nombres de productos, respetando exclusiones
       const suggestions = productsWithOffers
-        .filter(product => 
-          product.name.toLowerCase().includes(searchLower) ||
-          (product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchLower))) ||
-          (product.id && product.id.toString().includes(searchTerm))
-        )
+        .filter(product => {
+          const matchesSearch = 
+            product.name.toLowerCase().includes(searchLower) ||
+            (product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchLower))) ||
+            (product.id && product.id.toString().includes(inputValue));
+          
+          // Aplicar filtro de categorías excluidas
+          let matchesExcluded = true;
+          if (excludedCategories.length > 0) {
+            const productCategories = product.categories && product.categories.length > 0
+              ? product.categories
+              : [product.category];
+            matchesExcluded = !excludedCategories.some(catId => {
+              if (catId === 'adultos') {
+                return product.adultContent === true;
+              }
+              const catName = getCategoryNameById(catId);
+              return productCategories.includes(catName);
+            });
+          }
+          
+          return matchesSearch && matchesExcluded;
+        })
         .slice(0, 8) // Limitar a 8 sugerencias
         .map(product => ({
           type: 'product',
@@ -372,7 +479,7 @@ export default function HomePage() {
       setSearchSuggestions([]);
       setShowSuggestions(false);
     }
-  }, [searchTerm, productsWithOffers]);
+  }, [inputValue, productsWithOffers, excludedCategories]);
   
   // Función para agregar al historial
   const addToSearchHistory = (term) => {
@@ -443,9 +550,24 @@ export default function HomePage() {
       
       const matchesOffersFilter = !filterOffersOnly || (product.isOnOffer === true && product.discountPercentage > 0);
       
-      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesOffersFilter;
+      // Excluir categorías seleccionadas
+      let matchesExcludedCategories = true;
+      if (excludedCategories.length > 0) {
+        const productCategories = product.categories && product.categories.length > 0 
+          ? product.categories 
+          : [product.category];
+        matchesExcludedCategories = !excludedCategories.some(catId => {
+          if (catId === 'adultos') {
+            return product.adultContent === true;
+          }
+          const catName = getCategoryNameById(catId);
+          return productCategories.includes(catName);
+        });
+      }
+      
+      return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesOffersFilter && matchesExcludedCategories;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterOffersOnly]);
+  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterOffersOnly, excludedCategories]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {
@@ -459,7 +581,12 @@ export default function HomePage() {
         result.sort((a, b) => b.price - a.price);
         break;
       case 'newest':
-        result.sort((a, b) => (b.isNew === a.isNew) ? 0 : b.isNew ? 1 : -1);
+        result.sort((a, b) => {
+          if (b.isNew === a.isNew) {
+            return b.id - a.id;
+          }
+          return b.isNew ? 1 : -1;
+        });
         break;
       case 'newest-added':
         // Ordenar por ID descendente (asumiendo que IDs mayores son productos más recientes)
@@ -499,6 +626,56 @@ export default function HomePage() {
     
     return result;
   }, [filteredProducts, sortOption]);
+
+  // === PAGINACIÓN ===
+  const [productsPerPage, setProductsPerPage] = useState(() => {
+    const saved = localStorage.getItem('productsPerPage');
+    return saved ? parseInt(saved) : 12;
+  });
+
+  // Guardar preferencia de cantidad por página
+  useEffect(() => {
+    localStorage.setItem('productsPerPage', productsPerPage.toString());
+  }, [productsPerPage]);
+
+  // Escribir filtros activos a la URL (evita el primer render para no pisar la URL inicial)
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+
+    const params = new URLSearchParams();
+    if (searchTerm) params.set('search', searchTerm);
+    if (activeCategory !== 'todos') params.set('category', activeCategory);
+    if (activeSubcategory) params.set('subcategory', activeSubcategory);
+    if (sortOption !== 'newest') params.set('sort', sortOption);
+    if (filterOffersOnly) params.set('offers', 'true');
+    if (excludedCategories.length > 0) params.set('excluded', excludedCategories.join(','));
+    if (currentPage !== 1) params.set('page', String(currentPage));
+    if (productsPerPage !== 12 && productsPerPage !== 9999) params.set('perPage', String(productsPerPage));
+    if (productsPerPage === 9999) params.set('perPage', 'all');
+    if (minPrice !== undefined && maxPrice !== undefined) {
+      if (priceRange[0] !== minPrice || priceRange[1] !== maxPrice) {
+        params.set('priceMin', String(priceRange[0]));
+        params.set('priceMax', String(priceRange[1]));
+      }
+    }
+
+    isWritingUrl.current = true;
+    setSearchParams(params, { replace: true });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm, activeCategory, activeSubcategory, sortOption, filterOffersOnly, excludedCategories, currentPage, productsPerPage, priceRange, minPrice, maxPrice]);
+
+  // Scroll to top button
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 600);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   // Función para manejar el clic en una categoría
   const handleCategoryClick = (categoryId) => {
@@ -515,6 +692,9 @@ export default function HomePage() {
     sessionStorage.setItem('activeCategory', categoryId);
     sessionStorage.setItem('activeSubcategory', '');
 
+    setActiveCategory(categoryId);
+    setActiveSubcategory('');
+
     // Guardar la página actual antes de cambiar
     if (searchTerm) {
       sessionStorage.setItem('lastPage', currentPage);
@@ -523,12 +703,6 @@ export default function HomePage() {
     setCurrentPage(1); // Reiniciar a la primera página al cambiar de categoría
     sessionStorage.setItem('currentPage', '1');
 
-    // Actualizar la URL para que refleje la categoría (SEO y navegación)
-    const params = new URLSearchParams();
-    if (categoryId !== 'todos') {
-      params.set('category', categoryId);
-    }
-    setSearchParams(params);
   };
 
   // Función para manejar el clic en una subcategoría
@@ -541,6 +715,9 @@ export default function HomePage() {
     sessionStorage.setItem('activeCategory', categoryId);
     sessionStorage.setItem('activeSubcategory', subcategoryId);
 
+    setActiveCategory(categoryId);
+    setActiveSubcategory(subcategoryId);
+
     // Guardar la página actual antes de cambiar
     if (searchTerm) {
       sessionStorage.setItem('lastPage', currentPage);
@@ -549,21 +726,16 @@ export default function HomePage() {
     setCurrentPage(1); // Reiniciar a la primera página al cambiar de subcategoría
     sessionStorage.setItem('currentPage', '1');
 
-    // Actualizar la URL para que refleje la categoría y subcategoría
-    const params = new URLSearchParams();
-    params.set('category', categoryId);
-    params.set('subcategory', subcategoryId);
-    setSearchParams(params);
   };
 
   // Calcular el número total de páginas
-  const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE);
+  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
   
   // Obtener los productos para la página actual
   const currentProducts = useMemo(() => {
-    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-    return sortedProducts.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
-  }, [sortedProducts, currentPage, PRODUCTS_PER_PAGE]);
+    const startIndex = (currentPage - 1) * productsPerPage;
+    return sortedProducts.slice(startIndex, startIndex + productsPerPage);
+  }, [sortedProducts, currentPage, productsPerPage]);
   
   // Función para cambiar de página
   const handlePageChange = (newPage) => {
@@ -671,7 +843,72 @@ export default function HomePage() {
         Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
       </Box>
       <Hero />
-      
+
+      {/* Banner del juego Adivina el Anime — OCULTO TEMPORALMENTE
+      <Box
+        as={Link}
+        to="/adivina-el-anime"
+        display="block"
+        mx={{ base: 4, md: 'auto' }}
+        maxW="7xl"
+        mt={4}
+        mb={6}
+        p={{ base: 5, md: 6 }}
+        borderRadius="2xl"
+        bgGradient="linear(to-r, #702963, #b83280)"
+        border="2px solid"
+        borderColor="pink.400"
+        boxShadow="0 0 20px rgba(236, 72, 153, 0.4)"
+        _hover={{ transform: 'translateY(-3px)', boxShadow: '0 0 30px rgba(236, 72, 153, 0.6)' }}
+        transition="all 0.3s ease"
+        position="relative"
+        overflow="hidden"
+      >
+        <HStack spacing={{ base: 3, md: 5 }} align="center" justify="space-between">
+          <HStack spacing={{ base: 3, md: 4 }} align="center">
+            <Box
+              bg="whiteAlpha.200"
+              p={{ base: 2, md: 3 }}
+              borderRadius="full"
+              backdropFilter="blur(4px)"
+            >
+              <FaGamepad size={28} color="#fbb6ce" />
+            </Box>
+            <VStack align="start" spacing={0}>
+              <Text
+                fontSize={{ base: 'sm', md: 'lg' }}
+                fontWeight="bold"
+                color="white"
+                lineHeight="short"
+              >
+                ¡Adiviná el anime y GANÁ DESCUENTOS!
+              </Text>
+              <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100">
+                5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF · Una sola chance
+              </Text>
+            </VStack>
+          </HStack>
+
+          <Box display={{ base: 'none', md: 'block' }}>
+            <GameCountdownBadge />
+          </Box>
+
+          <Button
+            size={{ base: 'sm', md: 'md' }}
+            bg="white"
+            color="#702963"
+            fontWeight="bold"
+            borderRadius="full"
+            px={6}
+            _hover={{ bg: 'pink.50' }}
+            flexShrink={0}
+          >
+            Jugar →
+          </Button>
+        </HStack>
+      </Box>
+      */}
+
       {/* Banner de promoción activa */}
       {offers.find(o => o.isActive && o.isGlobal) && (
         <PromoBanner offer={{
@@ -683,7 +920,7 @@ export default function HomePage() {
       
       <Box id="productos" name="productos" py={10} bg="#453641">
         <Container maxW={'7xl'}>
-          <Heading as="h2" size="xl" mb={6} textAlign="center" color="white">
+          <Heading as="h2" size="xl" mb={3} textAlign="center" color="white">
             {activeCategory === 'todos'
               ? 'Tienda de Productos Importados de Japón'
               : activeCategory === 'adultos'
@@ -714,17 +951,14 @@ export default function HomePage() {
               ? 'Productos Fuera de Stock'
               : getCategoryNameById(activeCategory)}
           </Heading>
-          <Text fontSize="sm" color="gray.300" textAlign="center" mb={6}>
-            Mostrando {currentProducts.length} de {sortedProducts.length} {sortedProducts.length === 1 ? 'resultado' : 'resultados'}
-            {totalPages > 1 && ` • Página ${currentPage} de ${totalPages}`}
-          </Text>
+ 
           
           <Flex 
             direction={{ base: 'column', md: 'column' }} 
             justify="center" 
             align="center"
-            mb={8}
-            gap={4}
+            mb={5}
+            gap={3}
             width="100%"
           >
            
@@ -784,10 +1018,18 @@ export default function HomePage() {
                 py={2}
                 minW="80px"
                 height="40px"
-                bg={activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'white'}
-                color={activeCategory === 'adultos' || adultFilterActive ? 'white' : 'gray.800'}
-                borderColor={activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'gray.300'}
-                variant={activeCategory === 'adultos' || adultFilterActive ? 'solid' : 'outline'}
+                bg={
+                  excludedCategories.includes('adultos') ? 'red.600' :
+                  activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'white'
+                }
+                color={
+                  excludedCategories.includes('adultos') || activeCategory === 'adultos' || adultFilterActive ? 'white' : 'gray.800'
+                }
+                borderColor={
+                  excludedCategories.includes('adultos') ? 'red.600' :
+                  activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'gray.300'
+                }
+                variant="solid"
                 onClick={() => {
                   // Guardar la página actual antes de cambiar
                   if (searchTerm) {
@@ -803,7 +1045,8 @@ export default function HomePage() {
                   sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
                 }}
                 _hover={{
-                  bg: activeCategory === 'adultos' || adultFilterActive ? 'red.600' : 'gray.100',
+                  bg: excludedCategories.includes('adultos') ? 'red.700' :
+                       activeCategory === 'adultos' || adultFilterActive ? 'red.600' : 'gray.100',
                 }}
                 fontWeight="medium"
                 leftIcon={<FaExclamationTriangle />}
@@ -822,12 +1065,21 @@ export default function HomePage() {
                       py={2}
                       minW="80px"
                       height="40px"
-                      bg={activeCategory === category.id ? 'pink.400' : 'white'}
-                      color={activeCategory === category.id ? 'white' : 'gray.800'}
-                      borderColor={activeCategory === category.id ? 'pink.400' : 'gray.300'}
-                      variant={activeCategory === category.id ? 'solid' : 'outline'}
+                      bg={
+                        excludedCategories.includes(category.id) ? 'red.600' :
+                        activeCategory === category.id ? 'pink.400' : 'white'
+                      }
+                      color={
+                        excludedCategories.includes(category.id) || activeCategory === category.id ? 'white' : 'gray.800'
+                      }
+                      borderColor={
+                        excludedCategories.includes(category.id) ? 'red.600' :
+                        activeCategory === category.id ? 'pink.400' : 'gray.300'
+                      }
+                      variant="solid"
                       _hover={{
-                        bg: activeCategory === category.id ? 'pink.500' : 'gray.100',
+                        bg: excludedCategories.includes(category.id) ? 'red.700' :
+                             activeCategory === category.id ? 'pink.500' : 'gray.100',
                       }}
                       fontWeight="medium"
                     >
@@ -858,13 +1110,22 @@ export default function HomePage() {
                     py={2}
                     minW="80px"
                     height="40px"
-                    bg={activeCategory === category.id ? 'pink.400' : 'white'}
-                    color={activeCategory === category.id ? 'white' : 'gray.800'}
-                    borderColor={activeCategory === category.id ? 'pink.400' : 'gray.300'}
-                    variant={activeCategory === category.id ? 'solid' : 'outline'}
+                    bg={
+                      excludedCategories.includes(category.id) ? 'red.600' :
+                      activeCategory === category.id ? 'pink.400' : 'white'
+                    }
+                    color={
+                      excludedCategories.includes(category.id) || activeCategory === category.id ? 'white' : 'gray.800'
+                    }
+                    borderColor={
+                      excludedCategories.includes(category.id) ? 'red.600' :
+                      activeCategory === category.id ? 'pink.400' : 'gray.300'
+                    }
+                    variant="solid"
                     onClick={() => handleCategoryClick(category.id)}
                     _hover={{
-                      bg: activeCategory === category.id ? 'pink.500' : 'gray.100',
+                      bg: excludedCategories.includes(category.id) ? 'red.700' :
+                           activeCategory === category.id ? 'pink.500' : 'gray.100',
                     }}
                     fontWeight="medium"
                   >
@@ -872,13 +1133,105 @@ export default function HomePage() {
                   </Button>
                 )
               ))}
+              
+              {/* Botón Excluir categorías - siempre al final de la fila */}
+              <Popover isOpen={isExcludeOpen} onOpen={onExcludeOpen} onClose={onExcludeClose} placement="bottom-end">
+                <PopoverTrigger>
+                  <Button
+                    size="md"
+                    px={4}
+                    py={2}
+                    minW="80px"
+                    height="40px"
+                    variant="outline"
+                    bg={excludedCategories.length > 0 ? 'pink.500' : 'whiteAlpha.200'}
+                    color="white"
+                    borderColor="whiteAlpha.300"
+                    _hover={{
+                      bg: excludedCategories.length > 0 ? 'pink.600' : 'whiteAlpha.300',
+                    }}
+                    fontWeight="medium"
+                  >
+                    {excludedCategories.length > 0 ? `✓ Excluir (${excludedCategories.length})` : 'Excluir'}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent bg="gray.800" borderColor="gray.700" width="260px">
+                  <PopoverArrow bg="gray.800" />
+                  <PopoverBody p={4}>
+                    <VStack spacing={3} align="stretch">
+                      <Text color="white" fontWeight="bold" fontSize="sm">
+                        Excluir categorías
+                      </Text>
+                      {excludedCategories.length > 0 && (
+                        <Button
+                          size="sm"
+                          colorScheme="pink"
+                          variant="ghost"
+                          onClick={() => {
+                            setExcludedCategories([]);
+                            sessionStorage.removeItem('excludedCategories');
+                            setCurrentPage(1);
+                          }}
+                        >
+                          Restablecer
+                        </Button>
+                      )}
+                      <VStack ref={excludeScrollRef} spacing={2} align="start" maxH="300px" overflowY="auto">
+                        {categories.map((category) => (
+                          <Checkbox
+                            key={category.id}
+                            isChecked={excludedCategories.includes(category.id)}
+                            onChange={(e) => {
+                              const isChecked = e.target.checked;
+                              setExcludedCategories(prev => {
+                                const newExcluded = isChecked
+                                  ? [...prev, category.id]
+                                  : prev.filter(id => id !== category.id);
+                                sessionStorage.setItem('excludedCategories', JSON.stringify(newExcluded));
+                                setCurrentPage(1);
+                                return newExcluded;
+                              });
+                            }}
+                            colorScheme="pink"
+                            color="gray.200"
+                            size="sm"
+                          >
+                            {category.name}
+                          </Checkbox>
+                        ))}
+                        <Checkbox
+                          key="adultos"
+                          isChecked={excludedCategories.includes('adultos')}
+                          onChange={(e) => {
+                            const isChecked = e.target.checked;
+                            setExcludedCategories(prev => {
+                              const newExcluded = isChecked
+                                ? [...prev, 'adultos']
+                                : prev.filter(id => id !== 'adultos');
+                              sessionStorage.setItem('excludedCategories', JSON.stringify(newExcluded));
+                              setCurrentPage(1);
+                              return newExcluded;
+                            });
+                          }}
+                          colorScheme="red"
+                          color="gray.200"
+                          size="sm"
+                        >
+                          Contenido +18
+                        </Checkbox>
+                      </VStack>
+                    </VStack>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+              
               </Flex>
             
             <Flex 
               width="100%" 
               justify="space-between" 
               align="center" 
-              mb={4}
+              mb={0}
               direction={{ base: 'column', md: 'row' }}
               gap={{ base: 3, md: 0 }}
               position="sticky"
@@ -897,10 +1250,10 @@ export default function HomePage() {
                     </InputLeftElement>
                     <Input 
                       placeholder="Buscar productos..." 
-                      value={searchTerm}
+                      value={inputValue}
                       onFocus={() => {
                         setIsSearchFocused(true);
-                        if (searchTerm.length === 0 && searchHistory.length > 0) {
+                        if (inputValue.length === 0 && searchHistory.length > 0) {
                           setShowSuggestions(true);
                         }
                       }}
@@ -913,11 +1266,11 @@ export default function HomePage() {
                         }, 200);
                       }}
                       onChange={(e) => {
-                        const newSearchTerm = e.target.value;
-                        setSearchTerm(newSearchTerm);
+                        const newValue = e.target.value;
+                        setInputValue(newValue);
                         setSelectedSuggestionIndex(-1);
-                        
-                        if (newSearchTerm && !searchTerm) {
+
+                        if (newValue && !inputValue) {
                           sessionStorage.setItem('lastPage', currentPage);
                           setCurrentPage(1);
                           // Al empezar a buscar, cambiar a categoría "todos"
@@ -925,9 +1278,7 @@ export default function HomePage() {
                           setActiveSubcategory('');
                           sessionStorage.setItem('activeCategory', 'todos');
                           sessionStorage.setItem('activeSubcategory', '');
-                          const params = new URLSearchParams();
-                          setSearchParams(params);
-                        } else if (!newSearchTerm && searchTerm) {
+                        } else if (!newValue && inputValue) {
                           const lastPage = sessionStorage.getItem('lastPage');
                           if (lastPage) {
                             setCurrentPage(parseInt(lastPage));
@@ -941,16 +1292,16 @@ export default function HomePage() {
                           setActiveSubcategory('');
                           sessionStorage.setItem('activeCategory', 'todos');
                           sessionStorage.setItem('activeSubcategory', '');
-                          const params = new URLSearchParams();
-                          setSearchParams(params);
 
                           if (selectedSuggestionIndex >= 0 && searchSuggestions[selectedSuggestionIndex]) {
                             const suggestion = searchSuggestions[selectedSuggestionIndex];
+                            setInputValue(suggestion.text);
                             setSearchTerm(suggestion.text);
                             addToSearchHistory(suggestion.text);
                             setShowSuggestions(false);
-                          } else if (searchTerm) {
-                            addToSearchHistory(searchTerm);
+                          } else if (inputValue) {
+                            setSearchTerm(inputValue);
+                            addToSearchHistory(inputValue);
                             setShowSuggestions(false);
                           }
                         } else if (e.key === 'ArrowDown') {
@@ -974,13 +1325,14 @@ export default function HomePage() {
                       _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
                       pr="2.5rem"
                     />
-                    {searchTerm && (
+                    {inputValue && (
                       <InputRightElement width="2.5rem">
                         <IconButton
                           h="1.75rem"
                           size="sm"
                           icon={<CloseIcon />}
                           onClick={() => {
+                            setInputValue('');
                             setSearchTerm('');
                             const lastPage = sessionStorage.getItem('lastPage');
                             if (lastPage) {
@@ -1014,7 +1366,7 @@ export default function HomePage() {
                       borderColor="gray.700"
                     >
                       {/* Historial de búsqueda */}
-                      {searchTerm.length === 0 && searchHistory.length > 0 && (
+                      {inputValue.length === 0 && searchHistory.length > 0 && (
                         <Box>
                           <Flex justify="space-between" align="center" px={4} py={2} borderBottom="1px solid" borderColor="gray.700">
                             <Text fontSize="xs" color="gray.400" fontWeight="bold">
@@ -1037,14 +1389,13 @@ export default function HomePage() {
                               cursor="pointer"
                               _hover={{ bg: 'whiteAlpha.100' }}
                               onClick={() => {
+                                setInputValue(term);
                                 setSearchTerm(term);
                                 addToSearchHistory(term);
                                 setActiveCategory('todos');
                                 setActiveSubcategory('');
                                 sessionStorage.setItem('activeCategory', 'todos');
                                 sessionStorage.setItem('activeSubcategory', '');
-                                const params = new URLSearchParams();
-                                setSearchParams(params);
                               }}
                             >
                               <Text color="white" fontSize="sm">
@@ -1077,8 +1428,6 @@ export default function HomePage() {
                                 setActiveSubcategory('');
                                 sessionStorage.setItem('activeCategory', 'todos');
                                 sessionStorage.setItem('activeSubcategory', '');
-                                const params = new URLSearchParams();
-                                setSearchParams(params);
                               }}
                               align="center"
                               gap={3}
@@ -1152,11 +1501,11 @@ export default function HomePage() {
                 <Popover placement="bottom-end">
                   <PopoverTrigger>
                     <Button
-                      colorScheme="pink"
                       variant="outline"
                       size={{ base: 'sm', md: 'md' }}
                       bg="whiteAlpha.200"
                       color="white"
+                      borderColor="whiteAlpha.300"
                       _hover={{ bg: 'whiteAlpha.300' }}
                       width="auto"
                     >
@@ -1213,6 +1562,7 @@ export default function HomePage() {
                             colorScheme="pink"
                             variant="ghost"
                             onClick={() => {
+                              priceFromUrlRef.current = false;
                               setPriceRange([minPrice, maxPrice]);
                               setTempPriceRange([minPrice, maxPrice]);
                               setCurrentPage(1);
@@ -1228,18 +1578,17 @@ export default function HomePage() {
                 
                 {/* Selector de ordenación */}
                 <Menu width={{ base: '100%', md: 'auto' }}>
-                  <MenuButton 
-                    as={Button} 
+                  <MenuButton
+                    as={Button}
                     rightIcon={<ChevronDownIcon />}
-                    colorScheme="pink"
                     variant="outline"
                     size={{ base: 'sm', md: 'md' }}
                     bg="whiteAlpha.200"
                     color="white"
+                    borderColor="whiteAlpha.300"
                     _hover={{ bg: 'whiteAlpha.300' }}
                     width="auto"
                     sx={{
-                      // Estilos para manejar el texto en dispositivos móviles
                       '.chakra-button__icon': {
                         ml: { base: 1, md: 2 }
                       },
@@ -1252,7 +1601,7 @@ export default function HomePage() {
                   >
                     <Box as="span" overflow="hidden" textOverflow="ellipsis" flex="1">
                       <Box display={{ base: 'none', sm: 'block' }}>
-                        Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' : 
+                        Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' :
                                 sortOption === 'price-asc' ? 'Precio: menor a mayor' :
                                 sortOption === 'price-desc' ? 'Precio: mayor a menor' :
                                 sortOption === 'newest' ? 'Nuevos productos' :
@@ -1261,7 +1610,7 @@ export default function HomePage() {
                                 sortOption === 'name-desc' ? 'Nombre: Z-A' : 'Más recientes'}
                       </Box>
                       <Box display={{ base: 'block', sm: 'none' }}>
-                        Ordenar: {sortOption === 'newest-added' ? 'Recientes' : 
+                        Ordenar: {sortOption === 'newest-added' ? 'Recientes' :
                                 sortOption === 'price-asc' ? 'Precio ↑' :
                                 sortOption === 'price-desc' ? 'Precio ↓' :
                                 sortOption === 'newest' ? 'Nuevos' :
@@ -1273,102 +1622,133 @@ export default function HomePage() {
                   </MenuButton>
                   <Portal>
                     <MenuList zIndex={1000}>
-                                           <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('newest'); 
+                        setSortOption('newest');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Nuevos productos</MenuItem>
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('newest-added'); 
+                        setSortOption('newest-added');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Más recientes</MenuItem>
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('price-asc'); 
+                        setSortOption('price-asc');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Precio: menor a mayor</MenuItem>
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('price-desc'); 
+                        setSortOption('price-desc');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Precio: mayor a menor</MenuItem>
- 
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('offers'); 
+                        setSortOption('offers');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Mejores ofertas primero</MenuItem>
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('name-asc'); 
+                        setSortOption('name-asc');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Nombre: A-Z</MenuItem>
-                      <MenuItem onClick={() => { 
-                        // Guardar la página actual antes de cambiar
+                      <MenuItem onClick={() => {
                         if (searchTerm) {
                           sessionStorage.setItem('lastPage', currentPage);
                         }
-                        setSortOption('name-desc'); 
+                        setSortOption('name-desc');
                         setCurrentPage(1);
                         localStorage.setItem('currentPage', '1');
                       }}>Nombre: Z-A</MenuItem>
                     </MenuList>
                   </Portal>
                 </Menu>
+
+                {/* Selector de cantidad por página */}
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    rightIcon={<ChevronDownIcon />}
+                    variant="outline"
+                    size={{ base: 'sm', md: 'md' }}
+                    bg="whiteAlpha.200"
+                    color="white"
+                    borderColor="whiteAlpha.300"
+                    _hover={{ bg: 'whiteAlpha.300' }}
+                    width="auto"
+                  >
+                    {productsPerPage === 9999 ? 'Todos' : `${productsPerPage}`}
+                  </MenuButton>
+                  <Portal>
+                    <MenuList zIndex={1000}>
+                      {[12, 24, 36, 48, 60].map((n) => (
+                        <MenuItem key={n} onClick={() => { setProductsPerPage(n); setCurrentPage(1); }}>
+                          {n} por página
+                        </MenuItem>
+                      ))}
+                      <MenuItem onClick={() => { setProductsPerPage(9999); setCurrentPage(1); }}>
+                        Todos
+                      </MenuItem>
+                    </MenuList>
+                  </Portal>
+                </Menu>
               </Flex>
             </Flex>
+                     <Text fontSize="sm" color="gray.300" textAlign="center" mb={0}>
+            Mostrando {currentProducts.length} de {sortedProducts.length} {sortedProducts.length === 1 ? 'resultado' : 'resultados'}
+            {totalPages > 1 && ` • Página ${currentPage} de ${totalPages}`}
+          </Text>
           </Flex>
+          
           
           {sortedProducts.length > 0 ? (
             <>
-              <SimpleGrid 
+              <SimpleGrid
                 columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
                 spacing={6}
-                justifyItems="center"
                 mx="auto"
                 mb={8}
               >
-                <AnimatePresence mode="popLayout">
-                  {currentProducts.map((product) => (
-                    <motion.div
-                      key={product.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
-                    >
-                      <ProductCard 
-                        product={product}
-                      />
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
+                {isLoading ? (
+                  Array.from({ length: productsPerPage === 9999 ? 12 : productsPerPage }).map((_, i) => (
+                    <ProductCardSkeleton key={`skeleton-${i}`} />
+                  ))
+                ) : (
+                  <AnimatePresence mode="popLayout">
+                    {currentProducts.map((product) => (
+                      <motion.div
+                        key={product.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        style={{ width: '100%', height: '100%', display: 'flex' }}
+                      >
+                        <ProductCard
+                          product={product}
+                        />
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                )}
               </SimpleGrid>
               
               {/* Controles de paginación */}
@@ -1385,10 +1765,7 @@ export default function HomePage() {
                     
                     {/* Mostrar números de página con puntos suspensivos */}
                     {(() => {
-                      // Array para almacenar los botones de página que se mostrarán
                       const pageButtons = [];
-                      
-                      // Siempre mostrar la primera página
                       pageButtons.push(
                         <Button
                           key={1}
@@ -1401,9 +1778,7 @@ export default function HomePage() {
                         </Button>
                       );
                       
-                      // Lógica para mostrar puntos suspensivos y páginas intermedias
                       if (totalPages > 7) {
-                        // Si la página actual está cerca del inicio (páginas 1-4)
                         if (currentPage <= 4) {
                           for (let i = 2; i <= Math.min(5, totalPages - 1); i++) {
                             pageButtons.push(
@@ -1414,7 +1789,6 @@ export default function HomePage() {
                             <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
                           );
                         }
-                        // Si la página actual está cerca del final
                         else if (currentPage >= totalPages - 3) {
                           pageButtons.push(
                             <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
@@ -1425,12 +1799,10 @@ export default function HomePage() {
                             );
                           }
                         }
-                        // Si la página actual está en el medio
                         else {
                           pageButtons.push(
                             <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
                           );
-                          // Mostrar 2 páginas antes, la actual, y 2 páginas después
                           for (let i = currentPage - 2; i <= currentPage + 2; i++) {
                             pageButtons.push(
                               <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
@@ -1441,7 +1813,6 @@ export default function HomePage() {
                           );
                         }
                       } else if (totalPages > 1) {
-                        // Para menos páginas, mostrar todas sin puntos suspensivos
                         for (let i = 2; i < totalPages; i++) {
                           pageButtons.push(
                             <Button
@@ -1457,7 +1828,6 @@ export default function HomePage() {
                         }
                       }
                       
-                      // Siempre mostrar la última página si hay más de una página
                       if (totalPages > 1) {
                         pageButtons.push(
                           <Button
@@ -1485,6 +1855,7 @@ export default function HomePage() {
                   </ButtonGroup>
                 </Flex>
               )}
+
             </>
           ) : (
             <Box textAlign="center" py={10}>
@@ -1493,6 +1864,8 @@ export default function HomePage() {
           )}
         </Container>
       </Box>
+
+      <InstagramFeed />
 
       {/* Sección SEO - Contenido textual para motores de búsqueda */}
       <Box bg="#241521" py={12} color="white">
@@ -1637,12 +2010,12 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   leftIcon={<FaTwitter />}
-                  bg="#1DA1F2"
+                  bg="#000000"
                   color="white"
-                  _hover={{ bg: '#0d8bd9' }}
+                  _hover={{ bg: '#1a1a1a' }}
                   size="sm"
                 >
-                  Twitter
+                  X
                 </Button>
                 <Button
                   as="a"
@@ -1675,6 +2048,25 @@ export default function HomePage() {
           </Stack>
         </Container>
       </Box>
+
+      {/* Botón scroll to top */}
+      {showScrollTop && (
+        <IconButton
+          icon={<FaArrowUp />}
+          aria-label="Volver arriba"
+          position="fixed"
+          bottom="24px"
+          left="24px"
+          zIndex={9999}
+          size="lg"
+          borderRadius="full"
+          bg="pink.500"
+          color="white"
+          boxShadow="0 0 20px rgba(236, 72, 153, 0.6)"
+          _hover={{ bg: 'pink.400', transform: 'translateY(-2px)', boxShadow: '0 0 30px rgba(236, 72, 153, 0.9)' }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        />
+      )}
 
     </Box>
     </>

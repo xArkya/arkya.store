@@ -1,20 +1,24 @@
 {
   "short_name": "Arkya Store",
-  "name": "Arkya Store - Tienda Online",
+  "name": "Arkya Store - Artbooks, Mangas y Anime Importados",
+  "description": "Tienda de artbooks, mangas, doujinshi y figuras importadas desde Japón. Envíos a todo Argentina.",
   "icons": [
     {
-      "src": "./images/logo.png",
+      "src": "/images/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./images/logo.png",
+      "src": "/images/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#241521",
-  "background_color": "#241521"
+  "theme_color": "#453641",
+  "background_color": "#453641",
+  "orientation": "portrait",
+  "categories": ["shopping", "anime", "entertainment"],
+  "lang": "es-AR"
 }

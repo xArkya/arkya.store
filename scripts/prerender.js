@@ -228,7 +228,10 @@ async function prerender() {
     const description = product.price
       ? `${rawDescription} Precio: ${priceStr}. Envíos a todo el país.`
       : `${rawDescription} Envíos a todo el país.`;
-    const image = product.image || '/images/logo.png';
+    const firstImage = product.images && product.images.length > 0
+      ? product.images[0]
+      : product.image || '/images/logo.png';
+    const image = firstImage;
     const productImages = product.images && product.images.length > 0
       ? product.images.filter(img => img.trim() !== '')
       : [product.image].filter(Boolean);
@@ -238,7 +241,7 @@ async function prerender() {
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: product.name,
-      image: productImages.filter(Boolean).map(toAbsoluteUrl),
+      image: toAbsoluteUrl(firstImage),
       description: rawDescription,
       sku: String(product.id),
       itemCondition: 'https://schema.org/UsedCondition',
@@ -288,14 +291,9 @@ async function prerender() {
         hasMerchantReturnPolicy: {
           '@type': 'MerchantReturnPolicy',
           returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-          merchantReturnDays: 14,
+          merchantReturnDays: 5,
           returnMethod: 'https://schema.org/ReturnByMail',
-          returnFees: 'https://schema.org/ReturnShippingFees',
-          returnShippingFeesAmount: {
-            '@type': 'MonetaryAmount',
-            value: '0',
-            currency: 'ARS',
-          },
+          returnFees: 'https://schema.org/FreeReturn',
           applicableCountry: 'AR',
         },
         ...(offerEndDate ? { priceValidUntil: offerEndDate } : {}),

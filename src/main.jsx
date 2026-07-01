@@ -7,6 +7,15 @@ import './index.css'
 import { CartProvider } from './context/CartProvider'
 import { AgeVerificationProvider } from './context/AgeVerificationContext'
 
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((reg) => console.log('SW registered:', reg.scope))
+      .catch((err) => console.log('SW registration failed:', err));
+  });
+}
+
 // Extend the theme to include custom colors, fonts, etc
 const theme = extendTheme({
   config: {

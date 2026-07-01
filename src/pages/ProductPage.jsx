@@ -35,12 +35,41 @@ import {
   useDisclosure,
   Center,
   IconButton,
+  HStack,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt, FaPlane } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
 import { findProductBySlugOrId, getProductSlug } from '../utils/slugify';
+
+// Extraer marca del producto desde nombre/descripción para schema.org
+function extractBrand(product) {
+  if (!product) return 'Importado de Japón';
+  const text = `${product.name || ''} ${product.description || ''} ${product.details || ''}`;
+  const knownBrands = [
+    'Bandai', 'Sega', 'Furyu', 'Taito', 'Good Smile Company', 'Kotobukiya',
+    'Max Factory', 'Alter', 'Megahouse', 'Banpresto', 'Plex', 'Bellfine',
+    'Orange Rouge', 'Aniplex', 'Kadokawa', 'Broccoli', 'Aquamarine',
+    'Phat Company', 'FREEing', 'Union Creative', 'Mimeyoi', 'Wing',
+    'Native', 'Orchid Seed', 'Alphamax', 'Daiki Kougyou', 'Skytube',
+    'Ques Q', 'Amakuni', 'Revolve', 'Stronger', 'Easy Eight',
+    'Sentinel', 'Hobby Japan', 'Di molto bene', 'Emontoys',
+    'Shueisha', 'Kodansha', 'Square Enix', 'Viz Media', 'Yen Press',
+    'Dark Horse', 'Tokyo Pop', 'Panini', 'Ivrea', 'Norma',
+    'Medicom Toy', 'Funko', 'Nendoroid', 'Figma', 'SH Figuarts',
+    'Robot Spirits', 'Metal Build', 'Model Kit', 'Gunpla',
+    'Ichiban Kuji', 'Prize Figure', 'Desktop Cute', 'Coreful',
+    'Luminasta', 'AMP', 'Trio-Try-iT', 'Hi-Touch', 'Noodle Stopper',
+    'Pop Up Parade', 'Look Up', 'Nendoroid',
+  ];
+  for (const brand of knownBrands) {
+    if (text.toLowerCase().includes(brand.toLowerCase())) {
+      return brand;
+    }
+  }
+  return 'Importado de Japón';
+}
 
 export default function ProductPage() {
   const { slug } = useParams();
@@ -136,7 +165,7 @@ export default function ProductPage() {
         }
         
         setProduct(foundProduct);
-        
+
         // Si el producto es para adultos y el usuario no ha verificado su edad, mostrar modal
         if (foundProduct.adultContent && !isAgeVerified) {
           onAgeModalOpen();
@@ -410,9 +439,10 @@ export default function ProductPage() {
         const description = isJapanese && !desc.toLowerCase().includes('japon')
           ? `${desc} Producto original importado de Japón.`
           : desc;
-        const absoluteImage = product?.image?.startsWith('http')
-          ? product.image
-          : `https://arkya.store${product.image}`;
+        const firstImage = product?.images?.[0] || product?.image || '/images/logo.png';
+        const absoluteImage = firstImage.startsWith('http')
+          ? firstImage
+          : `https://arkya.store${firstImage}`;
         const productDescription = product?.price
           ? `${description} Precio: ${priceStr}. Envíos a todo el país.`
           : `${description} Envíos a todo el país.`;
@@ -462,6 +492,42 @@ export default function ProductPage() {
           }}
         />
       )}
+      {/* Product JSON-LD */}
+      {product && (() => {
+        const firstImage = product?.images?.[0] || product?.image || '/images/logo.png';
+        const absoluteImage = firstImage.startsWith('http')
+          ? firstImage
+          : `https://arkya.store${firstImage}`;
+        return (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Product',
+                name: product.name,
+                description: product.description || product.details || '',
+                image: absoluteImage,
+                sku: String(product.id),
+                brand: {
+                  '@type': 'Brand',
+                  name: extractBrand(product),
+                },
+                offers: {
+                  '@type': 'Offer',
+                  url: `https://arkya.store/product/${getProductSlug(product)}`,
+                  priceCurrency: 'ARS',
+                  price: product.price ? String(product.price) : undefined,
+                  availability: product.inStock !== false
+                    ? 'https://schema.org/InStock'
+                    : 'https://schema.org/OutOfStock',
+                  priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                },
+              }),
+            }}
+          />
+        );
+      })()}
       <Box bg={pageBgColor}>
       {/* Modal de verificación de edad */}
       <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
@@ -634,10 +700,10 @@ export default function ProductPage() {
                   }}
                 >
                   {['Hola! Me interesa el siguiente producto:', product?.name, `$${Math.round(product?.price || 0).toLocaleString()}`, `https://arkya.store/product/${getProductSlug(product)}`].map((line, i, arr) => (
-                    <>
+                    <span key={i}>
                       {line}
                       {i < arr.length - 1 && <br />}
-                    </>
+                    </span>
                   ))}
                 </Box>
               </Box>
@@ -1171,7 +1237,7 @@ export default function ProductPage() {
                         ml={2}>
                         ${parseInt(product.originalPrice)}
                       </Text>
-                      {!product.inStock && (
+                      {product.inStock === false && (
                         <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
                           (puede bajar o subir)
                         </Text>
@@ -1181,8 +1247,8 @@ export default function ProductPage() {
                       <Badge colorScheme="red" variant="solid" px={2} py={1} borderRadius="md" mr={2}>
                         {product.discountPercentage}% OFF (ahorrá ${Math.round(product.originalPrice - product.price).toLocaleString()})
                       </Badge>
-                      <Badge colorScheme={product.inStock ? "orange" : "red"} variant="solid" px={2} py={1} borderRadius="md">
-                        {product.inStock ? "ÚLTIMA UNIDAD" : "SIN STOCK"}
+                      <Badge colorScheme={product.inStock !== false ? "orange" : "red"} variant="solid" px={2} py={1} borderRadius="md">
+                        {product.inStock !== false ? "ÚLTIMA UNIDAD" : "SIN STOCK"}
                       </Badge>
                     </Flex>
                   </>
@@ -1196,14 +1262,14 @@ export default function ProductPage() {
                         letterSpacing="tight">
                         ${parseInt(product.price)}
                       </Text>
-                      {!product.inStock && (
+                      {product.inStock === false && (
                         <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
                           (puede bajar o subir)
                         </Text>
                       )}
                     </Flex>
-                    <Badge colorScheme={product.inStock ? "orange" : "red"} variant="solid" px={2} py={1} borderRadius="md">
-                      {product.inStock ? "ÚLTIMA UNIDAD" : "SIN STOCK"}
+                    <Badge colorScheme={product.inStock !== false ? "orange" : "red"} variant="solid" px={2} py={1} borderRadius="md">
+                      {product.inStock !== false ? "ÚLTIMA UNIDAD" : "SIN STOCK"}
                     </Badge>
                   </>
                 )}
@@ -1279,18 +1345,18 @@ export default function ProductPage() {
                 rounded={'md'}
                 size={'lg'}
                 py={'7'}
-                colorScheme={product.inStock ? "green" : "brand"}
+                colorScheme={product.inStock !== false ? "green" : "brand"}
                 fontWeight="bold"
                 w="full"
-                bg={product.inStock ? likeBtnBg : instaBtnBg}
-                color={product.inStock ? likeBtnColor : 'white'}
+                bg={product.inStock !== false ? likeBtnBg : instaBtnBg}
+                color={product.inStock !== false ? likeBtnColor : 'white'}
                 _hover={{
                   transform: 'translateY(-2px)',
                   boxShadow: 'xl',
-                  bg: product.inStock ? undefined : instaBtnHoverBg,
+                  bg: product.inStock !== false ? undefined : instaBtnHoverBg,
                 }}
                 onClick={() => {
-                  if (product.inStock) {
+                  if (product.inStock !== false) {
                     // Funcionalidad normal de agregar al carrito
                     const added = addToCart(product);
                     
@@ -1320,12 +1386,12 @@ export default function ProductPage() {
                     onConsultOpen();
                   }
                 }}
-                leftIcon={product.inStock ? <FaShoppingBag /> : <FaInstagram />}>
-                {product.inStock ? "Agregar al carrito" : "Consultar por Instagram"}
+                leftIcon={product.inStock !== false ? <FaShoppingBag /> : <FaInstagram />}>
+                {product.inStock !== false ? "Agregar al carrito" : "Consultar por Instagram"}
               </Button>
 
               {/* Mostrar el botón de comprar por Instagram solo si el producto tiene stock */}
-              {product.inStock && (
+              {product.inStock !== false && (
                 <Button
                   onClick={onInstagramOpen}
                   rounded={'md'}
@@ -1344,6 +1410,32 @@ export default function ProductPage() {
                   Comprar por Instagram
                 </Button>
               )}
+
+              {/* Badges de confianza */}
+              <HStack
+                w="full"
+                justify="center"
+                spacing={6}
+                py={3}
+                px={4}
+                borderRadius="lg"
+                bg="whiteAlpha.100"
+                borderWidth="1px"
+                borderColor="whiteAlpha.200"
+              >
+                <HStack spacing={2}>
+                  <Icon as={FaCheck} color="green.300" boxSize={4} />
+                  <Text fontSize="sm" color="green.200" fontWeight="medium">
+                    Compra segura
+                  </Text>
+                </HStack>
+                <HStack spacing={2}>
+                  <Icon as={FaPlane} color="orange.300" boxSize={4} />
+                  <Text fontSize="sm" color="orange.200" fontWeight="medium">
+                    Importado desde Japón
+                  </Text>
+                </HStack>
+              </HStack>
             </VStack>
           </Stack>
         </SimpleGrid>

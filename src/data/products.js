@@ -14740,5 +14740,159 @@ export const products = [
       "Artbooks"
     ],
     "id": 1782687720915
+  },
+  {
+    "id": 1782884285200,
+    "image": "/images/products/product-1782884285200-0.jpg",
+    "images": [
+      "/images/products/product-1782884285200-0.jpg",
+      "/images/products/product-1782884285200-1.jpg",
+      "/images/products/product-1782884285200-2.jpg",
+      "/images/products/product-1782884285200-3.jpg",
+      "/images/products/product-1782884285200-4.jpg",
+      "/images/products/product-1782884285200-5.jpg",
+      "/images/products/product-1782884285200-6.jpg",
+      "/images/products/product-1782884285200-7.jpg",
+      "/images/products/product-1782884285200-8.jpg",
+      "/images/products/product-1782884285200-9.jpg"
+    ],
+    "name": "Comptiq Junio 2005",
+    "description": "Revista de videojuegos y anime con portada de Konata Izumi de Lucky Star\nIncluye stand con distintos outfit para vestir a Konata y un mini artbook \"First Menu Book\" de Pia Carrot e yōkoso!",
+    "details": "First Menu Book ($9999)\nRevista de videojuegos y anime con portada de Konata Izumi de Lucky Star\nIncluye stand con distintos outfit para vestir a Konata y un mini artbook \"First Menu Book\" de Pia Carrot e yōkoso!",
+    "price": 39999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "luckystar",
+      "konata",
+      "konataizumi",
+      "moe",
+      "piacarrot"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaOpzqklCer/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-01T05:38:05.128Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1782884285621,
+    "image": "/images/products/product-1782884285621-0.jpg",
+    "images": [
+      "/images/products/product-1782884285621-0.jpg",
+      "/images/products/product-1782884285621-1.jpg",
+      "/images/products/product-1782884285621-2.jpg",
+      "/images/products/product-1782884285621-3.jpg",
+      "/images/products/product-1782884285621-4.jpg",
+      "/images/products/product-1782884285621-5.jpg",
+      "/images/products/product-1782884285621-6.jpg",
+      "/images/products/product-1782884285621-7.jpg",
+      "/images/products/product-1782884285621-8.jpg"
+    ],
+    "name": "Fate/Grand Order Material IX",
+    "description": "Colección de ilustraciones y perfiles de Servants del famoso juego F/GO!",
+    "details": "Colección de ilustraciones y perfiles de Servants del famoso juego F/GO!",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "fgo",
+      "anime",
+      "ecchihentai",
+      "ecchi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaL5AuYllz9/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-01T05:38:05.129Z",
+    "categories": [
+      "Artbooks",
+      "Character Books"
+    ]
+  },
+  {
+    "id": 1782884285512,
+    "image": "/images/products/product-1782884285512-0.jpg",
+    "images": [
+      "/images/products/product-1782884285512-0.jpg",
+      "/images/products/product-1782884285512-1.jpg",
+      "/images/products/product-1782884285512-2.jpg",
+      "/images/products/product-1782884285512-3.jpg",
+      "/images/products/product-1782884285512-4.jpg",
+      "/images/products/product-1782884285512-5.jpg",
+      "/images/products/product-1782884285512-6.jpg"
+    ],
+    "name": "Hidari \"Flowing\" Doujinshi",
+    "description": "Colección de Ilustraciones del artista Hidari (左) con obras de distintas franquicias, como Touhou, Street fighter, Fate, y más!",
+    "details": "Colección de Ilustraciones del artista Hidari (左) con obras de distintas franquicias, como Touhou, Street fighter, Fate, y más!",
+    "price": 27999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "doujin",
+      "doujinshi",
+      "anime",
+      "fate",
+      "touhou",
+      "medea",
+      "morrigan",
+      "chun li",
+      "darkstalkers",
+      "chunli",
+      "street fighter"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaJZSEXlqiR/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-01T05:38:05.129Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1782884435616,
+    "image": "/images/products/product-1782884435616-0.webp",
+    "images": [
+      "/images/products/product-1782884435616-1.webp",
+      "/images/products/product-1782884435616-2.webp",
+      "/images/products/product-1782884435616-3.webp"
+    ],
+    "name": "Pia Carrot e yōkoso! First Menu Book ",
+    "description": "Mini artbook de Pia Carrot e youkoso! que venía incluido en Revista Comptiq de Junio 2005",
+    "details": "Mini artbook de Pia Carrot e youkoso! que venía incluido en Revista Comptiq de Junio 2005",
+    "price": 9999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "moe",
+      "piacarrot",
+      "kawaii"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaOpzqklCer/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-01T05:40:35.409Z",
+    "categories": [
+      "Artbooks"
+    ]
   }
 ];

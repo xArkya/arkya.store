@@ -12,26 +12,34 @@ import {
   ListItem,
   UnorderedList,
 } from '@chakra-ui/react';
+import { SEO } from '../components/SEO';
 
 export default function TermsPage() {
   const bgColor = useColorModeValue('white', '#2a1c29');
   const textColor = useColorModeValue('gray.600', 'gray.300');
 
   return (
-    <Box bg="#453641" minH="100vh" py={8}>
-      <Container maxW="4xl">
-        <VStack spacing={8} align="stretch">
-          {/* Header */}
-          <VStack spacing={4} textAlign="center">
-            <Heading
-              as="h1"
-              size="2xl"
-              color="white"
-              bgGradient="linear(to-r, pink.400, purple.500)"
-              bgClip="text"
-            >
-              Términos de Servicio
-            </Heading>
+    <>
+      <SEO
+        title="Términos de Servicio | Arkya Store"
+        description="Términos y condiciones de Arkya Store. Comprá artbooks, doujinshi, mangas, guías, novelas ligeras, revistas Jump y merchandising importado de Japón con confianza."
+        url="https://arkya.store/terminos"
+        keywords="términos de servicio, condiciones, artbooks, doujinshi, manga, japón, importados, tienda, argentina"
+      />
+      <Box bg="#453641" minH="100vh" py={8}>
+        <Container maxW="4xl">
+          <VStack spacing={8} align="stretch">
+            {/* Header */}
+            <VStack spacing={4} textAlign="center">
+              <Heading
+                as="h1"
+                size="2xl"
+                color="white"
+                bgGradient="linear(to-r, pink.400, purple.500)"
+                bgClip="text"
+              >
+                Términos de Servicio
+              </Heading>
             <Text color="gray.300">
               Última actualización: 20 de Julio, 2025
             </Text>
@@ -252,5 +260,6 @@ export default function TermsPage() {
         </VStack>
       </Container>
     </Box>
+    </>
   );
 }

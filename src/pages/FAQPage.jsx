@@ -18,6 +18,7 @@ import {
   Badge,
 } from '@chakra-ui/react';
 import { FaShoppingCart, FaTruck, FaUndo, FaCreditCard, FaHeadset, FaLock } from 'react-icons/fa';
+import { SEO } from '../components/SEO';
 
 const faqCategories = [
   {
@@ -131,8 +132,19 @@ const faqCategories = [
 export default function FAQPage() {
   const bgColor = useColorModeValue('white', '#2a1c29');
 
+  // Extraer todas las FAQs para structured data
+  const allFaqs = faqCategories.flatMap(cat => cat.faqs);
+
   return (
-    <Box bg="#453641" py={8}>
+    <>
+      <SEO
+        title="Preguntas Frecuentes | Arkya Store - Artículos Importados de Japón"
+        description="Respuestas a las preguntas más comunes sobre artbooks, doujinshi, mangas, guías, novelas ligeras, revistas Jump y merchandising importado de Japón. Envíos, pagos, pedidos y más."
+        url="https://arkya.store/preguntas-frecuentes"
+        keywords="preguntas frecuentes, FAQ, artbooks, doujinshi, manga, japón, envíos, pagos, pedidos, importados, tienda, argentina"
+        faqData={allFaqs}
+      />
+      <Box bg="#453641" py={8}>
       <Container maxW="6xl">
         <VStack spacing={8} align="stretch">
           {/* Header */}
@@ -224,5 +236,6 @@ export default function FAQPage() {
         </VStack>
       </Container>
     </Box>
+    </>
   );
 }

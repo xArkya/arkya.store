@@ -177,12 +177,64 @@ export default function ProductCard({ product }) {
     if (added) {
       // Si se agregó correctamente
       toast({
-        title: "¡Producto agregado!",
-        description: `${name} se ha añadido al carrito`,
-        status: "success",
-        duration: 3000,
+        position: 'top-right',
+        duration: 4000,
         isClosable: true,
-        position: "top-right"
+        render: ({ onClose }) => (
+          <Box
+            color="white"
+            p={3}
+            bg="gray.800"
+            borderRadius="lg"
+            boxShadow="lg"
+            borderLeft="4px solid"
+            borderLeftColor="pink.400"
+            minW="280px"
+          >
+            <Flex gap={3} align="center">
+              <Box
+                w="48px"
+                h="48px"
+                borderRadius="md"
+                overflow="hidden"
+                flexShrink={0}
+                bg="gray.700"
+              >
+                <Image
+                  src={productImages[0]}
+                  alt={name}
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                  fallbackSrc="/images/logo2.webp"
+                />
+              </Box>
+              <Box flex="1">
+                <Text fontWeight="bold" fontSize="sm" noOfLines={1}>
+                  ¡Agregado al carrito!
+                </Text>
+                <Text fontSize="xs" color="gray.300" noOfLines={1}>
+                  {name}
+                </Text>
+              </Box>
+            </Flex>
+            <Flex mt={2} gap={2} justify="flex-end">
+              <Button size="xs" variant="ghost" colorScheme="whiteAlpha" onClick={onClose}>
+                Cerrar
+              </Button>
+              <Button
+                size="xs"
+                colorScheme="pink"
+                onClick={() => {
+                  onClose();
+                  window.location.href = '/cart';
+                }}
+              >
+                Ver carrito
+              </Button>
+            </Flex>
+          </Box>
+        ),
       });
     } else {
       // Si el producto ya estaba en el carrito
@@ -202,6 +254,9 @@ export default function ProductCard({ product }) {
       <MotionBox
         as={LinkBox}
         w="100%"
+        h="100%"
+        display="flex"
+        flexDirection="column"
         borderRadius="lg"
         overflow="hidden"
         bg={cardBg}
@@ -259,6 +314,7 @@ export default function ProductCard({ product }) {
                 htmlWidth={300}
                 htmlHeight={400}
                 style={{ pointerEvents: 'none' }}
+                fallbackSrc="/images/logo2.webp"
               />
             </Box>
           ))}
@@ -386,16 +442,17 @@ export default function ProductCard({ product }) {
               bg="red.600"
               color="white"
               borderRadius="full"
-              px={2}
-              py={1}
+              px={{ base: 1.5, md: 2 }}
+              py={{ base: 0.5, md: 1 }}
               fontWeight="bold"
-              fontSize="sm"
+              fontSize={{ base: '0.7rem', md: 'sm' }}
               textTransform="uppercase"
               boxShadow="md"
               zIndex="2"
               display="flex"
               alignItems="center"
               gap={1}
+              opacity={0.9}
             >
               <FaExclamationTriangle size="0.9em" />
               +18
@@ -406,12 +463,13 @@ export default function ProductCard({ product }) {
               bg="pink.400"
               color="white"
               borderRadius="full"
-              px={2}
-              py={1}
+              px={{ base: 1.5, md: 2 }}
+              py={{ base: 0.5, md: 1 }}
               fontWeight="bold"
-              fontSize="xs"
+              fontSize={{ base: '0.7rem', md: 'xs' }}
               textTransform="uppercase"
               boxShadow="md"
+              opacity={0.9}
             >
               -{discountPercentage}% (ahorrá ${Math.round(originalPrice - price).toLocaleString()})
             </Badge>
@@ -421,12 +479,13 @@ export default function ProductCard({ product }) {
               bg="brand.500" 
               color="white" 
               borderRadius="full"
-              px={2}
-              py={1}
+              px={{ base: 1.5, md: 2 }}
+              py={{ base: 0.5, md: 1 }}
               fontWeight="bold"
-              fontSize="xs"
+              fontSize={{ base: '0.7rem', md: 'xs' }}
               textTransform="uppercase"
               boxShadow="md"
+              opacity={0.9}
             >
               Nuevo
             </Badge>
@@ -436,12 +495,13 @@ export default function ProductCard({ product }) {
               bg="red.500" 
               color="white" 
               borderRadius="full"
-              px={2}
-              py={1}
+              px={{ base: 1.5, md: 2 }}
+              py={{ base: 0.5, md: 1 }}
               fontWeight="bold"
-              fontSize="xs"
+              fontSize={{ base: '0.7rem', md: 'xs' }}
               textTransform="uppercase"
               boxShadow="md"
+              opacity={0.9}
             >
               Sin Stock
             </Badge>
@@ -451,12 +511,13 @@ export default function ProductCard({ product }) {
               bg="orange.400" 
               color="white" 
               borderRadius="full"
-              px={2}
-              py={1}
+              px={{ base: 1.5, md: 2 }}
+              py={{ base: 0.5, md: 1 }}
               fontWeight="bold"
-              fontSize="xs"
+              fontSize={{ base: '0.7rem', md: 'xs' }}
               textTransform="uppercase"
               boxShadow="md"
+              opacity={0.9}
             >
               Última unidad
             </Badge>
@@ -494,94 +555,96 @@ export default function ProductCard({ product }) {
       </Box>
 
       {/* Contenido */}
-      <VStack p={4} align="start" spacing={2}>
-        {/* Mostrar múltiples categorías si existen */}
-        <Flex gap={1} flexWrap="wrap">
-          {product.categories && product.categories.length > 0 ? (
-            product.categories.map((cat, index) => (
-              <Badge 
-                key={index} 
-                bg={categoryBg} 
-                color={categoryColor} 
-                borderRadius="md" 
-                px={2} 
-                py={0.5} 
-                fontSize="xs"
-              >
-                {cat}
+      <VStack p={4} align="start" spacing={2} flex="1" justify="space-between" h="100%">
+        <VStack align="start" spacing={2} w="100%">
+          {/* Mostrar múltiples categorías si existen */}
+          <Flex gap={1} flexWrap="wrap">
+            {product.categories && product.categories.length > 0 ? (
+              product.categories.map((cat, index) => (
+                <Badge
+                  key={index}
+                  bg={categoryBg}
+                  color={categoryColor}
+                  borderRadius="md"
+                  px={2}
+                  py={0.5}
+                  fontSize="xs"
+                >
+                  {cat}
+                </Badge>
+              ))
+            ) : (
+              <Badge bg={categoryBg} color={categoryColor} borderRadius="md" px={2} py={0.5} fontSize="xs">
+                {category}
               </Badge>
-            ))
-          ) : (
-            <Badge bg={categoryBg} color={categoryColor} borderRadius="md" px={2} py={0.5} fontSize="xs">
-              {category}
-            </Badge>
-          )}
-        </Flex>
-        
-        <Heading 
-          as="h3" 
-          fontSize="lg" 
-          fontWeight="600" 
-          color={textColor}
-          noOfLines={1}
-          mt={1}
-        >
-          <LinkOverlay as={RouterLink} to={`/product/${getProductSlug(product)}/`}>
-            {name}
-          </LinkOverlay>
-        </Heading>
-        
-        {/* Botón de compartir */}
-        <Box position="absolute" top={2} left={2} zIndex={2}>
-          <IconButton
-            icon={<FaShareAlt />}
-            size="sm"
-            colorScheme="brand"
-            bg="whiteAlpha.200"
-            color="white"
-            variant="ghost"
-            borderRadius="full"
-            aria-label="Compartir producto"
-            opacity={0.8}
-            _groupHover={{ opacity: 1 }}
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              const shareUrl = `${window.location.origin}/product/${getProductSlug(product)}/`;
-              const shareTitle = product?.name || 'Producto en Arkya Store';
-              if (navigator.share) {
-                navigator.share({
-                  title: shareTitle,
-                  url: shareUrl,
-                }).catch(() => {});
-              } else {
-                navigator.clipboard.writeText(`${shareTitle}\n${shareUrl}`).then(() => {
-                  toast({
-                    title: 'Link copiado',
-                    description: 'El link del producto se copió al portapapeles.',
-                    status: 'success',
-                    duration: 2000,
-                    isClosable: true,
-                    position: 'bottom-right',
+            )}
+          </Flex>
+
+          <Heading
+            as="h3"
+            fontSize="lg"
+            fontWeight="600"
+            color={textColor}
+            noOfLines={1}
+            mt={1}
+          >
+            <LinkOverlay as={RouterLink} to={`/product/${getProductSlug(product)}/`}>
+              {name}
+            </LinkOverlay>
+          </Heading>
+
+          {/* Botón de compartir */}
+          <Box position="absolute" top={2} left={2} zIndex={2}>
+            <IconButton
+              icon={<FaShareAlt />}
+              size="sm"
+              colorScheme="brand"
+              bg="whiteAlpha.200"
+              color="white"
+              variant="ghost"
+              borderRadius="full"
+              aria-label="Compartir producto"
+              opacity={0.8}
+              _groupHover={{ opacity: 1 }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const shareUrl = `${window.location.origin}/product/${getProductSlug(product)}/`;
+                const shareTitle = product?.name || 'Producto en Arkya Store';
+                if (navigator.share) {
+                  navigator.share({
+                    title: shareTitle,
+                    url: shareUrl,
+                  }).catch(() => {});
+                } else {
+                  navigator.clipboard.writeText(`${shareTitle}\n${shareUrl}`).then(() => {
+                    toast({
+                      title: 'Link copiado',
+                      description: 'El link del producto se copió al portapapeles.',
+                      status: 'success',
+                      duration: 2000,
+                      isClosable: true,
+                      position: 'bottom-right',
+                    });
                   });
-                });
-              }
-            }}
-            _hover={{ bg: 'whiteAlpha.300', transform: 'scale(1.1)' }}
-            transition="all 0.2s"
-          />
-        </Box>
-        
-        <Text fontSize="sm" color={textColor} noOfLines={2} opacity={0.8}>
-          {description && description.split('\n').map((line, i) => (
-            <React.Fragment key={i}>
-              {line}
-              {i < description.split('\n').length - 1 && <br />}
-            </React.Fragment>
-          ))}
-        </Text>
-        
-        <Flex w="100%" justify="space-between" align="center" mt={2}>
+                }
+              }}
+              _hover={{ bg: 'whiteAlpha.300', transform: 'scale(1.1)' }}
+              transition="all 0.2s"
+            />
+          </Box>
+
+          <Text fontSize="sm" color={textColor} noOfLines={2} opacity={0.8}>
+            {description && description.split('\n').map((line, i) => (
+              <React.Fragment key={i}>
+                {line}
+                {i < description.split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </Text>
+        </VStack>
+
+        <Flex w="100%" justify="space-between" align="center" pt={2}>
           <VStack align="start" spacing={0}>
             {isOnOffer && discountPercentage > 0 && inStock ? (
               <>
@@ -607,7 +670,7 @@ export default function ProductCard({ product }) {
               </Text>
             )}
           </VStack>
-          
+
           <HStack spacing={2}>
             <Button
               size="sm"
@@ -618,10 +681,8 @@ export default function ProductCard({ product }) {
                 e?.stopPropagation();
 
                 if (inStock) {
-                  // Funcionalidad normal de agregar al carrito
                   handleAddToCart(e);
                 } else {
-                  // Abrir modal de consulta por Instagram
                   onConsultOpen();
                 }
               }}

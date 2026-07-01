@@ -27,6 +27,7 @@ import {
   FaPhone,
   FaPaperPlane,
 } from 'react-icons/fa';
+import { SEO } from '../components/SEO';
 
 export default function ContactPage() {
   
@@ -62,8 +63,15 @@ export default function ContactPage() {
   ];
   
   return (
-    <Box bg={bgColor} py={12}>
-      <Container maxW="7xl">
+    <>
+      <SEO
+        title="Contacto | Arkya Store - Artículos Importados de Japón"
+        description="Contactanos para comprar artbooks, doujinshi, mangas, guías, novelas ligeras, revistas Jump y merchandising importado de Japón. Envíos a todo Argentina. Instagram: @arkya.store"
+        url="https://arkya.store/contacto"
+        keywords="contacto, arkya store, artbooks, doujinshi, manga, japón, importados, tienda, instagram, comprar, envíos, argentina"
+      />
+      <Box bg={bgColor} py={12}>
+        <Container maxW="7xl">
         {/* Header */}
         <VStack spacing={6} textAlign="center" mb={12}>
           <Heading
@@ -167,5 +175,6 @@ export default function ContactPage() {
         </SimpleGrid>
       </Container>
     </Box>
+    </>
   );
 }

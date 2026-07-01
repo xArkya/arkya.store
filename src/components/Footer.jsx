@@ -21,14 +21,17 @@ const navLinkStyle = {
   transition: 'color 0.2s',
 };
 
-const sectionTitleStyle = {
-  fontSize: 'sm',
-  fontWeight: '700',
-  textTransform: 'uppercase',
-  letterSpacing: 'wider',
-  color: 'white',
-  mb: 4,
-};
+const SectionTitle = ({ children }) => (
+  <Text
+    fontSize="md"
+    fontWeight="bold"
+    bgGradient="linear(to-r, pink.400, brand.400)"
+    bgClip="text"
+    mb={4}
+  >
+    {children}
+  </Text>
+);
 
 export default function Footer() {
   return (
@@ -75,7 +78,7 @@ export default function Footer() {
 
           {/* Tienda */}
           <Stack align="flex-start">
-            <Text {...sectionTitleStyle}>Tienda</Text>
+            <SectionTitle>Tienda</SectionTitle>
             <Link as={RouterLink} to="/" {...navLinkStyle}>Inicio</Link>
             <Link as={RouterLink} to="/" {...navLinkStyle}>Catálogo</Link>
             <Link as={RouterLink} to="/mis-me-gustas" {...navLinkStyle}>Mis Favoritos</Link>
@@ -83,15 +86,16 @@ export default function Footer() {
 
           {/* Soporte */}
           <Stack align="flex-start">
-            <Text {...sectionTitleStyle}>Soporte</Text>
+            <SectionTitle>Soporte</SectionTitle>
             <Link as={RouterLink} to="/contacto" {...navLinkStyle}>Contacto</Link>
             <Link as={RouterLink} to="/preguntas-frecuentes" {...navLinkStyle}>Preguntas Frecuentes</Link>
+            <Link as={RouterLink} to="/guias" {...navLinkStyle}>Guías de Compra</Link>
             <Link as={RouterLink} to="/terminos" {...navLinkStyle}>Términos de Servicio</Link>
           </Stack>
 
           {/* Conectados */}
           <Stack align="flex-start" spacing={5}>
-            <Text {...sectionTitleStyle}>Contactanos</Text>
+            <SectionTitle>Contactanos</SectionTitle>
             <Text fontSize="sm" color="whiteAlpha.700" lineHeight="tall">
               Pedidos, consultas y disponibilidad directo por Instagram.
             </Text>
