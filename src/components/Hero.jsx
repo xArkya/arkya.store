@@ -18,6 +18,7 @@ const HERO_IMAGES = [
   '/images/hero1.webp',
   '/images/hero2.webp',
   '/images/hero3.webp',
+  '/images/hero5.webp',
   '/images/hero4.webp',
 ];
 
