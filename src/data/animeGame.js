@@ -1,12 +1,11 @@
 // Datos del minijuego "Adivina el Anime" (PixelAnimeGame)
-// TODO: Reemplazar las imágenes placeholder por las fotos pixeladas que el usuario enviará.
 
 export const GAME_LEVELS = [
   {
     id: 1,
     name: 'Nivel 1 - Muy fácil',
     pixelSize: 10,
-    image: '/images/hero.webp',
+    image: '/images/muyfacil.webp',
     correctAnswer: 'Jujutsu Kaisen',
     discount: 5,
   },
@@ -14,7 +13,7 @@ export const GAME_LEVELS = [
     id: 2,
     name: 'Nivel 2 - Fácil',
     pixelSize: 16,
-    image: '/images/products/img_1776143646081_5kblh4_7.webp',
+    image: '/images/facil.webp',
     correctAnswer: 'One Piece',
     discount: 5,
   },
@@ -22,7 +21,7 @@ export const GAME_LEVELS = [
     id: 3,
     name: 'Nivel 3 - Normal',
     pixelSize: 24,
-    image: '/images/products/img_1776143646105_glxmzo_3.webp',
+    image: '/images/normal.webp',
     correctAnswer: 'Chainsaw Man',
     discount: 5,
   },
@@ -30,7 +29,7 @@ export const GAME_LEVELS = [
     id: 4,
     name: 'Nivel 4 - Difícil',
     pixelSize: 32,
-    image: '/images/products/img_1776143646071_y0b7j3_0.webp',
+    image: '/images/dificil.webp',
     correctAnswer: 'Spy x Family',
     discount: 5,
   },
@@ -38,7 +37,7 @@ export const GAME_LEVELS = [
     id: 5,
     name: 'Nivel 5 - Imposible',
     pixelSize: 42,
-    image: '/images/products/img_1776143646059_hm1t2y_0.webp',
+    image: '/images/imposible.webp',
     correctAnswer: 'Evangelion',
     discount: 10,
   },

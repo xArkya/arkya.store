@@ -7,12 +7,12 @@ function getNextTargetDate() {
   const currentDate = now.getDate();
 
   let target;
-  if (currentDate < 2) {
-    // Aún no llegamos al día 2 de este mes
-    target = new Date(currentYear, currentMonth, 2, 0, 0, 0);
+  if (currentDate < 3) {
+    // Aún no llegamos al día 3 de este mes
+    target = new Date(currentYear, currentMonth, 3, 0, 0, 0);
   } else {
-    // Ya pasó el día 2, apuntar al 2 del mes siguiente
-    target = new Date(currentYear, currentMonth + 1, 2, 0, 0, 0);
+    // Ya pasó el día 3, apuntar al 3 del mes siguiente
+    target = new Date(currentYear, currentMonth + 1, 3, 0, 0, 0);
   }
   return target;
 }

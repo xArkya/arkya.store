@@ -844,7 +844,7 @@ export default function HomePage() {
       </Box>
       <Hero />
 
-      {/* Banner del juego Adivina el Anime — OCULTO TEMPORALMENTE
+      {/* Banner del juego Adivina el Anime */}
       <Box
         as={Link}
         to="/adivina-el-anime"
@@ -907,7 +907,6 @@ export default function HomePage() {
           </Button>
         </HStack>
       </Box>
-      */}
 
       {/* Banner de promoción activa */}
       {offers.find(o => o.isActive && o.isGlobal) && (

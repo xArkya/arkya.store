@@ -90,8 +90,7 @@ export default function Header() {
           direction={'row'}
           spacing={{ base: 1, md: 6 }}
           align="center">
-          {/* Juego oculto temporalmente */}
-          {/* <Button
+          <Button
             as={RouterLink}
             to="/adivina-el-anime"
             fontSize={{ base: 'xs', md: 'sm' }}
@@ -112,7 +111,7 @@ export default function Header() {
             <Text display={{ base: 'none', md: 'inline' }} ml={2}>
               GANÁ DESCUENTOS
             </Text>
-          </Button> */}
+          </Button>
 
           <Button
             as={'a'}
