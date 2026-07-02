@@ -300,7 +300,9 @@ const DesktopSubNav = ({ label, href, subLabel, children }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg="#241521"
+      borderBottom="1px solid"
+      borderColor="pink.400"
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (

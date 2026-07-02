@@ -308,7 +308,7 @@ export default function AnimeGamePage() {
                     Cada nivel será más difícil que el anterior.
                   </Text>
 
-                  <SimpleGrid columns={{ base: 2, sm: 3, lg: 5 }} spacing={3} w="100%">
+                  <Flex flexWrap="wrap" justifyContent="center" gap={3} w="100%">
                     {GAME_LEVELS.map((level, idx) => {
                       const schemes = ['green', 'teal', 'yellow', 'orange', 'red'];
                       const scheme = schemes[idx] || 'pink';
@@ -324,6 +324,9 @@ export default function AnimeGamePage() {
                           boxShadow="0 0 15px rgba(236, 72, 153, 0.2)"
                           transition="all 0.2s ease"
                           _hover={{ transform: 'translateY(-4px)', boxShadow: '0 0 25px rgba(236, 72, 153, 0.5)' }}
+                          minW="120px"
+                          flex="1 1 140px"
+                          maxW="200px"
                         >
                           <Badge colorScheme={scheme} mb={2} borderRadius="full" px={2} py={0.5} fontSize="0.65rem" fontWeight="bold" textTransform="uppercase">
                             {level.name.replace('Nivel ' + level.id + ' - ', '')}
@@ -337,7 +340,7 @@ export default function AnimeGamePage() {
                         </Box>
                       );
                     })}
-                  </SimpleGrid>
+                  </Flex>
 
                   <Box>
                     <Text fontSize="sm" color="gray.400" mb={1}>
