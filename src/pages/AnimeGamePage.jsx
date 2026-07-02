@@ -506,8 +506,11 @@ export default function AnimeGamePage() {
                     color="white"
                     onClick={handleSubmitAnswer}
                     px={10}
+                    py={{ base: 6, md: 5 }}
                     flex={1}
                     w="100%"
+                    fontSize={{ base: 'lg', md: 'md' }}
+                    fontWeight="bold"
                     _hover={{ bg: 'pink.400' }}
                     _active={{ bg: 'pink.600' }}
                   >
