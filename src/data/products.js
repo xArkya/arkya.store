@@ -14688,7 +14688,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "tags": [
       "ecchi",
       "hentai"
