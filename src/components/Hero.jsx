@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import {
   Container,
   Stack,
@@ -27,24 +27,48 @@ const MotionImage = motion(Image);
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const intervalRef = useRef(null);
 
-  const goNext = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-  };
-
-  const goPrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const startAutoplay = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
-    return () => clearInterval(interval);
   }, []);
+
+  const stopAutoplay = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+
+  const goNext = useCallback(() => {
+    stopAutoplay();
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    startAutoplay();
+  }, [stopAutoplay, startAutoplay]);
+
+  const goPrev = useCallback(() => {
+    stopAutoplay();
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+    startAutoplay();
+  }, [stopAutoplay, startAutoplay]);
+
+  const goToIndex = useCallback((idx) => {
+    stopAutoplay();
+    setDirection(idx > currentIndex ? 1 : -1);
+    setCurrentIndex(idx);
+    startAutoplay();
+  }, [currentIndex, stopAutoplay, startAutoplay]);
+
+  useEffect(() => {
+    startAutoplay();
+    return () => stopAutoplay();
+  }, [startAutoplay, stopAutoplay]);
 
   return (
     <Box bg="#453641" w="full" color="white">
@@ -126,26 +150,31 @@ export default function Hero() {
               _hover={{
                 transform: 'perspective(1000px) rotateY(0deg)',
               }}>
-              <AnimatePresence mode="wait" initial={false}>
-                <MotionImage
-                  key={currentIndex}
-                  alt={'Artículos importados de Japón - Arkya Store'}
-                  fit={'cover'}
-                  align={'center'}
-                  w={'100%'}
-                  h={'100%'}
-                  src={HERO_IMAGES[currentIndex]}
-                  htmlWidth={500}
-                  htmlHeight={500}
-                  fetchpriority="high"
-                  loading="eager"
-                  decoding="async"
-                  initial={{ opacity: 0, x: direction * 80, scale: 0.95 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: direction * -80, scale: 0.95 }}
-                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                />
-              </AnimatePresence>
+              <Box position="relative" w="100%" h="100%">
+                <AnimatePresence initial={false}>
+                  <MotionImage
+                    key={currentIndex}
+                    alt={'Artículos importados de Japón - Arkya Store'}
+                    fit={'cover'}
+                    align={'center'}
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    w={'100%'}
+                    h={'100%'}
+                    src={HERO_IMAGES[currentIndex]}
+                    htmlWidth={500}
+                    htmlHeight={500}
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                    initial={{ opacity: 0, x: direction * 60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: direction * -60 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                  />
+                </AnimatePresence>
+              </Box>
 
               {/* Overlay rosa por encima de la imagen */}
               <Box
@@ -210,7 +239,7 @@ export default function Hero() {
                     bg={idx === currentIndex ? 'pink.400' : 'whiteAlpha.500'}
                     transition="all 0.3s ease"
                     cursor="pointer"
-                    onClick={(e) => { e.stopPropagation(); e.preventDefault(); setCurrentIndex(idx); }}
+                    onClick={(e) => { e.stopPropagation(); e.preventDefault(); goToIndex(idx); }}
                   />
                 ))}
               </HStack>
