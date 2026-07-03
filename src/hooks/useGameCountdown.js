@@ -1,20 +1,8 @@
 import { useState, useEffect } from 'react';
+import { GAME_DEADLINE } from '../data/animeGame';
 
-function getNextTargetDate() {
-  const now = new Date();
-  const currentYear = now.getFullYear();
-  const currentMonth = now.getMonth(); // 0-based
-  const currentDate = now.getDate();
-
-  let target;
-  if (currentDate < 3) {
-    // Aún no llegamos al día 3 de este mes
-    target = new Date(currentYear, currentMonth, 3, 0, 0, 0);
-  } else {
-    // Ya pasó el día 3, apuntar al 3 del mes siguiente
-    target = new Date(currentYear, currentMonth + 1, 3, 0, 0, 0);
-  }
-  return target;
+function getTargetDate() {
+  return new Date(GAME_DEADLINE);
 }
 
 export function useGameCountdown() {
@@ -24,7 +12,7 @@ export function useGameCountdown() {
   useEffect(() => {
     const update = () => {
       const now = new Date();
-      const target = getNextTargetDate();
+      const target = getTargetDate();
       const diff = target - now;
 
       if (diff <= 0) {

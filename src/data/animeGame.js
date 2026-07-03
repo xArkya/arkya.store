@@ -43,6 +43,13 @@ export const GAME_LEVELS = [
   },
 ];
 
+// Fecha límite del juego actual - EDITABLE
+// Formato: 'YYYY-MM-DDTHH:MM:SS' (ej: '2026-07-15T00:00:00')
+// Cuando pasa esta fecha, el juego se bloquea y se reinicia para la próxima ronda
+export const GAME_DEADLINE = '2026-07-03T00:00:00';
+
+const ROUND_KEY = 'pixelGameRound';
+
 export const GAME_CONFIG = {
   levelsCount: 5,
   discountPerLevel: 5,
@@ -53,6 +60,8 @@ export const GAME_CONFIG = {
   submissionsKey: 'pixelGameSubmissions',
   userKey: 'pixelGameUser',
   playedKey: 'pixelGamePlayed',
+  roundKey: ROUND_KEY,
+  deadline: GAME_DEADLINE,
 };
 
 // --- CONFIGURACIÓN GOOGLE FORMS ---
@@ -84,7 +93,11 @@ export function setGameUser(user) {
 
 export function hasGameBeenPlayed() {
   try {
-    return localStorage.getItem(GAME_CONFIG.playedKey) === 'true';
+    const played = localStorage.getItem(GAME_CONFIG.playedKey) === 'true';
+    const round = localStorage.getItem(GAME_CONFIG.roundKey);
+    // Si no hay round guardado o es diferente al actual, no se jugó esta ronda
+    if (round !== GAME_DEADLINE) return false;
+    return played;
   } catch {
     return false;
   }
@@ -93,8 +106,27 @@ export function hasGameBeenPlayed() {
 export function markGameAsPlayed() {
   try {
     localStorage.setItem(GAME_CONFIG.playedKey, 'true');
+    localStorage.setItem(GAME_CONFIG.roundKey, GAME_DEADLINE);
   } catch (e) {
     console.error('Error marcando juego como jugado:', e);
+  }
+}
+
+// Limpia progreso si cambió la ronda (nueva fecha de juego)
+export function clearGameIfNewRound() {
+  try {
+    const round = localStorage.getItem(GAME_CONFIG.roundKey);
+    if (round && round !== GAME_DEADLINE) {
+      localStorage.removeItem(GAME_CONFIG.playedKey);
+      localStorage.removeItem(GAME_CONFIG.localStorageKey);
+      localStorage.removeItem(GAME_CONFIG.userKey);
+      localStorage.setItem(GAME_CONFIG.roundKey, GAME_DEADLINE);
+      return true;
+    }
+    return false;
+  } catch (e) {
+    console.error('Error limpiando ronda previa:', e);
+    return false;
   }
 }
 

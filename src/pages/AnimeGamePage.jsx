@@ -17,6 +17,7 @@ import {
   Icon,
   Divider,
   Input,
+  Link,
 } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -42,6 +43,7 @@ import {
   submitToGoogleForm,
   hasGameBeenPlayed,
   markGameAsPlayed,
+  clearGameIfNewRound,
 } from '../data/animeGame';
 
 const MotionBox = motion(Box);
@@ -141,8 +143,16 @@ export default function AnimeGamePage() {
 
   const currentLevel = GAME_LEVELS[currentLevelIndex];
 
-  // Cargar progreso previo
+  // Cargar progreso previo y limpiar si cambió la ronda
   useEffect(() => {
+    const wasCleared = clearGameIfNewRound();
+    if (wasCleared) {
+      setHasPlayed(false);
+      setAnswers([]);
+      setCurrentLevelIndex(0);
+      setGameState('intro');
+      return;
+    }
     const saved = loadGameProgress();
     if (saved && saved.answers) {
       setAnswers(saved.answers);
@@ -335,12 +345,18 @@ export default function AnimeGamePage() {
                         w="100%"
                         maxW="400px"
                       >
-                        <HStack justify="center" spacing={2} mb={2}>
-                          <Icon as={FaInstagram} fontSize="2xl" color="pink.300" />
-                          <Text fontWeight="bold" color="pink.300" fontSize="lg">
-                            @arkya.store
-                          </Text>
-                        </HStack>
+                        <Link
+                          href="https://www.instagram.com/arkya.store/"
+                          isExternal
+                          _hover={{ textDecoration: 'none', opacity: 0.8 }}
+                        >
+                          <HStack justify="center" spacing={2} mb={2} cursor="pointer">
+                            <Icon as={FaInstagram} fontSize="2xl" color="pink.300" />
+                            <Text fontWeight="bold" color="pink.300" fontSize="lg">
+                              @arkya.store
+                            </Text>
+                          </HStack>
+                        </Link>
                         <Text color="white" fontSize="sm">
                           Avisamos por historias de Instagram cuando activamos los juegos con descuentos.
                         </Text>
