@@ -26,9 +26,11 @@ import {
   FaHome,
   FaPaperPlane,
   FaCheckCircle,
+  FaInstagram,
 } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { useGameCountdown } from '../hooks/useGameCountdown';
 import {
   GAME_LEVELS,
   GAME_CONFIG,
@@ -129,6 +131,7 @@ const PixelatedImage = ({ src, pixelSize, reveal = false }) => {
 
 export default function AnimeGamePage() {
   const toast = useToast();
+  const { timeLeft, isExpired } = useGameCountdown();
   const [gameState, setGameState] = useState('intro'); // intro, playing, review, submitted
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [textAnswer, setTextAnswer] = useState('');
@@ -151,6 +154,17 @@ export default function AnimeGamePage() {
   }, []);
 
   const startGame = () => {
+    if (isExpired) {
+      toast({
+        title: 'El juego terminó',
+        description: 'Esta ronda ya finalizó. Esperá la próxima para participar.',
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+        position: 'top',
+      });
+      return;
+    }
     if (hasGameBeenPlayed()) {
       setHasPlayed(true);
       toast({
@@ -303,10 +317,71 @@ export default function AnimeGamePage() {
             <Card  bg="#241521" borderRadius="2xl" border="1px solid" borderColor="whiteAlpha.200">
               <CardBody p={{ base: 6, md: 10 }}>
                 <VStack spacing={6} textAlign="center">
-                  <Text fontSize="lg" color="gray.200">
-                    Te presentaremos <strong>5 niveles</strong> de imágenes pixeladas de animes populares.
-                    Cada nivel será más difícil que el anterior.
-                  </Text>
+                  {isExpired ? (
+                    <>
+                      <Icon as={FaTrophy} fontSize="5xl" color="yellow.400" />
+                      <Heading size="xl" color="white">
+                        El juego ha terminado
+                      </Heading>
+                      <Text fontSize="md" color="gray.300">
+                        Esta ronda de <strong>Adivina el Anime</strong> ya finalizó. No te preocupes, organizamos juegos cada cierto tiempo donde podes ganar descuentos de hasta el <strong>30% OFF</strong> para usar por un mes en pedidos y productos de la tienda.
+                      </Text>
+                      <Box
+                        bg="pink.900"
+                        p={4}
+                        borderRadius="xl"
+                        border="2px solid"
+                        borderColor="pink.400"
+                        w="100%"
+                        maxW="400px"
+                      >
+                        <HStack justify="center" spacing={2} mb={2}>
+                          <Icon as={FaInstagram} fontSize="2xl" color="pink.300" />
+                          <Text fontWeight="bold" color="pink.300" fontSize="lg">
+                            @arkya.store
+                          </Text>
+                        </HStack>
+                        <Text color="white" fontSize="sm">
+                          Avisamos por historias de Instagram cuando activamos los juegos con descuentos.
+                        </Text>
+                      </Box>
+                      <Text fontSize="sm" color="gray.500">
+                        Seguinos en Instagram para no perderte la próxima ronda.
+                      </Text>
+                      <Button
+                        leftIcon={<FaHome />}
+                        as={RouterLink}
+                        to="/"
+                        size="lg"
+                        colorScheme="pink"
+                        px={8}
+                        _hover={{ transform: 'translateY(-2px)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.4)' }}
+                      >
+                        Volver al inicio
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Box
+                        bg="pink.900"
+                        p={3}
+                        borderRadius="xl"
+                        border="1px solid"
+                        borderColor="pink.400"
+                        w="100%"
+                        maxW="300px"
+                      >
+                        <Text fontSize="sm" color="pink.300" fontWeight="bold">
+                          Tiempo restante para jugar
+                        </Text>
+                        <Text color="white" fontSize="xl" fontWeight="extrabold" mt={1}>
+                          {timeLeft}
+                        </Text>
+                      </Box>
+                      <Text fontSize="lg" color="gray.200">
+                        Te presentaremos <strong>5 niveles</strong> de imágenes pixeladas de animes populares.
+                        Cada nivel será más difícil que el anterior.
+                      </Text>
 
                   <Flex flexWrap="wrap" justifyContent="center" gap={3} w="100%">
                     {GAME_LEVELS.map((level, idx) => {
@@ -420,6 +495,8 @@ export default function AnimeGamePage() {
                       </Button>
                     </VStack>
                   )}
+                </>
+              )}
                 </VStack>
               </CardBody>
             </Card>
