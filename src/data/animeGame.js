@@ -6,39 +6,34 @@ export const GAME_LEVELS = [
     name: 'Nivel 1 - Muy fácil',
     pixelSize: 10,
     image: '/images/muyfacil.webp',
-    correctAnswer: 'Jujutsu Kaisen',
     discount: 5,
   },
   {
     id: 2,
     name: 'Nivel 2 - Fácil',
-    pixelSize: 16,
+    pixelSize: 10,
     image: '/images/facil.webp',
-    correctAnswer: 'One Piece',
     discount: 5,
   },
   {
     id: 3,
     name: 'Nivel 3 - Normal',
-    pixelSize: 24,
+    pixelSize: 10,
     image: '/images/normal.webp',
-    correctAnswer: 'Chainsaw Man',
     discount: 5,
   },
   {
     id: 4,
     name: 'Nivel 4 - Difícil',
-    pixelSize: 32,
+    pixelSize: 10,
     image: '/images/dificil.webp',
-    correctAnswer: 'Spy x Family',
     discount: 5,
   },
   {
     id: 5,
     name: 'Nivel 5 - Imposible',
-    pixelSize: 42,
+    pixelSize: 10,
     image: '/images/imposible.webp',
-    correctAnswer: 'Evangelion',
     discount: 10,
   },
 ];
@@ -47,6 +42,42 @@ export const GAME_LEVELS = [
 // Formato: 'YYYY-MM-DDTHH:MM:SS' (ej: '2026-07-15T00:00:00')
 // Cuando pasa esta fecha, el juego se bloquea y se reinicia para la próxima ronda
 export const GAME_DEADLINE = '2026-07-03T00:00:00';
+
+// --- RESPUESTAS DE LA RONDA ANTERIOR ---
+// Personalizá imágenes y nombres de la ronda que ya terminó.
+// Estas se muestran en la pantalla de "juego terminado".
+export const PAST_ROUND_ANSWERS = [
+  {
+    level: 'Nivel 1 - Muy Fácil',
+    image: '/images/muyfacil.webp',
+    answer: 'Naruto',
+    color: 'green',
+  },
+  {
+    level: 'Nivel 2 - Fácil',
+    image: '/images/facil.webp',
+    answer: 'The Promised Neverland/Yakusoku no Neverland',
+    color: 'teal',
+  },
+  {
+    level: 'Nivel 3 - Normal',
+    image: '/images/normal.webp',
+    answer: 'Elfen Lied',
+    color: 'yellow',
+  },
+  {
+    level: 'Nivel 4 - Difícil',
+    image: '/images/dificil.webp',
+    answer: 'A Destructive God Sits Next to Me/Boku no Tonari ni Ankoku Hakaishin ga Imasu',
+    color: 'orange',
+  },
+  {
+    level: 'Nivel 5 - Imposible',
+    image: '/images/imposible.webp',
+    answer: 'Kamitsubaki City Under Construction',
+    color: 'red',
+  },
+];
 
 const ROUND_KEY = 'pixelGameRound';
 

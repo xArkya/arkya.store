@@ -18,6 +18,7 @@ import {
   Divider,
   Input,
   Link,
+  Image,
 } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -35,6 +36,7 @@ import { useGameCountdown } from '../hooks/useGameCountdown';
 import {
   GAME_LEVELS,
   GAME_CONFIG,
+  PAST_ROUND_ANSWERS,
   saveGameProgress,
   loadGameProgress,
   saveGameSubmission,
@@ -364,6 +366,49 @@ export default function AnimeGamePage() {
                       <Text fontSize="sm" color="gray.500">
                         Seguinos en Instagram para no perderte la próxima ronda.
                       </Text>
+                      <Divider borderColor="whiteAlpha.200" />
+
+                      {/* Respuestas de la ronda anterior */}
+                      <Box w="100%">
+                        <Heading size="md" color="pink.300" mb={4}>
+                          Respuestas de la ronda anterior
+                        </Heading>
+                        <Flex flexWrap="wrap" justifyContent="center" gap={4} w="100%">
+                          {PAST_ROUND_ANSWERS.map((item, idx) => (
+                            <Box
+                              key={idx}
+                              bg="#453641"
+                              borderRadius="xl"
+                              borderTop="4px solid"
+                              borderTopColor={`${item.color}.400`}
+                              borderColor="whiteAlpha.200"
+                              overflow="hidden"
+                              textAlign="center"
+                              w="170px"
+                              flexShrink={0}
+                            >
+                              <Box h="120px" overflow="hidden">
+                                <Image
+                                  src={item.image}
+                                  alt={item.answer}
+                                  w="100%"
+                                  h="100%"
+                                  objectFit="cover"
+                                />
+                              </Box>
+                              <Box p={3}>
+                                <Text fontSize="xs" color={`${item.color}.300`} fontWeight="bold">
+                                  {item.level}
+                                </Text>
+                                <Text fontSize="sm" color="white" fontWeight="bold" mt={1}>
+                                  {item.answer}
+                                </Text>
+                              </Box>
+                            </Box>
+                          ))}
+                        </Flex>
+                      </Box>
+
                       <Button
                         leftIcon={<FaHome />}
                         as={RouterLink}
