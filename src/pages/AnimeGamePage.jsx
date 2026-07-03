@@ -133,6 +133,87 @@ const PixelatedImage = ({ src, pixelSize, reveal = false }) => {
   );
 };
 
+const PixelatedImageCanvas = ({ src, width, height, pixelSize = 12 }) => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+
+    const img = new window.Image();
+    img.onload = () => {
+      const w = Math.max(1, Math.ceil(width / pixelSize));
+      const h = Math.max(1, Math.ceil(height / pixelSize));
+      canvas.width = w;
+      canvas.height = h;
+      ctx.drawImage(img, 0, 0, w, h);
+    };
+    img.src = src;
+  }, [src, width, height, pixelSize]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+        display: 'block',
+        imageRendering: 'pixelated',
+      }}
+    />
+  );
+};
+
+const RotatingName = ({ primary, secondary }) => {
+  const [showPrimary, setShowPrimary] = useState(true);
+  useEffect(() => {
+    if (!secondary) return;
+    const interval = setInterval(() => setShowPrimary((p) => !p), 3000);
+    return () => clearInterval(interval);
+  }, [secondary]);
+  if (!secondary) {
+    return (
+      <Text fontSize="sm" color="white" fontWeight="bold" mt={1}>
+        {primary}
+      </Text>
+    );
+  }
+  return (
+    <Box position="relative" h="60px" mt={1}>
+      <Text
+        position="absolute"
+        top="0"
+        left="0"
+        right="0"
+        fontSize="xs"
+        color="white"
+        fontWeight="bold"
+        wordBreak="break-word"
+        opacity={showPrimary ? 1 : 0}
+        transition="opacity 0.5s ease"
+      >
+        {primary}
+      </Text>
+      <Text
+        position="absolute"
+        top="0"
+        left="0"
+        right="0"
+        fontSize="xs"
+        color="white"
+        fontWeight="bold"
+        wordBreak="break-word"
+        opacity={showPrimary ? 0 : 1}
+        transition="opacity 0.5s ease"
+      >
+        {secondary}
+      </Text>
+    </Box>
+  );
+};
+
 export default function AnimeGamePage() {
   const toast = useToast();
   const { timeLeft, isExpired } = useGameCountdown();
@@ -163,6 +244,11 @@ export default function AnimeGamePage() {
         setGameState('review');
       }
     }
+  }, []);
+
+  // Scroll al top al entrar a la página del juego
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   const startGame = () => {
@@ -299,7 +385,7 @@ export default function AnimeGamePage() {
         keywords="adivina el anime, minijuego, descuentos, artbooks, doujinshi, manga, japón, anime, juego, pixelado, arkya store"
       />
       <Box bg="#453641" flex="1">
-        <Container maxW="800px" py={8} px={{ base: 4, md: 8 }}>
+        <Container maxW="1100px" py={8} px={{ base: 4, md: 8 }}>
           <VStack spacing={8} align="stretch">
           {/* Header del juego */}
           <Box textAlign="center">
@@ -336,7 +422,7 @@ export default function AnimeGamePage() {
                         El juego ha terminado
                       </Heading>
                       <Text fontSize="md" color="gray.300">
-                        Esta ronda de <strong>Adivina el Anime</strong> ya finalizó. No te preocupes, organizamos juegos cada cierto tiempo donde podes ganar descuentos de hasta el <strong>30% OFF</strong> para usar por un mes en pedidos y productos de la tienda.
+                        Esta ronda de <strong>Adivina el Anime</strong> ya finalizó. No te preocupes, organizamos juegos cada cierto tiempo donde podes ganar descuentos de hasta el <strong>30% OFF</strong> para usar en pedidos y productos de la tienda.
                       </Text>
                       <Box
                         bg="pink.900"
@@ -373,36 +459,95 @@ export default function AnimeGamePage() {
                         <Heading size="md" color="pink.300" mb={4}>
                           Respuestas de la ronda anterior
                         </Heading>
-                        <Flex flexWrap="wrap" justifyContent="center" gap={4} w="100%">
+                        <Flex flexWrap="wrap" justifyContent="center" gap={4} w="100%" align="stretch">
                           {PAST_ROUND_ANSWERS.map((item, idx) => (
                             <Box
                               key={idx}
-                              bg="#453641"
+                              role="group"
                               borderRadius="xl"
                               borderTop="4px solid"
                               borderTopColor={`${item.color}.400`}
-                              borderColor="whiteAlpha.200"
+                              bg="#241521"
                               overflow="hidden"
                               textAlign="center"
                               w="170px"
-                              flexShrink={0}
+                              cursor="pointer"
+                              transition="transform 0.3s ease"
+                              _hover={{ transform: 'scale(1.04)' }}
                             >
-                              <Box h="120px" overflow="hidden">
+                              <Box position="relative" w="100%" h="200px" overflow="hidden">
+                                <Box
+                                  position="absolute"
+                                  top="0"
+                                  left="0"
+                                  w="100%"
+                                  h="100%"
+                                  _groupHover={{ opacity: 0 }}
+                                  transition="opacity 0.3s ease"
+                                >
+                                  <PixelatedImageCanvas
+                                    src={item.image}
+                                    width={170}
+                                    height={200}
+                                    pixelSize={10}
+                                  />
+                                </Box>
                                 <Image
                                   src={item.image}
                                   alt={item.answer}
                                   w="100%"
                                   h="100%"
                                   objectFit="cover"
+                                  opacity={0}
+                                  transition="opacity 0.3s ease, transform 0.4s ease"
+                                  _groupHover={{ opacity: 1, transform: 'scale(1.08)' }}
                                 />
+                                <Flex
+                                  position="absolute"
+                                  top="0"
+                                  left="0"
+                                  w="100%"
+                                  h="100%"
+                                  direction="column"
+                                  align="center"
+                                  justify="center"
+                                  pointerEvents="none"
+                                  _groupHover={{ opacity: 0 }}
+                                  transition="opacity 0.3s ease"
+                                  bg="blackAlpha.300"
+                                >
+                                  <Box
+                                    bg="blackAlpha.700"
+                                    backdropFilter="blur(4px)"
+                                    borderRadius="full"
+                                    px={4}
+                                    py={2}
+                                    border="1px solid"
+                                    borderColor="whiteAlpha.300"
+                                    display="flex"
+                                    flexDirection="column"
+                                    alignItems="center"
+                                    gap={1}
+                                  >
+                                    <Icon as={FaGamepad} color="pink.300" fontSize="xl" />
+                                    <Text fontSize="xs" color="white" fontWeight="semibold">
+                                      Revelar
+                                    </Text>
+                                  </Box>
+                                </Flex>
                               </Box>
                               <Box p={3}>
                                 <Text fontSize="xs" color={`${item.color}.300`} fontWeight="bold">
                                   {item.level}
                                 </Text>
-                                <Text fontSize="sm" color="white" fontWeight="bold" mt={1}>
+                                <Text fontSize="sm" color="white" fontWeight="bold" mt={1} noOfLines={2}>
                                   {item.answer}
                                 </Text>
+                                {item.answerAlt && (
+                                  <Text fontSize="xs" color="gray.400" mt={1} lineHeight="1.4">
+                                    {item.answerAlt}
+                                  </Text>
+                                )}
                               </Box>
                             </Box>
                           ))}
@@ -414,9 +559,10 @@ export default function AnimeGamePage() {
                         as={RouterLink}
                         to="/"
                         size="lg"
-                        colorScheme="pink"
+                        bg="pink.500"
+                        color="white"
                         px={8}
-                        _hover={{ transform: 'translateY(-2px)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.4)' }}
+                        _hover={{ bg: 'pink.400', transform: 'translateY(-2px)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.4)' }}
                       >
                         Volver al inicio
                       </Button>
@@ -751,9 +897,10 @@ export default function AnimeGamePage() {
                       as={RouterLink}
                       to="/"
                       size="lg"
-                      colorScheme="pink"
+                      bg="pink.500"
+                      color="white"
                       px={8}
-                      _hover={{ transform: 'translateY(-2px)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.4)' }}
+                      _hover={{ bg: 'pink.400', transform: 'translateY(-2px)', boxShadow: '0 0 20px rgba(236, 72, 153, 0.4)' }}
                     >
                       Volver al inicio
                     </Button>
