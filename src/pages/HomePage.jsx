@@ -81,6 +81,7 @@ export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isHeaderSearch, setIsHeaderSearch] = useState(false);
   const [activeCategory, setActiveCategory] = useState(() => {
     // Intentar recuperar la categoría activa del sessionStorage al cargar
     const savedCategory = sessionStorage.getItem('activeCategory');
@@ -252,6 +253,9 @@ export default function HomePage() {
     const categoryFromUrl = searchParams.get('category');
     const subcategoryFromUrl = searchParams.get('subcategory');
     const searchFromUrl = searchParams.get('search') || '';
+    const headerSearchFromUrl = searchParams.get('headerSearch') || '';
+    const combinedSearch = searchFromUrl || headerSearchFromUrl;
+    const headerSearchActive = !!headerSearchFromUrl;
     const sortFromUrl = searchParams.get('sort') || 'newest';
     const offersFromUrl = searchParams.get('offers') === 'true';
     const excludedFromUrl = searchParams.get('excluded') ? searchParams.get('excluded').split(',') : [];
@@ -312,10 +316,11 @@ export default function HomePage() {
     }
 
     // --- Resto de filtros ---
-    if (searchTerm !== searchFromUrl) {
-      setSearchTerm(searchFromUrl);
-      setInputValue(searchFromUrl);
+    if (searchTerm !== combinedSearch) {
+      setSearchTerm(combinedSearch);
+      setInputValue(combinedSearch);
     }
+    setIsHeaderSearch(headerSearchActive);
     if (sortOption !== sortFromUrl) setSortOption(sortFromUrl);
     if (filterOffersOnly !== offersFromUrl) setFilterOffersOnly(offersFromUrl);
     if (JSON.stringify(excludedCategories) !== JSON.stringify(excludedFromUrl)) setExcludedCategories(excludedFromUrl);
@@ -829,95 +834,99 @@ export default function HomePage() {
         );
       })()}
       <Box>
-      <Box 
-        py={2} 
-        px={4} 
-        bg="pink.100" 
-        color="gray.700" 
-        textAlign="center"
-        fontSize="md"
-        position="sticky"
-        top={0}
-        zIndex={1000}
-      >
-        Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
-      </Box>
-      <Hero />
+      {!isHeaderSearch && (
+        <>
+          <Box
+            py={2}
+            px={4}
+            bg="pink.100"
+            color="gray.700"
+            textAlign="center"
+            fontSize="md"
+            position="sticky"
+            top={0}
+            zIndex={1000}
+          >
+            Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
+          </Box>
+          <Hero />
 
-      {/* Banner del juego Adivina el Anime */}
-      <Box
-        as={Link}
-        to="/adivina-el-anime"
-        display="block"
-        mx={{ base: 4, md: 'auto' }}
-        maxW="7xl"
-        mt={4}
-        mb={6}
-        p={{ base: 5, md: 6 }}
-        borderRadius="2xl"
-        bgGradient="linear(to-r, #702963, #b83280)"
-        border="2px solid"
-        borderColor="pink.400"
-        boxShadow="0 0 20px rgba(236, 72, 153, 0.4)"
-        _hover={{ transform: 'translateY(-3px)', boxShadow: '0 0 30px rgba(236, 72, 153, 0.6)' }}
-        transition="all 0.3s ease"
-        position="relative"
-        overflow="hidden"
-      >
-        <HStack spacing={{ base: 3, md: 5 }} align="center" justify="space-between">
-          <HStack spacing={{ base: 3, md: 4 }} align="center">
-            <Box
-              bg="whiteAlpha.200"
-              p={{ base: 2, md: 3 }}
-              borderRadius="full"
-              backdropFilter="blur(4px)"
-            >
-              <FaGamepad size={28} color="#fbb6ce" />
-            </Box>
-            <VStack align="start" spacing={0}>
-              <Text
-                fontSize={{ base: 'sm', md: 'lg' }}
+          {/* Banner del juego Adivina el Anime */}
+          <Box
+            as={Link}
+            to="/adivina-el-anime"
+            display="block"
+            mx={{ base: 4, md: 'auto' }}
+            maxW="7xl"
+            mt={4}
+            mb={6}
+            p={{ base: 5, md: 6 }}
+            borderRadius="2xl"
+            bgGradient="linear(to-r, #702963, #b83280)"
+            border="2px solid"
+            borderColor="pink.400"
+            boxShadow="0 0 20px rgba(236, 72, 153, 0.4)"
+            _hover={{ transform: 'translateY(-3px)', boxShadow: '0 0 30px rgba(236, 72, 153, 0.6)' }}
+            transition="all 0.3s ease"
+            position="relative"
+            overflow="hidden"
+          >
+            <HStack spacing={{ base: 3, md: 5 }} align="center" justify="space-between">
+              <HStack spacing={{ base: 3, md: 4 }} align="center">
+                <Box
+                  bg="whiteAlpha.200"
+                  p={{ base: 2, md: 3 }}
+                  borderRadius="full"
+                  backdropFilter="blur(4px)"
+                >
+                  <FaGamepad size={28} color="#fbb6ce" />
+                </Box>
+                <VStack align="start" spacing={0}>
+                  <Text
+                    fontSize={{ base: 'sm', md: 'lg' }}
+                    fontWeight="bold"
+                    color="white"
+                    lineHeight="short"
+                  >
+                    ¡Adiviná el anime y GANÁ DESCUENTOS!
+                  </Text>
+                  <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100">
+                    5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF · Una sola chance
+                  </Text>
+                </VStack>
+              </HStack>
+
+              <Box display={{ base: 'none', md: 'block' }}>
+                <GameCountdownBadge />
+              </Box>
+
+              <Button
+                size={{ base: 'sm', md: 'md' }}
+                bg="white"
+                color="#702963"
                 fontWeight="bold"
-                color="white"
-                lineHeight="short"
+                borderRadius="full"
+                px={6}
+                _hover={{ bg: 'pink.50' }}
+                flexShrink={0}
               >
-                ¡Adiviná el anime y GANÁ DESCUENTOS!
-              </Text>
-              <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100">
-                5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF · Una sola chance
-              </Text>
-            </VStack>
-          </HStack>
-
-          <Box display={{ base: 'none', md: 'block' }}>
-            <GameCountdownBadge />
+                Jugar →
+              </Button>
+            </HStack>
           </Box>
 
-          <Button
-            size={{ base: 'sm', md: 'md' }}
-            bg="white"
-            color="#702963"
-            fontWeight="bold"
-            borderRadius="full"
-            px={6}
-            _hover={{ bg: 'pink.50' }}
-            flexShrink={0}
-          >
-            Jugar →
-          </Button>
-        </HStack>
-      </Box>
-
-      {/* Banner de promoción activa */}
-      {offers.find(o => o.isActive && o.isGlobal) && (
-        <PromoBanner offer={{
-          ...offers.find(o => o.isActive && o.isGlobal),
-          title: '¡Descuentos por toda la tienda!',
-          description: 'Aprovecha esta oferta especial'
-        }} />
+          {/* Banner de promoción activa */}
+          {offers.find(o => o.isActive && o.isGlobal) && (
+            <PromoBanner offer={{
+              ...offers.find(o => o.isActive && o.isGlobal),
+              title: '¡Descuentos por toda la tienda!',
+              description: 'Aprovecha esta oferta especial'
+            }} />
+          )}
+        </>
       )}
-      
-      <Box id="productos" name="productos" py={10} bg="#453641">
+
+      <Box id="productos" name="productos" py={isHeaderSearch ? 4 : 10} bg="#453641">
         <Container maxW={'7xl'}>
           <Heading as="h2" size="xl" mb={3} textAlign="center" color="white">
             {activeCategory === 'todos'
@@ -1355,14 +1364,14 @@ export default function HomePage() {
                       left={0}
                       right={0}
                       mt={2}
-                      bg="gray.800"
-                      borderRadius="md"
-                      boxShadow="xl"
+                      bg="#241521"
+                      borderRadius="xl"
+                      boxShadow="0 8px 32px rgba(0,0,0,0.5)"
                       zIndex={1000}
                       maxH="400px"
                       overflowY="auto"
                       border="1px solid"
-                      borderColor="gray.700"
+                      borderColor="whiteAlpha.200"
                     >
                       {/* Historial de búsqueda */}
                       {inputValue.length === 0 && searchHistory.length > 0 && (
@@ -1449,7 +1458,7 @@ export default function HomePage() {
                                   {suggestion.text}
                                 </Text>
                                 <Text color="pink.300" fontSize="xs" fontWeight="bold">
-                                  ${suggestion.price.toLocaleString()}
+                                  ${suggestion.price.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
                                 </Text>
                               </Box>
                             </Flex>
@@ -1864,10 +1873,12 @@ export default function HomePage() {
         </Container>
       </Box>
 
-      <InstagramFeed />
+      {!isHeaderSearch && (
+        <>
+          <InstagramFeed />
 
-      {/* Sección SEO - Contenido textual para motores de búsqueda */}
-      <Box bg="#241521" py={12} color="white">
+          {/* Sección SEO - Contenido textual para motores de búsqueda */}
+          <Box bg="#241521" py={12} color="white">
         <Container maxW="7xl">
           <Stack spacing={8}>
             <Heading as="h2" size="xl" color="pink.300">
@@ -1904,14 +1915,17 @@ export default function HomePage() {
                 Categorías de productos
               </Heading>
               <Flex wrap="wrap" gap={3}>
+                                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('todos'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                  Ver Todo
+                </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('artbooks'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Artbooks Japoneses
+                  Artbooks
                 </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('mangas'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Mangas en Japonés
+                  Mangas
                 </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('revistas'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Revistas Japonesas
+                  Revistas
                 </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('doujinshis'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
                   Doujinshis
@@ -1923,17 +1937,15 @@ export default function HomePage() {
                   Character Books
                 </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('novela-ligera'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Novelas Ligeras Japonesas
+                  Novelas Ligeras
                 </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('figuras'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
                   Figuras de Anime
                 </Button>
                 <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('cd-dvd'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  CDs/DVDs Japoneses
+                  CDs/DVDs
                 </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('todos'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Ver Todo
-                </Button>
+
               </Flex>
             </Box>
 
@@ -1943,22 +1955,22 @@ export default function HomePage() {
                 Navegación del sitio
               </Heading>
               <Flex wrap="wrap" gap={3}>
-                <Button as={Link} to="/" size="sm" variant="outline" colorScheme="pink">
+                <Button as={Link} to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
                   Inicio
                 </Button>
                 <Button as={Link} to="/" onClick={() => document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
                   Catálogo de Productos
                 </Button>
-                <Button as={Link} to="/contacto" size="sm" variant="outline" colorScheme="pink">
+                <Button as={Link} to="/contacto" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
                   Contacto
                 </Button>
-                <Button as={Link} to="/terminos" size="sm" variant="outline" colorScheme="pink">
+                <Button as={Link} to="/terminos" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
                   Términos y Condiciones
                 </Button>
-                <Button as={Link} to="/preguntas-frecuentes" size="sm" variant="outline" colorScheme="pink">
+                <Button as={Link} to="/preguntas-frecuentes" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
                   Preguntas Frecuentes
                 </Button>
-                <Button as={Link} to="/mis-me-gustas" size="sm" variant="outline" colorScheme="pink">
+                <Button as={Link} to="/mis-me-gustas" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
                   Mis Favoritos
                 </Button>
               </Flex>
@@ -2047,6 +2059,8 @@ export default function HomePage() {
           </Stack>
         </Container>
       </Box>
+        </>
+      )}
 
       {/* Botón scroll to top */}
       {showScrollTop && (

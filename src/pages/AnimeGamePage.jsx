@@ -223,8 +223,34 @@ export default function AnimeGamePage() {
   const [answers, setAnswers] = useState([]); // { level, answer, levelName }
   const [userName, setUserName] = useState(() => getGameUser());
   const [hasPlayed, setHasPlayed] = useState(() => hasGameBeenPlayed());
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [revealedCards, setRevealedCards] = useState(new Set());
 
   const currentLevel = GAME_LEVELS[currentLevelIndex];
+
+  const isCardRevealed = (idx) => hoveredCard === idx || revealedCards.has(idx);
+
+  const handleCardMouseEnter = (idx) => setHoveredCard(idx);
+  const handleCardMouseLeave = () => setHoveredCard(null);
+  const handleCardClick = (idx) => {
+    setRevealedCards((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) {
+        next.delete(idx);
+      } else {
+        next.add(idx);
+      }
+      return next;
+    });
+  };
+
+  const handleRevealAll = () => {
+    setRevealedCards(new Set(PAST_ROUND_ANSWERS.map((_, i) => i)));
+  };
+
+  const handleHideAll = () => {
+    setRevealedCards(new Set());
+  };
 
   // Cargar progreso previo y limpiar si cambió la ronda
   useEffect(() => {
@@ -456,11 +482,37 @@ export default function AnimeGamePage() {
 
                       {/* Respuestas de la ronda anterior */}
                       <Box w="100%">
-                        <Heading size="md" color="pink.300" mb={4}>
-                          Respuestas de la ronda anterior
-                        </Heading>
+                        <VStack spacing={3} mb={4} align="center">
+                          <Heading size="md" color="pink.300" textAlign="center">
+                            Respuestas de la ronda anterior
+                          </Heading>
+                          <HStack spacing={2}>
+                            <Button
+                              size="sm"
+                              leftIcon={<Icon as={FaGamepad} />}
+                              bg="pink.500"
+                              color="white"
+                              _hover={{ bg: 'pink.400' }}
+                              onClick={handleRevealAll}
+                            >
+                              Revelar todos
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              borderColor="whiteAlpha.400"
+                              color="whiteAlpha.800"
+                              _hover={{ bg: 'whiteAlpha.100' }}
+                              onClick={handleHideAll}
+                            >
+                              Ocultar todos
+                            </Button>
+                          </HStack>
+                        </VStack>
                         <Flex flexWrap="wrap" justifyContent="center" gap={4} w="100%" align="stretch">
-                          {PAST_ROUND_ANSWERS.map((item, idx) => (
+                          {PAST_ROUND_ANSWERS.map((item, idx) => {
+                            const revealed = isCardRevealed(idx);
+                            return (
                             <Box
                               key={idx}
                               role="group"
@@ -474,6 +526,9 @@ export default function AnimeGamePage() {
                               cursor="pointer"
                               transition="transform 0.3s ease"
                               _hover={{ transform: 'scale(1.04)' }}
+                              onMouseEnter={() => handleCardMouseEnter(idx)}
+                              onMouseLeave={handleCardMouseLeave}
+                              onClick={() => handleCardClick(idx)}
                             >
                               <Box position="relative" w="100%" h="200px" overflow="hidden">
                                 <Box
@@ -482,7 +537,7 @@ export default function AnimeGamePage() {
                                   left="0"
                                   w="100%"
                                   h="100%"
-                                  _groupHover={{ opacity: 0 }}
+                                  opacity={revealed ? 0 : 1}
                                   transition="opacity 0.3s ease"
                                 >
                                   <PixelatedImageCanvas
@@ -498,9 +553,9 @@ export default function AnimeGamePage() {
                                   w="100%"
                                   h="100%"
                                   objectFit="cover"
-                                  opacity={0}
+                                  opacity={revealed ? 1 : 0}
+                                  transform={revealed ? 'scale(1.08)' : 'scale(1)'}
                                   transition="opacity 0.3s ease, transform 0.4s ease"
-                                  _groupHover={{ opacity: 1, transform: 'scale(1.08)' }}
                                 />
                                 <Flex
                                   position="absolute"
@@ -512,7 +567,7 @@ export default function AnimeGamePage() {
                                   align="center"
                                   justify="center"
                                   pointerEvents="none"
-                                  _groupHover={{ opacity: 0 }}
+                                  opacity={revealed ? 0 : 1}
                                   transition="opacity 0.3s ease"
                                   bg="blackAlpha.300"
                                 >
@@ -550,7 +605,8 @@ export default function AnimeGamePage() {
                                 )}
                               </Box>
                             </Box>
-                          ))}
+                          );
+                        })}
                         </Flex>
                       </Box>
 

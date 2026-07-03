@@ -4873,7 +4873,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Libro japonés de Persona 3 FES con ilustraciones y material oficial del juego.\nIncluye arte, personajes y contenido del RPG de Atlus.\n\nIdeal para fans de Persona y coleccionistas.",
     "instagram": "https://instagram.com/arkya.store",

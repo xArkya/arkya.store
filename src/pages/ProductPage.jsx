@@ -156,8 +156,8 @@ export default function ProductPage() {
           offer.discountType === 'percentage'
         );
         
-        // Si el producto no tiene oferta específica pero hay una oferta global, aplicarla
-        if (!foundProduct.isOnOffer && globalOffer) {
+        // Si el producto no tiene oferta específica, tiene stock y hay una oferta global, aplicarla
+        if (!foundProduct.isOnOffer && foundProduct.inStock !== false && globalOffer) {
           foundProduct = {
             ...foundProduct,
             isOnOffer: true,
@@ -513,6 +513,7 @@ export default function ProductPage() {
                 description: product.description || product.details || '',
                 image: absoluteImage,
                 sku: String(product.id),
+                mpn: String(product.id),
                 brand: {
                   '@type': 'Brand',
                   name: extractBrand(product),
@@ -521,11 +522,52 @@ export default function ProductPage() {
                   '@type': 'Offer',
                   url: `https://arkya.store/product/${getProductSlug(product)}`,
                   priceCurrency: 'ARS',
-                  price: product.price ? String(product.price) : undefined,
+                  price: product.price && product.price > 0 ? String(product.price) : '0',
                   availability: product.inStock !== false
                     ? 'https://schema.org/InStock'
                     : 'https://schema.org/OutOfStock',
                   priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                  hasMerchantReturnPolicy: {
+                    '@type': 'MerchantReturnPolicy',
+                    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                    merchantReturnDays: 1,
+                    returnMethod: 'https://schema.org/ReturnByMail',
+                    returnFees: 'https://schema.org/FreeReturn',
+                    applicableCountry: 'AR',
+                    returnShippingFeesAmount: {
+                      '@type': 'MonetaryAmount',
+                      value: '0',
+                      currency: 'ARS',
+                    },
+                    description: 'Solo se aceptan devoluciones si el producto llegó dañado por el envío internacional desde Japón. Se debe reportar dentro de las 24 horas de recepción con foto o video.',
+                  },
+                  shippingDetails: {
+                    '@type': 'OfferShippingDetails',
+                    shippingRate: {
+                      '@type': 'MonetaryAmount',
+                      value: '0',
+                      currency: 'ARS',
+                    },
+                    shippingDestination: {
+                      '@type': 'DefinedRegion',
+                      addressCountry: 'AR',
+                    },
+                    deliveryTime: {
+                      '@type': 'ShippingDeliveryTime',
+                      handlingTime: {
+                        '@type': 'QuantitativeValue',
+                        minValue: 1,
+                        maxValue: 3,
+                        unitCode: 'DAY',
+                      },
+                      transitTime: {
+                        '@type': 'QuantitativeValue',
+                        minValue: 3,
+                        maxValue: 7,
+                        unitCode: 'DAY',
+                      },
+                    },
+                  },
                 },
               }),
             }}
@@ -1600,7 +1642,7 @@ export default function ProductPage() {
               offer.discountType === 'percentage'
             );
             
-            if (!p.isOnOffer && globalOffer) {
+            if (!p.isOnOffer && p.inStock !== false && globalOffer) {
               return {
                 ...p,
                 isOnOffer: true,

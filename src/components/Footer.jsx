@@ -91,6 +91,7 @@ export default function Footer() {
             <Link as={RouterLink} to="/preguntas-frecuentes" {...navLinkStyle}>Preguntas Frecuentes</Link>
             <Link as={RouterLink} to="/guias" {...navLinkStyle}>Guías de Compra</Link>
             <Link as={RouterLink} to="/terminos" {...navLinkStyle}>Términos de Servicio</Link>
+            <Link as={RouterLink} to="/devoluciones" {...navLinkStyle}>Política de Devoluciones</Link>
           </Stack>
 
           {/* Conectados */}
