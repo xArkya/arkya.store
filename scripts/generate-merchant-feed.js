@@ -135,17 +135,20 @@ function generateMerchantFeed() {
 
 function mapToGoogleCategory(category) {
   const categoryMap = {
-    'Artbooks': '784 > 784_5476',
-    'Figuras': '784 > 784_8550',
-    'Mangas': '784 > 784_6040',
-    'Revistas': '783 > 783_5405',
-    'Doujinshis': '784 > 784_6040',
-    'Guide Books': '784 > 784_5476',
-    'Character Books': '784 > 784_5476',
-    'Cartas': '784 > 784_8550',
-    'CD/DVD': '783 > 783_5385',
-    'Novela Ligera': '784 > 784_5476',
-    'Peluches': '784 > 784_8550',
+    'Artbooks': '784',
+    'Figuras': '216',
+    'Mangas': '784',
+    'Revistas': '783',
+    'Doujinshis': '784',
+    'Guide Books': '784',
+    'Character Books': '784',
+    'Cartas': '216',
+    'CD/DVD': '783',
+    'Novela Ligera': '784',
+    'Peluches': '216',
+    'Otros': '784',
+    'Videojuegos': '233',
+    'Fichas': '216',
   };
 
   return categoryMap[category] || '784';
