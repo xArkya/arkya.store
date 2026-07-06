@@ -6717,7 +6717,7 @@ export const products = [
     "subcategory": "",
     "inStock": true,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "dragonball",
       "dragonballz",
@@ -6739,10 +6739,6 @@ export const products = [
       "Artbooks"
     ],
     "details": "Este libro de tapa dura es una guía oficial del universo de Dragon Ball, con ilustraciones e información de personajes y escenarios!\nIncluye poster de la portada c:",
-    "discountPercentage": 0,
-    "originalPrice": 44999,
-    "offerStartDate": "",
-    "offerEndDate": ""
   },
   {
     "id": 1782266659188,
