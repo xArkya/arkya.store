@@ -6712,7 +6712,7 @@ export const products = [
     ],
     "name": "Dragon Ball Daizenshū 4: World Guide",
     "description": "Este libro de tapa dura es una guía oficial del universo de Dragon Ball, con ilustraciones e información de personajes y escenarios!\nIncluye poster de la portada c:",
-    "price": 44999,
+    "price": 39599.12,
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
@@ -6739,7 +6739,7 @@ export const products = [
       "Artbooks"
     ],
     "details": "Este libro de tapa dura es una guía oficial del universo de Dragon Ball, con ilustraciones e información de personajes y escenarios!\nIncluye poster de la portada c:",
-    "discountPercentage": 11,
+    "discountPercentage": 12,
     "originalPrice": 44999,
     "offerStartDate": "",
     "offerEndDate": ""
@@ -14700,11 +14700,8 @@ export const products = [
       "Artbooks"
     ],
     "id": 1782687656744,
-    "isOnOffer": true,
-    "discountPercentage": 0,
-    "originalPrice": 29999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Fate characteristic 2018/C94",
@@ -14779,7 +14776,7 @@ export const products = [
       "Revistas"
     ]
   },
-    {
+  {
     "id": 1782884285200,
     "image": "/images/products/product-1782884285200-0.jpg",
     "images": [
