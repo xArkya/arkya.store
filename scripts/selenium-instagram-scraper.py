@@ -54,54 +54,93 @@ def extract_with_selenium(post_url):
         # Obtener el username del sistema
         username = os.environ.get('USERNAME', '')
         
-        # Usar un perfil temporal de Selenium para evitar conflictos
-        # NOTA: Para mantener la sesión de Instagram, necesitarás:
-        # 1. Cerrar Brave completamente antes de ejecutar el script, O
-        # 2. Iniciar sesión manualmente la primera vez que se ejecute el script
-        import tempfile
-        temp_profile = tempfile.mkdtemp(prefix="selenium_brave_")
-        chrome_options.add_argument(f"--user-data-dir={temp_profile}")
-        
-        # Intentar usar Brave Browser
-        brave_paths = [
-            "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-            "C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-            f"C:\\Users\\{username}\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-            f"C:\\Users\\{username}\\AppData\\Roaming\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-            f"C:\\Users\\{username}\\AppData\\Local\\Programs\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+        # Intentar usar Chrome primero (más estable con Selenium)
+        chrome_paths = [
+            "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+            f"C:\\Users\\{username}\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
         ]
         
-        brave_found = False
-        for path in brave_paths:
+        chrome_found = False
+        for path in chrome_paths:
             try:
-                # Formatear el path con el username real
-                formatted_path = path.format(username=username)
-                if os.path.exists(formatted_path):
-                    chrome_options.binary_location = formatted_path
-                    brave_found = True
+                if os.path.exists(path):
+                    chrome_options.binary_location = path
+                    chrome_found = True
                     break
             except:
                 continue
         
-        if not brave_found:
-            # Brave no encontrado, usar Chrome por defecto
-            pass
+        # Si Chrome no está disponible, intentar Brave
+        if not chrome_found:
+            brave_paths = [
+                "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+                "C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+                f"C:\\Users\\{username}\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+                f"C:\\Users\\{username}\\AppData\\Roaming\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+                f"C:\\Users\\{username}\\AppData\\Local\\Programs\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+            ]
+            
+            for path in brave_paths:
+                try:
+                    if os.path.exists(path):
+                        chrome_options.binary_location = path
+                        break
+                except:
+                    continue
         
-        # Opciones adicionales
+        # Opciones para estabilidad
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        chrome_options.add_argument("--window-size=800,800")
+        chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("--disable-plugins")
+        chrome_options.add_argument("--disable-sync")
+        chrome_options.add_argument("--disable-default-apps")
+        chrome_options.add_argument("--disable-preconnect")
+        chrome_options.add_argument("--disable-background-networking")
+        chrome_options.add_argument("--disable-breakpad")
+        chrome_options.add_argument("--disable-client-side-phishing-detection")
+        chrome_options.add_argument("--disable-component-extensions-with-background-pages")
+        chrome_options.add_argument("--disable-default-apps")
+        chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("--disable-features=TranslateUI")
+        chrome_options.add_argument("--disable-hang-monitor")
+        chrome_options.add_argument("--disable-popup-blocking")
+        chrome_options.add_argument("--disable-prompt-on-repost")
+        chrome_options.add_argument("--disable-sync")
+        chrome_options.add_argument("--enable-automation")
+        chrome_options.add_argument("--no-first-run")
+        chrome_options.add_argument("--password-store=basic")
+        chrome_options.add_argument("--use-mock-keychain")
+        chrome_options.add_argument("--window-size=1024,768")
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_experimental_option('useAutomationExtension', False)
+        chrome_options.add_experimental_option("prefs", {
+            "profile.default_content_settings.popups": 0,
+            "profile.managed_default_content_settings.images": 2,
+            "profile.default_content_setting_values.notifications": 2
+        })
         
-        # Iniciar WebDriver
-        try:
-            service = Service(ChromeDriverManager().install())
-            driver = webdriver.Chrome(service=service, options=chrome_options)
-        except Exception as e:
-            print(f"ERROR: {str(e)}", file=sys.stderr)
-            raise Exception(f"Error al iniciar WebDriver: {str(e)}")
+        # Iniciar WebDriver con reintentos
+        driver = None
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                service = Service(ChromeDriverManager().install())
+                driver = webdriver.Chrome(service=service, options=chrome_options)
+                break
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    print(f"Intento {attempt + 1} fallido, reintentando...", file=sys.stderr)
+                    time.sleep(2)
+                else:
+                    print(f"ERROR: {str(e)}", file=sys.stderr)
+                    raise Exception(f"Error al iniciar WebDriver después de {max_retries} intentos: {str(e)}")
+        
+        if driver is None:
+            raise Exception("No se pudo inicializar el WebDriver")
         
         try:
             # Visitar el post de Instagram

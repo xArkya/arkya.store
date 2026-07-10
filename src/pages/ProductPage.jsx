@@ -1178,7 +1178,30 @@ export default function ProductPage() {
             
             {/* Miniaturas de imágenes */}
             {productImages.length > 1 && (
-              <Flex gap={2} overflowX="auto" overflowY="hidden" w="100%" justify="center" maxW="100%">
+              <Flex 
+                gap={2} 
+                overflowX="auto" 
+                overflowY="hidden" 
+                w="100%" 
+                justify="flex-start" 
+                maxW="100%"
+                sx={{
+                  '&::-webkit-scrollbar': {
+                    height: '6px',
+                  },
+                  '&::-webkit-scrollbar-track': {
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '3px',
+                  },
+                  '&::-webkit-scrollbar-thumb': {
+                    background: '#D53F8C',
+                    borderRadius: '3px',
+                  },
+                  '&::-webkit-scrollbar-thumb:hover': {
+                    background: '#B83280',
+                  },
+                }}
+              >
                 {productImages.map((img, index) => (
                   <Box
                     key={index}

@@ -87,8 +87,8 @@ export const products = [
   {
     "name": "Desire Pandora Vol. 1 Edición limitada",
     "description": "Incluye una almohadita para el sudor de la axila",
-    "price": 20019.23,
-    "image": "/images/products/product-1757820770122-main.webp",
+    "price": 25999,
+    "image": "/images/products/product-1757820770122-0.webp",
     "images": [
       "/images/products/product-1757820770122-0.webp",
       "/images/products/product-1757820770122-1.webp",
@@ -110,11 +110,9 @@ export const products = [
       "echhi",
       "hentai"
     ],
-    "isOnOffer": true,
-    "discountPercentage": 23,
-    "originalPrice": 25999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0,
+    "inStock": false
   },
   {
     "name": "Arcueid Pinky Fanbook",
@@ -7072,12 +7070,12 @@ export const products = [
     ],
     "name": "Haruhi Suzumiya no Garoku",
     "description": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
-    "price": 18999.05,
+    "price": 19999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
-    "isNew": true,
-    "isOnOffer": true,
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
     "tags": [
       "haruhi",
       "retroanime",
@@ -7093,10 +7091,7 @@ export const products = [
       "Artbooks"
     ],
     "details": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
-    "discountPercentage": 5,
-    "originalPrice": 19999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1782278507752,
@@ -9690,14 +9685,14 @@ export const products = [
   },
   {
     "id": 1782596491282,
-    "image": "/images/products/product-1782596491282-0.jpg",
+    "image": "/images/products/product-1782596491282-0.webp",
     "images": [
-      "/images/products/product-1782596491282-0.jpg",
-      "/images/products/product-1782596491282-1.jpg",
-      "/images/products/product-1782596491282-2.jpg",
-      "/images/products/product-1782596491282-3.jpg",
-      "/images/products/product-1782596491282-4.jpg",
-      "/images/products/product-1782596491282-5.jpg"
+      "/images/products/product-1782596491282-0.webp",
+      "/images/products/product-1782596491282-1.webp",
+      "/images/products/product-1782596491282-2.webp",
+      "/images/products/product-1782596491282-3.webp",
+      "/images/products/product-1782596491282-4.webp",
+      "/images/products/product-1782596491282-5.webp"
     ],
     "name": "Yu-Gi-Oh! Character Guidebook: The Gospel of Truth",
     "description": "Este libro contiene perfiles detallados de los personajes y datos canónicos, escrito por Kazuki Takahashi y publicado por Jump Comics en noviembre de 2002.",
@@ -9730,14 +9725,14 @@ export const products = [
   },
   {
     "id": 1782596551909,
-    "image": "/images/products/product-1782596551909-0.jpg",
+    "image": "/images/products/product-1782596551909-0.webp",
     "images": [
-      "/images/products/product-1782596551909-0.jpg",
-      "/images/products/product-1782596551909-1.jpg",
-      "/images/products/product-1782596551909-2.jpg",
-      "/images/products/product-1782596551909-3.jpg",
-      "/images/products/product-1782596551909-4.jpg",
-      "/images/products/product-1782596551909-5.jpg"
+      "/images/products/product-1782596551909-0.webp",
+      "/images/products/product-1782596551909-1.webp",
+      "/images/products/product-1782596551909-2.webp",
+      "/images/products/product-1782596551909-3.webp",
+      "/images/products/product-1782596551909-4.webp",
+      "/images/products/product-1782596551909-5.webp"
     ],
     "name": "Final Fantasy V Basic Knowledge",
     "description": "Guía de 1992 de Final Fantasy 5, con mapas, estadisticas, Ilustraciones, y ayudas para superar el juego!",
@@ -9770,18 +9765,18 @@ export const products = [
   },
   {
     "id": 1782596647448,
-    "image": "/images/products/product-1782596647448-0.jpg",
+    "image": "/images/products/product-1782596647448-0.webp",
     "images": [
-      "/images/products/product-1782596647448-0.jpg",
-      "/images/products/product-1782596647448-1.jpg",
-      "/images/products/product-1782596647448-2.jpg",
-      "/images/products/product-1782596647448-3.jpg",
-      "/images/products/product-1782596647448-4.jpg",
-      "/images/products/product-1782596647448-5.jpg",
-      "/images/products/product-1782596647448-6.jpg",
-      "/images/products/product-1782596647448-7.jpg",
-      "/images/products/product-1782596647448-8.jpg",
-      "/images/products/product-1782596647448-9.jpg"
+      "/images/products/product-1782596647448-0.webp",
+      "/images/products/product-1782596647448-1.webp",
+      "/images/products/product-1782596647448-2.webp",
+      "/images/products/product-1782596647448-3.webp",
+      "/images/products/product-1782596647448-4.webp",
+      "/images/products/product-1782596647448-5.webp",
+      "/images/products/product-1782596647448-6.webp",
+      "/images/products/product-1782596647448-7.webp",
+      "/images/products/product-1782596647448-8.webp",
+      "/images/products/product-1782596647448-9.webp"
     ],
     "name": "TORANOANA Chronicle 1996~2005",
     "description": "Colección de Ilustraciones de TORANOANA, de distintos ilustradores.\nIncluye 2 Artbooks y una caja contenedora.",
@@ -9804,15 +9799,15 @@ export const products = [
   },
   {
     "id": 1782596690398,
-    "image": "/images/products/product-1782596690398-0.jpg",
+    "image": "/images/products/product-1782596690398-0.webp",
     "images": [
-      "/images/products/product-1782596690398-0.jpg",
-      "/images/products/product-1782596690398-1.jpg",
-      "/images/products/product-1782596690398-2.jpg",
-      "/images/products/product-1782596690398-3.jpg",
-      "/images/products/product-1782596690398-4.jpg",
-      "/images/products/product-1782596690398-5.jpg",
-      "/images/products/product-1782596690398-6.jpg"
+      "/images/products/product-1782596690398-0.webp",
+      "/images/products/product-1782596690398-1.webp",
+      "/images/products/product-1782596690398-2.webp",
+      "/images/products/product-1782596690398-3.webp",
+      "/images/products/product-1782596690398-4.webp",
+      "/images/products/product-1782596690398-5.webp",
+      "/images/products/product-1782596690398-6.webp"
     ],
     "name": "Yotsuba Anime Visual Book",
     "description": "Colección de Ilustraciones de Yotsuba Nakano de las quintillizas.",
@@ -9842,14 +9837,14 @@ export const products = [
   },
   {
     "id": 1782596755570,
-    "image": "/images/products/product-1782596755570-0.jpg",
+    "image": "/images/products/product-1782596755570-0.webp",
     "images": [
-      "/images/products/product-1782596755570-0.jpg",
-      "/images/products/product-1782596755570-1.jpg",
-      "/images/products/product-1782596755570-2.jpg",
-      "/images/products/product-1782596755570-3.jpg",
-      "/images/products/product-1782596755570-4.jpg",
-      "/images/products/product-1782596755570-5.jpg"
+      "/images/products/product-1782596755570-0.webp",
+      "/images/products/product-1782596755570-1.webp",
+      "/images/products/product-1782596755570-2.webp",
+      "/images/products/product-1782596755570-3.webp",
+      "/images/products/product-1782596755570-4.webp",
+      "/images/products/product-1782596755570-5.webp"
     ],
     "name": "Blue Lock Egoist Bible Vol.2",
     "description": "Colección de datos e Ilustraciones de Blue Lock.",
@@ -9878,14 +9873,14 @@ export const products = [
   },
   {
     "id": 1782596814754,
-    "image": "/images/products/product-1782596814754-0.jpg",
+    "image": "/images/products/product-1782596814754-0.webp",
     "images": [
-      "/images/products/product-1782596814754-0.jpg",
-      "/images/products/product-1782596814754-1.jpg",
-      "/images/products/product-1782596814754-2.jpg",
-      "/images/products/product-1782596814754-3.jpg",
-      "/images/products/product-1782596814754-4.jpg",
-      "/images/products/product-1782596814754-5.jpg"
+      "/images/products/product-1782596814754-0.webp",
+      "/images/products/product-1782596814754-1.webp",
+      "/images/products/product-1782596814754-2.webp",
+      "/images/products/product-1782596814754-3.webp",
+      "/images/products/product-1782596814754-4.webp",
+      "/images/products/product-1782596814754-5.webp"
     ],
     "name": "Memoriatechnica de Satoru Yuiga",
     "description": "Artbook de Satoru Yuiga de tapa dura",
@@ -9907,16 +9902,16 @@ export const products = [
   },
   {
     "id": 1782596915379,
-    "image": "/images/products/product-1782596915379-0.jpg",
+    "image": "/images/products/product-1782596915379-0.webp",
     "images": [
-      "/images/products/product-1782596915379-0.jpg",
-      "/images/products/product-1782596915379-1.jpg",
-      "/images/products/product-1782596915379-2.jpg",
-      "/images/products/product-1782596915379-3.jpg",
-      "/images/products/product-1782596915379-4.jpg",
-      "/images/products/product-1782596915379-5.jpg",
-      "/images/products/product-1782596915379-6.jpg",
-      "/images/products/product-1782596915379-7.jpg"
+      "/images/products/product-1782596915379-0.webp",
+      "/images/products/product-1782596915379-1.webp",
+      "/images/products/product-1782596915379-2.webp",
+      "/images/products/product-1782596915379-3.webp",
+      "/images/products/product-1782596915379-4.webp",
+      "/images/products/product-1782596915379-5.webp",
+      "/images/products/product-1782596915379-6.webp",
+      "/images/products/product-1782596915379-7.webp"
     ],
     "name": "Bocchi the Rock Antología Vol.4 Edición Especial",
     "description": "Incluye postal.",
@@ -9942,14 +9937,14 @@ export const products = [
   },
   {
     "id": 1782596976763,
-    "image": "/images/products/product-1782596976763-0.jpg",
+    "image": "/images/products/product-1782596976763-0.webp",
     "images": [
-      "/images/products/product-1782596976763-0.jpg",
-      "/images/products/product-1782596976763-1.jpg",
-      "/images/products/product-1782596976763-2.jpg",
-      "/images/products/product-1782596976763-3.jpg",
-      "/images/products/product-1782596976763-4.jpg",
-      "/images/products/product-1782596976763-5.jpg"
+      "/images/products/product-1782596976763-0.webp",
+      "/images/products/product-1782596976763-1.webp",
+      "/images/products/product-1782596976763-2.webp",
+      "/images/products/product-1782596976763-3.webp",
+      "/images/products/product-1782596976763-4.webp",
+      "/images/products/product-1782596976763-5.webp"
     ],
     "name": "Yusuke Nakamura Artbook Blue",
     "description": "Colección de Ilustraciones del artista de Tatami Galaxy y varias portadas de álbumes famosos cómo de Asian Kung Fu Generation.",
@@ -9973,14 +9968,14 @@ export const products = [
   },
   {
     "id": 1782597028447,
-    "image": "/images/products/product-1782597028447-0.jpg",
+    "image": "/images/products/product-1782597028447-0.webp",
     "images": [
-      "/images/products/product-1782597028447-0.jpg",
-      "/images/products/product-1782597028447-1.jpg",
-      "/images/products/product-1782597028447-2.jpg",
-      "/images/products/product-1782597028447-3.jpg",
-      "/images/products/product-1782597028447-4.jpg",
-      "/images/products/product-1782597028447-5.jpg"
+      "/images/products/product-1782597028447-0.webp",
+      "/images/products/product-1782597028447-1.webp",
+      "/images/products/product-1782597028447-2.webp",
+      "/images/products/product-1782597028447-3.webp",
+      "/images/products/product-1782597028447-4.webp",
+      "/images/products/product-1782597028447-5.webp"
     ],
     "name": "Dengeki Online Games Collaboration Vol.1",
     "description": "Revista sobre videojuegos multijugador con portada de Pangya! el famoso juego de golf que se hizo popular últimamente.",
@@ -10003,12 +9998,12 @@ export const products = [
   },
   {
     "id": 1782597083042,
-    "image": "/images/products/product-1782597083042-0.jpg",
+    "image": "/images/products/product-1782597083042-0.webp",
     "images": [
-      "/images/products/product-1782597083042-0.jpg",
-      "/images/products/product-1782597083042-1.jpg",
-      "/images/products/product-1782597083042-2.jpg",
-      "/images/products/product-1782597083042-3.jpg"
+      "/images/products/product-1782597083042-0.webp",
+      "/images/products/product-1782597083042-1.webp",
+      "/images/products/product-1782597083042-2.webp",
+      "/images/products/product-1782597083042-3.webp"
     ],
     "name": "Natsume Book of friends Vol. 23 Limitado",
     "description": "Incluye llavero.",
@@ -10031,15 +10026,15 @@ export const products = [
   },
   {
     "id": 1782597134330,
-    "image": "/images/products/product-1782597134330-0.jpg",
+    "image": "/images/products/product-1782597134330-0.webp",
     "images": [
-      "/images/products/product-1782597134330-0.jpg",
-      "/images/products/product-1782597134330-1.jpg",
-      "/images/products/product-1782597134330-2.jpg",
-      "/images/products/product-1782597134330-3.jpg",
-      "/images/products/product-1782597134330-4.jpg",
-      "/images/products/product-1782597134330-5.jpg",
-      "/images/products/product-1782597134330-6.jpg"
+      "/images/products/product-1782597134330-0.webp",
+      "/images/products/product-1782597134330-1.webp",
+      "/images/products/product-1782597134330-2.webp",
+      "/images/products/product-1782597134330-3.webp",
+      "/images/products/product-1782597134330-4.webp",
+      "/images/products/product-1782597134330-5.webp",
+      "/images/products/product-1782597134330-6.webp"
     ],
     "name": "VISIONS 2023",
     "description": "Libro de Ilustraciones de distintos artistas supervisado por Pixiv, con información sobre cada artista, algunos como @wataboku__ y @yoneyamai",
@@ -10067,14 +10062,14 @@ export const products = [
   },
   {
     "id": 1782597201200,
-    "image": "/images/products/product-1782597201200-0.jpg",
+    "image": "/images/products/product-1782597201200-0.webp",
     "images": [
-      "/images/products/product-1782597201200-0.jpg",
-      "/images/products/product-1782597201200-1.jpg",
-      "/images/products/product-1782597201200-2.jpg",
-      "/images/products/product-1782597201200-3.jpg",
-      "/images/products/product-1782597201200-4.jpg",
-      "/images/products/product-1782597201200-5.jpg"
+      "/images/products/product-1782597201200-0.webp",
+      "/images/products/product-1782597201200-1.webp",
+      "/images/products/product-1782597201200-2.webp",
+      "/images/products/product-1782597201200-3.webp",
+      "/images/products/product-1782597201200-4.webp",
+      "/images/products/product-1782597201200-5.webp"
     ],
     "name": "Pokémon Ruby y Zafiro Guía",
     "description": "Guía de Pokémon Ruby y Zafiro",
@@ -10107,15 +10102,15 @@ export const products = [
   },
   {
     "id": 1782597315391,
-    "image": "/images/products/product-1782597315391-0.jpg",
+    "image": "/images/products/product-1782597315391-0.webp",
     "images": [
-      "/images/products/product-1782597315391-0.jpg",
-      "/images/products/product-1782597315391-1.jpg",
-      "/images/products/product-1782597315391-2.jpg",
-      "/images/products/product-1782597315391-3.jpg",
-      "/images/products/product-1782597315391-4.jpg",
-      "/images/products/product-1782597315391-5.jpg",
-      "/images/products/product-1782597315391-6.jpg"
+      "/images/products/product-1782597315391-0.webp",
+      "/images/products/product-1782597315391-1.webp",
+      "/images/products/product-1782597315391-2.webp",
+      "/images/products/product-1782597315391-3.webp",
+      "/images/products/product-1782597315391-4.webp",
+      "/images/products/product-1782597315391-5.webp",
+      "/images/products/product-1782597315391-6.webp"
     ],
     "name": "Koupen Chan 1",
     "description": "Colección de Ilustraciones de Rurutea, incluye stickers.",
@@ -10138,15 +10133,15 @@ export const products = [
   },
   {
     "id": 1782597368824,
-    "image": "/images/products/product-1782597368824-0.jpg",
+    "image": "/images/products/product-1782597368824-0.webp",
     "images": [
-      "/images/products/product-1782597368824-0.jpg",
-      "/images/products/product-1782597368824-1.jpg",
-      "/images/products/product-1782597368824-2.jpg",
-      "/images/products/product-1782597368824-3.jpg",
-      "/images/products/product-1782597368824-4.jpg",
-      "/images/products/product-1782597368824-5.jpg",
-      "/images/products/product-1782597368824-6.jpg"
+      "/images/products/product-1782597368824-0.webp",
+      "/images/products/product-1782597368824-1.webp",
+      "/images/products/product-1782597368824-2.webp",
+      "/images/products/product-1782597368824-3.webp",
+      "/images/products/product-1782597368824-4.webp",
+      "/images/products/product-1782597368824-5.webp",
+      "/images/products/product-1782597368824-6.webp"
     ],
     "name": "Vongola 77 Character book",
     "description": "Colección de datos interesantes de los personajes y la serie de Katekyo Hitman Reborn, con varias ilustraciones en blanco y negro.",
@@ -10168,11 +10163,11 @@ export const products = [
   },
   {
     "id": 1782597411706,
-    "image": "/images/products/product-1782597411706-0.jpg",
+    "image": "/images/products/product-1782597411706-0.webp",
     "images": [
-      "/images/products/product-1782597411706-0.jpg",
-      "/images/products/product-1782597411706-1.jpg",
-      "/images/products/product-1782597411706-2.jpg"
+      "/images/products/product-1782597411706-0.webp",
+      "/images/products/product-1782597411706-1.webp",
+      "/images/products/product-1782597411706-2.webp"
     ],
     "name": "Hatsune Miku Fanbook de Indico Lite (Doujin",
     "description": "Colección de ilustraciones en blanco y negro",
@@ -10196,12 +10191,12 @@ export const products = [
   },
   {
     "id": 1782597464625,
-    "image": "/images/products/product-1782597464625-0.jpg",
+    "image": "/images/products/product-1782597464625-0.webp",
     "images": [
-      "/images/products/product-1782597464625-0.jpg",
-      "/images/products/product-1782597464625-1.jpg",
-      "/images/products/product-1782597464625-2.jpg",
-      "/images/products/product-1782597464625-3.jpg"
+      "/images/products/product-1782597464625-0.webp",
+      "/images/products/product-1782597464625-1.webp",
+      "/images/products/product-1782597464625-2.webp",
+      "/images/products/product-1782597464625-3.webp"
     ],
     "name": "Evangelion Original Illustration Book I",
     "description": "Artbook incluído originalmente en la edición limitada del Vol.4 Coleccionista (Se puede conseguir el pack)",
@@ -10227,14 +10222,14 @@ export const products = [
   },
   {
     "id": 1782597530328,
-    "image": "/images/products/product-1782597530328-0.jpg",
+    "image": "/images/products/product-1782597530328-0.webp",
     "images": [
-      "/images/products/product-1782597530328-0.jpg",
-      "/images/products/product-1782597530328-1.jpg",
-      "/images/products/product-1782597530328-2.jpg",
-      "/images/products/product-1782597530328-3.jpg",
-      "/images/products/product-1782597530328-4.jpg",
-      "/images/products/product-1782597530328-5.jpg"
+      "/images/products/product-1782597530328-0.webp",
+      "/images/products/product-1782597530328-1.webp",
+      "/images/products/product-1782597530328-2.webp",
+      "/images/products/product-1782597530328-3.webp",
+      "/images/products/product-1782597530328-4.webp",
+      "/images/products/product-1782597530328-5.webp"
     ],
     "name": "Sumikogurashi Fanbook",
     "description": "Incluye Tote Bag",
@@ -10257,18 +10252,18 @@ export const products = [
   },
   {
     "id": 1782597601601,
-    "image": "/images/products/product-1782597601601-0.jpg",
+    "image": "/images/products/product-1782597601601-0.webp",
     "images": [
-      "/images/products/product-1782597601601-0.jpg",
-      "/images/products/product-1782597601601-1.jpg",
-      "/images/products/product-1782597601601-2.jpg",
-      "/images/products/product-1782597601601-3.jpg",
-      "/images/products/product-1782597601601-4.jpg",
-      "/images/products/product-1782597601601-5.jpg",
-      "/images/products/product-1782597601601-6.jpg",
-      "/images/products/product-1782597601601-7.jpg",
-      "/images/products/product-1782597601601-8.jpg",
-      "/images/products/product-1782597601601-9.jpg"
+      "/images/products/product-1782597601601-0.webp",
+      "/images/products/product-1782597601601-1.webp",
+      "/images/products/product-1782597601601-2.webp",
+      "/images/products/product-1782597601601-3.webp",
+      "/images/products/product-1782597601601-4.webp",
+      "/images/products/product-1782597601601-5.webp",
+      "/images/products/product-1782597601601-6.webp",
+      "/images/products/product-1782597601601-7.webp",
+      "/images/products/product-1782597601601-8.webp",
+      "/images/products/product-1782597601601-9.webp"
     ],
     "name": "Granblue Fantasy Graphic Archive V",
     "description": "Quinta Colección de Ilustraciones de Grandblue Fantasy que incluye diseños de colaboraciones como Persona 5 y Princess Connect.",
@@ -10291,18 +10286,18 @@ export const products = [
   },
   {
     "id": 1782597681004,
-    "image": "/images/products/product-1782597681004-0.jpg",
+    "image": "/images/products/product-1782597681004-0.webp",
     "images": [
-      "/images/products/product-1782597681004-0.jpg",
-      "/images/products/product-1782597681004-1.jpg",
-      "/images/products/product-1782597681004-2.jpg",
-      "/images/products/product-1782597681004-3.jpg",
-      "/images/products/product-1782597681004-4.jpg",
-      "/images/products/product-1782597681004-5.jpg",
-      "/images/products/product-1782597681004-6.jpg",
-      "/images/products/product-1782597681004-7.jpg",
-      "/images/products/product-1782597681004-8.jpg",
-      "/images/products/product-1782597681004-9.jpg"
+      "/images/products/product-1782597681004-0.webp",
+      "/images/products/product-1782597681004-1.webp",
+      "/images/products/product-1782597681004-2.webp",
+      "/images/products/product-1782597681004-3.webp",
+      "/images/products/product-1782597681004-4.webp",
+      "/images/products/product-1782597681004-5.webp",
+      "/images/products/product-1782597681004-6.webp",
+      "/images/products/product-1782597681004-7.webp",
+      "/images/products/product-1782597681004-8.webp",
+      "/images/products/product-1782597681004-9.webp"
     ],
     "name": "Kikan S Octubre 2023",
     "description": "Incluye Flipbook de @yoneyamai y un poster bifaz",
@@ -10329,13 +10324,13 @@ export const products = [
   },
   {
     "id": 1782597735199,
-    "image": "/images/products/product-1782597735199-0.jpg",
+    "image": "/images/products/product-1782597735199-0.webp",
     "images": [
-      "/images/products/product-1782597735199-0.jpg",
-      "/images/products/product-1782597735199-1.jpg",
-      "/images/products/product-1782597735199-2.jpg",
-      "/images/products/product-1782597735199-3.jpg",
-      "/images/products/product-1782597735199-4.jpg"
+      "/images/products/product-1782597735199-0.webp",
+      "/images/products/product-1782597735199-1.webp",
+      "/images/products/product-1782597735199-2.webp",
+      "/images/products/product-1782597735199-3.webp",
+      "/images/products/product-1782597735199-4.webp"
     ],
     "name": "Sono Bisque Doll de Chu\nSpin-off de My dress-up...",
     "description": "Sono Bisque Doll de Chu\nSpin-off de My dress-up darling",
@@ -10357,16 +10352,16 @@ export const products = [
   },
   {
     "id": 1782598011235,
-    "image": "/images/products/product-1782598011235-0.jpg",
+    "image": "/images/products/product-1782598011235-0.webp",
     "images": [
-      "/images/products/product-1782598011235-0.jpg",
-      "/images/products/product-1782598011235-1.jpg",
-      "/images/products/product-1782598011235-2.jpg",
-      "/images/products/product-1782598011235-3.jpg",
-      "/images/products/product-1782598011235-4.jpg",
-      "/images/products/product-1782598011235-5.jpg",
-      "/images/products/product-1782598011235-6.jpg",
-      "/images/products/product-1782598011235-7.jpg"
+      "/images/products/product-1782598011235-0.webp",
+      "/images/products/product-1782598011235-1.webp",
+      "/images/products/product-1782598011235-2.webp",
+      "/images/products/product-1782598011235-3.webp",
+      "/images/products/product-1782598011235-4.webp",
+      "/images/products/product-1782598011235-5.webp",
+      "/images/products/product-1782598011235-6.webp",
+      "/images/products/product-1782598011235-7.webp"
     ],
     "name": "ANTENGAI II - Capricho Nocturno",
     "description": "Parte 2 de este libro que combina tanto manga, como artbook con un diseño precioso.",
@@ -10390,15 +10385,15 @@ export const products = [
   },
   {
     "id": 1782598162395,
-    "image": "/images/products/product-1782598162395-0.jpg",
+    "image": "/images/products/product-1782598162395-0.webp",
     "images": [
-      "/images/products/product-1782598162395-0.jpg",
-      "/images/products/product-1782598162395-1.jpg",
-      "/images/products/product-1782598162395-2.jpg",
-      "/images/products/product-1782598162395-3.jpg",
-      "/images/products/product-1782598162395-4.jpg",
-      "/images/products/product-1782598162395-5.jpg",
-      "/images/products/product-1782598162395-6.jpg"
+      "/images/products/product-1782598162395-0.webp",
+      "/images/products/product-1782598162395-1.webp",
+      "/images/products/product-1782598162395-2.webp",
+      "/images/products/product-1782598162395-3.webp",
+      "/images/products/product-1782598162395-4.webp",
+      "/images/products/product-1782598162395-5.webp",
+      "/images/products/product-1782598162395-6.webp"
     ],
     "name": "Higurashi no Naku Koro Ni Official Complete Guide",
     "description": "Guía de When they cry con ilustraciones, diseños, y datos interesantes del juego.",
@@ -10421,17 +10416,17 @@ export const products = [
   },
   {
     "id": 1782598243566,
-    "image": "/images/products/product-1782598243566-0.jpg",
+    "image": "/images/products/product-1782598243566-0.webp",
     "images": [
-      "/images/products/product-1782598243566-0.jpg",
-      "/images/products/product-1782598243566-1.jpg",
-      "/images/products/product-1782598243566-2.jpg",
-      "/images/products/product-1782598243566-3.jpg",
-      "/images/products/product-1782598243566-4.jpg",
-      "/images/products/product-1782598243566-5.jpg",
-      "/images/products/product-1782598243566-6.jpg",
-      "/images/products/product-1782598243566-7.jpg",
-      "/images/products/product-1782598243566-8.jpg"
+      "/images/products/product-1782598243566-0.webp",
+      "/images/products/product-1782598243566-1.webp",
+      "/images/products/product-1782598243566-2.webp",
+      "/images/products/product-1782598243566-3.webp",
+      "/images/products/product-1782598243566-4.webp",
+      "/images/products/product-1782598243566-5.webp",
+      "/images/products/product-1782598243566-6.webp",
+      "/images/products/product-1782598243566-7.webp",
+      "/images/products/product-1782598243566-8.webp"
     ],
     "name": "Jump Ryu Vol. 21 (Hunter x Hunter)",
     "description": "Incluye revista, DVD con tutorial de dibujo, 1 dibujo de Kurapika y 1 dibujo de YYH para enmarcar, y la caja para guardar todo",
@@ -10460,15 +10455,15 @@ export const products = [
   },
   {
     "id": 1782598354620,
-    "image": "/images/products/product-1782598354620-0.jpg",
+    "image": "/images/products/product-1782598354620-0.webp",
     "images": [
-      "/images/products/product-1782598354620-0.jpg",
-      "/images/products/product-1782598354620-1.jpg",
-      "/images/products/product-1782598354620-2.jpg",
-      "/images/products/product-1782598354620-3.jpg",
-      "/images/products/product-1782598354620-4.jpg",
-      "/images/products/product-1782598354620-5.jpg",
-      "/images/products/product-1782598354620-6.jpg"
+      "/images/products/product-1782598354620-0.webp",
+      "/images/products/product-1782598354620-1.webp",
+      "/images/products/product-1782598354620-2.webp",
+      "/images/products/product-1782598354620-3.webp",
+      "/images/products/product-1782598354620-4.webp",
+      "/images/products/product-1782598354620-5.webp",
+      "/images/products/product-1782598354620-6.webp"
     ],
     "name": "Fate/Zero Material",
     "description": "Colección de Ilustraciones y diseños de personajes de Fate/Zero",
@@ -10495,12 +10490,12 @@ export const products = [
   },
   {
     "id": 1782598425926,
-    "image": "/images/products/product-1782598425926-0.jpg",
+    "image": "/images/products/product-1782598425926-0.webp",
     "images": [
-      "/images/products/product-1782598425926-0.jpg",
-      "/images/products/product-1782598425926-1.jpg",
-      "/images/products/product-1782598425926-2.jpg",
-      "/images/products/product-1782598425926-3.jpg"
+      "/images/products/product-1782598425926-0.webp",
+      "/images/products/product-1782598425926-1.webp",
+      "/images/products/product-1782598425926-2.webp",
+      "/images/products/product-1782598425926-3.webp"
     ],
     "name": "Ebiten Box Fanbook",
     "description": "Solo el Fanbook de la caja de Ebiten",
@@ -10522,18 +10517,18 @@ export const products = [
   },
   {
     "id": 1782598501728,
-    "image": "/images/products/product-1782598501728-0.jpg",
+    "image": "/images/products/product-1782598501728-0.webp",
     "images": [
-      "/images/products/product-1782598501728-0.jpg",
-      "/images/products/product-1782598501728-1.jpg",
-      "/images/products/product-1782598501728-2.jpg",
-      "/images/products/product-1782598501728-3.jpg",
-      "/images/products/product-1782598501728-4.jpg",
-      "/images/products/product-1782598501728-5.jpg",
-      "/images/products/product-1782598501728-6.jpg",
-      "/images/products/product-1782598501728-7.jpg",
-      "/images/products/product-1782598501728-8.jpg",
-      "/images/products/product-1782598501728-9.jpg"
+      "/images/products/product-1782598501728-0.webp",
+      "/images/products/product-1782598501728-1.webp",
+      "/images/products/product-1782598501728-2.webp",
+      "/images/products/product-1782598501728-3.webp",
+      "/images/products/product-1782598501728-4.webp",
+      "/images/products/product-1782598501728-5.webp",
+      "/images/products/product-1782598501728-6.webp",
+      "/images/products/product-1782598501728-7.webp",
+      "/images/products/product-1782598501728-8.webp",
+      "/images/products/product-1782598501728-9.webp"
     ],
     "name": "Touhou Project Tribute Arts 3 Edición especial",
     "description": "Incluye 2 artbooks, uno a color y otro de sketches, y una caja contenedora",
@@ -10559,14 +10554,14 @@ export const products = [
   },
   {
     "id": 1782598561288,
-    "image": "/images/products/product-1782598561288-0.jpg",
+    "image": "/images/products/product-1782598561288-0.webp",
     "images": [
-      "/images/products/product-1782598561288-0.jpg",
-      "/images/products/product-1782598561288-1.jpg",
-      "/images/products/product-1782598561288-2.jpg",
-      "/images/products/product-1782598561288-3.jpg",
-      "/images/products/product-1782598561288-4.jpg",
-      "/images/products/product-1782598561288-5.jpg"
+      "/images/products/product-1782598561288-0.webp",
+      "/images/products/product-1782598561288-1.webp",
+      "/images/products/product-1782598561288-2.webp",
+      "/images/products/product-1782598561288-3.webp",
+      "/images/products/product-1782598561288-4.webp",
+      "/images/products/product-1782598561288-5.webp"
     ],
     "name": "Kingdom Hearts II Ultimania",
     "description": "Libro de información de Kingom Hearts 2 con contenido exclusivo del juego.",
@@ -10589,12 +10584,12 @@ export const products = [
   },
   {
     "id": 1782598747927,
-    "image": "/images/products/product-1782598747927-0.jpg",
+    "image": "/images/products/product-1782598747927-0.webp",
     "images": [
-      "/images/products/product-1782598747927-0.jpg",
-      "/images/products/product-1782598747927-1.jpg",
-      "/images/products/product-1782598747927-2.jpg",
-      "/images/products/product-1782598747927-3.jpg"
+      "/images/products/product-1782598747927-0.webp",
+      "/images/products/product-1782598747927-1.webp",
+      "/images/products/product-1782598747927-2.webp",
+      "/images/products/product-1782598747927-3.webp"
     ],
     "name": "Mahoyome Vol. 4 Edición limitada",
     "description": "Viene con llavero y 5 cartas",
@@ -10618,16 +10613,16 @@ export const products = [
   },
   {
     "id": 1782603876558,
-    "image": "/images/products/product-1782603876558-0.jpg",
+    "image": "/images/products/product-1782603876558-0.webp",
     "images": [
-      "/images/products/product-1782603876558-0.jpg",
-      "/images/products/product-1782603876558-1.jpg",
-      "/images/products/product-1782603876558-2.jpg",
-      "/images/products/product-1782603876558-3.jpg",
-      "/images/products/product-1782603876558-4.jpg",
-      "/images/products/product-1782603876558-5.jpg",
-      "/images/products/product-1782603876558-6.jpg",
-      "/images/products/product-1782603876558-7.jpg"
+      "/images/products/product-1782603876558-0.webp",
+      "/images/products/product-1782603876558-1.webp",
+      "/images/products/product-1782603876558-2.webp",
+      "/images/products/product-1782603876558-3.webp",
+      "/images/products/product-1782603876558-4.webp",
+      "/images/products/product-1782603876558-5.webp",
+      "/images/products/product-1782603876558-6.webp",
+      "/images/products/product-1782603876558-7.webp"
     ],
     "name": "Katekyo Hitman Reborn Libro del Guardiano",
     "description": "Incluye desplegable\n\nEN STOCK SIN CARTA",
@@ -10654,11 +10649,11 @@ export const products = [
   },
   {
     "id": 1782606262923,
-    "image": "/images/products/product-1782606262923-0.jpg",
+    "image": "/images/products/product-1782606262923-0.webp",
     "images": [
-      "/images/products/product-1782606262923-0.jpg",
-      "/images/products/product-1782606262923-1.jpg",
-      "/images/products/product-1782606262923-2.jpg"
+      "/images/products/product-1782606262923-0.webp",
+      "/images/products/product-1782606262923-1.webp",
+      "/images/products/product-1782606262923-2.webp"
     ],
     "name": "Tanoshii Kindergarten Noviembre 2022",
     "description": "Incluye 5 figuras de chiikawa y una garra para armar y jugar!",
@@ -10682,11 +10677,11 @@ export const products = [
   },
   {
     "id": 1782606263421,
-    "image": "/images/products/product-1782606263421-0.jpg",
+    "image": "/images/products/product-1782606263421-0.webp",
     "images": [
-      "/images/products/product-1782606263421-0.jpg",
-      "/images/products/product-1782606263421-1.jpg",
-      "/images/products/product-1782606263421-2.jpg"
+      "/images/products/product-1782606263421-0.webp",
+      "/images/products/product-1782606263421-1.webp",
+      "/images/products/product-1782606263421-2.webp"
     ],
     "name": "My dress-up darling Vol. 7 Edición limitada",
     "description": "Incluye llavero de acrílico",
@@ -10709,14 +10704,14 @@ export const products = [
   },
   {
     "id": 1782606392706,
-    "image": "/images/products/product-1782606392706-0.jpg",
+    "image": "/images/products/product-1782606392706-0.webp",
     "images": [
-      "/images/products/product-1782606392706-0.jpg",
-      "/images/products/product-1782606392706-1.jpg",
-      "/images/products/product-1782606392706-2.jpg",
-      "/images/products/product-1782606392706-3.jpg",
-      "/images/products/product-1782606392706-4.jpg",
-      "/images/products/product-1782606392706-5.jpg"
+      "/images/products/product-1782606392706-0.webp",
+      "/images/products/product-1782606392706-1.webp",
+      "/images/products/product-1782606392706-2.webp",
+      "/images/products/product-1782606392706-3.webp",
+      "/images/products/product-1782606392706-4.webp",
+      "/images/products/product-1782606392706-5.webp"
     ],
     "name": "Spoon.2Di Vol. 11",
     "description": "Incluye 2 posters",
@@ -10740,15 +10735,15 @@ export const products = [
   },
   {
     "id": 1782606392685,
-    "image": "/images/products/product-1782606392685-0.jpg",
+    "image": "/images/products/product-1782606392685-0.webp",
     "images": [
-      "/images/products/product-1782606392685-0.jpg",
-      "/images/products/product-1782606392685-1.jpg",
-      "/images/products/product-1782606392685-2.jpg",
-      "/images/products/product-1782606392685-3.jpg",
-      "/images/products/product-1782606392685-4.jpg",
-      "/images/products/product-1782606392685-5.jpg",
-      "/images/products/product-1782606392685-6.jpg"
+      "/images/products/product-1782606392685-0.webp",
+      "/images/products/product-1782606392685-1.webp",
+      "/images/products/product-1782606392685-2.webp",
+      "/images/products/product-1782606392685-3.webp",
+      "/images/products/product-1782606392685-4.webp",
+      "/images/products/product-1782606392685-5.webp",
+      "/images/products/product-1782606392685-6.webp"
     ],
     "name": "The House in Fata Morgana Artbook \"The Anniversary\"",
     "description": "Colección de Ilustraciones de la famosa novela visual",
@@ -10773,17 +10768,17 @@ export const products = [
   },
   {
     "id": 1782607369964,
-    "image": "/images/products/product-1782607369964-0.jpg",
+    "image": "/images/products/product-1782607369964-0.webp",
     "images": [
-      "/images/products/product-1782607369964-0.jpg",
-      "/images/products/product-1782607369964-1.jpg",
-      "/images/products/product-1782607369964-2.jpg",
-      "/images/products/product-1782607369964-3.jpg",
-      "/images/products/product-1782607369964-4.jpg",
-      "/images/products/product-1782607369964-5.jpg",
-      "/images/products/product-1782607369964-6.jpg",
-      "/images/products/product-1782607369964-7.jpg",
-      "/images/products/product-1782607369964-8.jpg"
+      "/images/products/product-1782607369964-0.webp",
+      "/images/products/product-1782607369964-1.webp",
+      "/images/products/product-1782607369964-2.webp",
+      "/images/products/product-1782607369964-3.webp",
+      "/images/products/product-1782607369964-4.webp",
+      "/images/products/product-1782607369964-5.webp",
+      "/images/products/product-1782607369964-6.webp",
+      "/images/products/product-1782607369964-7.webp",
+      "/images/products/product-1782607369964-8.webp"
     ],
     "name": "Read or Die Official Archive",
     "description": "Colección de Ilustraciones, diseños, y datos interesantes de R.O.D. (tanto el OVA, como la serie)",
@@ -10811,17 +10806,17 @@ export const products = [
   },
   {
     "id": 1782607369853,
-    "image": "/images/products/product-1782607369853-0.jpg",
+    "image": "/images/products/product-1782607369853-0.webp",
     "images": [
-      "/images/products/product-1782607369853-0.jpg",
-      "/images/products/product-1782607369853-1.jpg",
-      "/images/products/product-1782607369853-2.jpg",
-      "/images/products/product-1782607369853-3.jpg",
-      "/images/products/product-1782607369853-4.jpg",
-      "/images/products/product-1782607369853-5.jpg",
-      "/images/products/product-1782607369853-6.jpg",
-      "/images/products/product-1782607369853-7.jpg",
-      "/images/products/product-1782607369853-8.jpg"
+      "/images/products/product-1782607369853-0.webp",
+      "/images/products/product-1782607369853-1.webp",
+      "/images/products/product-1782607369853-2.webp",
+      "/images/products/product-1782607369853-3.webp",
+      "/images/products/product-1782607369853-4.webp",
+      "/images/products/product-1782607369853-5.webp",
+      "/images/products/product-1782607369853-6.webp",
+      "/images/products/product-1782607369853-7.webp",
+      "/images/products/product-1782607369853-8.webp"
     ],
     "name": "Fate/EXTELLA material",
     "description": "Colección de Ilustraciones del videojuego Fate/EXTELLA",
@@ -10851,18 +10846,18 @@ export const products = [
   },
   {
     "id": 1782607369496,
-    "image": "/images/products/product-1782607369496-0.jpg",
+    "image": "/images/products/product-1782607369496-0.webp",
     "images": [
-      "/images/products/product-1782607369496-0.jpg",
-      "/images/products/product-1782607369496-1.jpg",
-      "/images/products/product-1782607369496-2.jpg",
-      "/images/products/product-1782607369496-3.jpg",
-      "/images/products/product-1782607369496-4.jpg",
-      "/images/products/product-1782607369496-5.jpg",
-      "/images/products/product-1782607369496-6.jpg",
-      "/images/products/product-1782607369496-7.jpg",
-      "/images/products/product-1782607369496-8.jpg",
-      "/images/products/product-1782607369496-9.jpg"
+      "/images/products/product-1782607369496-0.webp",
+      "/images/products/product-1782607369496-1.webp",
+      "/images/products/product-1782607369496-2.webp",
+      "/images/products/product-1782607369496-3.webp",
+      "/images/products/product-1782607369496-4.webp",
+      "/images/products/product-1782607369496-5.webp",
+      "/images/products/product-1782607369496-6.webp",
+      "/images/products/product-1782607369496-7.webp",
+      "/images/products/product-1782607369496-8.webp",
+      "/images/products/product-1782607369496-9.webp"
     ],
     "name": "JOJO A GO!GO! Ultimate Edition",
     "description": "Incluye caja contenedora con 3 libros:\n- Artbook de tapa dura\n- Databook de stands\n- Databook de Araki Hirohiko\nAdemás la caja tiene una rueda giratoria que muestra distintos personajes!",
@@ -10887,15 +10882,15 @@ export const products = [
   },
   {
     "id": 1782607566967,
-    "image": "/images/products/product-1782607566967-0.jpg",
+    "image": "/images/products/product-1782607566967-0.webp",
     "images": [
-      "/images/products/product-1782607566967-0.jpg",
-      "/images/products/product-1782607566967-1.jpg",
-      "/images/products/product-1782607566967-2.jpg",
-      "/images/products/product-1782607566967-3.jpg",
-      "/images/products/product-1782607566967-4.jpg",
-      "/images/products/product-1782607566967-5.jpg",
-      "/images/products/product-1782607566967-6.jpg"
+      "/images/products/product-1782607566967-0.webp",
+      "/images/products/product-1782607566967-1.webp",
+      "/images/products/product-1782607566967-2.webp",
+      "/images/products/product-1782607566967-3.webp",
+      "/images/products/product-1782607566967-4.webp",
+      "/images/products/product-1782607566967-5.webp",
+      "/images/products/product-1782607566967-6.webp"
     ],
     "name": "Fruits Basket Illustrations",
     "description": "Colección de ilustraciones de Fruits basket hechas por Natsuki Takaya",
@@ -10919,13 +10914,13 @@ export const products = [
   },
   {
     "id": 1782607746052,
-    "image": "/images/products/product-1782607746052-0.jpg",
+    "image": "/images/products/product-1782607746052-0.webp",
     "images": [
-      "/images/products/product-1782607746052-0.jpg",
-      "/images/products/product-1782607746052-1.jpg",
-      "/images/products/product-1782607746052-2.jpg",
-      "/images/products/product-1782607746052-3.jpg",
-      "/images/products/product-1782607746052-4.jpg"
+      "/images/products/product-1782607746052-0.webp",
+      "/images/products/product-1782607746052-1.webp",
+      "/images/products/product-1782607746052-2.webp",
+      "/images/products/product-1782607746052-3.webp",
+      "/images/products/product-1782607746052-4.webp"
     ],
     "name": "Disney's Twisted Wonderland Azul Ashengrotto Character Book",
     "description": "Librito de información y arte de que viene con un peluchito\n",
@@ -10949,15 +10944,15 @@ export const products = [
   },
   {
     "id": 1782608273794,
-    "image": "/images/products/product-1782608273794-0.jpg",
+    "image": "/images/products/product-1782608273794-0.webp",
     "images": [
-      "/images/products/product-1782608273794-0.jpg",
-      "/images/products/product-1782608273794-1.jpg",
-      "/images/products/product-1782608273794-2.jpg",
-      "/images/products/product-1782608273794-3.jpg",
-      "/images/products/product-1782608273794-4.jpg",
-      "/images/products/product-1782608273794-5.jpg",
-      "/images/products/product-1782608273794-6.jpg"
+      "/images/products/product-1782608273794-0.webp",
+      "/images/products/product-1782608273794-1.webp",
+      "/images/products/product-1782608273794-2.webp",
+      "/images/products/product-1782608273794-3.webp",
+      "/images/products/product-1782608273794-4.webp",
+      "/images/products/product-1782608273794-5.webp",
+      "/images/products/product-1782608273794-6.webp"
     ],
     "name": "MAIDRA Collection",
     "description": "Colección de Ilustraciones de Kobayashi-san Chi no Maid Dragon.",
@@ -10983,17 +10978,17 @@ export const products = [
   },
   {
     "id": 1782608389316,
-    "image": "/images/products/product-1782608389316-0.jpg",
+    "image": "/images/products/product-1782608389316-0.webp",
     "images": [
-      "/images/products/product-1782608389316-0.jpg",
-      "/images/products/product-1782608389316-1.jpg",
-      "/images/products/product-1782608389316-2.jpg",
-      "/images/products/product-1782608389316-3.jpg",
-      "/images/products/product-1782608389316-4.jpg",
-      "/images/products/product-1782608389316-5.jpg",
-      "/images/products/product-1782608389316-6.jpg",
-      "/images/products/product-1782608389316-7.jpg",
-      "/images/products/product-1782608389316-8.jpg"
+      "/images/products/product-1782608389316-0.webp",
+      "/images/products/product-1782608389316-1.webp",
+      "/images/products/product-1782608389316-2.webp",
+      "/images/products/product-1782608389316-3.webp",
+      "/images/products/product-1782608389316-4.webp",
+      "/images/products/product-1782608389316-5.webp",
+      "/images/products/product-1782608389316-6.webp",
+      "/images/products/product-1782608389316-7.webp",
+      "/images/products/product-1782608389316-8.webp"
     ],
     "name": "Kara no Kyoukai Complete Artbook + Mirai Fukuin",
     "description": "Artbook de 145 páginas que incluye el manga extra chorus",
@@ -11017,14 +11012,14 @@ export const products = [
   },
   {
     "id": 1782608388645,
-    "image": "/images/products/product-1782608388645-0.jpg",
+    "image": "/images/products/product-1782608388645-0.webp",
     "images": [
-      "/images/products/product-1782608388645-0.jpg",
-      "/images/products/product-1782608388645-1.jpg",
-      "/images/products/product-1782608388645-2.jpg",
-      "/images/products/product-1782608388645-3.jpg",
-      "/images/products/product-1782608388645-4.jpg",
-      "/images/products/product-1782608388645-5.jpg"
+      "/images/products/product-1782608388645-0.webp",
+      "/images/products/product-1782608388645-1.webp",
+      "/images/products/product-1782608388645-2.webp",
+      "/images/products/product-1782608388645-3.webp",
+      "/images/products/product-1782608388645-4.webp",
+      "/images/products/product-1782608388645-5.webp"
     ],
     "name": "Utawarerumono Artbook",
     "description": "Colección de ilustraciones, diseños y datos de Utawarerumono",
@@ -11047,14 +11042,14 @@ export const products = [
   },
   {
     "id": 1782608388756,
-    "image": "/images/products/product-1782608388756-0.jpg",
+    "image": "/images/products/product-1782608388756-0.webp",
     "images": [
-      "/images/products/product-1782608388756-0.jpg",
-      "/images/products/product-1782608388756-1.jpg",
-      "/images/products/product-1782608388756-2.jpg",
-      "/images/products/product-1782608388756-3.jpg",
-      "/images/products/product-1782608388756-4.jpg",
-      "/images/products/product-1782608388756-5.jpg"
+      "/images/products/product-1782608388756-0.webp",
+      "/images/products/product-1782608388756-1.webp",
+      "/images/products/product-1782608388756-2.webp",
+      "/images/products/product-1782608388756-3.webp",
+      "/images/products/product-1782608388756-4.webp",
+      "/images/products/product-1782608388756-5.webp"
     ],
     "name": "Esquisse de Misato Mitsumi y Tatsuki Amaduyu",
     "description": "Incluye muchos fanarts y diseños originales de estos artistas",
@@ -11078,16 +11073,16 @@ export const products = [
   },
   {
     "id": 1782608389558,
-    "image": "/images/products/product-1782608389558-0.jpg",
+    "image": "/images/products/product-1782608389558-0.webp",
     "images": [
-      "/images/products/product-1782608389558-0.jpg",
-      "/images/products/product-1782608389558-1.jpg",
-      "/images/products/product-1782608389558-2.jpg",
-      "/images/products/product-1782608389558-3.jpg",
-      "/images/products/product-1782608389558-4.jpg",
-      "/images/products/product-1782608389558-5.jpg",
-      "/images/products/product-1782608389558-6.jpg",
-      "/images/products/product-1782608389558-7.jpg"
+      "/images/products/product-1782608389558-0.webp",
+      "/images/products/product-1782608389558-1.webp",
+      "/images/products/product-1782608389558-2.webp",
+      "/images/products/product-1782608389558-3.webp",
+      "/images/products/product-1782608389558-4.webp",
+      "/images/products/product-1782608389558-5.webp",
+      "/images/products/product-1782608389558-6.webp",
+      "/images/products/product-1782608389558-7.webp"
     ],
     "name": "Nier:Automata World Guide",
     "description": "Guía del famoso videojuego de Yoko Taro, Nier:Automata.",
@@ -11116,13 +11111,13 @@ export const products = [
   },
   {
     "id": 1782608389326,
-    "image": "/images/products/product-1782608389326-0.jpg",
+    "image": "/images/products/product-1782608389326-0.webp",
     "images": [
-      "/images/products/product-1782608389326-0.jpg",
-      "/images/products/product-1782608389326-1.jpg",
-      "/images/products/product-1782608389326-2.jpg",
-      "/images/products/product-1782608389326-3.jpg",
-      "/images/products/product-1782608389326-4.jpg"
+      "/images/products/product-1782608389326-0.webp",
+      "/images/products/product-1782608389326-1.webp",
+      "/images/products/product-1782608389326-2.webp",
+      "/images/products/product-1782608389326-3.webp",
+      "/images/products/product-1782608389326-4.webp"
     ],
     "name": "Fun Kindergarten Julio 2024",
     "description": "Incluye un gachapon funcional con 5 figuras de chiikawa, stickers, y algunas cosas mas para armar!",
@@ -11146,13 +11141,13 @@ export const products = [
   },
   {
     "id": 1782620195747,
-    "image": "/images/products/product-1782620195747-0.jpg",
+    "image": "/images/products/product-1782620195747-0.webp",
     "images": [
-      "/images/products/product-1782620195747-0.jpg",
-      "/images/products/product-1782620195747-1.jpg",
-      "/images/products/product-1782620195747-2.jpg",
-      "/images/products/product-1782620195747-3.jpg",
-      "/images/products/product-1782620195747-4.jpg"
+      "/images/products/product-1782620195747-0.webp",
+      "/images/products/product-1782620195747-1.webp",
+      "/images/products/product-1782620195747-2.webp",
+      "/images/products/product-1782620195747-3.webp",
+      "/images/products/product-1782620195747-4.webp"
     ],
     "name": "Houseki no Kuni Vol. 10 Edición limitada",
     "description": "Incluye manga, artbook y stickers",
@@ -11180,14 +11175,14 @@ export const products = [
   },
   {
     "id": 1782620195623,
-    "image": "/images/products/product-1782620195623-0.jpg",
+    "image": "/images/products/product-1782620195623-0.webp",
     "images": [
-      "/images/products/product-1782620195623-0.jpg",
-      "/images/products/product-1782620195623-1.jpg",
-      "/images/products/product-1782620195623-2.jpg",
-      "/images/products/product-1782620195623-3.jpg",
-      "/images/products/product-1782620195623-4.jpg",
-      "/images/products/product-1782620195623-5.jpg"
+      "/images/products/product-1782620195623-0.webp",
+      "/images/products/product-1782620195623-1.webp",
+      "/images/products/product-1782620195623-2.webp",
+      "/images/products/product-1782620195623-3.webp",
+      "/images/products/product-1782620195623-4.webp",
+      "/images/products/product-1782620195623-5.webp"
     ],
     "name": "Tezukuri Parfait Sumikko Gurashi Juice Jihanki",
     "description": "Revista con muchos tutoriales de DIYs\nIncluye todo para hacer un facil DIY de una máquina expendedora de cartón funcional con 6 gomas de borrar",
@@ -11215,14 +11210,14 @@ export const products = [
   },
   {
     "id": 1782620195932,
-    "image": "/images/products/product-1782620195932-0.jpg",
+    "image": "/images/products/product-1782620195932-0.webp",
     "images": [
-      "/images/products/product-1782620195932-0.jpg",
-      "/images/products/product-1782620195932-1.jpg",
-      "/images/products/product-1782620195932-2.jpg",
-      "/images/products/product-1782620195932-3.jpg",
-      "/images/products/product-1782620195932-4.jpg",
-      "/images/products/product-1782620195932-5.jpg"
+      "/images/products/product-1782620195932-0.webp",
+      "/images/products/product-1782620195932-1.webp",
+      "/images/products/product-1782620195932-2.webp",
+      "/images/products/product-1782620195932-3.webp",
+      "/images/products/product-1782620195932-4.webp",
+      "/images/products/product-1782620195932-5.webp"
     ],
     "name": "Banana fish TV Animation Official Guide Moment",
     "description": "Guía del anime de banana fish, incluye poster de la portada",
@@ -11244,15 +11239,15 @@ export const products = [
   },
   {
     "id": 1782620196135,
-    "image": "/images/products/product-1782620196135-0.jpg",
+    "image": "/images/products/product-1782620196135-0.webp",
     "images": [
-      "/images/products/product-1782620196135-0.jpg",
-      "/images/products/product-1782620196135-1.jpg",
-      "/images/products/product-1782620196135-2.jpg",
-      "/images/products/product-1782620196135-3.jpg",
-      "/images/products/product-1782620196135-4.jpg",
-      "/images/products/product-1782620196135-5.jpg",
-      "/images/products/product-1782620196135-6.jpg"
+      "/images/products/product-1782620196135-0.webp",
+      "/images/products/product-1782620196135-1.webp",
+      "/images/products/product-1782620196135-2.webp",
+      "/images/products/product-1782620196135-3.webp",
+      "/images/products/product-1782620196135-4.webp",
+      "/images/products/product-1782620196135-5.webp",
+      "/images/products/product-1782620196135-6.webp"
     ],
     "name": "Baccano Artbook",
     "description": "Colección de Ilustraciones de 112 páginas de Baccano y algunas otras novelas del ilustrador.\nTapa dura!",
@@ -11276,14 +11271,14 @@ export const products = [
   },
   {
     "id": 1782620195977,
-    "image": "/images/products/product-1782620195977-0.jpg",
+    "image": "/images/products/product-1782620195977-0.webp",
     "images": [
-      "/images/products/product-1782620195977-0.jpg",
-      "/images/products/product-1782620195977-1.jpg",
-      "/images/products/product-1782620195977-2.jpg",
-      "/images/products/product-1782620195977-3.jpg",
-      "/images/products/product-1782620195977-4.jpg",
-      "/images/products/product-1782620195977-5.jpg"
+      "/images/products/product-1782620195977-0.webp",
+      "/images/products/product-1782620195977-1.webp",
+      "/images/products/product-1782620195977-2.webp",
+      "/images/products/product-1782620195977-3.webp",
+      "/images/products/product-1782620195977-4.webp",
+      "/images/products/product-1782620195977-5.webp"
     ],
     "name": "Photo book de Houshou Marine y Shirogane Noel Hololive edición limiada",
     "description": "Colección de fotos de las dos famosas Vtubers de 92 páginas, incluye una postal y 3 mini fotos.",
@@ -11306,12 +11301,12 @@ export const products = [
   },
   {
     "id": 1782633664856,
-    "image": "/images/products/product-1782633664856-0.jpg",
+    "image": "/images/products/product-1782633664856-0.webp",
     "images": [
-      "/images/products/product-1782633664856-0.jpg",
-      "/images/products/product-1782633664856-1.jpg",
-      "/images/products/product-1782633664856-2.jpg",
-      "/images/products/product-1782633664856-3.jpg"
+      "/images/products/product-1782633664856-0.webp",
+      "/images/products/product-1782633664856-1.webp",
+      "/images/products/product-1782633664856-2.webp",
+      "/images/products/product-1782633664856-3.webp"
     ],
     "name": "Vanitas Vol. 10 Edición limitada",
     "description": "Incluye artbook",
@@ -11334,11 +11329,11 @@ export const products = [
   },
   {
     "id": 1782633664989,
-    "image": "/images/products/product-1782633664989-0.jpg",
+    "image": "/images/products/product-1782633664989-0.webp",
     "images": [
-      "/images/products/product-1782633664989-0.jpg",
-      "/images/products/product-1782633664989-1.jpg",
-      "/images/products/product-1782633664989-2.jpg"
+      "/images/products/product-1782633664989-0.webp",
+      "/images/products/product-1782633664989-1.webp",
+      "/images/products/product-1782633664989-2.webp"
     ],
     "name": "Evangelion Vol. 7 Edición limitada",
     "description": "Incluye figura de Asuka",
@@ -11365,14 +11360,14 @@ export const products = [
   },
   {
     "id": 1782633664343,
-    "image": "/images/products/product-1782633664343-0.jpg",
+    "image": "/images/products/product-1782633664343-0.webp",
     "images": [
-      "/images/products/product-1782633664343-0.jpg",
-      "/images/products/product-1782633664343-1.jpg",
-      "/images/products/product-1782633664343-2.jpg",
-      "/images/products/product-1782633664343-3.jpg",
-      "/images/products/product-1782633664343-4.jpg",
-      "/images/products/product-1782633664343-5.jpg"
+      "/images/products/product-1782633664343-0.webp",
+      "/images/products/product-1782633664343-1.webp",
+      "/images/products/product-1782633664343-2.webp",
+      "/images/products/product-1782633664343-3.webp",
+      "/images/products/product-1782633664343-4.webp",
+      "/images/products/product-1782633664343-5.webp"
     ],
     "name": "Fullmetal Alchemist Complete Best",
     "description": "Incluye:\n- CD con todos los openings y endings de FMA y su guía\n- DVD con todos los openings y endings de FMA y su guía\n- Mini guía del anime",
@@ -11394,11 +11389,11 @@ export const products = [
   },
   {
     "id": 1782633803319,
-    "image": "/images/products/product-1782633803319-0.jpg",
+    "image": "/images/products/product-1782633803319-0.webp",
     "images": [
-      "/images/products/product-1782633803319-0.jpg",
-      "/images/products/product-1782633803319-1.jpg",
-      "/images/products/product-1782633803319-2.jpg"
+      "/images/products/product-1782633803319-0.webp",
+      "/images/products/product-1782633803319-1.webp",
+      "/images/products/product-1782633803319-2.webp"
     ],
     "name": "Made in Abyss Original Soundtrack 1",
     "description": "Dos discos con el soundtrack completo de la primera temporada de Made in Abyss, hecho por el gran Kevin Penkin",
@@ -11420,16 +11415,16 @@ export const products = [
   },
   {
     "id": 1782633803029,
-    "image": "/images/products/product-1782633803029-0.jpg",
+    "image": "/images/products/product-1782633803029-0.webp",
     "images": [
-      "/images/products/product-1782633803029-0.jpg",
-      "/images/products/product-1782633803029-1.jpg",
-      "/images/products/product-1782633803029-2.jpg",
-      "/images/products/product-1782633803029-3.jpg",
-      "/images/products/product-1782633803029-4.jpg",
-      "/images/products/product-1782633803029-5.jpg",
-      "/images/products/product-1782633803029-6.jpg",
-      "/images/products/product-1782633803029-7.jpg"
+      "/images/products/product-1782633803029-0.webp",
+      "/images/products/product-1782633803029-1.webp",
+      "/images/products/product-1782633803029-2.webp",
+      "/images/products/product-1782633803029-3.webp",
+      "/images/products/product-1782633803029-4.webp",
+      "/images/products/product-1782633803029-5.webp",
+      "/images/products/product-1782633803029-6.webp",
+      "/images/products/product-1782633803029-7.webp"
     ],
     "name": "Quintillizas Ameusagi pack",
     "description": "Incluye:\n- Carpeta\n- Pañuelo\n- Postal de Miku\n- Llavero de Miku\n- Artbook",
@@ -11460,12 +11455,12 @@ export const products = [
   },
   {
     "id": 1782633803602,
-    "image": "/images/products/product-1782633803602-0.jpg",
+    "image": "/images/products/product-1782633803602-0.webp",
     "images": [
-      "/images/products/product-1782633803602-0.jpg",
-      "/images/products/product-1782633803602-1.jpg",
-      "/images/products/product-1782633803602-2.jpg",
-      "/images/products/product-1782633803602-3.jpg"
+      "/images/products/product-1782633803602-0.webp",
+      "/images/products/product-1782633803602-1.webp",
+      "/images/products/product-1782633803602-2.webp",
+      "/images/products/product-1782633803602-3.webp"
     ],
     "name": "Houseki no Kuni Vol. 4 Edición Limitada",
     "description": "Incluye un mazo de cartas para el juego de mesa",
@@ -11492,9 +11487,9 @@ export const products = [
   },
   {
     "id": 1782633803072,
-    "image": "/images/products/product-1782633803072-0.jpg",
+    "image": "/images/products/product-1782633803072-0.webp",
     "images": [
-      "/images/products/product-1782633803072-0.jpg"
+      "/images/products/product-1782633803072-0.webp"
     ],
     "name": "Revista Animage con portada de Wind Breaker",
     "description": "Incluye un dibujo aparte de Hanako-kun",
@@ -11516,18 +11511,18 @@ export const products = [
   },
   {
     "id": 1782634081538,
-    "image": "/images/products/product-1782634081538-0.jpg",
+    "image": "/images/products/product-1782634081538-0.webp",
     "images": [
-      "/images/products/product-1782634081538-0.jpg",
-      "/images/products/product-1782634081538-1.jpg",
-      "/images/products/product-1782634081538-2.jpg",
-      "/images/products/product-1782634081538-3.jpg",
-      "/images/products/product-1782634081538-4.jpg",
-      "/images/products/product-1782634081538-5.jpg",
-      "/images/products/product-1782634081538-6.jpg",
-      "/images/products/product-1782634081538-7.jpg",
-      "/images/products/product-1782634081538-8.jpg",
-      "/images/products/product-1782634081538-9.jpg"
+      "/images/products/product-1782634081538-0.webp",
+      "/images/products/product-1782634081538-1.webp",
+      "/images/products/product-1782634081538-2.webp",
+      "/images/products/product-1782634081538-3.webp",
+      "/images/products/product-1782634081538-4.webp",
+      "/images/products/product-1782634081538-5.webp",
+      "/images/products/product-1782634081538-6.webp",
+      "/images/products/product-1782634081538-7.webp",
+      "/images/products/product-1782634081538-8.webp",
+      "/images/products/product-1782634081538-9.webp"
     ],
     "name": "Made in Abyss Official Artworks",
     "description": "Coleccion de 3 libros:\n- Background Artbook\n- Pictorial Record of Cave Riders (Artbook y Guía)\n- Storyboard",
@@ -11554,11 +11549,11 @@ export const products = [
   },
   {
     "id": 1782634290278,
-    "image": "/images/products/product-1782634290278-0.jpg",
+    "image": "/images/products/product-1782634290278-0.webp",
     "images": [
-      "/images/products/product-1782634290278-0.jpg",
-      "/images/products/product-1782634290278-1.jpg",
-      "/images/products/product-1782634290278-2.jpg"
+      "/images/products/product-1782634290278-0.webp",
+      "/images/products/product-1782634290278-1.webp",
+      "/images/products/product-1782634290278-2.webp"
     ],
     "name": "Attack on Titan Shingeki no Kyojin Vol. 1 Edición Kansai",
     "description": "Volumen 1 de Shingeki no Kyojin versión Kansai que incluye portada alternativa y diferencia en la forma de escribir los textos.\nSe puede comprar en pack con el volumen 17 edición limitada a $34999",
@@ -11582,14 +11577,14 @@ export const products = [
   },
   {
     "id": 1782634290696,
-    "image": "/images/products/product-1782634290696-0.jpg",
+    "image": "/images/products/product-1782634290696-0.webp",
     "images": [
-      "/images/products/product-1782634290696-0.jpg",
-      "/images/products/product-1782634290696-1.jpg",
-      "/images/products/product-1782634290696-2.jpg",
-      "/images/products/product-1782634290696-3.jpg",
-      "/images/products/product-1782634290696-4.jpg",
-      "/images/products/product-1782634290696-5.jpg"
+      "/images/products/product-1782634290696-0.webp",
+      "/images/products/product-1782634290696-1.webp",
+      "/images/products/product-1782634290696-2.webp",
+      "/images/products/product-1782634290696-3.webp",
+      "/images/products/product-1782634290696-4.webp",
+      "/images/products/product-1782634290696-5.webp"
     ],
     "name": "Dino Crisis 2 Guía",
     "description": "Incluye diseños, mapas, desplegables, información, etc",
@@ -11612,12 +11607,12 @@ export const products = [
   },
   {
     "id": 1782634290220,
-    "image": "/images/products/product-1782634290220-0.jpg",
+    "image": "/images/products/product-1782634290220-0.webp",
     "images": [
-      "/images/products/product-1782634290220-0.jpg",
-      "/images/products/product-1782634290220-1.jpg",
-      "/images/products/product-1782634290220-2.jpg",
-      "/images/products/product-1782634290220-3.jpg"
+      "/images/products/product-1782634290220-0.webp",
+      "/images/products/product-1782634290220-1.webp",
+      "/images/products/product-1782634290220-2.webp",
+      "/images/products/product-1782634290220-3.webp"
     ],
     "name": "Weekly Shonen Jump Febrero 2008",
     "description": "Con portada de Reborn",
@@ -11642,10 +11637,10 @@ export const products = [
   },
   {
     "id": 1782634290341,
-    "image": "/images/products/product-1782634290341-0.jpg",
+    "image": "/images/products/product-1782634290341-0.webp",
     "images": [
-      "/images/products/product-1782634290341-0.jpg",
-      "/images/products/product-1782634290341-1.jpg"
+      "/images/products/product-1782634290341-0.webp",
+      "/images/products/product-1782634290341-1.webp"
     ],
     "name": "Peluche Hachiware con su armita",
     "description": "Mide 30cm",
@@ -11677,12 +11672,12 @@ export const products = [
   },
   {
     "id": 1782634290154,
-    "image": "/images/products/product-1782634290154-0.jpg",
+    "image": "/images/products/product-1782634290154-0.webp",
     "images": [
-      "/images/products/product-1782634290154-0.jpg",
-      "/images/products/product-1782634290154-1.jpg",
-      "/images/products/product-1782634290154-2.jpg",
-      "/images/products/product-1782634290154-3.jpg"
+      "/images/products/product-1782634290154-0.webp",
+      "/images/products/product-1782634290154-1.webp",
+      "/images/products/product-1782634290154-2.webp",
+      "/images/products/product-1782634290154-3.webp"
     ],
     "name": "Chiikawa Vol. 3 Edición especial",
     "description": "Incluye el manga y el juego de mesa Karuta con muchas cartas de los personajes",
@@ -11705,16 +11700,16 @@ export const products = [
   },
   {
     "id": 1782634290289,
-    "image": "/images/products/product-1782634290289-0.jpg",
+    "image": "/images/products/product-1782634290289-0.webp",
     "images": [
-      "/images/products/product-1782634290289-0.jpg",
-      "/images/products/product-1782634290289-1.jpg",
-      "/images/products/product-1782634290289-2.jpg",
-      "/images/products/product-1782634290289-3.jpg",
-      "/images/products/product-1782634290289-4.jpg",
-      "/images/products/product-1782634290289-5.jpg",
-      "/images/products/product-1782634290289-6.jpg",
-      "/images/products/product-1782634290289-7.jpg"
+      "/images/products/product-1782634290289-0.webp",
+      "/images/products/product-1782634290289-1.webp",
+      "/images/products/product-1782634290289-2.webp",
+      "/images/products/product-1782634290289-3.webp",
+      "/images/products/product-1782634290289-4.webp",
+      "/images/products/product-1782634290289-5.webp",
+      "/images/products/product-1782634290289-6.webp",
+      "/images/products/product-1782634290289-7.webp"
     ],
     "name": "Demon slayer Original Image collection Set 2",
     "description": "Incluye caja contenedora, storyboard, cuadrito, acrílico, stickers, y lámina con dibujo",
@@ -11739,13 +11734,13 @@ export const products = [
   },
   {
     "id": 1782634459385,
-    "image": "/images/products/product-1782634459385-0.jpg",
+    "image": "/images/products/product-1782634459385-0.webp",
     "images": [
-      "/images/products/product-1782634459385-0.jpg",
-      "/images/products/product-1782634459385-1.jpg",
-      "/images/products/product-1782634459385-2.jpg",
-      "/images/products/product-1782634459385-3.jpg",
-      "/images/products/product-1782634459385-4.jpg"
+      "/images/products/product-1782634459385-0.webp",
+      "/images/products/product-1782634459385-1.webp",
+      "/images/products/product-1782634459385-2.webp",
+      "/images/products/product-1782634459385-3.webp",
+      "/images/products/product-1782634459385-4.webp"
     ],
     "name": "Steins;Gate Visual Works Edición Limitada",
     "description": "Incluye Artbook, señalador y carpeta",
@@ -11770,13 +11765,13 @@ export const products = [
   },
   {
     "id": 1782634459525,
-    "image": "/images/products/product-1782634459525-0.jpg",
+    "image": "/images/products/product-1782634459525-0.webp",
     "images": [
-      "/images/products/product-1782634459525-0.jpg",
-      "/images/products/product-1782634459525-1.jpg",
-      "/images/products/product-1782634459525-2.jpg",
-      "/images/products/product-1782634459525-3.jpg",
-      "/images/products/product-1782634459525-4.jpg"
+      "/images/products/product-1782634459525-0.webp",
+      "/images/products/product-1782634459525-1.webp",
+      "/images/products/product-1782634459525-2.webp",
+      "/images/products/product-1782634459525-3.webp",
+      "/images/products/product-1782634459525-4.webp"
     ],
     "name": "Dragon Ball Sparking Zero Guía",
     "description": "Libro guía de la cuarta edición de la saga de juegos \"Budokai Tenkaichi\"\nContiene Ilustraciones, guías, diseños, etc\n",
@@ -11799,9 +11794,9 @@ export const products = [
   },
   {
     "id": 1782634459665,
-    "image": "/images/products/product-1782634459665-0.jpg",
+    "image": "/images/products/product-1782634459665-0.webp",
     "images": [
-      "/images/products/product-1782634459665-0.jpg"
+      "/images/products/product-1782634459665-0.webp"
     ],
     "name": "Peluche Bachira Delfín de Blue lock",
     "description": "Mide 10cm aprox",
@@ -11823,10 +11818,10 @@ export const products = [
   },
   {
     "id": 1782634458967,
-    "image": "/images/products/product-1782634458967-0.jpg",
+    "image": "/images/products/product-1782634458967-0.webp",
     "images": [
-      "/images/products/product-1782634458967-0.jpg",
-      "/images/products/product-1782634458967-1.jpg"
+      "/images/products/product-1782634458967-0.webp",
+      "/images/products/product-1782634458967-1.webp"
     ],
     "name": "Peluches llavero mochimochi Hinata Shouyou y Medusa",
     "description": "SOLO HINATA EN STOCK\n\niden 8,5cm de largo y 5cm de ancho",
@@ -11851,14 +11846,14 @@ export const products = [
   },
   {
     "id": 1782634458964,
-    "image": "/images/products/product-1782634458964-0.jpg",
+    "image": "/images/products/product-1782634458964-0.webp",
     "images": [
-      "/images/products/product-1782634458964-0.jpg",
-      "/images/products/product-1782634458964-1.jpg",
-      "/images/products/product-1782634458964-2.jpg",
-      "/images/products/product-1782634458964-3.jpg",
-      "/images/products/product-1782634458964-4.jpg",
-      "/images/products/product-1782634458964-5.jpg"
+      "/images/products/product-1782634458964-0.webp",
+      "/images/products/product-1782634458964-1.webp",
+      "/images/products/product-1782634458964-2.webp",
+      "/images/products/product-1782634458964-3.webp",
+      "/images/products/product-1782634458964-4.webp",
+      "/images/products/product-1782634458964-5.webp"
     ],
     "name": "Hunter x Hunter Treasure 9",
     "description": "Esta revista es el volumen 9 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de las hormigas\n- Tapa de manga alternativa de Meruem para alguno de tus mangas\n- Páginas: 400 aprox.\n- Idioma: Japonés",
@@ -11883,11 +11878,11 @@ export const products = [
   },
   {
     "id": 1782634656130,
-    "image": "/images/products/product-1782634656130-0.jpg",
+    "image": "/images/products/product-1782634656130-0.webp",
     "images": [
-      "/images/products/product-1782634656130-0.jpg",
-      "/images/products/product-1782634656130-1.jpg",
-      "/images/products/product-1782634656130-2.jpg"
+      "/images/products/product-1782634656130-0.webp",
+      "/images/products/product-1782634656130-1.webp",
+      "/images/products/product-1782634656130-2.webp"
     ],
     "name": "Ternurines de Chiikawa y Hachiware",
     "description": "Ternurines de Chiikawa y Hachiware",
@@ -11909,9 +11904,9 @@ export const products = [
   },
   {
     "id": 1782634655899,
-    "image": "/images/products/product-1782634655899-0.jpg",
+    "image": "/images/products/product-1782634655899-0.webp",
     "images": [
-      "/images/products/product-1782634655899-0.jpg"
+      "/images/products/product-1782634655899-0.webp"
     ],
     "name": "Chobits Vol. 1 & 6 Edición especial",
     "description": "El 1 viene con Mousepad y una postal, y el 6 con un cartoncito, una tarjeta, y una postal",
@@ -11933,13 +11928,13 @@ export const products = [
   },
   {
     "id": 1782634656057,
-    "image": "/images/products/product-1782634656057-0.jpg",
+    "image": "/images/products/product-1782634656057-0.webp",
     "images": [
-      "/images/products/product-1782634656057-0.jpg",
-      "/images/products/product-1782634656057-1.jpg",
-      "/images/products/product-1782634656057-2.jpg",
-      "/images/products/product-1782634656057-3.jpg",
-      "/images/products/product-1782634656057-4.jpg"
+      "/images/products/product-1782634656057-0.webp",
+      "/images/products/product-1782634656057-1.webp",
+      "/images/products/product-1782634656057-2.webp",
+      "/images/products/product-1782634656057-3.webp",
+      "/images/products/product-1782634656057-4.webp"
     ],
     "name": "Katekyo Hitman Reborn Secret Bullet",
     "description": "Novela que incluye algunas ilustraciones, un desplegable doble faz y un sobre",
@@ -11961,10 +11956,10 @@ export const products = [
   },
   {
     "id": 1782634655761,
-    "image": "/images/products/product-1782634655761-0.jpg",
+    "image": "/images/products/product-1782634655761-0.webp",
     "images": [
-      "/images/products/product-1782634655761-0.jpg",
-      "/images/products/product-1782634655761-1.jpg"
+      "/images/products/product-1782634655761-0.webp",
+      "/images/products/product-1782634655761-1.webp"
     ],
     "name": "Anillo del Rayo Katekyo Hitman Reborn",
     "description": "Anillo del Rayo del anime Katekyo Hitman Reborn, el de Lambo",
@@ -11987,10 +11982,10 @@ export const products = [
   },
   {
     "id": 1782635422010,
-    "image": "/images/products/product-1782635422010-0.jpg",
+    "image": "/images/products/product-1782635422010-0.webp",
     "images": [
-      "/images/products/product-1782635422010-0.jpg",
-      "/images/products/product-1782635422010-1.jpg"
+      "/images/products/product-1782635422010-0.webp",
+      "/images/products/product-1782635422010-1.webp"
     ],
     "name": "Banana Fish Artbook Angel Eyes ",
     "description": "Colección de ilustraciones de Banana Fish de Akimi Yoshida",
@@ -12012,10 +12007,10 @@ export const products = [
   },
   {
     "id": 1782635422216,
-    "image": "/images/products/product-1782635422216-0.jpg",
+    "image": "/images/products/product-1782635422216-0.webp",
     "images": [
-      "/images/products/product-1782635422216-0.jpg",
-      "/images/products/product-1782635422216-1.jpg"
+      "/images/products/product-1782635422216-0.webp",
+      "/images/products/product-1782635422216-1.webp"
     ],
     "name": "Atarashii Gakko CD Ichijikikoku Deluxe",
     "description": "CD del album",
@@ -12037,14 +12032,14 @@ export const products = [
   },
   {
     "id": 1782635422378,
-    "image": "/images/products/product-1782635422378-0.jpg",
+    "image": "/images/products/product-1782635422378-0.webp",
     "images": [
-      "/images/products/product-1782635422378-0.jpg",
-      "/images/products/product-1782635422378-1.jpg",
-      "/images/products/product-1782635422378-2.jpg",
-      "/images/products/product-1782635422378-3.jpg",
-      "/images/products/product-1782635422378-4.jpg",
-      "/images/products/product-1782635422378-5.jpg"
+      "/images/products/product-1782635422378-0.webp",
+      "/images/products/product-1782635422378-1.webp",
+      "/images/products/product-1782635422378-2.webp",
+      "/images/products/product-1782635422378-3.webp",
+      "/images/products/product-1782635422378-4.webp",
+      "/images/products/product-1782635422378-5.webp"
     ],
     "name": "Kaguya-Sama Love is War Fanbook",
     "description": "Recopilación de información e ilustraciones de este fantástico romcom",
@@ -12067,10 +12062,10 @@ export const products = [
   },
   {
     "id": 1782635421960,
-    "image": "/images/products/product-1782635421960-0.jpg",
+    "image": "/images/products/product-1782635421960-0.webp",
     "images": [
-      "/images/products/product-1782635421960-0.jpg",
-      "/images/products/product-1782635421960-1.jpg"
+      "/images/products/product-1782635421960-0.webp",
+      "/images/products/product-1782635421960-1.webp"
     ],
     "name": "Evangelion Vol. 7 Edición Limitada",
     "description": "Incluye figura de Rei Navidad",
@@ -12093,13 +12088,13 @@ export const products = [
   },
   {
     "id": 1782635688575,
-    "image": "/images/products/product-1782635688575-0.jpg",
+    "image": "/images/products/product-1782635688575-0.webp",
     "images": [
-      "/images/products/product-1782635688575-0.jpg",
-      "/images/products/product-1782635688575-1.jpg",
-      "/images/products/product-1782635688575-2.jpg",
-      "/images/products/product-1782635688575-3.jpg",
-      "/images/products/product-1782635688575-4.jpg"
+      "/images/products/product-1782635688575-0.webp",
+      "/images/products/product-1782635688575-1.webp",
+      "/images/products/product-1782635688575-2.webp",
+      "/images/products/product-1782635688575-3.webp",
+      "/images/products/product-1782635688575-4.webp"
     ],
     "name": "Trigun Multiple Bullets",
     "description": "Manga de Trigun con distintos capitulos escritos e ilustrados por distintos autores, cómo Boichi, el autor de Dr. Stone",
@@ -12123,11 +12118,11 @@ export const products = [
   },
   {
     "id": 1782635687971,
-    "image": "/images/products/product-1782635687971-0.jpg",
+    "image": "/images/products/product-1782635687971-0.webp",
     "images": [
-      "/images/products/product-1782635687971-0.jpg",
-      "/images/products/product-1782635687971-1.jpg",
-      "/images/products/product-1782635687971-2.jpg"
+      "/images/products/product-1782635687971-0.webp",
+      "/images/products/product-1782635687971-1.webp",
+      "/images/products/product-1782635687971-2.webp"
     ],
     "name": "Figura Faputa Coreful",
     "description": "Figura Faputa Coreful",
@@ -12151,10 +12146,10 @@ export const products = [
   },
   {
     "id": 1782635688034,
-    "image": "/images/products/product-1782635688034-0.jpg",
+    "image": "/images/products/product-1782635688034-0.webp",
     "images": [
-      "/images/products/product-1782635688034-0.jpg",
-      "/images/products/product-1782635688034-1.jpg"
+      "/images/products/product-1782635688034-0.webp",
+      "/images/products/product-1782635688034-1.webp"
     ],
     "name": "CD Migma Shelter / Svaha Eraser",
     "description": "CD del album",
@@ -12176,12 +12171,12 @@ export const products = [
   },
   {
     "id": 1782635688030,
-    "image": "/images/products/product-1782635688030-0.jpg",
+    "image": "/images/products/product-1782635688030-0.webp",
     "images": [
-      "/images/products/product-1782635688030-0.jpg",
-      "/images/products/product-1782635688030-1.jpg",
-      "/images/products/product-1782635688030-2.jpg",
-      "/images/products/product-1782635688030-3.jpg"
+      "/images/products/product-1782635688030-0.webp",
+      "/images/products/product-1782635688030-1.webp",
+      "/images/products/product-1782635688030-2.webp",
+      "/images/products/product-1782635688030-3.webp"
     ],
     "name": "Figura Nanachi Coreful temporada 2",
     "description": "Con trajesito azul",
@@ -12205,13 +12200,13 @@ export const products = [
   },
   {
     "id": 1782635688433,
-    "image": "/images/products/product-1782635688433-0.jpg",
+    "image": "/images/products/product-1782635688433-0.webp",
     "images": [
-      "/images/products/product-1782635688433-0.jpg",
-      "/images/products/product-1782635688433-1.jpg",
-      "/images/products/product-1782635688433-2.jpg",
-      "/images/products/product-1782635688433-3.jpg",
-      "/images/products/product-1782635688433-4.jpg"
+      "/images/products/product-1782635688433-0.webp",
+      "/images/products/product-1782635688433-1.webp",
+      "/images/products/product-1782635688433-2.webp",
+      "/images/products/product-1782635688433-3.webp",
+      "/images/products/product-1782635688433-4.webp"
     ],
     "name": "Bungo Stray Dogs- HARUKAWA35 Art Works",
     "description": "Artbook formato B5, con sobrecubierta y solo páginas a color.",
@@ -12235,12 +12230,12 @@ export const products = [
   },
   {
     "id": 1782635688413,
-    "image": "/images/products/product-1782635688413-0.jpg",
+    "image": "/images/products/product-1782635688413-0.webp",
     "images": [
-      "/images/products/product-1782635688413-0.jpg",
-      "/images/products/product-1782635688413-1.jpg",
-      "/images/products/product-1782635688413-2.jpg",
-      "/images/products/product-1782635688413-3.jpg"
+      "/images/products/product-1782635688413-0.webp",
+      "/images/products/product-1782635688413-1.webp",
+      "/images/products/product-1782635688413-2.webp",
+      "/images/products/product-1782635688413-3.webp"
     ],
     "name": "Chainsaw Man Start guide",
     "description": "Incluye poster bifaz y stickers",
@@ -12267,10 +12262,10 @@ export const products = [
   },
   {
     "id": 1782635898452,
-    "image": "/images/products/product-1782635898452-0.jpg",
+    "image": "/images/products/product-1782635898452-0.webp",
     "images": [
-      "/images/products/product-1782635898452-0.jpg",
-      "/images/products/product-1782635898452-1.jpg"
+      "/images/products/product-1782635898452-0.webp",
+      "/images/products/product-1782635898452-1.webp"
     ],
     "name": "The ancient magus bride Vol. 10 Edición limitada",
     "description": "Incluye manga, libro extra con historias, y un acrílico",
@@ -12294,12 +12289,12 @@ export const products = [
   },
   {
     "id": 1782635897697,
-    "image": "/images/products/product-1782635897697-0.jpg",
+    "image": "/images/products/product-1782635897697-0.webp",
     "images": [
-      "/images/products/product-1782635897697-0.jpg",
-      "/images/products/product-1782635897697-1.jpg",
-      "/images/products/product-1782635897697-2.jpg",
-      "/images/products/product-1782635897697-3.jpg"
+      "/images/products/product-1782635897697-0.webp",
+      "/images/products/product-1782635897697-1.webp",
+      "/images/products/product-1782635897697-2.webp",
+      "/images/products/product-1782635897697-3.webp"
     ],
     "name": "Katekyo Hitman Reborn Jump Remix",
     "description": "Volúmenes recopilatorios de los arcos de Katekyo Hitman Reborn\n\nEn estas imagenes se ven:\n\n- Blood of Vongole - Kokuyo Arc\n- Katekyō Hitman Reborn! Ring Royal 1\n- Katekyō Hitman Reborn! Ring Royal 2\n\nSi tenés suerte vienen con una postal",
@@ -12322,11 +12317,11 @@ export const products = [
   },
   {
     "id": 1782635898343,
-    "image": "/images/products/product-1782635898343-0.jpg",
+    "image": "/images/products/product-1782635898343-0.webp",
     "images": [
-      "/images/products/product-1782635898343-0.jpg",
-      "/images/products/product-1782635898343-1.jpg",
-      "/images/products/product-1782635898343-2.jpg"
+      "/images/products/product-1782635898343-0.webp",
+      "/images/products/product-1782635898343-1.webp",
+      "/images/products/product-1782635898343-2.webp"
     ],
     "name": "Kimetsu no Yaiba (Demon slayer) Vol. 22 Edición limitada",
     "description": "Incluye 6 pines chicos y 2 grandes, y un libro con información e ilustraciones",
@@ -12349,12 +12344,12 @@ export const products = [
   },
   {
     "id": 1782635897846,
-    "image": "/images/products/product-1782635897846-0.jpg",
+    "image": "/images/products/product-1782635897846-0.webp",
     "images": [
-      "/images/products/product-1782635897846-0.jpg",
-      "/images/products/product-1782635897846-1.jpg",
-      "/images/products/product-1782635897846-2.jpg",
-      "/images/products/product-1782635897846-3.jpg"
+      "/images/products/product-1782635897846-0.webp",
+      "/images/products/product-1782635897846-1.webp",
+      "/images/products/product-1782635897846-2.webp",
+      "/images/products/product-1782635897846-3.webp"
     ],
     "name": "Figura Sega Evangelion de Rei Ayanami",
     "description": "Figura Sega Evangelion de Rei Ayanami",
@@ -12376,13 +12371,13 @@ export const products = [
   },
   {
     "id": 1782677565861,
-    "image": "/images/products/product-1782677565861-0.jpg",
+    "image": "/images/products/product-1782677565861-0.webp",
     "images": [
-      "/images/products/product-1782677565861-0.jpg",
-      "/images/products/product-1782677565861-1.jpg",
-      "/images/products/product-1782677565861-2.jpg",
-      "/images/products/product-1782677565861-3.jpg",
-      "/images/products/product-1782677565861-4.jpg"
+      "/images/products/product-1782677565861-0.webp",
+      "/images/products/product-1782677565861-1.webp",
+      "/images/products/product-1782677565861-2.webp",
+      "/images/products/product-1782677565861-3.webp",
+      "/images/products/product-1782677565861-4.webp"
     ],
     "name": "Bakemonogatari PSP Limited Edition",
     "description": "Incluye:\n- Juego para PSP\n- Caja contenedora\n- DVD Con contenido especial\n- Cartuchera de Mochila de Hachikuji\n- Manual",
@@ -12418,12 +12413,12 @@ export const products = [
   },
   {
     "id": 1782677566253,
-    "image": "/images/products/product-1782677566253-0.jpg",
+    "image": "/images/products/product-1782677566253-0.webp",
     "images": [
-      "/images/products/product-1782677566253-0.jpg",
-      "/images/products/product-1782677566253-1.jpg",
-      "/images/products/product-1782677566253-2.jpg",
-      "/images/products/product-1782677566253-3.jpg"
+      "/images/products/product-1782677566253-0.webp",
+      "/images/products/product-1782677566253-1.webp",
+      "/images/products/product-1782677566253-2.webp",
+      "/images/products/product-1782677566253-3.webp"
     ],
     "name": "Figura Albedo Overlord Bunny",
     "description": "Marca Taito Desktop Cute",
@@ -12446,10 +12441,10 @@ export const products = [
   },
   {
     "id": 1782677566312,
-    "image": "/images/products/product-1782677566312-0.jpg",
+    "image": "/images/products/product-1782677566312-0.webp",
     "images": [
-      "/images/products/product-1782677566312-0.jpg",
-      "/images/products/product-1782677566312-1.jpg"
+      "/images/products/product-1782677566312-0.webp",
+      "/images/products/product-1782677566312-1.webp"
     ],
     "name": "Natsume Vol. 28 edición especial",
     "description": "Incluye llavero de Nyanko",
@@ -12472,13 +12467,13 @@ export const products = [
   },
   {
     "id": 1782677565905,
-    "image": "/images/products/product-1782677565905-0.jpg",
+    "image": "/images/products/product-1782677565905-0.webp",
     "images": [
-      "/images/products/product-1782677565905-0.jpg",
-      "/images/products/product-1782677565905-1.jpg",
-      "/images/products/product-1782677565905-2.jpg",
-      "/images/products/product-1782677565905-3.jpg",
-      "/images/products/product-1782677565905-4.jpg"
+      "/images/products/product-1782677565905-0.webp",
+      "/images/products/product-1782677565905-1.webp",
+      "/images/products/product-1782677565905-2.webp",
+      "/images/products/product-1782677565905-3.webp",
+      "/images/products/product-1782677565905-4.webp"
     ],
     "name": "ANTENGAI I - Crónica Onírica",
     "description": "Este libro mezcla tanto manga, cómo artbook y diseños de personajes",
@@ -12502,13 +12497,13 @@ export const products = [
   },
   {
     "id": 1782677565653,
-    "image": "/images/products/product-1782677565653-0.jpg",
+    "image": "/images/products/product-1782677565653-0.webp",
     "images": [
-      "/images/products/product-1782677565653-0.jpg",
-      "/images/products/product-1782677565653-1.jpg",
-      "/images/products/product-1782677565653-2.jpg",
-      "/images/products/product-1782677565653-3.jpg",
-      "/images/products/product-1782677565653-4.jpg"
+      "/images/products/product-1782677565653-0.webp",
+      "/images/products/product-1782677565653-1.webp",
+      "/images/products/product-1782677565653-2.webp",
+      "/images/products/product-1782677565653-3.webp",
+      "/images/products/product-1782677565653-4.webp"
     ],
     "name": "Monthly Anime Style 5",
     "description": "Incluye Nendoroid Puchi de la profe de K-on (Sawako Yamanaka)!",
@@ -12534,9 +12529,9 @@ export const products = [
   },
   {
     "id": 1782677565648,
-    "image": "/images/products/product-1782677565648-0.jpg",
+    "image": "/images/products/product-1782677565648-0.webp",
     "images": [
-      "/images/products/product-1782677565648-0.jpg"
+      "/images/products/product-1782677565648-0.webp"
     ],
     "name": "Sylvanian Gato Persa Mamá",
     "description": "Ternurín original de Japón",
@@ -12558,14 +12553,14 @@ export const products = [
   },
   {
     "id": 1782677910310,
-    "image": "/images/products/product-1782677910310-0.jpg",
+    "image": "/images/products/product-1782677910310-0.webp",
     "images": [
-      "/images/products/product-1782677910310-0.jpg",
-      "/images/products/product-1782677910310-1.jpg",
-      "/images/products/product-1782677910310-2.jpg",
-      "/images/products/product-1782677910310-3.jpg",
-      "/images/products/product-1782677910310-4.jpg",
-      "/images/products/product-1782677910310-5.jpg"
+      "/images/products/product-1782677910310-0.webp",
+      "/images/products/product-1782677910310-1.webp",
+      "/images/products/product-1782677910310-2.webp",
+      "/images/products/product-1782677910310-3.webp",
+      "/images/products/product-1782677910310-4.webp",
+      "/images/products/product-1782677910310-5.webp"
     ],
     "name": "Chiikawa Vol. 1 Edición Limitada",
     "description": "Incluye Picture Book",
@@ -12594,10 +12589,10 @@ export const products = [
   },
   {
     "id": 1782677909681,
-    "image": "/images/products/product-1782677909681-0.jpg",
+    "image": "/images/products/product-1782677909681-0.webp",
     "images": [
-      "/images/products/product-1782677909681-0.jpg",
-      "/images/products/product-1782677909681-1.jpg"
+      "/images/products/product-1782677909681-0.webp",
+      "/images/products/product-1782677909681-1.webp"
     ],
     "name": "Figura Nadeshiko Yuru Camp",
     "description": "Para sostener marcador, lapicera, etc\n\nBandai Pen Holder Friend",
@@ -12619,10 +12614,10 @@ export const products = [
   },
   {
     "id": 1782677909431,
-    "image": "/images/products/product-1782677909431-0.jpg",
+    "image": "/images/products/product-1782677909431-0.webp",
     "images": [
-      "/images/products/product-1782677909431-0.jpg",
-      "/images/products/product-1782677909431-1.jpg"
+      "/images/products/product-1782677909431-0.webp",
+      "/images/products/product-1782677909431-1.webp"
     ],
     "name": "Blue lock Vol. 30 Edicion Limitada",
     "description": "Viene con 2 pines, 4 clear cards y 2 planchas de stickers de Hiori Yo y Kurona Ranze (Hay de muchos personajes más)",
@@ -12648,14 +12643,14 @@ export const products = [
   },
   {
     "id": 1782677909544,
-    "image": "/images/products/product-1782677909544-0.jpg",
+    "image": "/images/products/product-1782677909544-0.webp",
     "images": [
-      "/images/products/product-1782677909544-0.jpg",
-      "/images/products/product-1782677909544-1.jpg",
-      "/images/products/product-1782677909544-2.jpg",
-      "/images/products/product-1782677909544-3.jpg",
-      "/images/products/product-1782677909544-4.jpg",
-      "/images/products/product-1782677909544-5.jpg"
+      "/images/products/product-1782677909544-0.webp",
+      "/images/products/product-1782677909544-1.webp",
+      "/images/products/product-1782677909544-2.webp",
+      "/images/products/product-1782677909544-3.webp",
+      "/images/products/product-1782677909544-4.webp",
+      "/images/products/product-1782677909544-5.webp"
     ],
     "name": "Wind Breaker Exhibition Artbook",
     "description": "Colección de ilustraciones de Wind Breaker",
@@ -12677,14 +12672,14 @@ export const products = [
   },
   {
     "id": 1782677910366,
-    "image": "/images/products/product-1782677910366-0.jpg",
+    "image": "/images/products/product-1782677910366-0.webp",
     "images": [
-      "/images/products/product-1782677910366-0.jpg",
-      "/images/products/product-1782677910366-1.jpg",
-      "/images/products/product-1782677910366-2.jpg",
-      "/images/products/product-1782677910366-3.jpg",
-      "/images/products/product-1782677910366-4.jpg",
-      "/images/products/product-1782677910366-5.jpg"
+      "/images/products/product-1782677910366-0.webp",
+      "/images/products/product-1782677910366-1.webp",
+      "/images/products/product-1782677910366-2.webp",
+      "/images/products/product-1782677910366-3.webp",
+      "/images/products/product-1782677910366-4.webp",
+      "/images/products/product-1782677910366-5.webp"
     ],
     "name": "DURARARA!! Artbook Shooting Star Bebop",
     "description": "Artbook de 128 páginas de DURARARA!! por Suzuhito Yasuda",
@@ -12706,13 +12701,13 @@ export const products = [
   },
   {
     "id": 1782677909754,
-    "image": "/images/products/product-1782677909754-0.jpg",
+    "image": "/images/products/product-1782677909754-0.webp",
     "images": [
-      "/images/products/product-1782677909754-0.jpg",
-      "/images/products/product-1782677909754-1.jpg",
-      "/images/products/product-1782677909754-2.jpg",
-      "/images/products/product-1782677909754-3.jpg",
-      "/images/products/product-1782677909754-4.jpg"
+      "/images/products/product-1782677909754-0.webp",
+      "/images/products/product-1782677909754-1.webp",
+      "/images/products/product-1782677909754-2.webp",
+      "/images/products/product-1782677909754-3.webp",
+      "/images/products/product-1782677909754-4.webp"
     ],
     "name": "Jujutsu Kaisen 1st season complete book",
     "description": "Libro guía de la primer temporada de Jujutsu Kaisen que muestra desde diseños hasta imagenes de momentos importantes de la historia.\nViene con desplegables\nPáginas: 160",
@@ -12734,14 +12729,14 @@ export const products = [
   },
   {
     "id": 1782678423914,
-    "image": "/images/products/product-1782678423914-0.jpg",
+    "image": "/images/products/product-1782678423914-0.webp",
     "images": [
-      "/images/products/product-1782678423914-0.jpg",
-      "/images/products/product-1782678423914-1.jpg",
-      "/images/products/product-1782678423914-2.jpg",
-      "/images/products/product-1782678423914-3.jpg",
-      "/images/products/product-1782678423914-4.jpg",
-      "/images/products/product-1782678423914-5.jpg"
+      "/images/products/product-1782678423914-0.webp",
+      "/images/products/product-1782678423914-1.webp",
+      "/images/products/product-1782678423914-2.webp",
+      "/images/products/product-1782678423914-3.webp",
+      "/images/products/product-1782678423914-4.webp",
+      "/images/products/product-1782678423914-5.webp"
     ],
     "name": "Jujutsu Kaisen Official start guide",
     "description": "Guía del anime de Jujutsu Kaisen que incluye desde diseños hasta entrevistas\nViene con una plancha de stickers y desplegables\nPáginas: 80",
@@ -12763,13 +12758,13 @@ export const products = [
   },
   {
     "id": 1782678423765,
-    "image": "/images/products/product-1782678423765-0.jpg",
+    "image": "/images/products/product-1782678423765-0.webp",
     "images": [
-      "/images/products/product-1782678423765-0.jpg",
-      "/images/products/product-1782678423765-1.jpg",
-      "/images/products/product-1782678423765-2.jpg",
-      "/images/products/product-1782678423765-3.jpg",
-      "/images/products/product-1782678423765-4.jpg"
+      "/images/products/product-1782678423765-0.webp",
+      "/images/products/product-1782678423765-1.webp",
+      "/images/products/product-1782678423765-2.webp",
+      "/images/products/product-1782678423765-3.webp",
+      "/images/products/product-1782678423765-4.webp"
     ],
     "name": "Boogiepop Artbook",
     "description": "Colección de ilustraciones de Boogiepop and Others/Boogiepop wa Warawanai\n\nPáginas: 98",
@@ -12791,10 +12786,10 @@ export const products = [
   },
   {
     "id": 1782678424204,
-    "image": "/images/products/product-1782678424204-0.jpg",
+    "image": "/images/products/product-1782678424204-0.webp",
     "images": [
-      "/images/products/product-1782678424204-0.jpg",
-      "/images/products/product-1782678424204-1.jpg"
+      "/images/products/product-1782678424204-0.webp",
+      "/images/products/product-1782678424204-1.webp"
     ],
     "name": "Sakura Cardcaptor Vol.5 Edición Limitada",
     "description": "Viene con Nendoroid puchi de la famosa protagonista Sakura Kinomoto",
@@ -12821,13 +12816,13 @@ export const products = [
   },
   {
     "id": 1782678423979,
-    "image": "/images/products/product-1782678423979-0.jpg",
+    "image": "/images/products/product-1782678423979-0.webp",
     "images": [
-      "/images/products/product-1782678423979-0.jpg",
-      "/images/products/product-1782678423979-1.jpg",
-      "/images/products/product-1782678423979-2.jpg",
-      "/images/products/product-1782678423979-3.jpg",
-      "/images/products/product-1782678423979-4.jpg"
+      "/images/products/product-1782678423979-0.webp",
+      "/images/products/product-1782678423979-1.webp",
+      "/images/products/product-1782678423979-2.webp",
+      "/images/products/product-1782678423979-3.webp",
+      "/images/products/product-1782678423979-4.webp"
     ],
     "name": "Dragon Ball Z: Budokai Tenkaichi 3 Guía (Sparking Meteor)",
     "description": "Libro Guía de la tercera edición de la saga de juegos \"Budokai Tenkaichi\" del anime \"Dragon Ball Z\"\nEspecificaciones del producto:\n- Ilustraciones\n- Guías\n- Diseños\n- Idioma: Japonés",
@@ -12852,14 +12847,14 @@ export const products = [
   },
   {
     "id": 1782678423370,
-    "image": "/images/products/product-1782678423370-0.jpg",
+    "image": "/images/products/product-1782678423370-0.webp",
     "images": [
-      "/images/products/product-1782678423370-0.jpg",
-      "/images/products/product-1782678423370-1.jpg",
-      "/images/products/product-1782678423370-2.jpg",
-      "/images/products/product-1782678423370-3.jpg",
-      "/images/products/product-1782678423370-4.jpg",
-      "/images/products/product-1782678423370-5.jpg"
+      "/images/products/product-1782678423370-0.webp",
+      "/images/products/product-1782678423370-1.webp",
+      "/images/products/product-1782678423370-2.webp",
+      "/images/products/product-1782678423370-3.webp",
+      "/images/products/product-1782678423370-4.webp",
+      "/images/products/product-1782678423370-5.webp"
     ],
     "name": "The Art of Haikyu!! Endings and Beginnings",
     "description": "Artbook de Haikyu!! con 400 Páginas de Ilustraciones a color indispensable para cualquier fan de la historia y sus personajes.",
@@ -12884,11 +12879,11 @@ export const products = [
   },
   {
     "id": 1782678423612,
-    "image": "/images/products/product-1782678423612-0.jpg",
+    "image": "/images/products/product-1782678423612-0.webp",
     "images": [
-      "/images/products/product-1782678423612-0.jpg",
-      "/images/products/product-1782678423612-1.jpg",
-      "/images/products/product-1782678423612-2.jpg"
+      "/images/products/product-1782678423612-0.webp",
+      "/images/products/product-1782678423612-1.webp",
+      "/images/products/product-1782678423612-2.webp"
     ],
     "name": "Vampire Knight Vol.1",
     "description": "Primer Volumen de Vampire Knight",
@@ -12910,11 +12905,11 @@ export const products = [
   },
   {
     "id": 1782678423782,
-    "image": "/images/products/product-1782678423782-0.jpg",
+    "image": "/images/products/product-1782678423782-0.webp",
     "images": [
-      "/images/products/product-1782678423782-0.jpg",
-      "/images/products/product-1782678423782-1.jpg",
-      "/images/products/product-1782678423782-2.jpg"
+      "/images/products/product-1782678423782-0.webp",
+      "/images/products/product-1782678423782-1.webp",
+      "/images/products/product-1782678423782-2.webp"
     ],
     "name": "Demon Slayer Vol.23 Edición Limitada",
     "description": "Este tomo número 23 de edición limitada viene con 4 figuras y accesorios que le encantarían a cualquier fan de la serie.\n\nEspecificaciones del producto:\n- 4 Figuras Q-Posket de Nezuko, Tanjiro, Zenitsu e Inosuke\n- Accesorios para cada figura",
@@ -12956,11 +12951,11 @@ export const products = [
   },
   {
     "id": 1782684208424,
-    "image": "/images/products/product-1782684208424-0.jpg",
+    "image": "/images/products/product-1782684208424-0.webp",
     "images": [
-      "/images/products/product-1782684208424-0.jpg",
-      "/images/products/product-1782684208424-1.jpg",
-      "/images/products/product-1782684208424-2.jpg"
+      "/images/products/product-1782684208424-0.webp",
+      "/images/products/product-1782684208424-1.webp",
+      "/images/products/product-1782684208424-2.webp"
     ],
     "name": "Jujutsu Kaisen Vol.26 Edición Limitada",
     "description": "Este tomo número 26 de edición limitada viene con distintos objetos que le encantarían a cualquier fan de la serie.\nEspecificaciones del producto:\n- 2 Pañuelos de tela de 40x40cm\n- Arma de Toji de metal\n- Prisión confinadora de metal\n- 49 postales\nUn imprescindible para los fans de Jujutsu Kaisen y sus personajes.",
@@ -12997,15 +12992,15 @@ export const products = [
   },
   {
     "id": 1782684208606,
-    "image": "/images/products/product-1782684208606-0.jpg",
+    "image": "/images/products/product-1782684208606-0.webp",
     "images": [
-      "/images/products/product-1782684208606-0.jpg",
-      "/images/products/product-1782684208606-1.jpg",
-      "/images/products/product-1782684208606-2.jpg",
-      "/images/products/product-1782684208606-3.jpg",
-      "/images/products/product-1782684208606-4.jpg",
-      "/images/products/product-1782684208606-5.jpg",
-      "/images/products/product-1782684208606-6.jpg"
+      "/images/products/product-1782684208606-0.webp",
+      "/images/products/product-1782684208606-1.webp",
+      "/images/products/product-1782684208606-2.webp",
+      "/images/products/product-1782684208606-3.webp",
+      "/images/products/product-1782684208606-4.webp",
+      "/images/products/product-1782684208606-5.webp",
+      "/images/products/product-1782684208606-6.webp"
     ],
     "name": "Gintama Official Fan Book Kojien",
     "description": "Este libro es una colección de ilustraciones e información de Gintama\nEspecificaciones del producto:\n- Ilustraciones\n- Diccionario de terminos relacionados al anime\n- Perfiles de personajes\n- Comentarios del autor\n- Páginas: 430",
@@ -13028,13 +13023,13 @@ export const products = [
   },
   {
     "id": 1782684209035,
-    "image": "/images/products/product-1782684209035-0.jpg",
+    "image": "/images/products/product-1782684209035-0.webp",
     "images": [
-      "/images/products/product-1782684209035-0.jpg",
-      "/images/products/product-1782684209035-1.jpg",
-      "/images/products/product-1782684209035-2.jpg",
-      "/images/products/product-1782684209035-3.jpg",
-      "/images/products/product-1782684209035-4.jpg"
+      "/images/products/product-1782684209035-0.webp",
+      "/images/products/product-1782684209035-1.webp",
+      "/images/products/product-1782684209035-2.webp",
+      "/images/products/product-1782684209035-3.webp",
+      "/images/products/product-1782684209035-4.webp"
     ],
     "name": "Katsuki Bakugo \"MY HERO ACADEMIA\" 7th SEASON FIGURE",
     "description": "Figura de Bakugo basada en la séptima temporada del anime.\nTamaño: Aprox. 23cm",
@@ -13062,13 +13057,13 @@ export const products = [
   },
   {
     "id": 1782684323712,
-    "image": "/images/products/product-1782684323712-0.jpg",
+    "image": "/images/products/product-1782684323712-0.webp",
     "images": [
-      "/images/products/product-1782684323712-0.jpg",
-      "/images/products/product-1782684323712-1.jpg",
-      "/images/products/product-1782684323712-2.jpg",
-      "/images/products/product-1782684323712-3.jpg",
-      "/images/products/product-1782684323712-4.jpg"
+      "/images/products/product-1782684323712-0.webp",
+      "/images/products/product-1782684323712-1.webp",
+      "/images/products/product-1782684323712-2.webp",
+      "/images/products/product-1782684323712-3.webp",
+      "/images/products/product-1782684323712-4.webp"
     ],
     "name": "Asuka Evangelion Película Luminasta ~30th Anniversary Ver.~",
     "description": "Figura de Asuka en conmemoración de los 30 años del famoso anime \"Evangelion\"\nTamaño: Aprox. 8 x 23cm\nRoca: Approx. 9.5 x 6 cm",
@@ -13090,13 +13085,13 @@ export const products = [
   },
   {
     "id": 1782684324632,
-    "image": "/images/products/product-1782684324632-0.jpg",
+    "image": "/images/products/product-1782684324632-0.webp",
     "images": [
-      "/images/products/product-1782684324632-0.jpg",
-      "/images/products/product-1782684324632-1.jpg",
-      "/images/products/product-1782684324632-2.jpg",
-      "/images/products/product-1782684324632-3.jpg",
-      "/images/products/product-1782684324632-4.jpg"
+      "/images/products/product-1782684324632-0.webp",
+      "/images/products/product-1782684324632-1.webp",
+      "/images/products/product-1782684324632-2.webp",
+      "/images/products/product-1782684324632-3.webp",
+      "/images/products/product-1782684324632-4.webp"
     ],
     "name": "07 Illustration Book",
     "description": "Este libro es un doujinshi que compila ilustraciones del artista @somaz___\nEspecificaciones del producto:\n- Ilustraciones\n- Páginas: 40",
@@ -13119,14 +13114,14 @@ export const products = [
   },
   {
     "id": 1782684323859,
-    "image": "/images/products/product-1782684323859-0.jpg",
+    "image": "/images/products/product-1782684323859-0.webp",
     "images": [
-      "/images/products/product-1782684323859-0.jpg",
-      "/images/products/product-1782684323859-1.jpg",
-      "/images/products/product-1782684323859-2.jpg",
-      "/images/products/product-1782684323859-3.jpg",
-      "/images/products/product-1782684323859-4.jpg",
-      "/images/products/product-1782684323859-5.jpg"
+      "/images/products/product-1782684323859-0.webp",
+      "/images/products/product-1782684323859-1.webp",
+      "/images/products/product-1782684323859-2.webp",
+      "/images/products/product-1782684323859-3.webp",
+      "/images/products/product-1782684323859-4.webp",
+      "/images/products/product-1782684323859-5.webp"
     ],
     "name": "Las Quintillizas TV Anime design works",
     "description": "Fan Book del anime The Quintessential Quintuplets basado en el manga escrito e ilustrado por Negi Haruba que incluye información de los capítulos de la primera temporada.\nEspecificaciones del producto:\n- Ilustraciones\n- Diseños de personajes\n- Páginas: 128",
@@ -13159,13 +13154,13 @@ export const products = [
   },
   {
     "id": 1782684323849,
-    "image": "/images/products/product-1782684323849-0.jpg",
+    "image": "/images/products/product-1782684323849-0.webp",
     "images": [
-      "/images/products/product-1782684323849-0.jpg",
-      "/images/products/product-1782684323849-1.jpg",
-      "/images/products/product-1782684323849-2.jpg",
-      "/images/products/product-1782684323849-3.jpg",
-      "/images/products/product-1782684323849-4.jpg"
+      "/images/products/product-1782684323849-0.webp",
+      "/images/products/product-1782684323849-1.webp",
+      "/images/products/product-1782684323849-2.webp",
+      "/images/products/product-1782684323849-3.webp",
+      "/images/products/product-1782684323849-4.webp"
     ],
     "name": "Evangelion: BP EMISSION",
     "description": "Este libro es un doujinshi del diseñador de algunos EVAs y autor de \"Evangelion: ANIMA\", Ikuto Yamashita.\nEspecificaciones del producto:\n- Ilustraciones y sketches mayoritariamente de robots\n- Páginas: 90",
@@ -13190,16 +13185,16 @@ export const products = [
   },
   {
     "id": 1782684323955,
-    "image": "/images/products/product-1782684323955-0.jpg",
+    "image": "/images/products/product-1782684323955-0.webp",
     "images": [
-      "/images/products/product-1782684323955-0.jpg",
-      "/images/products/product-1782684323955-1.jpg",
-      "/images/products/product-1782684323955-2.jpg",
-      "/images/products/product-1782684323955-3.jpg",
-      "/images/products/product-1782684323955-4.jpg",
-      "/images/products/product-1782684323955-5.jpg",
-      "/images/products/product-1782684323955-6.jpg",
-      "/images/products/product-1782684323955-7.jpg"
+      "/images/products/product-1782684323955-0.webp",
+      "/images/products/product-1782684323955-1.webp",
+      "/images/products/product-1782684323955-2.webp",
+      "/images/products/product-1782684323955-3.webp",
+      "/images/products/product-1782684323955-4.webp",
+      "/images/products/product-1782684323955-5.webp",
+      "/images/products/product-1782684323955-6.webp",
+      "/images/products/product-1782684323955-7.webp"
     ],
     "name": "Haikyuu!! Color Illustrations",
     "description": "Este libro es una colección de ilustraciones de Haikyuu! que viene con stickers.\nEspecificaciones del producto:\n- Ilustraciones\n- Stickers\n- Páginas: 200+",
@@ -13222,12 +13217,12 @@ export const products = [
   },
   {
     "id": 1782684324342,
-    "image": "/images/products/product-1782684324342-0.jpg",
+    "image": "/images/products/product-1782684324342-0.webp",
     "images": [
-      "/images/products/product-1782684324342-0.jpg",
-      "/images/products/product-1782684324342-1.jpg",
-      "/images/products/product-1782684324342-2.jpg",
-      "/images/products/product-1782684324342-3.jpg"
+      "/images/products/product-1782684324342-0.webp",
+      "/images/products/product-1782684324342-1.webp",
+      "/images/products/product-1782684324342-2.webp",
+      "/images/products/product-1782684324342-3.webp"
     ],
     "name": "Digital Monster Mo-Powerfull Data Book",
     "description": "Este libro contiene datos sobre distintos Digimon e ilustraciones de ellos.\nEspecificaciones del producto:\n- Ilustraciones\n- Datos\n- Páginas: 95",
@@ -13249,14 +13244,14 @@ export const products = [
   },
   {
     "id": 1782684571383,
-    "image": "/images/products/product-1782684571383-0.jpg",
+    "image": "/images/products/product-1782684571383-0.webp",
     "images": [
-      "/images/products/product-1782684571383-0.jpg",
-      "/images/products/product-1782684571383-1.jpg",
-      "/images/products/product-1782684571383-2.jpg",
-      "/images/products/product-1782684571383-3.jpg",
-      "/images/products/product-1782684571383-4.jpg",
-      "/images/products/product-1782684571383-5.jpg"
+      "/images/products/product-1782684571383-0.webp",
+      "/images/products/product-1782684571383-1.webp",
+      "/images/products/product-1782684571383-2.webp",
+      "/images/products/product-1782684571383-3.webp",
+      "/images/products/product-1782684571383-4.webp",
+      "/images/products/product-1782684571383-5.webp"
     ],
     "name": "Hunter x Hunter Treasure 3",
     "description": "Esta revista es el volumen 3 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de Yorknew City\n- Tapa de manga alternativa para alguno de tus mangas\n- Páginas: 480",
@@ -13281,13 +13276,13 @@ export const products = [
   },
   {
     "id": 1782684571575,
-    "image": "/images/products/product-1782684571575-0.jpg",
+    "image": "/images/products/product-1782684571575-0.webp",
     "images": [
-      "/images/products/product-1782684571575-0.jpg",
-      "/images/products/product-1782684571575-1.jpg",
-      "/images/products/product-1782684571575-2.jpg",
-      "/images/products/product-1782684571575-3.jpg",
-      "/images/products/product-1782684571575-4.jpg"
+      "/images/products/product-1782684571575-0.webp",
+      "/images/products/product-1782684571575-1.webp",
+      "/images/products/product-1782684571575-2.webp",
+      "/images/products/product-1782684571575-3.webp",
+      "/images/products/product-1782684571575-4.webp"
     ],
     "name": "Fullmetal Alchemist Art Book 1",
     "description": "Este libro de Hiromu Arakawa es una recopilación de ilustraciones de Fullmetal Alchemist realizadas entre los años 2001 y 2003.\nEspecificaciones del producto:\n- Ilustraciones\n- Páginas: 95",
@@ -13309,11 +13304,11 @@ export const products = [
   },
   {
     "id": 1782684571469,
-    "image": "/images/products/product-1782684571469-0.jpg",
+    "image": "/images/products/product-1782684571469-0.webp",
     "images": [
-      "/images/products/product-1782684571469-0.jpg",
-      "/images/products/product-1782684571469-1.jpg",
-      "/images/products/product-1782684571469-2.jpg"
+      "/images/products/product-1782684571469-0.webp",
+      "/images/products/product-1782684571469-1.webp",
+      "/images/products/product-1782684571469-2.webp"
     ],
     "name": "Super Sonico Fun Magazine 2",
     "description": "Este libro es uno de los premios I de un Ichiban Kuji de 2013.\nEspecificaciones del producto:\n- Ilustraciones\n- 2 Postales",
@@ -13337,15 +13332,15 @@ export const products = [
   },
   {
     "id": 1782684570872,
-    "image": "/images/products/product-1782684570872-0.jpg",
+    "image": "/images/products/product-1782684570872-0.webp",
     "images": [
-      "/images/products/product-1782684570872-0.jpg",
-      "/images/products/product-1782684570872-1.jpg",
-      "/images/products/product-1782684570872-2.jpg",
-      "/images/products/product-1782684570872-3.jpg",
-      "/images/products/product-1782684570872-4.jpg",
-      "/images/products/product-1782684570872-5.jpg",
-      "/images/products/product-1782684570872-6.jpg"
+      "/images/products/product-1782684570872-0.webp",
+      "/images/products/product-1782684570872-1.webp",
+      "/images/products/product-1782684570872-2.webp",
+      "/images/products/product-1782684570872-3.webp",
+      "/images/products/product-1782684570872-4.webp",
+      "/images/products/product-1782684570872-5.webp",
+      "/images/products/product-1782684570872-6.webp"
     ],
     "name": "Blue Lock EGOIST BIBLE",
     "description": "Este libro es un libro de personajes con ilustraciones e información de muchos de los personajes de la serie.\nEspecificaciones del producto:\n- Ilustraciones\n- Datos de los personajes\n- Páginas: 200",
@@ -13367,15 +13362,15 @@ export const products = [
   },
   {
     "id": 1782684570962,
-    "image": "/images/products/product-1782684570962-0.jpg",
+    "image": "/images/products/product-1782684570962-0.webp",
     "images": [
-      "/images/products/product-1782684570962-0.jpg",
-      "/images/products/product-1782684570962-1.jpg",
-      "/images/products/product-1782684570962-2.jpg",
-      "/images/products/product-1782684570962-3.jpg",
-      "/images/products/product-1782684570962-4.jpg",
-      "/images/products/product-1782684570962-5.jpg",
-      "/images/products/product-1782684570962-6.jpg"
+      "/images/products/product-1782684570962-0.webp",
+      "/images/products/product-1782684570962-1.webp",
+      "/images/products/product-1782684570962-2.webp",
+      "/images/products/product-1782684570962-3.webp",
+      "/images/products/product-1782684570962-4.webp",
+      "/images/products/product-1782684570962-5.webp",
+      "/images/products/product-1782684570962-6.webp"
     ],
     "name": "Fanbook del famoso anime Mob Psycho 100",
     "description": "Especificaciones del producto:\n- Explicaciones en profundidad de los personajes principales y la historia\n- Entrevistas con ONE Sensei\n- ONE Sensei responde preguntas de los lectores\n- Q&A de Personajes\n- Anuncio de Resultados de la Encuesta de Fans\n- Ilustraciones de colaboración originales de Hiromu Arakawa, Kotoyama, Takako Shimura, Nagano, Ry AGOji Minagawa e Itaru Bonnoki",
@@ -13399,16 +13394,16 @@ export const products = [
   },
   {
     "id": 1782684714711,
-    "image": "/images/products/product-1782684714711-0.jpg",
+    "image": "/images/products/product-1782684714711-0.webp",
     "images": [
-      "/images/products/product-1782684714711-0.jpg",
-      "/images/products/product-1782684714711-1.jpg",
-      "/images/products/product-1782684714711-2.jpg",
-      "/images/products/product-1782684714711-3.jpg",
-      "/images/products/product-1782684714711-4.jpg",
-      "/images/products/product-1782684714711-5.jpg",
-      "/images/products/product-1782684714711-6.jpg",
-      "/images/products/product-1782684714711-7.jpg"
+      "/images/products/product-1782684714711-0.webp",
+      "/images/products/product-1782684714711-1.webp",
+      "/images/products/product-1782684714711-2.webp",
+      "/images/products/product-1782684714711-3.webp",
+      "/images/products/product-1782684714711-4.webp",
+      "/images/products/product-1782684714711-5.webp",
+      "/images/products/product-1782684714711-6.webp",
+      "/images/products/product-1782684714711-7.webp"
     ],
     "name": "Quintillizas Ameusagi Pack",
     "description": "Conjunto de productos del ilustrador independiente \"Ameusagi\" del anime de las quintillizas.\nEspecificaciones del producto:\n- Artbook de 20 páginas\n- SOBRE transparente\n- Dibujo suelto en cartón\n- 4 señaladores para libros\n- Llavero de acrílico de una quintilliza random",
@@ -13444,14 +13439,14 @@ export const products = [
   },
   {
     "id": 1782684713897,
-    "image": "/images/products/product-1782684713897-0.jpg",
+    "image": "/images/products/product-1782684713897-0.webp",
     "images": [
-      "/images/products/product-1782684713897-0.jpg",
-      "/images/products/product-1782684713897-1.jpg",
-      "/images/products/product-1782684713897-2.jpg",
-      "/images/products/product-1782684713897-3.jpg",
-      "/images/products/product-1782684713897-4.jpg",
-      "/images/products/product-1782684713897-5.jpg"
+      "/images/products/product-1782684713897-0.webp",
+      "/images/products/product-1782684713897-1.webp",
+      "/images/products/product-1782684713897-2.webp",
+      "/images/products/product-1782684713897-3.webp",
+      "/images/products/product-1782684713897-4.webp",
+      "/images/products/product-1782684713897-5.webp"
     ],
     "name": "Mairiro Gashu Toilet-Bound Hanako-kun",
     "description": "Colección de ilustraciones del famoso anime Toilet-Bound Hanako-kun (9Jibaku Shōnen Hanako-kun).",
@@ -13473,11 +13468,11 @@ export const products = [
   },
   {
     "id": 1782684714237,
-    "image": "/images/products/product-1782684714237-0.jpg",
+    "image": "/images/products/product-1782684714237-0.webp",
     "images": [
-      "/images/products/product-1782684714237-0.jpg",
-      "/images/products/product-1782684714237-1.jpg",
-      "/images/products/product-1782684714237-2.jpg"
+      "/images/products/product-1782684714237-0.webp",
+      "/images/products/product-1782684714237-1.webp",
+      "/images/products/product-1782684714237-2.webp"
     ],
     "name": "Jujutsu Kaisen Vol.20 Edición Limitada",
     "description": "Este tomo número 20 de edición limitada viene con distintos objetos que le encantarían a cualquier fan de la serie.\nEspecificaciones del producto:\n- 20 Pines de distintos personajes del anime",
@@ -13504,11 +13499,11 @@ export const products = [
   },
   {
     "id": 1782684714412,
-    "image": "/images/products/product-1782684714412-0.jpg",
+    "image": "/images/products/product-1782684714412-0.webp",
     "images": [
-      "/images/products/product-1782684714412-0.jpg",
-      "/images/products/product-1782684714412-1.jpg",
-      "/images/products/product-1782684714412-2.jpg"
+      "/images/products/product-1782684714412-0.webp",
+      "/images/products/product-1782684714412-1.webp",
+      "/images/products/product-1782684714412-2.webp"
     ],
     "name": "Figura Rem Taito AMP ~Winter Maid image ver.~",
     "description": "Original de Japón\nTamaño: aprox 25cm de alto",
@@ -13533,17 +13528,17 @@ export const products = [
   },
   {
     "id": 1782684713973,
-    "image": "/images/products/product-1782684713973-0.jpg",
+    "image": "/images/products/product-1782684713973-0.webp",
     "images": [
-      "/images/products/product-1782684713973-0.jpg",
-      "/images/products/product-1782684713973-1.jpg",
-      "/images/products/product-1782684713973-2.jpg",
-      "/images/products/product-1782684713973-3.jpg",
-      "/images/products/product-1782684713973-4.jpg",
-      "/images/products/product-1782684713973-5.jpg",
-      "/images/products/product-1782684713973-6.jpg",
-      "/images/products/product-1782684713973-7.jpg",
-      "/images/products/product-1782684713973-8.jpg"
+      "/images/products/product-1782684713973-0.webp",
+      "/images/products/product-1782684713973-1.webp",
+      "/images/products/product-1782684713973-2.webp",
+      "/images/products/product-1782684713973-3.webp",
+      "/images/products/product-1782684713973-4.webp",
+      "/images/products/product-1782684713973-5.webp",
+      "/images/products/product-1782684713973-6.webp",
+      "/images/products/product-1782684713973-7.webp",
+      "/images/products/product-1782684713973-8.webp"
     ],
     "name": "Jump GIGA 2022 AUTUMN",
     "description": "Revista Jump GIGA 2022 AUTUMN con portada colaborativa de MASHLE x Me & Roboco x Undead Unluck en idioma japonés.\nEsta edición incluye:\nPoster de SAKAMOTO DAYS\nPoster de Bleach\nStickers de Blue Box, The Ellusive Samurai, PPPPPP, Yozakura family, Akanebanashi y Witch Watch\nStickers de Me and Roboko, Undead Unluck, Mashle\nStickers de Jujutsu Kaisen (de las 3 grandes familias)\n2 Posters de Bakugou Katsuki\n\nNO INCLUYE: Acrílicos de Haikyuu!!",
@@ -13582,12 +13577,12 @@ export const products = [
   },
   {
     "id": 1782684713862,
-    "image": "/images/products/product-1782684713862-0.jpg",
+    "image": "/images/products/product-1782684713862-0.webp",
     "images": [
-      "/images/products/product-1782684713862-0.jpg",
-      "/images/products/product-1782684713862-1.jpg",
-      "/images/products/product-1782684713862-2.jpg",
-      "/images/products/product-1782684713862-3.jpg"
+      "/images/products/product-1782684713862-0.webp",
+      "/images/products/product-1782684713862-1.webp",
+      "/images/products/product-1782684713862-2.webp",
+      "/images/products/product-1782684713862-3.webp"
     ],
     "name": "Tokyo Ghoul zakki",
     "description": "Colección de ilustraciones de Tokyo Ghoul",
@@ -13620,13 +13615,13 @@ export const products = [
   },
   {
     "id": 1782684949950,
-    "image": "/images/products/product-1782684949950-0.jpg",
+    "image": "/images/products/product-1782684949950-0.webp",
     "images": [
-      "/images/products/product-1782684949950-0.jpg",
-      "/images/products/product-1782684949950-1.jpg",
-      "/images/products/product-1782684949950-2.jpg",
-      "/images/products/product-1782684949950-3.jpg",
-      "/images/products/product-1782684949950-4.jpg"
+      "/images/products/product-1782684949950-0.webp",
+      "/images/products/product-1782684949950-1.webp",
+      "/images/products/product-1782684949950-2.webp",
+      "/images/products/product-1782684949950-3.webp",
+      "/images/products/product-1782684949950-4.webp"
     ],
     "name": "Cardcaptor Sakura - Illustration Collection 2",
     "description": "Colección de ilustraciones del famoso anime Sakura Cardcaptor.\nEspecificaciones del producto:\n- Ilustraciones\n- Historia corta\n- Páginas: 128",
@@ -13657,10 +13652,10 @@ export const products = [
   },
   {
     "id": 1782684950197,
-    "image": "/images/products/product-1782684950197-0.jpg",
+    "image": "/images/products/product-1782684950197-0.webp",
     "images": [
-      "/images/products/product-1782684950197-0.jpg",
-      "/images/products/product-1782684950197-1.jpg"
+      "/images/products/product-1782684950197-0.webp",
+      "/images/products/product-1782684950197-1.webp"
     ],
     "name": "Jujutsu Kaisen Vol.18 Edición limitada",
     "description": "Está edición viene con 32 llaveros de acrílico de muchos personajes, y un soporte de acrílico con un calendario",
@@ -13683,10 +13678,10 @@ export const products = [
   },
   {
     "id": 1782684950200,
-    "image": "/images/products/product-1782684950200-0.jpg",
+    "image": "/images/products/product-1782684950200-0.webp",
     "images": [
-      "/images/products/product-1782684950200-0.jpg",
-      "/images/products/product-1782684950200-1.jpg"
+      "/images/products/product-1782684950200-0.webp",
+      "/images/products/product-1782684950200-1.webp"
     ],
     "name": "The Ancient Magus Bride Vol.12 – EDICIÓN LIMITADA (Versión B)",
     "description": "Sumérgete aún más en el mágico universo de The Ancient Magus Bride con esta imperdible edición especial (versión B) del volumen 12.\nEsta edición incluye:\n- Una elegante caja contenedora.\n- Una exclusiva portada de cartón.\n- Un manga adicional de 36 páginas titulado Fragments VI.",
@@ -13723,12 +13718,12 @@ export const products = [
   },
   {
     "id": 1782684949614,
-    "image": "/images/products/product-1782684949614-0.jpg",
+    "image": "/images/products/product-1782684949614-0.webp",
     "images": [
-      "/images/products/product-1782684949614-0.jpg",
-      "/images/products/product-1782684949614-1.jpg",
-      "/images/products/product-1782684949614-2.jpg",
-      "/images/products/product-1782684949614-3.jpg"
+      "/images/products/product-1782684949614-0.webp",
+      "/images/products/product-1782684949614-1.webp",
+      "/images/products/product-1782684949614-2.webp",
+      "/images/products/product-1782684949614-3.webp"
     ],
     "name": "Neon Genesis Evangelion Vol.14 Edición Limitada Premium",
     "description": "Volumen 14 del manga de Evangelion que incluye varios artículos que a cualquier fan le encantarían.\nEspecificaciones del producto:\n- Booklet con ilustraciones\n- CD con canciones que escucha Sadamoto cuando dibuja\n- Caja contenedora para poner mangas",
@@ -13770,12 +13765,12 @@ export const products = [
   },
   {
     "id": 1782685382596,
-    "image": "/images/products/product-1782685382596-0.jpg",
+    "image": "/images/products/product-1782685382596-0.webp",
     "images": [
-      "/images/products/product-1782685382596-0.jpg",
-      "/images/products/product-1782685382596-1.jpg",
-      "/images/products/product-1782685382596-2.jpg",
-      "/images/products/product-1782685382596-3.jpg"
+      "/images/products/product-1782685382596-0.webp",
+      "/images/products/product-1782685382596-1.webp",
+      "/images/products/product-1782685382596-2.webp",
+      "/images/products/product-1782685382596-3.webp"
     ],
     "name": "Ane Naru Mono 7.5",
     "description": "Libro de arte del famoso Doujinshi hentai «Ane naru mono» protagonizado por Chiyo.",
@@ -13815,13 +13810,13 @@ export const products = [
   },
   {
     "id": 1782685382338,
-    "image": "/images/products/product-1782685382338-0.jpg",
+    "image": "/images/products/product-1782685382338-0.webp",
     "images": [
-      "/images/products/product-1782685382338-0.jpg",
-      "/images/products/product-1782685382338-1.jpg",
-      "/images/products/product-1782685382338-2.jpg",
-      "/images/products/product-1782685382338-3.jpg",
-      "/images/products/product-1782685382338-4.jpg"
+      "/images/products/product-1782685382338-0.webp",
+      "/images/products/product-1782685382338-1.webp",
+      "/images/products/product-1782685382338-2.webp",
+      "/images/products/product-1782685382338-3.webp",
+      "/images/products/product-1782685382338-4.webp"
     ],
     "name": "Naruto 10th anniversary character book Juunen Hyakunin",
     "description": "EN STOCK SIN CARTA\n\nEste libro conmemora el decimo aniversario de Naruto, con imágenes a todo color de los personajes.\nViene con una carta de Kakashi.\nLibro (tapa blanda): 196 páginas",
@@ -13868,12 +13863,12 @@ export const products = [
   },
   {
     "id": 1782685383024,
-    "image": "/images/products/product-1782685383024-0.jpg",
+    "image": "/images/products/product-1782685383024-0.webp",
     "images": [
-      "/images/products/product-1782685383024-0.jpg",
-      "/images/products/product-1782685383024-1.jpg",
-      "/images/products/product-1782685383024-2.jpg",
-      "/images/products/product-1782685383024-3.jpg"
+      "/images/products/product-1782685383024-0.webp",
+      "/images/products/product-1782685383024-1.webp",
+      "/images/products/product-1782685383024-2.webp",
+      "/images/products/product-1782685383024-3.webp"
     ],
     "name": "Dragon Ball Z: Burst Limit Guide Book",
     "description": "Este libro venía con el juego original japonés «Dragon Ball Z: Burst Limit».\nEspecificaciones del producto:\n- Imágenes de los lugares del juego.\n- Imágenes de los personajes del juego\n- Detalles del desarrollo del juego",
@@ -13911,12 +13906,12 @@ export const products = [
   },
   {
     "id": 1782685382948,
-    "image": "/images/products/product-1782685382948-0.jpg",
+    "image": "/images/products/product-1782685382948-0.webp",
     "images": [
-      "/images/products/product-1782685382948-0.jpg",
-      "/images/products/product-1782685382948-1.jpg",
-      "/images/products/product-1782685382948-2.jpg",
-      "/images/products/product-1782685382948-3.jpg"
+      "/images/products/product-1782685382948-0.webp",
+      "/images/products/product-1782685382948-1.webp",
+      "/images/products/product-1782685382948-2.webp",
+      "/images/products/product-1782685382948-3.webp"
     ],
     "name": "One Piece Magazine Vol. 1",
     "description": "Esta es la primera edición de la One Piece Magazine, una revista centrada en esta famosa historia, que incluye información «detrás de escena».\nEspecificaciones del producto:\n- Poster WANTED de Luffy\n- Poster doble faz\n- Información de los personajes\n- Dibujos\n- Capitulo extra del manga",
@@ -13952,15 +13947,15 @@ export const products = [
   },
   {
     "id": 1782685383049,
-    "image": "/images/products/product-1782685383049-0.jpg",
+    "image": "/images/products/product-1782685383049-0.webp",
     "images": [
-      "/images/products/product-1782685383049-0.jpg",
-      "/images/products/product-1782685383049-1.jpg",
-      "/images/products/product-1782685383049-2.jpg",
-      "/images/products/product-1782685383049-3.jpg",
-      "/images/products/product-1782685383049-4.jpg",
-      "/images/products/product-1782685383049-5.jpg",
-      "/images/products/product-1782685383049-6.jpg"
+      "/images/products/product-1782685383049-0.webp",
+      "/images/products/product-1782685383049-1.webp",
+      "/images/products/product-1782685383049-2.webp",
+      "/images/products/product-1782685383049-3.webp",
+      "/images/products/product-1782685383049-4.webp",
+      "/images/products/product-1782685383049-5.webp",
+      "/images/products/product-1782685383049-6.webp"
     ],
     "name": "Demon Slayer: A través del tiempo",
     "description": "Este libro contiene una gran variedad de ilustraciones publicadas por Gotouge tanto en la revista Shonen Jump como en los tomos recopilatorios de la serie, novelas y otros medios. Además, incluye diseños de personajes, bocetos, información sobre la obra y una recopilación de páginas a color publicadas originalmente en la serialización en el semanario, entre muchos otros contenidos inéditos.\nEspecificaciones del producto:\n- Ilustraciones\n- Poster",
@@ -13997,11 +13992,11 @@ export const products = [
   },
   {
     "id": 1782685382786,
-    "image": "/images/products/product-1782685382786-0.jpg",
+    "image": "/images/products/product-1782685382786-0.webp",
     "images": [
-      "/images/products/product-1782685382786-0.jpg",
-      "/images/products/product-1782685382786-1.jpg",
-      "/images/products/product-1782685382786-2.jpg"
+      "/images/products/product-1782685382786-0.webp",
+      "/images/products/product-1782685382786-1.webp",
+      "/images/products/product-1782685382786-2.webp"
     ],
     "name": "Jujutsu Kaisen Vol.19 Edición Limitada",
     "description": "Este tomo número 19 de edición limitada viene con distintos objetos que le encantarían a cualquier fan de la serie.\nEspecificaciones del producto:\n- Molde de silicona para crear el dedo de Sukuna\n- Cinta de tela de sellado para el dedo de Ryomen Sukuna\n- El Gokumonkyo donde Gojo Satoru fue sellado (de metal)\n- Arma de Nanami Kento (de metal)\n- Mini Mechamaru\n- 13 mini postales\n",
@@ -14039,11 +14034,11 @@ export const products = [
   },
   {
     "id": 1782685685331,
-    "image": "/images/products/product-1782685685331-0.jpg",
+    "image": "/images/products/product-1782685685331-0.webp",
     "images": [
-      "/images/products/product-1782685685331-0.jpg",
-      "/images/products/product-1782685685331-1.jpg",
-      "/images/products/product-1782685685331-2.jpg"
+      "/images/products/product-1782685685331-0.webp",
+      "/images/products/product-1782685685331-1.webp",
+      "/images/products/product-1782685685331-2.webp"
     ],
     "name": "Frieren: Beyond Journey's End Treasure Book",
     "description": "Este libro viene con una cantidad increíble de items relacionados al anime de Frieren.\nEspecificaciones del producto:\n- Papercraft diorama de muchos personajes\n- Stickers con glitter\n- Poster\n- Calendario 2024\n- Rompecabezas\n- Mascaras de Frieren y Himmel\ny más!",
@@ -14078,13 +14073,13 @@ export const products = [
   },
   {
     "id": 1782685686147,
-    "image": "/images/products/product-1782685686147-0.jpg",
+    "image": "/images/products/product-1782685686147-0.webp",
     "images": [
-      "/images/products/product-1782685686147-0.jpg",
-      "/images/products/product-1782685686147-1.jpg",
-      "/images/products/product-1782685686147-2.jpg",
-      "/images/products/product-1782685686147-3.jpg",
-      "/images/products/product-1782685686147-4.jpg"
+      "/images/products/product-1782685686147-0.webp",
+      "/images/products/product-1782685686147-1.webp",
+      "/images/products/product-1782685686147-2.webp",
+      "/images/products/product-1782685686147-3.webp",
+      "/images/products/product-1782685686147-4.webp"
     ],
     "name": "Haikyuu!! Magazine 2024 February",
     "description": "Esta revista publicada el mismo día que se estrenó la película de la batalla en el basurero es un artículo que todos los fans de Haikyuu quisieran tener.\nEspecificaciones del producto:\n- Stickers\n- Posters\n- Entrevistas\n- Capítulos de manga",
@@ -14121,12 +14116,12 @@ export const products = [
   },
   {
     "id": 1782685686203,
-    "image": "/images/products/product-1782685686203-0.jpg",
+    "image": "/images/products/product-1782685686203-0.webp",
     "images": [
-      "/images/products/product-1782685686203-0.jpg",
-      "/images/products/product-1782685686203-1.jpg",
-      "/images/products/product-1782685686203-2.jpg",
-      "/images/products/product-1782685686203-3.jpg"
+      "/images/products/product-1782685686203-0.webp",
+      "/images/products/product-1782685686203-1.webp",
+      "/images/products/product-1782685686203-2.webp",
+      "/images/products/product-1782685686203-3.webp"
     ],
     "name": "Fate/grand Order Chaldea Ace 1",
     "description": "Esta revista es un spin-off de  la TYPE-MOON Ace dedicada a la popular serie de videojuegos, lanzada el 15 de abril de 2017.\nEspecificaciones del producto:\n- Ilustraciones\n- Artículos de información\n- Entrevistas\n- CD Drama\n",
@@ -14161,12 +14156,12 @@ export const products = [
   },
   {
     "id": 1782685685920,
-    "image": "/images/products/product-1782685685920-0.jpg",
+    "image": "/images/products/product-1782685685920-0.webp",
     "images": [
-      "/images/products/product-1782685685920-0.jpg",
-      "/images/products/product-1782685685920-1.jpg",
-      "/images/products/product-1782685685920-2.jpg",
-      "/images/products/product-1782685685920-3.jpg"
+      "/images/products/product-1782685685920-0.webp",
+      "/images/products/product-1782685685920-1.webp",
+      "/images/products/product-1782685685920-2.webp",
+      "/images/products/product-1782685685920-3.webp"
     ],
     "name": "Fullmetal Alchemist Rough Art Book",
     "description": "Este libro es un artículo de colección exclusivo que captura los bocetos y diseños iniciales de Fullmetal Alchemist, ofreciendo una mirada única al proceso creativo de la serie.\nEspecificaciones del producto:\n- Sketches de los personajes\n",
@@ -14197,13 +14192,13 @@ export const products = [
   },
   {
     "id": 1782685685750,
-    "image": "/images/products/product-1782685685750-0.jpg",
+    "image": "/images/products/product-1782685685750-0.webp",
     "images": [
-      "/images/products/product-1782685685750-0.jpg",
-      "/images/products/product-1782685685750-1.jpg",
-      "/images/products/product-1782685685750-2.jpg",
-      "/images/products/product-1782685685750-3.jpg",
-      "/images/products/product-1782685685750-4.jpg"
+      "/images/products/product-1782685685750-0.webp",
+      "/images/products/product-1782685685750-1.webp",
+      "/images/products/product-1782685685750-2.webp",
+      "/images/products/product-1782685685750-3.webp",
+      "/images/products/product-1782685685750-4.webp"
     ],
     "name": "Bungo Stray Dogs Rakugaki Note",
     "description": "Descubre el arte detrás de la obra de Kafka Asagiri y Sango Harukawa con esta impresionante colección de 128 páginas oficial.\nIncluye:\n- Ilustraciones promocionales icónicas.\n- Bocetos exclusivos.\n- Diseños detallados de personajes.\n- ¡Y mucho más!\n",
@@ -14233,14 +14228,14 @@ export const products = [
   },
   {
     "id": 1782685685889,
-    "image": "/images/products/product-1782685685889-0.jpg",
+    "image": "/images/products/product-1782685685889-0.webp",
     "images": [
-      "/images/products/product-1782685685889-0.jpg",
-      "/images/products/product-1782685685889-1.jpg",
-      "/images/products/product-1782685685889-2.jpg",
-      "/images/products/product-1782685685889-3.jpg",
-      "/images/products/product-1782685685889-4.jpg",
-      "/images/products/product-1782685685889-5.jpg"
+      "/images/products/product-1782685685889-0.webp",
+      "/images/products/product-1782685685889-1.webp",
+      "/images/products/product-1782685685889-2.webp",
+      "/images/products/product-1782685685889-3.webp",
+      "/images/products/product-1782685685889-4.webp",
+      "/images/products/product-1782685685889-5.webp"
     ],
     "name": "Vofan Art Book: Charm – Vofan’s Otona Fantasy Art Works",
     "description": "Adéntrate en el mundo artístico de VOFAN, el talentoso ilustrador detrás de las icónicas novelas de la serie Monogatari.\nEspecificaciones del producto:\n- 184 páginas llenas de arte deslumbrante.\n- Una colección que captura la esencia de Vofan",
@@ -14271,12 +14266,12 @@ export const products = [
   },
   {
     "id": 1782685685860,
-    "image": "/images/products/product-1782685685860-0.jpg",
+    "image": "/images/products/product-1782685685860-0.webp",
     "images": [
-      "/images/products/product-1782685685860-0.jpg",
-      "/images/products/product-1782685685860-1.jpg",
-      "/images/products/product-1782685685860-2.jpg",
-      "/images/products/product-1782685685860-3.jpg"
+      "/images/products/product-1782685685860-0.webp",
+      "/images/products/product-1782685685860-1.webp",
+      "/images/products/product-1782685685860-2.webp",
+      "/images/products/product-1782685685860-3.webp"
     ],
     "name": "Shingeki no Kyojin Full Color Edition 1",
     "description": "Disfruta de los momentos más épicos de Shingeki no Kyojin en una increíble edición completamente a color.\nGracias a una votación realizada entre los fans japoneses, se seleccionaron los capítulos más memorables para esta edición especial. Shingeki no Kyojin Full Color Edition 1 incluye los capítulos 46, 69 y 81 con arte a color.",
@@ -14740,12 +14735,12 @@ export const products = [
   },
   {
     "id": 1782950522287,
-    "image": "/images/products/product-1782950522287-0.jpg",
+    "image": "/images/products/product-1782950522287-0.webp",
     "images": [
-      "/images/products/product-1782950522287-0.jpg",
-      "/images/products/product-1782950522287-1.jpg",
-      "/images/products/product-1782950522287-2.jpg",
-      "/images/products/product-1782950522287-3.jpg"
+      "/images/products/product-1782950522287-0.webp",
+      "/images/products/product-1782950522287-1.webp",
+      "/images/products/product-1782950522287-2.webp",
+      "/images/products/product-1782950522287-3.webp"
     ],
     "name": "Luz de habitación Sumikko Gurashi \"Tokage ver.\"",
     "description": "El velador perfecto para tú mesita de luz! Incluye un librito.",
@@ -14778,18 +14773,18 @@ export const products = [
   },
   {
     "id": 1782884285200,
-    "image": "/images/products/product-1782884285200-0.jpg",
+    "image": "/images/products/product-1782884285200-0.webp",
     "images": [
-      "/images/products/product-1782884285200-0.jpg",
-      "/images/products/product-1782884285200-1.jpg",
-      "/images/products/product-1782884285200-2.jpg",
-      "/images/products/product-1782884285200-3.jpg",
-      "/images/products/product-1782884285200-4.jpg",
-      "/images/products/product-1782884285200-5.jpg",
-      "/images/products/product-1782884285200-6.jpg",
-      "/images/products/product-1782884285200-7.jpg",
-      "/images/products/product-1782884285200-8.jpg",
-      "/images/products/product-1782884285200-9.jpg"
+      "/images/products/product-1782884285200-0.webp",
+      "/images/products/product-1782884285200-1.webp",
+      "/images/products/product-1782884285200-2.webp",
+      "/images/products/product-1782884285200-3.webp",
+      "/images/products/product-1782884285200-4.webp",
+      "/images/products/product-1782884285200-5.webp",
+      "/images/products/product-1782884285200-6.webp",
+      "/images/products/product-1782884285200-7.webp",
+      "/images/products/product-1782884285200-8.webp",
+      "/images/products/product-1782884285200-9.webp"
     ],
     "name": "Comptiq Junio 2005",
     "description": "Revista de videojuegos y anime con portada de Konata Izumi de Lucky Star\nIncluye stand con distintos outfit para vestir a Konata y un mini artbook \"First Menu Book\" de Pia Carrot e yōkoso!",
@@ -14818,17 +14813,17 @@ export const products = [
   },
   {
     "id": 1782884285621,
-    "image": "/images/products/product-1782884285621-0.jpg",
+    "image": "/images/products/product-1782884285621-0.webp",
     "images": [
-      "/images/products/product-1782884285621-0.jpg",
-      "/images/products/product-1782884285621-1.jpg",
-      "/images/products/product-1782884285621-2.jpg",
-      "/images/products/product-1782884285621-3.jpg",
-      "/images/products/product-1782884285621-4.jpg",
-      "/images/products/product-1782884285621-5.jpg",
-      "/images/products/product-1782884285621-6.jpg",
-      "/images/products/product-1782884285621-7.jpg",
-      "/images/products/product-1782884285621-8.jpg"
+      "/images/products/product-1782884285621-0.webp",
+      "/images/products/product-1782884285621-1.webp",
+      "/images/products/product-1782884285621-2.webp",
+      "/images/products/product-1782884285621-3.webp",
+      "/images/products/product-1782884285621-4.webp",
+      "/images/products/product-1782884285621-5.webp",
+      "/images/products/product-1782884285621-6.webp",
+      "/images/products/product-1782884285621-7.webp",
+      "/images/products/product-1782884285621-8.webp"
     ],
     "name": "Fate/Grand Order Material IX",
     "description": "Colección de ilustraciones y perfiles de Servants del famoso juego F/GO!",
@@ -14857,15 +14852,15 @@ export const products = [
   },
   {
     "id": 1782884285512,
-    "image": "/images/products/product-1782884285512-0.jpg",
+    "image": "/images/products/product-1782884285512-0.webp",
     "images": [
-      "/images/products/product-1782884285512-0.jpg",
-      "/images/products/product-1782884285512-1.jpg",
-      "/images/products/product-1782884285512-2.jpg",
-      "/images/products/product-1782884285512-3.jpg",
-      "/images/products/product-1782884285512-4.jpg",
-      "/images/products/product-1782884285512-5.jpg",
-      "/images/products/product-1782884285512-6.jpg"
+      "/images/products/product-1782884285512-0.webp",
+      "/images/products/product-1782884285512-1.webp",
+      "/images/products/product-1782884285512-2.webp",
+      "/images/products/product-1782884285512-3.webp",
+      "/images/products/product-1782884285512-4.webp",
+      "/images/products/product-1782884285512-5.webp",
+      "/images/products/product-1782884285512-6.webp"
     ],
     "name": "Hidari \"Flowing\" Doujinshi",
     "description": "Colección de Ilustraciones del artista Hidari (左) con obras de distintas franquicias, como Touhou, Street fighter, Fate, y más!",
@@ -14929,5 +14924,262 @@ export const products = [
     "categories": [
       "Artbooks"
     ]
+  },
+  {
+    "id": 1783643241991,
+    "image": "/images/products/product-1783643241991-0.webp",
+    "images": [
+      "/images/products/product-1783643241991-0.webp",
+      "/images/products/product-1783643241991-1.webp",
+      "/images/products/product-1783643241991-2.webp",
+      "/images/products/product-1783643241991-3.webp",
+      "/images/products/product-1783643241991-4.webp",
+      "/images/products/product-1783643241991-5.webp",
+      "/images/products/product-1783643241991-6.webp",
+      "/images/products/product-1783643241991-7.webp"
+    ],
+    "name": "One Piece Color Walk 2",
+    "description": "Segunda colección de Ilustraciones de One Piece, el famoso manga de Eichiro Oda, incluye una postal!",
+    "details": "Segunda colección de Ilustraciones de One Piece, el famoso manga de Eichiro Oda, incluye una postal!",
+    "price": 34999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "onepiece",
+      "luffy",
+      "zoro",
+      "anime",
+      "manga",
+      "postal"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaY_qmFFE6d/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-10T00:27:21.578Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1783643242276,
+    "image": "/images/products/product-1783643242276-0.webp",
+    "images": [
+      "/images/products/product-1783643242276-0.webp",
+      "/images/products/product-1783643242276-1.webp",
+      "/images/products/product-1783643242276-2.webp",
+      "/images/products/product-1783643242276-3.webp",
+      "/images/products/product-1783643242276-4.webp"
+    ],
+    "name": "Honkai: Star Rail Fan Art Book",
+    "description": "Ilustraciones ecchi de えふり del videojuego Honkai: Star rail y otros cómo Genshin Impact, con personajes cómo Kafka, Ruan mei, Nilou, y más!",
+    "details": "Ilustraciones ecchi de えふり del videojuego Honkai: Star rail y otros cómo Genshin Impact, con personajes cómo Kafka, Ruan mei, Nilou, y más!",
+    "price": 29999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "genshinimpact",
+      "honkai",
+      "ecchihentai",
+      "dounjinshi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dal2CKFlkHz/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-10T00:27:21.579Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1783643242241,
+    "image": "/images/products/product-1783643242241-0.webp",
+    "images": [
+      "/images/products/product-1783643242241-0.webp",
+      "/images/products/product-1783643242241-1.webp",
+      "/images/products/product-1783643242241-2.webp",
+      "/images/products/product-1783643242241-3.webp",
+      "/images/products/product-1783643242241-4.webp",
+      "/images/products/product-1783643242241-5.webp",
+      "/images/products/product-1783643242241-6.webp"
+    ],
+    "name": "spoon.2Di vol.121",
+    "description": "Este numero incluye artículos sobre Break My Case, Uta no Prince-sama, To be hero, etc.\nIncluye posters, carpeta para documentos, y postal!",
+    "details": "Este numero incluye artículos sobre Break My Case, Uta no Prince-sama, To be hero, etc.\nIncluye posters, carpeta para documentos, y postal!",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "otome",
+      "breakmycase",
+      "utanoprincesama",
+      "anime",
+      "tobehero"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DagtDOWlqEK/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-10T00:27:21.579Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1783643242060,
+    "image": "/images/products/product-1783643242060-0.webp",
+    "images": [
+      "/images/products/product-1783643242060-0.webp",
+      "/images/products/product-1783643242060-1.webp",
+      "/images/products/product-1783643242060-2.webp",
+      "/images/products/product-1783643242060-3.webp",
+      "/images/products/product-1783643242060-4.webp",
+      "/images/products/product-1783643242060-5.webp"
+    ],
+    "name": "No Game No Life Vol.8 Edición Limitada",
+    "description": "Volumen 8 de la novela que incluye una portada alternativa!",
+    "details": "Volumen 8 de la novela que incluye una portada alternativa!",
+    "price": 34999,
+    "category": "Novela Ligera",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ngnl",
+      "nogamenolife",
+      "nogamenolifezero",
+      "anime",
+      "lightnovel"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DaTuP5AlDQy/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-10T00:27:21.579Z",
+    "categories": [
+      "Novela Ligera"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1783643371697,
+    "image": "/images/products/product-1783643371697-0.webp",
+    "images": [
+      "/images/products/product-1783643371697-0.webp",
+      "/images/products/product-1783643371697-1.webp",
+      "/images/products/product-1783643371697-2.webp",
+      "/images/products/product-1783643371697-3.webp",
+      "/images/products/product-1783643371697-4.webp",
+      "/images/products/product-1783643371697-5.webp"
+    ],
+    "name": "Lucky Star Vol.8 Edición Limitada",
+    "description": "Edición limitada del manga que trae una portada alternativa en colaboración con Sora no Otoshimono/Heaven's Lost Property!",
+    "details": "Edición limitada del manga que trae una portada alternativa en colaboración con Sora no Otoshimono/Heaven's Lost Property!",
+    "price": 22999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "luckystar",
+      "soranootoshimono",
+      "ecchi",
+      "ecchihentai",
+      "heavenslostproperty"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DajPnmmFpAY/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-10T00:29:31.127Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1783643371465,
+    "image": "/images/products/product-1783643371465-0.webp",
+    "images": [
+      "/images/products/product-1783643371465-0.webp",
+      "/images/products/product-1783643371465-1.webp",
+      "/images/products/product-1783643371465-2.webp",
+      "/images/products/product-1783643371465-3.webp",
+      "/images/products/product-1783643371465-4.webp",
+      "/images/products/product-1783643371465-5.webp"
+    ],
+    "name": "Tanoshii Yōchien Octubre 2019",
+    "description": "Revista infantil que incluye una garra montable funcional con 4 figuras de Sumikkogurashi y muchas cosas mas!",
+    "details": "Revista infantil que incluye una garra montable funcional con 4 figuras de Sumikkogurashi y muchas cosas mas!",
+    "price": 39999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "sumikkogurashi",
+      "kawaii",
+      "cute",
+      "diy",
+      "cutecore"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dabi9ZEFBNh/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-10T00:29:31.127Z",
+    "categories": [
+      "Revistas",
+      "Otros",
+      "Figuras"
+    ]
+  },
+  {
+    "name": "Birdy the Mighty ARCHIVE",
+    "description": "Libro de Tetsuwan Birdy con Ilustraciones, historias cortas, datos de los distintos animes/mangas, y más.\n\nIncluye desplegables!",
+    "details": "Libro de Tetsuwan Birdy con Ilustraciones, historias cortas, datos de los distintos animes/mangas, y más.\n\nIncluye desplegables!",
+    "price": 39999,
+    "image": "/images/products/1783643491910.webp",
+    "images": [
+      "/images/products/1783643491910-1.webp",
+      "/images/products/1783643491910-2.webp",
+      "/images/products/1783643491910-3.webp",
+      "/images/products/1783643491910-4.webp",
+      "/images/products/1783643491910-5.webp",
+      "/images/products/1783643491910-6.webp",
+      "/images/products/1783643491910-7.webp",
+      "/images/products/1783643491910-8.webp",
+      "/images/products/1783643491910-9.webp",
+      "/images/products/1783643491910-10.webp"
+    ],
+    "category": "Guide Books",
+    "subcategory": "",
+    "isNew": false,
+    "inStock": false,
+    "tags": [
+      "birdy"
+    ],
+    "adultContent": true,
+    "instagram": "",
+    "categories": [
+      "Guide Books",
+      "Artbooks"
+    ],
+    "id": 1783643491910
   }
 ];
