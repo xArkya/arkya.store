@@ -840,7 +840,7 @@ export default function ProductCard({ product }) {
                 </ListItem>
                 <ListItem display="flex" alignItems="center">
                   <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>2</Badge>
-                  <Text>Se copiará automáticamente un mensaje con el nombre del producto</Text>
+                  <Text>Se copiará automáticamente un mensaje con el nombre y link del producto</Text>
                 </ListItem>
                 <ListItem display="flex" alignItems="center">
                   <Badge mr={2} colorScheme="brand" fontSize="sm" borderRadius="full" px={2}>3</Badge>
@@ -861,9 +861,17 @@ export default function ProductCard({ product }) {
                 width="100%"
                 borderLeft="4px solid"
                 borderColor="brand.500">
-                <Text fontStyle="italic">
-                  Hola, me interesa el producto: {name} (actualmente sin stock)
-                </Text>
+                <VStack align="start" spacing={2}>
+                  <Text fontStyle="italic">
+                    Hola, me interesa el producto: {name}
+                  </Text>
+                  <Text fontStyle="italic" fontSize="sm" wordBreak="break-all">
+                    {`https://arkya.store/product/${getProductSlug(product)}`}
+                  </Text>
+                  <Text fontStyle="italic" fontSize="sm" color="gray.400">
+                    (actualmente sin stock)
+                  </Text>
+                </VStack>
               </Box>
             </VStack>
           </ModalBody>
@@ -875,7 +883,8 @@ export default function ProductCard({ product }) {
               leftIcon={<FaInstagram />}
               onClick={() => {
                 try {
-                  const message = `Hola, me interesa el producto: ${name} (actualmente sin stock)`;
+                  const productUrl = `https://arkya.store/product/${getProductSlug(product)}`;
+                  const message = `Hola, me interesa el producto: ${name}\n${productUrl}\n(actualmente sin stock)`;
                   
                   // Usar la API moderna de Clipboard
                   navigator.clipboard.writeText(message)
@@ -883,7 +892,7 @@ export default function ProductCard({ product }) {
                       // Mostrar notificación de éxito
                       toast({
                         title: "\u00a1Mensaje copiado!",
-                        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+                        description: "El mensaje con el link ha sido copiado. Pégalo en el chat de Instagram.",
                         status: "success",
                         duration: 5000,
                         isClosable: true,
@@ -912,7 +921,7 @@ export default function ProductCard({ product }) {
                       
                       toast({
                         title: "\u00a1Mensaje copiado!",
-                        description: `"${message}" ha sido copiado. Pégalo en el chat de Instagram.`,
+                        description: "El mensaje con el link ha sido copiado. Pégalo en el chat de Instagram.",
                         status: "success",
                         duration: 5000,
                         isClosable: true,

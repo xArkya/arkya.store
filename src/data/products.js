@@ -4159,8 +4159,8 @@ export const products = [
   },
   {
     "name": "Comptiq 2012 Diciembre",
-    "description": "Incluye 2 cartas de Hatsune Miku y CD Drama de Fate/Prototype",
-    "price": 29999,
+    "description": "Incluye 2 cartas de Hatsune Miku y CD Drama de Fate/Prototype\n\nEN STOCK SIN CARTAS Y CON PEQUEÑO DETALLE EN LA PORTADA (ULTIMA FOTO)",
+    "price": 18899.370000000003,
     "image": "/images/products/product-1760728975071-0.webp",
     "images": [
       "/images/products/product-1760728975071-0.webp",
@@ -4168,7 +4168,8 @@ export const products = [
       "/images/products/product-1760728975071-2.webp",
       "/images/products/product-1760728975071-3.webp",
       "/images/products/product-1760728975071-4.webp",
-      "/images/products/product-1760728975071-5.webp"
+      "/images/products/product-1760728975071-5.webp",
+      "/images/products/product-1783746069711-0.webp"
     ],
     "categories": [
       "Revistas",
@@ -4179,16 +4180,21 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "isNew": false,
-    "inStock": false,
+    "inStock": true,
     "adultContent": false,
-    "details": "",
+    "details": "Incluye 2 cartas de Hatsune Miku y CD Drama de Fate/Prototype\n\nEN STOCK SIN CARTAS Y CON PEQUEÑO DETALLE EN LA PORTADA (ULTIMA FOTO)",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
       "fate",
       "hatsune",
       "miku"
     ],
-    "id": 1760728975071
+    "id": 1760728975071,
+    "isOnOffer": true,
+    "discountPercentage": 37,
+    "originalPrice": 29999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "name": "Miss Kobayashi’s Dragon Maid Full Color",
@@ -5052,8 +5058,8 @@ export const products = [
   },
   {
     "name": "Urusei Yatsura Vol.8 – Shonen Sunday Graphic",
-    "description": "Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.",
-    "price": 34999,
+    "description": "Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
+    "price": 24849.29,
     "image": "/images/products/product-1774934971314-0.webp",
     "images": [
       "/images/products/product-1774934971314-0.webp",
@@ -5061,7 +5067,8 @@ export const products = [
       "/images/products/product-1774934971314-2.webp",
       "/images/products/product-1774934971314-3.webp",
       "/images/products/product-1774934971314-4.webp",
-      "/images/products/product-1774934971314-5.webp"
+      "/images/products/product-1774934971314-5.webp",
+      "/images/products/product-1783746069803-1.webp"
     ],
     "categories": [
       "Revistas",
@@ -5072,7 +5079,7 @@ export const products = [
     "isNew": false,
     "inStock": true,
     "adultContent": false,
-    "details": "Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.\nEdición original de Shonen Sunday Graphic con arte clásico de Rumiko Takahashi.\n\nIncluye extras!\n\nIdeal para fans del anime retro y coleccionistas.",
+    "details": "Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
       "ranma",
@@ -5083,7 +5090,12 @@ export const products = [
       "retro",
       "lum"
     ],
-    "id": 1774934971314
+    "id": 1774934971314,
+    "isOnOffer": true,
+    "discountPercentage": 29,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "name": "Sailor Moon TV Picture Book Vol.1",
@@ -7066,16 +7078,17 @@ export const products = [
       "/images/products/product-1782278449043-1.webp",
       "/images/products/product-1782278449043-2.webp",
       "/images/products/product-1782278449043-3.webp",
-      "/images/products/product-1782278449043-4.webp"
+      "/images/products/product-1782278449043-4.webp",
+      "/images/products/product-1783746069879-2.webp"
     ],
     "name": "Haruhi Suzumiya no Garoku",
-    "description": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
-    "price": 19999,
+    "description": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
+    "price": 14999.25,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": false,
+    "inStock": true,
     "isNew": false,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "haruhi",
       "retroanime",
@@ -7090,8 +7103,11 @@ export const products = [
     "categories": [
       "Artbooks"
     ],
-    "details": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!",
-    "discountPercentage": 0
+    "details": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
+    "discountPercentage": 25,
+    "originalPrice": 19999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782278507752,
