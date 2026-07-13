@@ -1716,7 +1716,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -15242,9 +15242,9 @@ export const products = [
     "price": 29999,
     "category": "Guide Books",
     "subcategory": "",
-    "inStock": true,
-    "isNew": true,
-    "isOnOffer": true,
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
     "tags": [
       "pokemon",
       "retro",
@@ -15258,9 +15258,6 @@ export const products = [
     "categories": [
       "Guide Books"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 29999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   }
 ];
