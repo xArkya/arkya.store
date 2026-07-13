@@ -301,7 +301,8 @@ export const products = [
     "id": 1757984215096,
     "category": "Videojuegos",
     "isOnOffer": false,
-    "discountPercentage": 0
+    "discountPercentage": 0,
+    "inStock": false
   },
   {
     "name": "To Aru Majutsu no Index Vol. 7 Edición limitada",
@@ -3064,7 +3065,7 @@ export const products = [
   {
     "name": "Ctrl+T Inio Asano Works mini",
     "description": "Colección de ilustraciones de Inio Asano",
-    "price": 31999.2,
+    "price": 39999,
     "image": "/images/products/product-1760084884711-main.webp",
     "images": [
       "/images/products/product-1760084884711-0.webp",
@@ -3079,7 +3080,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -3087,11 +3088,8 @@ export const products = [
       "punpun"
     ],
     "id": 1760084884711,
-    "isOnOffer": true,
-    "discountPercentage": 20,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Houseki no Kuni Artbook: Pseudomorph of Love",
@@ -3232,7 +3230,7 @@ export const products = [
   {
     "name": "LoveLive! School Idol Festival Official Illustration Book 1",
     "description": "Este libro contiene una colección de ilustraciones de los personajes de LoveLive! que salió a la venta en Julio 19, 2014.\n\nEspecificaciones del producto:\n- Ilustraciones\n- Poster\n- Idioma: Japonés\n- Páginas: 159",
-    "price": 28499.25,
+    "price": 37999,
     "image": "/images/products/product-1760085394546-main.webp",
     "images": [
       "/images/products/product-1760085394546-0.webp",
@@ -3248,17 +3246,14 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
     "id": 1760085394546,
-    "isOnOffer": true,
-    "discountPercentage": 25,
-    "originalPrice": 37999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Attack on Titan: No regrets Vol. 2 Edición especial",
@@ -4160,7 +4155,7 @@ export const products = [
   {
     "name": "Comptiq 2012 Diciembre",
     "description": "Incluye 2 cartas de Hatsune Miku y CD Drama de Fate/Prototype\n\nEN STOCK SIN CARTAS Y CON PEQUEÑO DETALLE EN LA PORTADA (ULTIMA FOTO)",
-    "price": 18899.370000000003,
+    "price": 29999,
     "image": "/images/products/product-1760728975071-0.webp",
     "images": [
       "/images/products/product-1760728975071-0.webp",
@@ -4180,7 +4175,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Incluye 2 cartas de Hatsune Miku y CD Drama de Fate/Prototype\n\nEN STOCK SIN CARTAS Y CON PEQUEÑO DETALLE EN LA PORTADA (ULTIMA FOTO)",
     "instagram": "https://instagram.com/arkya.store",
@@ -4190,11 +4185,8 @@ export const products = [
       "miku"
     ],
     "id": 1760728975071,
-    "isOnOffer": true,
-    "discountPercentage": 37,
-    "originalPrice": 29999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Miss Kobayashi’s Dragon Maid Full Color",
@@ -15197,5 +15189,78 @@ export const products = [
       "Artbooks"
     ],
     "id": 1783643491910
+  },
+  {
+    "id": 1783905866560,
+    "image": "/images/products/product-1783905866560-0.webp",
+    "images": [
+      "/images/products/product-1783905866560-0.webp",
+      "/images/products/product-1783905866560-1.webp",
+      "/images/products/product-1783905866560-2.webp",
+      "/images/products/product-1783905866560-3.webp",
+      "/images/products/product-1783905866560-4.webp"
+    ],
+    "name": "Bolso de Picnic de Snoopy",
+    "description": "Revista de Snoopy que viene con un bolso para irte de picnic con un diseño muy lindo!",
+    "details": "Revista de Snoopy que viene con un bolso para irte de picnic con un diseño muy lindo!",
+    "price": 59999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "snoopy",
+      "picnic",
+      "bag",
+      "kawaii",
+      "cute",
+      "mochila"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DateLs7lB0J/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-13T01:24:26.229Z",
+    "categories": [
+      "Otros",
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1783905866996,
+    "image": "/images/products/product-1783905866996-0.webp",
+    "images": [
+      "/images/products/product-1783905866996-0.webp",
+      "/images/products/product-1783905866996-1.webp",
+      "/images/products/product-1783905866996-2.webp",
+      "/images/products/product-1783905866996-3.webp",
+      "/images/products/product-1783905866996-4.webp"
+    ],
+    "name": "Pokémon Marukajiri Book",
+    "description": "Guía de los primeros 10 capitulos del anime de Pokémon!",
+    "details": "Guía de los primeros 10 capitulos del anime de Pokémon!",
+    "price": 29999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "pokemon",
+      "retro",
+      "pikachu",
+      "misty"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Daqx24ilPlk/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-13T01:24:26.229Z",
+    "categories": [
+      "Guide Books"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 29999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   }
 ];

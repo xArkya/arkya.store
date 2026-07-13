@@ -1,4 +1,4 @@
-# Logs
+﻿# Logs
 logs
 *.log
 npm-debug.log*
@@ -28,6 +28,20 @@ README.md
 # Migration scripts (temporary)
 migrate-images.js
 migrate-images.mjs
+migrate-images-fixed.mjs
+
+# Development documentation
+README-INSTALOADER.md
+README-IMAGES.md
+MIGRATION_IMAGES.md
+
+# Local development servers
+server.cjs
+server.js
+
+# Development configuration
+eslint.config.js
+package-scripts.json
 
 # Keep product images - they should be tracked
 !public/images/
