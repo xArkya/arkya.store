@@ -72,7 +72,10 @@ function generateMerchantFeed() {
   xml += `    <link>${baseUrl}</link>\n`;
   xml += `    <description>Productos importados de Japón - Artbooks, Doujinshi, Mangas, Guías, Novelas Ligeras, Revistas Jump y Merchandising</description>\n`;
 
-  products.forEach(product => {
+  // Filtrar solo productos en stock
+  const inStockProducts = products.filter(p => p.inStock !== false);
+
+  inStockProducts.forEach(product => {
     const productSlug = getProductSlug(product);
     const productUrl = `${baseUrl}/product/${productSlug}`;
     const imageUrl = product.image.startsWith('http') ? product.image : `${baseUrl}${product.image}`;
@@ -80,8 +83,19 @@ function generateMerchantFeed() {
     const categoryText = product.categories?.[0] || 'Artbooks';
     const googleCategory = mapToGoogleCategory(categoryText);
     const description = product.description || product.details || `${product.name}. ${categoryText} importado de Japón. Disponible en Arkya Store.`;
-    const availability = product.inStock !== false ? 'in_stock' : 'out_of_stock';
     const price = product.price ? `${product.price} ARS` : '0 ARS';
+    
+    // Calcular precio de oferta si existe
+    let salePrice = null;
+    let offerStartDate = null;
+    let offerEndDate = null;
+    
+    if (product.isOnOffer && product.discountPercentage > 0) {
+      const discountAmount = Math.round(product.price * (product.discountPercentage / 100));
+      salePrice = `${product.price - discountAmount} ARS`;
+      offerStartDate = product.offerStartDate || new Date().toISOString().split('T')[0];
+      offerEndDate = product.offerEndDate || '2025-12-31';
+    }
 
     xml += '    <item>\n';
     xml += `      <g:id>${product.id}</g:id>\n`;
@@ -99,8 +113,15 @@ function generateMerchantFeed() {
     }
 
     xml += `      <g:condition>new</g:condition>\n`;
-    xml += `      <g:availability>${availability}</g:availability>\n`;
+    xml += `      <g:availability>in_stock</g:availability>\n`;
     xml += `      <g:price>${price}</g:price>\n`;
+    
+    // Agregar sale_price si hay oferta
+    if (salePrice) {
+      xml += `      <g:sale_price>${salePrice}</g:sale_price>\n`;
+      xml += `      <g:sale_price_effective_date>${offerStartDate}/${offerEndDate}</g:sale_price_effective_date>\n`;
+    }
+    
     xml += `      <g:brand>${escapeXml(brand)}</g:brand>\n`;
     xml += `      <g:google_product_category>${googleCategory}</g:google_product_category>\n`;
     xml += `      <g:product_type>${escapeXml(categoryText)}</g:product_type>\n`;
@@ -130,7 +151,7 @@ function generateMerchantFeed() {
 
   const feedPath = path.join(publicDir, 'google-merchant-feed.xml');
   fs.writeFileSync(feedPath, xml);
-  console.log(`✓ Feed de Merchant Center generado: ${products.length} productos en ${feedPath}`);
+  console.log(`✓ Feed de Merchant Center generado: ${inStockProducts.length} productos en stock en ${feedPath}`);
 }
 
 function mapToGoogleCategory(category) {
