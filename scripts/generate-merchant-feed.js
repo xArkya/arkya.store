@@ -115,6 +115,7 @@ function generateMerchantFeed() {
     xml += `      <g:condition>new</g:condition>\n`;
     xml += `      <g:availability>in_stock</g:availability>\n`;
     xml += `      <g:price>${price}</g:price>\n`;
+    xml += `      <g:price_currency>ARS</g:price_currency>\n`;
     
     // Agregar sale_price si hay oferta
     if (salePrice) {

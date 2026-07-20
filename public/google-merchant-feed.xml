@@ -15,6 +15,7 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>51999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Quintessential quintuplets</g:brand>
       <g:google_product_category>216</g:google_product_category>
       <g:product_type>Figuras</g:product_type>
@@ -39,6 +40,7 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -64,6 +66,7 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>28499.05 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>27074.05 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Guide Books</g:brand>
@@ -91,6 +94,7 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>42499.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>36124.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
@@ -118,6 +122,7 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>14999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -142,6 +147,7 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Guide Books</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -177,6 +183,7 @@ Idioma: Japonés.</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Fate</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -205,6 +212,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>14999.25 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>11249.25 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
@@ -238,6 +246,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>37999.05 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>36099.05 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Evangelion</g:brand>
@@ -272,6 +281,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>26999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Dragon ball</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -302,6 +312,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>26999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Dragon ball</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -327,6 +338,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -352,6 +364,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Evangelion</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -377,6 +390,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>42499.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>36124.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
@@ -401,6 +415,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29749.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>25287.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
@@ -432,6 +447,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>42499.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>36124.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
@@ -463,6 +479,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29749.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>25287.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
@@ -487,6 +504,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Attack on titan</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -518,6 +536,7 @@ NO INCLUYE ACRÍLICO DE HAIKYU (Consultame al privado si lo buscas con el acríl
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19999.2 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>15999.2 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
@@ -544,6 +563,7 @@ $7999 c/u o $13999 las dos</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>10499.25 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>7874.25 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Otros</g:brand>
@@ -578,6 +598,7 @@ Páginas: 200 aprox; Y 30 aprox.</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>33999.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>28899.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Fate</g:brand>
@@ -609,6 +630,7 @@ Páginas: 200 aprox; Y 30 aprox.</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>50999.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>43349.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
@@ -640,6 +662,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29749.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>25287.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Attack on titan</g:brand>
@@ -667,6 +690,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>25999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -692,6 +716,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -717,6 +742,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -742,6 +768,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -767,6 +794,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>64999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -797,6 +825,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19979.260000000002 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>14784.260000000002 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Guide Books</g:brand>
@@ -824,6 +853,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -849,6 +879,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39599.34 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>26135.339999999997 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
@@ -874,6 +905,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>21249.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>18062.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Attack on titan</g:brand>
@@ -901,6 +933,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>59999.25 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>44999.25 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Artbooks</g:brand>
@@ -928,6 +961,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>50999.15 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>43349.15 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Guide Books</g:brand>
@@ -955,6 +989,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -982,6 +1017,7 @@ EN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24849.29 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>17643.29 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
@@ -1010,6 +1046,7 @@ Incluye arte, historias y material de novelas ligeras.</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -1034,6 +1071,7 @@ Incluye arte, historias y material de novelas ligeras.</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Evangelion</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1059,6 +1097,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>9999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1081,6 +1120,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>14999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>CD/DVD</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>CD/DVD</g:product_type>
@@ -1106,6 +1146,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>49999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1128,6 +1169,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1153,6 +1195,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1177,6 +1220,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1202,6 +1246,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>21999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Sword art online</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1227,6 +1272,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>64999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Evangelion</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1252,6 +1298,7 @@ Con arte y mangas cortos!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Doujinshis</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Doujinshis</g:product_type>
@@ -1281,6 +1328,7 @@ SOLO QUEDA VOL. 1</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1306,6 +1354,7 @@ SOLO QUEDA VOL. 1</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1332,6 +1381,7 @@ Incluye poster de la portada c:</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39599.12 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>34847.12 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Dragon ball</g:brand>
@@ -1359,6 +1409,7 @@ Incluye poster de la portada c:</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Final fantasy</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -1386,6 +1437,7 @@ EN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>14999.25 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>11249.25 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Artbooks</g:brand>
@@ -1414,6 +1466,7 @@ Incluye stickers!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -1439,6 +1492,7 @@ Incluye stickers!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1464,6 +1518,7 @@ Incluye stickers!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Doujinshis</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Doujinshis</g:product_type>
@@ -1489,6 +1544,7 @@ Incluye stickers!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1516,6 +1572,7 @@ Con muchos posters!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -1541,6 +1598,7 @@ Con muchos posters!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>49999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -1566,6 +1624,7 @@ Con muchos posters!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Guide Books</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -1591,6 +1650,7 @@ Con muchos posters!</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Final fantasy</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -1618,6 +1678,7 @@ EN STOCK SIN CARTA</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>22499.25 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>16874.25 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Guide Books</g:brand>
@@ -1645,6 +1706,7 @@ EN STOCK SIN CARTA</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Nier</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -1669,6 +1731,7 @@ Se puede comprar en pack con el volumen 17 edición limitada a $34999</g:descrip
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Attack on titan</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1691,6 +1754,7 @@ Se puede comprar en pack con el volumen 17 edición limitada a $34999</g:descrip
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Peluches</g:brand>
       <g:google_product_category>216</g:google_product_category>
       <g:product_type>Peluches</g:product_type>
@@ -1715,6 +1779,7 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Peluches</g:brand>
       <g:google_product_category>216</g:google_product_category>
       <g:product_type>Peluches</g:product_type>
@@ -1737,6 +1802,7 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1759,6 +1825,7 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>74999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1786,6 +1853,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Demon slayer</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1811,6 +1879,7 @@ Especificaciones del producto:
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Jujutsu kaisen</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1840,6 +1909,7 @@ Libro (tapa blanda): 196 páginas</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>20999.3 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:sale_price>14699.3 ARS</g:sale_price>
       <g:sale_price_effective_date>2026-07-20/2025-12-31</g:sale_price_effective_date>
       <g:brand>Naruto</g:brand>
@@ -1865,6 +1935,7 @@ Libro (tapa blanda): 196 páginas</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>9999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1890,6 +1961,7 @@ Libro (tapa blanda): 196 páginas</g:description>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>One piece</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -1915,6 +1987,7 @@ Con mangas como Hunter x Hunter, One Piece, Naruto, Dragon Ball, y más!</g:desc
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
       <g:brand>Otros</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Otros</g:product_type>
