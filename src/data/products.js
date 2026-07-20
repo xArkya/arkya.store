@@ -1000,7 +1000,7 @@ export const products = [
   {
     "name": "Set de 4 volúmenes de la autora Takarai, Rihito, autora de Ten Count.",
     "description": "Incluye \"Hana nomi zo Shiru\" completa (3 libros) y el spin-off \"Hana no Miyako de\" en idioma japonés .",
-    "price": 44999.25,
+    "price": 59999,
     "image": "/images/products/product-1758040748409-main.webp",
     "images": [
       "/images/products/product-1758040748409-0.webp",
@@ -1015,7 +1015,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
@@ -1026,11 +1026,8 @@ export const products = [
       "yaoi"
     ],
     "id": 1758040748409,
-    "isOnOffer": true,
-    "discountPercentage": 25,
-    "originalPrice": 59999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "JOJO Magazine 2022 Spring",
@@ -6174,7 +6171,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Incluye 3 postales de ilustradores famosos y una caja contenedora",
     "instagram": "https://instagram.com/arkya.store",
@@ -15259,5 +15256,185 @@ export const products = [
       "Guide Books"
     ],
     "discountPercentage": 0
+  },
+  {
+    "id": 1784503942547,
+    "image": "/images/products/product-1784503942547-0.webp",
+    "images": [
+      "/images/products/product-1784503942547-0.webp",
+      "/images/products/product-1784503942547-1.webp",
+      "/images/products/product-1784503942547-2.webp",
+      "/images/products/product-1784503942547-3.webp",
+      "/images/products/product-1784503942547-4.webp"
+    ],
+    "name": "Final Fantasy VI Basic Knowledge",
+    "description": "Guía de 1994 de Final Fantasy 6, con mapas, estadisticas, Ilustraciones, y ayudas para superar el juego!",
+    "details": "Guía de 1994 de Final Fantasy 6, con mapas, estadisticas, Ilustraciones, y ayudas para superar el juego!",
+    "price": 29999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "finalfantasy",
+      "finalfantasyvi",
+      "ffvi",
+      "ff6",
+      "retrogames"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Da_mFk0FvXP/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-19T23:32:22.216Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1784503942708,
+    "image": "/images/products/product-1784503942708-0.webp",
+    "images": [
+      "/images/products/product-1784503942708-0.webp",
+      "/images/products/product-1784503942708-1.webp",
+      "/images/products/product-1784503942708-2.webp",
+      "/images/products/product-1784503942708-3.webp"
+    ],
+    "name": "Shueisha 2001",
+    "description": "Libro promocional de mangas de la epoca que incluye stickers!\nCon mangas como Hunter x Hunter, One Piece, Naruto, Dragon Ball, y más!",
+    "details": "Libro promocional de mangas de la epoca que incluye stickers!\nCon mangas como Hunter x Hunter, One Piece, Naruto, Dragon Ball, y más!",
+    "price": 19999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "onepiece",
+      "naruto",
+      "dragonball",
+      "hunterxhunter",
+      "shamanking",
+      "shaman king",
+      "goku",
+      "hunter x hunter",
+      "hxh",
+      "nana",
+      "yugioh",
+      "yu gi oh"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Da6b1v_FufU/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-19T23:32:22.217Z",
+    "categories": [
+      "Otros",
+      "Revistas"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 19999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1784503942566,
+    "image": "/images/products/product-1784503942566-0.webp",
+    "images": [
+      "/images/products/product-1784503942566-0.webp",
+      "/images/products/product-1784503942566-1.webp",
+      "/images/products/product-1784503942566-2.webp",
+      "/images/products/product-1784503942566-3.webp",
+      "/images/products/product-1784503942566-4.webp",
+      "/images/products/product-1784503942566-5.webp"
+    ],
+    "name": "Revista Pucchigumi 12/2024",
+    "description": "Incluye una cinta y un dispenser de cinta con la forma de Tokage de Sumikko Gurashi!",
+    "details": "Incluye una cinta y un dispenser de cinta con la forma de Tokage de Sumikko Gurashi!",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "kawaii",
+      "cute",
+      "cutecore",
+      "sumikkogurashi",
+      "chiikawa"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Da1Tc9MFkAE/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-19T23:32:22.217Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1784503942529,
+    "image": "/images/products/product-1784503942529-0.webp",
+    "images": [
+      "/images/products/product-1784503942529-0.webp",
+      "/images/products/product-1784503942529-1.webp"
+    ],
+    "name": "Acrílico Nadeko Sengoku",
+    "description": "Era el premio D de un Ichibiban Kuji de 2017!",
+    "details": "Era el premio D de un Ichibiban Kuji de 2017!",
+    "price": 34999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "bakemonogatari",
+      "monogatari",
+      "monogatariseries",
+      "renaicirculation",
+      "nadekosengoku"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DayuogpFtHh/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-19T23:32:22.217Z",
+    "categories": [
+      "Otros"
+    ]
+  },
+  {
+    "id": 1784503942561,
+    "image": "/images/products/product-1784503942561-0.webp",
+    "images": [
+      "/images/products/product-1784503942561-0.webp",
+      "/images/products/product-1784503942561-1.webp",
+      "/images/products/product-1784503942561-2.webp",
+      "/images/products/product-1784503942561-3.webp",
+      "/images/products/product-1784503942561-4.webp"
+    ],
+    "name": "Weekly Shonen Jump No.49 2006",
+    "description": "Jump con portada de Katekyo Hitman Reborn!",
+    "details": "Jump con portada de Katekyo Hitman Reborn!",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "Shonen Jump",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "weeklyshonenjump",
+      "shonenjump",
+      "katekyohitmanreborn",
+      "manga",
+      "shonen"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DawGaL1FtRV/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-19T23:32:22.217Z",
+    "categories": [
+      "Revistas"
+    ]
   }
 ];

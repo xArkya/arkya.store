@@ -1,3 +1,9 @@
+# Redirect /products/* to /product/* (singular form)
+/products/:slug    /product/:slug   301
+
+# Redirect www to non-www
+https://www.arkya.store/*  https://arkya.store/:splat   301
+
 # Serve index.html for all routes
 /*    /index.html   200
 

@@ -1,11 +1,31 @@
 [build]
   publish = "dist"
 
+# Force HTTPS
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
   status = 301
   force = true
+
+# Redirect www to non-www (must be before other redirects)
+[[redirects]]
+  from = "https://www.arkya.store/*"
+  to = "https://arkya.store/:splat"
+  status = 301
+  force = true
+
+# Redirect /products/* to /product/* (singular)
+[[redirects]]
+  from = "/products/:slug"
+  to = "/product/:slug"
+  status = 301
+
+# Serve SPA - must be last
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[edge_functions]]
   path = "/*"

@@ -43,6 +43,10 @@ server.js
 eslint.config.js
 package-scripts.json
 
+# Product images - only WebP, no JPG
+public/images/products/*.jpg
+public/images/products/*.jpeg
+
 # Keep product images - they should be tracked
 !public/images/
 !public/images/products/
