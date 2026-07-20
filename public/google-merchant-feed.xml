@@ -26,7 +26,17 @@
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1757984413967</g:id>
@@ -51,7 +61,17 @@
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1757988375923</g:id>
@@ -79,7 +99,17 @@
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1757989661405</g:id>
@@ -107,7 +137,17 @@
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1757990116478</g:id>
@@ -133,7 +173,17 @@
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1757993726969</g:id>
@@ -158,7 +208,17 @@
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758039667788</g:id>
@@ -194,7 +254,17 @@ Idioma: Japonés.</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758039738631</g:id>
@@ -225,7 +295,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758039902711</g:id>
@@ -259,7 +339,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758040205789</g:id>
@@ -292,7 +382,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758040442694</g:id>
@@ -323,7 +423,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758040558479</g:id>
@@ -349,7 +459,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758040611371</g:id>
@@ -375,7 +495,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758040947754</g:id>
@@ -403,7 +533,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758041123064</g:id>
@@ -428,7 +568,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758041245606</g:id>
@@ -460,7 +610,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758041544758</g:id>
@@ -492,7 +652,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758041879343</g:id>
@@ -515,7 +685,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758047417209</g:id>
@@ -549,7 +729,17 @@ NO INCLUYE ACRÍLICO DE HAIKYU (Consultame al privado si lo buscas con el acríl
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758056624135</g:id>
@@ -576,7 +766,17 @@ $7999 c/u o $13999 las dos</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758056673789</g:id>
@@ -611,7 +811,17 @@ Páginas: 200 aprox; Y 30 aprox.</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758056709499</g:id>
@@ -643,7 +853,17 @@ Páginas: 200 aprox; Y 30 aprox.</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1758057170128</g:id>
@@ -675,7 +895,17 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1759247350573</g:id>
@@ -701,7 +931,17 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1759454734825</g:id>
@@ -727,7 +967,17 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760084526748</g:id>
@@ -753,7 +1003,17 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760084695419</g:id>
@@ -779,7 +1039,17 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760084963425</g:id>
@@ -805,7 +1075,17 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760085143355</g:id>
@@ -838,7 +1118,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760085270170</g:id>
@@ -864,7 +1154,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760085317791</g:id>
@@ -892,7 +1192,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1760085447301</g:id>
@@ -918,7 +1228,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1774744773420</g:id>
@@ -946,7 +1266,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1774745833774</g:id>
@@ -974,7 +1304,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1774934670703</g:id>
@@ -1000,7 +1340,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1774934971314</g:id>
@@ -1030,7 +1380,17 @@ EN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775540388768</g:id>
@@ -1057,7 +1417,17 @@ Incluye arte, historias y material de novelas ligeras.</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775540503405</g:id>
@@ -1082,7 +1452,17 @@ Incluye arte, historias y material de novelas ligeras.</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775543600923</g:id>
@@ -1108,7 +1488,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775543759473</g:id>
@@ -1131,7 +1521,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775544246450</g:id>
@@ -1157,7 +1557,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775608444628</g:id>
@@ -1180,7 +1590,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775608508184</g:id>
@@ -1206,7 +1626,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775608772032</g:id>
@@ -1231,7 +1661,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775608954226</g:id>
@@ -1257,7 +1697,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775624696800</g:id>
@@ -1283,7 +1733,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775632374085</g:id>
@@ -1309,7 +1769,17 @@ Con arte y mangas cortos!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1775632447591</g:id>
@@ -1339,7 +1809,17 @@ SOLO QUEDA VOL. 1</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782262735571</g:id>
@@ -1365,7 +1845,17 @@ SOLO QUEDA VOL. 1</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782263632839</g:id>
@@ -1394,7 +1884,17 @@ Incluye poster de la portada c:</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782274690933</g:id>
@@ -1420,7 +1920,17 @@ Incluye poster de la portada c:</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782278449043</g:id>
@@ -1450,7 +1960,17 @@ EN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782366827731</g:id>
@@ -1477,7 +1997,17 @@ Incluye stickers!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782428453809</g:id>
@@ -1503,7 +2033,17 @@ Incluye stickers!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782442842195</g:id>
@@ -1529,7 +2069,17 @@ Incluye stickers!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782443709253</g:id>
@@ -1555,7 +2105,17 @@ Incluye stickers!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782450760938</g:id>
@@ -1583,7 +2143,17 @@ Con muchos posters!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782451080308</g:id>
@@ -1609,7 +2179,17 @@ Con muchos posters!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782596491282</g:id>
@@ -1635,7 +2215,17 @@ Con muchos posters!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782596551909</g:id>
@@ -1661,7 +2251,17 @@ Con muchos posters!</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782603876558</g:id>
@@ -1691,7 +2291,17 @@ EN STOCK SIN CARTA</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782608389558</g:id>
@@ -1717,7 +2327,17 @@ EN STOCK SIN CARTA</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782634290278</g:id>
@@ -1742,7 +2362,17 @@ Se puede comprar en pack con el volumen 17 edición limitada a $34999</g:descrip
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782634290341</g:id>
@@ -1765,7 +2395,17 @@ Se puede comprar en pack con el volumen 17 edición limitada a $34999</g:descrip
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782634458967</g:id>
@@ -1790,7 +2430,17 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782677909431</g:id>
@@ -1813,7 +2463,17 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782678424204</g:id>
@@ -1836,7 +2496,17 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782678423782</g:id>
@@ -1864,7 +2534,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782684714237</g:id>
@@ -1890,7 +2570,17 @@ Especificaciones del producto:
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782685382338</g:id>
@@ -1922,7 +2612,17 @@ Libro (tapa blanda): 196 páginas</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1782884435616</g:id>
@@ -1946,7 +2646,17 @@ Libro (tapa blanda): 196 páginas</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1783643241991</g:id>
@@ -1972,7 +2682,17 @@ Libro (tapa blanda): 196 páginas</g:description>
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
     <item>
       <g:id>1784503942708</g:id>
@@ -1998,7 +2718,17 @@ Con mangas como Hunter x Hunter, One Piece, Naruto, Dragon Ball, y más!</g:desc
         <g:service>Standard</g:service>
         <g:price>0 ARS</g:price>
       </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
       <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
     </item>
   </channel>
 </rss>

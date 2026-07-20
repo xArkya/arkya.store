@@ -309,15 +309,27 @@ async function prerender() {
       jsonLd,
     });
 
-    // Generar página con ID numérico (compatibilidad)
-    const outPathById = path.join(DIST_DIR, 'product', String(product.id), 'index.html');
-    writeHtmlToDir(outPathById, html);
-    console.log(`✓ Prerender: /product/${product.id}`);
-
     // Generar página con slug amigable (principal para SEO y compartir)
     const outPathBySlug = path.join(DIST_DIR, 'product', slug, 'index.html');
     writeHtmlToDir(outPathBySlug, html);
     console.log(`✓ Prerender: /product/${slug}`);
+
+    // Generar página con ID numérico con redirect a slug (compatibilidad + evitar duplicados)
+    const redirectHtml = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=/product/${slug}/">
+  <link rel="canonical" href="https://arkya.store/product/${slug}/">
+  <title>Redirigiendo...</title>
+</head>
+<body>
+  <p>Redirigiendo a <a href="/product/${slug}/">la página del producto</a>...</p>
+</body>
+</html>`;
+    const outPathById = path.join(DIST_DIR, 'product', String(product.id), 'index.html');
+    writeHtmlToDir(outPathById, redirectHtml);
+    console.log(`✓ Prerender: /product/${product.id} (redirect a /product/${slug})`);
   }
 
   console.log('\nPrerender completado. HTML estático generado para todas las rutas.');

@@ -135,9 +135,21 @@ function generateMerchantFeed() {
     xml += `        <g:service>Standard</g:service>\n`;
     xml += `        <g:price>0 ARS</g:price>\n`;
     xml += `      </g:shipping>\n`;
+    
+    // Detalles de envío
+    xml += `      <g:shipping_label>Argentina</g:shipping_label>\n`;
+    xml += `      <g:shipping_weight>\n`;
+    xml += `        <g:value>0.5</g:value>\n`;
+    xml += `        <g:unit>kg</g:unit>\n`;
+    xml += `      </g:shipping_weight>\n`;
 
     // Política de devoluciones
     xml += `      <g:return_policy_link>${baseUrl}/devoluciones</g:return_policy_link>\n`;
+    xml += `      <g:return_policy>\n`;
+    xml += `        <g:country>AR</g:country>\n`;
+    xml += `        <g:policy_days>5</g:policy_days>\n`;
+    xml += `        <g:restocking_fee>no</g:restocking_fee>\n`;
+    xml += `      </g:return_policy>\n`;
 
     xml += '    </item>\n';
   });
