@@ -72,10 +72,10 @@ function generateMerchantFeed() {
   xml += `    <link>${baseUrl}</link>\n`;
   xml += `    <description>Productos importados de Japón - Artbooks, Doujinshi, Mangas, Guías, Novelas Ligeras, Revistas Jump y Merchandising</description>\n`;
 
-  // Filtrar solo productos en stock
-  const inStockProducts = products.filter(p => p.inStock !== false);
+  // Incluir todos los productos (en stock y sin stock)
+  const allProducts = products;
 
-  inStockProducts.forEach(product => {
+  allProducts.forEach(product => {
     const productSlug = getProductSlug(product);
     const productUrl = `${baseUrl}/product/${productSlug}`;
     const imageUrl = product.image.startsWith('http') ? product.image : `${baseUrl}${product.image}`;
@@ -113,7 +113,8 @@ function generateMerchantFeed() {
     }
 
     xml += `      <g:condition>new</g:condition>\n`;
-    xml += `      <g:availability>in_stock</g:availability>\n`;
+    const availability = product.inStock === false ? 'out_of_stock' : 'in_stock';
+    xml += `      <g:availability>${availability}</g:availability>\n`;
     xml += `      <g:price>${price}</g:price>\n`;
     xml += `      <g:price_currency>ARS</g:price_currency>\n`;
     
@@ -164,7 +165,7 @@ function generateMerchantFeed() {
 
   const feedPath = path.join(publicDir, 'google-merchant-feed.xml');
   fs.writeFileSync(feedPath, xml);
-  console.log(`✓ Feed de Merchant Center generado: ${inStockProducts.length} productos en stock en ${feedPath}`);
+  console.log(`✓ Feed de Merchant Center generado: ${allProducts.length} productos en ${feedPath}`);
 }
 
 function mapToGoogleCategory(category) {

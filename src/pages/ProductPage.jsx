@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link as RouterLink } from 'react-router-dom';
+import { useParams, Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react';
 import { useCart } from '../context/useCart';
 import { useAgeVerification } from '../context/useAgeVerification.js';
@@ -73,6 +73,7 @@ function extractBrand(product) {
 
 export default function ProductPage() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -141,6 +142,19 @@ export default function ProductPage() {
   // Nuevos valores de color para el diseño mejorado
   const pageBgColor = useColorModeValue('gray.50', '#453641');
   const productCardBgColor = useColorModeValue('#241521', '#241521');
+
+  // Redireccionar si el slug es un ID numérico (compatibilidad hacia atrás)
+  // Esto evita redirecciones HTTP que Google penaliza
+  useEffect(() => {
+    const numericId = parseInt(slug, 10);
+    if (!isNaN(numericId)) {
+      const foundProduct = products.find(p => p.id === numericId);
+      if (foundProduct) {
+        const correctSlug = getProductSlug(foundProduct);
+        navigate(`/product/${correctSlug}/`, { replace: true });
+      }
+    }
+  }, [slug, navigate]);
 
   useEffect(() => {
     // Scroll al top de la página cuando se carga el producto

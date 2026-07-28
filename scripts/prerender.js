@@ -53,14 +53,18 @@ function injectMetaTags(html, { title, description, image, url, type = 'website'
   result = result.replace(/<meta\s+name="twitter:[^"]+"\s+content="[^"]*"\s*\/?>/gi, '');
   // Eliminar canonical existente
   result = result.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/gi, '');
+  // Eliminar last-modified existente
+  result = result.replace(/<meta\s+http-equiv="last-modified"\s+content="[^"]*"\s*\/?>/gi, '');
   // Eliminar JSON-LD existente
   result = result.replace(/<script\s+type="application\/ld\+json"[^>]*>.*?<\/script>/gis, '');
 
   const headEnd = result.indexOf('</head>');
   if (headEnd === -1) return result;
 
+  const now = new Date().toISOString();
   const metaBlock = `
     <meta name="description" content="${escapeHtml(description)}" />
+    <meta http-equiv="last-modified" content="${now}" />
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="${escapeHtml(toAbsoluteUrl(image))}" />
@@ -313,23 +317,6 @@ async function prerender() {
     const outPathBySlug = path.join(DIST_DIR, 'product', slug, 'index.html');
     writeHtmlToDir(outPathBySlug, html);
     console.log(`✓ Prerender: /product/${slug}`);
-
-    // Generar página con ID numérico con redirect a slug (compatibilidad + evitar duplicados)
-    const redirectHtml = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=/product/${slug}/">
-  <link rel="canonical" href="https://arkya.store/product/${slug}/">
-  <title>Redirigiendo...</title>
-</head>
-<body>
-  <p>Redirigiendo a <a href="/product/${slug}/">la página del producto</a>...</p>
-</body>
-</html>`;
-    const outPathById = path.join(DIST_DIR, 'product', String(product.id), 'index.html');
-    writeHtmlToDir(outPathById, redirectHtml);
-    console.log(`✓ Prerender: /product/${product.id} (redirect a /product/${slug})`);
   }
 
   console.log('\nPrerender completado. HTML estático generado para todas las rutas.');
