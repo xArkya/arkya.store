@@ -77,10 +77,8 @@ export default function ReturnsPolicyPage() {
                     </Text>
                     <UnorderedList spacing={2} color={textColor} mt={2}>
                       <ListItem>Cambio de opinión o arrepentimiento de compra</ListItem>
-                      <ListItem>Producto abierto o en condición de usado</ListItem>
                       <ListItem>Productos de contenido adulto (+18)</ListItem>
-                      <ListItem>Pedidos personalizados o por encargo</ListItem>
-                      <ListItem>Productos con descuentos especiales o de liquidación</ListItem>
+                      <ListItem>Falta de obi o fajas editoriales en libros</ListItem>
                     </UnorderedList>
                   </Box>
 

@@ -124,6 +124,10 @@ const faqCategories = [
       {
         question: 'Son nuevos?',
         answer: 'La mayoría tienen un mínimo de uso pero están en perfecto estado, se puede ver en las fotos'
+      },
+      {
+        question: '¿Los libros vienen con obi?',
+        answer: 'Los obis (las fajas editoriales, el simple papel que algunos libros tienen alrededor) a veces vienen y a veces no; es aleatorio y depende del proveedor.'
       }
     ]
   }

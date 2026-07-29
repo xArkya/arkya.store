@@ -7871,7 +7871,10 @@ export const products = [
       "fate",
       "anime",
       "artbook",
-      "saber"
+      "saber",
+      "material",
+      "fgo material",
+      "fate material"
     ],
     "instagramUrl": "https://www.instagram.com/p/DWKlQpUFFbz/?img_index=1",
     "extractedFrom": "instagram",
@@ -8617,7 +8620,10 @@ export const products = [
       "fgo",
       "artbook",
       "animeargentina",
-      "anime"
+      "anime",
+      "material",
+      "fgo material",
+      "fate material"
     ],
     "instagramUrl": "https://www.instagram.com/p/DUwqaImDCfc/?img_index=1",
     "extractedFrom": "instagram",
@@ -14844,7 +14850,10 @@ export const products = [
       "fgo",
       "anime",
       "ecchihentai",
-      "ecchi"
+      "ecchi",
+      "material",
+      "fgo material",
+      "fate material"
     ],
     "instagramUrl": "https://www.instagram.com/p/DaL5AuYllz9/?img_index=1",
     "extractedFrom": "instagram",
@@ -15436,5 +15445,365 @@ export const products = [
     "categories": [
       "Revistas"
     ]
+  },
+  {
+    "id": 1785366851284,
+    "image": "/images/products/product-1785366851284-0.jpg",
+    "images": [
+      "/images/products/product-1785366851284-0.jpg",
+      "/images/products/product-1785366851284-1.jpg",
+      "/images/products/product-1785366851284-2.jpg",
+      "/images/products/product-1785366851284-3.jpg"
+    ],
+    "name": "Revista Comptiq 2007 Edición Especial de Lucky Star",
+    "description": "Incluye CD y contenido mayoritariamente centrado en Lucky Star!",
+    "details": "Incluye CD y contenido mayoritariamente centrado en Lucky Star!",
+    "price": 74999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "luckystar",
+      "japanesemagazine",
+      "anime",
+      "moe",
+      "kawaii",
+      "konata"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbWxw19FHgN/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:14:10.932Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1785366851372,
+    "image": "/images/products/product-1785366851372-0.jpg",
+    "images": [
+      "/images/products/product-1785366851372-0.jpg",
+      "/images/products/product-1785366851372-1.jpg",
+      "/images/products/product-1785366851372-2.jpg",
+      "/images/products/product-1785366851372-3.jpg",
+      "/images/products/product-1785366851372-4.jpg",
+      "/images/products/product-1785366851372-5.jpg"
+    ],
+    "name": "Otomodachi Mayo 2024",
+    "description": "Revista infantil que incluye máquina expendedora armable y funcional decorada con los personajes de Chiikawa!",
+    "details": "Revista infantil que incluye máquina expendedora armable y funcional decorada con los personajes de Chiikawa!",
+    "price": 64999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "kirby",
+      "chiikawa",
+      "hachiware",
+      "usagi",
+      "sumikkogurashi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbUNBeXlKwl/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:14:10.932Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1785366851644,
+    "image": "/images/products/product-1785366851644-0.jpg",
+    "images": [
+      "/images/products/product-1785366851644-0.jpg",
+      "/images/products/product-1785366851644-1.jpg",
+      "/images/products/product-1785366851644-2.jpg",
+      "/images/products/product-1785366851644-3.jpg",
+      "/images/products/product-1785366851644-4.jpg",
+      "/images/products/product-1785366851644-5.jpg",
+      "/images/products/product-1785366851644-6.jpg"
+    ],
+    "name": "Mieko Hosoi Artworks",
+    "description": "Colección de Ilustraciones de Mieko Hosoi, en este artbook se pueden encontrar muchas obras conocidas, cómo Your Lie in April, Grimgar, Silver Spoon, Fate, y más!",
+    "details": "Colección de Ilustraciones de Mieko Hosoi, en este artbook se pueden encontrar muchas obras conocidas, cómo Your Lie in April, Grimgar, Silver Spoon, Fate, y más!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fgo",
+      "miekohosoi",
+      "yourlieinapril",
+      "grimgar",
+      "anime",
+      "fate",
+      "mash"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbJ4l-qFOdA/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:14:10.932Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1785366850943,
+    "image": "/images/products/product-1785366850943-0.jpg",
+    "images": [
+      "/images/products/product-1785366850943-0.jpg",
+      "/images/products/product-1785366850943-1.jpg",
+      "/images/products/product-1785366850943-2.jpg",
+      "/images/products/product-1785366850943-3.jpg",
+      "/images/products/product-1785366850943-4.jpg"
+    ],
+    "name": "POPEYE 928 8/2024",
+    "description": "Revista de moda y cultura, este issue de enfoca en paises del sudeste asiático!",
+    "details": "Revista de moda y cultura, este issue de enfoca en paises del sudeste asiático!",
+    "price": 31999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "popeye",
+      "fashion",
+      "fashionmagazine",
+      "japanese",
+      "harajuku"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbJ5wDtlCM2/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:14:10.932Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1785367051693,
+    "image": "/images/products/product-1785367051693-0.jpg",
+    "images": [
+      "/images/products/product-1785367051693-0.jpg",
+      "/images/products/product-1785367051693-1.jpg",
+      "/images/products/product-1785367051693-2.jpg",
+      "/images/products/product-1785367051693-3.jpg",
+      "/images/products/product-1785367051693-4.jpg",
+      "/images/products/product-1785367051693-5.jpg"
+    ],
+    "name": "The Dog Photo Book Collection: Pug",
+    "description": "Colección de fotos de perros de la raza Pug, muy tiernitos!",
+    "details": "Colección de fotos de perros de la raza Pug, muy tiernitos!",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "pug",
+      "dogs",
+      "cute",
+      "puglife",
+      "pugsofinstagram",
+      "photo book"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbHTVP0Frgb/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:17:31.393Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1785367051870,
+    "image": "/images/products/product-1785367051870-0.jpg",
+    "images": [
+      "/images/products/product-1785367051870-0.jpg",
+      "/images/products/product-1785367051870-1.jpg",
+      "/images/products/product-1785367051870-2.jpg"
+    ],
+    "name": "Fullmetal Alchemist Vol.18 Edición Limitada",
+    "description": "Incluye un juego de mesa (Karuta) con muchas cartas con diseños del manga!",
+    "details": "Incluye un juego de mesa (Karuta) con muchas cartas con diseños del manga!",
+    "price": 34999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fullmetalalchemist",
+      "hiromuarakawa",
+      "shonen",
+      "karuta",
+      "manga",
+      "fma"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbCIAGTFgy6/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:17:31.393Z",
+    "categories": [
+      "Mangas",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1785367052040,
+    "image": "/images/products/product-1785367052040-0.jpg",
+    "images": [
+      "/images/products/product-1785367052040-0.jpg",
+      "/images/products/product-1785367052040-1.jpg",
+      "/images/products/product-1785367052040-2.jpg"
+    ],
+    "name": "Lucky Star Animate Limited Mini Character Book",
+    "description": "Mini artbook de Lucky star de edición limitada!",
+    "details": "Mini artbook de Lucky star de edición limitada!",
+    "price": 24999,
+    "category": "Character Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "luckystar",
+      "cutecore",
+      "anime",
+      "moe",
+      "kawaii"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Da_lcVIltS9/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-07-29T23:17:31.393Z",
+    "categories": [
+      "Character Books"
+    ]
+  },
+  {
+    "name": "103+ Rei Girls Collection 2023 Winter",
+    "description": "Libro de Melonbooks que recopila muchos artistas en más de 190 páginas de personajes femeninos!\n\nSi quieren las fotos sin censura hablenme por instagram!",
+    "details": "Libro de Melonbooks que recopila muchos artistas en más de 190 páginas de personajes femeninos!\n\nSi quieren las fotos sin censura hablenme por instagram!",
+    "price": 69999,
+    "image": "/images/products/product-1785367400482-main.webp",
+    "images": [
+      "/images/products/product-1785367400482-0.webp",
+      "/images/products/product-1785367400482-1.webp",
+      "/images/products/product-1785367400482-2.webp",
+      "/images/products/product-1785367400482-3.webp",
+      "/images/products/product-1785367400482-4.webp",
+      "/images/products/product-1785367400482-5.webp",
+      "/images/products/product-1785367400482-6.webp"
+    ],
+    "category": "Artbooks",
+    "subcategory": "",
+    "isNew": false,
+    "inStock": false,
+    "tags": [
+      "ecchi",
+      "censura",
+      "hentai",
+      "doujin"
+    ],
+    "adultContent": true,
+    "instagram": "",
+    "categories": [
+      "Artbooks",
+      "Doujinshis"
+    ],
+    "id": 1785367400482
+  },
+  {
+    "name": "Moguraya illustration Compile Book 2021～2022",
+    "description": "Contiene ilustraciones a todo color de personajes de varias series como Uma Musume Pretty Derby, Idolmaster, blue Archive, Bocchi the rock, Fate, Las quintillizas, etc!\n",
+    "details": "Contiene ilustraciones a todo color de personajes de varias series como Uma Musume Pretty Derby, Idolmaster, blue Archive, Bocchi the rock, Fate, Las quintillizas, etc!\n",
+    "price": 39999,
+    "image": "/images/products/product-1785367498403-main.webp",
+    "images": [
+      "/images/products/product-1785367498403-0.webp",
+      "/images/products/product-1785367498403-1.webp",
+      "/images/products/product-1785367498403-2.webp",
+      "/images/products/product-1785367498403-3.webp",
+      "/images/products/product-1785367498403-4.webp",
+      "/images/products/product-1785367498403-5.webp",
+      "/images/products/product-1785367498403-6.webp",
+      "/images/products/product-1785367498403-7.webp"
+    ],
+    "category": "Artbooks",
+    "subcategory": "",
+    "isNew": true,
+    "inStock": true,
+    "tags": [
+      "doujin",
+      "bocchi the rock",
+      "bochi the rock",
+      "blue archive",
+      "uma musume",
+      "love live",
+      "quintillizas",
+      "las quintillizas",
+      "quintissential"
+    ],
+    "adultContent": true,
+    "instagram": "",
+    "categories": [
+      "Artbooks",
+      "Doujinshis"
+    ],
+    "id": 1785367498403,
+    "isOnOffer": true,
+    "discountPercentage": 0,
+    "originalPrice": 39999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "name": "Dorohedoro Bon",
+    "description": "Libro de arte y guía de Dorohedoro, manga de Q Hayashida, con bocetos, entrevistas, Ilustraciones de Hayashida y otros artistas.\n\nIncluye poster de Nikaido!",
+    "details": "Libro de arte y guía de Dorohedoro, manga de Q Hayashida, con bocetos, entrevistas, Ilustraciones de Hayashida y otros artistas.\n\nIncluye poster de Nikaido!\n\nLa foto de Nikaido está censurada por mi!",
+    "price": 59999,
+    "image": "/images/products/product-1785367590735-main.webp",
+    "images": [
+      "/images/products/product-1785367590735-0.webp",
+      "/images/products/product-1785367590735-1.webp",
+      "/images/products/product-1785367590735-2.webp",
+      "/images/products/product-1785367590735-3.webp",
+      "/images/products/product-1785367590735-4.webp",
+      "/images/products/product-1785367590735-5.webp",
+      "/images/products/product-1785367590735-6.webp",
+      "/images/products/product-1785367590735-7.webp",
+      "/images/products/product-1785367590735-8.webp",
+      "/images/products/product-1785367590735-9.webp"
+    ],
+    "category": "Guide Books",
+    "subcategory": "",
+    "isNew": false,
+    "inStock": false,
+    "tags": [
+      "ecchi",
+      "dorohedoro",
+      "caiman",
+      "noi",
+      "nikaido"
+    ],
+    "adultContent": true,
+    "instagram": "",
+    "categories": [
+      "Guide Books",
+      "Artbooks"
+    ],
+    "id": 1785367590735
   }
 ];
