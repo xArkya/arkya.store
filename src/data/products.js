@@ -844,7 +844,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
@@ -1207,7 +1207,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
@@ -3139,7 +3139,7 @@ export const products = [
   {
     "name": "Tokyo Revengers TV Anime Official Guidebook",
     "description": "Esta primera guía oficial del anime de Tokyo Revengers abarca los primeros 12 capítulos de la serie.\n\nEspecificaciones del producto:\n- Información y diseño de personajes\n- Entrevistas\n- Idioma: Japonés",
-    "price": 19979.260000000002,
+    "price": 26999,
     "image": "/images/products/product-1760085143355-main.webp",
     "images": [
       "/images/products/product-1760085143355-0.webp",
@@ -3154,15 +3154,14 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
     "id": 1760085143355,
-    "isOnOffer": true,
-    "discountPercentage": 26,
-    "originalPrice": 26999,
+    "isOnOffer": false,
+    "discountPercentage": 0,
     "offerStartDate": "",
     "offerEndDate": ""
   },
@@ -5617,7 +5616,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "Libro de la caja para dormir (Mitsuki no Hajirai Soine Box) de Recently, My Sister Is Unusual (Saikin, Imoto no Yosu ga Chotto Okaishiin Da Ga.)\n\nCon arte y mangas cortos!",
     "instagram": "https://instagram.com/arkya.store",
@@ -5646,7 +5645,7 @@ export const products = [
     "category": "CD/DVD",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "CD para dormir de Recently, My Sister Is Unusual (Saikin, Imoto no Yosu ga Chotto Okaishiin Da Ga) de la Sleeping Box (Mitsuki no Hajirai Soine BOX)",
     "instagram": "https://instagram.com/arkya.store",
@@ -5688,7 +5687,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "Caja con figura, poster, y artbook de Hiyoko brand (mi esposa es una chica de secundaria)",
     "instagram": "https://instagram.com/arkya.store",
@@ -5702,9 +5701,8 @@ export const products = [
       "hentai"
     ],
     "id": 1775544246450,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "discountPercentage": 0,
-    "originalPrice": 49999,
     "offerStartDate": "",
     "offerEndDate": ""
   },
@@ -15862,9 +15860,9 @@ export const products = [
     "price": 29999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "steinsgate",
       "kurisumakise",
@@ -15884,7 +15882,6 @@ export const products = [
       "CD/DVD"
     ],
     "discountPercentage": 0,
-    "originalPrice": 29999,
     "offerStartDate": "",
     "offerEndDate": ""
   },
