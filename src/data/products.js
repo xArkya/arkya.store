@@ -16022,7 +16022,7 @@ export const products = [
     "subcategory": "",
     "inStock": true,
     "isNew": true,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "artbook",
       "doujinshi",
@@ -16042,7 +16042,11 @@ export const products = [
     "categories": [
       "Doujinshis",
       "Artbooks"
-    ]
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 24999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1786232656569,
@@ -16193,5 +16197,50 @@ export const products = [
       "Artbooks"
     ],
     "id": 1786232993759
+  },
+  {
+    "id": 1786233363497,
+    "image": "/images/products/product-1786233363497-0.jpg",
+    "images": [
+      "/images/products/product-1786233363497-0.jpg",
+      "/images/products/product-1786233363497-1.jpg",
+      "/images/products/product-1786233363497-2.jpg",
+      "/images/products/product-1786233363497-3.jpg",
+      "/images/products/product-1786233363497-4.jpg",
+      "/images/products/product-1786233363497-5.jpg",
+      "/images/products/product-1786233363497-6.jpg",
+      "/images/products/product-1786233363497-7.jpg",
+      "/images/products/product-1786233363497-8.jpg",
+      "/images/products/product-1786233363497-9.jpg"
+    ],
+    "name": "NEO ONE 麗(Rei) Melonbooks Girls Collection 2022 WINTER",
+    "description": "Artbook a todo color que reúne el trabajo de más de 100 ilustradores y artistas, centrado en dibujos de personajes femeninos.",
+    "details": "Artbook a todo color que reúne el trabajo de más de 100 ilustradores y artistas, centrado en dibujos de personajes femeninos.",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "waifu",
+      "anime",
+      "animeart"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DbzFVCrlkAG/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-08T23:56:02.500Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis"
+    ],
+    "adultContent": true,
+    "discountPercentage": 0,
+    "originalPrice": 39999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   }
 ];
