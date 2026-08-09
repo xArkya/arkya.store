@@ -636,6 +636,19 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
     }
   };
 
+  // Función para procesar imágenes externas y convertirlas a rutas locales
+  const processImageUrls = (images, productId) => {
+    // Convertir URLs externas a rutas locales con .webp
+    return images.map((imageUrl, index) => {
+      if (imageUrl.startsWith('http')) {
+        // Convertir URL externa a ruta local
+        // Formato: /images/products/product-{productId}-{index}.webp
+        return `/images/products/product-${productId}-${index}.webp`;
+      }
+      return imageUrl;
+    });
+  };
+
   // Agregar un producto individual desde los resultados
   const addSingleProduct = (result) => {
     if (!result.data) return;
@@ -652,10 +665,14 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
       });
       return;
     }
+    
+    const productId = Date.now() + Math.floor(Math.random() * 1000);
+    const processedImages = processImageUrls(result.data.images, productId);
+    
     const productData = {
-      id: Date.now() + Math.floor(Math.random() * 1000),
-      image: result.data.images[0] || '',
-      images: result.data.images,
+      id: productId,
+      image: processedImages[0] || '',
+      images: processedImages,
       name: parsed.title,
       description: parsed.description,
       price: parsed.price,
@@ -693,10 +710,14 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
         if (!parsed.title || parsed.title.toLowerCase() === 'instagram' || parsed.description?.toLowerCase() === 'instagram') {
           return null;
         }
+        
+        const productId = Date.now() + index;
+        const processedImages = processImageUrls(result.data.images, productId);
+        
         return {
-        id: Date.now() + index,
-        image: result.data.images[0] || '',
-        images: result.data.images,
+        id: productId,
+        image: processedImages[0] || '',
+        images: processedImages,
         name: parsed.title,
         description: parsed.description,
         price: parsed.price,

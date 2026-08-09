@@ -16006,13 +16006,13 @@ export const products = [
   },
   {
     "id": 1786232656582,
-    "image": "/images/products/product-1786232656582-0.jpg",
+    "image": "/images/products/product-1786232656582-0.webp",
     "images": [
-      "/images/products/product-1786232656582-0.jpg",
-      "/images/products/product-1786232656582-1.jpg",
-      "/images/products/product-1786232656582-2.jpg",
-      "/images/products/product-1786232656582-3.jpg",
-      "/images/products/product-1786232656582-4.jpg"
+      "/images/products/product-1786232656582-0.webp",
+      "/images/products/product-1786232656582-1.webp",
+      "/images/products/product-1786232656582-2.webp",
+      "/images/products/product-1786232656582-3.webp",
+      "/images/products/product-1786232656582-4.webp"
     ],
     "name": "The Art of Kokesuwako",
     "description": "Libro de fan arts de Touhou centrado en Suwako Moriya ilustrado por 味噌ぱん.",
@@ -16050,15 +16050,15 @@ export const products = [
   },
   {
     "id": 1786232656569,
-    "image": "/images/products/product-1786232656569-0.jpg",
+    "image": "/images/products/product-1786232656569-0.webp",
     "images": [
-      "/images/products/product-1786232656569-0.jpg",
-      "/images/products/product-1786232656569-1.jpg",
-      "/images/products/product-1786232656569-2.jpg",
-      "/images/products/product-1786232656569-3.jpg",
-      "/images/products/product-1786232656569-4.jpg",
-      "/images/products/product-1786232656569-5.jpg",
-      "/images/products/product-1786232656569-6.jpg"
+      "/images/products/product-1786232656569-0.webp",
+      "/images/products/product-1786232656569-1.webp",
+      "/images/products/product-1786232656569-2.webp",
+      "/images/products/product-1786232656569-3.webp",
+      "/images/products/product-1786232656569-4.webp",
+      "/images/products/product-1786232656569-5.webp",
+      "/images/products/product-1786232656569-6.webp"
     ],
     "name": "Chara Parfait Puzzle Special de Sumikko Gurashi",
     "description": "Revista infantil que incluye una funda de plástico diseñada para parecer un teléfono inteligente y piezas de rompecabezas en su interior.\nLa publicación contiene diversos rompecabezas, juegos de búsqueda de personajes y actividades de lógica con personajes populares.",
@@ -16091,18 +16091,18 @@ export const products = [
   },
   {
     "id": 1786232656666,
-    "image": "/images/products/product-1786232656666-0.jpg",
+    "image": "/images/products/product-1786232656666-0.webp",
     "images": [
-      "/images/products/product-1786232656666-0.jpg",
-      "/images/products/product-1786232656666-1.jpg",
-      "/images/products/product-1786232656666-2.jpg",
-      "/images/products/product-1786232656666-3.jpg",
-      "/images/products/product-1786232656666-4.jpg",
-      "/images/products/product-1786232656666-5.jpg",
-      "/images/products/product-1786232656666-6.jpg",
-      "/images/products/product-1786232656666-7.jpg",
-      "/images/products/product-1786232656666-8.jpg",
-      "/images/products/product-1786232656666-9.jpg"
+      "/images/products/product-1786232656666-0.webp",
+      "/images/products/product-1786232656666-1.webp",
+      "/images/products/product-1786232656666-2.webp",
+      "/images/products/product-1786232656666-3.webp",
+      "/images/products/product-1786232656666-4.webp",
+      "/images/products/product-1786232656666-5.webp",
+      "/images/products/product-1786232656666-6.webp",
+      "/images/products/product-1786232656666-7.webp",
+      "/images/products/product-1786232656666-8.webp",
+      "/images/products/product-1786232656666-9.webp"
     ],
     "name": "Tori Koro Premium Visual Fanbook",
     "description": "Libro de ilustraciones del manga Tori Koro, incluye poster y CD con wallpapers, iconos, y un calendario! A veces viene con otros extras como los de la foto (sticker y portada alternativa)!",
@@ -16132,13 +16132,13 @@ export const products = [
   },
   {
     "id": 1786232890751,
-    "image": "/images/products/product-1786232890751-0.jpg",
+    "image": "/images/products/product-1786232890751-0.webp",
     "images": [
-      "/images/products/product-1786232890751-0.jpg",
-      "/images/products/product-1786232890751-1.jpg",
-      "/images/products/product-1786232890751-2.jpg",
-      "/images/products/product-1786232890751-3.jpg",
-      "/images/products/product-1786232890751-4.jpg"
+      "/images/products/product-1786232890751-0.webp",
+      "/images/products/product-1786232890751-1.webp",
+      "/images/products/product-1786232890751-2.webp",
+      "/images/products/product-1786232890751-3.webp",
+      "/images/products/product-1786232890751-4.webp"
     ],
     "name": "Diccionario de ingles de Moetan",
     "description": "Libro que incluye 1000 palabras de uso frecuente en ingles y muchas Ilustraciones de Moetan!",
@@ -16200,18 +16200,18 @@ export const products = [
   },
   {
     "id": 1786233363497,
-    "image": "/images/products/product-1786233363497-0.jpg",
+    "image": "/images/products/product-1786233363497-0.webp",
     "images": [
-      "/images/products/product-1786233363497-0.jpg",
-      "/images/products/product-1786233363497-1.jpg",
-      "/images/products/product-1786233363497-2.jpg",
-      "/images/products/product-1786233363497-3.jpg",
-      "/images/products/product-1786233363497-4.jpg",
-      "/images/products/product-1786233363497-5.jpg",
-      "/images/products/product-1786233363497-6.jpg",
-      "/images/products/product-1786233363497-7.jpg",
-      "/images/products/product-1786233363497-8.jpg",
-      "/images/products/product-1786233363497-9.jpg"
+      "/images/products/product-1786233363497-0.webp",
+      "/images/products/product-1786233363497-1.webp",
+      "/images/products/product-1786233363497-2.webp",
+      "/images/products/product-1786233363497-3.webp",
+      "/images/products/product-1786233363497-4.webp",
+      "/images/products/product-1786233363497-5.webp",
+      "/images/products/product-1786233363497-6.webp",
+      "/images/products/product-1786233363497-7.webp",
+      "/images/products/product-1786233363497-8.webp",
+      "/images/products/product-1786233363497-9.webp"
     ],
     "name": "NEO ONE 麗(Rei) Melonbooks Girls Collection 2022 WINTER",
     "description": "Artbook a todo color que reúne el trabajo de más de 100 ilustradores y artistas, centrado en dibujos de personajes femeninos.",
