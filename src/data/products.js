@@ -7146,7 +7146,7 @@ export const products = [
     "price": 39999,
     "category": "Revistas",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
     "isOnOffer": false,
     "tags": [
@@ -16219,9 +16219,9 @@ export const products = [
     "price": 39999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "ecchi",
       "ecchihentai",
@@ -16238,9 +16238,6 @@ export const products = [
       "Doujinshis"
     ],
     "adultContent": true,
-    "discountPercentage": 0,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   }
 ];
