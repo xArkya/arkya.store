@@ -948,7 +948,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
@@ -5421,7 +5421,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Libro japonés de Evangelion con imágenes y material del anime.\nIncluye escenas, ilustraciones y contenido oficial.\n\nIdeal para fans de Evangelion.",
     "instagram": "https://instagram.com/arkya.store",
@@ -5789,7 +5789,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "Incluye artbook, poster bifaz, manga, y caja contenedora",
     "instagram": "https://instagram.com/arkya.store",
@@ -6223,7 +6223,7 @@ export const products = [
   },
   {
     "name": "Doujin Ganbare Douki-Chan Vol 1",
-    "description": "Colección de Ilustraciones de @y_o_m_y_o_m\n\n$29999 cada uno o $49999 los dos\n\nSOLO QUEDA VOL. 1",
+    "description": "Colección de Ilustraciones de @y_o_m_y_o_m\n\n$29999 cada uno o $49999 los dos",
     "price": 29999,
     "image": "/images/products/img_1776143646168_ekqpl9_0.webp",
     "images": [
@@ -6241,7 +6241,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -15905,9 +15905,9 @@ export const products = [
     "price": 29999,
     "category": "Guide Books",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "bleach",
       "kuchikirukia",
@@ -15923,10 +15923,7 @@ export const products = [
       "Guide Books",
       "Otros"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 29999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1785728593806,
@@ -16239,5 +16236,283 @@ export const products = [
     ],
     "adultContent": true,
     "discountPercentage": 0
+  },
+  {
+    "id": 1787080167446,
+    "image": "/images/products/product-1787080167446-0.webp",
+    "images": [
+      "/images/products/product-1787080167446-0.webp"
+    ],
+    "name": "Pokemon Special Vol. 50",
+    "description": "Volumen 50 del manga de Pokemon!",
+    "details": "Volumen 50 del manga de Pokemon!",
+    "price": 14999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "pokemon",
+      "pocketmonsters",
+      "pikachu",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Db1jl4-FEky/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:09:26.939Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1787080338521,
+    "image": "/images/products/product-1787080338521-0.webp",
+    "images": [
+      "/images/products/product-1787080338521-0.webp",
+      "/images/products/product-1787080338521-1.webp",
+      "/images/products/product-1787080338521-2.webp",
+      "/images/products/product-1787080338521-3.webp",
+      "/images/products/product-1787080338521-4.webp",
+      "/images/products/product-1787080338521-5.webp",
+      "/images/products/product-1787080338521-6.webp",
+      "/images/products/product-1787080338521-7.webp",
+      "/images/products/product-1787080338521-8.webp",
+      "/images/products/product-1787080338521-9.webp"
+    ],
+    "name": "Pokemon Special Vol. 50 Edición Limitada",
+    "description": "Edición especial del manga de Pokémon que incluye un artbook de aniversario!",
+    "details": "Edición especial del manga de Pokémon que incluye un artbook de aniversario!",
+    "price": 39999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "pokemon",
+      "pocketmonsters",
+      "pikachu",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Db1jl4-FEky/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:12:17.944Z",
+    "categories": [
+      "Mangas",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1787080338173,
+    "image": "/images/products/product-1787080338173-0.webp",
+    "images": [
+      "/images/products/product-1787080338173-0.webp",
+      "/images/products/product-1787080338173-1.webp",
+      "/images/products/product-1787080338173-2.webp",
+      "/images/products/product-1787080338173-3.webp",
+      "/images/products/product-1787080338173-4.webp",
+      "/images/products/product-1787080338173-5.webp",
+      "/images/products/product-1787080338173-6.webp",
+      "/images/products/product-1787080338173-7.webp",
+      "/images/products/product-1787080338173-8.webp",
+      "/images/products/product-1787080338173-9.webp"
+    ],
+    "name": "NieR Art - Koda Kazuma Works",
+    "description": "Colección de Ilustraciones, de +200 páginas, de la franquicia de Nier hechas por Koda Kazuma, con contenido de NieR:Automata, NieR:Replicant, colaboraciones con otros juegos, y más!",
+    "details": "Colección de Ilustraciones, de +200 páginas, de la franquicia de Nier hechas por Koda Kazuma, con contenido de NieR:Automata, NieR:Replicant, colaboraciones con otros juegos, y más!",
+    "price": 74999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "nier",
+      "nierautomata",
+      "2b",
+      "videogames",
+      "nierreplicant",
+      "nier automata",
+      "nier:automata",
+      "nier replicant",
+      "nier:replicant",
+      "nier:reincarnation",
+      "nier reincarnation",
+      "final fantasy"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DcHvaBTlO9D/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:12:17.944Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1787080338898,
+    "image": "/images/products/product-1787080338898-0.webp",
+    "images": [
+      "/images/products/product-1787080338898-0.webp",
+      "/images/products/product-1787080338898-1.webp",
+      "/images/products/product-1787080338898-2.webp",
+      "/images/products/product-1787080338898-3.webp",
+      "/images/products/product-1787080338898-4.webp",
+      "/images/products/product-1787080338898-5.webp",
+      "/images/products/product-1787080338898-6.webp",
+      "/images/products/product-1787080338898-7.webp",
+      "/images/products/product-1787080338898-8.webp"
+    ],
+    "name": "Comptiq Diciembre 2001 (SIN CD)",
+    "description": "Revista de videojuegos retro, incluye libro Reen kadorer de Carnelian, y un CD-ROM!\n\nDISPONIBLE SIN CD",
+    "details": "Revista de videojuegos retro, incluye libro Reen kadorer de Carnelian, y un CD-ROM!",
+    "price": 24849.29,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "visualnovel",
+      "retrogaming",
+      "japanesemagazine",
+      "carnelian",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DcCjfVIlDD3/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:12:17.944Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD"
+    ],
+    "discountPercentage": 29,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1787080338783,
+    "image": "/images/products/product-1787080338783-0.webp",
+    "images": [
+      "/images/products/product-1787080338783-0.webp",
+      "/images/products/product-1787080338783-1.webp",
+      "/images/products/product-1787080338783-2.webp",
+      "/images/products/product-1787080338783-3.webp",
+      "/images/products/product-1787080338783-4.webp",
+      "/images/products/product-1787080338783-5.webp",
+      "/images/products/product-1787080338783-6.webp"
+    ],
+    "name": "Touhou Project Illustration Tutorial Guide",
+    "description": "Guía paso a paso que recopila los procesos de dibujo, entintado y coloreado digital de varios artistas reconocidos de la comunidad.\nIncluye un disco con archivos de ilustración para que puedan analizar las capas y técnicas!",
+    "details": "Guía paso a paso que recopila los procesos de dibujo, entintado y coloreado digital de varios artistas reconocidos de la comunidad.\nIncluye un disco con archivos de ilustración para que puedan analizar las capas y técnicas!",
+    "price": 29999,
+    "category": "CD/DVD",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "touhou",
+      "touhouproject",
+      "tutorial",
+      "drawingtutorial",
+      "animeart"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Db_9VkDlIM5/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:12:17.944Z",
+    "categories": [
+      "CD/DVD",
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1787080338709,
+    "image": "/images/products/product-1787080338709-0.webp",
+    "images": [
+      "/images/products/product-1787080338709-0.webp",
+      "/images/products/product-1787080338709-1.webp",
+      "/images/products/product-1787080338709-2.webp",
+      "/images/products/product-1787080338709-3.webp",
+      "/images/products/product-1787080338709-4.webp"
+    ],
+    "name": "Ordermade (SIN CD)",
+    "description": "Doujinshi de Pocket Factory que incluye CD con fondos de pantalla!\n\nDISPONIBLE SIN CD",
+    "details": "Doujinshi de Pocket Factory que incluye CD con fondos de pantalla!",
+    "price": 16999.32,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "haruhi",
+      "sailormoon",
+      "haruhisuzumiya",
+      "doujin",
+      "doujinshi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Db9YitYltJZ/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:12:17.945Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks",
+      "CD/DVD"
+    ],
+    "discountPercentage": 32,
+    "originalPrice": 24999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1787080338365,
+    "image": "/images/products/product-1787080338365-0.webp",
+    "images": [
+      "/images/products/product-1787080338365-0.webp",
+      "/images/products/product-1787080338365-1.webp",
+      "/images/products/product-1787080338365-2.webp",
+      "/images/products/product-1787080338365-3.webp",
+      "/images/products/product-1787080338365-4.webp",
+      "/images/products/product-1787080338365-5.webp",
+      "/images/products/product-1787080338365-6.webp",
+      "/images/products/product-1787080338365-7.webp",
+      "/images/products/product-1787080338365-8.webp",
+      "/images/products/product-1787080338365-9.webp"
+    ],
+    "name": "The Slayers NEXT Film Books",
+    "description": "Libros de recopilación de la serie The Slayers que también cuentan con un apartado de bocetos de los personajes! En este caso los volúmenes 4, 5, 6, y 7, los volumenes 2 y 3 los pueden encontrar en otra de mis publicaciones!\n\n$24999 POR CADA UNO",
+    "details": "Libros de recopilación de la serie The Slayers que también cuentan con un apartado de bocetos de los personajes! En este caso los volúmenes 4, 5, 6, y 7, los volumenes 2 y 3 los pueden encontrar en otra de mis publicaciones!\n\n$24999 POR CADA UNO",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "theslayers",
+      "slayers",
+      "ecchi",
+      "ecchihentai",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Db6zv5wFn7X/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-18T19:12:17.945Z",
+    "categories": [
+      "Artbooks",
+      "Guide Books",
+      "Otros"
+    ]
   }
 ];

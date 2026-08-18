@@ -15,8 +15,6 @@
     "extract:images": "node scripts/extract-images.js",
     "fix-image-paths": "node scripts/fix-image-paths.js",
     "fix:paths": "node scripts/fix-image-paths.js",
-    "convert-jpg-to-webp": "node scripts/convert-jpg-to-webp.js",
-    "process-instagram-images": "node scripts/process-instagram-images.js",
     "server": "node server.cjs",
     "install-python-deps": "pip install instaloader selenium webdriver-manager",
     "install-selenium": "pip install selenium webdriver-manager"

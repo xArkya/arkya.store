@@ -318,19 +318,6 @@ const InstaloaderImporter = ({ onProductDataExtracted, onEditMultipleProducts })
     };
   };
 
-  // Función para procesar imágenes externas y convertirlas a rutas locales
-  const processImageUrls = (images, productId) => {
-    // Convertir URLs externas a rutas locales con .webp
-    return images.map((imageUrl, index) => {
-      if (imageUrl.startsWith('http')) {
-        // Convertir URL externa a ruta local
-        // Formato: /images/products/product-{productId}-{index}.webp
-        return `/images/products/product-${productId}-${index}.webp`;
-      }
-      return imageUrl;
-    });
-  };
-
   // Crear producto desde un resultado individual
   const addSingleProduct = (result) => {
     if (!result.data) return;
@@ -347,14 +334,10 @@ const InstaloaderImporter = ({ onProductDataExtracted, onEditMultipleProducts })
       });
       return;
     }
-    
-    const productId = Date.now() + Math.floor(Math.random() * 1000);
-    const processedImages = processImageUrls(result.data.images, productId);
-    
     const productData = {
-      id: productId,
-      image: processedImages[0] || '',
-      images: processedImages,
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      image: result.data.images[0] || '',
+      images: result.data.images,
       name: parsed.title,
       description: parsed.description,
       details: parsed.description,
@@ -394,14 +377,10 @@ const InstaloaderImporter = ({ onProductDataExtracted, onEditMultipleProducts })
         if (!parsed.title || parsed.title.toLowerCase() === 'instagram' || parsed.description?.toLowerCase() === 'instagram') {
           return null;
         }
-        
-        const productId = Date.now() + Math.floor(Math.random() * 1000);
-        const processedImages = processImageUrls(result.data.images, productId);
-        
         return {
-        id: productId,
-        image: processedImages[0] || '',
-        images: processedImages,
+        id: Date.now() + Math.floor(Math.random() * 1000),
+        image: result.data.images[0] || '',
+        images: result.data.images,
         name: parsed.title,
         description: parsed.description,
         details: parsed.description,
