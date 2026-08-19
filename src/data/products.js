@@ -10634,9 +10634,9 @@ export const products = [
       "/images/products/product-1782603876558-7.webp"
     ],
     "name": "Katekyo Hitman Reborn Libro del Guardiano",
-    "description": "Incluye desplegable\n\nEN STOCK SIN CARTA",
-    "details": "Incluye desplegable\n\nEN STOCK SIN CARTA",
-    "price": 22499.25,
+    "description": "Incluye desplegable",
+    "details": "Incluye desplegable",
+    "price": 29999,
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
@@ -10651,7 +10651,7 @@ export const products = [
       "Guide Books",
       "Cartas"
     ],
-    "discountPercentage": 25,
+    "discountPercentage": 0,
     "originalPrice": 29999,
     "offerStartDate": "",
     "offerEndDate": ""
