@@ -7043,12 +7043,12 @@ export const products = [
     ],
     "name": "toi8 Fantasy Girl Artworks",
     "description": "Colección de Ilustraciones del famoso ilustrador toi8!\n",
-    "price": 29999,
+    "price": 34999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": false,
+    "inStock": true,
     "isNew": false,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "toi8",
       "animeart",
@@ -7064,7 +7064,11 @@ export const products = [
     "categories": [
       "Artbooks"
     ],
-    "details": "Colección de Ilustraciones del famoso ilustrador toi8!\n"
+    "details": "Colección de Ilustraciones del famoso ilustrador toi8!\n",
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782278449043,
@@ -9066,9 +9070,9 @@ export const products = [
     "price": 34999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": false,
+    "inStock": true,
     "isNew": false,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [],
     "instagramUrl": "https://www.instagram.com/p/DT1TwraDKYR/?img_index=1",
     "extractedFrom": "instagram",
@@ -9076,7 +9080,11 @@ export const products = [
     "extractionDate": "2026-06-26T05:24:15.190Z",
     "categories": [
       "Artbooks"
-    ]
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782451506990,
@@ -9431,9 +9439,9 @@ export const products = [
     "price": 34999,
     "category": "Guide Books",
     "subcategory": "",
-    "inStock": false,
+    "inStock": true,
     "isNew": false,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [],
     "instagramUrl": "https://www.instagram.com/p/DSYRFZsD5m9/?img_index=1",
     "extractedFrom": "instagram",
@@ -9441,7 +9449,11 @@ export const products = [
     "extractionDate": "2026-06-27T00:22:36.661Z",
     "categories": [
       "Guide Books"
-    ]
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782519893069,
@@ -14862,7 +14874,8 @@ export const products = [
     "extractionDate": "2026-07-01T05:38:05.129Z",
     "categories": [
       "Artbooks",
-      "Character Books"
+      "Character Books",
+      "Videojuegos"
     ]
   },
   {
@@ -15015,7 +15028,8 @@ export const products = [
     "extractionDate": "2026-07-10T00:27:21.579Z",
     "categories": [
       "Doujinshis",
-      "Artbooks"
+      "Artbooks",
+      "Videojuegos"
     ],
     "adultContent": true
   },
@@ -15263,7 +15277,8 @@ export const products = [
     "extractedWith": "Instaloader Server",
     "extractionDate": "2026-07-13T01:24:26.229Z",
     "categories": [
-      "Guide Books"
+      "Guide Books",
+      "Videojuegos"
     ],
     "discountPercentage": 0
   },
@@ -15882,7 +15897,8 @@ export const products = [
     "categories": [
       "Artbooks",
       "Doujinshis",
-      "CD/DVD"
+      "CD/DVD",
+      "Videojuegos"
     ],
     "discountPercentage": 0,
     "offerStartDate": "",
@@ -16041,7 +16057,8 @@ export const products = [
     "extractionDate": "2026-08-08T23:44:16.555Z",
     "categories": [
       "Doujinshis",
-      "Artbooks"
+      "Artbooks",
+      "Videojuegos"
     ],
     "discountPercentage": 0,
     "originalPrice": 24999,
@@ -16267,7 +16284,8 @@ export const products = [
     "extractedWith": "Instaloader Server",
     "extractionDate": "2026-08-18T19:09:26.939Z",
     "categories": [
-      "Mangas"
+      "Mangas",
+      "Videojuegos"
     ]
   },
   {
@@ -16307,7 +16325,8 @@ export const products = [
     "extractionDate": "2026-08-18T19:12:17.944Z",
     "categories": [
       "Mangas",
-      "Artbooks"
+      "Artbooks",
+      "Videojuegos"
     ]
   },
   {
@@ -16353,7 +16372,8 @@ export const products = [
     "extractedWith": "Instaloader Server",
     "extractionDate": "2026-08-18T19:12:17.944Z",
     "categories": [
-      "Artbooks"
+      "Artbooks",
+      "Videojuegos"
     ]
   },
   {
@@ -16392,7 +16412,8 @@ export const products = [
     "extractionDate": "2026-08-18T19:12:17.944Z",
     "categories": [
       "Revistas",
-      "CD/DVD"
+      "CD/DVD",
+      "Videojuegos"
     ],
     "discountPercentage": 29,
     "originalPrice": 34999,
@@ -16434,7 +16455,8 @@ export const products = [
     "categories": [
       "CD/DVD",
       "Artbooks",
-      "Otros"
+      "Otros",
+      "Videojuegos"
     ]
   },
   {
@@ -16701,5 +16723,113 @@ export const products = [
       "Artbooks"
     ],
     "id": 1787547469163
+  },
+  {
+    "id": 1787883713971,
+    "image": "/images/products/product-1787883713971-0.webp",
+    "images": [
+      "/images/products/product-1787883713971-0.webp",
+      "/images/products/product-1787883713971-1.webp",
+      "/images/products/product-1787883713971-2.webp",
+      "/images/products/product-1787883713971-3.webp",
+      "/images/products/product-1787883713971-4.webp",
+      "/images/products/product-1787883713971-5.webp",
+      "/images/products/product-1787883713971-6.webp",
+      "/images/products/product-1787883713971-7.webp"
+    ],
+    "name": "The Melancholy of Haruhi Suzumiya-chan Vol. 3 Super Limited Edition",
+    "description": "Edición limitada del manga Suzumiya Haruhi-chan no Yuuutsu que incluye Nendoroid Petit de Yuki Nagato y la historia corta \"Koizumi Itsuki no Kako\".",
+    "details": "Edición limitada del manga Suzumiya Haruhi-chan no Yuuutsu que incluye Nendoroid Petit de Yuki Nagato y la historia corta \"Koizumi Itsuki no Kako\".",
+    "price": 34999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "yukinagato",
+      "haruhi",
+      "haruhisuzumiya",
+      "manga",
+      "nendoroid",
+      "yuki nagato"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dcj_xLclP04/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-28T02:21:53.090Z",
+    "categories": [
+      "Mangas",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1787883713646,
+    "image": "/images/products/product-1787883713646-0.webp",
+    "images": [
+      "/images/products/product-1787883713646-0.webp",
+      "/images/products/product-1787883713646-1.webp",
+      "/images/products/product-1787883713646-2.webp",
+      "/images/products/product-1787883713646-3.webp",
+      "/images/products/product-1787883713646-4.webp"
+    ],
+    "name": "MagnaCarta Official Visual & Setting Material Collection",
+    "description": "Artbook de tapa dura del videojuego de PS2 MagnaCarta: Tears of Blood, con arte de Kim Hyung Tae!",
+    "details": "Artbook de tapa dura del videojuego de PS2 MagnaCarta: Tears of Blood, con arte de Kim Hyung Tae!",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "magnacarta",
+      "kimhyungtae",
+      "retrogames",
+      "ps2",
+      "ecchi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DchdsSHFGkM/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-28T02:21:53.090Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1787883713856,
+    "image": "/images/products/product-1787883713856-0.webp",
+    "images": [
+      "/images/products/product-1787883713856-0.webp",
+      "/images/products/product-1787883713856-1.webp",
+      "/images/products/product-1787883713856-2.webp",
+      "/images/products/product-1787883713856-3.webp",
+      "/images/products/product-1787883713856-4.webp"
+    ],
+    "name": "LisAni! Vol. 12.1",
+    "description": "Esta edición (titulada como Anison Creators III) está centrada en los compositores de la industria Vocaloid y mucho más!",
+    "details": "Esta edición (titulada como Anison Creators III) está centrada en los compositores de la industria Vocaloid y mucho más!",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "hatsunemiku",
+      "vocaloid",
+      "mikuhatsune",
+      "japanesemagazine",
+      "kasaneteto"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dce3jcilGj_/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-08-28T02:21:53.090Z",
+    "categories": [
+      "Revistas"
+    ]
   }
 ];
