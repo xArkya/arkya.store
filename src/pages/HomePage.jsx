@@ -277,7 +277,7 @@ import PromoBanner from '../components/PromoBanner';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { offers } from '../data/offers';
-import { GAME_CONFIG, GAME_DEADLINE } from '../data/animeGame';
+import { GAME_CONFIG, GAME_DEADLINE, clearGameIfNewRound } from '../data/animeGame';
 
 // Nota: 'todos' es un ID especial para mostrar todos los productos
 
@@ -368,6 +368,9 @@ export default function HomePage() {
   
   // Mostrar popup del juego al entrar (una vez por ronda)
   useEffect(() => {
+    // Limpiar estado del juego si es una nueva ronda
+    clearGameIfNewRound();
+    
     const timer = setTimeout(() => {
       try {
         const shownForRound = localStorage.getItem('gameModalShown');
