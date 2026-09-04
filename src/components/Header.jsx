@@ -340,23 +340,43 @@ export default function Header() {
             as={RouterLink}
             to="/adivina-el-anime"
             fontSize={{ base: 'xs', md: 'sm' }}
-            fontWeight={600}
+            fontWeight={700}
             colorScheme="pink"
             size={{ base: 'sm', md: 'md' }}
             px={{ base: 0, md: 4 }}
             py={{ base: 0, md: 2 }}
-            w={{ base: '36px', sm: 'auto' }}
-            h={{ base: '36px', sm: 'auto' }}
+            w={{ base: '44px', sm: 'auto' }}
+            h={{ base: '44px', sm: 'auto' }}
             borderRadius="full"
             bg="pink.500"
             color="white"
-            boxShadow="0 0 15px rgba(236, 72, 153, 0.6)"
-            _hover={{ transform: 'translateY(-1px)', boxShadow: '0 0 25px rgba(236, 72, 153, 0.9)', bg: 'pink.400' }}
+            boxShadow="0 0 20px rgba(236, 72, 153, 0.7)"
+            _hover={{ transform: 'translateY(-1px)', boxShadow: '0 0 30px rgba(236, 72, 153, 1)', bg: 'pink.400' }}
+            position="relative"
+            overflow="visible"
           >
-            <FaGamepad size={16} />
+            <FaGamepad size={22} />
             <Text display={{ base: 'none', md: 'inline' }} ml={2}>
               GANÁ DESCUENTOS
             </Text>
+            <Box
+              display={{ base: 'block', md: 'none' }}
+              position="absolute"
+              bottom="-8px"
+              left="50%"
+              transform="translateX(-50%)"
+              bg="pink.400"
+              color="white"
+              fontSize="10px"
+              fontWeight="bold"
+              px={2}
+              py="2px"
+              borderRadius="full"
+              lineHeight="1"
+              boxShadow="0 0 10px rgba(236, 72, 153, 0.8)"
+            >
+              JUGAR
+            </Box>
           </Button>
 
           <Button

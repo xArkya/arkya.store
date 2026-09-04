@@ -51,7 +51,6 @@ import {
 } from '@chakra-ui/react';
 import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook, FaGamepad, FaArrowUp } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
-// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
 import { useGameCountdown } from '../hooks/useGameCountdown';
