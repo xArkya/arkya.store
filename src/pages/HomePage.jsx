@@ -41,6 +41,13 @@ import {
   PopoverArrow,
   Checkbox,
   useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseButton,
 } from '@chakra-ui/react';
 import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook, FaGamepad, FaArrowUp } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
@@ -51,20 +58,219 @@ import { useGameCountdown } from '../hooks/useGameCountdown';
 import ProductCard from '../components/ProductCard';
 import ProductCardSkeleton from '../components/ProductCardSkeleton';
 import InstagramFeed from '../components/InstagramFeed';
-function GameCountdownBadge() {
+function GameCountdownBadge({ variant = 'large' }) {
   const { timeLeft, isExpired } = useGameCountdown();
   if (!timeLeft || isExpired) return null;
   return (
     <Text
-      fontSize={{ base: '2xl', md: '4xl' }}
+      fontSize={variant === 'small' ? { base: 'sm', md: 'md' } : { base: 'lg', md: '4xl' }}
       fontWeight="extrabold"
       color="whiteAlpha.900"
       lineHeight="1"
       textShadow="0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(236,72,153,0.3)"
       letterSpacing="widest"
+      whiteSpace="nowrap"
     >
       {timeLeft}
     </Text>
+  );
+}
+
+function GameInviteModal({ isOpen, onClose }) {
+  const { isExpired } = useGameCountdown();
+  if (isExpired) return null;
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} size={{ base: 'sm', md: 'md' }} isCentered motionPreset="slideInBottom">
+      <ModalOverlay
+        bg="blackAlpha.800"
+        backdropFilter="blur(8px)"
+      />
+      <ModalContent
+        bg="linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 25%, #702963 60%, #b83280 100%)"
+        color="white"
+        borderRadius="3xl"
+        border="3px solid"
+        borderColor="pink.300"
+        boxShadow="0 0 30px rgba(236, 72, 153, 0.6), 0 25px 50px rgba(0, 0, 0, 0.5)"
+        overflow="hidden"
+        position="relative"
+      >
+        {/* Animated background circles */}
+        <Box
+          position="absolute"
+          top="-20%"
+          right="-20%"
+          width="300px"
+          height="300px"
+          borderRadius="full"
+          bg="rgba(255, 182, 206, 0.12)"
+          filter="blur(60px)"
+          pointerEvents="none"
+        />
+        <Box
+          position="absolute"
+          bottom="-30%"
+          left="-20%"
+          width="350px"
+          height="350px"
+          borderRadius="full"
+          bg="rgba(236, 72, 153, 0.15)"
+          filter="blur(80px)"
+          pointerEvents="none"
+        />
+
+        <ModalCloseButton
+          color="white"
+          zIndex={2}
+          borderRadius="full"
+          size="lg"
+          _hover={{ bg: 'whiteAlpha.200', transform: 'rotate(90deg)' }}
+          transition="all 0.3s ease"
+        />
+
+        <ModalBody pt={10} pb={6} px={{ base: 6, md: 10 }} position="relative" zIndex={1}>
+          <VStack spacing={{ base: 5, md: 6 }} textAlign="center">
+            {/* Discount badge */}
+            <Box
+              position="absolute"
+              top={10}
+              right={{ base: 24, md: 0 }}
+              bg="linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)"
+              color="#1a0b2e"
+              px={3}
+              py={1}
+              borderRadius="full"
+              fontWeight="extrabold"
+              fontSize={{ base: 'sm', md: 'md' }}
+              boxShadow="0 4px 20px rgba(251, 191, 36, 0.4)"
+              transform="rotate(12deg)"
+              zIndex={3}
+            >
+              ¡Hasta {GAME_CONFIG.maxDiscount}% OFF!
+            </Box>
+
+            {/* Animated icon container */}
+            <Box
+              position="relative"
+            >
+              <Box
+                position="absolute"
+                top="50%"
+                left="50%"
+                transform="translate(-50%, -50%)"
+                width="110px"
+                height="110px"
+                borderRadius="full"
+                bg="rgba(251, 182, 206, 0.3)"
+                filter="blur(20px)"
+                animation="pulse 2s ease-in-out infinite"
+              />
+              <Box
+                bg="whiteAlpha.200"
+                p={{ base: 5, md: 6 }}
+                borderRadius="full"
+                backdropFilter="blur(12px)"
+                border="2px solid"
+                borderColor="pink.200"
+                boxShadow="0 0 40px rgba(251, 182, 206, 0.4)"
+                position="relative"
+                zIndex={1}
+                as={motion.div}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <FaGamepad size={56} color="#fbb6ce" />
+              </Box>
+            </Box>
+
+            <Box>
+              <Heading
+                as="h3"
+                size={{ base: 'lg', md: 'xl' }}
+                mb={3}
+                fontWeight="extrabold"
+                lineHeight="1.1"
+                textShadow="0 0 30px rgba(236, 72, 153, 0.8)"
+              >
+                ¡Adiviná el anime
+                <Box as="span" display="block" color="pink.200">
+                  y GANÁ descuentos!
+                </Box>
+              </Heading>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color="pink.100"
+                fontWeight="medium"
+              >
+                5 niveles de dificultad · Una sola chance
+              </Text>
+            </Box>
+
+            <Box
+              bg="whiteAlpha.150"
+              px={6}
+              py={3}
+              borderRadius="2xl"
+              backdropFilter="blur(8px)"
+              border="1px solid"
+              borderColor="whiteAlpha.200"
+              boxShadow="0 4px 20px rgba(0, 0, 0, 0.2)"
+            >
+              <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.200" mb={1} fontWeight="semibold" letterSpacing="wide">
+                TIEMPO RESTANTE
+              </Text>
+              <GameCountdownBadge variant="small" />
+            </Box>
+
+            <Text
+              fontSize={{ base: 'sm', md: 'md' }}
+              color="whiteAlpha.900"
+              maxW="280px"
+              lineHeight="relaxed"
+            >
+              Respondé correctamente y desbloqueá el mayor descuento.
+            </Text>
+          </VStack>
+        </ModalBody>
+
+        <ModalFooter pb={8} px={{ base: 6, md: 10 }} justifyContent="center" position="relative" zIndex={1}>
+          <VStack spacing={3} width="100%">
+            <Button
+              as={Link}
+              to="/adivina-el-anime"
+              width="100%"
+              bg="linear-gradient(135deg, #ffffff 0%, #fce7f3 100%)"
+              color="#702963"
+              fontWeight="extrabold"
+              borderRadius="full"
+              px={8}
+              py={7}
+              fontSize={{ base: 'lg', md: 'xl' }}
+              _hover={{
+                bg: 'linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)',
+                transform: 'translateY(-2px) scale(1.02)',
+                boxShadow: '0 10px 30px rgba(236, 72, 153, 0.4)'
+              }}
+              boxShadow="0 4px 20px rgba(0, 0, 0, 0.3)"
+              onClick={onClose}
+            >
+              ¡Jugar ahora!
+            </Button>
+            <Button
+              variant="ghost"
+              color="pink.100"
+              fontWeight="semibold"
+              _hover={{ bg: 'whiteAlpha.200', color: 'white' }}
+              borderRadius="full"
+              size="sm"
+              onClick={onClose}
+            >
+              Ahora no, gracias
+            </Button>
+          </VStack>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   );
 }
 
@@ -72,7 +278,7 @@ import PromoBanner from '../components/PromoBanner';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { offers } from '../data/offers';
-import { GAME_CONFIG } from '../data/animeGame';
+import { GAME_CONFIG, GAME_DEADLINE } from '../data/animeGame';
 
 // Nota: 'todos' es un ID especial para mostrar todos los productos
 
@@ -119,6 +325,7 @@ export default function HomePage() {
   
   const [isLoading, setIsLoading] = useState(true);
   const [showAdultContent] = useState(true); // Mostrar contenido +18 por defecto (siempre true ahora)
+  const [showGameModal, setShowGameModal] = useState(false);
   const [adultFilterActive, setAdultFilterActive] = useState(() => {
     // Inicializar desde sessionStorage o sincronizar con activeCategory
     const savedAdultFilter = sessionStorage.getItem('adultFilterActive');
@@ -158,6 +365,22 @@ export default function HomePage() {
       // Doble RAF para asegurar que todo el layout esté calculado
       requestAnimationFrame(restoreScroll);
     }
+  }, []);
+  
+  // Mostrar popup del juego al entrar (una vez por ronda)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        const shownForRound = localStorage.getItem('gameModalShown');
+        if (shownForRound !== GAME_DEADLINE) {
+          setShowGameModal(true);
+        }
+      } catch {
+        // Si localStorage falla, mostrar igual
+        setShowGameModal(true);
+      }
+    }, 800);
+    return () => clearTimeout(timer);
   }, []);
   
   // Cargar productos desde IndexedDB al montar
@@ -834,6 +1057,17 @@ export default function HomePage() {
         );
       })()}
       <Box>
+      <GameInviteModal
+        isOpen={showGameModal}
+        onClose={() => {
+          setShowGameModal(false);
+          try {
+            localStorage.setItem('gameModalShown', GAME_DEADLINE);
+          } catch {
+            // Ignorar errores de localStorage
+          }
+        }}
+      />
       {!isHeaderSearch && (
         <>
           <Box
@@ -847,73 +1081,109 @@ export default function HomePage() {
             top={0}
             zIndex={1000}
           >
-            Si te interesa traer algo a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
+            Si te interesa traer un libro a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
           </Box>
-          <Hero />
 
-          {/* Banner del juego Adivina el Anime */}
+          {/* Banner del juego Adivina el Anime - DESTACADO AL INICIO */}
           <Box
             as={Link}
             to="/adivina-el-anime"
             display="block"
             mx={{ base: 4, md: 'auto' }}
             maxW="7xl"
-            mt={4}
-            mb={6}
-            p={{ base: 5, md: 6 }}
-            borderRadius="2xl"
+            mt={6}
+            mb={0}
+            p={{ base: 6, md: 8 }}
+            borderRadius="3xl"
             bgGradient="linear(to-r, #702963, #b83280)"
-            border="2px solid"
-            borderColor="pink.400"
-            boxShadow="0 0 20px rgba(236, 72, 153, 0.4)"
-            _hover={{ transform: 'translateY(-3px)', boxShadow: '0 0 30px rgba(236, 72, 153, 0.6)' }}
+            border="3px solid"
+            borderColor="pink.300"
+            boxShadow="0 0 40px rgba(236, 72, 153, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1)"
+            _hover={{ 
+              transform: 'translateY(-5px) scale(1.02)', 
+              boxShadow: '0 0 60px rgba(236, 72, 153, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.15)',
+              bgGradient: 'linear(to-r, #8a3a7f, #d63d96)'
+            }}
             transition="all 0.3s ease"
             position="relative"
             overflow="hidden"
           >
-            <HStack spacing={{ base: 3, md: 5 }} align="center" justify="space-between">
-              <HStack spacing={{ base: 3, md: 4 }} align="center">
+            {/* Efecto de fondo animado */}
+            <Box
+              position="absolute"
+              top={0}
+              left={0}
+              right={0}
+              bottom={0}
+              bgGradient="radial(circle at 20% 50%, rgba(255, 182, 206, 0.1) 0%, transparent 50%)"
+              pointerEvents="none"
+            />
+            
+            <Stack
+              direction={{ base: 'column', md: 'row' }}
+              spacing={{ base: 4, md: 6 }}
+              align={{ base: 'stretch', md: 'center' }}
+              justify="space-between"
+              position="relative"
+              zIndex={1}
+            >
+              <HStack spacing={{ base: 3, md: 5 }} align="center" flex={1}>
                 <Box
-                  bg="whiteAlpha.200"
-                  p={{ base: 2, md: 3 }}
+                  bg="whiteAlpha.300"
+                  p={{ base: 3, md: 4 }}
                   borderRadius="full"
-                  backdropFilter="blur(4px)"
+                  backdropFilter="blur(8px)"
+                  boxShadow="0 0 20px rgba(251, 182, 206, 0.3)"
                 >
-                  <FaGamepad size={28} color="#fbb6ce" />
+                  <FaGamepad size={32} color="#fbb6ce" />
                 </Box>
-                <VStack align="start" spacing={0}>
+                <VStack align="start" spacing={1}>
                   <Text
-                    fontSize={{ base: 'sm', md: 'lg' }}
-                    fontWeight="bold"
+                    fontSize={{ base: 'lg', md: '2xl' }}
+                    fontWeight="extrabold"
                     color="white"
                     lineHeight="short"
                   >
                     ¡Adiviná el anime y GANÁ DESCUENTOS!
                   </Text>
-                  <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100">
+                  <Text fontSize={{ base: 'xs', md: 'md' }} color="pink.100" fontWeight="600">
                     5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF · Una sola chance
                   </Text>
                 </VStack>
               </HStack>
 
-              <Box display={{ base: 'none', md: 'block' }}>
-                <GameCountdownBadge />
-              </Box>
-
-              <Button
-                size={{ base: 'sm', md: 'md' }}
-                bg="white"
-                color="#702963"
-                fontWeight="bold"
-                borderRadius="full"
-                px={6}
-                _hover={{ bg: 'pink.50' }}
-                flexShrink={0}
+              <HStack
+                spacing={{ base: 4, md: 6 }}
+                justify={{ base: 'space-between', md: 'flex-end' }}
+                align="center"
               >
-                Jugar →
-              </Button>
-            </HStack>
+                <VStack spacing={0} align={{ base: 'start', md: 'flex-end' }}>
+                  <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100" display={{ base: 'block', md: 'none' }}>
+                    Termina en:
+                  </Text>
+                  <GameCountdownBadge />
+                </VStack>
+
+                <Button
+                  size={{ base: 'md', md: 'lg' }}
+                  bg="white"
+                  color="#702963"
+                  fontWeight="extrabold"
+                  borderRadius="full"
+                  px={8}
+                  py={6}
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  _hover={{ bg: 'pink.50', transform: 'scale(1.05)' }}
+                  flexShrink={0}
+                  boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
+                >
+                  Jugar →
+                </Button>
+              </HStack>
+            </Stack>
           </Box>
+
+          <Hero />
 
           {/* Banner de promoción activa */}
           {offers.find(o => o.isActive && o.isGlobal) && (

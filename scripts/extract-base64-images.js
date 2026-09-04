@@ -1,3 +1,5 @@
+/* eslint-disable */
+/* eslint-env node */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,7 +18,6 @@ let productsContent = fs.readFileSync(productsPath, 'utf-8');
 
 // Track replacements
 let replacements = [];
-let imageCount = 0;
 
 // Function to extract base64 and save as file
 function extractAndSaveBase64(base64String, productId, index) {

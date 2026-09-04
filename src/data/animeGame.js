@@ -41,7 +41,7 @@ export const GAME_LEVELS = [
 // Fecha límite del juego actual - EDITABLE
 // Formato: 'YYYY-MM-DDTHH:MM:SS' (ej: '2026-07-15T00:00:00')
 // Cuando pasa esta fecha, el juego se bloquea y se reinicia para la próxima ronda
-export const GAME_DEADLINE = '2026-09-05T03:00:00';
+export const GAME_DEADLINE = '2026-09-05T14:00:00';
 
 // --- RESPUESTAS DE LA RONDA ANTERIOR ---
 // Personalizá imágenes y nombres de la ronda que ya terminó.
