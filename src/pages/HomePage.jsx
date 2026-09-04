@@ -368,14 +368,18 @@ export default function HomePage() {
   
   // Mostrar popup del juego al entrar (una vez por ronda)
   useEffect(() => {
-    // Limpiar estado del juego si es una nueva ronda
+    // Actualizar la ronda en localStorage si cambió
     clearGameIfNewRound();
     
     const timer = setTimeout(() => {
       try {
-        const shownForRound = localStorage.getItem('gameModalShown');
-        if (shownForRound !== GAME_DEADLINE) {
+        // Usar la misma clave dinámica por ronda
+        const gameModalKey = `gameModalShown_${GAME_DEADLINE.split('T')[0]}`;
+        const shownForRound = localStorage.getItem(gameModalKey);
+        if (!shownForRound) {
           setShowGameModal(true);
+          // Guardar que ya se mostró el modal para esta ronda
+          localStorage.setItem(gameModalKey, 'true');
         }
       } catch {
         // Si localStorage falla, mostrar igual
@@ -383,7 +387,7 @@ export default function HomePage() {
       }
     }, 800);
     return () => clearTimeout(timer);
-  }, []);
+  }, [GAME_DEADLINE]);
   
   // Cargar productos desde IndexedDB al montar
   useEffect(() => {

@@ -333,16 +333,31 @@ export const GAME_HISTORY = [
 
 const ROUND_KEY = 'pixelGameRound';
 
+// Generar claves únicas por ronda basadas en la fecha
+function getRoundBasedKey(baseKey) {
+  // Usar solo la fecha (YYYY-MM-DD) para que sea consistente durante toda la ronda
+  const dateOnly = GAME_DEADLINE.split('T')[0];
+  return `${baseKey}_${dateOnly}`;
+}
+
 export const GAME_CONFIG = {
   levelsCount: 5,
   discountPerLevel: 5,
   get maxDiscount() {
     return GAME_LEVELS.reduce((sum, lvl) => sum + (lvl.discount || 0), 0);
   },
-  localStorageKey: 'pixelGameProgress',
-  submissionsKey: 'pixelGameSubmissions',
-  userKey: 'pixelGameUser',
-  playedKey: 'pixelGamePlayed',
+  get localStorageKey() {
+    return getRoundBasedKey('pixelGameProgress');
+  },
+  get submissionsKey() {
+    return getRoundBasedKey('pixelGameSubmissions');
+  },
+  get userKey() {
+    return getRoundBasedKey('pixelGameUser');
+  },
+  get playedKey() {
+    return getRoundBasedKey('pixelGamePlayed');
+  },
   roundKey: ROUND_KEY,
   deadline: GAME_DEADLINE,
 };
@@ -396,20 +411,20 @@ export function markGameAsPlayed() {
   }
 }
 
-// Limpia progreso si cambió la ronda (nueva fecha de juego)
+// Actualiza la ronda en localStorage (ahora es más simple porque las claves son por ronda)
 export function clearGameIfNewRound() {
   try {
     const round = localStorage.getItem(GAME_CONFIG.roundKey);
-    if (round && round !== GAME_DEADLINE) {
-      localStorage.removeItem(GAME_CONFIG.playedKey);
-      localStorage.removeItem(GAME_CONFIG.localStorageKey);
-      localStorage.removeItem(GAME_CONFIG.userKey);
+    // Si la ronda guardada es diferente a la actual, actualizar
+    if (round !== GAME_DEADLINE) {
       localStorage.setItem(GAME_CONFIG.roundKey, GAME_DEADLINE);
+      // También limpiar el flag del modal para que se muestre en la nueva ronda
+      localStorage.removeItem('gameModalShown');
       return true;
     }
     return false;
   } catch (e) {
-    console.error('Error limpiando ronda previa:', e);
+    console.error('Error actualizando ronda:', e);
     return false;
   }
 }
