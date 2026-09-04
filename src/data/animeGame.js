@@ -4,36 +4,36 @@ export const GAME_LEVELS = [
   {
     id: 1,
     name: 'Nivel 1 - Muy fácil',
-    pixelSize: 10,
-    image: '/images/muyfacil.webp',
+    pixelSize: 15,
+    image: '/images/muyfacil6.webp',
     discount: 5,
   },
   {
     id: 2,
     name: 'Nivel 2 - Fácil',
-    pixelSize: 10,
-    image: '/images/facil.webp',
+    pixelSize: 20,
+    image: '/images/facil6.webp',
     discount: 5,
   },
   {
     id: 3,
     name: 'Nivel 3 - Normal',
-    pixelSize: 10,
-    image: '/images/normal.webp',
+    pixelSize: 30,
+    image: '/images/normal6.webp',
     discount: 5,
   },
   {
     id: 4,
     name: 'Nivel 4 - Difícil',
-    pixelSize: 10,
-    image: '/images/dificil.webp',
-    discount: 5,
+    pixelSize: 45,
+    image: '/images/dificil6.webp',
+    discount: 7,
   },
   {
     id: 5,
     name: 'Nivel 5 - Imposible',
-    pixelSize: 10,
-    image: '/images/imposible.webp',
+    pixelSize: 40,
+    image: '/images/imposible6.webp',
     discount: 10,
   },
 ];
@@ -41,7 +41,7 @@ export const GAME_LEVELS = [
 // Fecha límite del juego actual - EDITABLE
 // Formato: 'YYYY-MM-DDTHH:MM:SS' (ej: '2026-07-15T00:00:00')
 // Cuando pasa esta fecha, el juego se bloquea y se reinicia para la próxima ronda
-export const GAME_DEADLINE = '2026-07-03T00:00:00';
+export const GAME_DEADLINE = '2026-09-05T03:00:00';
 
 // --- RESPUESTAS DE LA RONDA ANTERIOR ---
 // Personalizá imágenes y nombres de la ronda que ya terminó.
@@ -84,6 +84,253 @@ export const PAST_ROUND_ANSWERS = [
   },
 ];
 
+// --- HISTORIAL DE RONDAS ---
+// Agregá acá todas las rondas pasadas que quieras recordar.
+// Cada ronda tiene un id, nombre, fecha límite y las 5 respuestas.
+// En la página se ordenan por deadline de más reciente a más antigua.
+export const GAME_HISTORY = [
+  {
+    id: "ronda5",
+    name: "Ronda 5 - Julio 2026",
+    deadline: "5",
+    answers: [
+      {
+        level: "Nivel 1 - Muy Fácil",
+        image: "/images/muyfacil.webp",
+        answer: "Naruto",
+        answerAlt: "",
+        color: "green",
+        malUrl: "https://myanimelist.net/anime/20/Naruto",
+      },
+      {
+        level: "Nivel 2 - Fácil",
+        image: "/images/facil.webp",
+        answer: "The Promised Neverland",
+        answerAlt: "Yakusoku no Neverland",
+        color: "teal",
+        malUrl: "https://myanimelist.net/anime/37779/Yakusoku_no_Neverland",
+      },
+      {
+        level: "Nivel 3 - Normal",
+        image: "/images/normal.webp",
+        answer: "Elfen Lied",
+        answerAlt: "",
+        color: "yellow",
+        malUrl: "https://myanimelist.net/anime/226/Elfen_Lied",
+      },
+      {
+        level: "Nivel 4 - Difícil",
+        image: "/images/dificil.webp",
+        answer: "A Destructive God Sits Next to Me",
+        answerAlt: "Boku no Tonari ni Ankoku Hakaishin ga Imasu",
+        color: "orange",
+        malUrl:
+          "https://myanimelist.net/anime/38302/Boku_no_Tonari_ni_Ankoku_Hakaishin_ga_Imasu",
+      },
+      {
+        level: "Nivel 5 - Imposible",
+        image: "/images/imposible.webp",
+        answer: "Kamitsubaki City Under Construction",
+        answerAlt: "",
+        color: "red",
+        malUrl:
+          "https://myanimelist.net/anime/57820/Kamitsubaki-shi_Kensetsuchuu",
+      },
+    ],
+  },
+  {
+    id: "ronda4",
+    name: "Ronda 4 - Abril 2026",
+    deadline: "4",
+    answers: [
+      {
+        level: "Nivel 1 - Muy Fácil",
+        image: "/images/muyfacil4.webp",
+        answer: "Frieren",
+        answerAlt: "",
+        color: "green",
+        malUrl: "https://myanimelist.net/anime/52991/Sousou_no_Frieren",
+      },
+      {
+        level: "Nivel 2 - Fácil",
+        image: "/images/facil4.webp",
+        answer: "Dr. Stone",
+        answerAlt: "",
+        color: "teal",
+        malUrl: "https://myanimelist.net/anime/38691/Dr_Stone",
+      },
+      {
+        level: "Nivel 3 - Normal",
+        image: "/images/normal4.webp",
+        answer: "Durarara!!",
+        answerAlt: "",
+        color: "yellow",
+        malUrl: "https://myanimelist.net/anime/6746/Durarara",
+      },
+      {
+        level: "Nivel 4 - Difícil",
+        image: "/images/dificil4.webp",
+        answer: "Akuma no Riddle",
+        answerAlt: "",
+        color: "orange",
+        malUrl: "https://myanimelist.net/anime/19429/Akuma_no_Riddle",
+      },
+      {
+        level: "Nivel 5 - Imposible",
+        image: "/images/imposible4.webp",
+        answer: "Bus Gamer",
+        answerAlt: "",
+        color: "red",
+        malUrl: "https://myanimelist.net/anime/3389/Bus_Gamer",
+      },
+    ],
+  },
+  {
+    id: "ronda3",
+    name: "Ronda 3 - Enero 2026",
+    deadline: "3",
+    answers: [
+      {
+        level: "Nivel 1 - Muy Fácil",
+        image: "/images/muyfacil3.webp",
+        answer: "Chainsaw Man",
+        answerAlt: "Chainsaw Man – The Movie: Reze Arc",
+        color: "green",
+        malUrl:
+          "https://myanimelist.net/anime/57555/Chainsaw_Man_Movie__Reze-hen",
+      },
+      {
+        level: "Nivel 2 - Fácil",
+        image: "/images/facil3.webp",
+        answer: "Ponyo",
+        answerAlt: "",
+        color: "teal",
+        malUrl: "https://myanimelist.net/anime/2890/Gake_no_Ue_no_Ponyo",
+      },
+      {
+        level: "Nivel 3 - Normal",
+        image: "/images/normal3.webp",
+        answer: "Kabaneri of the Iron Fortress",
+        answerAlt: "Kōtetsujō no Kabaneri",
+        color: "yellow",
+        malUrl: "https://myanimelist.net/anime/28623/Koutetsujou_no_Kabaneri",
+      },
+      {
+        level: "Nivel 4 - Difícil",
+        image: "/images/dificil3.webp",
+        answer: "Mahou Shoujo Nante Mouiidesukara",
+        answerAlt: "I've Had Enough of Being a Magical Girl",
+        color: "orange",
+        malUrl:
+          "https://myanimelist.net/anime/31793/Mahou_Shoujo_Nante_Mou_Ii_desu_kara",
+      },
+      {
+        level: "Nivel 5 - Imposible",
+        image: "/images/imposible3.webp",
+        answer: "Fireball",
+        answerAlt: "Fireball Charming",
+        color: "red",
+        malUrl: "https://myanimelist.net/anime/10348/Fireball_Charming",
+      },
+    ],
+  },
+  {
+    id: "ronda2",
+    name: "Ronda 2 - Noviembre 2025",
+    deadline: "2",
+    answers: [
+      {
+        level: "Nivel 1 - Muy Fácil",
+        image: "/images/muyfacil2.webp",
+        answer: "Jujutsu Kaisen",
+        answerAlt: "",
+        color: "green",
+        malUrl: "https://myanimelist.net/anime/40748/Jujutsu_Kaisen",
+      },
+      {
+        level: "Nivel 2 - Fácil",
+        image: "/images/facil2.webp",
+        answer: "Re:Zero kara Hajimeru Isekai Seikatsu",
+        answerAlt: "",
+        color: "teal",
+        malUrl:
+          "https://myanimelist.net/anime/31240/Re_Zero_kara_Hajimeru_Isekai_Seikatsu",
+      },
+      {
+        level: "Nivel 3 - Normal",
+        image: "/images/normal2.webp",
+        answer: "Kill la Kill",
+        answerAlt: "",
+        color: "yellow",
+        malUrl: "https://myanimelist.net/anime/18679/Kill_la_Kill",
+      },
+      {
+        level: "Nivel 4 - Difícil",
+        image: "/images/dificil2.webp",
+        answer: "Occultic;Nine",
+        answerAlt: "",
+        color: "orange",
+        malUrl: "https://myanimelist.net/anime/32962/Occultic_Nine",
+      },
+      {
+        level: "Nivel 5 - Imposible",
+        image: "/images/imposible2.webp",
+        answer: "Lockdown Zone Lv. X",
+        answerAlt: "Kankin Kuiki Level X",
+        color: "red",
+        malUrl: "https://myanimelist.net/anime/59505/Kankin_Kuiki_Level_X",
+      },
+    ],
+  },
+  {
+    id: "ronda1",
+    name: "Ronda 1 - Octubre 2025",
+    deadline: "1",
+    answers: [
+      {
+        level: "Nivel 1 - Muy Fácil",
+        image: "/images/muyfacil1.webp",
+        answer: "Death Note",
+        answerAlt: "",
+        color: "green",
+        malUrl: "https://myanimelist.net/anime/1535/Death_Note",
+      },
+      {
+        level: "Nivel 2 - Fácil",
+        image: "/images/facil1.webp",
+        answer: "Chainsaw Man",
+        answerAlt: "",
+        color: "teal",
+        malUrl: "https://myanimelist.net/anime/44511/Chainsaw_Man",
+      },
+      {
+        level: "Nivel 3 - Normal",
+        image: "/images/normal1.webp",
+        answer: "Bungou Stray Dogs",
+        answerAlt: "",
+        color: "yellow",
+        malUrl: "https://myanimelist.net/anime/31478/Bungou_Stray_Dogs",
+      },
+      {
+        level: "Nivel 4 - Difícil",
+        image: "/images/dificil1.webp",
+        answer: "Kobato",
+        answerAlt: "",
+        color: "orange",
+        malUrl: "https://myanimelist.net/anime/5678/Kobato",
+      },
+      {
+        level: "Nivel 5 - Imposible",
+        image: "/images/imposible1.webp",
+        answer: "Cat Soup",
+        answerAlt: "Nekojiru-sou",
+        color: "red",
+        malUrl: "https://myanimelist.net/anime/601/Nekojiru-sou",
+      },
+    ],
+  },
+];
+
 const ROUND_KEY = 'pixelGameRound';
 
 export const GAME_CONFIG = {
@@ -107,13 +354,14 @@ export const GAME_CONFIG = {
 // 3. Elegí "Obtener enlace" y copiá la URL base (sin parámetros entry).
 // 4. Reemplazá los entry.XXX con los IDs reales de tus campos.
 
-const GOOGLE_FORM_BASE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfPRLSQt1aahTOOER5hUUtlolxvV0WRBss_E9inaajpFzVyRQ/formResponse';
-const ENTRY_1 = 'entry.1583645955';   // Nivel 1
-const ENTRY_2 = 'entry.885633228';    // Nivel 2
-const ENTRY_3 = 'entry.543856572';     // Nivel 3
-const ENTRY_4 = 'entry.109907129';     // Nivel 4
-const ENTRY_5 = 'entry.1015080073';   // Nivel 5
-const ENTRY_USER = 'entry.428186057';  // Usuario (último)
+const GOOGLE_FORM_BASE_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSd4zxuxYMWOvfIovFL2JLKjuC3T0zRt8xessEHOav9csvUX5g/formResponse";
+const ENTRY_1 = "entry.1583645955";   // Nivel 1
+const ENTRY_2 = "entry.885633228";    // Nivel 2
+const ENTRY_3 = "entry.543856572";     // Nivel 3
+const ENTRY_4 = "entry.109907129";     // Nivel 4
+const ENTRY_5 = "entry.1015080073";   // Nivel 5
+const ENTRY_USER = "entry.428186057";  // Usuario (último)
 
 export function getGameUser() {
   try {
