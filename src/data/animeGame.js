@@ -90,6 +90,53 @@ export const PAST_ROUND_ANSWERS = [
 // En la página se ordenan por deadline de más reciente a más antigua.
 export const GAME_HISTORY = [
   {
+    id: "ronda6",
+    name: "Ronda 6 - Septiembre 2026",
+    deadline: "6",
+    answers: [
+      {
+        level: "Nivel 1 - Muy Fácil",
+        image: "/images/muyfacil7.webp",
+        answer: "Bleach",
+        answerAlt: "",
+        color: "green",
+        malUrl: "https://myanimelist.net/anime/269/Bleach",
+      },
+      {
+        level: "Nivel 2 - Fácil",
+        image: "/images/facil7.webp",
+        answer: "Witch Hat Atelier",
+        answerAlt: "Tongari Boushi no Atelier",
+        color: "teal",
+        malUrl: "https://myanimelist.net/anime/51553/Tongari_Boushi_no_Atelier",
+      },
+      {
+        level: "Nivel 3 - Normal",
+        image: "/images/normal7.webp",
+        answer: "To Your Eternity",
+        answerAlt: "Fumetsu no Anata e",
+        color: "yellow",
+        malUrl: "https://myanimelist.net/anime/41025/Fumetsu_no_Anata_e",
+      },
+      {
+        level: "Nivel 4 - Difícil",
+        image: "/images/dificil7.webp",
+        answer: "R.O.D: Read or Die",
+        answerAlt: "",
+        color: "orange",
+        malUrl: "https://myanimelist.net/anime/208/ROD__Read_or_Die",
+      },
+      {
+        level: "Nivel 5 - Imposible",
+        image: "/images/imposible7.webp",
+        answer: "Majokko Tsukune-chan",
+        answerAlt: "",
+        color: "red",
+        malUrl: "https://myanimelist.net/anime/2457/Majokko_Tsukune-chan",
+      },
+    ],
+  },
+  {
     id: "ronda5",
     name: "Ronda 5 - Julio 2026",
     deadline: "5",
