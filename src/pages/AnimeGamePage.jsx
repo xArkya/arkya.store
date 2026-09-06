@@ -558,7 +558,7 @@ export default function AnimeGamePage() {
     <>
       <SEO
         title="Adiviná el Anime - Minijuego y Descuentos | Arkya Store"
-        description="Jugá a adivinar el anime pixelado y ganá descuentos en artbooks, doujinshi, mangas, guías, novelas ligeras, revistas Jump y merchandising importado de Japón. 5 niveles, una sola chance."
+        description="Jugá a adivinar el anime pixelado y ganá descuentos en artbooks, doujinshi, mangas, guías, novelas ligeras, revistas Jump y merchandising importado de Japón. 5 niveles."
         url="https://arkya.store/adivina-el-anime"
         keywords="adivina el anime, minijuego, descuentos, artbooks, doujinshi, manga, japón, anime, juego, pixelado, arkya store"
       />

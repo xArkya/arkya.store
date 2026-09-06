@@ -17048,5 +17048,87 @@ export const products = [
       "Cartas"
     ],
     "id": 1788482213979
+  },
+  {
+    "id": 1788664933472,
+    "image": "/images/products/product-1788664933472-0.webp",
+    "images": [
+      "/images/products/product-1788664933472-0.webp",
+      "/images/products/product-1788664933472-1.webp",
+      "/images/products/product-1788664933472-2.webp",
+      "/images/products/product-1788664933472-3.webp",
+      "/images/products/product-1788664933472-4.webp",
+      "/images/products/product-1788664933472-5.webp"
+    ],
+    "name": "Touhou Bougetsushou ~ Tsuki no Inaba to Chijou no Inaba Vol.1 Edición Limitada",
+    "description": "Tambien conocido cómo \"Inaba of the Moon and Inaba of the Earth\", esta edición limitada del manga viene con una figura de Reisen Udongein Inaba de Touhou!",
+    "details": "Tambien conocido cómo \"Inaba of the Moon and Inaba of the Earth\", esta edición limitada del manga viene con una figura de Reisen Udongein Inaba de Touhou!",
+    "price": 49999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "touhou",
+      "touhouproject",
+      "reisen",
+      "videogames",
+      "inaba"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dc7M9S-FCe2/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-06T03:22:13.248Z",
+    "categories": [
+      "Mangas",
+      "Figuras",
+      "Videojuegos"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 49999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "name": "Kazuhiro Takamura Animation Works",
+    "description": "Artbook del director/animador Kazuhiro Takamura, con ilustraciones de Strike Witches, Mahoromatic, FLCL, Gurren Lagann, y mucho más!",
+    "details": "Artbook del director/animador Kazuhiro Takamura, con ilustraciones de Strike Witches, Mahoromatic, FLCL, Gurren Lagann, y mucho más!",
+    "price": 39999,
+    "image": "/images/products/product-1788665041710-0.webp",
+    "images": [
+      "/images/products/product-1788665041710-0.webp",
+      "/images/products/product-1788665041710-1.webp",
+      "/images/products/product-1788665041710-2.webp",
+      "/images/products/product-1788665041710-3.webp",
+      "/images/products/product-1788665041710-4.webp",
+      "/images/products/product-1788665041710-5.webp",
+      "/images/products/product-1788665041710-6.webp",
+      "/images/products/product-1788665041710-7.webp",
+      "/images/products/product-1788665041710-8.webp"
+    ],
+    "category": "Artbooks",
+    "subcategory": "",
+    "isNew": false,
+    "inStock": false,
+    "tags": [
+      "strike witches",
+      "code geass",
+      "c.c.",
+      "evangelion",
+      "flcl",
+      "fooly cooly",
+      "ichigo 100%",
+      "ichigo marshmallow",
+      "mahoromatic",
+      "gurren lagann",
+      "yoko littner"
+    ],
+    "adultContent": true,
+    "instagram": "",
+    "categories": [
+      "Artbooks"
+    ],
+    "id": 1788665041710
   }
 ];

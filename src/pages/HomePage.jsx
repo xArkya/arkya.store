@@ -57,6 +57,45 @@ import { useGameCountdown } from '../hooks/useGameCountdown';
 import ProductCard from '../components/ProductCard';
 import ProductCardSkeleton from '../components/ProductCardSkeleton';
 import InstagramFeed from '../components/InstagramFeed';
+function GameBannerActions() {
+  const { timeLeft, isExpired } = useGameCountdown();
+  const showCountdown = Boolean(timeLeft) && !isExpired;
+  return (
+    <HStack
+      spacing={{ base: 4, md: 6 }}
+      justify={{ base: 'center', md: 'flex-end' }}
+      align="center"
+      w={{ base: '100%', md: 'auto' }}
+      display={{ base: showCountdown ? 'flex' : 'none', md: 'flex' }}
+    >
+      {showCountdown && (
+        <VStack spacing={0} align={{ base: 'start', md: 'flex-end' }}>
+          <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100" display={{ base: 'block', md: 'none' }}>
+            Termina en:
+          </Text>
+          <GameCountdownBadge />
+        </VStack>
+      )}
+      <Button
+        display={{ base: 'none', md: 'inline-flex' }}
+        size={{ base: 'md', md: 'lg' }}
+        bg="white"
+        color="#702963"
+        fontWeight="extrabold"
+        borderRadius="full"
+        px={8}
+        py={6}
+        fontSize={{ base: 'md', md: 'lg' }}
+        _hover={{ bg: 'pink.50', transform: 'scale(1.05)' }}
+        flexShrink={0}
+        boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
+      >
+        Jugar →
+      </Button>
+    </HStack>
+  );
+}
+
 function GameCountdownBadge({ variant = 'large' }) {
   const { timeLeft, isExpired } = useGameCountdown();
   if (!timeLeft || isExpired) return null;
@@ -201,7 +240,7 @@ function GameInviteModal({ isOpen, onClose }) {
                 color="pink.100"
                 fontWeight="medium"
               >
-                5 niveles de dificultad · Una sola chance
+                5 niveles de dificultad
               </Text>
             </Box>
 
@@ -1133,52 +1172,41 @@ export default function HomePage() {
               position="relative"
               zIndex={1}
             >
-              <HStack spacing={{ base: 3, md: 5 }} align="center" flex={1}>
-                <Box
-                  bg="whiteAlpha.300"
-                  p={{ base: 3, md: 4 }}
-                  borderRadius="full"
-                  backdropFilter="blur(8px)"
-                  boxShadow="0 0 20px rgba(251, 182, 206, 0.3)"
-                >
-                  <FaGamepad size={32} color="#fbb6ce" />
-                </Box>
-                <VStack align="start" spacing={1}>
-                  <Text
-                    fontSize={{ base: 'lg', md: '2xl' }}
-                    fontWeight="extrabold"
-                    color="white"
-                    lineHeight="short"
+              <HStack spacing={{ base: 3, md: 5 }} align="center" flex={1} justify={{ base: 'space-between', md: 'flex-start' }} w={{ base: '100%', md: 'auto' }}>
+                <HStack spacing={{ base: 3, md: 5 }} align="center">
+                  <Box
+                    bg="whiteAlpha.300"
+                    p={{ base: 3, md: 4 }}
+                    borderRadius="full"
+                    backdropFilter="blur(8px)"
+                    boxShadow="0 0 20px rgba(251, 182, 206, 0.3)"
                   >
-                    ¡Adiviná el anime y GANÁ DESCUENTOS!
-                  </Text>
-                  <Text fontSize={{ base: 'xs', md: 'md' }} color="pink.100" fontWeight="600">
-                    5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF · Una sola chance
-                  </Text>
-                </VStack>
-              </HStack>
-
-              <HStack
-                spacing={{ base: 4, md: 6 }}
-                justify={{ base: 'space-between', md: 'flex-end' }}
-                align="center"
-              >
-                <VStack spacing={0} align={{ base: 'start', md: 'flex-end' }}>
-                  <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100" display={{ base: 'block', md: 'none' }}>
-                    Termina en:
-                  </Text>
-                  <GameCountdownBadge />
-                </VStack>
-
+                    <FaGamepad size={32} color="#fbb6ce" />
+                  </Box>
+                  <VStack align="start" spacing={1}>
+                    <Text
+                      fontSize={{ base: 'lg', md: '2xl' }}
+                      fontWeight="extrabold"
+                      color="white"
+                      lineHeight="short"
+                    >
+                      ¡Adiviná el anime y GANÁ DESCUENTOS!
+                    </Text>
+                    <Text fontSize={{ base: 'xs', md: 'md' }} color="pink.100" fontWeight="600">
+                      5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF
+                    </Text>
+                  </VStack>
+                </HStack>
                 <Button
-                  size={{ base: 'md', md: 'lg' }}
+                  display={{ base: 'inline-flex', md: 'none' }}
+                  size="md"
                   bg="white"
                   color="#702963"
                   fontWeight="extrabold"
                   borderRadius="full"
                   px={8}
                   py={6}
-                  fontSize={{ base: 'md', md: 'lg' }}
+                  fontSize="md"
                   _hover={{ bg: 'pink.50', transform: 'scale(1.05)' }}
                   flexShrink={0}
                   boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
@@ -1186,6 +1214,8 @@ export default function HomePage() {
                   Jugar →
                 </Button>
               </HStack>
+
+              <GameBannerActions />
             </Stack>
           </Box>
 
