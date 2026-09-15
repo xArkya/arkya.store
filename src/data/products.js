@@ -1973,7 +1973,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": true,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -3174,8 +3174,8 @@ export const products = [
   {
     "name": "Zero no Tsukaima Illustration Collection",
     "description": "Incluye desplegable bifaz",
-    "price": 44999,
-    "image": "/images/products/product-1760085270170-main.webp",
+    "price": 79999,
+    "image": "/images/products/product-1760085270170-0.webp",
     "images": [
       "/images/products/product-1760085270170-0.webp",
       "/images/products/product-1760085270170-1.webp",
@@ -5022,7 +5022,7 @@ export const products = [
   {
     "name": "Urusei Yatsura Vol.8 – Shonen Sunday Graphic",
     "description": "Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
-    "price": 24849.29,
+    "price": 34999,
     "image": "/images/products/product-1774934971314-0.webp",
     "images": [
       "/images/products/product-1774934971314-0.webp",
@@ -5040,7 +5040,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Libro japonés de Urusei Yatsura con ilustraciones y material gráfico de la serie.\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
     "instagram": "https://instagram.com/arkya.store",
@@ -5054,11 +5054,8 @@ export const products = [
       "lum"
     ],
     "id": 1774934971314,
-    "isOnOffer": true,
-    "discountPercentage": 29,
-    "originalPrice": 34999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Sailor Moon TV Picture Book Vol.1",
@@ -17130,5 +17127,320 @@ export const products = [
       "Artbooks"
     ],
     "id": 1788665041710
+  },
+  {
+    "id": 1789439708223,
+    "image": "/images/products/product-1789439708223-0.webp",
+    "images": [
+      "/images/products/product-1789439708223-0.webp",
+      "/images/products/product-1789439708223-1.webp",
+      "/images/products/product-1789439708223-2.webp",
+      "/images/products/product-1789439708223-3.webp",
+      "/images/products/product-1789439708223-4.webp",
+      "/images/products/product-1789439708223-5.webp",
+      "/images/products/product-1789439708223-6.webp"
+    ],
+    "name": "Tobi Tsukihime Dokuhon",
+    "description": "Doujinshi guía del juego \"Tobi Tsukihime: Magical Amber\", incluye un CD con el juego de PC desarrollado por 01step.\nEs un bullet hell al estilo Touhou con temática relacionada a Tsukihime de TYPE-MOON!",
+    "details": "Doujinshi guía del juego \"Tobi Tsukihime: Magical Amber\", incluye un CD con el juego de PC desarrollado por 01step.\nEs un bullet hell al estilo Touhou con temática relacionada a Tsukihime de TYPE-MOON!",
+    "price": 34999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "tsukihime",
+      "typemoon",
+      "nekoarc",
+      "retrogames",
+      "touhou"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdSZIA2FOeg/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:35:07.966Z",
+    "categories": [
+      "Guide Books",
+      "CD/DVD",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1789439708343,
+    "image": "/images/products/product-1789439708343-0.webp",
+    "images": [
+      "/images/products/product-1789439708343-0.webp",
+      "/images/products/product-1789439708343-1.webp",
+      "/images/products/product-1789439708343-2.webp",
+      "/images/products/product-1789439708343-3.webp",
+      "/images/products/product-1789439708343-4.webp",
+      "/images/products/product-1789439708343-5.webp",
+      "/images/products/product-1789439708343-6.webp"
+    ],
+    "name": "Backgammon 2: Kazuya Minekura Illustrations",
+    "description": "Artbook de tapa dura que incluye ilustraciones a todo color de la serie Saiyuki, además de artes de otras obras tempranas de la autora como Wild Adapter o Bus Gamer.",
+    "details": "Artbook de tapa dura que incluye ilustraciones a todo color de la serie Saiyuki, además de artes de otras obras tempranas de la autora como Wild Adapter o Bus Gamer.",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "backgammon",
+      "busgamer",
+      "saiyuki",
+      "manga",
+      "artbook"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdKsjXeFLMv/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:35:07.967Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 29999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1789439708674,
+    "image": "/images/products/product-1789439708674-0.webp",
+    "images": [
+      "/images/products/product-1789439708674-0.webp",
+      "/images/products/product-1789439708674-1.webp",
+      "/images/products/product-1789439708674-2.webp",
+      "/images/products/product-1789439708674-3.webp",
+      "/images/products/product-1789439708674-4.webp",
+      "/images/products/product-1789439708674-5.webp"
+    ],
+    "name": "Raita's Militaria",
+    "description": "Artbook doujinshi de la artista Raita Honjou (Conocida por hacer distintos diseños de personaje en Fate/Grand Order) con temática militar!",
+    "details": "Artbook doujinshi de la artista Raita Honjou (Conocida por hacer distintos diseños de personaje en Fate/Grand Order) con temática militar!",
+    "price": 34999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchihentai",
+      "ecchi",
+      "fgo",
+      "military",
+      "doujinshi"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdFfZwplLUQ/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:35:07.967Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis"
+    ],
+    "adultContent": false
+  },
+  {
+    "id": 1789439708785,
+    "image": "/images/products/product-1789439708785-0.webp",
+    "images": [
+      "/images/products/product-1789439708785-0.webp",
+      "/images/products/product-1789439708785-1.webp",
+      "/images/products/product-1789439708785-2.webp",
+      "/images/products/product-1789439708785-3.webp",
+      "/images/products/product-1789439708785-4.webp",
+      "/images/products/product-1789439708785-5.webp",
+      "/images/products/product-1789439708785-6.webp"
+    ],
+    "name": "To Your Eternity Vol.13 Edición Limitada",
+    "description": "En esta edición especial de Fumetsu no Anata e, viene el artbook de tapa dura titulado \"Yoshitoki Oima Art Works 10th Anniversary - Since 2009\", que recopika más de 30 páginas a todo color con arte de sus obras más famosas, como A Silent Voice (Koe no Katachi) y Mardock Scramble!",
+    "details": "En esta edición especial de Fumetsu no Anata e, viene el artbook de tapa dura titulado \"Yoshitoki Oima Art Works 10th Anniversary - Since 2009\", que recopika más de 30 páginas a todo color con arte de sus obras más famosas, como A Silent Voice (Koe no Katachi) y Mardock Scramble!",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "artbook",
+      "toyoureternity",
+      "asilentvoice",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdC5-8mDGVB/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:35:07.967Z",
+    "categories": [
+      "Mangas",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1789439857312,
+    "image": "/images/products/product-1789439857312-0.webp",
+    "images": [
+      "/images/products/product-1789439857312-0.webp",
+      "/images/products/product-1789439857312-1.webp",
+      "/images/products/product-1789439857312-2.webp",
+      "/images/products/product-1789439857312-3.webp",
+      "/images/products/product-1789439857312-4.webp"
+    ],
+    "name": "Checkout #3",
+    "description": "Doujinshi con ilustraciones de Touhou que incluye CD con fondos de pantalla!",
+    "details": "Doujinshi con ilustraciones de Touhou que incluye CD con fondos de pantalla!",
+    "price": 24999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "wallpaper",
+      "cd",
+      "touhou",
+      "touhouproject"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdAXHRqlG61/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:37:36.664Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks",
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1789439856695,
+    "image": "/images/products/product-1789439856695-0.webp",
+    "images": [
+      "/images/products/product-1789439856695-0.webp",
+      "/images/products/product-1789439856695-1.webp",
+      "/images/products/product-1789439856695-2.webp",
+      "/images/products/product-1789439856695-3.webp",
+      "/images/products/product-1789439856695-4.webp",
+      "/images/products/product-1789439856695-5.webp",
+      "/images/products/product-1789439856695-6.webp",
+      "/images/products/product-1789439856695-7.webp"
+    ],
+    "name": "Masashi Ishihama Animation Works",
+    "description": "Artbook de distintas obras centrado en el animador Masashi Ishihama, con dibujos de Persona 5, Speedgrapher, R.O.D; Welcome to the NHK, y más",
+    "details": "Artbook de distintas obras centrado en el animador Masashi Ishihama, con dibujos de Persona 5, Speedgrapher, R.O.D; Welcome to the NHK, y más",
+    "price": 59999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "persona5",
+      "masashiishihama",
+      "welcometothenhk",
+      "anime",
+      "animation"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdPz3rYlGMk/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:37:36.664Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1789439856953,
+    "image": "/images/products/product-1789439856953-0.webp",
+    "images": [
+      "/images/products/product-1789439856953-0.webp",
+      "/images/products/product-1789439856953-1.webp",
+      "/images/products/product-1789439856953-2.webp",
+      "/images/products/product-1789439856953-3.webp",
+      "/images/products/product-1789439856953-4.webp",
+      "/images/products/product-1789439856953-5.webp",
+      "/images/products/product-1789439856953-6.webp",
+      "/images/products/product-1789439856953-7.webp",
+      "/images/products/product-1789439856953-8.webp"
+    ],
+    "name": "Kohei Horikoshi \"My Hero Academia\" Exhibition",
+    "description": "Exhibición de arte del manga con bocetos y páginas originales dibujadas por Horikoshi, también incluye las fotos tomadas por Deku con su cámara!",
+    "details": "Exhibición de arte del manga con bocetos y páginas originales dibujadas por Horikoshi, también incluye las fotos tomadas por Deku con su cámara!",
+    "price": 94999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "myheroacademia",
+      "bokunoheroacademia",
+      "bnha",
+      "anime",
+      "manga",
+      "boku no hero",
+      "mha",
+      "my hero academia",
+      "deku",
+      "bakugo",
+      "uraraka",
+      "toga"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdM-4XKFBTV/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:37:36.664Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1789439856704,
+    "image": "/images/products/product-1789439856704-0.webp",
+    "images": [
+      "/images/products/product-1789439856704-0.webp",
+      "/images/products/product-1789439856704-1.webp",
+      "/images/products/product-1789439856704-2.webp",
+      "/images/products/product-1789439856704-3.webp",
+      "/images/products/product-1789439856704-4.webp",
+      "/images/products/product-1789439856704-5.webp",
+      "/images/products/product-1789439856704-6.webp",
+      "/images/products/product-1789439856704-7.webp",
+      "/images/products/product-1789439856704-8.webp",
+      "/images/products/product-1789439856704-9.webp"
+    ],
+    "name": "C97 tabgraphics traxx 3",
+    "description": "Artbook de Kanzaki Hiro(HanasoumenP/tabgraphics), ilustrador de Oreimo, centrado en Hatsune Miku pero con arte de otras obras también cómo K-on! o Gurren Lagann!\nIncluye bolsa ziploc personalizada, lamina ilustrada, y el artbook!",
+    "details": "Artbook de Kanzaki Hiro(HanasoumenP/tabgraphics), ilustrador de Oreimo, centrado en Hatsune Miku pero con arte de otras obras también cómo K-on! o Gurren Lagann!\nIncluye bolsa ziploc personalizada, lamina ilustrada, y el artbook!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "oreimo",
+      "hatsunemiku",
+      "doujinshi",
+      "ecchi",
+      "kon",
+      "miku",
+      "hatsune",
+      "miku"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dc9xHQjFM8m/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-15T02:37:36.664Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis",
+      "Otros"
+    ],
+    "adultContent": true
   }
 ];
