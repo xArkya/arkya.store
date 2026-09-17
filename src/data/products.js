@@ -2939,7 +2939,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -2992,7 +2992,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -3022,7 +3022,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -14935,9 +14935,9 @@ export const products = [
     "price": 34999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "onepiece",
       "luffy",
@@ -14954,10 +14954,7 @@ export const products = [
       "Artbooks",
       "Otros"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 34999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1783643242276,
@@ -17442,5 +17439,77 @@ export const products = [
       "Otros"
     ],
     "adultContent": true
+  },
+  {
+    "id": 1789621912212,
+    "image": "/images/products/product-1789621912212-0.webp",
+    "images": [
+      "/images/products/product-1789621912212-0.webp",
+      "/images/products/product-1789621912212-1.webp",
+      "/images/products/product-1789621912212-2.webp",
+      "/images/products/product-1789621912212-3.webp",
+      "/images/products/product-1789621912212-4.webp"
+    ],
+    "name": "Yuru Camp Stainless Pan Book Nadeshiko Ver.",
+    "description": "Libro que incluye una sartén de acero inoxidable del anime \"Laid-Back Camp\". La sartén tiene un diseño grabado del personaje Nadeshiko y mangos plegables para facilitar su transporte durante.\nEl libro tiene recetas y escenas del anime!",
+    "details": "Libro que incluye una sartén de acero inoxidable del anime \"Laid-Back Camp\". La sartén tiene un diseño grabado del personaje Nadeshiko y mangos plegables para facilitar su transporte durante.\nEl libro tiene recetas y escenas del anime!",
+    "price": 44999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "yurucamp",
+      "laidbackcamp",
+      "camping",
+      "cooking",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdU8anQlPi2/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-17T05:11:52.094Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1789621912943,
+    "image": "/images/products/product-1789621912943-0.webp",
+    "images": [
+      "/images/products/product-1789621912943-0.webp",
+      "/images/products/product-1789621912943-1.webp",
+      "/images/products/product-1789621912943-2.webp",
+      "/images/products/product-1789621912943-3.webp",
+      "/images/products/product-1789621912943-4.webp",
+      "/images/products/product-1789621912943-5.webp",
+      "/images/products/product-1789621912943-6.webp",
+      "/images/products/product-1789621912943-7.webp"
+    ],
+    "name": "Hokusai from the Museum of Fine Arts, Boston",
+    "description": "Colección de arte que detalla la exposición del Museo de Bellas Artes de Boston sobre Katsushika Hokusai.",
+    "details": "Colección de arte que detalla la exposición del Museo de Bellas Artes de Boston sobre Katsushika Hokusai.",
+    "price": 54999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "hokusai",
+      "museum",
+      "katsuhikahokusai",
+      "japanart",
+      "art"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DdXjGgwlM-A/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-17T05:11:52.095Z",
+    "categories": [
+      "Artbooks"
+    ]
   }
 ];
