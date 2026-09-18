@@ -6,8 +6,10 @@
 // Devuelve un JSON con status/bytes/marca-de-challenge por intento.
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { createRequire } from 'node:module';
 
 const execFileAsync = promisify(execFile);
+const require = createRequire(import.meta.url);
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
 
@@ -42,7 +44,9 @@ async function curlProbe(url) {
 
 async function cycleTlsProbe(url) {
   try {
-    const initCycleTLS = (await import('cycletls')).default;
+    // Specifier no literal para que el bundler de Netlify no lo procese;
+    // el paquete viaja igual por external_node_modules en netlify.toml.
+    const initCycleTLS = require('cycle' + 'tls').default;
     const cycleTLS = await initCycleTLS();
     try {
       const res = await cycleTLS(
