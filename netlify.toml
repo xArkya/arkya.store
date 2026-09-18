@@ -1,6 +1,10 @@
 [build]
   publish = "dist"
 
+# cycletls trae binarios de Go: no se puede bundlear, se incluye como está
+[functions."jp-probe"]
+  external_node_modules = ["cycletls"]
+
 # Force HTTPS
 [[redirects]]
   from = "http://*"
