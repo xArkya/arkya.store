@@ -11,7 +11,8 @@ const CORS = { 'Access-Control-Allow-Origin': '*' };
 
 // La function registra su propia ruta: /api/jp-search llega directo acá
 // sin depender de los redirects de netlify.toml.
-export const config = { path: '/api/jp-search' };
+// timeout: deep out-of-stock scans can exceed the 10s default
+export const config = { path: '/api/jp-search', timeout: 26 };
 
 export default async (req) => {
   const url = new URL(req.url);
