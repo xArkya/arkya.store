@@ -80,7 +80,7 @@ export default function Footer() {
           <Stack align="flex-start">
             <SectionTitle>Tienda</SectionTitle>
             <Link as={RouterLink} to="/" {...navLinkStyle}>Inicio</Link>
-            <Link as={RouterLink} to="/" {...navLinkStyle}>Catálogo</Link>
+            {/* <Link as={RouterLink} to="/catalogo" {...navLinkStyle}>Catálogo</Link> */}
             <Link as={RouterLink} to="/mis-me-gustas" {...navLinkStyle}>Mis Favoritos</Link>
           </Stack>
 

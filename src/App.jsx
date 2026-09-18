@@ -13,6 +13,7 @@ import AnimeGamePage from './pages/AnimeGamePage'
 import GuidesPage from './pages/GuidesPage'
 import ReturnsPolicyPage from './pages/ReturnsPolicyPage'
 import TransparencyPolicyPage from './pages/TransparencyPolicyPage'
+import ImportCatalogPage from './pages/ImportCatalogPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FloatingCartButton from './components/Cart/FloatingCartButton'
@@ -53,6 +54,7 @@ function App() {
           <Route path="/mis-me-gustas" element={<MisLikesPage />} />
           <Route path="/adivina-el-anime" element={<AnimeGamePage />} />
           <Route path="/guias" element={<GuidesPage />} />
+          <Route path="/catalogo" element={<ImportCatalogPage />} />
           <Route path="/devoluciones" element={<ReturnsPolicyPage />} />
           <Route path="/politica-informacion" element={<TransparencyPolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />

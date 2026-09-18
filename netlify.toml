@@ -21,6 +21,17 @@
   to = "/product/:slug"
   status = 301
 
+# API: buscador de catálogo + proxy de imágenes -> Netlify Functions
+[[redirects]]
+  from = "/api/jp-search"
+  to = "/.netlify/functions/jp-search"
+  status = 200
+
+[[redirects]]
+  from = "/api/jp-image"
+  to = "/.netlify/functions/jp-image"
+  status = 200
+
 # Serve SPA - must be last
 [[redirects]]
   from = "/*"

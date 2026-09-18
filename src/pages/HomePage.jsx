@@ -49,7 +49,7 @@ import {
   ModalFooter,
   ModalCloseButton,
 } from '@chakra-ui/react';
-import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook, FaGamepad, FaArrowUp } from 'react-icons/fa';
+import { FaSearch, FaInstagram, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaShareAlt, FaWhatsapp, FaTwitter, FaFacebook, FaGamepad, FaArrowUp, FaBookOpen } from 'react-icons/fa';
 import { ChevronDownIcon, CloseIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
@@ -1031,64 +1031,71 @@ export default function HomePage() {
         // SEO dinámico según categoría activa para mejorar posicionamiento en Google
         const seoMap = {
           todos: {
-            title: 'Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón',
-            desc: 'Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido.',
-            url: 'https://arkya.store/',
+            title:
+              "Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón",
+            desc: "Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido.",
+            url: "https://arkya.store/",
           },
           artbooks: {
-            title: 'Artbooks de Anime y Manga Japoneses en Argentina | Arkya Store',
-            desc: 'Comprá Artbooks originales de Japón: ilustraciones oficiales de One Piece, Fate, Evangelion, Jujutsu Kaisen y más. 100% originales, importados desde Japón. Envíos a todo el país.',
-            url: 'https://arkya.store/?category=artbooks',
+            title:
+              "Artbooks de Anime y Manga Japoneses en Argentina | Arkya Store",
+            desc: "Comprá Artbooks originales de Japón: ilustraciones oficiales de One Piece, Fate, Evangelion, Jujutsu Kaisen y más. 100% originales, importados desde Japón. Envíos a todo el país.",
+            url: "https://arkya.store/?category=artbooks",
           },
           figuras: {
-            title: 'Figuras de Anime Japonesas Importadas | Arkya Store',
-            desc: 'Figuras coleccionables de anime importadas desde Japón. Bandai, Furyu y más marcas. 100% originales con envío a todo Argentina.',
-            url: 'https://arkya.store/?category=figuras',
+            title: "Figuras de Anime Japonesas Importadas | Arkya Store",
+            desc: "Figuras coleccionables de anime importadas desde Japón. Bandai, Furyu y más marcas. 100% originales con envío a todo Argentina.",
+            url: "https://arkya.store/?category=figuras",
           },
           mangas: {
-            title: 'Mangas en Japonés Originales Importados | Arkya Store',
-            desc: 'Mangas en idioma japonés directo desde Japón. Ediciones especiales con artbooks, acrílicos, stickers y más. Shueisha, Kodansha, Square Enix.',
-            url: 'https://arkya.store/?category=mangas',
+            title: "Mangas en Japonés Originales Importados | Arkya Store",
+            desc: "Mangas en idioma japonés directo desde Japón. Ediciones especiales con artbooks, acrílicos, stickers y más. Shueisha, Kodansha, Square Enix.",
+            url: "https://arkya.store/?category=mangas",
           },
           revistas: {
-            title: 'Revistas Japonesas de Anime - Jump, Comptiq, Kirara | Arkya Store',
-            desc: 'Revistas japonesas semanales y mensuales: Weekly Shōnen Jump, Jump GIGA, Comptiq, Manga Time Kirara, Young Animal y más. Importadas desde Japón.',
-            url: 'https://arkya.store/?category=revistas',
+            title:
+              "Revistas Japonesas de Anime - Jump, Comptiq, Kirara | Arkya Store",
+            desc: "Revistas japonesas semanales y mensuales: Weekly Shōnen Jump, Jump GIGA, Comptiq, Manga Time Kirara, Young Animal y más. Importadas desde Japón.",
+            url: "https://arkya.store/?category=revistas",
           },
           doujinshis: {
-            title: 'Doujinshi Japonés - Comiket, Fanzines de Anime | Arkya Store',
-            desc: 'Doujinshi (dōjinshi) originales de Japón. Fanzines de Comiket, ilustraciones independientes de artistas japoneses. 100% originales.',
-            url: 'https://arkya.store/?category=doujinshis',
+            title:
+              "Doujinshi Japonés - Comiket, Fanzines de Anime | Arkya Store",
+            desc: "Doujinshi (dōjinshi) originales de Japón. Fanzines de Comiket, ilustraciones independientes de artistas japoneses. 100% originales.",
+            url: "https://arkya.store/?category=doujinshis",
           },
-          'guide-books': {
-            title: 'Guide Books y Guías Oficiales de Videojuegos Japoneses | Arkya Store',
-            desc: 'Guías oficiales de videojuegos japoneses: Dragon Ball, Fate/Grand Order, Evangelion, Rockman y más. Mapas, estadísticas e ilustraciones.',
-            url: 'https://arkya.store/?category=guide-books',
+          "guide-books": {
+            title:
+              "Guide Books y Guías Oficiales de Videojuegos Japoneses | Arkya Store",
+            desc: "Guías oficiales de videojuegos japoneses: Dragon Ball, Fate/Grand Order, Evangelion, Rockman y más. Mapas, estadísticas e ilustraciones.",
+            url: "https://arkya.store/?category=guide-books",
           },
-          'character-books': {
-            title: 'Character Books de Anime y Manga Japoneses | Arkya Store',
-            desc: 'Character books y fanbooks oficiales de anime y manga japoneses. Diseños de personajes, datos exclusivos e ilustraciones.',
-            url: 'https://arkya.store/?category=character-books',
+          "character-books": {
+            title: "Character Books de Anime y Manga Japoneses | Arkya Store",
+            desc: "Character books y fanbooks oficiales de anime y manga japoneses. Diseños de personajes, datos exclusivos e ilustraciones.",
+            url: "https://arkya.store/?category=character-books",
           },
           cartas: {
-            title: 'Cartas y Trading Cards de Anime Japonesas | Arkya Store',
-            desc: 'Cartas coleccionables de anime importadas desde Japón. Weiss Schwarz, cartas promocionales y más.',
-            url: 'https://arkya.store/?category=cartas',
+            title: "Cartas y Trading Cards de Anime Japonesas | Arkya Store",
+            desc: "Cartas coleccionables de anime importadas desde Japón. Weiss Schwarz, cartas promocionales y más.",
+            url: "https://arkya.store/?category=cartas",
           },
-          'cd-dvd': {
-            title: 'CDs y DVDs de Anime y Manga Importados de Japón | Arkya Store',
-            desc: 'CDs y DVDs de anime y manga importados directamente desde Japón. Bandas sonoras, dramas y más.',
-            url: 'https://arkya.store/?category=cd-dvd',
+          "cd-dvd": {
+            title:
+              "CDs y DVDs de Anime y Manga Importados de Japón | Arkya Store",
+            desc: "CDs y DVDs de anime y manga importados directamente desde Japón. Bandas sonoras, dramas y más.",
+            url: "https://arkya.store/?category=cd-dvd",
           },
-          'novela-ligera': {
-            title: 'Novelas Ligeras Japonesas (Light Novels) Importadas | Arkya Store',
-            desc: 'Novelas ligeras japonesas en idioma japonés. Ediciones especiales con artbooks, cajas contenedoras y extras.',
-            url: 'https://arkya.store/?category=novela-ligera',
+          "novela-ligera": {
+            title:
+              "Novelas Ligeras Japonesas (Light Novels) Importadas | Arkya Store",
+            desc: "Novelas ligeras japonesas en idioma japonés. Ediciones especiales con artbooks, cajas contenedoras y extras.",
+            url: "https://arkya.store/?category=novela-ligera",
           },
           peluches: {
-            title: 'Peluches de Anime Japoneses Importados | Arkya Store',
-            desc: 'Peluches de personajes de anime importados desde Japón. Sumikkogurashi y más personajes kawaii.',
-            url: 'https://arkya.store/?category=peluches',
+            title: "Peluches de Anime Japoneses Importados | Arkya Store",
+            desc: "Peluches de personajes de anime importados desde Japón. Sumikkogurashi y más personajes kawaii.",
+            url: "https://arkya.store/?category=peluches",
           },
         };
         const seo = seoMap[activeCategory] || seoMap.todos;
@@ -1102,1292 +1109,1878 @@ export default function HomePage() {
         );
       })()}
       <Box>
-      <GameInviteModal
-        isOpen={showGameModal}
-        onClose={() => {
-          setShowGameModal(false);
-          try {
-            localStorage.setItem('gameModalShown', GAME_DEADLINE);
-          } catch {
-            // Ignorar errores de localStorage
-          }
-        }}
-      />
-      {!isHeaderSearch && (
-        <>
-          <Box
-            py={2}
-            px={4}
-            bg="pink.100"
-            color="gray.700"
-            textAlign="center"
-            fontSize="md"
-            position="sticky"
-            top={0}
-            zIndex={1000}
-          >
-            Si te interesa traer un libro a pedido ¡Contáctanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer">Instagram</a>!
-          </Box>
-
-          {/* Banner del juego Adivina el Anime - DESTACADO AL INICIO */}
-          <Box
-            as={Link}
-            to="/adivina-el-anime"
-            display="block"
-            mx={{ base: 4, md: 'auto' }}
-            maxW="7xl"
-            mt={6}
-            mb={0}
-            p={{ base: 6, md: 8 }}
-            borderRadius="3xl"
-            bgGradient="linear(to-r, #702963, #b83280)"
-            border="3px solid"
-            borderColor="pink.300"
-            boxShadow="0 0 40px rgba(236, 72, 153, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1)"
-            _hover={{ 
-              transform: 'translateY(-5px) scale(1.02)', 
-              boxShadow: '0 0 60px rgba(236, 72, 153, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.15)',
-              bgGradient: 'linear(to-r, #8a3a7f, #d63d96)'
-            }}
-            transition="all 0.3s ease"
-            position="relative"
-            overflow="hidden"
-          >
-            {/* Efecto de fondo animado */}
+        <GameInviteModal
+          isOpen={showGameModal}
+          onClose={() => {
+            setShowGameModal(false);
+            try {
+              localStorage.setItem("gameModalShown", GAME_DEADLINE);
+            } catch {
+              // Ignorar errores de localStorage
+            }
+          }}
+        />
+        {!isHeaderSearch && (
+          <>
             <Box
-              position="absolute"
+              py={2}
+              px={4}
+              bg="pink.100"
+              color="gray.700"
+              textAlign="center"
+              fontSize="md"
+              position="sticky"
               top={0}
-              left={0}
-              right={0}
-              bottom={0}
-              bgGradient="radial(circle at 20% 50%, rgba(255, 182, 206, 0.1) 0%, transparent 50%)"
-              pointerEvents="none"
-            />
-            
-            <Stack
-              direction={{ base: 'column', md: 'row' }}
-              spacing={{ base: 4, md: 6 }}
-              align={{ base: 'stretch', md: 'center' }}
-              justify="space-between"
-              position="relative"
-              zIndex={1}
+              zIndex={1000}
             >
-              <HStack spacing={{ base: 3, md: 5 }} align="center" flex={1} justify={{ base: 'space-between', md: 'flex-start' }} w={{ base: '100%', md: 'auto' }}>
-                <HStack spacing={{ base: 3, md: 5 }} align="center">
-                  <Box
-                    bg="whiteAlpha.300"
-                    p={{ base: 3, md: 4 }}
-                    borderRadius="full"
-                    backdropFilter="blur(8px)"
-                    boxShadow="0 0 20px rgba(251, 182, 206, 0.3)"
-                  >
-                    <FaGamepad size={32} color="#fbb6ce" />
-                  </Box>
-                  <VStack align="start" spacing={1}>
-                    <Text
-                      fontSize={{ base: 'lg', md: '2xl' }}
-                      fontWeight="extrabold"
-                      color="white"
-                      lineHeight="short"
-                    >
-                      ¡Adiviná el anime y GANÁ DESCUENTOS!
-                    </Text>
-                    <Text fontSize={{ base: 'xs', md: 'md' }} color="pink.100" fontWeight="600">
-                      5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF
-                    </Text>
-                  </VStack>
-                </HStack>
-                <Button
-                  display={{ base: 'inline-flex', md: 'none' }}
-                  size="md"
-                  bg="white"
-                  color="#702963"
-                  fontWeight="extrabold"
-                  borderRadius="full"
-                  px={8}
-                  py={6}
-                  fontSize="md"
-                  _hover={{ bg: 'pink.50', transform: 'scale(1.05)' }}
-                  flexShrink={0}
-                  boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
+              Si te interesa traer un libro a pedido ¡Contáctanos por{" "}
+              <a
+                href="https://instagram.com/arkya.store"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              !
+            </Box>
+
+            {/* Banner del juego Adivina el Anime - DESTACADO AL INICIO */}
+            <Box
+              as={Link}
+              to="/adivina-el-anime"
+              display="block"
+              mx={{ base: 4, md: "auto" }}
+              maxW="7xl"
+              mt={6}
+              mb={0}
+              p={{ base: 6, md: 8 }}
+              borderRadius="3xl"
+              bgGradient="linear(to-r, #702963, #b83280)"
+              border="3px solid"
+              borderColor="pink.300"
+              boxShadow="0 0 40px rgba(236, 72, 153, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1)"
+              _hover={{
+                transform: "translateY(-5px) scale(1.02)",
+                boxShadow:
+                  "0 0 60px rgba(236, 72, 153, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.15)",
+                bgGradient: "linear(to-r, #8a3a7f, #d63d96)",
+              }}
+              transition="all 0.3s ease"
+              position="relative"
+              overflow="hidden"
+            >
+              {/* Efecto de fondo animado */}
+              <Box
+                position="absolute"
+                top={0}
+                left={0}
+                right={0}
+                bottom={0}
+                bgGradient="radial(circle at 20% 50%, rgba(255, 182, 206, 0.1) 0%, transparent 50%)"
+                pointerEvents="none"
+              />
+
+              <Stack
+                direction={{ base: "column", md: "row" }}
+                spacing={{ base: 4, md: 6 }}
+                align={{ base: "stretch", md: "center" }}
+                justify="space-between"
+                position="relative"
+                zIndex={1}
+              >
+                <HStack
+                  spacing={{ base: 3, md: 5 }}
+                  align="center"
+                  flex={1}
+                  justify={{ base: "space-between", md: "flex-start" }}
+                  w={{ base: "100%", md: "auto" }}
                 >
-                  Jugar →
-                </Button>
-              </HStack>
+                  <HStack spacing={{ base: 3, md: 5 }} align="center">
+                    <Box
+                      bg="whiteAlpha.300"
+                      p={{ base: 3, md: 4 }}
+                      borderRadius="full"
+                      backdropFilter="blur(8px)"
+                      boxShadow="0 0 20px rgba(251, 182, 206, 0.3)"
+                    >
+                      <FaGamepad size={32} color="#fbb6ce" />
+                    </Box>
+                    <VStack align="start" spacing={1}>
+                      <Text
+                        fontSize={{ base: "lg", md: "2xl" }}
+                        fontWeight="extrabold"
+                        color="white"
+                        lineHeight="short"
+                      >
+                        ¡Adiviná el anime y GANÁ DESCUENTOS!
+                      </Text>
+                      <Text
+                        fontSize={{ base: "xs", md: "md" }}
+                        color="pink.100"
+                        fontWeight="600"
+                      >
+                        5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF
+                      </Text>
+                    </VStack>
+                  </HStack>
+                  <Button
+                    display={{ base: "inline-flex", md: "none" }}
+                    size="md"
+                    bg="white"
+                    color="#702963"
+                    fontWeight="extrabold"
+                    borderRadius="full"
+                    px={8}
+                    py={6}
+                    fontSize="md"
+                    _hover={{ bg: "pink.50", transform: "scale(1.05)" }}
+                    flexShrink={0}
+                    boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
+                  >
+                    Jugar →
+                  </Button>
+                </HStack>
 
-              <GameBannerActions />
-            </Stack>
-          </Box>
+                <GameBannerActions />
+              </Stack>
+            </Box>
 
-          <Hero />
+            <Hero />
 
-          {/* Banner de promoción activa */}
-          {offers.find(o => o.isActive && o.isGlobal) && (
+            {/* Banner de promoción activa */}
+            {/* {offers.find(o => o.isActive && o.isGlobal) && (
             <PromoBanner offer={{
               ...offers.find(o => o.isActive && o.isGlobal),
               title: '¡Descuentos por toda la tienda!',
               description: 'Aprovecha esta oferta especial'
             }} />
-          )}
-        </>
-      )}
+          )} */}
+          </>
+        )}
 
-      <Box id="productos" name="productos" py={isHeaderSearch ? 4 : 10} bg="#453641">
-        <Container maxW={'7xl'}>
-          <Heading as="h2" size="xl" mb={3} textAlign="center" color="white">
-            {activeCategory === 'todos'
-              ? 'Tienda de Productos Importados de Japón'
-              : activeCategory === 'adultos'
-              ? 'Productos para mayores de 18'
-              : activeCategory === 'artbooks'
-              ? 'Artbooks de Anime y Manga'
-              : activeCategory === 'figuras'
-              ? 'Figuras de Anime'
-              : activeCategory === 'mangas'
-              ? 'Mangas en Japonés'
-              : activeCategory === 'revistas'
-              ? 'Revistas Japonesas de Anime y Manga'
-              : activeCategory === 'doujinshis'
-              ? 'Doujinshis'
-              : activeCategory === 'guide-books'
-              ? 'Guide Books y Guías de Videojuegos'
-              : activeCategory === 'character-books'
-              ? 'Character Books de Anime'
-              : activeCategory === 'cartas'
-              ? 'Cartas y Trading Cards de Anime'
-              : activeCategory === 'cd-dvd'
-              ? 'CDs y DVDs Japoneses'
-              : activeCategory === 'novela-ligera'
-              ? 'Novelas Ligeras Japonesas (Light Novels)'
-              : activeCategory === 'peluches'
-              ? 'Peluches Japoneses'
-              : activeCategory === 'fuera-de-stock'
-              ? 'Productos Fuera de Stock'
-              : getCategoryNameById(activeCategory)}
-          </Heading>
- 
-          
-          <Flex 
-            direction={{ base: 'column', md: 'column' }} 
-            justify="center" 
-            align="center"
-            mb={5}
-            gap={3}
-            width="100%"
-          >
-           
+        <Box
+          id="productos"
+          name="productos"
+          py={isHeaderSearch ? 4 : 10}
+          bg="#453641"
+        >
+          <Container maxW={"7xl"}>
+            <Heading as="h2" size="xl" mb={3} textAlign="center" color="white">
+              {activeCategory === "todos"
+                ? "Tienda de Productos Importados de Japón"
+                : activeCategory === "adultos"
+                  ? "Productos para mayores de 18"
+                  : activeCategory === "artbooks"
+                    ? "Artbooks de Anime y Manga"
+                    : activeCategory === "figuras"
+                      ? "Figuras de Anime"
+                      : activeCategory === "mangas"
+                        ? "Mangas en Japonés"
+                        : activeCategory === "revistas"
+                          ? "Revistas Japonesas de Anime y Manga"
+                          : activeCategory === "doujinshis"
+                            ? "Doujinshis"
+                            : activeCategory === "guide-books"
+                              ? "Guide Books y Guías de Videojuegos"
+                              : activeCategory === "character-books"
+                                ? "Character Books de Anime"
+                                : activeCategory === "cartas"
+                                  ? "Cartas y Trading Cards de Anime"
+                                  : activeCategory === "cd-dvd"
+                                    ? "CDs y DVDs Japoneses"
+                                    : activeCategory === "novela-ligera"
+                                      ? "Novelas Ligeras Japonesas (Light Novels)"
+                                      : activeCategory === "peluches"
+                                        ? "Peluches Japoneses"
+                                        : activeCategory === "fuera-de-stock"
+                                          ? "Productos Fuera de Stock"
+                                          : getCategoryNameById(activeCategory)}
+            </Heading>
+
             <Flex
-              flexWrap="wrap"
-              gap={2}
-              p={2}
-              width={{ base: '100%', md: 'auto' }}
-              justifyContent="flex-start"
-              overflowX={{ base: 'auto', md: 'visible' }}
-              maxWidth="100%"
-              css={{
-                '&::-webkit-scrollbar': {
-                  height: '8px',
-                },
-                '&::-webkit-scrollbar-track': {
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  borderRadius: '10px',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  borderRadius: '10px',
-                },
-                '&::-webkit-scrollbar-thumb:hover': {
-                  background: 'rgba(255, 255, 255, 0.3)',
-                },
-            }}>
-              {/* Botón para mostrar todos los productos */}
-              <Button
-                key="todos"
-                size="md"
-                px={4}
-                py={2}
-                minW="80px"
-                height="40px"
-                bg={activeCategory === 'todos' ? 'pink.400' : 'white'}
-                color={activeCategory === 'todos' ? 'white' : 'gray.800'}
-                borderColor={activeCategory === 'todos' ? 'pink.400' : 'gray.300'}
-                variant={activeCategory === 'todos' ? 'solid' : 'outline'}
-                onClick={() => {
-                  handleCategoryClick('todos');
-                  setAdultFilterActive(false);
+              direction={{ base: "column", md: "column" }}
+              justify="center"
+              align="center"
+              mb={5}
+              gap={3}
+              width="100%"
+            >
+              <Flex
+                flexWrap="wrap"
+                gap={2}
+                p={2}
+                width={{ base: "100%", md: "auto" }}
+                justifyContent="flex-start"
+                overflowX={{ base: "auto", md: "visible" }}
+                maxWidth="100%"
+                css={{
+                  "&::-webkit-scrollbar": {
+                    height: "8px",
+                  },
+                  "&::-webkit-scrollbar-track": {
+                    background: "rgba(255, 255, 255, 0.1)",
+                    borderRadius: "10px",
+                  },
+                  "&::-webkit-scrollbar-thumb": {
+                    background: "rgba(255, 255, 255, 0.2)",
+                    borderRadius: "10px",
+                  },
+                  "&::-webkit-scrollbar-thumb:hover": {
+                    background: "rgba(255, 255, 255, 0.3)",
+                  },
                 }}
-                _hover={{
-                  bg: activeCategory === 'todos' ? 'pink.500' : 'gray.100',
-                }}
-                fontWeight="medium"
               >
-                Todos
-              </Button>
-              
-              {/* Botón para filtrar productos adultos */}
-              <Button
-                key="adultos"
-                size="md"
-                px={4}
-                py={2}
-                minW="80px"
-                height="40px"
-                bg={
-                  excludedCategories.includes('adultos') ? 'red.600' :
-                  activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'white'
-                }
-                color={
-                  excludedCategories.includes('adultos') || activeCategory === 'adultos' || adultFilterActive ? 'white' : 'gray.800'
-                }
-                borderColor={
-                  excludedCategories.includes('adultos') ? 'red.600' :
-                  activeCategory === 'adultos' || adultFilterActive ? 'red.500' : 'gray.300'
-                }
-                variant="solid"
-                onClick={() => {
-                  // Guardar la página actual antes de cambiar
-                  if (searchTerm) {
-                    sessionStorage.setItem('lastPage', currentPage);
+                {/* Botón para mostrar todos los productos */}
+                <Button
+                  key="todos"
+                  size="md"
+                  px={4}
+                  py={2}
+                  minW="80px"
+                  height="40px"
+                  bg={activeCategory === "todos" ? "pink.400" : "white"}
+                  color={activeCategory === "todos" ? "white" : "gray.800"}
+                  borderColor={
+                    activeCategory === "todos" ? "pink.400" : "gray.300"
                   }
-                  
-                  if (activeCategory === 'adultos') {
-                    handleCategoryClick('todos');
-                  } else {
-                    handleCategoryClick('adultos');
+                  variant={activeCategory === "todos" ? "solid" : "outline"}
+                  onClick={() => {
+                    handleCategoryClick("todos");
+                    setAdultFilterActive(false);
+                  }}
+                  _hover={{
+                    bg: activeCategory === "todos" ? "pink.500" : "gray.100",
+                  }}
+                  fontWeight="medium"
+                >
+                  Todos
+                </Button>
+
+                {/* Botón para filtrar productos adultos */}
+                <Button
+                  key="adultos"
+                  size="md"
+                  px={4}
+                  py={2}
+                  minW="80px"
+                  height="40px"
+                  bg={
+                    excludedCategories.includes("adultos")
+                      ? "red.600"
+                      : activeCategory === "adultos" || adultFilterActive
+                        ? "red.500"
+                        : "white"
                   }
-                  setCurrentPage(1); // Reiniciar a la primera página al cambiar filtro de adultos
-                  sessionStorage.setItem('currentPage', '1'); // Actualizar en sessionStorage
-                }}
-                _hover={{
-                  bg: excludedCategories.includes('adultos') ? 'red.700' :
-                       activeCategory === 'adultos' || adultFilterActive ? 'red.600' : 'gray.100',
-                }}
-                fontWeight="medium"
-                leftIcon={<FaExclamationTriangle />}
-              >
-                +18
-              </Button>
-              
-              {/* Botones para cada categoría */}
-              {categories.map((category) => (
-                category.subcategories.length > 0 ? (
-                  <Menu key={category.id}>
-                    <MenuButton
-                      as={Button}
+                  color={
+                    excludedCategories.includes("adultos") ||
+                    activeCategory === "adultos" ||
+                    adultFilterActive
+                      ? "white"
+                      : "gray.800"
+                  }
+                  borderColor={
+                    excludedCategories.includes("adultos")
+                      ? "red.600"
+                      : activeCategory === "adultos" || adultFilterActive
+                        ? "red.500"
+                        : "gray.300"
+                  }
+                  variant="solid"
+                  onClick={() => {
+                    // Guardar la página actual antes de cambiar
+                    if (searchTerm) {
+                      sessionStorage.setItem("lastPage", currentPage);
+                    }
+
+                    if (activeCategory === "adultos") {
+                      handleCategoryClick("todos");
+                    } else {
+                      handleCategoryClick("adultos");
+                    }
+                    setCurrentPage(1); // Reiniciar a la primera página al cambiar filtro de adultos
+                    sessionStorage.setItem("currentPage", "1"); // Actualizar en sessionStorage
+                  }}
+                  _hover={{
+                    bg: excludedCategories.includes("adultos")
+                      ? "red.700"
+                      : activeCategory === "adultos" || adultFilterActive
+                        ? "red.600"
+                        : "gray.100",
+                  }}
+                  fontWeight="medium"
+                  leftIcon={<FaExclamationTriangle />}
+                >
+                  +18
+                </Button>
+
+                {/* Botones para cada categoría */}
+                {categories.map((category) =>
+                  category.subcategories.length > 0 ? (
+                    <Menu key={category.id}>
+                      <MenuButton
+                        as={Button}
+                        size="md"
+                        px={4}
+                        py={2}
+                        minW="80px"
+                        height="40px"
+                        bg={
+                          excludedCategories.includes(category.id)
+                            ? "red.600"
+                            : activeCategory === category.id
+                              ? "pink.400"
+                              : "white"
+                        }
+                        color={
+                          excludedCategories.includes(category.id) ||
+                          activeCategory === category.id
+                            ? "white"
+                            : "gray.800"
+                        }
+                        borderColor={
+                          excludedCategories.includes(category.id)
+                            ? "red.600"
+                            : activeCategory === category.id
+                              ? "pink.400"
+                              : "gray.300"
+                        }
+                        variant="solid"
+                        _hover={{
+                          bg: excludedCategories.includes(category.id)
+                            ? "red.700"
+                            : activeCategory === category.id
+                              ? "pink.500"
+                              : "gray.100",
+                        }}
+                        fontWeight="medium"
+                      >
+                        {category.name}
+                      </MenuButton>
+                      <Portal>
+                        <MenuList zIndex={1000}>
+                          <MenuItem
+                            onClick={() => handleCategoryClick(category.id)}
+                          >
+                            Ver todos
+                          </MenuItem>
+                          {category.subcategories.map((subcategory) => (
+                            <MenuItem
+                              key={subcategory.id}
+                              onClick={() =>
+                                handleSubcategoryClick(
+                                  category.id,
+                                  subcategory.id,
+                                )
+                              }
+                              bg={
+                                activeCategory === category.id &&
+                                activeSubcategory === subcategory.id
+                                  ? "pink.100"
+                                  : undefined
+                              }
+                            >
+                              {subcategory.name}
+                            </MenuItem>
+                          ))}
+                        </MenuList>
+                      </Portal>
+                    </Menu>
+                  ) : (
+                    <Button
+                      key={category.id}
                       size="md"
                       px={4}
                       py={2}
                       minW="80px"
                       height="40px"
                       bg={
-                        excludedCategories.includes(category.id) ? 'red.600' :
-                        activeCategory === category.id ? 'pink.400' : 'white'
+                        excludedCategories.includes(category.id)
+                          ? "red.600"
+                          : activeCategory === category.id
+                            ? "pink.400"
+                            : "white"
                       }
                       color={
-                        excludedCategories.includes(category.id) || activeCategory === category.id ? 'white' : 'gray.800'
+                        excludedCategories.includes(category.id) ||
+                        activeCategory === category.id
+                          ? "white"
+                          : "gray.800"
                       }
                       borderColor={
-                        excludedCategories.includes(category.id) ? 'red.600' :
-                        activeCategory === category.id ? 'pink.400' : 'gray.300'
+                        excludedCategories.includes(category.id)
+                          ? "red.600"
+                          : activeCategory === category.id
+                            ? "pink.400"
+                            : "gray.300"
                       }
                       variant="solid"
+                      onClick={() => handleCategoryClick(category.id)}
                       _hover={{
-                        bg: excludedCategories.includes(category.id) ? 'red.700' :
-                             activeCategory === category.id ? 'pink.500' : 'gray.100',
+                        bg: excludedCategories.includes(category.id)
+                          ? "red.700"
+                          : activeCategory === category.id
+                            ? "pink.500"
+                            : "gray.100",
                       }}
                       fontWeight="medium"
                     >
                       {category.name}
-                    </MenuButton>
-                    <Portal>
-                      <MenuList zIndex={1000}>
-                        <MenuItem onClick={() => handleCategoryClick(category.id)}>
-                          Ver todos
-                        </MenuItem>
-                        {category.subcategories.map((subcategory) => (
-                          <MenuItem 
-                            key={subcategory.id}
-                            onClick={() => handleSubcategoryClick(category.id, subcategory.id)}
-                            bg={activeCategory === category.id && activeSubcategory === subcategory.id ? 'pink.100' : undefined}
-                          >
-                            {subcategory.name}
-                          </MenuItem>
-                        ))}
-                      </MenuList>
-                    </Portal>
-                  </Menu>
-                ) : (
-                  <Button
-                    key={category.id}
-                    size="md"
-                    px={4}
-                    py={2}
-                    minW="80px"
-                    height="40px"
-                    bg={
-                      excludedCategories.includes(category.id) ? 'red.600' :
-                      activeCategory === category.id ? 'pink.400' : 'white'
-                    }
-                    color={
-                      excludedCategories.includes(category.id) || activeCategory === category.id ? 'white' : 'gray.800'
-                    }
-                    borderColor={
-                      excludedCategories.includes(category.id) ? 'red.600' :
-                      activeCategory === category.id ? 'pink.400' : 'gray.300'
-                    }
-                    variant="solid"
-                    onClick={() => handleCategoryClick(category.id)}
-                    _hover={{
-                      bg: excludedCategories.includes(category.id) ? 'red.700' :
-                           activeCategory === category.id ? 'pink.500' : 'gray.100',
-                    }}
-                    fontWeight="medium"
-                  >
-                    {category.name}
-                  </Button>
-                )
-              ))}
-              
-              {/* Botón Excluir categorías - siempre al final de la fila */}
-              <Popover isOpen={isExcludeOpen} onOpen={onExcludeOpen} onClose={onExcludeClose} placement="bottom-end">
-                <PopoverTrigger>
-                  <Button
-                    size="md"
-                    px={4}
-                    py={2}
-                    minW="80px"
-                    height="40px"
-                    variant="outline"
-                    bg={excludedCategories.length > 0 ? 'pink.500' : 'whiteAlpha.200'}
-                    color="white"
-                    borderColor="whiteAlpha.300"
-                    _hover={{
-                      bg: excludedCategories.length > 0 ? 'pink.600' : 'whiteAlpha.300',
-                    }}
-                    fontWeight="medium"
-                  >
-                    {excludedCategories.length > 0 ? `✓ Excluir (${excludedCategories.length})` : 'Excluir'}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent bg="gray.800" borderColor="gray.700" width="260px">
-                  <PopoverArrow bg="gray.800" />
-                  <PopoverBody p={4}>
-                    <VStack spacing={3} align="stretch">
-                      <Text color="white" fontWeight="bold" fontSize="sm">
-                        Excluir categorías
-                      </Text>
-                      {excludedCategories.length > 0 && (
-                        <Button
-                          size="sm"
-                          colorScheme="pink"
-                          variant="ghost"
-                          onClick={() => {
-                            setExcludedCategories([]);
-                            sessionStorage.removeItem('excludedCategories');
-                            setCurrentPage(1);
-                          }}
-                        >
-                          Restablecer
-                        </Button>
-                      )}
-                      <VStack ref={excludeScrollRef} spacing={2} align="start" maxH="300px" overflowY="auto">
-                        {categories.map((category) => (
-                          <Checkbox
-                            key={category.id}
-                            isChecked={excludedCategories.includes(category.id)}
-                            onChange={(e) => {
-                              const isChecked = e.target.checked;
-                              setExcludedCategories(prev => {
-                                const newExcluded = isChecked
-                                  ? [...prev, category.id]
-                                  : prev.filter(id => id !== category.id);
-                                sessionStorage.setItem('excludedCategories', JSON.stringify(newExcluded));
-                                setCurrentPage(1);
-                                return newExcluded;
-                              });
-                            }}
-                            colorScheme="pink"
-                            color="gray.200"
-                            size="sm"
-                          >
-                            {category.name}
-                          </Checkbox>
-                        ))}
-                        <Checkbox
-                          key="adultos"
-                          isChecked={excludedCategories.includes('adultos')}
-                          onChange={(e) => {
-                            const isChecked = e.target.checked;
-                            setExcludedCategories(prev => {
-                              const newExcluded = isChecked
-                                ? [...prev, 'adultos']
-                                : prev.filter(id => id !== 'adultos');
-                              sessionStorage.setItem('excludedCategories', JSON.stringify(newExcluded));
-                              setCurrentPage(1);
-                              return newExcluded;
-                            });
-                          }}
-                          colorScheme="red"
-                          color="gray.200"
-                          size="sm"
-                        >
-                          Contenido +18
-                        </Checkbox>
-                      </VStack>
-                    </VStack>
-                  </PopoverBody>
-                </PopoverContent>
-              </Popover>
-              
-              </Flex>
-            
-            <Flex 
-              width="100%" 
-              justify="space-between" 
-              align="center" 
-              mb={0}
-              direction={{ base: 'column', md: 'row' }}
-              gap={{ base: 3, md: 0 }}
-              position="sticky"
-              top={0}
-              zIndex={10}
-              py={4}
-              px={{ base: 4, md: 0 }}
-              mx={{ base: -4, md: 0 }}
-            >
-              <Flex align="center" width={{ base: '100%', md: 'auto' }} justify={{ base: 'space-between', md: 'flex-start' }} gap={4}>
-                {/* Buscador mejorado con autocompletado */}
-                <Box position="relative" maxW={{ base: '100%', md: '300px' }} mb={{ base: 2, md: 0 }} width="100%">
-                  <InputGroup>
-                    <InputLeftElement pointerEvents="none">
-                      <FaSearch color="white" />
-                    </InputLeftElement>
-                    <Input 
-                      placeholder="Buscar productos..." 
-                      value={inputValue}
-                      onFocus={() => {
-                        setIsSearchFocused(true);
-                        if (inputValue.length === 0 && searchHistory.length > 0) {
-                          setShowSuggestions(true);
-                        }
-                      }}
-                      onBlur={() => {
-                        // Delay para permitir clicks en sugerencias
-                        setTimeout(() => {
-                          setIsSearchFocused(false);
-                          setShowSuggestions(false);
-                          setSelectedSuggestionIndex(-1);
-                        }, 200);
-                      }}
-                      onChange={(e) => {
-                        const newValue = e.target.value;
-                        setInputValue(newValue);
-                        setSelectedSuggestionIndex(-1);
+                    </Button>
+                  ),
+                )}
 
-                        if (newValue && !inputValue) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                          setCurrentPage(1);
-                          // Al empezar a buscar, cambiar a categoría "todos"
-                          setActiveCategory('todos');
-                          setActiveSubcategory('');
-                          sessionStorage.setItem('activeCategory', 'todos');
-                          sessionStorage.setItem('activeSubcategory', '');
-                        } else if (!newValue && inputValue) {
-                          const lastPage = sessionStorage.getItem('lastPage');
-                          if (lastPage) {
-                            setCurrentPage(parseInt(lastPage));
-                          }
-                        }
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          // Al buscar, siempre cambiar a la categoría "todos"
-                          setActiveCategory('todos');
-                          setActiveSubcategory('');
-                          sessionStorage.setItem('activeCategory', 'todos');
-                          sessionStorage.setItem('activeSubcategory', '');
-
-                          if (selectedSuggestionIndex >= 0 && searchSuggestions[selectedSuggestionIndex]) {
-                            const suggestion = searchSuggestions[selectedSuggestionIndex];
-                            setInputValue(suggestion.text);
-                            setSearchTerm(suggestion.text);
-                            addToSearchHistory(suggestion.text);
-                            setShowSuggestions(false);
-                          } else if (inputValue) {
-                            setSearchTerm(inputValue);
-                            addToSearchHistory(inputValue);
-                            setShowSuggestions(false);
-                          }
-                        } else if (e.key === 'ArrowDown') {
-                          e.preventDefault();
-                          setSelectedSuggestionIndex(prev => 
-                            prev < searchSuggestions.length - 1 ? prev + 1 : prev
-                          );
-                        } else if (e.key === 'ArrowUp') {
-                          e.preventDefault();
-                          setSelectedSuggestionIndex(prev => prev > 0 ? prev - 1 : -1);
-                        } else if (e.key === 'Escape') {
-                          setShowSuggestions(false);
-                        }
-                      }}
-                      borderRadius="md"
-                      bg="whiteAlpha.200"
-                      color="white"
-                      borderColor="whiteAlpha.300"
-                      _placeholder={{ color: 'whiteAlpha.700' }}
-                      _hover={{ borderColor: 'whiteAlpha.400' }}
-                      _focus={{ borderColor: 'pink.300', boxShadow: '0 0 0 1px #d53f8c' }}
-                      pr="2.5rem"
-                    />
-                    {inputValue && (
-                      <InputRightElement width="2.5rem">
-                        <IconButton
-                          h="1.75rem"
-                          size="sm"
-                          icon={<CloseIcon />}
-                          onClick={() => {
-                            setInputValue('');
-                            setSearchTerm('');
-                            const lastPage = sessionStorage.getItem('lastPage');
-                            if (lastPage) {
-                              setCurrentPage(parseInt(lastPage));
-                            }
-                          }}
-                          variant="ghost"
-                          colorScheme="whiteAlpha"
-                          aria-label="Limpiar búsqueda"
-                          _hover={{ bg: 'whiteAlpha.300' }}
-                        />
-                      </InputRightElement>
-                    )}
-                  </InputGroup>
-                  
-                  {/* Panel de sugerencias */}
-                  {(showSuggestions && isSearchFocused) && (
-                    <Box
-                      position="absolute"
-                      top="100%"
-                      left={0}
-                      right={0}
-                      mt={2}
-                      bg="#241521"
-                      borderRadius="xl"
-                      boxShadow="0 8px 32px rgba(0,0,0,0.5)"
-                      zIndex={1000}
-                      maxH="400px"
-                      overflowY="auto"
-                      border="1px solid"
-                      borderColor="whiteAlpha.200"
-                    >
-                      {/* Historial de búsqueda */}
-                      {inputValue.length === 0 && searchHistory.length > 0 && (
-                        <Box>
-                          <Flex justify="space-between" align="center" px={4} py={2} borderBottom="1px solid" borderColor="gray.700">
-                            <Text fontSize="xs" color="gray.400" fontWeight="bold">
-                              BÚSQUEDAS RECIENTES
-                            </Text>
-                            <Button
-                              size="xs"
-                              variant="ghost"
-                              colorScheme="pink"
-                              onClick={clearSearchHistory}
-                            >
-                              Limpiar
-                            </Button>
-                          </Flex>
-                          {searchHistory.map((term, index) => (
-                            <Box
-                              key={index}
-                              px={4}
-                              py={3}
-                              cursor="pointer"
-                              _hover={{ bg: 'whiteAlpha.100' }}
-                              onClick={() => {
-                                setInputValue(term);
-                                setSearchTerm(term);
-                                addToSearchHistory(term);
-                                setActiveCategory('todos');
-                                setActiveSubcategory('');
-                                sessionStorage.setItem('activeCategory', 'todos');
-                                sessionStorage.setItem('activeSubcategory', '');
-                              }}
-                            >
-                              <Text color="white" fontSize="sm">
-                                {term}
-                              </Text>
-                            </Box>
-                          ))}
-                        </Box>
-                      )}
-                      
-                      {/* Sugerencias de productos */}
-                      {searchTerm.length >= 2 && searchSuggestions.length > 0 && (
-                        <Box>
-                          <Text fontSize="xs" color="gray.400" fontWeight="bold" px={4} py={2} borderBottom="1px solid" borderColor="gray.700">
-                            SUGERENCIAS
-                          </Text>
-                          {searchSuggestions.map((suggestion, index) => (
-                            <Flex
-                              key={suggestion.id}
-                              px={4}
-                              py={3}
-                              cursor="pointer"
-                              bg={selectedSuggestionIndex === index ? 'whiteAlpha.100' : 'transparent'}
-                              _hover={{ bg: 'whiteAlpha.100' }}
-                              onClick={() => {
-                                setSearchTerm(suggestion.text);
-                                addToSearchHistory(suggestion.text);
-                                setShowSuggestions(false);
-                                setActiveCategory('todos');
-                                setActiveSubcategory('');
-                                sessionStorage.setItem('activeCategory', 'todos');
-                                sessionStorage.setItem('activeSubcategory', '');
-                              }}
-                              align="center"
-                              gap={3}
-                            >
-                              <Box
-                                width="40px"
-                                height="40px"
-                                borderRadius="md"
-                                overflow="hidden"
-                                flexShrink={0}
-                              >
-                                <img 
-                                  src={suggestion.image} 
-                                  alt={suggestion.text}
-                                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                />
-                              </Box>
-                              <Box flex={1}>
-                                <Text color="white" fontSize="sm" noOfLines={1}>
-                                  {suggestion.text}
-                                </Text>
-                                <Text color="pink.300" fontSize="xs" fontWeight="bold">
-                                  ${suggestion.price.toLocaleString('es-AR', { maximumFractionDigits: 0 })}
-                                </Text>
-                              </Box>
-                            </Flex>
-                          ))}
-                        </Box>
-                      )}
-                      
-                      {/* Sin resultados */}
-                      {searchTerm.length >= 2 && searchSuggestions.length === 0 && (
-                        <Box px={4} py={6} textAlign="center">
-                          <Text color="gray.400" fontSize="sm">
-                            No se encontraron productos
-                          </Text>
-                        </Box>
-                      )}
-                    </Box>
-                  )}
-                </Box>
-                
-                {/* El toggle para mostrar/ocultar contenido adulto ha sido eliminado */}
-              </Flex>
-              
-              {/* Selector de ordenación y filtro de precios (derecha) */}
-              <Flex align="center" gap={{ base: 2, md: 4 }} width={{ base: '100%', md: 'auto' }} flexWrap="wrap" justifyContent={{ base: 'flex-start', md: 'flex-end' }}>
-                {/* Botón para filtrar productos en oferta */}
-                <Button
-                  colorScheme={filterOffersOnly ? 'pink' : 'gray'}
-                  variant={filterOffersOnly ? 'solid' : 'outline'}
-                  size={{ base: 'sm', md: 'md' }}
-                  bg={filterOffersOnly ? 'pink.500' : 'whiteAlpha.200'}
-                  color="white"
-                  _hover={{ bg: filterOffersOnly ? 'pink.600' : 'whiteAlpha.300' }}
-                  onClick={() => {
-                    setFilterOffersOnly(!filterOffersOnly);
-                    setCurrentPage(1);
-                  }}
-                  width="auto"
+                {/* Botón Excluir categorías - siempre al final de la fila */}
+                <Popover
+                  isOpen={isExcludeOpen}
+                  onOpen={onExcludeOpen}
+                  onClose={onExcludeClose}
+                  placement="bottom-end"
                 >
-                  <Box display={{ base: 'none', sm: 'block' }}>
-                    {filterOffersOnly ? '✓ Ofertas' : 'Ofertas'}
-                  </Box>
-                  <Box display={{ base: 'block', sm: 'none' }}>
-                    {filterOffersOnly ? '✓ Ofertas' : 'Ofertas'}
-                  </Box>
-                </Button>
-                
-                {/* Filtro de rango de precios */}
-                <Popover placement="bottom-end">
                   <PopoverTrigger>
                     <Button
+                      size="md"
+                      px={4}
+                      py={2}
+                      minW="80px"
+                      height="40px"
                       variant="outline"
-                      size={{ base: 'sm', md: 'md' }}
-                      bg="whiteAlpha.200"
+                      bg={
+                        excludedCategories.length > 0
+                          ? "pink.500"
+                          : "whiteAlpha.200"
+                      }
                       color="white"
                       borderColor="whiteAlpha.300"
-                      _hover={{ bg: 'whiteAlpha.300' }}
-                      width="auto"
+                      _hover={{
+                        bg:
+                          excludedCategories.length > 0
+                            ? "pink.600"
+                            : "whiteAlpha.300",
+                      }}
+                      fontWeight="medium"
                     >
-                      <Box as="span" overflow="hidden" textOverflow="ellipsis">
-                        <Box display={{ base: 'none', sm: 'block' }}>
-                          ${Math.floor(priceRange[0] / 1000)}k - ${Math.floor(priceRange[1] / 1000)}k
-                        </Box>
-                        <Box display={{ base: 'block', sm: 'none' }}>
-                          ${Math.floor(priceRange[0] / 1000)}k-${Math.floor(priceRange[1] / 1000)}k
-                        </Box>
-                      </Box>
+                      {excludedCategories.length > 0
+                        ? `✓ Excluir (${excludedCategories.length})`
+                        : "Excluir"}
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent bg="gray.800" borderColor="gray.700" width="300px">
+                  <PopoverContent
+                    bg="gray.800"
+                    borderColor="gray.700"
+                    width="260px"
+                  >
                     <PopoverArrow bg="gray.800" />
-                    <PopoverBody p={6}>
-                      <VStack spacing={4} align="stretch">
+                    <PopoverBody p={4}>
+                      <VStack spacing={3} align="stretch">
                         <Text color="white" fontWeight="bold" fontSize="sm">
-                          Rango de precios
+                          Excluir categorías
                         </Text>
-                        <RangeSlider
-                          min={minPrice}
-                          max={maxPrice}
-                          step={1000}
-                          value={tempPriceRange}
-                          onChange={(val) => setTempPriceRange(val)}
-                          onChangeEnd={(val) => {
-                            setPriceRange(val);
-                            setCurrentPage(1);
-                          }}
-                          colorScheme="pink"
-                        >
-                          <RangeSliderTrack bg="gray.600">
-                            <RangeSliderFilledTrack bg="pink.400" />
-                          </RangeSliderTrack>
-                          <RangeSliderThumb index={0} boxSize={6}>
-                            <Box color="pink.400" />
-                          </RangeSliderThumb>
-                          <RangeSliderThumb index={1} boxSize={6}>
-                            <Box color="pink.400" />
-                          </RangeSliderThumb>
-                        </RangeSlider>
-                        <HStack justify="space-between">
-                          <Text color="gray.300" fontSize="sm">
-                            ${tempPriceRange[0].toLocaleString()}
-                          </Text>
-                          <Text color="gray.300" fontSize="sm">
-                            ${tempPriceRange[1].toLocaleString()}
-                          </Text>
-                        </HStack>
-                        {(priceRange[0] !== minPrice || priceRange[1] !== maxPrice) && (
+                        {excludedCategories.length > 0 && (
                           <Button
                             size="sm"
                             colorScheme="pink"
                             variant="ghost"
                             onClick={() => {
-                              priceFromUrlRef.current = false;
-                              setPriceRange([minPrice, maxPrice]);
-                              setTempPriceRange([minPrice, maxPrice]);
+                              setExcludedCategories([]);
+                              sessionStorage.removeItem("excludedCategories");
                               setCurrentPage(1);
                             }}
                           >
                             Restablecer
                           </Button>
                         )}
+                        <VStack
+                          ref={excludeScrollRef}
+                          spacing={2}
+                          align="start"
+                          maxH="300px"
+                          overflowY="auto"
+                        >
+                          {categories.map((category) => (
+                            <Checkbox
+                              key={category.id}
+                              isChecked={excludedCategories.includes(
+                                category.id,
+                              )}
+                              onChange={(e) => {
+                                const isChecked = e.target.checked;
+                                setExcludedCategories((prev) => {
+                                  const newExcluded = isChecked
+                                    ? [...prev, category.id]
+                                    : prev.filter((id) => id !== category.id);
+                                  sessionStorage.setItem(
+                                    "excludedCategories",
+                                    JSON.stringify(newExcluded),
+                                  );
+                                  setCurrentPage(1);
+                                  return newExcluded;
+                                });
+                              }}
+                              colorScheme="pink"
+                              color="gray.200"
+                              size="sm"
+                            >
+                              {category.name}
+                            </Checkbox>
+                          ))}
+                          <Checkbox
+                            key="adultos"
+                            isChecked={excludedCategories.includes("adultos")}
+                            onChange={(e) => {
+                              const isChecked = e.target.checked;
+                              setExcludedCategories((prev) => {
+                                const newExcluded = isChecked
+                                  ? [...prev, "adultos"]
+                                  : prev.filter((id) => id !== "adultos");
+                                sessionStorage.setItem(
+                                  "excludedCategories",
+                                  JSON.stringify(newExcluded),
+                                );
+                                setCurrentPage(1);
+                                return newExcluded;
+                              });
+                            }}
+                            colorScheme="red"
+                            color="gray.200"
+                            size="sm"
+                          >
+                            Contenido +18
+                          </Checkbox>
+                        </VStack>
                       </VStack>
                     </PopoverBody>
                   </PopoverContent>
                 </Popover>
-                
-                {/* Selector de ordenación */}
-                <Menu width={{ base: '100%', md: 'auto' }}>
-                  <MenuButton
-                    as={Button}
-                    rightIcon={<ChevronDownIcon />}
-                    variant="outline"
-                    size={{ base: 'sm', md: 'md' }}
-                    bg="whiteAlpha.200"
-                    color="white"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ bg: 'whiteAlpha.300' }}
-                    width="auto"
-                    sx={{
-                      '.chakra-button__icon': {
-                        ml: { base: 1, md: 2 }
-                      },
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                      display: 'flex',
-                      justifyContent: 'space-between'
-                    }}
-                  >
-                    <Box as="span" overflow="hidden" textOverflow="ellipsis" flex="1">
-                      <Box display={{ base: 'none', sm: 'block' }}>
-                        Ordenar por: {sortOption === 'newest-added' ? 'Más recientes' :
-                                sortOption === 'price-asc' ? 'Precio: menor a mayor' :
-                                sortOption === 'price-desc' ? 'Precio: mayor a menor' :
-                                sortOption === 'newest' ? 'Nuevos productos' :
-                                sortOption === 'offers' ? 'Mejores ofertas primero' :
-                                sortOption === 'name-asc' ? 'Nombre: A-Z' :
-                                sortOption === 'name-desc' ? 'Nombre: Z-A' : 'Más recientes'}
-                      </Box>
-                      <Box display={{ base: 'block', sm: 'none' }}>
-                        Ordenar: {sortOption === 'newest-added' ? 'Recientes' :
-                                sortOption === 'price-asc' ? 'Precio ↑' :
-                                sortOption === 'price-desc' ? 'Precio ↓' :
-                                sortOption === 'newest' ? 'Nuevos' :
-                                sortOption === 'offers' ? 'Ofertas' :
-                                sortOption === 'name-asc' ? 'A-Z' :
-                                sortOption === 'name-desc' ? 'Z-A' : 'Recientes'}
-                      </Box>
-                    </Box>
-                  </MenuButton>
-                  <Portal>
-                    <MenuList zIndex={1000}>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('newest');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Nuevos productos</MenuItem>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('newest-added');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Más recientes</MenuItem>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('price-asc');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Precio: menor a mayor</MenuItem>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('price-desc');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Precio: mayor a menor</MenuItem>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('offers');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Mejores ofertas primero</MenuItem>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('name-asc');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Nombre: A-Z</MenuItem>
-                      <MenuItem onClick={() => {
-                        if (searchTerm) {
-                          sessionStorage.setItem('lastPage', currentPage);
-                        }
-                        setSortOption('name-desc');
-                        setCurrentPage(1);
-                        localStorage.setItem('currentPage', '1');
-                      }}>Nombre: Z-A</MenuItem>
-                    </MenuList>
-                  </Portal>
-                </Menu>
-
-                {/* Selector de cantidad por página */}
-                <Menu>
-                  <MenuButton
-                    as={Button}
-                    rightIcon={<ChevronDownIcon />}
-                    variant="outline"
-                    size={{ base: 'sm', md: 'md' }}
-                    bg="whiteAlpha.200"
-                    color="white"
-                    borderColor="whiteAlpha.300"
-                    _hover={{ bg: 'whiteAlpha.300' }}
-                    width="auto"
-                  >
-                    {productsPerPage === 9999 ? 'Todos' : `${productsPerPage}`}
-                  </MenuButton>
-                  <Portal>
-                    <MenuList zIndex={1000}>
-                      {[12, 24, 36, 48, 60].map((n) => (
-                        <MenuItem key={n} onClick={() => { setProductsPerPage(n); setCurrentPage(1); }}>
-                          {n} por página
-                        </MenuItem>
-                      ))}
-                      <MenuItem onClick={() => { setProductsPerPage(9999); setCurrentPage(1); }}>
-                        Todos
-                      </MenuItem>
-                    </MenuList>
-                  </Portal>
-                </Menu>
               </Flex>
-            </Flex>
-                     <Text fontSize="sm" color="gray.300" textAlign="center" mb={0}>
-            Mostrando {currentProducts.length} de {sortedProducts.length} {sortedProducts.length === 1 ? 'resultado' : 'resultados'}
-            {totalPages > 1 && ` • Página ${currentPage} de ${totalPages}`}
-          </Text>
-          </Flex>
-          
-          
-          {sortedProducts.length > 0 ? (
-            <>
-              <SimpleGrid
-                columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
-                spacing={6}
-                mx="auto"
-                mb={8}
+
+              <Flex
+                width="100%"
+                justify="space-between"
+                align="center"
+                mb={0}
+                direction={{ base: "column", md: "row" }}
+                gap={{ base: 3, md: 0 }}
+                position="sticky"
+                top={0}
+                zIndex={10}
+                py={4}
+                px={{ base: 4, md: 0 }}
+                mx={{ base: -4, md: 0 }}
               >
-                {isLoading ? (
-                  Array.from({ length: productsPerPage === 9999 ? 12 : productsPerPage }).map((_, i) => (
-                    <ProductCardSkeleton key={`skeleton-${i}`} />
-                  ))
-                ) : (
-                  <AnimatePresence mode="popLayout">
-                    {currentProducts.map((product) => (
-                      <motion.div
-                        key={product.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                        style={{ width: '100%', height: '100%', display: 'flex' }}
+                <Flex
+                  align="center"
+                  width={{ base: "100%", md: "auto" }}
+                  justify={{ base: "space-between", md: "flex-start" }}
+                  gap={4}
+                >
+                  {/* Buscador mejorado con autocompletado */}
+                  <Box
+                    position="relative"
+                    maxW={{ base: "100%", md: "300px" }}
+                    mb={{ base: 2, md: 0 }}
+                    width="100%"
+                  >
+                    <InputGroup>
+                      <InputLeftElement pointerEvents="none">
+                        <FaSearch color="white" />
+                      </InputLeftElement>
+                      <Input
+                        placeholder="Buscar productos..."
+                        value={inputValue}
+                        onFocus={() => {
+                          setIsSearchFocused(true);
+                          if (
+                            inputValue.length === 0 &&
+                            searchHistory.length > 0
+                          ) {
+                            setShowSuggestions(true);
+                          }
+                        }}
+                        onBlur={() => {
+                          // Delay para permitir clicks en sugerencias
+                          setTimeout(() => {
+                            setIsSearchFocused(false);
+                            setShowSuggestions(false);
+                            setSelectedSuggestionIndex(-1);
+                          }, 200);
+                        }}
+                        onChange={(e) => {
+                          const newValue = e.target.value;
+                          setInputValue(newValue);
+                          setSelectedSuggestionIndex(-1);
+
+                          if (newValue && !inputValue) {
+                            sessionStorage.setItem("lastPage", currentPage);
+                            setCurrentPage(1);
+                            // Al empezar a buscar, cambiar a categoría "todos"
+                            setActiveCategory("todos");
+                            setActiveSubcategory("");
+                            sessionStorage.setItem("activeCategory", "todos");
+                            sessionStorage.setItem("activeSubcategory", "");
+                          } else if (!newValue && inputValue) {
+                            const lastPage = sessionStorage.getItem("lastPage");
+                            if (lastPage) {
+                              setCurrentPage(parseInt(lastPage));
+                            }
+                          }
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            // Al buscar, siempre cambiar a la categoría "todos"
+                            setActiveCategory("todos");
+                            setActiveSubcategory("");
+                            sessionStorage.setItem("activeCategory", "todos");
+                            sessionStorage.setItem("activeSubcategory", "");
+
+                            if (
+                              selectedSuggestionIndex >= 0 &&
+                              searchSuggestions[selectedSuggestionIndex]
+                            ) {
+                              const suggestion =
+                                searchSuggestions[selectedSuggestionIndex];
+                              setInputValue(suggestion.text);
+                              setSearchTerm(suggestion.text);
+                              addToSearchHistory(suggestion.text);
+                              setShowSuggestions(false);
+                            } else if (inputValue) {
+                              setSearchTerm(inputValue);
+                              addToSearchHistory(inputValue);
+                              setShowSuggestions(false);
+                            }
+                          } else if (e.key === "ArrowDown") {
+                            e.preventDefault();
+                            setSelectedSuggestionIndex((prev) =>
+                              prev < searchSuggestions.length - 1
+                                ? prev + 1
+                                : prev,
+                            );
+                          } else if (e.key === "ArrowUp") {
+                            e.preventDefault();
+                            setSelectedSuggestionIndex((prev) =>
+                              prev > 0 ? prev - 1 : -1,
+                            );
+                          } else if (e.key === "Escape") {
+                            setShowSuggestions(false);
+                          }
+                        }}
+                        borderRadius="md"
+                        bg="whiteAlpha.200"
+                        color="white"
+                        borderColor="whiteAlpha.300"
+                        _placeholder={{ color: "whiteAlpha.700" }}
+                        _hover={{ borderColor: "whiteAlpha.400" }}
+                        _focus={{
+                          borderColor: "pink.300",
+                          boxShadow: "0 0 0 1px #d53f8c",
+                        }}
+                        pr="2.5rem"
+                      />
+                      {inputValue && (
+                        <InputRightElement width="2.5rem">
+                          <IconButton
+                            h="1.75rem"
+                            size="sm"
+                            icon={<CloseIcon />}
+                            onClick={() => {
+                              setInputValue("");
+                              setSearchTerm("");
+                              const lastPage =
+                                sessionStorage.getItem("lastPage");
+                              if (lastPage) {
+                                setCurrentPage(parseInt(lastPage));
+                              }
+                            }}
+                            variant="ghost"
+                            colorScheme="whiteAlpha"
+                            aria-label="Limpiar búsqueda"
+                            _hover={{ bg: "whiteAlpha.300" }}
+                          />
+                        </InputRightElement>
+                      )}
+                    </InputGroup>
+
+                    {/* Panel de sugerencias */}
+                    {showSuggestions && isSearchFocused && (
+                      <Box
+                        position="absolute"
+                        top="100%"
+                        left={0}
+                        right={0}
+                        mt={2}
+                        bg="#241521"
+                        borderRadius="xl"
+                        boxShadow="0 8px 32px rgba(0,0,0,0.5)"
+                        zIndex={1000}
+                        maxH="400px"
+                        overflowY="auto"
+                        border="1px solid"
+                        borderColor="whiteAlpha.200"
                       >
-                        <ProductCard
-                          product={product}
-                        />
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
-                )}
-              </SimpleGrid>
-              
-              {/* Controles de paginación */}
-              {totalPages > 1 && (
-                <Flex justify="center" mt={8} mb={4} overflowX="auto" px={2}>
-                  <ButtonGroup variant="outline" spacing={{ base: 1, md: 2 }} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>
-                    <IconButton
-                      icon={<FaChevronLeft />}
-                      onClick={() => handlePageChange(currentPage - 1)}
-                      isDisabled={currentPage === 1}
-                      aria-label="Página anterior"
-                      size={{ base: 'sm', md: 'md' }}
-                    />
-                    
-                    {/* Mostrar números de página con puntos suspensivos */}
-                    {(() => {
-                      const pageButtons = [];
-                      pageButtons.push(
-                        <Button
-                          key={1}
-                          onClick={() => handlePageChange(1)}
-                          variant={currentPage === 1 ? "solid" : "outline"}
-                          colorScheme="pink"
-                          size={{ base: 'sm', md: 'md' }}
+                        {/* Historial de búsqueda */}
+                        {inputValue.length === 0 &&
+                          searchHistory.length > 0 && (
+                            <Box>
+                              <Flex
+                                justify="space-between"
+                                align="center"
+                                px={4}
+                                py={2}
+                                borderBottom="1px solid"
+                                borderColor="gray.700"
+                              >
+                                <Text
+                                  fontSize="xs"
+                                  color="gray.400"
+                                  fontWeight="bold"
+                                >
+                                  BÚSQUEDAS RECIENTES
+                                </Text>
+                                <Button
+                                  size="xs"
+                                  variant="ghost"
+                                  colorScheme="pink"
+                                  onClick={clearSearchHistory}
+                                >
+                                  Limpiar
+                                </Button>
+                              </Flex>
+                              {searchHistory.map((term, index) => (
+                                <Box
+                                  key={index}
+                                  px={4}
+                                  py={3}
+                                  cursor="pointer"
+                                  _hover={{ bg: "whiteAlpha.100" }}
+                                  onClick={() => {
+                                    setInputValue(term);
+                                    setSearchTerm(term);
+                                    addToSearchHistory(term);
+                                    setActiveCategory("todos");
+                                    setActiveSubcategory("");
+                                    sessionStorage.setItem(
+                                      "activeCategory",
+                                      "todos",
+                                    );
+                                    sessionStorage.setItem(
+                                      "activeSubcategory",
+                                      "",
+                                    );
+                                  }}
+                                >
+                                  <Text color="white" fontSize="sm">
+                                    {term}
+                                  </Text>
+                                </Box>
+                              ))}
+                            </Box>
+                          )}
+
+                        {/* Sugerencias de productos */}
+                        {searchTerm.length >= 2 &&
+                          searchSuggestions.length > 0 && (
+                            <Box>
+                              <Text
+                                fontSize="xs"
+                                color="gray.400"
+                                fontWeight="bold"
+                                px={4}
+                                py={2}
+                                borderBottom="1px solid"
+                                borderColor="gray.700"
+                              >
+                                SUGERENCIAS
+                              </Text>
+                              {searchSuggestions.map((suggestion, index) => (
+                                <Flex
+                                  key={suggestion.id}
+                                  px={4}
+                                  py={3}
+                                  cursor="pointer"
+                                  bg={
+                                    selectedSuggestionIndex === index
+                                      ? "whiteAlpha.100"
+                                      : "transparent"
+                                  }
+                                  _hover={{ bg: "whiteAlpha.100" }}
+                                  onClick={() => {
+                                    setSearchTerm(suggestion.text);
+                                    addToSearchHistory(suggestion.text);
+                                    setShowSuggestions(false);
+                                    setActiveCategory("todos");
+                                    setActiveSubcategory("");
+                                    sessionStorage.setItem(
+                                      "activeCategory",
+                                      "todos",
+                                    );
+                                    sessionStorage.setItem(
+                                      "activeSubcategory",
+                                      "",
+                                    );
+                                  }}
+                                  align="center"
+                                  gap={3}
+                                >
+                                  <Box
+                                    width="40px"
+                                    height="40px"
+                                    borderRadius="md"
+                                    overflow="hidden"
+                                    flexShrink={0}
+                                  >
+                                    <img
+                                      src={suggestion.image}
+                                      alt={suggestion.text}
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                      }}
+                                    />
+                                  </Box>
+                                  <Box flex={1}>
+                                    <Text
+                                      color="white"
+                                      fontSize="sm"
+                                      noOfLines={1}
+                                    >
+                                      {suggestion.text}
+                                    </Text>
+                                    <Text
+                                      color="pink.300"
+                                      fontSize="xs"
+                                      fontWeight="bold"
+                                    >
+                                      $
+                                      {suggestion.price.toLocaleString(
+                                        "es-AR",
+                                        { maximumFractionDigits: 0 },
+                                      )}
+                                    </Text>
+                                  </Box>
+                                </Flex>
+                              ))}
+                            </Box>
+                          )}
+
+                        {/* Sin resultados */}
+                        {searchTerm.length >= 2 &&
+                          searchSuggestions.length === 0 && (
+                            <Box px={4} py={6} textAlign="center">
+                              <Text color="gray.400" fontSize="sm">
+                                No se encontraron productos
+                              </Text>
+                            </Box>
+                          )}
+                      </Box>
+                    )}
+                  </Box>
+
+                  {/* El toggle para mostrar/ocultar contenido adulto ha sido eliminado */}
+                </Flex>
+
+                {/* Selector de ordenación y filtro de precios (derecha) */}
+                <Flex
+                  align="center"
+                  gap={{ base: 2, md: 4 }}
+                  width={{ base: "100%", md: "auto" }}
+                  flexWrap="wrap"
+                  justifyContent={{ base: "flex-start", md: "flex-end" }}
+                >
+                  {/* Botón para filtrar productos en oferta */}
+                  <Button
+                    colorScheme={filterOffersOnly ? "pink" : "gray"}
+                    variant={filterOffersOnly ? "solid" : "outline"}
+                    size={{ base: "sm", md: "md" }}
+                    bg={filterOffersOnly ? "pink.500" : "whiteAlpha.200"}
+                    color="white"
+                    _hover={{
+                      bg: filterOffersOnly ? "pink.600" : "whiteAlpha.300",
+                    }}
+                    onClick={() => {
+                      setFilterOffersOnly(!filterOffersOnly);
+                      setCurrentPage(1);
+                    }}
+                    width="auto"
+                  >
+                    <Box display={{ base: "none", sm: "block" }}>
+                      {filterOffersOnly ? "✓ Ofertas" : "Ofertas"}
+                    </Box>
+                    <Box display={{ base: "block", sm: "none" }}>
+                      {filterOffersOnly ? "✓ Ofertas" : "Ofertas"}
+                    </Box>
+                  </Button>
+
+                  {/* Filtro de rango de precios */}
+                  <Popover placement="bottom-end">
+                    <PopoverTrigger>
+                      <Button
+                        variant="outline"
+                        size={{ base: "sm", md: "md" }}
+                        bg="whiteAlpha.200"
+                        color="white"
+                        borderColor="whiteAlpha.300"
+                        _hover={{ bg: "whiteAlpha.300" }}
+                        width="auto"
+                      >
+                        <Box
+                          as="span"
+                          overflow="hidden"
+                          textOverflow="ellipsis"
                         >
-                          1
-                        </Button>
-                      );
-                      
-                      if (totalPages > 7) {
-                        if (currentPage <= 4) {
-                          for (let i = 2; i <= Math.min(5, totalPages - 1); i++) {
-                            pageButtons.push(
-                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
-                            );
-                          }
-                          pageButtons.push(
-                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
-                          );
-                        }
-                        else if (currentPage >= totalPages - 3) {
-                          pageButtons.push(
-                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
-                          );
-                          for (let i = Math.max(2, totalPages - 4); i < totalPages; i++) {
-                            pageButtons.push(
-                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
-                            );
-                          }
-                        }
-                        else {
-                          pageButtons.push(
-                            <Button key="ellipsis1" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
-                          );
-                          for (let i = currentPage - 2; i <= currentPage + 2; i++) {
-                            pageButtons.push(
-                              <Button key={i} onClick={() => handlePageChange(i)} variant={currentPage === i ? "solid" : "outline"} colorScheme="pink" size={{ base: 'sm', md: 'md' }}>{i}</Button>
-                            );
-                          }
-                          pageButtons.push(
-                            <Button key="ellipsis2" isDisabled _hover={{ cursor: "default" }} variant="ghost" size={{ base: 'sm', md: 'md' }}>...</Button>
-                          );
-                        }
-                      } else if (totalPages > 1) {
-                        for (let i = 2; i < totalPages; i++) {
-                          pageButtons.push(
+                          <Box display={{ base: "none", sm: "block" }}>
+                            ${Math.floor(priceRange[0] / 1000)}k - $
+                            {Math.floor(priceRange[1] / 1000)}k
+                          </Box>
+                          <Box display={{ base: "block", sm: "none" }}>
+                            ${Math.floor(priceRange[0] / 1000)}k-$
+                            {Math.floor(priceRange[1] / 1000)}k
+                          </Box>
+                        </Box>
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent
+                      bg="gray.800"
+                      borderColor="gray.700"
+                      width="300px"
+                    >
+                      <PopoverArrow bg="gray.800" />
+                      <PopoverBody p={6}>
+                        <VStack spacing={4} align="stretch">
+                          <Text color="white" fontWeight="bold" fontSize="sm">
+                            Rango de precios
+                          </Text>
+                          <RangeSlider
+                            min={minPrice}
+                            max={maxPrice}
+                            step={1000}
+                            value={tempPriceRange}
+                            onChange={(val) => setTempPriceRange(val)}
+                            onChangeEnd={(val) => {
+                              setPriceRange(val);
+                              setCurrentPage(1);
+                            }}
+                            colorScheme="pink"
+                          >
+                            <RangeSliderTrack bg="gray.600">
+                              <RangeSliderFilledTrack bg="pink.400" />
+                            </RangeSliderTrack>
+                            <RangeSliderThumb index={0} boxSize={6}>
+                              <Box color="pink.400" />
+                            </RangeSliderThumb>
+                            <RangeSliderThumb index={1} boxSize={6}>
+                              <Box color="pink.400" />
+                            </RangeSliderThumb>
+                          </RangeSlider>
+                          <HStack justify="space-between">
+                            <Text color="gray.300" fontSize="sm">
+                              ${tempPriceRange[0].toLocaleString()}
+                            </Text>
+                            <Text color="gray.300" fontSize="sm">
+                              ${tempPriceRange[1].toLocaleString()}
+                            </Text>
+                          </HStack>
+                          {(priceRange[0] !== minPrice ||
+                            priceRange[1] !== maxPrice) && (
                             <Button
-                              key={i}
-                              onClick={() => handlePageChange(i)}
-                              variant={currentPage === i ? "solid" : "outline"}
+                              size="sm"
                               colorScheme="pink"
-                              size={{ base: 'sm', md: 'md' }}
+                              variant="ghost"
+                              onClick={() => {
+                                priceFromUrlRef.current = false;
+                                setPriceRange([minPrice, maxPrice]);
+                                setTempPriceRange([minPrice, maxPrice]);
+                                setCurrentPage(1);
+                              }}
                             >
-                              {i}
+                              Restablecer
                             </Button>
-                          );
-                        }
-                      }
-                      
-                      if (totalPages > 1) {
+                          )}
+                        </VStack>
+                      </PopoverBody>
+                    </PopoverContent>
+                  </Popover>
+
+                  {/* Selector de ordenación */}
+                  <Menu width={{ base: "100%", md: "auto" }}>
+                    <MenuButton
+                      as={Button}
+                      rightIcon={<ChevronDownIcon />}
+                      variant="outline"
+                      size={{ base: "sm", md: "md" }}
+                      bg="whiteAlpha.200"
+                      color="white"
+                      borderColor="whiteAlpha.300"
+                      _hover={{ bg: "whiteAlpha.300" }}
+                      width="auto"
+                      sx={{
+                        ".chakra-button__icon": {
+                          ml: { base: 1, md: 2 },
+                        },
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Box
+                        as="span"
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        flex="1"
+                      >
+                        <Box display={{ base: "none", sm: "block" }}>
+                          Ordenar por:{" "}
+                          {sortOption === "newest-added"
+                            ? "Más recientes"
+                            : sortOption === "price-asc"
+                              ? "Precio: menor a mayor"
+                              : sortOption === "price-desc"
+                                ? "Precio: mayor a menor"
+                                : sortOption === "newest"
+                                  ? "Nuevos productos"
+                                  : sortOption === "offers"
+                                    ? "Mejores ofertas primero"
+                                    : sortOption === "name-asc"
+                                      ? "Nombre: A-Z"
+                                      : sortOption === "name-desc"
+                                        ? "Nombre: Z-A"
+                                        : "Más recientes"}
+                        </Box>
+                        <Box display={{ base: "block", sm: "none" }}>
+                          Ordenar:{" "}
+                          {sortOption === "newest-added"
+                            ? "Recientes"
+                            : sortOption === "price-asc"
+                              ? "Precio ↑"
+                              : sortOption === "price-desc"
+                                ? "Precio ↓"
+                                : sortOption === "newest"
+                                  ? "Nuevos"
+                                  : sortOption === "offers"
+                                    ? "Ofertas"
+                                    : sortOption === "name-asc"
+                                      ? "A-Z"
+                                      : sortOption === "name-desc"
+                                        ? "Z-A"
+                                        : "Recientes"}
+                        </Box>
+                      </Box>
+                    </MenuButton>
+                    <Portal>
+                      <MenuList zIndex={1000}>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("newest");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Nuevos productos
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("newest-added");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Más recientes
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("price-asc");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Precio: menor a mayor
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("price-desc");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Precio: mayor a menor
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("offers");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Mejores ofertas primero
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("name-asc");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Nombre: A-Z
+                        </MenuItem>
+                        <MenuItem
+                          onClick={() => {
+                            if (searchTerm) {
+                              sessionStorage.setItem("lastPage", currentPage);
+                            }
+                            setSortOption("name-desc");
+                            setCurrentPage(1);
+                            localStorage.setItem("currentPage", "1");
+                          }}
+                        >
+                          Nombre: Z-A
+                        </MenuItem>
+                      </MenuList>
+                    </Portal>
+                  </Menu>
+
+                  {/* Selector de cantidad por página */}
+                  <Menu>
+                    <MenuButton
+                      as={Button}
+                      rightIcon={<ChevronDownIcon />}
+                      variant="outline"
+                      size={{ base: "sm", md: "md" }}
+                      bg="whiteAlpha.200"
+                      color="white"
+                      borderColor="whiteAlpha.300"
+                      _hover={{ bg: "whiteAlpha.300" }}
+                      width="auto"
+                    >
+                      {productsPerPage === 9999
+                        ? "Todos"
+                        : `${productsPerPage}`}
+                    </MenuButton>
+                    <Portal>
+                      <MenuList zIndex={1000}>
+                        {[12, 24, 36, 48, 60].map((n) => (
+                          <MenuItem
+                            key={n}
+                            onClick={() => {
+                              setProductsPerPage(n);
+                              setCurrentPage(1);
+                            }}
+                          >
+                            {n} por página
+                          </MenuItem>
+                        ))}
+                        <MenuItem
+                          onClick={() => {
+                            setProductsPerPage(9999);
+                            setCurrentPage(1);
+                          }}
+                        >
+                          Todos
+                        </MenuItem>
+                      </MenuList>
+                    </Portal>
+                  </Menu>
+                </Flex>
+              </Flex>
+              <Text fontSize="sm" color="gray.300" textAlign="center" mb={0}>
+                Mostrando {currentProducts.length} de {sortedProducts.length}{" "}
+                {sortedProducts.length === 1 ? "resultado" : "resultados"}
+                {totalPages > 1 && ` • Página ${currentPage} de ${totalPages}`}
+              </Text>
+            </Flex>
+
+            {sortedProducts.length > 0 ? (
+              <>
+                <SimpleGrid
+                  columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                  spacing={6}
+                  mx="auto"
+                  mb={8}
+                >
+                  {isLoading ? (
+                    Array.from({
+                      length: productsPerPage === 9999 ? 12 : productsPerPage,
+                    }).map((_, i) => (
+                      <ProductCardSkeleton key={`skeleton-${i}`} />
+                    ))
+                  ) : (
+                    <AnimatePresence mode="popLayout">
+                      {currentProducts.map((product) => (
+                        <motion.div
+                          key={product.id}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.3 }}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            display: "flex",
+                          }}
+                        >
+                          <ProductCard product={product} />
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  )}
+                </SimpleGrid>
+                {/* CTA: catálogo japonés a pedido
+                <Flex
+                  mt={10}
+                  direction={{ base: "column", md: "row" }}
+                  align="center"
+                  justify="space-between"
+                  gap={4}
+                  bg="whiteAlpha.50"
+                  border="1px solid"
+                  borderColor="whiteAlpha.100"
+                  borderLeft="4px solid"
+                  borderLeftColor="pink.400"
+                  borderRadius="lg"
+                  p={5}
+                >
+                  <Flex align="center" gap={3}>
+                    <Box color="pink.300" flexShrink={0}>
+                      <FaBookOpen size={20} />
+                    </Box>
+                    <Box textAlign={{ base: "center", md: "left" }}>
+                      <Text color="white" fontWeight={600}>
+                        ¿No encontrás el libro que buscás?
+                      </Text>
+                      <Text color="gray.400" fontSize="sm">
+                        Explorá el catálogo de productos que podés traer a pedido y consultá
+                        por los no están en la
+                        tienda.
+                      </Text>
+                    </Box>
+                  </Flex>
+                  <Button
+                    as={Link}
+                    to="/catalogo"
+                    colorScheme="pink"
+                    size="sm"
+                    flexShrink={0}
+                  >
+                    Ir al catálogo
+                  </Button>
+                </Flex> */}
+                {/* Controles de paginación */}
+                {totalPages > 1 && (
+                  <Flex justify="center" mt={8} mb={4} overflowX="auto" px={2}>
+                    <ButtonGroup
+                      variant="outline"
+                      spacing={{ base: 1, md: 2 }}
+                      colorScheme="pink"
+                      size={{ base: "sm", md: "md" }}
+                    >
+                      <IconButton
+                        icon={<FaChevronLeft />}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        isDisabled={currentPage === 1}
+                        aria-label="Página anterior"
+                        size={{ base: "sm", md: "md" }}
+                      />
+
+                      {/* Mostrar números de página con puntos suspensivos */}
+                      {(() => {
+                        const pageButtons = [];
                         pageButtons.push(
                           <Button
-                            key={totalPages}
-                            onClick={() => handlePageChange(totalPages)}
-                            variant={currentPage === totalPages ? "solid" : "outline"}
+                            key={1}
+                            onClick={() => handlePageChange(1)}
+                            variant={currentPage === 1 ? "solid" : "outline"}
                             colorScheme="pink"
-                            size={{ base: 'sm', md: 'md' }}
+                            size={{ base: "sm", md: "md" }}
                           >
-                            {totalPages}
-                          </Button>
+                            1
+                          </Button>,
                         );
-                      }
-                      
-                      return pageButtons;
-                    })()}
-                    
-                    <IconButton
-                      icon={<FaChevronRight />}
-                      onClick={() => handlePageChange(currentPage + 1)}
-                      isDisabled={currentPage === totalPages}
-                      aria-label="Página siguiente"
-                      size={{ base: 'sm', md: 'md' }}
-                    />
-                  </ButtonGroup>
-                </Flex>
-              )}
 
-            </>
-          ) : (
-            <Box textAlign="center" py={10}>
-              <Text fontSize="xl" color="white">No se encontraron productos que coincidan con tu búsqueda.</Text>
+                        if (totalPages > 7) {
+                          if (currentPage <= 4) {
+                            for (
+                              let i = 2;
+                              i <= Math.min(5, totalPages - 1);
+                              i++
+                            ) {
+                              pageButtons.push(
+                                <Button
+                                  key={i}
+                                  onClick={() => handlePageChange(i)}
+                                  variant={
+                                    currentPage === i ? "solid" : "outline"
+                                  }
+                                  colorScheme="pink"
+                                  size={{ base: "sm", md: "md" }}
+                                >
+                                  {i}
+                                </Button>,
+                              );
+                            }
+                            pageButtons.push(
+                              <Button
+                                key="ellipsis1"
+                                isDisabled
+                                _hover={{ cursor: "default" }}
+                                variant="ghost"
+                                size={{ base: "sm", md: "md" }}
+                              >
+                                ...
+                              </Button>,
+                            );
+                          } else if (currentPage >= totalPages - 3) {
+                            pageButtons.push(
+                              <Button
+                                key="ellipsis1"
+                                isDisabled
+                                _hover={{ cursor: "default" }}
+                                variant="ghost"
+                                size={{ base: "sm", md: "md" }}
+                              >
+                                ...
+                              </Button>,
+                            );
+                            for (
+                              let i = Math.max(2, totalPages - 4);
+                              i < totalPages;
+                              i++
+                            ) {
+                              pageButtons.push(
+                                <Button
+                                  key={i}
+                                  onClick={() => handlePageChange(i)}
+                                  variant={
+                                    currentPage === i ? "solid" : "outline"
+                                  }
+                                  colorScheme="pink"
+                                  size={{ base: "sm", md: "md" }}
+                                >
+                                  {i}
+                                </Button>,
+                              );
+                            }
+                          } else {
+                            pageButtons.push(
+                              <Button
+                                key="ellipsis1"
+                                isDisabled
+                                _hover={{ cursor: "default" }}
+                                variant="ghost"
+                                size={{ base: "sm", md: "md" }}
+                              >
+                                ...
+                              </Button>,
+                            );
+                            for (
+                              let i = currentPage - 2;
+                              i <= currentPage + 2;
+                              i++
+                            ) {
+                              pageButtons.push(
+                                <Button
+                                  key={i}
+                                  onClick={() => handlePageChange(i)}
+                                  variant={
+                                    currentPage === i ? "solid" : "outline"
+                                  }
+                                  colorScheme="pink"
+                                  size={{ base: "sm", md: "md" }}
+                                >
+                                  {i}
+                                </Button>,
+                              );
+                            }
+                            pageButtons.push(
+                              <Button
+                                key="ellipsis2"
+                                isDisabled
+                                _hover={{ cursor: "default" }}
+                                variant="ghost"
+                                size={{ base: "sm", md: "md" }}
+                              >
+                                ...
+                              </Button>,
+                            );
+                          }
+                        } else if (totalPages > 1) {
+                          for (let i = 2; i < totalPages; i++) {
+                            pageButtons.push(
+                              <Button
+                                key={i}
+                                onClick={() => handlePageChange(i)}
+                                variant={
+                                  currentPage === i ? "solid" : "outline"
+                                }
+                                colorScheme="pink"
+                                size={{ base: "sm", md: "md" }}
+                              >
+                                {i}
+                              </Button>,
+                            );
+                          }
+                        }
+
+                        if (totalPages > 1) {
+                          pageButtons.push(
+                            <Button
+                              key={totalPages}
+                              onClick={() => handlePageChange(totalPages)}
+                              variant={
+                                currentPage === totalPages ? "solid" : "outline"
+                              }
+                              colorScheme="pink"
+                              size={{ base: "sm", md: "md" }}
+                            >
+                              {totalPages}
+                            </Button>,
+                          );
+                        }
+
+                        return pageButtons;
+                      })()}
+
+                      <IconButton
+                        icon={<FaChevronRight />}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        isDisabled={currentPage === totalPages}
+                        aria-label="Página siguiente"
+                        size={{ base: "sm", md: "md" }}
+                      />
+                    </ButtonGroup>
+                  </Flex>
+                )}
+              </>
+            ) : (
+              <Box textAlign="center" py={10}>
+                <Text fontSize="xl" color="white">
+                  No se encontraron productos que coincidan con tu búsqueda.
+                </Text>
+                <Text mt={3} color="gray.400" fontSize="sm">
+                  Si es un libro, manga o doujin, podés buscarlo en nuestro
+                  catálogo de Japón y traerlo a pedido.
+                </Text>
+              </Box>
+            )}
+          </Container>
+        </Box>
+
+        {!isHeaderSearch && (
+          <>
+            <InstagramFeed />
+
+            {/* Sección SEO - Contenido textual para motores de búsqueda */}
+            <Box bg="#241521" py={12} color="white">
+              <Container maxW="7xl">
+                <Stack spacing={8}>
+                  <Heading as="h2" size="xl" color="pink.300">
+                    Sobre Arkya Store
+                  </Heading>
+                  <Text fontSize="md" color="gray.300" lineHeight={1.8}>
+                    Arkya Store es tu tienda online especializada en artículos
+                    importados directamente desde Japón. Ofrecemos una cuidada
+                    selección de Artbooks japoneses oficiales, Dōjinshi
+                    (Doujinshi) de artistas independientes, Mangas en japonés
+                    originales, Novelas Ligeras (Light Novels) japonesas,
+                    Revistas japonesas semanales como Weekly Shōnen Jump, Guías
+                    oficiales de videojuegos japoneses, figuras coleccionables
+                    de anime japonesas y merchandising exclusivo. Todos nuestros
+                    productos son 100% originales y se importan directamente
+                    desde Japón para garantizar la máxima calidad y
+                    autenticidad.
+                  </Text>
+                  <Text fontSize="md" color="gray.300" lineHeight={1.8}>
+                    Nuestro catálogo incluye títulos de las principales
+                    editoriales japonesas como Shueisha, Kodansha y Square Enix,
+                    además de obras de círculos independientes reconocidos.
+                    Encontrá las últimas revistas Jump con los capítulos más
+                    recientes de One Piece, Jujutsu Kaisen, My Hero Academia y
+                    más. Si buscás material específico que no tenemos en stock,
+                    ofrecemos el servicio de pedidos personalizados: contactanos
+                    por{" "}
+                    <a
+                      href="https://instagram.com/arkya.store"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#d53f8c", textDecoration: "underline" }}
+                    >
+                      Instagram
+                    </a>{" "}
+                    y nos encargamos de conseguirlo por vos. Realizamos envíos a
+                    todo el territorio argentino con seguimiento y embalaje
+                    seguro para proteger tus productos durante el traslado.
+                  </Text>
+                  <Text fontSize="md" color="gray.300" lineHeight={1.8}>
+                    En Arkya Store entendemos la pasión por la cultura japonesa.
+                    Por eso trabajamos constantemente para ampliar nuestro
+                    inventario con los lanzamientos más recientes y las
+                    ediciones más buscadas por coleccionistas. Desde Artbooks de
+                    anime y manga hasta Doujinshi de eventos como Comiket,
+                    Novelas Ligeras de las series más populares y Revistas Jump
+                    semanales, traemos lo mejor del mercado japonés para los
+                    fans de Argentina.
+                  </Text>
+
+                  {/* Links internos de categorías para SEO */}
+                  <Box>
+                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                      Categorías de productos
+                    </Heading>
+                    <Flex wrap="wrap" gap={3}>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("todos");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Ver Todo
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("artbooks");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Artbooks
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("mangas");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Mangas
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("revistas");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Revistas
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("doujinshis");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Doujinshis
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("guide-books");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Guide Books
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("character-books");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Character Books
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("novela-ligera");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Novelas Ligeras
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("figuras");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        Figuras de Anime
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                        onClick={() => {
+                          handleCategoryClick("cd-dvd");
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                      >
+                        CDs/DVDs
+                      </Button>
+                    </Flex>
+                  </Box>
+
+                  {/* Links internos */}
+                  <Box>
+                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                      Navegación del sitio
+                    </Heading>
+                    <Flex wrap="wrap" gap={3}>
+                      <Button
+                        as={Link}
+                        to="/"
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Inicio
+                      </Button>
+                      <Button
+                        as={Link}
+                        to="/"
+                        onClick={() =>
+                          document
+                            .getElementById("productos")
+                            ?.scrollIntoView({ behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Catálogo de Productos
+                      </Button>
+                      {/* <Button
+                        as={Link}
+                        to="/catalogo"
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Catálogo Japonés
+                      </Button> */}
+                      <Button
+                        as={Link}
+                        to="/contacto"
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Contacto
+                      </Button>
+                      <Button
+                        as={Link}
+                        to="/terminos"
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Términos y Condiciones
+                      </Button>
+                      <Button
+                        as={Link}
+                        to="/preguntas-frecuentes"
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Preguntas Frecuentes
+                      </Button>
+                      <Button
+                        as={Link}
+                        to="/mis-me-gustas"
+                        onClick={() =>
+                          window.scrollTo({ top: 0, behavior: "smooth" })
+                        }
+                        size="sm"
+                        variant="outline"
+                        colorScheme="pink"
+                      >
+                        Mis Favoritos
+                      </Button>
+                    </Flex>
+                  </Box>
+
+                  {/* Links externos */}
+                  <Box>
+                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                      Seguinos en redes sociales
+                    </Heading>
+                    <Flex wrap="wrap" gap={3}>
+                      <Button
+                        as="a"
+                        href="https://instagram.com/arkya.store"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        leftIcon={<FaInstagram />}
+                        colorScheme="pink"
+                        variant="solid"
+                      >
+                        Instagram @arkya.store
+                      </Button>
+                    </Flex>
+                  </Box>
+
+                  {/* Botones de compartir */}
+                  <Box>
+                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                      Compartí Arkya Store
+                    </Heading>
+                    <Flex wrap="wrap" gap={3}>
+                      <Button
+                        as="a"
+                        href={`https://wa.me/?text=Conocé%20Arkya%20Store%20-%20Artículos%20importados%20de%20Japón:%20https://arkya.store`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        leftIcon={<FaWhatsapp />}
+                        bg="#25D366"
+                        color="white"
+                        _hover={{ bg: "#128C7E" }}
+                        size="sm"
+                      >
+                        WhatsApp
+                      </Button>
+                      <Button
+                        as="a"
+                        href={`https://twitter.com/intent/tweet?text=Arkya%20Store%20-%20Artículos%20importados%20de%20Japón&url=https://arkya.store`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        leftIcon={<FaTwitter />}
+                        bg="#000000"
+                        color="white"
+                        _hover={{ bg: "#1a1a1a" }}
+                        size="sm"
+                      >
+                        X
+                      </Button>
+                      <Button
+                        as="a"
+                        href={`https://www.facebook.com/sharer/sharer.php?u=https://arkya.store`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        leftIcon={<FaFacebook />}
+                        bg="#4267B2"
+                        color="white"
+                        _hover={{ bg: "#365899" }}
+                        size="sm"
+                      >
+                        Facebook
+                      </Button>
+                      <Button
+                        as="a"
+                        href={`https://instagram.com/arkya.store`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        leftIcon={<FaInstagram />}
+                        bg="#E4405F"
+                        color="white"
+                        _hover={{ bg: "#c13584" }}
+                        size="sm"
+                      >
+                        Instagram
+                      </Button>
+                    </Flex>
+                  </Box>
+                </Stack>
+              </Container>
             </Box>
-          )}
-        </Container>
+          </>
+        )}
+
+        {/* Botón scroll to top */}
+        {showScrollTop && (
+          <IconButton
+            icon={<FaArrowUp />}
+            aria-label="Volver arriba"
+            position="fixed"
+            bottom="24px"
+            left="24px"
+            zIndex={9999}
+            size="lg"
+            borderRadius="full"
+            bg="pink.500"
+            color="white"
+            boxShadow="0 0 20px rgba(236, 72, 153, 0.6)"
+            _hover={{
+              bg: "pink.400",
+              transform: "translateY(-2px)",
+              boxShadow: "0 0 30px rgba(236, 72, 153, 0.9)",
+            }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        )}
       </Box>
-
-      {!isHeaderSearch && (
-        <>
-          <InstagramFeed />
-
-          {/* Sección SEO - Contenido textual para motores de búsqueda */}
-          <Box bg="#241521" py={12} color="white">
-        <Container maxW="7xl">
-          <Stack spacing={8}>
-            <Heading as="h2" size="xl" color="pink.300">
-              Sobre Arkya Store
-            </Heading>
-            <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-              Arkya Store es tu tienda online especializada en artículos importados directamente desde Japón.
-              Ofrecemos una cuidada selección de Artbooks japoneses oficiales, Dōjinshi (Doujinshi) de artistas independientes,
-              Mangas en japonés originales, Novelas Ligeras (Light Novels) japonesas, Revistas japonesas semanales como Weekly Shōnen Jump,
-              Guías oficiales de videojuegos japoneses, figuras coleccionables de anime japonesas y merchandising exclusivo.
-              Todos nuestros productos son 100% originales y se importan directamente desde Japón para garantizar
-              la máxima calidad y autenticidad.
-            </Text>
-            <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-              Nuestro catálogo incluye títulos de las principales editoriales japonesas como Shueisha, Kodansha y
-              Square Enix, además de obras de círculos independientes reconocidos. Encontrá las últimas revistas
-              Jump con los capítulos más recientes de One Piece, Jujutsu Kaisen, My Hero Academia y más.
-              Si buscás material específico que no tenemos en stock, ofrecemos el servicio de pedidos personalizados:
-              contactanos por <a href="https://instagram.com/arkya.store" target="_blank" rel="noopener noreferrer" style={{color: '#d53f8c', textDecoration: 'underline'}}>Instagram</a> y
-              nos encargamos de conseguirlo por vos. Realizamos envíos a todo el territorio argentino con
-              seguimiento y embalaje seguro para proteger tus productos durante el traslado.
-            </Text>
-            <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-              En Arkya Store entendemos la pasión por la cultura japonesa. Por eso trabajamos constantemente
-              para ampliar nuestro inventario con los lanzamientos más recientes y las ediciones más buscadas
-              por coleccionistas. Desde Artbooks de anime y manga hasta Doujinshi de eventos como Comiket,
-              Novelas Ligeras de las series más populares y Revistas Jump semanales, traemos lo mejor del
-              mercado japonés para los fans de Argentina.
-            </Text>
-
-            {/* Links internos de categorías para SEO */}
-            <Box>
-              <Heading as="h3" size="md" color="pink.300" mb={3}>
-                Categorías de productos
-              </Heading>
-              <Flex wrap="wrap" gap={3}>
-                                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('todos'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Ver Todo
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('artbooks'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Artbooks
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('mangas'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Mangas
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('revistas'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Revistas
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('doujinshis'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Doujinshis
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('guide-books'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Guide Books
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('character-books'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Character Books
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('novela-ligera'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Novelas Ligeras
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('figuras'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  Figuras de Anime
-                </Button>
-                <Button size="sm" variant="outline" colorScheme="pink" onClick={() => { handleCategoryClick('cd-dvd'); document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                  CDs/DVDs
-                </Button>
-
-              </Flex>
-            </Box>
-
-            {/* Links internos */}
-            <Box>
-              <Heading as="h3" size="md" color="pink.300" mb={3}>
-                Navegación del sitio
-              </Heading>
-              <Flex wrap="wrap" gap={3}>
-                <Button as={Link} to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
-                  Inicio
-                </Button>
-                <Button as={Link} to="/" onClick={() => document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
-                  Catálogo de Productos
-                </Button>
-                <Button as={Link} to="/contacto" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
-                  Contacto
-                </Button>
-                <Button as={Link} to="/terminos" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
-                  Términos y Condiciones
-                </Button>
-                <Button as={Link} to="/preguntas-frecuentes" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
-                  Preguntas Frecuentes
-                </Button>
-                <Button as={Link} to="/mis-me-gustas" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} size="sm" variant="outline" colorScheme="pink">
-                  Mis Favoritos
-                </Button>
-              </Flex>
-            </Box>
-
-            {/* Links externos */}
-            <Box>
-              <Heading as="h3" size="md" color="pink.300" mb={3}>
-                Seguinos en redes sociales
-              </Heading>
-              <Flex wrap="wrap" gap={3}>
-                <Button
-                  as="a"
-                  href="https://instagram.com/arkya.store"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  leftIcon={<FaInstagram />}
-                  colorScheme="pink"
-                  variant="solid"
-                >
-                  Instagram @arkya.store
-                </Button>
-              </Flex>
-            </Box>
-
-            {/* Botones de compartir */}
-            <Box>
-              <Heading as="h3" size="md" color="pink.300" mb={3}>
-                Compartí Arkya Store
-              </Heading>
-              <Flex wrap="wrap" gap={3}>
-                <Button
-                  as="a"
-                  href={`https://wa.me/?text=Conocé%20Arkya%20Store%20-%20Artículos%20importados%20de%20Japón:%20https://arkya.store`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  leftIcon={<FaWhatsapp />}
-                  bg="#25D366"
-                  color="white"
-                  _hover={{ bg: '#128C7E' }}
-                  size="sm"
-                >
-                  WhatsApp
-                </Button>
-                <Button
-                  as="a"
-                  href={`https://twitter.com/intent/tweet?text=Arkya%20Store%20-%20Artículos%20importados%20de%20Japón&url=https://arkya.store`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  leftIcon={<FaTwitter />}
-                  bg="#000000"
-                  color="white"
-                  _hover={{ bg: '#1a1a1a' }}
-                  size="sm"
-                >
-                  X
-                </Button>
-                <Button
-                  as="a"
-                  href={`https://www.facebook.com/sharer/sharer.php?u=https://arkya.store`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  leftIcon={<FaFacebook />}
-                  bg="#4267B2"
-                  color="white"
-                  _hover={{ bg: '#365899' }}
-                  size="sm"
-                >
-                  Facebook
-                </Button>
-                <Button
-                  as="a"
-                  href={`https://instagram.com/arkya.store`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  leftIcon={<FaInstagram />}
-                  bg="#E4405F"
-                  color="white"
-                  _hover={{ bg: '#c13584' }}
-                  size="sm"
-                >
-                  Instagram
-                </Button>
-              </Flex>
-            </Box>
-          </Stack>
-        </Container>
-      </Box>
-        </>
-      )}
-
-      {/* Botón scroll to top */}
-      {showScrollTop && (
-        <IconButton
-          icon={<FaArrowUp />}
-          aria-label="Volver arriba"
-          position="fixed"
-          bottom="24px"
-          left="24px"
-          zIndex={9999}
-          size="lg"
-          borderRadius="full"
-          bg="pink.500"
-          color="white"
-          boxShadow="0 0 20px rgba(236, 72, 153, 0.6)"
-          _hover={{ bg: 'pink.400', transform: 'translateY(-2px)', boxShadow: '0 0 30px rgba(236, 72, 153, 0.9)' }}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        />
-      )}
-
-    </Box>
     </>
   );
 }

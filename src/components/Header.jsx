@@ -578,7 +578,7 @@ const DesktopSubNav = ({ label, href, subLabel, children }) => {
   const hoverBgColor = useColorModeValue('brand.50', 'gray.900');
   const popoverBgColor = useColorModeValue('white', 'gray.800');
   const childHoverBgColor = useColorModeValue('pink.50', 'gray.900');
-  
+
   // Si tiene subcategorías, mostrar un popover anidado
   if (children) {
     return (
@@ -648,7 +648,7 @@ const DesktopSubNav = ({ label, href, subLabel, children }) => {
       </Popover>
     );
   }
-  
+
   // Si no tiene subcategorías, mostrar un enlace normal
   return (
     <Link
@@ -755,6 +755,10 @@ const NAV_ITEMS = [
     label: 'Inicio',
     href: '/',
   },
+  // {
+  //   label: 'Catálogo',
+  //   href: '/catalogo',
+  // },
   {
     label: 'Guías',
     href: '/guias',
