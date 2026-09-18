@@ -1,9 +1,10 @@
 [build]
   publish = "dist"
 
-# cycletls trae binarios de Go: no se puede bundlear, se incluye como está
+# cycletls trae binarios de Go: no se puede bundlear; el require está
+# oculto del tracer así que hay que forzar la inclusión de los archivos.
 [functions."jp-probe"]
-  external_node_modules = ["cycletls"]
+  included_files = ["node_modules/cycletls/**"]
 
 # Force HTTPS
 [[redirects]]
