@@ -1,6 +1,10 @@
 [build]
   publish = "dist"
 
+# Deep out-of-stock scans can exceed the 10s default function timeout
+[functions]
+  timeout = 26
+
 # Force HTTPS
 [[redirects]]
   from = "http://*"

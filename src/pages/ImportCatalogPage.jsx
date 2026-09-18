@@ -45,6 +45,11 @@ const CATEGORY_TABS = [
   { id: 'doujin', label: 'Doujin' },
 ];
 
+// Base de la API del catálogo. Vacío = mismo origen (dev usa el middleware
+// de Vite). En producción el sitio es estático (GitHub Pages) y las
+// functions viven en un Netlify aparte, configurado con VITE_JP_API_URL.
+const JP_API = (import.meta.env.VITE_JP_API_URL || '').replace(/\/$/, '');
+
 const SORT_OPTIONS = [
   { value: 'relevant', label: 'Relevancia' },
   { value: 'released_date_desc', label: 'Más recientes' },
@@ -230,10 +235,17 @@ export default function ImportCatalogPage() {
     const params = new URLSearchParams({ q: query, category, page: String(page), sort });
     if (sub) params.set('sub', sub);
     if (year) params.set('year', year);
-    fetch(`/api/jp-search?${params.toString()}`, { signal: controller.signal })
+    fetch(`${JP_API}/api/jp-search?${params.toString()}`, { signal: controller.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((data) => {
-        setItems(data.items || []);
+        // Las URLs de imagen vienen relativas (/api/jp-image?...): si la API
+        // está en otro origen hay que prefijarlas con la base.
+        const list = (data.items || []).map((it) =>
+          JP_API && typeof it.image === 'string' && it.image.startsWith('/')
+            ? { ...it, image: JP_API + it.image }
+            : it
+        );
+        setItems(list);
         setTotalCount(data.totalCount || 0);
         setTotalApprox(Boolean(data.totalApprox));
         setHasMore(Boolean(data.hasMore));
