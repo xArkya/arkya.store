@@ -4,7 +4,7 @@
 # cycletls trae binarios de Go: no se puede bundlear; el require está
 # oculto del tracer así que hay que forzar la inclusión de los archivos.
 [functions."jp-probe"]
-  included_files = ["node_modules/cycletls/**"]
+  included_files = ["node_modules/cycletls/**", "node_modules/ws/**", "node_modules/form-data/**"]
 
 # Force HTTPS
 [[redirects]]
