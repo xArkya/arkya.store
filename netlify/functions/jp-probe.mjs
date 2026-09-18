@@ -44,9 +44,9 @@ async function curlProbe(url) {
 
 async function cycleTlsProbe(url) {
   try {
-    // Specifier no literal para que el bundler de Netlify no lo procese;
+    // Specifier no literal ni foldable para que el bundler no lo procese;
     // el paquete viaja igual por external_node_modules en netlify.toml.
-    const initCycleTLS = require('cycle' + 'tls').default;
+    const initCycleTLS = require(['cycle', 'tls'].join('')).default;
     const cycleTLS = await initCycleTLS();
     try {
       const res = await cycleTLS(
