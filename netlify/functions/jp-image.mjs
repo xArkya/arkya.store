@@ -1,4 +1,4 @@
-import { fetchImage } from '../../scripts/jp-catalog.mjs';
+import { fetchImage, hqImageUrl } from '../../scripts/jp-catalog.mjs';
 
 // El sitio principal está en GitHub Pages y carga estas imágenes cross-origin.
 const CORS = { 'Access-Control-Allow-Origin': '*' };
@@ -10,9 +10,15 @@ export const config = { path: '/api/jp-image' };
 export default async (req) => {
   const url = new URL(req.url);
   const u = url.searchParams.get('u') || '';
+  const hq = url.searchParams.get('hq') === '1';
 
   try {
-    const img = await fetchImage(u);
+    let img = null;
+    if (hq) {
+      const hqUrl = hqImageUrl(u);
+      if (hqUrl !== u) img = await fetchImage(hqUrl, 0, { follow: false });
+    }
+    img ||= await fetchImage(u);
     if (!img) return new Response('Not found', { status: 404, headers: CORS });
     return new Response(img.body, {
       headers: {

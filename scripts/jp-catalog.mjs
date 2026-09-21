@@ -24,6 +24,33 @@ const UA =
 const COOKIE_JAR = join(tmpdir(), 'jp-catalog-cookies.txt');
 const COOKIE_TTL = 4 * 60 * 1000;
 
+// Suruga-ya bloquea por IP las requests desde datacenters (verificado:
+// hasta con fingerprint de Chrome vía CycleTLS devuelve 403 desde AWS).
+// Para producción hace falta un proxy residencial: setear JP_PROXY con
+// la URL del proxy (http://user:pass@host:port, también soporta socks5://).
+// Solo se usa para los requests al sitio — el CDN de imágenes responde
+// directo desde datacenter, así no gasta bandwidth del proxy.
+// Se leen lazy (dentro de cada request) porque los callers cargan
+// .env.local DESPUÉS de importar este módulo — leerlos acá arriba haría
+// que las variables del archivo nunca lleguen.
+const getProxy = () => process.env.JP_PROXY || '';
+
+// Bypass manual del challenge de Cloudflare: si la IP quedó flaggeada
+// (checkbox interactivo), se puede resolver el challenge en el navegador y
+// pasar la cookie cf_clearance al crawler:
+//   JP_COOKIE  -> "cf_clearance=<valor>"  (devtools > Application > Cookies)
+//   JP_UA      -> navigator.userAgent del MISMO navegador (la cookie está
+//                 atada a IP + User-Agent exacto; con otro UA no sirve)
+// Ojo: cf_clearance expira (típicamente ~30-60 min) — si vuelven los 403
+// hay que refrescarla repitiendo el procedimiento.
+// Acepta tanto "cf_clearance=<valor>" como el valor pelado (le agrega el
+// nombre de la cookie — curl trata un -b sin '=' como nombre de archivo).
+const getCookie = () => {
+  const c = process.env.JP_COOKIE || '';
+  return c && !c.includes('=') ? `cf_clearance=${c}` : c;
+};
+const getUa = () => process.env.JP_UA || UA;
+
 export const JP_CATEGORIES = { books: '7', doujin: '11' };
 
 // Ordenamientos que expone el sitio origen (param sort)
@@ -40,8 +67,9 @@ async function curlGet(url) {
     '-L',
     '--max-time',
     '15',
+    ...(getProxy() ? ['-x', getProxy()] : []),
     '-A',
-    UA,
+    getUa(),
     '-H',
     'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,*/*;q=0.8',
     '-H',
@@ -51,7 +79,7 @@ async function curlGet(url) {
     '-c',
     COOKIE_JAR,
     '-b',
-    COOKIE_JAR,
+    getCookie() || COOKIE_JAR,
     '-w',
     '\n%{http_code}',
     url,
@@ -91,7 +119,19 @@ function isChallenge(status, html) {
 
 const ALLOWED_IMG_HOST = 'https://cdn.suruga-ya.com/';
 
-export async function fetchImage(imageUrl, attempt = 0) {
+// El CDN sirve la versión grande de cada imagen en
+// database/pics_webp/game/<id>.jpg.webp — 'game' es el bucket genérico del
+// CDN, no solo juegos (verificado: manga/libros/revistas resuelven ahí).
+// Si el archivo no existe el CDN responde 302 al dominio viejo (detrás de
+// Cloudflare) — con follow:false ese 302 falla rápido y se cae al thumb.
+export function hqImageUrl(thumbUrl) {
+  return thumbUrl.replace(
+    /pics_webp\/boxart_m\/(\d+)m\.jpg\.webp$/,
+    'database/pics_webp/game/$1.jpg.webp'
+  );
+}
+
+export async function fetchImage(imageUrl, attempt = 0, { follow = true } = {}) {
   if (typeof imageUrl !== 'string' || !imageUrl.startsWith(ALLOWED_IMG_HOST)) {
     return null;
   }
@@ -99,7 +139,7 @@ export async function fetchImage(imageUrl, attempt = 0) {
     'curl',
     [
       '-sS',
-      '-L',
+      ...(follow ? ['-L'] : []),
       '--max-time',
       '15',
       '-A',
@@ -115,9 +155,12 @@ export async function fetchImage(imageUrl, attempt = 0) {
   const tail = stdout.slice(stdout.lastIndexOf('\n') + 1).toString('utf-8').trim();
   const [statusStr, contentType] = tail.split(' ');
   if (Number(statusStr) !== 200) {
+    // Un 302 en el CDN significa "no existe ese webp acá" (apunta al
+    // dominio viejo detrás de CF): no reintentar, salir rápido.
+    if (Number(statusStr) === 302) return null;
     if (attempt < 2) {
       await delay(400);
-      return fetchImage(imageUrl, attempt + 1);
+      return fetchImage(imageUrl, attempt + 1, { follow });
     }
     return null;
   }
@@ -127,20 +170,24 @@ export async function fetchImage(imageUrl, attempt = 0) {
   };
 }
 
-async function fetchProductsHtml(categoryId, keyword, { page = 1, year = '', sort = '', includeOos = true } = {}, attempt = 0) {
+export async function fetchProductsHtml(categoryId, keyword, { page = 1, year = '', price = '', sort = '', includeOos = true, lang = 'en' } = {}, attempt = 0) {
   await ensureSession(attempt > 0);
   // Sin in_stock=t el origen devuelve SOLO items con stock; con in_stock=t
   // devuelve todo (con stock + sin stock mezclados).
-  let url = `${BASE}/en/products?category=${categoryId}&keyword=${encodeURIComponent(keyword)}`;
+  // lang: 'en' (títulos romanizados) o 'ja' (títulos en japonés real).
+  // price: rango estilo "501-1000" / "-500" / "5001-" — incluye sin-stock
+  // (el origen recuerda el último precio conocido).
+  let url = `${BASE}/${lang}/products?category=${categoryId}&keyword=${encodeURIComponent(keyword)}`;
   if (includeOos) url += '&in_stock=t';
   if (page > 1) url += `&page=${page}`;
   if (year) url += `&release_year=${encodeURIComponent(year)}`;
+  if (price) url += `&price=${encodeURIComponent(price)}`;
   if (sort && sort !== 'relevant') url += `&sort=${sort}`;
   const { status, html } = await curlGet(url);
   if (isChallenge(status, html)) {
     if (attempt < 3) {
       await delay(400 * (attempt + 1));
-      return fetchProductsHtml(categoryId, keyword, { page, year, sort, includeOos }, attempt + 1);
+      return fetchProductsHtml(categoryId, keyword, { page, year, sort, includeOos, price, lang }, attempt + 1);
     }
     throw new Error(`Upstream catalog blocked the request (status ${status})`);
   }
@@ -173,12 +220,20 @@ export function parseProducts(html) {
         }
       }
 
+      const priceMatch = block.match(/data-price="(\d+)"/);
+      // La fecha sale como "Released date: 15 Sep 2025" (en) o
+      // "発売日: 2012/11/24" (ja)
+      const dateMatch = block.match(/Released date:\s*([^<]+)|発売日[:：]\s*([^<]+)/);
+
       return {
         id: info.id || null,
         title: decodeEntities(info.name || ''),
         // La imagen se sirve via proxy propio para no exponer el dominio origen
         image: imgMatch ? `/api/jp-image?u=${encodeURIComponent(imgMatch[1])}` : null,
-        inStock: !block.includes('Out of stock'),
+        // "Out of stock" (en) / 品切れ (ja)
+        inStock: !block.includes('Out of stock') && !block.includes('品切れ'),
+        price: priceMatch ? Number(priceMatch[1]) : null,
+        releaseDate: dateMatch ? (dateMatch[1] || dateMatch[2]).trim() : null,
       };
     })
     .filter((p) => p.id && p.title);
@@ -186,10 +241,12 @@ export function parseProducts(html) {
 
 const PAGE_SIZE = 24;
 
-function parseTotal(html) {
+export function parseTotal(html) {
   const m = html.match(/alert-total-products[^>]*>([\s\S]*?)</);
   const text = m ? decodeEntities(m[1]).replace(/\s+/g, ' ').trim() : null;
-  const countMatch = text && text.match(/of (?:over )?([\d,]+) results/);
+  // en: "of (over )?N results" — ja: "該当件数:N件中"
+  const countMatch =
+    text && (text.match(/of (?:over )?([\d,]+) results/) || text.match(/該当件数[:：]\s*([\d,]+)/));
   return {
     text,
     count: countMatch ? Number(countMatch[1].replace(/,/g, '')) : null,
@@ -316,11 +373,15 @@ async function translateBatch(titles) {
   const errors = [];
   // gtx: los títulos se unen con \n y el segmento devuelto conserva las
   // líneas, así una sola request traduce toda la página de resultados.
+  // dt=rm agrega la romanización (lectura fonética) — clave para que el
+  // usuario encuentre "jujutsu kaisen" escribiéndolo en latín.
   try {
     const data = await curlJson(
-      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=t&q=${encodeURIComponent(titles.join('\n'))}`
+      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=t&dt=rm&q=${encodeURIComponent(titles.join('\n'))}`
     );
-    return (data?.[0] || []).map((seg) => seg?.[0]).filter(Boolean).join('').split('\n');
+    const en = (data?.[0] || []).map((seg) => seg?.[0]).filter(Boolean).join('').split('\n');
+    const romaji = (data?.[1] || []).map((seg) => seg?.[3]).filter(Boolean).join('').split('\n');
+    return { en, romaji };
   } catch (err) {
     errors.push(`gtx ${err.message}`);
   }
@@ -330,7 +391,7 @@ async function translateBatch(titles) {
     const data = await curlJson(
       `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=ja&tl=en&${qs}`
     );
-    if (Array.isArray(data)) return data.map(String);
+    if (Array.isArray(data)) return { en: data.map(String), romaji: [] };
     throw new Error('unexpected response');
   } catch (err) {
     errors.push(`dict-chrome-ex ${err.message}`);
@@ -352,21 +413,33 @@ async function translateBatch(titles) {
       );
     }
     if (out.every((x) => x == null)) throw new Error('no translations');
-    return out;
+    return { en: out, romaji: [] };
   } catch (err) {
     errors.push(`mymemory ${err.message}`);
   }
   throw new Error(errors.join(' | '));
 }
 
-async function translateTitles(titles) {
+// Quita macrons/diacriticos del romaji (Tarō -> Taro) para que matchee
+// lo que el usuario tipea con teclado común.
+const stripMarks = (s) =>
+  s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+// Devuelve { en: [...], romaji: [...] } alineados por índice con `titles`.
+// Los títulos sin japonés pasan intactos en `en` y sin romaji.
+export async function translateTitles(titles) {
   const pending = titles.filter((t) => JP_CHAR.test(t) && !translateCache.has(t));
   if (pending.length) {
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
-        const translated = await translateBatch(pending);
+        const { en, romaji } = await translateBatch(pending);
         pending.forEach((t, i) => {
-          if (translated[i]) translateCache.set(t, translated[i].trim());
+          if (en[i]) {
+            translateCache.set(t, {
+              en: en[i].trim(),
+              romaji: romaji[i] ? stripMarks(romaji[i].trim()) : null,
+            });
+          }
         });
         break;
       } catch (err) {
@@ -376,7 +449,14 @@ async function translateTitles(titles) {
     }
     if (translateCache.size > 3000) translateCache.delete(translateCache.keys().next().value);
   }
-  return titles.map((t) => translateCache.get(t) || t);
+  const en = [];
+  const romaji = [];
+  titles.forEach((t, i) => {
+    const hit = translateCache.get(t);
+    en[i] = hit?.en || t;
+    romaji[i] = hit?.romaji || null;
+  });
+  return { en, romaji };
 }
 
 export async function searchCatalog(keyword, { category = 'all', sub = '', year = '', sort = '', page = 1 } = {}) {
@@ -468,7 +548,7 @@ export async function searchCatalog(keyword, { category = 'all', sub = '', year 
       ? e < grandTotal
       : e < totalIn || states.some(({ st }) => !st.allExhausted));
 
-  const translated = await translateTitles(items.map((p) => p.title));
+  const { en: translated } = await translateTitles(items.map((p) => p.title));
   items.forEach((p, i) => {
     p.title = translated[i];
   });

@@ -53,3 +53,21 @@ public/images/products/*.jpeg
 
 # Private templates (email templates, etc.)
 templates/
+
+# Variables de entorno locales (la service key vive en .env.local — ya
+# cubierto por *.local; .env tiene la anon key pública pero igual se mantiene
+# fuera del repo por higiene)
+.env
+
+# Estado del crawler de catálogo (progreso local de cada PC)
+scripts/.jp-crawl-state.json
+
+# Artefactos de prueba/diagnóstico
+cf_test.html
+cf2.html
+m1.html
+mc1.txt
+r1.json
+jp_check.json
+probe_result.json
+px_test.html

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import {
   searchCatalog,
   fetchImage,
+  hqImageUrl,
   JP_CATEGORIES,
   JP_SUBCATEGORY_CODES,
   JP_YEAR_RANGES,
@@ -16,8 +17,14 @@ const jpCatalogDevApi = {
   configureServer(server) {
     server.middlewares.use('/api/jp-image', async (req, res) => {
       try {
-        const u = new URL(req.url, 'http://localhost').searchParams.get('u') || ''
-        const img = await fetchImage(u)
+        const params = new URL(req.url, 'http://localhost').searchParams
+        const u = params.get('u') || ''
+        let img = null
+        if (params.get('hq') === '1') {
+          const hqUrl = hqImageUrl(u)
+          if (hqUrl !== u) img = await fetchImage(hqUrl, 0, { follow: false })
+        }
+        img ||= await fetchImage(u)
         if (!img) {
           res.statusCode = 404
           return res.end('Not found')

@@ -36,19 +36,41 @@ import {
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
-import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaLightbulb, FaExclamationTriangle, FaCalendarAlt } from 'react-icons/fa';
+import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
-import { JP_CATEGORY_TREE } from '../data/jpCatalogFilters';
+import { JP_CATEGORY_TREE, JP_PRICE_BANDS } from '../data/jpCatalogFilters';
 
 const CATEGORY_TABS = [
   { id: 'books', label: 'Libros' },
-  { id: 'doujin', label: 'Doujin' },
+  { id: 'doujin', label: 'Doujin', soon: true },
 ];
 
 // Base de la API del catálogo. Vacío = mismo origen (dev usa el middleware
 // de Vite). En producción el sitio es estático (GitHub Pages) y las
 // functions viven en un Netlify aparte, configurado con VITE_JP_API_URL.
 const JP_API = (import.meta.env.VITE_JP_API_URL || '').replace(/\/$/, '');
+
+// Modo DB: el catálogo se lee directo de Supabase (tabla `products` que
+// llena scripts/jp-crawl.mjs). La anon key es pública: la tabla tiene RLS
+// de solo lectura. Si no está configurado, se usa la API live como antes.
+const SUPA_URL = (import.meta.env.VITE_SUPABASE_URL || '').replace(/\/$/, '');
+const SUPA_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+const USE_DB = Boolean(SUPA_URL && SUPA_KEY);
+
+// Mapeo categoría/subcategoría -> códigos hoja crawleados. La UI puede
+// elegir un tipo de nivel 1 (p.ej. "Cómic") y el filtro cubre sus hojas.
+const LEAF_CODES = {};
+for (const [cat, tree] of Object.entries(JP_CATEGORY_TREE)) {
+  LEAF_CODES[cat] = {};
+  for (const level1 of tree) {
+    LEAF_CODES[cat][level1.code] = level1.children.map((c) => c.code);
+  }
+}
+function codesFor(cat, sub) {
+  const map = LEAF_CODES[cat] || {};
+  if (!sub) return Object.values(map).flat();
+  return map[sub] || [sub];
+}
 
 const SORT_OPTIONS = [
   { value: 'relevant', label: 'Relevancia' },
@@ -67,6 +89,13 @@ const YEAR_RANGES = [
   { value: '[2023, 2024]', label: '2023 – 2024' },
   { value: '[2025, 2026]', label: '2025 – 2026' },
 ];
+
+// Opciones de precio por banda — el value es el índice de JP_PRICE_BANDS,
+// que es lo que el crawler guarda en products.price_band
+const PRICE_BAND_OPTIONS = JP_PRICE_BANDS.map((b, i) => ({
+  value: String(i),
+  label: b.label,
+}));
 
 // Dropdown custom (los <select> nativos se ven feos en el tema oscuro)
 function FilterSelect({ placeholder, value, options, groups, onChange }) {
@@ -179,6 +208,7 @@ export default function ImportCatalogPage() {
   const [sub1, setSub1] = useState(''); // nivel 1: Libro, Cómic, Revista...
   const [sub2, setSub2] = useState(''); // nivel 2: Light novel, Shonen...
   const [year, setYear] = useState('');
+  const [band, setBand] = useState(''); // índice de JP_PRICE_BANDS
   const [sort, setSort] = useState('relevant');
   const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
@@ -216,7 +246,7 @@ export default function ImportCatalogPage() {
   // Volver a página 1 cuando cambia la búsqueda o los filtros
   useEffect(() => {
     setPage(1);
-  }, [query, category, sub, year, sort]);
+  }, [query, category, sub, year, band, sort]);
 
   // Si la categoría cambia y la subcategoría elegida no pertenece, limpiarla
   useEffect(() => {
@@ -232,31 +262,86 @@ export default function ImportCatalogPage() {
     abortRef.current = controller;
 
     setStatus('loading');
-    const params = new URLSearchParams({ q: query, category, page: String(page), sort });
-    if (sub) params.set('sub', sub);
-    if (year) params.set('year', year);
-    fetch(`${JP_API}/api/jp-search?${params.toString()}`, { signal: controller.signal })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((data) => {
-        // Las URLs de imagen vienen relativas (/api/jp-image?...): si la API
-        // está en otro origen hay que prefijarlas con la base.
-        const list = (data.items || []).map((it) =>
-          JP_API && typeof it.image === 'string' && it.image.startsWith('/')
-            ? { ...it, image: JP_API + it.image }
-            : it
-        );
-        setItems(list);
-        setTotalCount(data.totalCount || 0);
-        setTotalApprox(Boolean(data.totalApprox));
-        setHasMore(Boolean(data.hasMore));
-        setStatus('ok');
-        resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      })
-      .catch((err) => {
-        if (err.name !== 'AbortError') setStatus('error');
+
+    const applyResults = (list, total, approx, more) => {
+      setItems(list);
+      setTotalCount(total);
+      setTotalApprox(approx);
+      setHasMore(more);
+      setStatus('ok');
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const onError = (err) => {
+      if (err.name !== 'AbortError') setStatus('error');
+    };
+
+    if (USE_DB) {
+      // Query PostgREST contra la tabla products. El contador total viene en
+      // el header Content-Range (0-23/1234) gracias a Prefer: count=exact.
+      const params = new URLSearchParams({
+        select: 'id,title,image,release_date',
+        sub: `in.(${codesFor(category, sub).join(',')})`,
+        // "relevant"/desc: manga y cómics primero (prio), luego por fecha.
+        // asc explícito: orden por fecha puro.
+        order:
+          sort === 'released_date_asc'
+            ? 'release_date.asc.nullslast,id.asc'
+            : 'prio.desc,release_date.desc.nullslast,id.asc',
+        limit: '24',
+        offset: String((page - 1) * 24),
       });
+      const q = query.replace(/[(),.*%]/g, ' ').trim();
+      if (q) params.set('title', `ilike.*${q}*`);
+      if (band !== '') params.set('price_band', `eq.${band}`);
+      if (year) {
+        const m = year.match(/(\d{4})?,\s*(\d{4})/);
+        if (m) {
+          if (m[1]) params.append('release_date', `gte.${m[1]}-01-01`);
+          params.append('release_date', `lte.${m[2]}-12-31`);
+        }
+      }
+      fetch(`${SUPA_URL}/rest/v1/products?${params.toString()}`, {
+        signal: controller.signal,
+        headers: {
+          apikey: SUPA_KEY,
+          Authorization: `Bearer ${SUPA_KEY}`,
+          Prefer: 'count=exact',
+        },
+      })
+        .then(async (r) => {
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          const total = Number((r.headers.get('content-range') || '').split('/')[1]) || 0;
+          return { rows: await r.json(), total };
+        })
+        .then(({ rows, total }) => {
+          const list = (rows || []).map((r) => ({
+            id: r.id,
+            title: r.title,
+            image: r.image ? `${JP_API}/api/jp-image?u=${encodeURIComponent(r.image)}` : null,
+          }));
+          applyResults(list, total, false, page * 24 < total);
+        })
+        .catch(onError);
+    } else {
+      const params = new URLSearchParams({ q: query, category, page: String(page), sort });
+      if (sub) params.set('sub', sub);
+      if (year) params.set('year', year);
+      fetch(`${JP_API}/api/jp-search?${params.toString()}`, { signal: controller.signal })
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+        .then((data) => {
+          // Las URLs de imagen vienen relativas (/api/jp-image?...): si la API
+          // está en otro origen hay que prefijarlas con la base.
+          const list = (data.items || []).map((it) =>
+            JP_API && typeof it.image === 'string' && it.image.startsWith('/')
+              ? { ...it, image: JP_API + it.image }
+              : it
+          );
+          applyResults(list, data.totalCount || 0, Boolean(data.totalApprox), Boolean(data.hasMore));
+        })
+        .catch(onError);
+    }
     return () => controller.abort();
-  }, [query, category, sub, year, sort, page]);
+  }, [query, category, sub, year, band, sort, page]);
 
   const toggleSelect = (p) => {
     setSelected((prev) => {
@@ -333,7 +418,7 @@ export default function ImportCatalogPage() {
     <>
       <SEO
         title="Catálogo Japonés | Arkya Store"
-        description="Buscá libros, mangas, artbooks y doujinshi del catálogo japonés en tiempo real y consultanos por Instagram."
+        description="Buscá libros, mangas, artbooks y doujinshi del catálogo japonés y consultanos por Instagram."
         url="https://arkya.store/catalogo"
         keywords="catálogo japonés, manga, doujinshi, artbooks, libros japón, importados, arkya store"
       />
@@ -343,7 +428,7 @@ export default function ImportCatalogPage() {
             <Flex align="center" gap={2}>
               <FaBookOpen color="#ec4899" size={24} />
               <Heading as="h1" color="white" fontSize={{ base: 'xl', md: '3xl' }} fontWeight={600}>
-                Catálogo Para Traer a Pedido a Tiempo Real
+                Catálogo Para Traer a Pedido
               </Heading>
             </Flex>
             <Text color="whiteAlpha.600" fontSize="md" maxW="xl">
@@ -351,7 +436,7 @@ export default function ImportCatalogPage() {
               por Instagram para que los cotizemos!
             </Text>
             <Text color="whiteAlpha.600" fontSize="md" maxW="xl">
-              Los productos que aparecen disponibles para consultar son los que están en stock en Japón, si no encontras alguno que te interese tal vez no esté en stock!
+              La disponibilidad y el precio final de cada producto se confirman al momento de la consulta.
             </Text>
           </VStack>
 
@@ -389,26 +474,6 @@ export default function ImportCatalogPage() {
                 />
               </InputGroup>
 
-              {/* Consejo: buscar en japonés da más resultados */}
-              <Flex
-                bg="whiteAlpha.50"
-                borderLeft="3px solid"
-                borderColor="yellow.300"
-                borderRadius="md"
-                px={3}
-                py={2}
-                gap={2}
-                align="flex-start"
-              >
-                <Box color="yellow.300" mt={0.5} flexShrink={0}>
-                  <FaLightbulb size={12} />
-                </Box>
-                <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
-                  Consejo: buscá el título en <b>japonés</b> para encontrar muchos
-                  más resultados — por ejemplo "ブルーロック" en vez de "Blue Lock". En inglés también suelen aparecer bastantes igualmente.
-                </Text>
-              </Flex>
-
               {/* Advertencia: algunos títulos usan nombres distintos en Japón */}
               <Flex
                 bg="whiteAlpha.50"
@@ -425,30 +490,9 @@ export default function ImportCatalogPage() {
                 </Box>
                 <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
                   Tené en cuenta que algunos libros pueden no aparecer ni
-                  buscándolos en inglés ni en japonés: en Japón a veces usan un
-                  nombre distinto al habitual. Si no lo encontrás, consultanos
-                  por Instagram y lo buscamos nosotros.
-                </Text>
-              </Flex>
-
-              {/* Consejo: los miércoles, jueves y viernes suele haber menos stock */}
-              <Flex
-                bg="whiteAlpha.50"
-                borderLeft="3px solid"
-                borderColor="purple.300"
-                borderRadius="md"
-                px={3}
-                py={2}
-                gap={2}
-                align="flex-start"
-              >
-                <Box color="purple.300" mt={0.5} flexShrink={0}>
-                  <FaCalendarAlt size={11} />
-                </Box>
-                <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
-                  Los <b>miércoles, jueves y viernes</b> suelen aparecer menos
-                  productos por temas de stock en Japón. Si no encontrás algo,
-                  volvé a probar otro día.
+                  en inglés: en Japón a veces usan un nombre distinto al
+                  habitual. Si no lo encontrás, consultanos por Instagram y lo
+                  buscamos nosotros.
                 </Text>
               </Flex>
 
@@ -471,10 +515,18 @@ export default function ImportCatalogPage() {
                       variant={category === tab.id ? 'solid' : 'ghost'}
                       colorScheme="pink"
                       color={category === tab.id ? 'white' : 'whiteAlpha.600'}
-                      _hover={category === tab.id ? undefined : { color: 'white', bg: 'whiteAlpha.100' }}
-                      onClick={() => setCategory(tab.id)}
+                      _hover={category === tab.id || tab.soon ? undefined : { color: 'white', bg: 'whiteAlpha.100' }}
+                      onClick={() => !tab.soon && setCategory(tab.id)}
+                      isDisabled={tab.soon}
+                      opacity={tab.soon ? 0.6 : 1}
+                      cursor={tab.soon ? 'default' : 'pointer'}
                     >
                       {tab.label}
+                      {tab.soon && (
+                        <Badge ml={2} colorScheme="purple" fontSize="2xs" borderRadius="full">
+                          Próximamente
+                        </Badge>
+                      )}
                     </Button>
                   ))}
                 </HStack>
@@ -527,6 +579,18 @@ export default function ImportCatalogPage() {
 
                 <Box>
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
+                    PRECIO
+                  </Text>
+                  <FilterSelect
+                    placeholder="Cualquiera"
+                    value={band}
+                    onChange={setBand}
+                    options={PRICE_BAND_OPTIONS}
+                  />
+                </Box>
+
+                <Box>
+                  <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     ORDEN
                   </Text>
                   <FilterSelect
@@ -544,8 +608,7 @@ export default function ImportCatalogPage() {
             {status === 'loading' && (
               <VStack spacing={4} align="stretch">
                 <Text color="whiteAlpha.500" fontSize="sm" textAlign="center">
-                  Cargando resultados... Los tiempos de carga dependen
-                  de Japón, no de nosotros.
+                  Cargando resultados...
                 </Text>
                 <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={4}>
                   {Array.from({ length: 8 }).map((_, i) => (
@@ -572,7 +635,7 @@ export default function ImportCatalogPage() {
                   {query ? `No hay resultados para “${query}”.` : 'No hay resultados.'}
                 </Text>
                 <Text color="whiteAlpha.500" fontSize="sm">
-                  Probá con el nombre en japonés para más resultados (ej: ブルーロック).
+                  Si no lo encontrás, consultanos por Instagram y lo buscamos nosotros.
                 </Text>
               </VStack>
             )}
@@ -643,19 +706,6 @@ export default function ImportCatalogPage() {
                           }}
                           cursor="zoom-in"
                         >
-                          {!p.inStock && (
-                            <Badge
-                              position="absolute"
-                              top={1}
-                              left={1}
-                              zIndex={2}
-                              colorScheme="red"
-                              fontSize="2xs"
-                              borderRadius="md"
-                            >
-                              Sin stock
-                            </Badge>
-                          )}
                           <Image
                             src={p.image}
                             alt={p.title}
@@ -664,13 +714,11 @@ export default function ImportCatalogPage() {
                             objectFit="contain"
                             loading="lazy"
                             fallback={<Spinner color="pink.400" />}
-                            opacity={p.inStock ? 1 : 0.45}
-                            filter={p.inStock ? 'none' : 'grayscale(60%)'}
                           />
                         </Box>
                         <VStack align="stretch" p={3} spacing={2} flex={1}>
                           <Text
-                            color={p.inStock ? 'white' : 'whiteAlpha.600'}
+                            color="white"
                             fontSize="sm"
                             fontWeight={600}
                             noOfLines={2}
@@ -946,14 +994,15 @@ export default function ImportCatalogPage() {
           <ModalBody pb={6} display="flex" alignItems="center" justifyContent="center">
             {previewItem && (
               <Image
-                src={previewItem.image}
+                // hq=1: el proxy intenta la imagen grande del CDN
+                // (database/pics_webp/game/<id>.jpg.webp) y cae al thumb
+                src={`${previewItem.image}&hq=1`}
                 alt={previewItem.title}
                 h={{ base: '45vh', md: '60vh' }}
                 w="auto"
                 maxW="100%"
                 objectFit="contain"
                 borderRadius="md"
-                opacity={previewItem.inStock ? 1 : 0.7}
               />
             )}
           </ModalBody>
