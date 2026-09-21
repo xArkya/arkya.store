@@ -317,7 +317,9 @@ export default function ImportCatalogPage() {
           const list = (rows || []).map((r) => ({
             id: r.id,
             title: r.title,
-            image: r.image ? `${JP_API}/api/jp-image?u=${encodeURIComponent(r.image)}` : null,
+            // Imagen directo al CDN del origen — sin proxy (ahorra
+            // invocaciones/bandwidth del host de functions)
+            image: r.image || null,
           }));
           applyResults(list, total, false, page * 24 < total);
         })
@@ -994,9 +996,17 @@ export default function ImportCatalogPage() {
           <ModalBody pb={6} display="flex" alignItems="center" justifyContent="center">
             {previewItem && (
               <Image
-                // hq=1: el proxy intenta la imagen grande del CDN
-                // (database/pics_webp/game/<id>.jpg.webp) y cae al thumb
-                src={`${previewItem.image}&hq=1`}
+                // Versión grande del CDN (game/ es el bucket genérico).
+                // Si no existe, onError cae al thumbnail del card.
+                src={previewItem.image?.replace(
+                  /pics_webp\/boxart_m\/(\d+)m\.jpg\.webp$/,
+                  'database/pics_webp/game/$1.jpg.webp'
+                )}
+                onError={(e) => {
+                  if (e.currentTarget.src !== previewItem.image) {
+                    e.currentTarget.src = previewItem.image;
+                  }
+                }}
                 alt={previewItem.title}
                 h={{ base: '45vh', md: '60vh' }}
                 w="auto"

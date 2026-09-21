@@ -24,8 +24,10 @@ export default async (req) => {
       headers: {
         ...CORS,
         'Content-Type': img.contentType,
-        // La URL es content-addressed por id de producto: se puede cachear fuerte
-        'Cache-Control': 'public, max-age=86400, immutable',
+        // La URL es content-addressed por id de producto: se puede cachear fuerte.
+        // s-maxage largo = el edge de Netlify sirve las repeticiones sin
+        // volver a invocar la function (ahorra créditos)
+        'Cache-Control': 'public, max-age=86400, s-maxage=2592000, immutable',
       },
     });
   } catch {
