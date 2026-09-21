@@ -1,4 +1,4 @@
-const CACHE_NAME = 'arkya-store-v1';
+const CACHE_NAME = 'arkya-store-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -32,8 +32,9 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 
-  // Ignorar requests no-GET y fuera del scope
+  // Ignorar requests no-GET y cross-origin (CDN de imágenes, APIs, etc.)
   if (request.method !== 'GET') return;
+  if (new URL(request.url).origin !== self.location.origin) return;
 
   // Para páginas HTML (navegación): network-first
   if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {

@@ -66,6 +66,8 @@ const PAGE_BUDGET =
   150;
 const REFRESH_PAGES =
   process.env.JP_REFRESH_PAGES != null ? Number(process.env.JP_REFRESH_PAGES) : 2;
+// JP_REFRESH_DEEP=1: refrescar también los targets split (más requests)
+const REFRESH_DEEP = process.env.JP_REFRESH_DEEP === '1';
 const CONCURRENCY =
   process.env.JP_CONCURRENCY != null ? Number(process.env.JP_CONCURRENCY) : 4;
 // Pausa entre chunks de requests: normal y cuando el chunk anterior tuvo errores
@@ -189,8 +191,9 @@ function toRows(items, category, sub, band = null) {
     .filter(
       (p) =>
         p.id &&
-        // Folletos sueltos ("leaflet") — no se ofrecen
-        !/\bleaflets?\b/i.test(p.title) &&
+        // Material promocional suelto, folletos y extras de compra — no se
+        // ofrecen (títulos con estas palabras no son el producto en sí)
+        !/\b(advertisement|leaflets?|kawara-?ban|4p|purchase benefits)\b/i.test(p.title) &&
         !seen.has(p.id) &&
         seen.add(p.id)
     )
@@ -203,6 +206,8 @@ function toRows(items, category, sub, band = null) {
           /* se guarda como vino */
         }
       }
+      // no_photo.jpg = placeholder del origen, no foto real
+      if (image && (!image.startsWith('http') || /no_photo/.test(image))) image = null;
       // banda de precio (0-5): la del target que lo trajo, o derivada del
       // precio exacto cuando el HTML lo muestra — cubre sin-stock cuando
       // viene de un target con banda
@@ -217,7 +222,9 @@ function toRows(items, category, sub, band = null) {
       return {
         id: p.id,
         title: p.title,
-        image,
+        // sin imagen se omite la key: el upsert conserva la foto que la
+        // fila ya tenga (el origen muestra no_photo en out-of-stock)
+        ...(image ? { image } : {}),
         release_date: parseReleaseDate(p.releaseDate),
         category,
         sub,
@@ -314,7 +321,8 @@ function maybeSplit(t) {
     const d = {
       category: t.category,
       sub: t.sub,
-      label: t.label,
+      // sin el tag "(¥...)" que el label del padre ya pueda tener
+      label: t.label.replace(/\s*\([^)]*\)\s*$/, ''),
       price: t.price || dim.price || '',
       year: t.year || dim.year || '',
       _parentTotal: t._total,
@@ -372,10 +380,15 @@ if (args.includes('--deep')) {
   }
 }
 
-// Pass 1 — refresh: primeras páginas de cada subcategoría (stock + novedades)
+// Pass 1 — refresh: primeras páginas de cada subcategoría BASE (stock +
+// novedades). Los targets split (banda/año) no se refrescan: todo item
+// nuevo aparece en las primeras páginas del listado base, que ya cubre
+// el target completo — refrescar bandas duplicaría requests al pedo.
 if (REFRESH_PAGES > 0) {
   console.log('\n== refresh ==');
-  for (const t of targets) {
+  for (const t of targets.filter(
+    (x) => REFRESH_DEEP || (!x.year && !x.price)
+  )) {
     console.log(`[${t.key}] ${t.label} — refresh`);
     const ok = await crawlPages(
       t,

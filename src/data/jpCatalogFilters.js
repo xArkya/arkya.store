@@ -106,10 +106,10 @@ export const JP_YEAR_RANGES = [
 // estos rangos (el origen recuerda el último precio incluso de items sin
 // stock) y guarda price_band = índice de este array en cada fila.
 export const JP_PRICE_BANDS = [
-  { range: '-300', label: 'Hasta ¥300' },
-  { range: '301-700', label: '¥301 – ¥700' },
-  { range: '701-1200', label: '¥701 – ¥1.200' },
-  { range: '1201-2500', label: '¥1.201 – ¥2.500' },
-  { range: '2501-5000', label: '¥2.501 – ¥5.000' },
-  { range: '5001-', label: 'Más de ¥5.000' },
+  { range: '-300', label: 'Hasta ¥300 · ~$15–35 mil', ars: '~$15–35 mil' },
+  { range: '301-700', label: '¥301–700 · ~$15–45 mil', ars: '~$15–45 mil' },
+  { range: '701-1200', label: '¥701–1.200 · ~$25–45 mil', ars: '~$25–45 mil' },
+  { range: '1201-2500', label: '¥1.201–2.500 · ~$35–70 mil', ars: '~$35–70 mil' },
+  { range: '2501-5000', label: '¥2.501–5.000 · ~$55–100 mil', ars: '~$55–100 mil' },
+  { range: '5001-', label: '+¥5.000 · desde ~$90 mil', ars: 'desde ~$90 mil' },
 ];

@@ -209,7 +209,12 @@ export function parseProducts(html) {
     .slice(1)
     .map((block) => {
       const infoMatch = block.match(/data-info="([^"]*)"/);
-      const imgMatch = block.match(/<img src="([^"]+)"/);
+      // data-src primero (lazy-load: el src es un placeholder), src después
+      const imgMatch = block.match(/<img[^>]+data-src="([^"]+)"/) || block.match(/<img[^>]+src="([^"]+)"/);
+      // no_photo.jpg es el placeholder del origen — el listado lo muestra
+      // aunque el CDN tenga el thumb (típico en sin-stock): abajo se deriva
+      // del id, el archivo es siempre <id lowercase>m.jpg.webp
+      let imgUrl = imgMatch && !/no_photo/.test(imgMatch[1]) ? imgMatch[1] : null;
 
       let info = {};
       if (infoMatch) {
@@ -218,6 +223,9 @@ export function parseProducts(html) {
         } catch {
           info = {};
         }
+      }
+      if (!imgUrl && info.id) {
+        imgUrl = `https://cdn.suruga-ya.com/pics_webp/boxart_m/${String(info.id).toLowerCase()}m.jpg.webp`;
       }
 
       const priceMatch = block.match(/data-price="(\d+)"/);
@@ -228,8 +236,8 @@ export function parseProducts(html) {
       return {
         id: info.id || null,
         title: decodeEntities(info.name || ''),
-        // La imagen se sirve via proxy propio para no exponer el dominio origen
-        image: imgMatch ? `/api/jp-image?u=${encodeURIComponent(imgMatch[1])}` : null,
+        // URL directa del CDN (el front la sirve sin proxy)
+        image: imgUrl,
         // "Out of stock" (en) / 品切れ (ja)
         inStock: !block.includes('Out of stock') && !block.includes('品切れ'),
         price: priceMatch ? Number(priceMatch[1]) : null,

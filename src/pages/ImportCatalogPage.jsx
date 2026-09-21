@@ -36,7 +36,7 @@ import {
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
-import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle } from 'react-icons/fa';
+import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
 import { JP_CATEGORY_TREE, JP_PRICE_BANDS } from '../data/jpCatalogFilters';
 
@@ -217,6 +217,7 @@ export default function ImportCatalogPage() {
   const [hasMore, setHasMore] = useState(false);
   const [status, setStatus] = useState('loading'); // loading | ok | error
   const [selected, setSelected] = useState({}); // id -> {id, title}
+  const [brokenImages, setBrokenImages] = useState({}); // ids cuyo thumb derivado no existe en el CDN
   const [consultItems, setConsultItems] = useState(null); // productos a consultar
   const [previewItem, setPreviewItem] = useState(null); // producto con imagen abierta
   const { isOpen: isConsultOpen, onOpen: onConsultOpen, onClose: onConsultClose } = useDisclosure();
@@ -279,7 +280,7 @@ export default function ImportCatalogPage() {
       // Query PostgREST contra la tabla products. El contador total viene en
       // el header Content-Range (0-23/1234) gracias a Prefer: count=exact.
       const params = new URLSearchParams({
-        select: 'id,title,image,release_date',
+        select: 'id,title,image,release_date,price_band',
         sub: `in.(${codesFor(category, sub).join(',')})`,
         // "relevant"/desc: manga y cómics primero (prio), luego por fecha.
         // asc explícito: orden por fecha puro.
@@ -318,8 +319,17 @@ export default function ImportCatalogPage() {
             id: r.id,
             title: r.title,
             // Imagen directo al CDN del origen — sin proxy (ahorra
-            // invocaciones/bandwidth del host de functions)
-            image: r.image || null,
+            // invocaciones/bandwidth del host de functions). Las filas viejas
+            // guardan '/api/jp-image?u=<cdn>' — se desenvuelve el param u.
+            // no_photo.jpg es el placeholder del origen = sin foto real.
+            image: (() => {
+              const raw = r.image?.startsWith('/api/jp-image?u=')
+                ? decodeURIComponent(r.image.slice('/api/jp-image?u='.length).split('&')[0])
+                : r.image;
+              return raw?.startsWith('http') && !raw.includes('no_photo') ? raw : null;
+            })(),
+            releaseDate: r.release_date || null,
+            priceBand: r.price_band ?? null,
           }));
           applyResults(list, total, false, page * 24 < total);
         })
@@ -413,8 +423,8 @@ export default function ImportCatalogPage() {
     if (newPage >= 1 && (newPage <= totalPages || hasMore)) setPage(newPage);
   };
 
-  const bgColor = '#241521';
-  const cardBg = '#2d1e2a';
+  const bgColor = '#453641';
+  const cardBg = '#2a1c29'; // mismo bg que las cards del catálogo principal
 
   return (
     <>
@@ -495,6 +505,29 @@ export default function ImportCatalogPage() {
                   en inglés: en Japón a veces usan un nombre distinto al
                   habitual. Si no lo encontrás, consultanos por Instagram y lo
                   buscamos nosotros.
+                </Text>
+              </Flex>
+
+              {/* Aviso: el catálogo es una muestra, hay mucho más disponible */}
+              <Flex
+                bg="whiteAlpha.50"
+                borderLeft="3px solid"
+                borderColor="pink.400"
+                borderRadius="md"
+                px={3}
+                py={2}
+                gap={2}
+                align="flex-start"
+              >
+                <Box color="pink.400" mt={0.5} flexShrink={0}>
+                  <FaInfoCircle size={11} />
+                </Box>
+                <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
+                  Este catálogo muestra solo una parte de lo que podemos
+                  conseguir: hay muchísimos más libros disponibles. Si buscás
+                  algo puntual que no aparece, consultanos por Instagram —
+                  las ediciones normales de mangas y novelas suelen poder
+                  traerse todas.
                 </Text>
               </Flex>
 
@@ -581,7 +614,7 @@ export default function ImportCatalogPage() {
 
                 <Box>
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
-                    PRECIO
+                    PRECIO APROX.
                   </Text>
                   <FilterSelect
                     placeholder="Cualquiera"
@@ -656,17 +689,19 @@ export default function ImportCatalogPage() {
                       <Box
                         key={p.id}
                         bg={cardBg}
-                        borderRadius="xl"
+                        borderRadius="lg"
                         overflow="hidden"
                         border="2px solid"
-                        borderColor={isSelected ? 'pink.400' : 'whiteAlpha.100'}
+                        borderColor={isSelected ? 'pink.400' : 'transparent'}
+                        boxShadow="md"
                         transition="all 0.2s"
-                        _hover={{ transform: 'translateY(-4px)', borderColor: 'pink.400', boxShadow: '0 8px 24px rgba(236,72,153,0.25)' }}
+                        _hover={{ transform: 'translateY(-8px)', borderColor: 'pink.400', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.04)' }}
                         display="flex"
                         flexDirection="column"
                         cursor="pointer"
                         onClick={() => toggleSelect(p)}
                         position="relative"
+                        role="group"
                       >
                         {/* Selector custom (reemplaza al Checkbox nativo) */}
                         <Flex
@@ -695,30 +730,80 @@ export default function ImportCatalogPage() {
                         >
                           {isSelected && <FaCheck size={11} color="white" />}
                         </Flex>
+                        {/* Imagen con overlay hover y badges, como las cards del main */}
                         <Box
-                          p={3}
+                          h="220px"
+                          position="relative"
+                          overflow="hidden"
                           display="flex"
                           alignItems="center"
                           justifyContent="center"
-                          h="200px"
-                          position="relative"
+                          p={3}
                           onClick={(e) => {
                             e.stopPropagation();
-                            openPreview(p);
+                            if (p.image && !brokenImages[p.id]) openPreview(p);
                           }}
-                          cursor="zoom-in"
+                          cursor={p.image && !brokenImages[p.id] ? 'zoom-in' : 'default'}
                         >
-                          <Image
-                            src={p.image}
-                            alt={p.title}
-                            maxH="100%"
-                            maxW="100%"
-                            objectFit="contain"
-                            loading="lazy"
-                            fallback={<Spinner color="pink.400" />}
+                          {p.image && !brokenImages[p.id] ? (
+                            <Image
+                              src={p.image}
+                              alt={p.title}
+                              maxH="100%"
+                              maxW="100%"
+                              objectFit="contain"
+                              loading="lazy"
+                              referrerPolicy="no-referrer"
+                              borderRadius="sm"
+                              boxShadow="0 4px 14px rgba(0,0,0,0.35)"
+                              transition="transform 0.3s ease"
+                              _groupHover={{ transform: 'scale(1.05)' }}
+                              onError={() =>
+                                setBrokenImages((prev) => ({ ...prev, [p.id]: true }))
+                              }
+                              fallback={<Spinner color="pink.400" />}
+                            />
+                          ) : (
+                            // Placeholder para items sin foto en el origen
+                            <VStack spacing={2} color="whiteAlpha.400" h="100%" justify="center">
+                              <FaBookOpen size={34} />
+                              <Text fontSize="2xs" letterSpacing="wider" textTransform="uppercase">
+                                Sin imagen
+                              </Text>
+                            </VStack>
+                          )}
+                          {/* Overlay sutil al hover */}
+                          <Box
+                            position="absolute"
+                            inset={0}
+                            bg="blackAlpha.300"
+                            opacity={0}
+                            transition="opacity 0.3s ease"
+                            _groupHover={{ opacity: 1 }}
+                            pointerEvents="none"
                           />
+                          {/* Banda de precio sobre la imagen, como los badges del main */}
+                          {p.priceBand != null && JP_PRICE_BANDS[p.priceBand] && (
+                            <Badge
+                              position="absolute"
+                              top={2}
+                              left={2}
+                              zIndex={2}
+                              bg="pink.400"
+                              color="white"
+                              borderRadius="full"
+                              px={2}
+                              py={0.5}
+                              fontWeight="bold"
+                              fontSize="2xs"
+                              boxShadow="md"
+                              opacity={0.95}
+                            >
+                              {JP_PRICE_BANDS[p.priceBand].ars}
+                            </Badge>
+                          )}
                         </Box>
-                        <VStack align="stretch" p={3} spacing={2} flex={1}>
+                        <VStack align="stretch" p={4} spacing={2} flex={1}>
                           <Text
                             color="white"
                             fontSize="sm"
@@ -728,12 +813,17 @@ export default function ImportCatalogPage() {
                           >
                             {p.title}
                           </Text>
+                          {p.releaseDate && (
+                            <Text fontSize="2xs" color="whiteAlpha.500" noOfLines={1} mt="auto">
+                              {p.releaseDate}
+                            </Text>
+                          )}
                           <Button
                             size="xs"
                             colorScheme="pink"
                             variant="outline"
                             leftIcon={<FaInstagram />}
-                            mt="auto"
+                            mt={p.releaseDate ? 0 : 'auto'}
                             onClick={(e) => {
                               e.stopPropagation();
                               openConsult([p]);
@@ -985,35 +1075,93 @@ export default function ImportCatalogPage() {
         </ModalContent>
       </Modal>
 
-      {/* Modal para ver la imagen del producto */}
-      <Modal isOpen={isPreviewOpen} onClose={onPreviewClose} isCentered size="lg">
-        <ModalOverlay bg="blackAlpha.800" />
-        <ModalContent bg="#2d1e2a" color="white" mx={4}>
-          <ModalHeader pb={2} fontSize="md" noOfLines={2}>
-            {previewItem?.title}
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6} display="flex" alignItems="center" justifyContent="center">
+      {/* Modal para ver la imagen del producto — full viewport, fondo
+          difuminado, la imagen manda */}
+      <Modal
+        isOpen={isPreviewOpen}
+        onClose={onPreviewClose}
+        isCentered
+        size="full"
+        motionPreset="scale"
+      >
+        <ModalOverlay bg="rgba(36, 21, 33, 0.92)" backdropFilter="blur(10px)" />
+        <ModalContent bg="transparent" boxShadow="none" onClick={onPreviewClose} cursor="zoom-out">
+          <ModalCloseButton
+            color="white"
+            bg="whiteAlpha.200"
+            borderRadius="full"
+            top={4}
+            right={4}
+            _hover={{ bg: 'whiteAlpha.300' }}
+            zIndex={2}
+          />
+          <ModalBody
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            minH="100vh"
+            gap={5}
+            onClick={(e) => e.stopPropagation()}
+            cursor="default"
+          >
             {previewItem && (
-              <Image
-                // Versión grande del CDN (game/ es el bucket genérico).
-                // Si no existe, onError cae al thumbnail del card.
-                src={previewItem.image?.replace(
-                  /pics_webp\/boxart_m\/(\d+)m\.jpg\.webp$/,
-                  'database/pics_webp/game/$1.jpg.webp'
-                )}
-                onError={(e) => {
-                  if (e.currentTarget.src !== previewItem.image) {
-                    e.currentTarget.src = previewItem.image;
-                  }
-                }}
-                alt={previewItem.title}
-                h={{ base: '45vh', md: '60vh' }}
-                w="auto"
-                maxW="100%"
-                objectFit="contain"
-                borderRadius="md"
-              />
+              <>
+                <Image
+                  // Versión grande del CDN (game/ es el bucket genérico).
+                  // Si no existe, onError cae al thumbnail del card.
+                  src={previewItem.image?.replace(
+                    /pics_webp\/boxart_m\/(\d+)m\.jpg\.webp$/,
+                    'database/pics_webp/game/$1.jpg.webp'
+                  )}
+                  onError={(e) => {
+                    if (e.currentTarget.src !== previewItem.image) {
+                      e.currentTarget.src = previewItem.image;
+                    }
+                  }}
+                  alt={previewItem.title}
+                  referrerPolicy="no-referrer"
+                  maxH={{ base: '60vh', md: '72vh' }}
+                  maxW={{ base: '92vw', md: '70vw' }}
+                  w="auto"
+                  objectFit="contain"
+                  borderRadius="lg"
+                  boxShadow="0 20px 60px rgba(0,0,0,0.6)"
+                />
+                <VStack spacing={3} maxW="lg" px={4}>
+                  <Text
+                    color="white"
+                    fontWeight={600}
+                    fontSize={{ base: 'sm', md: 'md' }}
+                    textAlign="center"
+                    noOfLines={2}
+                  >
+                    {previewItem.title}
+                  </Text>
+                  <HStack spacing={3}>
+                    {previewItem.releaseDate && (
+                      <Badge colorScheme="whiteAlpha" variant="subtle" borderRadius="full" px={3} py={1}>
+                        {previewItem.releaseDate}
+                      </Badge>
+                    )}
+                    {previewItem.priceBand != null && (
+                      <Badge colorScheme="pink" variant="subtle" borderRadius="full" px={3} py={1}>
+                        {JP_PRICE_BANDS[previewItem.priceBand]?.label}
+                      </Badge>
+                    )}
+                  </HStack>
+                  <Button
+                    size="sm"
+                    colorScheme="pink"
+                    variant={selected[previewItem.id] ? 'solid' : 'outline'}
+                    borderRadius="full"
+                    leftIcon={<FaInstagram />}
+                    onClick={() => toggleSelect(previewItem)}
+                  >
+                    {selected[previewItem.id] ? 'Quitar de la consulta' : 'Agregar a la consulta'}
+                  </Button>
+                </VStack>
+              </>
             )}
           </ModalBody>
         </ModalContent>
