@@ -38,6 +38,7 @@ import {
 } from '@chakra-ui/react';
 import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
+import { useSearchParams } from 'react-router-dom';
 import { JP_CATEGORY_TREE, JP_PRICE_BANDS } from '../data/jpCatalogFilters';
 
 const CATEGORY_TABS = [
@@ -122,6 +123,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange }) {
       <MenuButton
         as={Button}
         size="sm"
+        w="100%"
         rightIcon={<FaChevronDown size={9} />}
         bg="whiteAlpha.100"
         color={current ? 'white' : 'whiteAlpha.600'}
@@ -202,15 +204,17 @@ function buildMessage(products) {
 }
 
 export default function ImportCatalogPage() {
-  const [inputValue, setInputValue] = useState('');
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('books');
-  const [sub1, setSub1] = useState(''); // nivel 1: Libro, Cómic, Revista...
-  const [sub2, setSub2] = useState(''); // nivel 2: Light novel, Shonen...
-  const [year, setYear] = useState('');
-  const [band, setBand] = useState(''); // índice de JP_PRICE_BANDS
-  const [sort, setSort] = useState('relevant');
-  const [page, setPage] = useState(1);
+  // Estado inicial desde la URL: volver atrás / recargar restaura todo
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [inputValue, setInputValue] = useState(() => searchParams.get('q') || '');
+  const [query, setQuery] = useState(() => searchParams.get('q') || '');
+  const [category, setCategory] = useState(() => searchParams.get('cat') || 'books');
+  const [sub1, setSub1] = useState(() => searchParams.get('tipo') || ''); // nivel 1
+  const [sub2, setSub2] = useState(() => searchParams.get('sub') || ''); // nivel 2
+  const [year, setYear] = useState(() => searchParams.get('a') || '');
+  const [band, setBand] = useState(() => searchParams.get('precio') || ''); // índice de JP_PRICE_BANDS
+  const [sort, setSort] = useState(() => searchParams.get('orden') || 'relevant');
+  const [page, setPage] = useState(() => Math.max(1, Number(searchParams.get('p')) || 1));
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [totalApprox, setTotalApprox] = useState(false);
@@ -244,8 +248,29 @@ export default function ImportCatalogPage() {
 
   const sub = sub2 || sub1 || (singleType?.code ?? '');
 
-  // Volver a página 1 cuando cambia la búsqueda o los filtros
+  // Persistir estado en la URL (replace: no ensucia el historial, pero
+  // recargar o volver desde otra página restaura búsqueda + página)
   useEffect(() => {
+    const p = {};
+    if (query) p.q = query;
+    if (category !== 'books') p.cat = category;
+    if (sub1) p.tipo = sub1;
+    if (sub2) p.sub = sub2;
+    if (year) p.a = year;
+    if (band !== '') p.precio = band;
+    if (sort !== 'relevant') p.orden = sort;
+    if (page > 1) p.p = String(page);
+    setSearchParams(p, { replace: true });
+  }, [query, category, sub1, sub2, year, band, sort, page, setSearchParams]);
+
+  // Volver a página 1 cuando cambia la búsqueda o los filtros (no al montar,
+  // así no pisa la página restaurada de la URL)
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      return;
+    }
     setPage(1);
   }, [query, category, sub, year, band, sort]);
 
@@ -301,39 +326,48 @@ export default function ImportCatalogPage() {
           params.append('release_date', `lte.${m[2]}-12-31`);
         }
       }
-      fetch(`${SUPA_URL}/rest/v1/products?${params.toString()}`, {
-        signal: controller.signal,
-        headers: {
-          apikey: SUPA_KEY,
-          Authorization: `Bearer ${SUPA_KEY}`,
-          Prefer: 'count=exact',
-        },
-      })
-        .then(async (r) => {
-          if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          const total = Number((r.headers.get('content-range') || '').split('/')[1]) || 0;
-          return { rows: await r.json(), total };
+      const load = () =>
+        fetch(`${SUPA_URL}/rest/v1/products?${params.toString()}`, {
+          signal: controller.signal,
+          headers: {
+            apikey: SUPA_KEY,
+            Authorization: `Bearer ${SUPA_KEY}`,
+            Prefer: 'count=exact',
+          },
         })
-        .then(({ rows, total }) => {
-          const list = (rows || []).map((r) => ({
-            id: r.id,
-            title: r.title,
-            // Imagen directo al CDN del origen — sin proxy (ahorra
-            // invocaciones/bandwidth del host de functions). Las filas viejas
-            // guardan '/api/jp-image?u=<cdn>' — se desenvuelve el param u.
-            // no_photo.jpg es el placeholder del origen = sin foto real.
-            image: (() => {
-              const raw = r.image?.startsWith('/api/jp-image?u=')
-                ? decodeURIComponent(r.image.slice('/api/jp-image?u='.length).split('&')[0])
-                : r.image;
-              return raw?.startsWith('http') && !raw.includes('no_photo') ? raw : null;
-            })(),
-            releaseDate: r.release_date || null,
-            priceBand: r.price_band ?? null,
-          }));
-          applyResults(list, total, false, page * 24 < total);
-        })
-        .catch(onError);
+          .then(async (r) => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            const total = Number((r.headers.get('content-range') || '').split('/')[1]) || 0;
+            return { rows: await r.json(), total };
+          })
+          .then(({ rows, total }) => {
+            const list = (rows || []).map((r) => ({
+              id: r.id,
+              title: r.title,
+              // Imagen directo al CDN del origen — sin proxy (ahorra
+              // invocaciones/bandwidth del host de functions). Las filas viejas
+              // guardan '/api/jp-image?u=<cdn>' — se desenvuelve el param u.
+              // no_photo.jpg es el placeholder del origen = sin foto real.
+              image: (() => {
+                const raw = r.image?.startsWith('/api/jp-image?u=')
+                  ? decodeURIComponent(r.image.slice('/api/jp-image?u='.length).split('&')[0])
+                  : r.image;
+                return raw?.startsWith('http') && !raw.includes('no_photo') ? raw : null;
+              })(),
+              releaseDate: r.release_date || null,
+              priceBand: r.price_band ?? null,
+            }));
+            applyResults(list, total, false, page * 24 < total);
+          });
+
+      // Si el crawler está saturando la DB, Supabase devuelve 500
+      // transitorios: un retry a los 1.5s suele alcanzar
+      load().catch((err) => {
+        if (err.name === 'AbortError' || controller.signal.aborted) return;
+        setTimeout(() => {
+          if (!controller.signal.aborted) load().catch(onError);
+        }, 1500);
+      });
     } else {
       const params = new URLSearchParams({ q: query, category, page: String(page), sort });
       if (sub) params.set('sub', sub);
@@ -571,7 +605,7 @@ export default function ImportCatalogPage() {
 
               {/* Filtros: tipo, subtipo, año y orden */}
               <Flex wrap="wrap" gap={4} justify="center">
-                <Box>
+                <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     TIPO
                   </Text>
@@ -587,7 +621,7 @@ export default function ImportCatalogPage() {
                 </Box>
 
                 {sub2Options.length > 0 && (
-                  <Box>
+                  <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
                     <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                       SUBTIPO
                     </Text>
@@ -600,7 +634,7 @@ export default function ImportCatalogPage() {
                   </Box>
                 )}
 
-                <Box>
+                <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     AÑO
                   </Text>
@@ -612,7 +646,7 @@ export default function ImportCatalogPage() {
                   />
                 </Box>
 
-                <Box>
+                <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     PRECIO APROX.
                   </Text>
@@ -624,7 +658,7 @@ export default function ImportCatalogPage() {
                   />
                 </Box>
 
-                <Box>
+                <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     ORDEN
                   </Text>
@@ -682,7 +716,7 @@ export default function ImportCatalogPage() {
                     totalApprox ? 'más de ' : ''
                   }${totalCount.toLocaleString('es-AR')} resultados`}
                 </Text>
-                <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={4}>
+                <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={{ base: 3, md: 4 }}>
                   {items.map((p) => {
                     const isSelected = Boolean(selected[p.id]);
                     return (
@@ -732,7 +766,7 @@ export default function ImportCatalogPage() {
                         </Flex>
                         {/* Imagen con overlay hover y badges, como las cards del main */}
                         <Box
-                          h="220px"
+                          h={{ base: '160px', md: '220px' }}
                           position="relative"
                           overflow="hidden"
                           display="flex"
@@ -792,14 +826,14 @@ export default function ImportCatalogPage() {
                               bg="pink.400"
                               color="white"
                               borderRadius="full"
-                              px={2}
-                              py={0.5}
+                              px={3}
+                              py={1}
                               fontWeight="bold"
-                              fontSize="2xs"
+                              fontSize={{ base: 'xs', md: 'sm' }}
                               boxShadow="md"
                               opacity={0.95}
                             >
-                              {JP_PRICE_BANDS[p.priceBand].ars}
+                              {JP_PRICE_BANDS[p.priceBand].label}
                             </Badge>
                           )}
                         </Box>
@@ -1102,14 +1136,13 @@ export default function ImportCatalogPage() {
             justifyContent="center"
             minH="100vh"
             gap={5}
-            onClick={(e) => e.stopPropagation()}
-            cursor="default"
           >
             {previewItem && (
               <>
                 <Image
                   // Versión grande del CDN (game/ es el bucket genérico).
                   // Si no existe, onError cae al thumbnail del card.
+                  // Click sobre la foto no cierra; afuera sí (ModalContent).
                   src={previewItem.image?.replace(
                     /pics_webp\/boxart_m\/(\d+)m\.jpg\.webp$/,
                     'database/pics_webp/game/$1.jpg.webp'
@@ -1119,6 +1152,7 @@ export default function ImportCatalogPage() {
                       e.currentTarget.src = previewItem.image;
                     }
                   }}
+                  onClick={(e) => e.stopPropagation()}
                   alt={previewItem.title}
                   referrerPolicy="no-referrer"
                   maxH={{ base: '60vh', md: '72vh' }}
@@ -1128,7 +1162,7 @@ export default function ImportCatalogPage() {
                   borderRadius="lg"
                   boxShadow="0 20px 60px rgba(0,0,0,0.6)"
                 />
-                <VStack spacing={3} maxW="lg" px={4}>
+                <VStack spacing={3} maxW="lg" px={4} onClick={(e) => e.stopPropagation()}>
                   <Text
                     color="white"
                     fontWeight={600}
@@ -1145,7 +1179,7 @@ export default function ImportCatalogPage() {
                       </Badge>
                     )}
                     {previewItem.priceBand != null && (
-                      <Badge colorScheme="pink" variant="subtle" borderRadius="full" px={3} py={1}>
+                      <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize="sm">
                         {JP_PRICE_BANDS[previewItem.priceBand]?.label}
                       </Badge>
                     )}
