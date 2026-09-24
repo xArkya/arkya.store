@@ -2375,7 +2375,7 @@ export default function HomePage({ storeOnly = false }) {
                       </Text>
                       <Text color="gray.400" fontSize="sm">
                         Explorá el catálogo de productos que podés traer a pedido y consultá
-                        por los no están en la
+                        por los que no están en la
                         tienda.
                       </Text>
                     </Box>
