@@ -988,8 +988,10 @@ export default function ImportCatalogPage() {
                 </VStack>
               </Flex>
 
-              {/* Categoría: segmented control */}
-              <Flex justify="center">
+              {/* Categoría: segmented control. En celular el ancho
+                  puede no alcanzar: se compacta y, si aún no entra,
+                  scrollea horizontal en vez de cortarse. */}
+              <Flex justify="center" maxW="100%">
                 <HStack
                   spacing={0}
                   bg="blackAlpha.400"
@@ -997,13 +999,22 @@ export default function ImportCatalogPage() {
                   borderRadius="full"
                   border="1px solid"
                   borderColor="whiteAlpha.100"
+                  maxW="100%"
+                  overflowX="auto"
+                  sx={{
+                    scrollbarWidth: 'none',
+                    '&::-webkit-scrollbar': { display: 'none' },
+                  }}
                 >
                   {CATEGORY_TABS.map((tab) => (
                     <Button
                       key={tab.id}
                       size="sm"
                       borderRadius="full"
-                      px={6}
+                      px={{ base: 3, md: 6 }}
+                      fontSize={{ base: 'xs', md: 'sm' }}
+                      flexShrink={0}
+                      whiteSpace="nowrap"
                       variant={category === tab.id ? 'solid' : 'ghost'}
                       colorScheme="pink"
                       color={category === tab.id ? 'white' : 'whiteAlpha.600'}
@@ -1015,8 +1026,9 @@ export default function ImportCatalogPage() {
                     >
                       {tab.label}
                       {tab.soon && (
-                        <Badge ml={2} colorScheme="purple" fontSize="2xs" borderRadius="full">
-                          Próximamente
+                        <Badge ml={{ base: 1, md: 2 }} px={{ base: 1.5, md: 2 }} colorScheme="purple" fontSize="2xs" borderRadius="full">
+                          <Box as="span" display={{ base: 'none', sm: 'inline' }}>Próximamente</Box>
+                          <Box as="span" display={{ base: 'inline', sm: 'none' }}>Pronto</Box>
                         </Badge>
                       )}
                     </Button>
@@ -1585,7 +1597,7 @@ export default function ImportCatalogPage() {
             color="white"
             bg="whiteAlpha.200"
             borderRadius="full"
-            top={4}
+            top="calc(env(safe-area-inset-top, 0px) + 1rem)"
             right={4}
             _hover={{ bg: 'whiteAlpha.300' }}
             zIndex={2}
@@ -1596,7 +1608,18 @@ export default function ImportCatalogPage() {
             alignItems="center"
             justifyContent="center"
             minH="100vh"
+            px={4}
+            py={14}
             gap={5}
+            overflowY="auto"
+            sx={{
+              // En celular 100vh cuenta la barra del navegador y el
+              // contenido queda más alto que la pantalla: dvh lo corrige.
+              '@supports (height: 100dvh)': { minHeight: '100dvh' },
+              // Si el contenido desborda, "safe" evita que se recorte
+              // arriba dentro del contenedor con scroll.
+              justifyContent: 'safe center',
+            }}
           >
             {previewItem && (
               <>
@@ -1616,7 +1639,7 @@ export default function ImportCatalogPage() {
                   onClick={(e) => e.stopPropagation()}
                   alt={previewItem.title}
                   referrerPolicy="no-referrer"
-                  maxH={{ base: '60vh', md: '72vh' }}
+                  maxH={{ base: '55vh', md: '72vh' }}
                   maxW={{ base: '92vw', md: '70vw' }}
                   w="auto"
                   objectFit="contain"

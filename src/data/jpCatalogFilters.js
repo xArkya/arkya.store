@@ -15,7 +15,7 @@ export const JP_CATEGORY_TREE = {
         // se fusiona en esta opción — el filtro consulta ambos códigos.
         {
           code: "7000722",
-          label: "Manga / Anime",
+          label: "Anime y Manga",
           codes: ["7000722", "7030000"],
         },
         { code: "70001", label: "Guías de juegos" },
