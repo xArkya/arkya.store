@@ -1451,43 +1451,66 @@ export default function ImportCatalogPage() {
         </Container>
       </Box>
 
-      {/* Barra flotante de consulta múltiple */}
+      {/* Barra flotante de consulta múltiple. En celular va anclada a
+          la izquierda en dos filas: la columna de botones flotantes
+          (carrito + me gusta) ocupa la derecha y tapaba el contenido. */}
       {selectedList.length > 0 && (
         <Flex
           position="fixed"
-          bottom={4}
-          left="50%"
-          transform="translateX(-50%)"
+          bottom={{ base: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)', md: 4 }}
+          left={{ base: 3, md: '50%' }}
+          transform={{ base: 'none', md: 'translateX(-50%)' }}
           zIndex={1000}
-          bg="#2d1e2a"
+          bg="pink.400"
           border="1px solid"
           borderColor="pink.400"
-          borderRadius="full"
-          px={5}
+          borderRadius={{ base: 'xl', md: 'full' }}
+          px={{ base: 3, md: 5 }}
           py={3}
-          align="center"
-          gap={4}
-          maxW="92vw"
+          direction={{ base: 'column', md: 'row' }}
+          align={{ base: 'stretch', md: 'center' }}
+          gap={{ base: 2, md: 4 }}
+          w={{ base: 'calc(100vw - 100px)', md: 'auto' }}
+          maxW={{ md: '92vw' }}
+          boxShadow="0 8px 30px rgba(0,0,0,0.55)"
         >
-          <Text color="white" fontSize="sm" fontWeight={600} whiteSpace="nowrap">
-            {selectedList.length} seleccionado{selectedList.length > 1 ? 's' : ''}
-          </Text>
+          <Flex align="center" justify="space-between" gap={2}>
+            <Text color="white" fontSize="sm" fontWeight={600} whiteSpace="nowrap">
+              {selectedList.length} seleccionado{selectedList.length > 1 ? 's' : ''}
+            </Text>
+            <Button
+              size="xs"
+              variant="ghost"
+              color="white"
+              borderRadius="full"
+              onClick={() => setSelected({})}
+              _hover={{ bg: 'whiteAlpha.200' }}
+              display={{ base: 'inline-flex', md: 'none' }}
+            >
+              Limpiar
+            </Button>
+          </Flex>
           <Button
             size="sm"
-            colorScheme="pink"
+            bg="white"
+            color="pink.600"
             borderRadius="full"
             leftIcon={<FaInstagram />}
             onClick={() => openConsult(selectedList)}
             whiteSpace="nowrap"
+            w={{ base: 'full', md: 'auto' }}
+            _hover={{ bg: 'pink.50' }}
           >
             Consultar por Instagram
           </Button>
           <Button
             size="sm"
             variant="ghost"
-            color="whiteAlpha.700"
+            color="white"
             borderRadius="full"
             onClick={() => setSelected({})}
+            _hover={{ bg: 'whiteAlpha.200' }}
+            display={{ base: 'none', md: 'inline-flex' }}
           >
             Limpiar
           </Button>
