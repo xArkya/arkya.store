@@ -2,103 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://arkya.store/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://arkya.store/tienda</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://arkya.store/catalogo</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://arkya.store/contacto</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://arkya.store/terminos</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://arkya.store/preguntas-frecuentes</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://arkya.store/mis-me-gustas</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=artbooks</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=figuras</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=mangas</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=revistas</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=doujinshis</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=guide-books</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=character-books</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=cartas</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=cd-dvd</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=novela-ligera</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/?category=peluches</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://arkya.store/product/one-piece-color-walk-1-8697/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -109,7 +121,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/monthly-comic-alive-8-25-7876/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -120,7 +132,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/meguridokoro-1298/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -131,7 +143,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/desire-pandora-vol-1-edicion-limitada-0122/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -142,7 +154,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/arcueid-pinky-fanbook-4742/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -153,7 +165,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fgo-set-de-yokkora-pencil-6275/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -164,7 +176,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pack-kahahonbu-c97-8513/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -175,7 +187,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-13-edicion-limitada-9121/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -186,7 +198,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/figura-miku-nakano-bunny-de-quintessential-quintuplets-9211/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -197,7 +209,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-artbook-doujinshi-natsuiro-emaki-de-itou-noiji-5096/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -208,7 +220,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/to-aru-majutsu-no-index-vol-7-edicion-limitada-8066/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -219,7 +231,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pilgrim-of-type-moon-3967/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -230,7 +242,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/guia-de-houseki-no-kuni-5923/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -241,7 +253,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/oregairu-novela-vol-4-edicion-limitada-con-artbook-5463/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -252,7 +264,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/card-gamer-weiss-schwarz-special-1405/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -263,7 +275,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-agosto-2008-4250/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -274,7 +286,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/kirara-max-octubre-2023-6478/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -285,7 +297,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-return-to-avalon-artbook-4827/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -296,7 +308,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/figura-deku-izuku-midoriya-combination-battle-finale-bandai-6394/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -307,7 +319,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jump-giga-2024-spring-7907/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -318,7 +330,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/panfleto-digimon-adventure-tri-capitulo-1-6969/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -329,7 +341,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pixiv-type-moon-illustration-collection-10th-anniversary-special-edition-3989/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -340,7 +352,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-3rd-anniversary-album-7788/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -351,7 +363,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/shooting-star-journey-yzq-drrr-8631/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -362,7 +374,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/neon-genesis-evangelion-vol-13-edicion-limitada-premium-2711/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -373,7 +385,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-ball-z-budokai-tenkaichi-2-guia-5789/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -384,7 +396,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/rockman-exe-official-complete-works-4516/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -395,7 +407,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-ball-z-budokai-tenkaichi-guia-sparking-2694/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -406,7 +418,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/yozakura-quartet-artbook-shooting-star-carnaval-8479/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -417,7 +429,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-photo-file-eve-1371/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -428,7 +440,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/set-de-4-volumenes-de-la-autora-takarai-rihito-autora-de-ten-count-8409/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -439,7 +451,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jojo-magazine-2022-spring-2706/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -450,7 +462,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-25-edicion-limitada-7754/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -461,7 +473,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-33-edicion-limitada-3064/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -472,7 +484,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jump-giga-summer-2024-3214/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -483,7 +495,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-28-edicion-especial-5606/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -494,7 +506,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-26-edicion-especial-4758/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -505,7 +517,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/attack-on-titan-volumen-11-edicion-limitada-9343/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -516,7 +528,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-duel-vol-1-edicion-limitada-5175/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -527,7 +539,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jump-giga-2024-autumn-7209/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -538,7 +550,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/carpetas-transparentes-para-documentos-de-free-4135/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -549,7 +561,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-memories-ii-3789/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -560,7 +572,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-29-edicion-especial-9499/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -571,7 +583,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/reborn-colore-2963/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -582,7 +594,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/young-animal-mayo-24-2024-9237/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -593,7 +605,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mekakucity-talkers-vol-1-edicion-limitada-con-cd-3289/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -604,7 +616,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/berserk-vol-41-edicion-limitada-0053/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -615,7 +627,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/attack-on-titan-shingeki-no-kyojin-vol-17-0128/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -626,7 +638,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-fuwakororin-max-limited-1203/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -637,7 +649,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fullmetal-alchemist-art-book-2-9821/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -648,7 +660,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/shining-force-exa-design-works-8017/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -659,7 +671,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/ikki-tousen-official-visual-fan-book-9163/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -670,7 +682,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/maken-ki-full-color-selection-3650/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -681,7 +693,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/chain-chronicle-1st-season-illustrations-4841/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -692,7 +704,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/rainbow-spectrum-colors-7998/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -703,7 +715,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/wild-flower-shunya-yamashita-artworks-ii-5576/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -714,7 +726,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/naruto-uzumaki-illustrated-collection-1-5885/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -725,7 +737,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-10-edicion-especial-3525/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -736,7 +748,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/umamusume-pisupisu-supisupi-vol-1-edicion-limitada-7264/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -747,7 +759,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-hero-wants-a-married-woman-as-a-reward-vol-1-3-9157/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -758,7 +770,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/libro-de-stickers-de-sumikkogurashi-3905/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -769,7 +781,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/a-lollypop-or-a-bullet-vol-1-6054/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -780,7 +792,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-project-tribute-arts-extra-side-2-edicion-especial-6406/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -791,7 +803,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/love-hina-mugendai-0573/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -802,7 +814,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-project-extra-side-edicion-especial-9558/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -813,7 +825,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-art-of-ponyo-on-the-cliff-by-the-sea-9611/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -824,7 +836,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-anima-artbook-2707/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -835,7 +847,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/made-in-abyss-doorbeetle-reco-0265/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -846,7 +858,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dareka-no-yumemiru-kofuku-na-parareru-warudo-9389/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -857,7 +869,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/artist-side-vol-2-2134/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -868,7 +880,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/marry-or-die-vol-1-and-2-7547/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -879,7 +891,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/katekyo-hitman-reborn-innocent-gravity-vol-1-y-2-9427/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -890,7 +902,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/katekyo-hitman-reborn-white-reign-vol-1-5-8699/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -901,7 +913,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/nozomi-art-works-vol-2-3323/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -912,7 +924,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-15-8967/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -923,7 +935,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/oekaki-club-con-acrilico-led-1500/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -934,7 +946,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-blend-artbook-3859/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -945,7 +957,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/nino-nakano-visual-book-2255/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -956,7 +968,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/bakunyuu-bunny-obasan-vol-1-y-2-1483/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -967,7 +979,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/natsume-book-of-friends-vol-30-edicion-limitada-9260/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -978,7 +990,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-project-tribute-arts-2-5473/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -989,7 +1001,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/young-animal-mayo-2018-7218/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1000,7 +1012,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tsukihime-fanbook-wadamemo-7885/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1011,7 +1023,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/durarara-no-subete-1152/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1022,7 +1034,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/r-o-d-read-or-die-ova-3-dvd-edicion-limitada-0590/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1033,7 +1045,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/newtype-diciembre-2022-9534/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1044,7 +1056,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/carpeta-de-sword-art-online-5934/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1055,7 +1067,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/utahime-summer-2013-1529/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1066,7 +1078,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mob-psycho-100-official-guidebook-4775/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1077,7 +1089,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/durarara-concept-artworks-5112/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1088,7 +1100,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/artbook-saber-marionette-j-6368/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1099,7 +1111,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/slayers-artbook-6115/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1110,7 +1122,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/young-gangan-abril-18-2025-4465/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1121,7 +1133,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-12-edicion-limitada-3606/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1132,7 +1144,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/heaven-s-prision-vol-3-limited-box-edition-4875/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1143,7 +1155,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/itadori-yuji-heroes-photobook-9302/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1154,7 +1166,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/vivid-color-by-tatsuki-amaduyu-5297/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1165,7 +1177,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/takagi-san-vol-7-edicion-limitada-1558/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1176,7 +1188,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-promised-neverland-art-book-world-4825/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1187,7 +1199,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/chiikawa-vol-2-edicion-limitada-8118/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1198,7 +1210,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/soul-eater-original-art-exhibition-6748/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1209,7 +1221,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tawawa-on-monday-tribute-artbook-5419/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1220,7 +1232,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-first-slam-dunk-re-source-8642/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1231,7 +1243,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/ctrl-t-inio-asano-works-mini-4711/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1242,7 +1254,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/houseki-no-kuni-artbook-pseudomorph-of-love-3425/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1253,7 +1265,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/volumen-5-de-chobits-edicion-limitada-3549/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1264,7 +1276,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tokyo-revengers-tv-anime-official-guidebook-3355/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1275,7 +1287,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/zero-no-tsukaima-illustration-collection-0170/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1286,7 +1298,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/brutus-edicion-especial-de-takehiko-inoue-7791/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1297,7 +1309,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/lovelive-school-idol-festival-official-illustration-book-1-4546/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1308,7 +1320,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/attack-on-titan-no-regrets-vol-2-edicion-especial-7301/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1319,7 +1331,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-11-edicion-limitada-5628/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1330,7 +1342,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/takagi-san-guia-oficial-2-artbook-3-1346/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1341,7 +1353,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-14-edicion-limitada-0387/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1352,7 +1364,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/chobits-vol-3-edicion-especial-8972/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1363,7 +1375,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/chobits-vol-8-edicion-limitada-7704/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1374,7 +1386,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/bayonetta-witch-of-vigrid-0878/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1385,7 +1397,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/metal-gear-rising-guia-3224/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1396,7 +1408,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/splatoon-3-ikasu-artbook-4909/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1407,7 +1419,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/5-centimeters-per-second-vol-1-and-2-0411/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1418,7 +1430,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/chobits-vol-4-edicion-limitada-0951/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1429,7 +1441,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/weekly-shonen-jump-marzo-29-2021-n-15-1658/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1440,7 +1452,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/houseki-no-kuni-vol-9-edicion-limitada-1810/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1451,7 +1463,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/communication-with-sonico-vol-1-edicion-limitada-8109/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1462,7 +1474,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/re-zero-art-works-re-box-9892/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1473,7 +1485,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/paletta-vol-10-2004-winter-3435/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1484,7 +1496,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/code-gueass-acrilico-8641/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1495,7 +1507,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/charapafe-marzo-2024-4774/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1506,7 +1518,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sho-comi-octubre-5-2024-5133/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1517,7 +1529,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hp-vol-4-8835/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1528,7 +1540,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/paletta-vol-8-2003-summer-1285/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1539,7 +1551,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/e-2-frontier-vol-6-2023-8125/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1550,7 +1562,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-today-s-menu-for-emiya-family-vol-9-edicion-limitada-6012/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1561,7 +1573,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pack-imaizumin-deep-vol-2-5-6-7-9198/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1572,7 +1584,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/akamaru-jump-invierno-2007-7687/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1583,7 +1595,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/imaizumin-deep-vol-1-6467/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1594,7 +1606,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hakusei-kitora-by-avogado6-jp-5396/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1605,7 +1617,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mogumogu-summer-nishirohato-2598/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1616,7 +1628,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dear-girl-stories-perfect-art-works-9975/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1627,7 +1639,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pash-diciembre-2017-8200/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1638,7 +1650,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jump-giga-2019-winter-vol-2-8457/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1649,7 +1661,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-2012-diciembre-5071/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1660,7 +1672,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/miss-kobayashi-s-dragon-maid-full-color-8425/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1671,7 +1683,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/persona-3-reload-artbook-4313/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1682,7 +1694,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tensura-vol-22-edicion-limitada-9287/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1693,7 +1705,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pack-aria-monthly-undine-vol-4-6-7252/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1704,7 +1716,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/maya-takamura-artbook-edicion-deluxe-3864/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1715,7 +1727,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/animage-enero-2018-2835/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1726,7 +1738,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/end-of-eternity-design-works-1655/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1737,7 +1749,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/demon-slayer-original-image-collection-set-2421/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1748,7 +1760,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mairiro-gashu-toilet-bound-hanako-kun-2-9110/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1759,7 +1771,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-key-animation-1-9840/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1770,7 +1782,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/houseki-no-kuni-3-vol-3-edicion-limitada-1664/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1781,7 +1793,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/afternoon-junio-2024-5952/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1792,7 +1804,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mofusand-artbook-1871/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1803,7 +1815,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tama-artworks-6044/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1814,7 +1826,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/heisei-tribute-1989-2019-8963/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1825,7 +1837,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-lord-of-the-rings-art-book-3420/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1836,7 +1848,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/biohazard-4-guide-book-kaitai-shinsho-revised-edition-2875/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1847,7 +1859,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/super-mario-64-guide-book-7706/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1858,7 +1870,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/castlevania-official-perfect-guide-3774/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1869,7 +1881,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/metal-gear-solid-3-guia-oficial-1852/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1880,7 +1892,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sonic-adventure-dx-complete-guide-0416/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1891,7 +1903,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/persona-3-fes-official-perfect-guide-0684/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1902,7 +1914,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/namco-capcom-official-navigation-guide-and-illustration-book-4708/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1913,7 +1925,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-legend-of-zelda-ocarina-of-time-strategy-guide-6426/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1924,7 +1936,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/devil-may-cry-guide-book-4069/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1935,7 +1947,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-magazine-1994-vol-3-0703/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1946,7 +1958,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-magazine-1997-vol-2-2021/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1957,7 +1969,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/urusei-yatsura-vol-8-shonen-sunday-graphic-1314/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1968,7 +1980,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sailor-moon-tv-picture-book-vol-1-2045/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1979,7 +1991,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/almohadones-de-neko-chan-9136/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -1990,7 +2002,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sanrio-strawberry-news-marzo-2025-7263/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2001,7 +2013,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dear-girl-stories-vol-3-y-4-7738/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2012,7 +2024,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/meganeko-e-mc2-illustrations-3161/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2023,7 +2035,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/natsuiro-rei-melonbooks-girls-collection-verano-2021-6573/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2034,7 +2046,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/peluche-sumikkogurashi-xl-2810/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2045,7 +2057,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sumikkogurashi-peluche-caliente-4777/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2056,7 +2068,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-sneaker-otono-1993-9-4693/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2067,7 +2079,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-sneaker-special-fantasy-special-otono-1994-8768/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2078,7 +2090,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-death-film-book-3405/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2089,7 +2101,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-end-of-evangelion-air-film-book-0525/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2100,7 +2112,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/monedero-gorra-de-luigi-8887/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2111,7 +2123,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-konto-kowai-hanashi-7550/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2122,7 +2134,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/uo-dekka-kyonyuu-kyojiri-koushinchou-gyaru-chan-wa-boku-ni-koi-shiteru-anthology-comic-5144/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2133,7 +2145,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/ikki-tousen-vol-13-edicion-limitada-3288/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2144,7 +2156,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/recently-my-sister-is-unusual-sleep-box-book-0923/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2155,7 +2167,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/recently-my-sister-is-unusual-cd-para-dormir-9473/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2166,7 +2178,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hiyoko-brand-oku-sama-wa-joshi-kosei-box-6450/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2177,7 +2189,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/noizi-ito-art-collection-gu-re-n-9668/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2188,7 +2200,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/chobits-vol-7-con-postal-4628/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2199,7 +2211,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/black-lagoon-vol-10-edicion-especial-8184/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2210,7 +2222,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pixiv-yearbook-2010-0641/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2221,7 +2233,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hatsune-miku-coloring-book-all-stars-6281/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2232,7 +2244,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/umamusume-pisupisu-supisupi-vol-2-edicion-limitada-3576/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2243,7 +2255,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/magikano-vol-10-edicion-especial-2032/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2254,7 +2266,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/when-i-returned-to-my-hometown-my-childhood-friend-was-broken-1528/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2265,7 +2277,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hatsune-miku-densetsu-0810/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2276,7 +2288,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sword-art-online-memory-defrag-4226/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2287,7 +2299,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-edicion-coleccionista-vol-7-edicion-especial-6800/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2298,7 +2310,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/ruri-hime-summer-2012-8587/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2309,7 +2321,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-project-tribute-arts-edicion-especial-4670/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2320,7 +2332,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/bakemonogatari-vol-1-edicion-limitada-6608/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2331,7 +2343,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/no-work-no-life-4085/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2342,7 +2354,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/doujin-ganbare-douki-chan-vol-1-7591/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2353,7 +2365,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/yotsuba-to-vol-1-1560/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2364,7 +2376,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/weekly-shonen-jump-11-2004-vol-48-7300/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2375,7 +2387,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/character-parfait-octubre-2024-2289/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2386,7 +2398,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/megumi-fushiguro-heroes-photo-book-6699/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2397,7 +2409,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/visions-2025-illustrators-book-6394/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2408,7 +2420,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/final-fantasy-vii-remake-ultimania-6903/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2419,7 +2431,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/coadventure-summon-night-artbook-0733/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2430,7 +2442,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/illust-station-5571/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2441,7 +2453,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-slayers-next-film-book-3-2988/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2452,7 +2464,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/anan-vol-2429-0406/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2463,7 +2475,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/nier-series-eco-bag-with-10th-anniversary-mook-6609/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2474,7 +2486,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/arknights-animation-artworks-8102/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2485,7 +2497,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-ball-daizenshu-4-world-guide-2839/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2496,7 +2508,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/the-slayers-next-film-book-2-9188/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2507,7 +2519,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/re-zero-art-works-re-box-2nd-8064/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2518,7 +2530,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/otona-anime-vol-13-2009-8-0999/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2529,7 +2541,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dear-vol-2-edicion-especial-5941/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2540,7 +2552,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/lightning-returns-final-fantasy-xiii-ultimania-0933/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2551,7 +2563,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/super-mario-64-strategy-guide-4339/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2562,7 +2574,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/weekly-shonen-jump-no-38-2011-1816/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2573,7 +2585,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/toi8-fantasy-girl-artworks-9807/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2584,7 +2596,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/haruhi-suzumiya-no-garoku-9043/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2595,7 +2607,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/vasito-de-vidrio-de-rilakkuma-lawson-2016-7752/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2606,7 +2618,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jojo-magazine-winter-2022-7731/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2617,7 +2629,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/miss-kobayashi-s-dragon-maid-official-fanbook-marugoto-kanna-1765/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2628,7 +2640,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/type-moon-ace-vol-8-4428/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2639,7 +2651,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/koupen-chan-book-vol-2-6370/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2650,7 +2662,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/granblue-fantasy-graphic-archive-i-2916/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2661,7 +2673,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-favorite-atom-3809/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2672,7 +2684,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-go-memo-5-9738/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2683,7 +2695,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/kagerou-daze-official-visual-fanbook-1465/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2694,7 +2706,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-archive-official-artworks-2806/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2705,7 +2717,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/my-happy-marriage-artbook-5048/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2716,7 +2728,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/final-fantasy-xv-world-prologue-6739/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2727,7 +2739,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/ladies-vs-butlers-himitsu-no-rough-art-collection-5539/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2738,7 +2750,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/arknights-illustration-colecction-vol-1-1782/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2749,7 +2761,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/alberich-2-1854/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2760,7 +2772,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mahoromatic-vol-6-edicion-limitada-3745/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2771,7 +2783,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/you-re-under-arrest-file-x-1488/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2782,7 +2794,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/final-fantasy-vii-ultimania-omega-3126/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2793,7 +2805,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mochila-momoiro-clover-z-de-kanako-momota-8166/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2804,7 +2816,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/granblue-fantasy-graphic-archive-iv-6917/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2815,7 +2827,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-material-iii-8789/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2826,7 +2838,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-tcg-verano-2001-5294/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2837,7 +2849,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-enero-2010-4899/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2848,7 +2860,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/works-sca-di-sca-illustrations-1213/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2859,7 +2871,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/made-in-abyss-official-anthology-4-1401/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2870,7 +2882,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tezukuri-parfait-chiikawa-shaka-shaka-9370/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2881,7 +2893,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/granblue-fantasy-graphic-archive-iii-7925/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2892,7 +2904,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/tokyo-ghoul-6733/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2903,7 +2915,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/comp-ag-vol-2-9221/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2914,7 +2926,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/partner-verano-1999-vol-9-3297/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2925,7 +2937,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/works-motoyon-4-illustrations-7020/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2936,7 +2948,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hiro-illustrations-footprints-to-akebi-7047/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2947,7 +2959,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/i-love-pug-6607/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2958,7 +2970,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/animage-agosto-2008-5319/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2969,7 +2981,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sanrio-strawberry-news-febrero-2025-7162/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2980,7 +2992,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-rougashu-project-pixiv-2009-2195/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -2991,7 +3003,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/made-in-abyss-official-anthology-3-9920/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3002,7 +3014,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/magi-q-honkikyu-vol-1-6603/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3013,7 +3025,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/melon-revival-collection-4-4207/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3024,7 +3036,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/colorful-adventure-game-girls-3099/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3035,7 +3047,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/granblue-fantasy-fes-2023-artbook-9253/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3046,7 +3058,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-material-ii-7847/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3057,7 +3069,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/yozakura-quartet-vol-22-edicion-limitada-2137/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3068,7 +3080,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/memories-3-colors-1593/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3079,7 +3091,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/arknights-illustration-collection-vol-4-6440/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3090,7 +3102,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/megami-magazine-deluxe-vol-12-0938/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3101,7 +3113,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/made-in-abyss-official-anthology-1-5753/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3112,7 +3124,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hyperdimension-neptunia-mk2-artbook-9820/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3123,7 +3135,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/nagasarete-airantou-vol-8-edicion-limitada-1955/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3134,7 +3146,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/jump-ryu-23-gintama-0308/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3145,7 +3157,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/peluche-nyanko-sensei-8836/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3156,7 +3168,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hanafuda-material-9346/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3167,7 +3179,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/quarterly-s-invierno-2004-vol-5-4820/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3178,7 +3190,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/air-gear-vol-13-edicion-limitada-6683/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3189,7 +3201,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/aurora-gem-5190/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3200,7 +3212,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/final-fantasy-xiv-stormblood-art-of-the-revolution-6990/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3211,7 +3223,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dear-girl-stories-hibiki-gachi-de-visual-book-6574/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3222,7 +3234,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/bakemonogatari-guia-oficial-7250/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3233,7 +3245,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/disney-s-twisted-wonderland-riddle-rosehearts-character-book-8835/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3244,7 +3256,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/d-gray-man-anime-visual-collection-4902/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3255,7 +3267,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-181-marzo-1998-1908/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3266,7 +3278,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/weekly-shonen-jump-issue-no-29-2005-7300/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3277,7 +3289,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-27-edicion-especial-1847/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3288,7 +3300,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/durarara-izaya-vs-shizuo-kenka-cd-1-and-2-5782/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3299,7 +3311,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/twisted-wonderland-magical-archives-8764/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3310,7 +3322,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/love-hina-0-6693/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3321,7 +3333,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/deadman-wonderland-the-irration-6661/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3332,7 +3344,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/nagasarete-airantou-vol-10-edicion-limitada-3069/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3343,7 +3355,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/houseki-no-kuni-vol-12-edicion-limitada-4921/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3354,7 +3366,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/reborn-eldlive-character-s-365-7923/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3365,7 +3377,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/bleach-all-colour-but-the-black-0422/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3376,7 +3388,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/nhk-ni-youkoso-novela-3202/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3387,7 +3399,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hajirau-kimi-ga-mitainda-quiero-verte-avergonzada-full-color-9131/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3398,7 +3410,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/horimiya-graduation-album-3935/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3409,7 +3421,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/mushi-to-uta-6404/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3420,7 +3432,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/yu-gi-oh-character-guidebook-the-gospel-of-truth-1282/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3431,7 +3443,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/final-fantasy-v-basic-knowledge-1909/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3442,7 +3454,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/toranoana-chronicle-1996-2005-7448/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3453,7 +3465,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/yotsuba-anime-visual-book-0398/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3464,7 +3476,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-egoist-bible-vol-2-5570/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3475,7 +3487,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/memoriatechnica-de-satoru-yuiga-4754/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3486,7 +3498,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/bocchi-the-rock-antologia-vol-4-edicion-especial-5379/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3497,7 +3509,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/yusuke-nakamura-artbook-blue-6763/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3508,7 +3520,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/dengeki-online-games-collaboration-vol-1-8447/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3519,7 +3531,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/natsume-book-of-friends-vol-23-limitado-3042/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3530,7 +3542,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/visions-2023-4330/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3541,7 +3553,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/pokemon-ruby-y-zafiro-guia-1200/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3552,7 +3564,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/koupen-chan-1-5391/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3563,7 +3575,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/vongola-77-character-book-8824/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3574,7 +3586,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/hatsune-miku-fanbook-de-indico-lite-doujin-1706/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3585,7 +3597,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-original-illustration-book-i-4625/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3596,7 +3608,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sumikogurashi-fanbook-0328/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3607,7 +3619,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/granblue-fantasy-graphic-archive-v-1601/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3618,7 +3630,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/kikan-s-octubre-2023-1004/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3629,7 +3641,7 @@
   </url>
   <url>
     <loc>https://arkya.store/product/sono-bisque-doll-de-chu-spin-off-de-my-dress-up-5199/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3641,7 +3653,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/antengai-ii-capricho-nocturno-1235/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3652,7 +3664,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/higurashi-no-naku-koro-ni-official-complete-guide-2395/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3663,7 +3675,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jump-ryu-vol-21-hunter-x-hunter-3566/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3674,7 +3686,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fate-zero-material-4620/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3685,7 +3697,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/ebiten-box-fanbook-5926/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3696,7 +3708,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-project-tribute-arts-3-edicion-especial-1728/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3707,7 +3719,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/kingdom-hearts-ii-ultimania-1288/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3718,7 +3730,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/mahoyome-vol-4-edicion-limitada-7927/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3729,7 +3741,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/katekyo-hitman-reborn-libro-del-guardiano-6558/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3740,7 +3752,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/tanoshii-kindergarten-noviembre-2022-2923/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3751,7 +3763,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/my-dress-up-darling-vol-7-edicion-limitada-3421/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3762,7 +3774,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/spoon-2di-vol-11-2706/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3773,7 +3785,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-house-in-fata-morgana-artbook-the-anniversary-2685/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3784,7 +3796,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/read-or-die-official-archive-9964/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3795,7 +3807,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fate-extella-material-9853/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3806,7 +3818,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jojo-a-go-go-ultimate-edition-9496/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3817,7 +3829,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fruits-basket-illustrations-6967/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3828,7 +3840,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/disney-s-twisted-wonderland-azul-ashengrotto-character-book-6052/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3839,7 +3851,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/maidra-collection-3794/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3850,7 +3862,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/kara-no-kyoukai-complete-artbook-mirai-fukuin-9316/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3861,7 +3873,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/utawarerumono-artbook-8645/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3872,7 +3884,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/esquisse-de-misato-mitsumi-y-tatsuki-amaduyu-8756/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3883,7 +3895,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/nier-automata-world-guide-9558/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3894,7 +3906,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fun-kindergarten-julio-2024-9326/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3905,7 +3917,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/houseki-no-kuni-vol-10-edicion-limitada-5747/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3916,7 +3928,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/tezukuri-parfait-sumikko-gurashi-juice-jihanki-5623/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3927,7 +3939,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/banana-fish-tv-animation-official-guide-moment-5932/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3938,7 +3950,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/baccano-artbook-6135/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3949,7 +3961,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/photo-book-de-houshou-marine-y-shirogane-noel-hololive-edicion-limiada-5977/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3960,7 +3972,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/vanitas-vol-10-edicion-limitada-4856/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3971,7 +3983,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-vol-7-edicion-limitada-4989/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3982,7 +3994,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fullmetal-alchemist-complete-best-4343/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -3993,7 +4005,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/made-in-abyss-original-soundtrack-1-3319/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4004,7 +4016,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/quintillizas-ameusagi-pack-3029/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4015,7 +4027,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/houseki-no-kuni-vol-4-edicion-limitada-3602/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4026,7 +4038,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/revista-animage-con-portada-de-wind-breaker-3072/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4037,7 +4049,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/made-in-abyss-official-artworks-1538/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4048,7 +4060,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/attack-on-titan-shingeki-no-kyojin-vol-1-edicion-kansai-0278/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4059,7 +4071,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/dino-crisis-2-guia-0696/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4070,7 +4082,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/weekly-shonen-jump-febrero-2008-0220/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4081,7 +4093,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/peluche-hachiware-con-su-armita-0341/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4092,7 +4104,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/chiikawa-vol-3-edicion-especial-0154/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4103,7 +4115,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/demon-slayer-original-image-collection-set-2-0289/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4114,7 +4126,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/steins-gate-visual-works-edicion-limitada-9385/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4125,7 +4137,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-ball-sparking-zero-guia-9525/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4136,7 +4148,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/peluche-bachira-delfin-de-blue-lock-9665/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4147,7 +4159,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/peluches-llavero-mochimochi-hinata-shouyou-y-medusa-8967/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4158,7 +4170,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/hunter-x-hunter-treasure-9-8964/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4169,7 +4181,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/ternurines-de-chiikawa-y-hachiware-6130/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4180,7 +4192,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/chobits-vol-1-and-6-edicion-especial-5899/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4191,7 +4203,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/katekyo-hitman-reborn-secret-bullet-6057/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4202,7 +4214,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/anillo-del-rayo-katekyo-hitman-reborn-5761/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4213,7 +4225,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/banana-fish-artbook-angel-eyes-2010/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4224,7 +4236,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/atarashii-gakko-cd-ichijikikoku-deluxe-2216/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4235,7 +4247,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/kaguya-sama-love-is-war-fanbook-2378/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4246,7 +4258,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-vol-7-edicion-limitada-1960/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4257,7 +4269,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/trigun-multiple-bullets-8575/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4268,7 +4280,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/figura-faputa-coreful-7971/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4279,7 +4291,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/cd-migma-shelter-svaha-eraser-8034/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4290,7 +4302,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/figura-nanachi-coreful-temporada-2-8030/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4301,7 +4313,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/bungo-stray-dogs-harukawa35-art-works-8433/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4312,7 +4324,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/chainsaw-man-start-guide-8413/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4323,7 +4335,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-ancient-magus-bride-vol-10-edicion-limitada-8452/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4334,7 +4346,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/katekyo-hitman-reborn-jump-remix-7697/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4345,7 +4357,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/kimetsu-no-yaiba-demon-slayer-vol-22-edicion-limitada-8343/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4356,7 +4368,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/figura-sega-evangelion-de-rei-ayanami-7846/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4367,7 +4379,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/bakemonogatari-psp-limited-edition-5861/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4378,7 +4390,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/figura-albedo-overlord-bunny-6253/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4389,7 +4401,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/natsume-vol-28-edicion-especial-6312/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4400,7 +4412,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/antengai-i-cronica-onirica-5905/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4411,7 +4423,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/monthly-anime-style-5-5653/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4422,7 +4434,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/sylvanian-gato-persa-mama-5648/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4433,7 +4445,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/chiikawa-vol-1-edicion-limitada-0310/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4444,7 +4456,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/figura-nadeshiko-yuru-camp-9681/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4455,7 +4467,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-vol-30-edicion-limitada-9431/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4466,7 +4478,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/wind-breaker-exhibition-artbook-9544/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4477,7 +4489,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/durarara-artbook-shooting-star-bebop-0366/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4488,7 +4500,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-1st-season-complete-book-9754/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4499,7 +4511,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-official-start-guide-3914/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4510,7 +4522,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/boogiepop-artbook-3765/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4521,7 +4533,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/sakura-cardcaptor-vol-5-edicion-limitada-4204/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4532,7 +4544,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-ball-z-budokai-tenkaichi-3-guia-sparking-meteor-3979/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4543,7 +4555,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-art-of-haikyu-endings-and-beginnings-3370/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4554,7 +4566,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/vampire-knight-vol-1-3612/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4565,7 +4577,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/demon-slayer-vol-23-edicion-limitada-3782/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4576,7 +4588,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-vol-26-edicion-limitada-8424/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4587,7 +4599,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/gintama-official-fan-book-kojien-8606/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4598,7 +4610,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/katsuki-bakugo-my-hero-academia-7th-season-figure-9035/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4609,7 +4621,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/asuka-evangelion-pelicula-luminasta-30th-anniversary-ver-3712/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4620,7 +4632,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/07-illustration-book-4632/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4631,7 +4643,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/las-quintillizas-tv-anime-design-works-3859/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4642,7 +4654,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/evangelion-bp-emission-3849/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4653,7 +4665,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/haikyuu-color-illustrations-3955/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4664,7 +4676,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/digital-monster-mo-powerfull-data-book-4342/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4675,7 +4687,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/hunter-x-hunter-treasure-3-1383/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4686,7 +4698,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fullmetal-alchemist-art-book-1-1575/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4697,7 +4709,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/super-sonico-fun-magazine-2-1469/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4708,7 +4720,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/blue-lock-egoist-bible-0872/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4719,7 +4731,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fanbook-del-famoso-anime-mob-psycho-100-0962/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4730,7 +4742,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/quintillizas-ameusagi-pack-4711/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4741,7 +4753,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/mairiro-gashu-toilet-bound-hanako-kun-3897/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4752,7 +4764,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-vol-20-edicion-limitada-4237/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4763,7 +4775,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/figura-rem-taito-amp-winter-maid-image-ver-4412/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4774,7 +4786,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jump-giga-2022-autumn-3973/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4785,7 +4797,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/tokyo-ghoul-zakki-3862/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4796,7 +4808,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/cardcaptor-sakura-illustration-collection-2-9950/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4807,7 +4819,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-vol-18-edicion-limitada-0197/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4818,7 +4830,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-ancient-magus-bride-vol-12-edicion-limitada-version-b-0200/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4829,7 +4841,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/neon-genesis-evangelion-vol-14-edicion-limitada-premium-9614/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4840,7 +4852,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/ane-naru-mono-7-5-2596/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4851,7 +4863,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/naruto-10th-anniversary-character-book-juunen-hyakunin-2338/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4862,7 +4874,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/dragon-ball-z-burst-limit-guide-book-3024/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4873,7 +4885,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/one-piece-magazine-vol-1-2948/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4884,7 +4896,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/demon-slayer-a-traves-del-tiempo-3049/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4895,7 +4907,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jujutsu-kaisen-vol-19-edicion-limitada-2786/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4906,7 +4918,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/frieren-beyond-journey-s-end-treasure-book-5331/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4917,7 +4929,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/haikyuu-magazine-2024-february-6147/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4928,7 +4940,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-chaldea-ace-1-6203/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4939,7 +4951,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fullmetal-alchemist-rough-art-book-5920/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4950,7 +4962,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/bungo-stray-dogs-rakugaki-note-5750/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4961,7 +4973,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/vofan-art-book-charm-vofan-s-otona-fantasy-art-works-5889/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4972,7 +4984,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/shingeki-no-kyojin-full-color-edition-1-5860/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4983,7 +4995,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/houshou-marine-fan-book-and-comic-anthology-5623/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -4994,7 +5006,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/gravity-angel-2386/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5005,7 +5017,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/99-rei-melonbooks-girls-collection-invierno-2021-8697/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5016,7 +5028,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/deathtopia-vol-5-edicion-especial-9970/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5027,7 +5039,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/satanophany-ultimate-sexy-full-color-artbook-7885/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5038,7 +5050,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/leaf-illustrations-tatsuki-amaduyu-2623/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5049,7 +5061,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/super-sonico-premium-box-0397/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5060,7 +5072,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/no-game-no-life-novela-vol-1-4075/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5071,7 +5083,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/remx3-remxremxrem-6786/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5082,7 +5094,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/seitokai-ni-mo-ana-wa-aru-artbook-8381/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5093,7 +5105,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/revista-weekly-playboy-marzo-13-2023-6226/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5104,7 +5116,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/maken-ki-full-color-extreme-6744/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5115,7 +5127,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fate-characteristic-2018-c94-0915/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5126,7 +5138,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/luz-de-habitacion-sumikko-gurashi-tokage-ver-2287/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5137,7 +5149,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-junio-2005-5200/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5148,7 +5160,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fate-grand-order-material-ix-5621/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5159,7 +5171,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/hidari-flowing-doujinshi-5512/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5170,7 +5182,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/pia-carrot-e-yokoso-first-menu-book-5616/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5181,7 +5193,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/one-piece-color-walk-2-1991/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5192,7 +5204,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/honkai-star-rail-fan-art-book-2276/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5203,7 +5215,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/spoon-2di-vol-121-2241/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5214,7 +5226,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/no-game-no-life-vol-8-edicion-limitada-2060/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5225,7 +5237,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/lucky-star-vol-8-edicion-limitada-1697/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5236,7 +5248,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/tanoshii-yochien-octubre-2019-1465/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5247,7 +5259,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/birdy-the-mighty-archive-1910/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5258,7 +5270,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/bolso-de-picnic-de-snoopy-6560/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5269,7 +5281,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/pokemon-marukajiri-book-6996/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5280,7 +5292,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/final-fantasy-vi-basic-knowledge-2547/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5291,7 +5303,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/shueisha-2001-2708/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5302,7 +5314,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/revista-pucchigumi-12-2024-2566/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5313,7 +5325,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/acrilico-nadeko-sengoku-2529/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5324,7 +5336,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/weekly-shonen-jump-no-49-2006-2561/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5335,7 +5347,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/revista-comptiq-2007-edicion-especial-de-lucky-star-1284/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5346,7 +5358,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/otomodachi-mayo-2024-1372/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5357,7 +5369,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/mieko-hosoi-artworks-1644/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5368,7 +5380,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/popeye-928-8-2024-0943/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5379,7 +5391,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-dog-photo-book-collection-pug-1693/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5390,7 +5402,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/fullmetal-alchemist-vol-18-edicion-limitada-1870/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5401,7 +5413,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/lucky-star-animate-limited-mini-character-book-2040/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5412,7 +5424,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/103-rei-girls-collection-2023-winter-0482/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5423,7 +5435,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/moguraya-illustration-compile-book-2021-2022-8403/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5434,7 +5446,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/dorohedoro-bon-0735/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5445,7 +5457,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/goddess-of-victory-nikke-official-material-book-8088/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5456,7 +5468,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/steins-gate-visual-works-1-5-8038/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5467,7 +5479,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/bleach-official-animation-book-vibes-7790/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5478,7 +5490,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/spoon-2di-vol-128-3806/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5489,7 +5501,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/marushin-artbook-3289/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5500,7 +5512,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-art-of-kokesuwako-6582/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5511,7 +5523,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/chara-parfait-puzzle-special-de-sumikko-gurashi-6569/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5522,7 +5534,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/tori-koro-premium-visual-fanbook-6666/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5533,7 +5545,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/diccionario-de-ingles-de-moetan-0751/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5544,7 +5556,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/jahy-sama-wa-kujikenai-vol-7-edicion-especial-3759/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5555,7 +5567,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/neo-one-rei-melonbooks-girls-collection-2022-winter-3497/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5566,7 +5578,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/pokemon-special-vol-50-7446/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5577,7 +5589,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/pokemon-special-vol-50-edicion-limitada-8521/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5588,7 +5600,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/nier-art-koda-kazuma-works-8173/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5599,7 +5611,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/comptiq-diciembre-2001-sin-cd-8898/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5610,7 +5622,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-project-illustration-tutorial-guide-8783/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5621,7 +5633,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/ordermade-sin-cd-8709/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5632,7 +5644,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-slayers-next-film-books-8365/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5643,7 +5655,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/lucky-star-okiraku-box-4786/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5654,7 +5666,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/idol-fantasy-rpg-c91-set-4913/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5665,7 +5677,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/31-ice-cream-girls-5299/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5676,7 +5688,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/granada-level-q-4776/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5687,7 +5699,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/favorite-things-9163/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5698,7 +5710,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/the-melancholy-of-haruhi-suzumiya-chan-vol-3-super-limited-edition-3971/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5709,7 +5721,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/magnacarta-official-visual-and-setting-material-collection-3646/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5720,7 +5732,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/lisani-vol-12-1-3856/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5731,7 +5743,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/macross-frontier-visual-collection-sheryl-nome-8267/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5742,7 +5754,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/k-setting-data-book-8366/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5753,7 +5765,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/pre-clannad-8138/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5764,7 +5776,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/yofukashi-no-uta-official-fanbook-7803/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5775,7 +5787,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/moyori-0778/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5786,7 +5798,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/goddess-of-victory-nikke-official-art-book-7015/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5797,7 +5809,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/yozakura-quartet-vol-20-edicion-limitada-3979/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5808,7 +5820,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/touhou-bougetsushou-tsuki-no-inaba-to-chijou-no-inaba-vol-1-edicion-limitada-3472/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5819,7 +5831,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/kazuhiro-takamura-animation-works-1710/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5830,7 +5842,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/tobi-tsukihime-dokuhon-8223/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5841,7 +5853,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/backgammon-2-kazuya-minekura-illustrations-8343/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5852,7 +5864,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/raita-s-militaria-8674/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5863,7 +5875,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/to-your-eternity-vol-13-edicion-limitada-8785/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5874,7 +5886,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/checkout-3-7312/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5885,7 +5897,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/masashi-ishihama-animation-works-6695/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5896,7 +5908,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/kohei-horikoshi-my-hero-academia-exhibition-6953/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5907,7 +5919,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/c97-tabgraphics-traxx-3-6704/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5918,7 +5930,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/yuru-camp-stainless-pan-book-nadeshiko-ver-2212/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -5929,7 +5941,7 @@ Spin-off de My dress-up...</image:title>
   </url>
   <url>
     <loc>https://arkya.store/product/hokusai-from-the-museum-of-fine-arts-boston-2943/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>

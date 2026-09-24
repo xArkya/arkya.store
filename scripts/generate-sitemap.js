@@ -53,6 +53,8 @@ function generateSitemap() {
 
   // URLs estáticas del sitio
   const staticRoutes = [
+    { path: '/tienda', priority: '0.9' },
+    { path: '/catalogo', priority: '0.9' },
     { path: '/contacto', priority: '0.6' },
     { path: '/terminos', priority: '0.4' },
     { path: '/preguntas-frecuentes', priority: '0.5' },

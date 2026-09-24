@@ -106,8 +106,12 @@ async function ensureSession(force = false) {
 }
 
 function isChallenge(status, html) {
+  if (status === 403) return true;
+  // Una página real del listado siempre trae items: si los hay, cualquier
+  // texto tipo "Just a moment"/"Redirecting to" es parte de un título,
+  // no un challenge (los falsos positivos trababan el crawl en loop).
+  if (html.includes('product_wrap')) return false;
   return (
-    status === 403 ||
     html.includes('challenges.cloudflare.com') ||
     html.includes('Just a moment') ||
     // Página anti-bot de meta-refresh ("Redirecting to..."): no es un

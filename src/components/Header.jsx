@@ -755,10 +755,14 @@ const NAV_ITEMS = [
     label: 'Inicio',
     href: '/',
   },
-  // {
-  //   label: 'Catálogo',
-  //   href: '/catalogo',
-  // },
+  {
+    label: 'Tienda',
+    href: '/tienda',
+  },
+  {
+    label: 'Catálogo',
+    href: '/catalogo',
+  },
   {
     label: 'Guías',
     href: '/guias',

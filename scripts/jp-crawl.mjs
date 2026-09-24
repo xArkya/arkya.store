@@ -38,14 +38,17 @@ import {
 } from '../src/data/jpCatalogFilters.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const STATE_FILE = join(ROOT, 'scripts', '.jp-crawl-state.json');
+// JP_STATE_FILE: estado separado para corridas en paralelo (2 procesos no
+// pueden compartir el mismo archivo — el último save pisa al otro).
+const STATE_FILE =
+  process.env.JP_STATE_FILE || join(ROOT, 'scripts', '.jp-crawl-state.json');
 
 // --- env -----------------------------------------------------------------
-for (const file of ['.env.local', '.env']) {
+function loadEnvFile(file, { override = false } = {}) {
   try {
     for (const line of readFileSync(join(ROOT, file), 'utf8').split('\n')) {
       const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
-      if (m && !process.env[m[1]]) {
+      if (m && (override || !process.env[m[1]])) {
         process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
       }
     }
@@ -53,9 +56,28 @@ for (const file of ['.env.local', '.env']) {
     /* archivo opcional */
   }
 }
+for (const file of ['.env.local', '.env']) loadEnvFile(file);
 
-const SUPA_URL = (process.env.SUPABASE_URL || '').replace(/\/$/, '');
-const SUPA_KEY = process.env.SUPABASE_SERVICE_KEY || '';
+// Hot-reload de credenciales: si el usuario renueva JP_COOKIE/JP_UA en
+// .env.local a mitad de corrida, se detecta sin reiniciar el proceso.
+function reloadCredentialsIfChanged() {
+  const prev = process.env.JP_COOKIE;
+  loadEnvFile('.env.local', { override: true });
+  return process.env.JP_COOKIE !== prev;
+}
+
+// Cada categoría escribe a su proyecto: doujin (~1M items) vive en un
+// Supabase aparte para no reventar el free tier de 500MB del de libros.
+const SUPA = {
+  books: {
+    url: (process.env.SUPABASE_URL || '').replace(/\/$/, ''),
+    key: process.env.SUPABASE_SERVICE_KEY || '',
+  },
+  doujin: {
+    url: (process.env.SUPABASE_DOUJIN_URL || '').replace(/\/$/, ''),
+    key: process.env.SUPABASE_DOUJIN_SERVICE_KEY || '',
+  },
+};
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
 const RESET = args.includes('--reset');
@@ -69,36 +91,82 @@ const REFRESH_PAGES =
 // JP_REFRESH_DEEP=1: refrescar también los targets split (más requests)
 const REFRESH_DEEP = process.env.JP_REFRESH_DEEP === '1';
 const CONCURRENCY =
-  process.env.JP_CONCURRENCY != null ? Number(process.env.JP_CONCURRENCY) : 4;
+  process.env.JP_CONCURRENCY != null ? Number(process.env.JP_CONCURRENCY) : 2;
 // Pausa entre chunks de requests: normal y cuando el chunk anterior tuvo errores
-const DELAY_MS = Number(process.env.JP_DELAY_MS) || 300;
-const DELAY_ERR_MS = Number(process.env.JP_DELAY_ERR_MS) || 5000;
+const DELAY_MS = Number(process.env.JP_DELAY_MS) || 800;
+const DELAY_ERR_MS = Number(process.env.JP_DELAY_ERR_MS) || 8000;
+// Reintentos por página ante 403 aislados y cooldowns cuando el bloqueo es
+// sostenido: en vez de cortar, espera y prueba de nuevo — la corrida termina
+// sola aunque el origen limite la IP varias veces.
+const PAGE_RETRIES = Number(process.env.JP_PAGE_RETRIES) || 3;
+const COOLDOWN_MIN = Number(process.env.JP_COOLDOWN_MIN) || 10;
+const MAX_COOLDOWNS = Number(process.env.JP_MAX_COOLDOWNS) || 6;
 
-if (!DRY && (!SUPA_URL || !SUPA_KEY)) {
-  console.error('Faltan SUPABASE_URL y/o SUPABASE_SERVICE_KEY en .env.local');
-  process.exit(1);
-}
-
-// Targets: una entrada por subcategoría hoja. Por ahora solo libros —
-// doujin queda para después (sacar el filtro de abajo para habilitarlo).
+// Targets: una entrada por subcategoría hoja. Por defecto solo libros —
+// para doujin: JP_CRAWL_ONLY=doujin (o 'books,doujin' para ambos).
 // Priorizamos manga/revistas (lo que más se busca) y después el resto.
 const ONLY_CATEGORIES = process.env.JP_CRAWL_ONLY
   ? process.env.JP_CRAWL_ONLY.split(',')
   : ['books'];
+// JP_CRAWL_SUBS=7000722,11000000 -> solo esas subs (y sus splits). Para
+// re-crawlear una categoría puntual sin tocar el resto.
+const ONLY_SUBS = process.env.JP_CRAWL_SUBS
+  ? process.env.JP_CRAWL_SUBS.split(',').map((s) => s.trim())
+  : null;
+const subOk = (sub) => !ONLY_SUBS || ONLY_SUBS.some((p) => sub.startsWith(p));
+
+if (!DRY) {
+  for (const cat of ONLY_CATEGORIES) {
+    if (!SUPA[cat]?.url || !SUPA[cat]?.key) {
+      console.error(
+        cat === 'doujin'
+          ? 'Faltan SUPABASE_DOUJIN_URL y/o SUPABASE_DOUJIN_SERVICE_KEY en .env.local'
+          : 'Faltan SUPABASE_URL y/o SUPABASE_SERVICE_KEY en .env.local'
+      );
+      process.exit(1);
+    }
+  }
+}
+
 const PRIORITY_FIRST = ['701', '70205', '1100'];
+// Bandas del primer split de doujin: el piso es ¥649 (los más baratos no
+// rinden para importar) y '649-700' cae dentro de la banda 1 del catálogo.
+const DOUJIN_PRICE_RANGES = ['649-700', '701-1200', '1201-2500', '2501-5000', '5001-'];
 const targets = [];
 for (const [category, tree] of Object.entries(JP_CATEGORY_TREE)) {
   if (!ONLY_CATEGORIES.includes(category)) continue;
   for (const level1 of tree) {
     for (const leaf of level1.children) {
-      targets.push({
-        category,
-        sub: leaf.code,
-        label: `${level1.label} / ${leaf.label}`,
-        key: leaf.code,
-        year: '',
-        price: '',
-      });
+      // Un leaf puede fusionar varias subs del origen (Manga/Anime+Mook):
+      // cada código se crawlea como target independiente.
+      for (const subCode of leaf.codes || [leaf.code]) {
+        if (!subOk(subCode)) continue;
+        if (category === 'doujin') {
+          // Sin listado base: con el piso de ¥649 la unión de las bandas
+          // cubre TODO lo deseado — la base duplicaría esas páginas. Las
+          // bandas se splitean por año/bisección si quedan capeadas.
+          for (const price of DOUJIN_PRICE_RANGES) {
+            targets.push({
+              category,
+              sub: subCode,
+              label: `${level1.label} / ${leaf.label}`,
+              key: `${subCode}@P${price}`,
+              year: '',
+              price,
+              minPrice: 649,
+            });
+          }
+        } else {
+          targets.push({
+            category,
+            sub: subCode,
+            label: `${level1.label} / ${leaf.label}`,
+            key: subCode,
+            year: '',
+            price: '',
+          });
+        }
+      }
     }
   }
 }
@@ -126,8 +194,15 @@ if (!RESET && existsSync(STATE_FILE)) {
 // filtrado tiene su propio techo, así se recupera lo escondido.
 state.deep ||= [];
 state.totals ||= {};
+const seenKeys = new Set(targets.map((t) => t.key));
 for (const d of state.deep) {
+  // Splits de otra categoría (ej. books al correr JP_CRAWL_ONLY=doujin)
+  // no se rehidratan: quedan en el state para cuando toque su corrida.
+  d.category ||= 'books';
+  if (!ONLY_CATEGORIES.includes(d.category) || !subOk(d.sub)) continue;
   const key = keyOf(d.sub, d.price, d.year);
+  // Las bandas de doujin ya son targets estáticos — no duplicar.
+  if (seenKeys.has(key)) continue;
   // migración de targets por año del formato viejo ("sub@rango")
   const legacy = d.year && !d.price ? `${d.sub}@${d.year}` : null;
   if (legacy && state.targets[legacy] && !state.targets[key]) {
@@ -137,6 +212,17 @@ for (const d of state.deep) {
   const tag = [d.price && `¥${d.price}`, d.year].filter(Boolean).join(' ');
   targets.push({ ...d, key, label: `${d.label} (${tag})` });
 }
+// Dentro de doujin se crawlea primero Para hombres (110000*) y después
+// Para mujeres (110001*). El rank de prioridad general (PRIORITY_FIRST)
+// domina: libros/manga siguen yendo antes que el doujin en corridas
+// combinadas. Sort estable: conserva el orden de inserción por grupo.
+const prioRank = (sub) =>
+  PRIORITY_FIRST.some((p) => sub.startsWith(p) || sub === p) ? 0 : 1;
+const doujinRank = (sub) =>
+  sub.startsWith('110000') ? 0 : sub.startsWith('110001') ? 1 : 2;
+targets.sort(
+  (a, b) => prioRank(a.sub) - prioRank(b.sub) || doujinRank(a.sub) - doujinRank(b.sub)
+);
 for (const t of targets) {
   state.targets[t.key] ||= { page: 1, done: false };
 }
@@ -145,19 +231,27 @@ const saveState = () => {
 };
 
 // --- supabase --------------------------------------------------------------
-async function upsert(rows) {
+async function upsert(rows, category, attempt = 0) {
   if (DRY || !rows.length) return;
-  const res = await fetch(`${SUPA_URL}/rest/v1/products`, {
+  const db = SUPA[category];
+  const res = await fetch(`${db.url}/rest/v1/products`, {
     method: 'POST',
     headers: {
-      apikey: SUPA_KEY,
-      Authorization: `Bearer ${SUPA_KEY}`,
+      apikey: db.key,
+      Authorization: `Bearer ${db.key}`,
       'Content-Type': 'application/json',
       Prefer: 'resolution=merge-duplicates,return=minimal',
     },
     body: JSON.stringify(rows),
   });
-  if (!res.ok) throw new Error(`supabase upsert: HTTP ${res.status} ${await res.text()}`);
+  if (!res.ok) {
+    // 500/timeout transitorios (ej. índice construyéndose): un retry alcanza
+    if (res.status >= 500 && attempt < 2) {
+      await delay(4000);
+      return upsert(rows, category, attempt + 1);
+    }
+    throw new Error(`supabase upsert: HTTP ${res.status} ${await res.text()}`);
+  }
 }
 
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -183,7 +277,7 @@ function parseReleaseDate(s) {
 // Convierte los items parseados a filas de la tabla. La imagen viene
 // envuelta como /api/jp-image?u=<cdn url>: se desenrolla para guardar la
 // URL cruda del CDN.
-function toRows(items, category, sub, band = null) {
+function toRows(items, category, sub, band = null, minPrice = null) {
   // El origen a veces lista el mismo producto 2 veces en una página —
   // Postgres rechaza un upsert con ids duplicados en el mismo batch.
   const seen = new Set();
@@ -191,9 +285,15 @@ function toRows(items, category, sub, band = null) {
     .filter(
       (p) =>
         p.id &&
+        // Piso de precio de la categoría (doujin >=¥649): defensa por si
+        // el origen ignora el filtro — solo aplica cuando el precio
+        // exacto es visible (los sin-stock confían en el filtro del sitio)
+        !(minPrice && p.price != null && p.price < minPrice) &&
         // Material promocional suelto, folletos y extras de compra — no se
         // ofrecen (títulos con estas palabras no son el producto en sí)
         !/\b(advertisement|leaflets?|kawara-?ban|4p|purchase benefits)\b/i.test(p.title) &&
+        // Merch de eventos/conciertos y ediciones incompletas — no se venden
+        !/\b(live tours?|concerts?|world tours?|live around|japan tours?|brochures?|pamphlets?|bonus missing|appendix missing)\b/i.test(p.title) &&
         !seen.has(p.id) &&
         seen.add(p.id)
     )
@@ -238,15 +338,28 @@ function toRows(items, category, sub, band = null) {
 // o 'same' si un target de año devolvió el mismo total que el listado
 // base (filtro ignorado por el origen -> no gastar más páginas).
 async function crawlPage(target, page) {
-  const html = await fetchProductsHtml(target.sub, '', {
-    page,
-    sort: 'released_date_desc',
-    includeOos: true,
-    lang: 'en', // títulos romanizados por el propio origen
-    year: target.year || '',
-    price: target.price || '',
-  });
+  // Retry por página con backoff: un 403 aislado no debe saltear items.
+  let html;
+  for (let attempt = 0; ; attempt++) {
+    try {
+      html = await fetchProductsHtml(target.sub, '', {
+        page,
+        sort: 'released_date_desc',
+        includeOos: true,
+        lang: 'en', // títulos romanizados por el propio origen
+        year: target.year || '',
+        // minPrice = piso de la categoría (doujin >=¥649): va como rango
+        // abierto en la URL y también filtra los sin-stock del origen.
+        price: target.price || (target.minPrice ? `${target.minPrice}-` : ''),
+      });
+      break;
+    } catch (err) {
+      if (attempt >= PAGE_RETRIES - 1) throw err;
+      await delay(5000 * (attempt + 1));
+    }
+  }
   const { count } = parseTotal(html);
+  const firstSeen = target._total == null;
   target._total ??= count;
   // Si un target filtrado reporta el mismo total que su padre, el origen
   // ignoró el filtro -> no gastar más páginas acá.
@@ -259,25 +372,71 @@ async function crawlPage(target, page) {
     target._same = true; // filtro ignorado por el origen
     return 'same';
   }
+  // Split temprano: si el total reportado ya supera el cap de paginación
+  // y el target todavía puede subdividirse, no recorrer las ~418 páginas
+  // visibles — los splits cubren todo el rango de todas formas.
+  if (
+    firstSeen &&
+    count != null &&
+    count > CAP_ITEMS &&
+    (target.year || target.price) &&
+    splitDims(target)
+  ) {
+    return 'split';
+  }
   const rawCount = (html.match(/class="product_wrap"/g) || []).length;
   if (!rawCount) return 0;
-  const band = target.price ? PRICE_RANGES.indexOf(target.price) : null;
-  const rows = toRows(parseProducts(html), target.category, target.sub, band);
-  await upsert(rows);
+  const band = target.price ? bandOfRange(target.price) : null;
+  const rows = toRows(parseProducts(html), target.category, target.sub, band, target.minPrice);
+  await upsert(rows, target.category);
   if (DRY) rows.slice(0, 2).forEach((r) => console.log('   ', JSON.stringify(r).slice(0, 140)));
   return rawCount;
 }
 
-// true cuando un chunk entero falla (403 sostenido): significa que la IP
-// quedó flaggeada o la cf_clearance expiró — seguir sería martillar al
-// pedo, así que se corta la corrida entera.
+// Bloqueo sostenido: en vez de cortar la corrida, espera COOLDOWN_MIN y
+// prueba una request de sondeo. Repite hasta MAX_COOLDOWNS rondas; solo se
+// rinde si el origen sigue rechazando (ej. cookie vencida de verdad).
 let blocked = false;
 
+async function handleBlocked() {
+  for (let i = 0; i < MAX_COOLDOWNS; i++) {
+    console.log(
+      `\n>> Bloqueo sostenido (403). Cooldown ${COOLDOWN_MIN} min ` +
+        `(${i + 1}/${MAX_COOLDOWNS}) — el progreso está guardado.\n` +
+        `   Si la cookie venció, actualizá JP_COOKIE en .env.local: ` +
+        `lo detecto solo y sigo sin reiniciar.`
+    );
+    saveState();
+    // Espera en ticks de 15s: si el usuario renovó la cookie en .env.local,
+    // se aplica y se sondea de inmediato en vez de esperar el cooldown entero.
+    const deadline = Date.now() + COOLDOWN_MIN * 60 * 1000;
+    while (Date.now() < deadline) {
+      await delay(15000);
+      if (reloadCredentialsIfChanged()) {
+        console.log('>> Cookie/UA renovada en .env.local — sondeo ahora.');
+        break;
+      }
+    }
+    try {
+      await fetchProductsHtml('7000722', '', { page: 1, lang: 'en' });
+      console.log('>> El origen responde de nuevo — continúo.');
+      blocked = false;
+      return true;
+    } catch (err) {
+      console.log(`>> Sigue bloqueado (${err.message})`);
+    }
+  }
+  return false;
+}
+
+// Devuelve { counts, blocked, exhausted }: counts[i] = items crudos de
+// pages[i], -1 si falló, 'same' si el origen ignoró el filtro, 0 si vacío.
+// blocked = todo el chunk falló (IP flaggeada); exhausted = fin del stream.
 async function crawlPages(target, pages) {
-  // Páginas en chunks paralelos; si alguna falla se loguea y se sigue.
+  const counts = [];
   for (let i = 0; i < pages.length; i += CONCURRENCY) {
     const chunk = pages.slice(i, i + CONCURRENCY);
-    const counts = await Promise.all(
+    const res = await Promise.all(
       chunk.map((pg) =>
         crawlPage(target, pg).catch((err) => {
           console.error(`  [${target.sub} p${pg}] ${err.message}`);
@@ -285,15 +444,29 @@ async function crawlPages(target, pages) {
         })
       )
     );
-    if (counts.every((c) => c === -1)) {
-      blocked = true;
-      return false;
+    counts.push(...res);
+    if (res.every((c) => c === -1)) return { counts, blocked: true, exhausted: false };
+    // Si hubo errores (403/rate limit), enfriar el ritmo bastante más.
+    // Jitter en el delay normal para no hacer un patrón metronómico.
+    await delay(res.includes(-1) ? DELAY_ERR_MS : DELAY_MS * (0.5 + Math.random()));
+    if (res.some((c) => c === 'same' || c === 'split' || c === 0)) {
+      return { counts, blocked: false, exhausted: true };
     }
-    // Si hubo errores (403/rate limit), enfriar el ritmo bastante más
-    await delay(counts.includes(-1) ? DELAY_ERR_MS : DELAY_MS);
-    if (counts.includes('same') || counts.some((c) => c === 0)) return false; // stream agotado
   }
-  return true;
+  return { counts, blocked: false, exhausted: false };
+}
+
+// Avanza el cursor hasta la primera página NO crawleada con éxito:
+// una página que falló queda como próxima, no se saltea.
+function advanceCursor(cur, pages, counts) {
+  const firstBad = counts.findIndex((c) => c === -1);
+  if (firstBad !== -1) {
+    cur.page = pages[firstBad];
+  } else if (counts.length < pages.length) {
+    cur.page = pages[counts.length]; // cortó antes por stream agotado
+  } else {
+    cur.page = pages[pages.length - 1] + 1;
+  }
 }
 
 // Si un listado agotó su stream habiendo reportado más items que los que
@@ -304,18 +477,71 @@ const CAP_ITEMS = 24 * 410; // ~9.840 — el origen corta cerca de la pág 418
 // Bandas JPY pesadas hacia abajo: libros/doujin usados son baratos en su
 // mayoría. price_band guardado en la fila = índice en este array.
 const PRICE_RANGES = JP_PRICE_BANDS.map((b) => b.range);
+// Banda de la UI para un rango arbitrario (splits biseccionados): el
+// índice de la banda que contiene el límite inferior.
+function bandOfRange(range) {
+  const exact = PRICE_RANGES.indexOf(range);
+  if (exact >= 0) return exact;
+  const lo = Number(range.split('-')[0]) || 0;
+  const i = PRICE_RANGES.findIndex((r) => {
+    const [blo, bhi] = r.split('-');
+    return (!blo || lo >= Number(blo)) && (!bhi || lo <= Number(bhi));
+  });
+  return i < 0 ? null : i;
+}
+// '[2011, 2012]' -> ['[2011, 2011]', '[2012, 2012]']. null si es un solo
+// año o un rango abierto ('{,2010]').
+function splitYearRange(year) {
+  const m = year.match(/\[(\d{4}),\s*(\d{4})\]/);
+  if (!m || m[1] === m[2]) return null;
+  const out = [];
+  for (let y = Number(m[1]); y <= Number(m[2]); y++) out.push(`[${y}, ${y}]`);
+  return out;
+}
+// '649-700' -> ['649-675','676-700']; '5001-' -> ['5001-20000','20001-'];
+// '-300' -> ['-150','151-300']. null si no se puede dividir.
+function bisectPriceRange(price) {
+  const [lo, hi] = price.split('-');
+  if (lo && hi) {
+    const a = Number(lo), b = Number(hi);
+    if (b - a < 1) return null;
+    const mid = Math.floor((a + b) / 2);
+    return [`${a}-${mid}`, `${mid + 1}-${b}`];
+  }
+  if (lo) return [`${lo}-20000`, '20001-'];
+  if (hi) {
+    const mid = Math.floor(Number(hi) / 2);
+    return [`-${mid}`, `${mid + 1}-${hi}`];
+  }
+  return null;
+}
+// Dimensiones en que se puede subdividir un target: precio -> rango de
+// años -> año individual -> bisección de precio. null = no se puede más.
+function splitDims(t) {
+  if (!t.price) {
+    const ranges = t.category === 'doujin' ? DOUJIN_PRICE_RANGES : PRICE_RANGES;
+    return { dims: ranges.map((price) => ({ price })), dimName: 'precio' };
+  }
+  if (!t.year) return { dims: JP_YEAR_RANGES.map((year) => ({ year })), dimName: 'año' };
+  const ys = splitYearRange(t.year);
+  if (ys) return { dims: ys.map((year) => ({ year })), dimName: 'año individual' };
+  const ps = bisectPriceRange(t.price);
+  return ps ? { dims: ps.map((price) => ({ price })), dimName: 'precio (bisección)' } : null;
+}
 function maybeSplit(t) {
   if (!t._total) return;
-  if (t.year && t.price) return; // máximo nivel de split
   if (t._same) return; // el origen ignoró el filtro — profundizar no ayuda
   // Toda sub base se splitea por precio — así TODOS los items quedan con
   // price_band, incluidos los sin-stock (el origen recuerda su precio).
   // Un target ya filtrado solo se vuelve a splitear si sigue capeado.
   const isBase = !t.price && !t.year;
   if (!isBase && t._total <= CAP_ITEMS) return;
-  const dims = !t.price
-    ? PRICE_RANGES.map((price) => ({ price }))
-    : JP_YEAR_RANGES.map((year) => ({ year }));
+  const sd = splitDims(t);
+  if (!sd) {
+    console.log(`  [${t.key}] ${t._total} items — sin más ejes de split, queda truncado`);
+    return;
+  }
+  const { dims, dimName } = sd;
   let added = 0;
   for (const dim of dims) {
     const d = {
@@ -323,8 +549,9 @@ function maybeSplit(t) {
       sub: t.sub,
       // sin el tag "(¥...)" que el label del padre ya pueda tener
       label: t.label.replace(/\s*\([^)]*\)\s*$/, ''),
-      price: t.price || dim.price || '',
-      year: t.year || dim.year || '',
+      price: dim.price ?? t.price,
+      year: dim.year ?? t.year,
+      minPrice: t.minPrice,
       _parentTotal: t._total,
     };
     const key = keyOf(d.sub, d.price, d.year);
@@ -338,7 +565,7 @@ function maybeSplit(t) {
   if (added) {
     saveState();
     console.log(
-      `  [${t.key}] ${t._total} items -> +${added} splits por ${!t.price ? 'precio' : 'año'}`
+      `  [${t.key}] ${t._total} items -> +${added} splits por ${dimName}`
     );
   }
 }
@@ -355,29 +582,52 @@ console.log(
 // techo se generan los targets filtrados (precio -> año).
 if (args.includes('--deep')) {
   console.log('\n== deep probe ==');
-  for (const t of targets.filter((x) => !x.year && !x.price)) {
-    // Si ya tiene splits por precio creados, no hay nada que sondear
-    if (state.deep.some((d) => d.sub === t.sub && d.price)) continue;
+  // Doujin entra directo por banda (targets con price + minPrice): el
+  // probe también los sondea — su total decide si hacen split por año.
+  for (const t of targets.filter((x) => !x.year && (!x.price || x.minPrice))) {
+    // Splits ya creados para ESTE target: para banda doujin = splits por
+    // año del mismo rango; para base = splits por precio de la sub.
+    const hasSplits = t.price
+      ? state.deep.some((d) => d.sub === t.sub && d.price === t.price && d.year)
+      : state.deep.some((d) => d.sub === t.sub && d.price && !d.year);
+    if (hasSplits) {
+      // Los splits por año particionan la banda entera — crawlear la banda
+      // hasta el cap sería re-pedir ~418 páginas que los splits re-cubren.
+      if (t.price && t.minPrice) state.targets[t.key].done = true;
+      continue;
+    }
     try {
       const html = await fetchProductsHtml(t.sub, '', {
         page: 1,
         sort: 'released_date_desc',
         includeOos: true,
         lang: 'en',
+        price: t.price || (t.minPrice ? `${t.minPrice}-` : ''),
       });
       t._total = parseTotal(html).count;
       state.totals[t.sub] = t._total;
       maybeSplit(t);
+      // Si el sondeo generó splits por año, la banda queda cubierta por
+      // ellos: no tiene sentido crawlear sus ~418 páginas hasta el cap.
+      if (
+        t.price &&
+        t.minPrice &&
+        state.deep.some(
+          (d) => d.sub === t.sub && d.price === t.price && d.year
+        )
+      )
+        state.targets[t.key].done = true;
       console.log(`[${t.sub}] total reportado: ${t._total ?? '?'}`);
     } catch (err) {
       console.error(`  [${t.sub}] ${err.message}`);
       if (err.message.includes('blocked')) {
         blocked = true;
-        break;
+        if (!(await handleBlocked())) break;
       }
     }
     await delay(400);
   }
+  saveState();
 }
 
 // Pass 1 — refresh: primeras páginas de cada subcategoría BASE (stock +
@@ -386,20 +636,27 @@ if (args.includes('--deep')) {
 // el target completo — refrescar bandas duplicaría requests al pedo.
 if (REFRESH_PAGES > 0) {
   console.log('\n== refresh ==');
+  // Doujin no tiene listado base: el refresh pega las primeras páginas
+  // de cada banda (minPrice marca esos targets) — las novedades quedan
+  // en el tope de cualquier orden por fecha igual.
   for (const t of targets.filter(
-    (x) => REFRESH_DEEP || (!x.year && !x.price)
+    (x) => REFRESH_DEEP || (!x.year && (!x.price || x.minPrice))
   )) {
     console.log(`[${t.key}] ${t.label} — refresh`);
-    const ok = await crawlPages(
+    const res = await crawlPages(
       t,
       Array.from({ length: REFRESH_PAGES }, (_, i) => i + 1)
     );
-    if (blocked) break;
+    if (res.blocked) {
+      blocked = true;
+      if (!(await handleBlocked())) break;
+      continue; // reintenta este target tras el cooldown
+    }
     const cur = state.targets[t.key];
-    if (!ok) {
+    if (res.exhausted) {
       cur.done = true;
       maybeSplit(t);
-    } else {
+    } else if (!res.counts.includes(-1)) {
       cur.page = Math.max(cur.page, REFRESH_PAGES + 1);
     }
     saveState();
@@ -419,10 +676,15 @@ outer: for (const t of targets) {
       budget--;
     }
     console.log(`[${t.key}] ${t.label} — páginas ${pages.join(',')}`);
-    const ok = await crawlPages(t, pages);
-    if (blocked) break outer;
-    cur.page = pages[pages.length - 1] + 1;
-    if (!ok) {
+    const res = await crawlPages(t, pages);
+    if (res.blocked) {
+      blocked = true;
+      budget += pages.length; // refund: estas páginas se reintentan tras cooldown
+      if (!(await handleBlocked())) break outer;
+      continue; // cursor intacto: reintenta las mismas páginas
+    }
+    advanceCursor(cur, pages, res.counts);
+    if (res.exhausted) {
       cur.done = true;
       maybeSplit(t);
     }
@@ -434,8 +696,9 @@ outer: for (const t of targets) {
 saveState();
 if (blocked) {
   console.error(
-    '\nCortado por bloqueo sostenido (403). Renová JP_COOKIE/JP_UA en .env.local ' +
-      'o esperá a que se enfríe la IP y relanzá el comando — el progreso quedó guardado.'
+    `\nCortado tras ${MAX_COOLDOWNS} cooldowns sin recuperación — la cookie ` +
+      `cf_clearance probablemente venció de verdad. Renová JP_COOKIE/JP_UA en ` +
+      `.env.local y relanzá el comando — el progreso quedó guardado.`
   );
   process.exitCode = 1;
 }

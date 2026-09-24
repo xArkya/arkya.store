@@ -30,6 +30,10 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
+  RangeSlider,
+  RangeSliderTrack,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
   List,
   ListItem,
   ListIcon,
@@ -39,44 +43,96 @@ import {
 import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
 import { useSearchParams } from 'react-router-dom';
-import { JP_CATEGORY_TREE, JP_PRICE_BANDS } from '../data/jpCatalogFilters';
+import { JP_CATEGORY_TREE, JP_PRICE_BANDS, JP_SEARCH_ALIASES } from '../data/jpCatalogFilters';
 
 const CATEGORY_TABS = [
   { id: 'books', label: 'Libros' },
-  { id: 'doujin', label: 'Doujin', soon: true },
+  // Por ahora el catálogo doujin no se expone al público: ambas tabs
+  // quedan "Próximamente" aunque las env vars estén configuradas. Para
+  // habilitarlas hay que sacar el `soon` fijo.
+  { id: 'doujin', label: 'Doujinshi', soon: true },
+  { id: 'all', label: 'Libros + Doujinshi', soon: true },
 ];
 
-// Base de la API del catálogo. Vacío = mismo origen (dev usa el middleware
-// de Vite). En producción el sitio es estático (GitHub Pages) y las
-// functions viven en un Netlify aparte, configurado con VITE_JP_API_URL.
-const JP_API = (import.meta.env.VITE_JP_API_URL || '').replace(/\/$/, '');
-
-// Modo DB: el catálogo se lee directo de Supabase (tabla `products` que
-// llena scripts/jp-crawl.mjs). La anon key es pública: la tabla tiene RLS
-// de solo lectura. Si no está configurado, se usa la API live como antes.
+// El catálogo se lee directo de Supabase (tabla `products` que llena
+// scripts/jp-crawl.mjs). La anon key es pública: la tabla tiene RLS de
+// solo lectura.
 const SUPA_URL = (import.meta.env.VITE_SUPABASE_URL || '').replace(/\/$/, '');
 const SUPA_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-const USE_DB = Boolean(SUPA_URL && SUPA_KEY);
+// Doujin vive en un proyecto Supabase aparte (~1M items: no entra en el
+// free tier junto a los libros). Mismo schema de `products`; la pestaña
+// se habilita sola cuando la env var está configurada.
+const SUPA_DOUJIN_URL = (import.meta.env.VITE_SUPABASE_DOUJIN_URL || '').replace(/\/$/, '');
+const SUPA_DOUJIN_KEY = import.meta.env.VITE_SUPABASE_DOUJIN_ANON_KEY || '';
+const supaFor = (cat) =>
+  cat === 'doujin'
+    ? { url: SUPA_DOUJIN_URL, key: SUPA_DOUJIN_KEY }
+    : { url: SUPA_URL, key: SUPA_KEY };
 
 // Mapeo categoría/subcategoría -> códigos hoja crawleados. La UI puede
 // elegir un tipo de nivel 1 (p.ej. "Cómic") y el filtro cubre sus hojas.
 const LEAF_CODES = {};
+const LEAF_LOOKUP = {};
 for (const [cat, tree] of Object.entries(JP_CATEGORY_TREE)) {
   LEAF_CODES[cat] = {};
+  LEAF_LOOKUP[cat] = {};
   for (const level1 of tree) {
-    LEAF_CODES[cat][level1.code] = level1.children.map((c) => c.code);
+    LEAF_CODES[cat][level1.code] = level1.children.flatMap((c) => c.codes || [c.code]);
+    for (const leaf of level1.children) {
+      LEAF_LOOKUP[cat][leaf.code] = leaf.codes || [leaf.code];
+    }
   }
 }
 function codesFor(cat, sub) {
   const map = LEAF_CODES[cat] || {};
   if (!sub) return Object.values(map).flat();
-  return map[sub] || [sub];
+  return map[sub] || LEAF_LOOKUP[cat]?.[sub] || [sub];
 }
 
+// Código de sub -> "Tipo / Subtipo" para mostrar en las cards.
+const SUB_LABELS = {};
+for (const [cat, tree] of Object.entries(JP_CATEGORY_TREE)) {
+  SUB_LABELS[cat] = {};
+  for (const level1 of tree)
+    for (const leaf of level1.children)
+      for (const c of leaf.codes || [leaf.code])
+        SUB_LABELS[cat][c] = `${level1.label} / ${leaf.label}`;
+}
+
+// Palabras que no sirven para el fallback OR de búsqueda: partículas
+// romanizadas (no/wa/ga...) y conectores comunes aparecen en cientos de
+// miles de títulos y convertirían el OR en "todo el catálogo".
+const OR_STOPWORDS = new Set([
+  'no', 'wa', 'ga', 'de', 'to', 'ni', 'wo', 'mo', 'ka', 'na', 'yo', 'ne',
+  'the', 'of', 'a', 'an', 'in', 'on', 'at', 'and', 'or', 'for', 'with',
+  'el', 'la', 'los', 'las', 'del', 'en', 'y', 'un', 'una',
+]);
+
+const JP_CHARS = /[぀-ヿ㐀-鿿]/;
+const GT_CACHE = new Map();
+// Traducción silenciosa del query con el endpoint público de Google (sin
+// key): si el query no trae japonés se traduce a japonés; si trae, a inglés.
+// El resultado se OR-ea con la búsqueda normal — el origen deja muchos
+// títulos en japonés puro o los romaniza mal ("チェンソーマン" → "Chiensoman").
+// Cacheada por texto; si Google falla o tarda >2s, se busca sin el término.
+const translateTerm = async (text, target) => {
+  const ck = `${target}:${text}`;
+  if (GT_CACHE.has(ck)) return GT_CACHE.get(ck);
+  let t = '';
+  try {
+    const u = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${target}&dt=t&q=${encodeURIComponent(text)}`;
+    const r = await fetch(u, { signal: AbortSignal.timeout(2000) });
+    if (r.ok) t = (await r.json())?.[0]?.map((s) => s?.[0] || '').join('').trim() || '';
+  } catch {}
+  GT_CACHE.set(ck, t);
+  return t;
+};
+
 const SORT_OPTIONS = [
-  { value: 'relevant', label: 'Relevancia' },
   { value: 'released_date_desc', label: 'Más recientes' },
   { value: 'released_date_asc', label: 'Más antiguos' },
+  { value: 'price_asc', label: 'Menor precio' },
+  { value: 'price_desc', label: 'Mayor precio' },
 ];
 
 const YEAR_RANGES = [
@@ -91,15 +147,8 @@ const YEAR_RANGES = [
   { value: '[2025, 2026]', label: '2025 – 2026' },
 ];
 
-// Opciones de precio por banda — el value es el índice de JP_PRICE_BANDS,
-// que es lo que el crawler guarda en products.price_band
-const PRICE_BAND_OPTIONS = JP_PRICE_BANDS.map((b, i) => ({
-  value: String(i),
-  label: b.label,
-}));
-
 // Dropdown custom (los <select> nativos se ven feos en el tema oscuro)
-function FilterSelect({ placeholder, value, options, groups, onChange }) {
+function FilterSelect({ placeholder, value, options, groups, onChange, allowClear = true }) {
   const flat = groups ? groups.flatMap((g) => g.items) : options;
   const current = flat.find((o) => o.value === value);
 
@@ -151,16 +200,18 @@ function FilterSelect({ placeholder, value, options, groups, onChange }) {
         zIndex={1500}
         boxShadow="0 8px 30px rgba(0,0,0,0.6)"
       >
-        <MenuItem
-          bg="transparent"
-          fontSize="sm"
-          color={!value ? 'pink.300' : 'whiteAlpha.600'}
-          fontWeight={!value ? 600 : 400}
-          _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
-          onClick={() => onChange('')}
-        >
-          {placeholder}
-        </MenuItem>
+        {allowClear && (
+          <MenuItem
+            bg="transparent"
+            fontSize="sm"
+            color={!value ? 'pink.300' : 'whiteAlpha.600'}
+            fontWeight={!value ? 600 : 400}
+            _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
+            onClick={() => onChange('')}
+          >
+            {placeholder}
+          </MenuItem>
+        )}
         {groups
           ? groups.map((g) => (
               <Box key={g.label}>
@@ -179,6 +230,118 @@ function FilterSelect({ placeholder, value, options, groups, onChange }) {
               </Box>
             ))
           : options.map(renderItem)}
+      </MenuList>
+    </Menu>
+  );
+}
+
+// Select de precio con slider de rango: dos thumbs sobre los índices de
+// JP_PRICE_BANDS. El value es '' (cualquiera), '2' (una banda) o '1-3'
+// (rango — gte/lte en la query). Las bandas son rangos estimados en ARS:
+// el label del slider muestra piso de la banda baja → techo de la alta.
+const PRICE_MAX_BAND = JP_PRICE_BANDS.length - 1;
+const BAND_LO = ['~$15k', '~$15k', '~$25k', '~$35k', '~$55k', '~$90k'];
+const BAND_HI = ['$35k', '$45k', '$45k', '$70k', '$100k', '+$90k'];
+const parseBandRange = (b) => {
+  if (!b) return [0, PRICE_MAX_BAND];
+  const [lo, hi] = b.split('-').map(Number);
+  return [lo, hi ?? lo];
+};
+function PriceRangeSelect({ value, onChange }) {
+  const [range, setRange] = useState(() => parseBandRange(value));
+  // Si el filtro se resetea desde afuera (URL, otro control) el slider
+  // vuelve a los extremos.
+  useEffect(() => setRange(parseBandRange(value)), [value]);
+
+  const label = !value
+    ? 'Cualquiera'
+    : `${BAND_LO[range[0]]} – ${BAND_HI[range[1]]}`;
+
+  return (
+    <Menu placement="bottom-start" autoSelect={false} closeOnSelect={false}>
+      <MenuButton
+        as={Button}
+        size="sm"
+        w="100%"
+        rightIcon={<FaChevronDown size={9} />}
+        bg="whiteAlpha.100"
+        color={value ? 'white' : 'whiteAlpha.600'}
+        border="1px solid"
+        borderColor={value ? 'pink.400' : 'whiteAlpha.200'}
+        borderRadius="lg"
+        fontWeight={500}
+        px={4}
+        _hover={{ borderColor: 'pink.400', bg: 'whiteAlpha.200' }}
+        _active={{ bg: 'whiteAlpha.200' }}
+      >
+        <Text as="span" noOfLines={1}>
+          {label}
+        </Text>
+      </MenuButton>
+      <MenuList
+        bg="#2d1e2a"
+        border="1px solid"
+        borderColor="whiteAlpha.200"
+        borderRadius="xl"
+        py={2}
+        minW="250px"
+        zIndex={1500}
+        boxShadow="0 8px 30px rgba(0,0,0,0.6)"
+      >
+        <MenuItem
+          bg="transparent"
+          fontSize="sm"
+          color={!value ? 'pink.300' : 'whiteAlpha.600'}
+          fontWeight={!value ? 600 : 400}
+          _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
+          onClick={() => onChange('')}
+        >
+          Cualquiera
+        </MenuItem>
+        <Box px={4} pt={3} pb={2}>
+          <Text fontSize="xs" color="whiteAlpha.500" mb={2}>
+            Rango:{' '}
+            <Text as="span" color="pink.300" fontWeight={600}>
+              {range[0] === 0 && range[1] === PRICE_MAX_BAND
+                ? 'todos'
+                : `${BAND_LO[range[0]]} a ${BAND_HI[range[1]]}`}
+            </Text>
+          </Text>
+          <RangeSlider
+            min={0}
+            max={PRICE_MAX_BAND}
+            step={1}
+            minStepsBetweenThumbs={0}
+            value={range}
+            onChange={setRange}
+            // El filtro (y el fetch) se aplica al soltar — no en cada tick
+            // del drag.
+            onChangeEnd={(r) =>
+              onChange(
+                r[0] === 0 && r[1] === PRICE_MAX_BAND
+                  ? ''
+                  : r[0] === r[1]
+                    ? String(r[0])
+                    : `${r[0]}-${r[1]}`
+              )
+            }
+            colorScheme="pink"
+          >
+            <RangeSliderTrack bg="whiteAlpha.200">
+              <RangeSliderFilledTrack />
+            </RangeSliderTrack>
+            <RangeSliderThumb index={0} />
+            <RangeSliderThumb index={1} />
+          </RangeSlider>
+          <Flex justify="space-between" mt={2}>
+            <Text fontSize="xs" color="whiteAlpha.600">
+              {BAND_LO[0]}
+            </Text>
+            <Text fontSize="xs" color="whiteAlpha.600">
+              {BAND_HI[PRICE_MAX_BAND]}
+            </Text>
+          </Flex>
+        </Box>
       </MenuList>
     </Menu>
   );
@@ -208,13 +371,19 @@ export default function ImportCatalogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState(() => searchParams.get('q') || '');
   const [query, setQuery] = useState(() => searchParams.get('q') || '');
-  const [category, setCategory] = useState(() => searchParams.get('cat') || 'books');
+  const [category, setCategory] = useState(() => {
+    const c = searchParams.get('cat') || 'books';
+    // Tabs "Próximamente" no se pueden activar ni por URL directa.
+    const tab = CATEGORY_TABS.find((t) => t.id === c);
+    return tab && !tab.soon ? c : 'books';
+  });
   const [sub1, setSub1] = useState(() => searchParams.get('tipo') || ''); // nivel 1
   const [sub2, setSub2] = useState(() => searchParams.get('sub') || ''); // nivel 2
   const [year, setYear] = useState(() => searchParams.get('a') || '');
   const [band, setBand] = useState(() => searchParams.get('precio') || ''); // índice de JP_PRICE_BANDS
-  const [sort, setSort] = useState(() => searchParams.get('orden') || 'relevant');
+  const [sort, setSort] = useState(() => searchParams.get('orden') || '');
   const [page, setPage] = useState(() => Math.max(1, Number(searchParams.get('p')) || 1));
+  const [retryTick, setRetryTick] = useState(0);
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [totalApprox, setTotalApprox] = useState(false);
@@ -228,6 +397,8 @@ export default function ImportCatalogPage() {
   const { isOpen: isPreviewOpen, onOpen: onPreviewOpen, onClose: onPreviewClose } = useDisclosure();
   const abortRef = useRef(null);
   const resultsRef = useRef(null);
+  const lastTotalRef = useRef(null);
+  const mixInfoRef = useRef(null);
   const toast = useToast();
 
   // Debounce del input
@@ -248,6 +419,18 @@ export default function ImportCatalogPage() {
 
   const sub = sub2 || sub1 || (singleType?.code ?? '');
 
+  // Reset a página 1 como estado derivado: si cambió búsqueda/filtros, este
+  // render ya usa página 1 (evita el fetch con offset viejo → 416). En el
+  // primer render la key coincide, así la ?p= de la URL se respeta.
+  const filtersKey = `${query}|${category}|${sub}|${year}|${band}|${sort}`;
+  const [prevFiltersKey, setPrevFiltersKey] = useState(filtersKey);
+  let effPage = page;
+  if (prevFiltersKey !== filtersKey) {
+    setPrevFiltersKey(filtersKey);
+    effPage = 1;
+    if (page !== 1) setPage(1);
+  }
+
   // Persistir estado en la URL (replace: no ensucia el historial, pero
   // recargar o volver desde otra página restaura búsqueda + página)
   useEffect(() => {
@@ -258,21 +441,20 @@ export default function ImportCatalogPage() {
     if (sub2) p.sub = sub2;
     if (year) p.a = year;
     if (band !== '') p.precio = band;
-    if (sort !== 'relevant') p.orden = sort;
-    if (page > 1) p.p = String(page);
+    if (sort) p.orden = sort;
+    if (effPage > 1) p.p = String(effPage);
     setSearchParams(p, { replace: true });
-  }, [query, category, sub1, sub2, year, band, sort, page, setSearchParams]);
+  }, [query, category, sub1, sub2, year, band, sort, effPage, setSearchParams]);
 
-  // Volver a página 1 cuando cambia la búsqueda o los filtros (no al montar,
-  // así no pisa la página restaurada de la URL)
-  const mountedRef = useRef(false);
+  // Scroll al tope de los resultados al cambiar de página — instantáneo:
+  // el smooth se cortaba por el lazy-load de las imágenes.
+  const prevPageRef = useRef(effPage);
   useEffect(() => {
-    if (!mountedRef.current) {
-      mountedRef.current = true;
-      return;
+    if (effPage !== prevPageRef.current) {
+      prevPageRef.current = effPage;
+      resultsRef.current?.scrollIntoView({ block: 'start' });
     }
-    setPage(1);
-  }, [query, category, sub, year, band, sort]);
+  }, [effPage]);
 
   // Si la categoría cambia y la subcategoría elegida no pertenece, limpiarla
   useEffect(() => {
@@ -295,70 +477,315 @@ export default function ImportCatalogPage() {
       setTotalApprox(approx);
       setHasMore(more);
       setStatus('ok');
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
     const onError = (err) => {
-      if (err.name !== 'AbortError') setStatus('error');
+      // Un request abortado puede igual rechazar con error HTTP (416/500):
+      // si el efecto ya fue reemplazado, no ensuciar el estado.
+      if (err.name !== 'AbortError' && !controller.signal.aborted) setStatus('error');
     };
 
-    if (USE_DB) {
+    {
+      // Lookup directo por ID de producto: query numérico/alfanumérico o link
+      // .../product/<id> pegado entero. Salta filtros de sub/banda/año para
+      // que el item se encuentre aunque su sub no esté en el árbol visible.
+      const pid = (() => {
+        const t = query.trim();
+        const m = t.match(/product\/([a-zA-Z0-9]+)/) || t.match(/^([a-zA-Z]{0,5}\d{4,}[a-zA-Z0-9]*)$/);
+        return m ? m[1].toLowerCase() : null;
+      })();
+      // Búsqueda por palabras: cada una es un ilike independiente (AND en
+      // PostgREST), así "piece film red" encuentra "ONE PIECE FILM RED" aunque
+      // el orden o las palabras del medio no coincidan. Si el AND devuelve 0
+      // se reintenta con OR (cualquier palabra) para ampliar el recall.
+      const words = query
+        .replace(/[(),.*%'"]/g, ' ')
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 6);
+      // Alias español/occidental → nombre romanizado (ej. "demon slayer" →
+      // "kimetsu no yaiba"). Se matchea como frase completa dentro del query
+      // normalizado; las claves más largas ganan ("dragon ball z" antes que
+      // "dragon ball").
+      const normalized = query
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      const aliasKey = Object.keys(JP_SEARCH_ALIASES)
+        .sort((a, b) => b.length - a.length)
+        .find((k) => normalized === k || normalized.startsWith(`${k} `) || normalized.endsWith(` ${k}`) || normalized.includes(` ${k} `));
+      // Un alias puede tener alternativas separadas por '|' (ej. nombre
+      // romanizado | nombre japonés real) — cada una es un grupo AND
+      // independiente dentro del OR, porque el título trae una u otra.
+      const aliasGroups = aliasKey
+        ? JP_SEARCH_ALIASES[aliasKey].split('|').map((s) => s.trim().split(/\s+/).filter(Boolean))
+        : [];
+      const aliasWords = aliasGroups.flat();
+      const andGroup = (ws) => `and(${ws.map((w) => `title.ilike.*${w}*`).join(',')})`;
+      const mapRow = (r) => ({
+        id: r.id,
+        title: r.title,
+        // Imagen directo al CDN del origen — sin proxy (ahorra
+        // invocaciones/bandwidth del host de functions). Las filas viejas
+        // guardan '/api/jp-image?u=<cdn>' — se desenvuelve el param u.
+        // no_photo.jpg es el placeholder del origen = sin foto real.
+        image: (() => {
+          const raw = r.image?.startsWith('/api/jp-image?u=')
+            ? decodeURIComponent(r.image.slice('/api/jp-image?u='.length).split('&')[0])
+            : r.image;
+          if (!raw?.startsWith('http') || raw.includes('no_photo')) return null;
+          // www.suruga-ya.jp bloquea cross-origin (CORP 403): se deriva
+          // el thumb del CDN por id; si tampoco existe, el onError de la
+          // card cae al placeholder "Sin imagen".
+          if (raw.includes('suruga-ya.jp/'))
+            return `https://cdn.suruga-ya.com/pics_webp/boxart_m/${r.id.toLowerCase()}m.jpg.webp`;
+          return raw;
+        })(),
+        releaseDate: r.release_date || null,
+        priceBand: r.price_band ?? null,
+        subLabel: SUB_LABELS[category]?.[r.sub] || null,
+      });
       // Query PostgREST contra la tabla products. El contador total viene en
       // el header Content-Range (0-23/1234) gracias a Prefer: count=exact.
-      const params = new URLSearchParams({
-        select: 'id,title,image,release_date,price_band',
-        sub: `in.(${codesFor(category, sub).join(',')})`,
-        // "relevant"/desc: manga y cómics primero (prio), luego por fecha.
-        // asc explícito: orden por fecha puro.
-        order:
-          sort === 'released_date_asc'
-            ? 'release_date.asc.nullslast,id.asc'
-            : 'prio.desc,release_date.desc.nullslast,id.asc',
-        limit: '24',
-        offset: String((page - 1) * 24),
-      });
-      const q = query.replace(/[(),.*%]/g, ' ').trim();
-      if (q) params.set('title', `ilike.*${q}*`);
-      if (band !== '') params.set('price_band', `eq.${band}`);
-      if (year) {
-        const m = year.match(/(\d{4})?,\s*(\d{4})/);
-        if (m) {
-          if (m[1]) params.append('release_date', `gte.${m[1]}-01-01`);
-          params.append('release_date', `lte.${m[2]}-12-31`);
+      // extraGroups = términos extra (la traducción del query) que se suman
+      // como alternativas OR junto a los aliases.
+      const buildParams = (extraGroups) => {
+        const params = new URLSearchParams({
+          select: 'id,title,image,release_date,price_band,sub',
+          ...(pid ? {} : { sub: `in.(${codesFor(category, sub).join(',')})` }),
+          // "relevant"/desc: manga y cómics primero (prio), luego por fecha.
+          // precio: ordena por la banda (0-5 ≈ barato→caro), sin banda al final.
+          order:
+            sort === 'released_date_asc'
+              ? 'release_date.asc.nullslast,id.asc'
+              : sort === 'released_date_desc'
+                ? 'release_date.desc.nullslast,id.asc'
+                : sort === 'price_asc'
+                ? 'price_band.asc.nullslast,prio.desc,release_date.desc.nullslast,id.asc'
+                : sort === 'price_desc'
+                  ? 'price_band.desc.nullslast,prio.desc,release_date.desc.nullslast,id.asc'
+                  : 'prio.desc,release_date.desc.nullslast,id.asc',
+          // Se piden 25 y se muestran 24: la fila extra dice si hay página
+          // siguiente sin necesitar count=exact en cada request.
+          limit: '25',
+          offset: String((effPage - 1) * 24),
+        });
+        if (pid) params.set('id', `eq.${pid}`);
+        if (!pid && words.length) {
+          const groups = [words, ...aliasGroups, ...extraGroups].filter((g) => g.length);
+          if (groups.length > 1) params.set('or', `(${groups.map(andGroup).join(',')})`);
+          else words.forEach((w) => params.append('title', `ilike.*${w}*`));
         }
-      }
-      const load = () =>
-        fetch(`${SUPA_URL}/rest/v1/products?${params.toString()}`, {
-          signal: controller.signal,
-          headers: {
-            apikey: SUPA_KEY,
-            Authorization: `Bearer ${SUPA_KEY}`,
-            Prefer: 'count=exact',
-          },
-        })
-          .then(async (r) => {
+        // band: '' | '2' | '1-3' (rango del slider -> gte/lte en la query)
+        if (!pid && band !== '') {
+          if (band.includes('-')) {
+            const [blo, bhi] = band.split('-');
+            params.set('price_band', `gte.${blo}`);
+            params.append('price_band', `lte.${bhi}`);
+          } else {
+            params.set('price_band', `eq.${band}`);
+          }
+        }
+        if (year && !pid) {
+          const m = year.match(/(\d{4})?,\s*(\d{4})/);
+          if (m) {
+            if (m[1]) params.append('release_date', `gte.${m[1]}-01-01`);
+            params.append('release_date', `lte.${m[2]}-12-31`);
+          }
+        }
+        return params;
+      };
+      const load = async () => {
+        // Traducción del query → grupo OR extra: junta en una sola búsqueda
+        // los resultados del texto escrito, sus aliases y su versión en
+        // japonés (o en inglés si el input ya era japonés).
+        let extraGroups = [];
+        if (!pid && query.trim()) {
+          const t = await translateTerm(query.trim(), JP_CHARS.test(query) ? 'en' : 'ja');
+          const tw = t.split(/\s+/).filter(Boolean).slice(0, 8);
+          if (tw.length) extraGroups = [tw];
+        }
+        const params = buildParams(extraGroups);
+        const db = supaFor(category);
+        // count=exact solo cuando hace falta el total (página 1 o entrada
+        // directa por URL): contar es lo caro de la query — en páginas
+        // siguientes se usa el total ya conocido y la fila extra del limit.
+        const wantCount =
+          effPage === 1 || lastTotalRef.current?.key !== filtersKey;
+        // Vista default de Doujinshi (sin orden, sub ni búsqueda): feed
+        // curado "de anime" que intercala las tres subs — Anime (mujeres),
+        // Parodias y Originales (hombres) — 8 de cada una por página.
+        // Cuando el mix se agota, continúan el resto de las subs.
+        if (category === 'doujin' && !pid && !sub && !query.trim() && !sort) {
+          const DOUJIN_MIX_SUBS = ['11000100', '11000000', '11000001'];
+          const restCodes = codesFor(category, '').filter(
+            (c) => !DOUJIN_MIX_SUBS.includes(c)
+          );
+          const per = 8;
+          const subParams = (codes, lmt, off) => {
+            const p = new URLSearchParams(params);
+            p.set(
+              'sub',
+              codes.length === 1 ? `eq.${codes[0]}` : `in.(${codes.join(',')})`
+            );
+            p.set('limit', String(lmt));
+            p.set('offset', String(off));
+            return p;
+          };
+          const fetchP = (p, prefer) =>
+            fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
+              signal: controller.signal,
+              headers: {
+                apikey: db.key,
+                Authorization: `Bearer ${db.key}`,
+                Prefer: prefer,
+              },
+            }).then(async (r) => {
+              if (r.status === 416) return { rows: [], total: 0 };
+              if (!r.ok) throw new Error(`HTTP ${r.status}`);
+              const cr = r.headers.get('content-range') || '';
+              const total = cr.endsWith('/*') ? null : Number(cr.split('/')[1]) || 0;
+              return { rows: await r.json(), total };
+            });
+          return (async () => {
+            // Totales del mix + del resto, cacheados por combinación de
+            // filtros: definen en qué página termina el feed intercalado.
+            if (mixInfoRef.current?.key !== filtersKey) {
+              const rs = await Promise.all([
+                ...DOUJIN_MIX_SUBS.map((c) =>
+                  fetchP(subParams([c], 1, 0), 'count=exact')
+                ),
+                ...(restCodes.length
+                  ? [fetchP(subParams(restCodes, 1, 0), 'count=exact')]
+                  : []),
+              ]);
+              const totals = rs
+                .slice(0, DOUJIN_MIX_SUBS.length)
+                .map((r) => r.total || 0);
+              mixInfoRef.current = {
+                key: filtersKey,
+                max: Math.max(...totals, 0),
+                sum: totals.reduce((a, b) => a + b, 0),
+                rest: restCodes.length
+                  ? rs[DOUJIN_MIX_SUBS.length]?.total || 0
+                  : 0,
+              };
+            }
+            const mix = mixInfoRef.current;
+            const mixPages = Math.ceil(mix.max / per);
+            if (effPage <= mixPages) {
+              // Frame del mix: 8 slots por sub intercalados; si una sub se
+              // agota sus slots quedan vacíos en las páginas finales.
+              const results = await Promise.all(
+                DOUJIN_MIX_SUBS.map((c) =>
+                  fetchP(
+                    subParams([c], per + 1, (effPage - 1) * per),
+                    'count=none'
+                  )
+                )
+              );
+              const lists = results.map((r) => r.rows.slice(0, per));
+              const rows = [];
+              for (let i = 0; i < per; i++)
+                for (const l of lists) if (l[i]) rows.push(l[i]);
+              applyResults(
+                rows.map(mapRow),
+                mix.sum + mix.rest,
+                false,
+                effPage < mixPages || mix.rest > 0
+              );
+              return;
+            }
+            // Mix agotado → el resto de las subs en query normal de a 24.
+            if (!restCodes.length) {
+              applyResults([], mix.sum, false, false);
+              return;
+            }
+            const restPage = effPage - mixPages;
+            const r = await fetchP(
+              subParams(restCodes, 25, (restPage - 1) * 24),
+              'count=none'
+            );
+            applyResults(
+              r.rows.slice(0, 24).map(mapRow),
+              mix.sum + mix.rest,
+              false,
+              r.rows.length > 24 || restPage * 24 < mix.rest
+            );
+          })();
+        }
+        // count=exact puede timeoutear en tablas grandes (500 / 57014):
+        // en ese caso se reintenta la misma query sin conteo — la paginación
+        // sigue con la fila extra y el último total conocido.
+        const fetchRows = (p, prefer) =>
+          fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
+            signal: controller.signal,
+            headers: {
+              apikey: db.key,
+              Authorization: `Bearer ${db.key}`,
+              Prefer: prefer,
+            },
+          }).then(async (r) => {
+            // 416 = offset fuera de rango (página vieja al cambiar filtros o
+            // un ?p= alto en la URL): se trata como "sin resultados", no error.
+            if (r.status === 416) return { rows: [], total: 0 };
+            if (!r.ok && prefer.includes('exact')) {
+              const r2 = await fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
+                signal: controller.signal,
+                headers: {
+                  apikey: db.key,
+                  Authorization: `Bearer ${db.key}`,
+                  Prefer: 'count=none',
+                },
+              });
+              if (r2.status === 416) return { rows: [], total: 0 };
+              if (!r2.ok) throw new Error(`HTTP ${r2.status}`);
+              return { rows: await r2.json(), total: null };
+            }
             if (!r.ok) throw new Error(`HTTP ${r.status}`);
-            const total = Number((r.headers.get('content-range') || '').split('/')[1]) || 0;
+            const cr = r.headers.get('content-range') || '';
+            // count=none devuelve '0-24/*' — el total queda desconocido
+            const total = cr.endsWith('/*') ? null : Number(cr.split('/')[1]) || 0;
             return { rows: await r.json(), total };
-          })
-          .then(({ rows, total }) => {
-            const list = (rows || []).map((r) => ({
-              id: r.id,
-              title: r.title,
-              // Imagen directo al CDN del origen — sin proxy (ahorra
-              // invocaciones/bandwidth del host de functions). Las filas viejas
-              // guardan '/api/jp-image?u=<cdn>' — se desenvuelve el param u.
-              // no_photo.jpg es el placeholder del origen = sin foto real.
-              image: (() => {
-                const raw = r.image?.startsWith('/api/jp-image?u=')
-                  ? decodeURIComponent(r.image.slice('/api/jp-image?u='.length).split('&')[0])
-                  : r.image;
-                return raw?.startsWith('http') && !raw.includes('no_photo') ? raw : null;
-              })(),
-              releaseDate: r.release_date || null,
-              priceBand: r.price_band ?? null,
-            }));
-            applyResults(list, total, false, page * 24 < total);
           });
+        return fetchRows(params, wantCount ? 'count=exact' : 'count=none')
+          .then(({ rows, total }) => {
+            if (total != null) lastTotalRef.current = { key: filtersKey, total };
+            // Sin conteo exacto el total se infiere de las filas: si la
+            // página vino corta (<25) el total es offset+filas exacto; si
+            // vino llena hay al menos un item más ("más de N"). El total
+            // cacheado solo vale para la misma combinación de filtros.
+            const n = (rows || []).length;
+            const inferred = (effPage - 1) * 24 + Math.min(n, 24) + (n > 24 ? 1 : 0);
+            const cached = lastTotalRef.current?.key === filtersKey ? lastTotalRef.current.total : null;
+            const knownTotal = total ?? Math.max(cached ?? 0, inferred);
+            // AND estricto sin resultados → ampliar con OR, pero solo con
+            // palabras significativas: "no", "wa", "of" etc. están en medio
+            // millón de títulos romanizados y ensucian todo. Solo si el
+            // conteo real dijo 0 — con total desconocido no se asume vacío.
+            const orWords = [...new Set([...words, ...aliasWords, ...extraGroups.flat()])].filter(
+              (w) => w.length > 2 && !OR_STOPWORDS.has(w.toLowerCase())
+            );
+            if (total === 0 && !pid && words.length > 1 && orWords.length) {
+              const p2 = new URLSearchParams(params);
+              p2.delete('title');
+              p2.set('or', `(${orWords.map((w) => `title.ilike.*${w}*`).join(',')})`);
+              return fetchRows(p2, 'count=exact').then(({ rows: r2, total: t2 }) => ({
+                rows: r2,
+                total: t2 ?? lastTotalRef.current?.total ?? 0,
+                approx: t2 == null,
+              }));
+            }
+            return { rows, total: knownTotal, approx: total == null };
+          })
+          .then(({ rows, total, approx }) => {
+            const more = (rows || []).length > 24;
+            const list = (rows || []).slice(0, 24).map(mapRow);
+            applyResults(list, total, !!approx, more || effPage * 24 < total);
+          });
+      };
 
       // Si el crawler está saturando la DB, Supabase devuelve 500
       // transitorios: un retry a los 1.5s suele alcanzar
@@ -368,26 +795,9 @@ export default function ImportCatalogPage() {
           if (!controller.signal.aborted) load().catch(onError);
         }, 1500);
       });
-    } else {
-      const params = new URLSearchParams({ q: query, category, page: String(page), sort });
-      if (sub) params.set('sub', sub);
-      if (year) params.set('year', year);
-      fetch(`${JP_API}/api/jp-search?${params.toString()}`, { signal: controller.signal })
-        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-        .then((data) => {
-          // Las URLs de imagen vienen relativas (/api/jp-image?...): si la API
-          // está en otro origen hay que prefijarlas con la base.
-          const list = (data.items || []).map((it) =>
-            JP_API && typeof it.image === 'string' && it.image.startsWith('/')
-              ? { ...it, image: JP_API + it.image }
-              : it
-          );
-          applyResults(list, data.totalCount || 0, Boolean(data.totalApprox), Boolean(data.hasMore));
-        })
-        .catch(onError);
     }
     return () => controller.abort();
-  }, [query, category, sub, year, band, sort, page]);
+  }, [query, category, sub, year, band, sort, effPage, retryTick]);
 
   const toggleSelect = (p) => {
     setSelected((prev) => {
@@ -478,7 +888,7 @@ export default function ImportCatalogPage() {
               </Heading>
             </Flex>
             <Text color="whiteAlpha.600" fontSize="md" maxW="xl">
-              Buscá libros y doujin. Marcá los que te interesen y consultanos
+              Buscá libros y doujinshis. Marcá los que te interesen y consultanos
               por Instagram para que los cotizemos!
             </Text>
             <Text color="whiteAlpha.600" fontSize="md" maxW="xl">
@@ -506,7 +916,7 @@ export default function ImportCatalogPage() {
                 <Input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Buscar manga, artbook, doujinshi... (ej: one piece)"
+                  placeholder="Buscar... (Se recomienda buscar en Inglés y Japonés)"
                   bg="whiteAlpha.100"
                   border="1px solid"
                   borderColor="whiteAlpha.200"
@@ -537,8 +947,9 @@ export default function ImportCatalogPage() {
                 <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
                   Tené en cuenta que algunos libros pueden no aparecer ni
                   en inglés: en Japón a veces usan un nombre distinto al
-                  habitual. Si no lo encontrás, consultanos por Instagram y lo
-                  buscamos nosotros.
+                  habitual y también hay otros títulos que solo figuran en japonés. Si no
+                  lo encontrás, consultanos por Instagram y lo buscamos
+                  nosotros.
                 </Text>
               </Flex>
 
@@ -556,13 +967,25 @@ export default function ImportCatalogPage() {
                 <Box color="pink.400" mt={0.5} flexShrink={0}>
                   <FaInfoCircle size={11} />
                 </Box>
-                <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
-                  Este catálogo muestra solo una parte de lo que podemos
-                  conseguir: hay muchísimos más libros disponibles. Si buscás
-                  algo puntual que no aparece, consultanos por Instagram —
-                  las ediciones normales de mangas y novelas suelen poder
-                  traerse todas.
-                </Text>
+                <VStack align="start" spacing={1.5} flex={1}>
+                  <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
+                    Este catálogo muestra solo una parte de lo que podemos
+                    conseguir: hay muchísimos más libros disponibles. Si
+                    buscás algo puntual que no aparece, consultanos por
+                    Instagram — las ediciones normales de mangas y novelas
+                    suelen poder traerse todas, por eso no se muestran en el catalogo
+                  </Text>
+                  <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
+                    Los rangos de precio son un promedio basado en las
+                    últimas veces que el producto estuvo en stock — el precio
+                    final puede ser distinto.
+                  </Text>
+                  <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
+                    No todo está en stock en Japón: es un catálogo de
+                    productos que podemos traer. Al consultarnos te
+                    confirmamos disponibilidad y precio final.
+                  </Text>
+                </VStack>
               </Flex>
 
               {/* Categoría: segmented control */}
@@ -620,7 +1043,9 @@ export default function ImportCatalogPage() {
                   />
                 </Box>
 
-                {sub2Options.length > 0 && (
+                {/* Un solo subtipo (ej. Panfleto) no aporta: el select de
+                    tipo ya cubre su código — no se muestra. */}
+                {sub2Options.length > 1 && (
                   <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
                     <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                       SUBTIPO
@@ -650,12 +1075,7 @@ export default function ImportCatalogPage() {
                   <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     PRECIO APROX.
                   </Text>
-                  <FilterSelect
-                    placeholder="Cualquiera"
-                    value={band}
-                    onChange={setBand}
-                    options={PRICE_BAND_OPTIONS}
-                  />
+                  <PriceRangeSelect value={band} onChange={setBand} />
                 </Box>
 
                 <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
@@ -663,7 +1083,7 @@ export default function ImportCatalogPage() {
                     ORDEN
                   </Text>
                   <FilterSelect
-                    placeholder="Ordenar"
+                    placeholder="Ninguno"
                     value={sort}
                     onChange={setSort}
                     options={SORT_OPTIONS}
@@ -695,6 +1115,15 @@ export default function ImportCatalogPage() {
                 <Text color="whiteAlpha.500" fontSize="sm">
                   Probá de nuevo en unos segundos.
                 </Text>
+                <Button
+                  size="sm"
+                  colorScheme="pink"
+                  variant="outline"
+                  mt={2}
+                  onClick={() => setRetryTick((t) => t + 1)}
+                >
+                  Reintentar
+                </Button>
               </VStack>
             )}
 
@@ -729,7 +1158,7 @@ export default function ImportCatalogPage() {
                         borderColor={isSelected ? 'pink.400' : 'transparent'}
                         boxShadow="md"
                         transition="all 0.2s"
-                        _hover={{ transform: 'translateY(-8px)', borderColor: 'pink.400', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.04)' }}
+                        _hover={{ borderColor: 'pink.400', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.04)' }}
                         display="flex"
                         flexDirection="column"
                         cursor="pointer"
@@ -801,7 +1230,7 @@ export default function ImportCatalogPage() {
                             // Placeholder para items sin foto en el origen
                             <VStack spacing={2} color="whiteAlpha.400" h="100%" justify="center">
                               <FaBookOpen size={34} />
-                              <Text fontSize="2xs" letterSpacing="wider" textTransform="uppercase">
+                              <Text fontSize="xs" letterSpacing="wider" textTransform="uppercase">
                                 Sin imagen
                               </Text>
                             </VStack>
@@ -817,7 +1246,7 @@ export default function ImportCatalogPage() {
                             pointerEvents="none"
                           />
                           {/* Banda de precio sobre la imagen, como los badges del main */}
-                          {p.priceBand != null && JP_PRICE_BANDS[p.priceBand] && (
+                          {p.priceBand != null && JP_PRICE_BANDS[p.priceBand] ? (
                             <Badge
                               position="absolute"
                               top={2}
@@ -835,12 +1264,44 @@ export default function ImportCatalogPage() {
                             >
                               {JP_PRICE_BANDS[p.priceBand].label}
                             </Badge>
+                          ) : (
+                            // Sin banda: el origen no recuerda precio para este
+                            // item — la consulta confirma el precio real.
+                            <Badge
+                              position="absolute"
+                              top={2}
+                              left={2}
+                              zIndex={2}
+                              bg="gray.600"
+                              color="white"
+                              borderRadius="full"
+                              px={3}
+                              py={1}
+                              fontWeight="bold"
+                              fontSize={{ base: 'xs', md: 'sm' }}
+                              boxShadow="md"
+                              opacity={0.95}
+                            >
+                              A consultar
+                            </Badge>
                           )}
                         </Box>
                         <VStack align="stretch" p={4} spacing={2} flex={1}>
+                          {p.subLabel && (
+                            <Text
+                              fontSize="2xs"
+                              color="pink.300"
+                              fontWeight={700}
+                              textTransform="uppercase"
+                              letterSpacing="wider"
+                              noOfLines={1}
+                            >
+                              {p.subLabel}
+                            </Text>
+                          )}
                           <Text
                             color="white"
-                            fontSize="sm"
+                            fontSize={{ base: 'sm', md: 'md' }}
                             fontWeight={600}
                             noOfLines={2}
                             lineHeight="1.3"
@@ -848,12 +1309,12 @@ export default function ImportCatalogPage() {
                             {p.title}
                           </Text>
                           {p.releaseDate && (
-                            <Text fontSize="2xs" color="whiteAlpha.500" noOfLines={1} mt="auto">
+                            <Text fontSize="xs" color="whiteAlpha.600" noOfLines={1} mt="auto">
                               {p.releaseDate}
                             </Text>
                           )}
                           <Button
-                            size="xs"
+                            size="sm"
                             colorScheme="pink"
                             variant="outline"
                             leftIcon={<FaInstagram />}
@@ -1144,7 +1605,7 @@ export default function ImportCatalogPage() {
                   // Si no existe, onError cae al thumbnail del card.
                   // Click sobre la foto no cierra; afuera sí (ModalContent).
                   src={previewItem.image?.replace(
-                    /pics_webp\/boxart_m\/(\d+)m\.jpg\.webp$/,
+                    /pics_webp\/boxart_m\/([a-z0-9]+)m\.jpg\.webp$/,
                     'database/pics_webp/game/$1.jpg.webp'
                   )}
                   onError={(e) => {
@@ -1162,38 +1623,60 @@ export default function ImportCatalogPage() {
                   borderRadius="lg"
                   boxShadow="0 20px 60px rgba(0,0,0,0.6)"
                 />
-                <VStack spacing={3} maxW="lg" px={4} onClick={(e) => e.stopPropagation()}>
+                <VStack spacing={4} maxW="xl" px={4} onClick={(e) => e.stopPropagation()}>
                   <Text
                     color="white"
                     fontWeight={600}
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    fontSize={{ base: 'md', md: 'lg' }}
                     textAlign="center"
-                    noOfLines={2}
+                    noOfLines={3}
                   >
                     {previewItem.title}
                   </Text>
-                  <HStack spacing={3}>
+                  <HStack spacing={3} flexWrap="wrap" justify="center">
+                    {previewItem.subLabel && (
+                      <Badge bg="whiteAlpha.200" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
+                        {previewItem.subLabel}
+                      </Badge>
+                    )}
                     {previewItem.releaseDate && (
-                      <Badge colorScheme="whiteAlpha" variant="subtle" borderRadius="full" px={3} py={1}>
+                      <Badge bg="whiteAlpha.300" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
                         {previewItem.releaseDate}
                       </Badge>
                     )}
-                    {previewItem.priceBand != null && (
-                      <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize="sm">
+                    {previewItem.priceBand != null ? (
+                      <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
                         {JP_PRICE_BANDS[previewItem.priceBand]?.label}
+                      </Badge>
+                    ) : (
+                      <Badge bg="gray.600" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
+                        A consultar
                       </Badge>
                     )}
                   </HStack>
-                  <Button
-                    size="sm"
-                    colorScheme="pink"
-                    variant={selected[previewItem.id] ? 'solid' : 'outline'}
-                    borderRadius="full"
-                    leftIcon={<FaInstagram />}
-                    onClick={() => toggleSelect(previewItem)}
-                  >
-                    {selected[previewItem.id] ? 'Quitar de la consulta' : 'Agregar a la consulta'}
-                  </Button>
+                  <HStack spacing={3} flexWrap="wrap" justify="center">
+                    <Button
+                      size="md"
+                      colorScheme="pink"
+                      borderRadius="full"
+                      leftIcon={<FaInstagram />}
+                      onClick={() => {
+                        onPreviewClose();
+                        openConsult([previewItem]);
+                      }}
+                    >
+                      Consultar por este
+                    </Button>
+                    <Button
+                      size="md"
+                      colorScheme="pink"
+                      variant={selected[previewItem.id] ? 'solid' : 'outline'}
+                      borderRadius="full"
+                      onClick={() => toggleSelect(previewItem)}
+                    >
+                      {selected[previewItem.id] ? 'Quitar de la consulta' : 'Agregar a la consulta'}
+                    </Button>
+                  </HStack>
                 </VStack>
               </>
             )}

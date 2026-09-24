@@ -320,7 +320,7 @@ import { GAME_CONFIG, GAME_DEADLINE, clearGameIfNewRound } from '../data/animeGa
 
 // Nota: 'todos' es un ID especial para mostrar todos los productos
 
-export default function HomePage() {
+export default function HomePage({ storeOnly = false }) {
   const [allProducts, setAllProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -1098,7 +1098,15 @@ export default function HomePage() {
             url: "https://arkya.store/?category=peluches",
           },
         };
-        const seo = seoMap[activeCategory] || seoMap.todos;
+        const seo =
+          storeOnly && activeCategory === "todos"
+            ? {
+                title:
+                  "Tienda - Productos Importados de Japón | Arkya Store",
+                desc: "Todos los productos de Arkya Store: Artbooks, Dōjinshi, Mangas, Guías oficiales, Novelas Ligeras, Revistas y merchandising importado desde Japón.",
+                url: "https://arkya.store/tienda",
+              }
+            : seoMap[activeCategory] || seoMap.todos;
         return (
           <SEO
             title={seo.title}
@@ -1120,7 +1128,7 @@ export default function HomePage() {
             }
           }}
         />
-        {!isHeaderSearch && (
+        {!storeOnly && !isHeaderSearch && (
           <>
             <Box
               py={2}
@@ -1267,7 +1275,7 @@ export default function HomePage() {
           <Container maxW={"7xl"}>
             <Heading as="h2" size="xl" mb={3} textAlign="center" color="white">
               {activeCategory === "todos"
-                ? "Tienda de Productos Importados de Japón"
+                ? "Todos los Productos"
                 : activeCategory === "adultos"
                   ? "Productos para mayores de 18"
                   : activeCategory === "artbooks"
@@ -2342,7 +2350,7 @@ export default function HomePage() {
                     </AnimatePresence>
                   )}
                 </SimpleGrid>
-                {/* CTA: catálogo japonés a pedido
+                {/* CTA: catálogo japonés a pedido */}
                 <Flex
                   mt={10}
                   direction={{ base: "column", md: "row" }}
@@ -2381,7 +2389,7 @@ export default function HomePage() {
                   >
                     Ir al catálogo
                   </Button>
-                </Flex> */}
+                </Flex>
                 {/* Controles de paginación */}
                 {totalPages > 1 && (
                   <Flex justify="center" mt={8} mb={4} overflowX="auto" px={2}>
@@ -2574,15 +2582,25 @@ export default function HomePage() {
                   No se encontraron productos que coincidan con tu búsqueda.
                 </Text>
                 <Text mt={3} color="gray.400" fontSize="sm">
-                  Si es un libro, manga o doujin, podés buscarlo en nuestro
-                  catálogo de Japón y traerlo a pedido.
+                  Si es un libro o doujinshi, podés buscarlo en nuestro{' '}
+                  <Text
+                    as={Link}
+                    to="/catalogo"
+                    color="pink.300"
+                    fontWeight={600}
+                    textDecoration="underline"
+                    _hover={{ color: 'pink.200' }}
+                  >
+                    catálogo de Japón
+                  </Text>{' '}
+                  y traerlo a pedido.
                 </Text>
               </Box>
             )}
           </Container>
         </Box>
 
-        {!isHeaderSearch && (
+        {!storeOnly && !isHeaderSearch && (
           <>
             <InstagramFeed />
 
@@ -2809,7 +2827,7 @@ export default function HomePage() {
                       >
                         Catálogo de Productos
                       </Button>
-                      {/* <Button
+                      <Button
                         as={Link}
                         to="/catalogo"
                         onClick={() =>
@@ -2820,7 +2838,7 @@ export default function HomePage() {
                         colorScheme="pink"
                       >
                         Catálogo Japonés
-                      </Button> */}
+                      </Button>
                       <Button
                         as={Link}
                         to="/contacto"

@@ -17,6 +17,8 @@ const { getProductSlug } = await import('../src/utils/slugify.js');
 // Rutas estáticas
 const staticRoutes = [
   { path: '/', title: 'Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón', description: 'Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido.', image: '/images/logo.png', priority: 1.0 },
+  { path: '/tienda', title: 'Tienda - Productos Importados de Japón | Arkya Store', description: 'Todos los productos de Arkya Store: Artbooks, Dōjinshi, Mangas, Guías oficiales, Novelas Ligeras, Revistas y merchandising importado desde Japón.', image: '/images/logo.png', priority: 0.9 },
+  { path: '/catalogo', title: 'Catálogo Japonés | Arkya Store', description: 'Buscá libros, mangas, artbooks y doujinshi del catálogo japonés y consultanos por Instagram.', image: '/images/logo.png', priority: 0.9 },
   { path: '/contacto', title: 'Contacto - Arkya Store', description: 'Contactanos por Instagram para hacer pedidos personalizados de productos importados de Japón.', image: '/images/logo.png', priority: 0.6 },
   { path: '/terminos', title: 'Términos y Condiciones - Arkya Store', description: 'Términos y condiciones de uso de Arkya Store.', image: '/images/logo.png', priority: 0.4 },
   { path: '/preguntas-frecuentes', title: 'Preguntas Frecuentes - Arkya Store', description: 'Respuestas a las preguntas más frecuentes sobre compras, envíos y pedidos personalizados en Arkya Store.', image: '/images/logo.png', priority: 0.5 },

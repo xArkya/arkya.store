@@ -17,6 +17,7 @@ import ImportCatalogPage from './pages/ImportCatalogPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import FloatingCartButton from './components/Cart/FloatingCartButton'
+import CatalogPromoPopup from './components/CatalogPromoPopup'
 
 // Importar AdminPage solo en desarrollo (lazy loading)
 const AdminPage = import.meta.env.VITE_ENABLE_ADMIN === 'true' 
@@ -40,6 +41,7 @@ function App() {
       <Box width="100%" flex="1">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/tienda" element={<HomePage storeOnly />} />
           <Route path="/product/:slug" element={<ProductPage />} />
           {import.meta.env.VITE_ENABLE_ADMIN === 'true' && AdminPage && (
             <Route path="/admin" element={
@@ -64,6 +66,9 @@ function App() {
       
       {/* Botón flotante del carrito siempre visible */}
       <FloatingCartButton />
+
+      {/* Popup promocional del catálogo a pedido (una vez por visitante) */}
+      <CatalogPromoPopup />
     </Box>
   )
 }
