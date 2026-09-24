@@ -11,6 +11,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Skeleton,
   VStack,
   HStack,
@@ -40,7 +41,7 @@ import {
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
-import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle } from 'react-icons/fa';
+import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
 import { useSearchParams } from 'react-router-dom';
 import { JP_CATEGORY_TREE, JP_PRICE_BANDS, JP_SEARCH_ALIASES } from '../data/jpCatalogFilters';
@@ -157,7 +158,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
       key={o.value}
       bg="transparent"
       pl={groups ? 5 : 3}
-      fontSize="sm"
+      fontSize="md"
       color={value === o.value ? 'pink.300' : 'whiteAlpha.800'}
       fontWeight={value === o.value ? 600 : 400}
       _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
@@ -171,7 +172,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
     <Menu placement="bottom-start" autoSelect={false}>
       <MenuButton
         as={Button}
-        size="sm"
+        size="md"
         w="100%"
         rightIcon={<FaChevronDown size={9} />}
         bg="whiteAlpha.100"
@@ -203,7 +204,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
         {allowClear && (
           <MenuItem
             bg="transparent"
-            fontSize="sm"
+            fontSize="md"
             color={!value ? 'pink.300' : 'whiteAlpha.600'}
             fontWeight={!value ? 600 : 400}
             _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
@@ -219,7 +220,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
                   px={3}
                   pt={3}
                   pb={1}
-                  fontSize="xs"
+                  fontSize="sm"
                   fontWeight={700}
                   color="pink.400"
                   letterSpacing="wider"
@@ -261,7 +262,7 @@ function PriceRangeSelect({ value, onChange }) {
     <Menu placement="bottom-start" autoSelect={false} closeOnSelect={false}>
       <MenuButton
         as={Button}
-        size="sm"
+        size="md"
         w="100%"
         rightIcon={<FaChevronDown size={9} />}
         bg="whiteAlpha.100"
@@ -290,7 +291,7 @@ function PriceRangeSelect({ value, onChange }) {
       >
         <MenuItem
           bg="transparent"
-          fontSize="sm"
+          fontSize="md"
           color={!value ? 'pink.300' : 'whiteAlpha.600'}
           fontWeight={!value ? 600 : 400}
           _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
@@ -299,7 +300,7 @@ function PriceRangeSelect({ value, onChange }) {
           Cualquiera
         </MenuItem>
         <Box px={4} pt={3} pb={2}>
-          <Text fontSize="xs" color="whiteAlpha.500" mb={2}>
+          <Text fontSize="sm" color="whiteAlpha.500" mb={2}>
             Rango:{' '}
             <Text as="span" color="pink.300" fontWeight={600}>
               {range[0] === 0 && range[1] === PRICE_MAX_BAND
@@ -334,10 +335,10 @@ function PriceRangeSelect({ value, onChange }) {
             <RangeSliderThumb index={1} />
           </RangeSlider>
           <Flex justify="space-between" mt={2}>
-            <Text fontSize="xs" color="whiteAlpha.600">
+            <Text fontSize="sm" color="whiteAlpha.600">
               {BAND_LO[0]}
             </Text>
-            <Text fontSize="xs" color="whiteAlpha.600">
+            <Text fontSize="sm" color="whiteAlpha.600">
               {BAND_HI[PRICE_MAX_BAND]}
             </Text>
           </Flex>
@@ -574,7 +575,18 @@ export default function ImportCatalogPage() {
         });
         if (pid) params.set('id', `eq.${pid}`);
         if (!pid && words.length) {
-          const groups = [words, ...aliasGroups, ...extraGroups].filter((g) => g.length);
+          const seen = new Set();
+          const groups = [words, ...aliasGroups, ...extraGroups]
+            .filter((g) => g.length)
+            .filter((g) => {
+              // La traducción a veces devuelve el mismo texto (o el alias
+              // ya dice lo que se escribió): un grupo idéntico duplica el
+              // ilike dentro del OR y puede timeoutear la query → 500.
+              const k = g.join(' ').toLowerCase();
+              if (seen.has(k)) return false;
+              seen.add(k);
+              return true;
+            });
           if (groups.length > 1) params.set('or', `(${groups.map(andGroup).join(',')})`);
           else words.forEach((w) => params.append('title', `ilike.*${w}*`));
         }
@@ -604,7 +616,13 @@ export default function ImportCatalogPage() {
         let extraGroups = [];
         if (!pid && query.trim()) {
           const t = await translateTerm(query.trim(), JP_CHARS.test(query) ? 'en' : 'ja');
-          const tw = t.split(/\s+/).filter(Boolean).slice(0, 8);
+          // Misma limpieza que `words`: un ( ) * , % ' " suelto rompe el
+          // parser del or(...) de PostgREST → 500.
+          const tw = t
+            .split(/\s+/)
+            .map((w) => w.replace(/[(),.*%'"]/g, ''))
+            .filter(Boolean)
+            .slice(0, 8);
           if (tw.length) extraGroups = [tw];
         }
         const params = buildParams(extraGroups);
@@ -718,8 +736,9 @@ export default function ImportCatalogPage() {
         }
         // count=exact puede timeoutear en tablas grandes (500 / 57014):
         // en ese caso se reintenta la misma query sin conteo — la paginación
-        // sigue con la fila extra y el último total conocido.
-        const fetchRows = (p, prefer) =>
+        // sigue con la fila extra y el último total conocido. Un 500 sin
+        // conteo también reintenta una vez: cubre timeouts transitorios.
+        const fetchRows = (p, prefer, isRetry = false) =>
           fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
             signal: controller.signal,
             headers: {
@@ -731,19 +750,7 @@ export default function ImportCatalogPage() {
             // 416 = offset fuera de rango (página vieja al cambiar filtros o
             // un ?p= alto en la URL): se trata como "sin resultados", no error.
             if (r.status === 416) return { rows: [], total: 0 };
-            if (!r.ok && prefer.includes('exact')) {
-              const r2 = await fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
-                signal: controller.signal,
-                headers: {
-                  apikey: db.key,
-                  Authorization: `Bearer ${db.key}`,
-                  Prefer: 'count=none',
-                },
-              });
-              if (r2.status === 416) return { rows: [], total: 0 };
-              if (!r2.ok) throw new Error(`HTTP ${r2.status}`);
-              return { rows: await r2.json(), total: null };
-            }
+            if (!r.ok && !isRetry) return fetchRows(p, 'count=none', true);
             if (!r.ok) throw new Error(`HTTP ${r.status}`);
             const cr = r.headers.get('content-range') || '';
             // count=none devuelve '0-24/*' — el total queda desconocido
@@ -883,15 +890,15 @@ export default function ImportCatalogPage() {
           <VStack spacing={2} mb={8} textAlign="center">
             <Flex align="center" gap={2}>
               <FaBookOpen color="#ec4899" size={24} />
-              <Heading as="h1" color="white" fontSize={{ base: 'xl', md: '3xl' }} fontWeight={600}>
+              <Heading as="h1" color="white" fontSize={{ base: '2xl', md: '4xl' }} fontWeight={600}>
                 Catálogo Para Traer a Pedido
               </Heading>
             </Flex>
-            <Text color="whiteAlpha.600" fontSize="md" maxW="xl">
+            <Text color="whiteAlpha.600" fontSize="lg" maxW="xl">
               Buscá libros y doujinshis. Marcá los que te interesen y consultanos
               por Instagram para que los cotizemos!
             </Text>
-            <Text color="whiteAlpha.600" fontSize="md" maxW="xl">
+            <Text color="whiteAlpha.600" fontSize="lg" maxW="xl">
               La disponibilidad y el precio final de cada producto se confirman al momento de la consulta.
             </Text>
           </VStack>
@@ -916,23 +923,47 @@ export default function ImportCatalogPage() {
                 <Input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      // Enter aplica la búsqueda ya (sin esperar el
+                      // debounce), cierra el teclado del celular y
+                      // baja hasta los resultados.
+                      setQuery(inputValue.trim());
+                      e.currentTarget.blur();
+                      resultsRef.current?.scrollIntoView({ block: 'start' });
+                    }
+                  }}
                   placeholder="Buscar... (Se recomienda buscar en Inglés y Japonés)"
                   bg="whiteAlpha.100"
                   border="1px solid"
                   borderColor="whiteAlpha.200"
                   color="white"
                   h="52px"
-                  fontSize="md"
+                  fontSize="lg"
                   _placeholder={{ color: 'whiteAlpha.400' }}
                   _hover={{ borderColor: 'pink.400' }}
                   _focus={{ borderColor: 'pink.400', boxShadow: '0 0 0 1px #ec4899' }}
                   borderRadius="xl"
                 />
+                {inputValue && (
+                  <InputRightElement h="100%" w="3rem">
+                    <IconButton
+                      aria-label="Borrar búsqueda"
+                      icon={<FaTimes />}
+                      size="sm"
+                      variant="ghost"
+                      color="whiteAlpha.600"
+                      borderRadius="full"
+                      _hover={{ color: 'white', bg: 'whiteAlpha.200' }}
+                      onClick={() => setInputValue('')}
+                    />
+                  </InputRightElement>
+                )}
               </InputGroup>
 
               {/* Advertencia: algunos títulos usan nombres distintos en Japón */}
               <Flex
-                bg="whiteAlpha.50"
+                bg="whiteAlpha.100"
                 borderLeft="3px solid"
                 borderColor="orange.300"
                 borderRadius="md"
@@ -942,9 +973,9 @@ export default function ImportCatalogPage() {
                 align="flex-start"
               >
                 <Box color="orange.300" mt={0.5} flexShrink={0}>
-                  <FaExclamationTriangle size={11} />
+                  <FaExclamationTriangle size={13} />
                 </Box>
-                <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
+                <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6">
                   Tené en cuenta que algunos libros pueden no aparecer ni
                   en inglés: en Japón a veces usan un nombre distinto al
                   habitual y también hay otros títulos que solo figuran en japonés. Si no
@@ -953,40 +984,34 @@ export default function ImportCatalogPage() {
                 </Text>
               </Flex>
 
-              {/* Aviso: el catálogo es una muestra, hay mucho más disponible */}
-              <Flex
-                bg="whiteAlpha.50"
-                borderLeft="3px solid"
-                borderColor="pink.400"
-                borderRadius="md"
-                px={3}
-                py={2}
-                gap={2}
-                align="flex-start"
-              >
-                <Box color="pink.400" mt={0.5} flexShrink={0}>
-                  <FaInfoCircle size={11} />
-                </Box>
-                <VStack align="start" spacing={1.5} flex={1}>
-                  <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
-                    Este catálogo muestra solo una parte de lo que podemos
-                    conseguir: hay muchísimos más libros disponibles. Si
-                    buscás algo puntual que no aparece, consultanos por
-                    Instagram — las ediciones normales de mangas y novelas
-                    suelen poder traerse todas, por eso no se muestran en el catalogo
-                  </Text>
-                  <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
-                    Los rangos de precio son un promedio basado en las
-                    últimas veces que el producto estuvo en stock — el precio
-                    final puede ser distinto.
-                  </Text>
-                  <Text color="whiteAlpha.600" fontSize="xs" lineHeight="1.6">
-                    No todo está en stock en Japón: es un catálogo de
-                    productos que podemos traer. Al consultarnos te
-                    confirmamos disponibilidad y precio final.
-                  </Text>
-                </VStack>
-              </Flex>
+              {/* Avisos del catálogo: cada recomendación en su propio
+                  recuadro, con texto más grande y más contraste */}
+              <VStack align="stretch" spacing={2}>
+                {[
+                  'Este catálogo muestra solo una parte de lo que podemos conseguir: hay muchísimos más libros disponibles. Si buscás algo puntual que no aparece, consultanos por Instagram — las ediciones normales de mangas y novelas suelen poder traerse todas, por eso no se muestran en el catalogo',
+                  'Los rangos de precio son un promedio basado en las últimas veces que el producto estuvo en stock — el precio final puede ser distinto.',
+                  'No todo está en stock en Japón: es un catálogo de productos que podemos traer. Al consultarnos te confirmamos disponibilidad y precio final.',
+                ].map((note) => (
+                  <Flex
+                    key={note}
+                    bg="whiteAlpha.100"
+                    borderLeft="3px solid"
+                    borderColor="pink.400"
+                    borderRadius="md"
+                    px={3}
+                    py={2}
+                    gap={2}
+                    align="flex-start"
+                  >
+                    <Box color="pink.300" mt={0.5} flexShrink={0}>
+                      <FaInfoCircle size={13} />
+                    </Box>
+                    <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6" flex={1}>
+                      {note}
+                    </Text>
+                  </Flex>
+                ))}
+              </VStack>
 
               {/* Categoría: segmented control. En celular el ancho
                   puede no alcanzar: se compacta y, si aún no entra,
@@ -1009,10 +1034,10 @@ export default function ImportCatalogPage() {
                   {CATEGORY_TABS.map((tab) => (
                     <Button
                       key={tab.id}
-                      size="sm"
+                      size="md"
                       borderRadius="full"
                       px={{ base: 3, md: 6 }}
-                      fontSize={{ base: 'xs', md: 'sm' }}
+                      fontSize={{ base: 'sm', md: 'md' }}
                       flexShrink={0}
                       whiteSpace="nowrap"
                       variant={category === tab.id ? 'solid' : 'ghost'}
@@ -1026,7 +1051,7 @@ export default function ImportCatalogPage() {
                     >
                       {tab.label}
                       {tab.soon && (
-                        <Badge ml={{ base: 1, md: 2 }} px={{ base: 1.5, md: 2 }} colorScheme="purple" fontSize="2xs" borderRadius="full">
+                        <Badge ml={{ base: 1, md: 2 }} px={{ base: 1.5, md: 2 }} colorScheme="purple" fontSize="xs" borderRadius="full">
                           <Box as="span" display={{ base: 'none', sm: 'inline' }}>Próximamente</Box>
                           <Box as="span" display={{ base: 'inline', sm: 'none' }}>Pronto</Box>
                         </Badge>
@@ -1041,7 +1066,7 @@ export default function ImportCatalogPage() {
               {/* Filtros: tipo, subtipo, año y orden */}
               <Flex wrap="wrap" gap={4} justify="center">
                 <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
-                  <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
+                  <Text fontSize="xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     TIPO
                   </Text>
                   <FilterSelect
@@ -1059,7 +1084,7 @@ export default function ImportCatalogPage() {
                     tipo ya cubre su código — no se muestra. */}
                 {sub2Options.length > 1 && (
                   <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
-                    <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
+                    <Text fontSize="xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                       SUBTIPO
                     </Text>
                     <FilterSelect
@@ -1072,7 +1097,7 @@ export default function ImportCatalogPage() {
                 )}
 
                 <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
-                  <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
+                  <Text fontSize="xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     AÑO
                   </Text>
                   <FilterSelect
@@ -1084,14 +1109,14 @@ export default function ImportCatalogPage() {
                 </Box>
 
                 <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
-                  <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
+                  <Text fontSize="xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     PRECIO APROX.
                   </Text>
                   <PriceRangeSelect value={band} onChange={setBand} />
                 </Box>
 
                 <Box flex={{ base: '1 1 45%', md: '0 0 auto' }}>
-                  <Text fontSize="2xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
+                  <Text fontSize="xs" fontWeight={700} letterSpacing="wider" color="whiteAlpha.500" mb={1.5}>
                     ORDEN
                   </Text>
                   <FilterSelect
@@ -1108,7 +1133,7 @@ export default function ImportCatalogPage() {
           <Box ref={resultsRef} scrollMarginTop="80px">
             {status === 'loading' && (
               <VStack spacing={4} align="stretch">
-                <Text color="whiteAlpha.500" fontSize="sm" textAlign="center">
+                <Text color="whiteAlpha.500" fontSize="md" textAlign="center">
                   Cargando resultados...
                 </Text>
                 <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={4}>
@@ -1121,14 +1146,14 @@ export default function ImportCatalogPage() {
 
             {status === 'error' && (
               <VStack py={10} spacing={3} textAlign="center">
-                <Text color="whiteAlpha.700" fontSize="lg">
+                <Text color="whiteAlpha.700" fontSize="xl">
                   No pudimos cargar el catálogo en este momento.
                 </Text>
-                <Text color="whiteAlpha.500" fontSize="sm">
+                <Text color="whiteAlpha.500" fontSize="md">
                   Probá de nuevo en unos segundos.
                 </Text>
                 <Button
-                  size="sm"
+                  size="md"
                   colorScheme="pink"
                   variant="outline"
                   mt={2}
@@ -1141,10 +1166,10 @@ export default function ImportCatalogPage() {
 
             {status === 'ok' && items.length === 0 && (
               <VStack py={10} spacing={3} textAlign="center">
-                <Text color="whiteAlpha.700" fontSize="lg">
+                <Text color="whiteAlpha.700" fontSize="xl">
                   {query ? `No hay resultados para “${query}”.` : 'No hay resultados.'}
                 </Text>
-                <Text color="whiteAlpha.500" fontSize="sm">
+                <Text color="whiteAlpha.500" fontSize="md">
                   Si no lo encontrás, consultanos por Instagram y lo buscamos nosotros.
                 </Text>
               </VStack>
@@ -1152,7 +1177,7 @@ export default function ImportCatalogPage() {
 
             {status === 'ok' && items.length > 0 && (
               <>
-                <Text color="whiteAlpha.500" fontSize="sm" mb={4} textAlign="center">
+                <Text color="whiteAlpha.500" fontSize="md" mb={4} textAlign="center">
                   {`Mostrando ${(page - 1) * 24 + 1}–${(page - 1) * 24 + items.length} de ${
                     totalApprox ? 'más de ' : ''
                   }${totalCount.toLocaleString('es-AR')} resultados`}
@@ -1242,7 +1267,7 @@ export default function ImportCatalogPage() {
                             // Placeholder para items sin foto en el origen
                             <VStack spacing={2} color="whiteAlpha.400" h="100%" justify="center">
                               <FaBookOpen size={34} />
-                              <Text fontSize="xs" letterSpacing="wider" textTransform="uppercase">
+                              <Text fontSize="sm" letterSpacing="wider" textTransform="uppercase">
                                 Sin imagen
                               </Text>
                             </VStack>
@@ -1270,7 +1295,7 @@ export default function ImportCatalogPage() {
                               px={3}
                               py={1}
                               fontWeight="bold"
-                              fontSize={{ base: 'xs', md: 'sm' }}
+                              fontSize={{ base: 'sm', md: 'md' }}
                               boxShadow="md"
                               opacity={0.95}
                             >
@@ -1290,7 +1315,7 @@ export default function ImportCatalogPage() {
                               px={3}
                               py={1}
                               fontWeight="bold"
-                              fontSize={{ base: 'xs', md: 'sm' }}
+                              fontSize={{ base: 'sm', md: 'md' }}
                               boxShadow="md"
                               opacity={0.95}
                             >
@@ -1301,7 +1326,7 @@ export default function ImportCatalogPage() {
                         <VStack align="stretch" p={4} spacing={2} flex={1}>
                           {p.subLabel && (
                             <Text
-                              fontSize="2xs"
+                              fontSize="xs"
                               color="pink.300"
                               fontWeight={700}
                               textTransform="uppercase"
@@ -1313,7 +1338,7 @@ export default function ImportCatalogPage() {
                           )}
                           <Text
                             color="white"
-                            fontSize={{ base: 'sm', md: 'md' }}
+                            fontSize={{ base: 'md', md: 'lg' }}
                             fontWeight={600}
                             noOfLines={2}
                             lineHeight="1.3"
@@ -1321,12 +1346,12 @@ export default function ImportCatalogPage() {
                             {p.title}
                           </Text>
                           {p.releaseDate && (
-                            <Text fontSize="xs" color="whiteAlpha.600" noOfLines={1} mt="auto">
+                            <Text fontSize="sm" color="whiteAlpha.600" noOfLines={1} mt="auto">
                               {p.releaseDate}
                             </Text>
                           )}
                           <Button
-                            size="sm"
+                            size="md"
                             colorScheme="pink"
                             variant="outline"
                             leftIcon={<FaInstagram />}
@@ -1347,13 +1372,13 @@ export default function ImportCatalogPage() {
                 {/* Paginación numerada (mismo estilo que el catálogo principal) */}
                 {totalPages > 1 && (
                   <Flex justify="center" mt={8} mb={4} overflowX="auto" px={2}>
-                    <ButtonGroup variant="outline" spacing={{ base: 1, md: 2 }} colorScheme="pink" size="sm">
+                    <ButtonGroup variant="outline" spacing={{ base: 1, md: 2 }} colorScheme="pink" size="md">
                       <IconButton
                         icon={<FaChevronLeft />}
                         onClick={() => goToPage(page - 1)}
                         isDisabled={page === 1}
                         aria-label="Página anterior"
-                        size="sm"
+                        size="md"
                       />
 
                       {(() => {
@@ -1364,7 +1389,7 @@ export default function ImportCatalogPage() {
                             onClick={() => goToPage(1)}
                             variant={page === 1 ? 'solid' : 'outline'}
                             colorScheme="pink"
-                            size="sm"
+                            size="md"
                           >
                             1
                           </Button>
@@ -1374,32 +1399,32 @@ export default function ImportCatalogPage() {
                           if (page <= 4) {
                             for (let i = 2; i <= Math.min(5, totalPages - 1); i++) {
                               pageButtons.push(
-                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="sm">{i}</Button>
+                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="md">{i}</Button>
                               );
                             }
                             pageButtons.push(
-                              <Button key="ellipsis1" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="sm">...</Button>
+                              <Button key="ellipsis1" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="md">...</Button>
                             );
                           } else if (page >= totalPages - 3) {
                             pageButtons.push(
-                              <Button key="ellipsis1" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="sm">...</Button>
+                              <Button key="ellipsis1" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="md">...</Button>
                             );
                             for (let i = Math.max(2, totalPages - 4); i < totalPages; i++) {
                               pageButtons.push(
-                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="sm">{i}</Button>
+                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="md">{i}</Button>
                               );
                             }
                           } else {
                             pageButtons.push(
-                              <Button key="ellipsis1" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="sm">...</Button>
+                              <Button key="ellipsis1" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="md">...</Button>
                             );
                             for (let i = page - 2; i <= page + 2; i++) {
                               pageButtons.push(
-                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="sm">{i}</Button>
+                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="md">{i}</Button>
                               );
                             }
                             pageButtons.push(
-                              <Button key="ellipsis2" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="sm">...</Button>
+                              <Button key="ellipsis2" isDisabled _hover={{ cursor: 'default' }} variant="ghost" size="md">...</Button>
                             );
                           }
                         } else {
@@ -1410,7 +1435,7 @@ export default function ImportCatalogPage() {
                                 onClick={() => goToPage(i)}
                                 variant={page === i ? 'solid' : 'outline'}
                                 colorScheme="pink"
-                                size="sm"
+                                size="md"
                               >
                                 {i}
                               </Button>
@@ -1425,7 +1450,7 @@ export default function ImportCatalogPage() {
                               onClick={() => goToPage(totalPages)}
                               variant={page === totalPages ? 'solid' : 'outline'}
                               colorScheme="pink"
-                              size="sm"
+                              size="md"
                             >
                               {totalPages}
                             </Button>
@@ -1440,7 +1465,7 @@ export default function ImportCatalogPage() {
                         onClick={() => goToPage(page + 1)}
                         isDisabled={!hasMore && page >= totalPages}
                         aria-label="Página siguiente"
-                        size="sm"
+                        size="md"
                       />
                     </ButtonGroup>
                   </Flex>
@@ -1475,11 +1500,11 @@ export default function ImportCatalogPage() {
           boxShadow="0 8px 30px rgba(0,0,0,0.55)"
         >
           <Flex align="center" justify="space-between" gap={2}>
-            <Text color="white" fontSize="sm" fontWeight={600} whiteSpace="nowrap">
+            <Text color="white" fontSize="md" fontWeight={600} whiteSpace="nowrap">
               {selectedList.length} seleccionado{selectedList.length > 1 ? 's' : ''}
             </Text>
             <Button
-              size="xs"
+              size="sm"
               variant="ghost"
               color="white"
               borderRadius="full"
@@ -1491,7 +1516,7 @@ export default function ImportCatalogPage() {
             </Button>
           </Flex>
           <Button
-            size="sm"
+            size="md"
             bg="white"
             color="pink.600"
             borderRadius="full"
@@ -1504,7 +1529,7 @@ export default function ImportCatalogPage() {
             Consultar por Instagram
           </Button>
           <Button
-            size="sm"
+            size="md"
             variant="ghost"
             color="white"
             borderRadius="full"
@@ -1521,13 +1546,13 @@ export default function ImportCatalogPage() {
       <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="lg" scrollBehavior="inside">
         <ModalOverlay />
         <ModalContent bg="#2d1e2a" color="white" mx={4} maxH="85vh" overflowY="auto">
-          <ModalHeader fontSize="2xl" fontWeight="bold" pb={2}>
+          <ModalHeader fontSize="3xl" fontWeight="bold" pb={2}>
             Consultar por Instagram
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <VStack spacing={5} align="stretch">
-              <Text fontSize="md" color="whiteAlpha.700">
+              <Text fontSize="lg" color="whiteAlpha.700">
                 Vas a consultar por {consultItems?.length > 1 ? `${consultItems.length} productos` : 'un producto'} del
                 catálogo a pedido. Sigue estos sencillos pasos:
               </Text>
@@ -1537,7 +1562,7 @@ export default function ImportCatalogPage() {
                   <ListIcon as={FaClipboard} color="pink.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 1: Copiar mensaje</Text>
-                    <Text fontSize="sm" color="whiteAlpha.600">
+                    <Text fontSize="md" color="whiteAlpha.600">
                       Al hacer clic en el botón, el mensaje con tu consulta se copiará automáticamente.
                     </Text>
                   </Box>
@@ -1546,7 +1571,7 @@ export default function ImportCatalogPage() {
                   <ListIcon as={FaInstagram} color="pink.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 2: Abrir Instagram</Text>
-                    <Text fontSize="sm" color="whiteAlpha.600">
+                    <Text fontSize="md" color="whiteAlpha.600">
                       Se abrirá automáticamente el chat de @arkya.store en una nueva pestaña.
                     </Text>
                   </Box>
@@ -1555,7 +1580,7 @@ export default function ImportCatalogPage() {
                   <ListIcon as={FaCheckCircle} color="pink.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
-                    <Text fontSize="sm" color="whiteAlpha.600">
+                    <Text fontSize="md" color="whiteAlpha.600">
                       Pega el mensaje en el chat (Ctrl+V en PC o Cmd+V en MAC) y envíalo para que te pasemos precio y disponibilidad.
                     </Text>
                   </Box>
@@ -1569,14 +1594,14 @@ export default function ImportCatalogPage() {
                 borderWidth="1px"
                 borderColor="whiteAlpha.200"
               >
-                <Text fontWeight="bold" mb={3} fontSize="md" color="pink.300">
+                <Text fontWeight="bold" mb={3} fontSize="lg" color="pink.300">
                   📋 Vista previa del mensaje:
                 </Text>
                 <Box
                   bg="gray.800"
                   p={3}
                   borderRadius="md"
-                  fontSize="sm"
+                  fontSize="md"
                   fontFamily="monospace"
                   whiteSpace="pre-wrap"
                   maxH="200px"
@@ -1673,7 +1698,7 @@ export default function ImportCatalogPage() {
                   <Text
                     color="white"
                     fontWeight={600}
-                    fontSize={{ base: 'md', md: 'lg' }}
+                    fontSize={{ base: 'lg', md: 'xl' }}
                     textAlign="center"
                     noOfLines={3}
                   >
@@ -1681,21 +1706,21 @@ export default function ImportCatalogPage() {
                   </Text>
                   <HStack spacing={3} flexWrap="wrap" justify="center">
                     {previewItem.subLabel && (
-                      <Badge bg="whiteAlpha.200" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
+                      <Badge bg="whiteAlpha.200" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
                         {previewItem.subLabel}
                       </Badge>
                     )}
                     {previewItem.releaseDate && (
-                      <Badge bg="whiteAlpha.300" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
+                      <Badge bg="whiteAlpha.300" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
                         {previewItem.releaseDate}
                       </Badge>
                     )}
                     {previewItem.priceBand != null ? (
-                      <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
+                      <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
                         {JP_PRICE_BANDS[previewItem.priceBand]?.label}
                       </Badge>
                     ) : (
-                      <Badge bg="gray.600" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'sm', md: 'md' }}>
+                      <Badge bg="gray.600" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
                         A consultar
                       </Badge>
                     )}
