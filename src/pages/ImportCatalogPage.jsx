@@ -249,6 +249,10 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
         as={Button}
         size="md"
         w="100%"
+        // El contenedor padre se ajusta al contenido (flex 0 0 auto):
+        // sin un tope, muchas exclusiones hacían el botón gigante.
+        maxW={{ base: '100%', md: '300px' }}
+        overflow="hidden"
         rightIcon={<FaChevronDown size={9} />}
         bg="whiteAlpha.100"
         color={current ? 'white' : excludedLabels.length ? 'orange.300' : 'whiteAlpha.600'}
@@ -264,7 +268,9 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
           {current
             ? `${current.label}${excludedLabels.length ? ` · −${excludedLabels.length}` : ''}`
             : excludedLabels.length
-              ? `Sin ${excludedLabels.join(', ')}`
+              ? `Sin ${excludedLabels.slice(0, 2).join(', ')}${
+                  excludedLabels.length > 2 ? ` +${excludedLabels.length - 2}` : ''
+                }`
               : placeholder}
         </Text>
       </MenuButton>
@@ -541,6 +547,20 @@ export default function ImportCatalogPage() {
   // render ya usa página 1 (evita el fetch con offset viejo → 416). En el
   // primer render la key coincide, así la ?p= de la URL se respeta.
   const filtersKey = `${query}|${category}|${sub}|${sub1X.join(',')}|${sub2X.join(',')}|${year}|${band}|${sort}`;
+  // Filtros activos (sin contar búsqueda ni categoría) para el botón
+  // "Limpiar filtros".
+  const hasActiveFilters = Boolean(
+    sub1 || sub1X.length || sub2 || sub2X.length || year || band || sort
+  );
+  const clearFilters = () => {
+    setSub1('');
+    setSub1X([]);
+    setSub2('');
+    setSub2X([]);
+    setYear('');
+    setBand('');
+    setSort('');
+  };
   const [prevFiltersKey, setPrevFiltersKey] = useState(filtersKey);
   let effPage = page;
   if (prevFiltersKey !== filtersKey) {
@@ -1417,6 +1437,25 @@ export default function ImportCatalogPage() {
                     options={SORT_OPTIONS}
                   />
                 </Box>
+
+                {/* Botón para resetear todos los filtros de una (no toca
+                    la búsqueda ni la categoría — tienen sus propios
+                    controles). Solo aparece cuando hay algo aplicado. */}
+                {hasActiveFilters && (
+                  <Box flex={{ base: '1 1 45%', md: '0 0 auto' }} alignSelf="flex-end">
+                    <Button
+                      size="md"
+                      variant="ghost"
+                      color="whiteAlpha.600"
+                      fontWeight={500}
+                      leftIcon={<FaTimes size={11} />}
+                      _hover={{ color: 'white', bg: 'whiteAlpha.100' }}
+                      onClick={clearFilters}
+                    >
+                      Limpiar filtros
+                    </Button>
+                  </Box>
+                )}
               </Flex>
             </VStack>
           </Box>

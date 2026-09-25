@@ -364,6 +364,8 @@ export default function HomePage({ storeOnly = false }) {
   const [isLoading, setIsLoading] = useState(true);
   const [showAdultContent] = useState(true); // Mostrar contenido +18 por defecto (siempre true ahora)
   const [showGameModal, setShowGameModal] = useState(false);
+  // Cuando la ronda venció (GAME_DEADLINE pasado) no se muestra nada del juego
+  const { isExpired: gameExpired } = useGameCountdown();
   const [adultFilterActive, setAdultFilterActive] = useState(() => {
     // Inicializar desde sessionStorage o sincronizar con activeCategory
     const savedAdultFilter = sessionStorage.getItem('adultFilterActive');
@@ -409,7 +411,10 @@ export default function HomePage({ storeOnly = false }) {
   useEffect(() => {
     // Actualizar la ronda en localStorage si cambió
     clearGameIfNewRound();
-    
+
+    // Si la ronda ya venció no hay nada que invitar
+    if (new Date() >= new Date(GAME_DEADLINE)) return;
+
     const timer = setTimeout(() => {
       try {
         // Usar la misma clave dinámica por ronda
@@ -1152,7 +1157,8 @@ export default function HomePage({ storeOnly = false }) {
               !
             </Box>
 
-            {/* Banner del juego Adivina el Anime - DESTACADO AL INICIO */}
+            {/* Banner del juego Adivina el Anime - solo si la ronda sigue activa */}
+            {!gameExpired && (
             <Box
               as={Link}
               to="/adivina-el-anime"
@@ -1252,6 +1258,7 @@ export default function HomePage({ storeOnly = false }) {
                 <GameBannerActions />
               </Stack>
             </Box>
+            )}
 
             <Hero />
 
