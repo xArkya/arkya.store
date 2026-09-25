@@ -38,6 +38,7 @@ import {
   List,
   ListItem,
   ListIcon,
+  Collapse,
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
@@ -488,6 +489,23 @@ export default function ImportCatalogPage() {
   const [brokenImages, setBrokenImages] = useState({}); // ids cuyo thumb derivado no existe en el CDN
   const [consultItems, setConsultItems] = useState(null); // productos a consultar
   const [previewItem, setPreviewItem] = useState(null); // producto con imagen abierta
+  // Avisos del catálogo desplegados — abierto por defecto, se recuerda en localStorage
+  const [infoOpen, setInfoOpen] = useState(() => {
+    try {
+      return localStorage.getItem('jpCatalogInfoOpen') !== '0';
+    } catch {
+      return true;
+    }
+  });
+  const toggleInfo = () =>
+    setInfoOpen((o) => {
+      try {
+        localStorage.setItem('jpCatalogInfoOpen', o ? '0' : '1');
+      } catch {
+        // storage no disponible: el toggle igual funciona en memoria
+      }
+      return !o;
+    });
   const { isOpen: isConsultOpen, onOpen: onConsultOpen, onClose: onConsultClose } = useDisclosure();
   const { isOpen: isPreviewOpen, onOpen: onPreviewOpen, onClose: onPreviewClose } = useDisclosure();
   const abortRef = useRef(null);
@@ -1189,57 +1207,81 @@ export default function ImportCatalogPage() {
                 )}
               </InputGroup>
 
-              {/* Advertencia: algunos títulos usan nombres distintos en Japón */}
-              <Flex
-                bg="whiteAlpha.100"
-                borderLeft="3px solid"
-                borderColor="orange.300"
-                borderRadius="md"
+              {/* Avisos del catálogo: colapsables para no ocupar media
+                  pantalla — se abren con el botoncito */}
+              <Button
+                size="sm"
+                variant="ghost"
+                w="100%"
                 px={3}
-                py={2}
-                gap={2}
-                align="flex-start"
+                justifyContent="space-between"
+                color="whiteAlpha.500"
+                fontWeight={500}
+                leftIcon={<FaInfoCircle />}
+                rightIcon={
+                  <FaChevronDown
+                    style={{
+                      transform: infoOpen ? 'rotate(180deg)' : 'none',
+                      transition: 'transform 0.2s',
+                    }}
+                  />
+                }
+                _hover={{ color: 'white', bg: 'whiteAlpha.100' }}
+                onClick={toggleInfo}
               >
-                <Box color="orange.300" mt={0.5} flexShrink={0}>
-                  <FaExclamationTriangle size={13} />
-                </Box>
-                <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6">
-                  Tené en cuenta que algunos libros pueden no aparecer ni
-                  en inglés: en Japón a veces usan un nombre distinto al
-                  habitual y también hay otros títulos que solo figuran en japonés. Si no
-                  lo encontrás, consultanos por Instagram y lo buscamos
-                  nosotros.
-                </Text>
-              </Flex>
-
-              {/* Avisos del catálogo: cada recomendación en su propio
-                  recuadro, con texto más grande y más contraste */}
-              <VStack align="stretch" spacing={2}>
-                {[
-                  'Este catálogo muestra solo una parte de lo que podemos conseguir: hay muchísimos más libros disponibles. Si buscás algo puntual que no aparece, consultanos por Instagram — las ediciones normales de mangas y novelas suelen poder traerse todas, por eso no se muestran en el catalogo',
-                  'Los rangos de precio son un promedio basado en las últimas veces que el producto estuvo en stock — el precio final puede ser distinto.',
-                  'No todo está en stock en Japón: es un catálogo de productos que podemos traer. Al consultarnos te confirmamos disponibilidad y precio final.',
-                ].map((note) => (
+                Info y recomendaciones
+              </Button>
+              <Collapse in={infoOpen} animateOpacity>
+                <VStack align="stretch" spacing={2}>
+                  {/* Advertencia: algunos títulos usan nombres distintos en Japón */}
                   <Flex
-                    key={note}
                     bg="whiteAlpha.100"
                     borderLeft="3px solid"
-                    borderColor="pink.400"
+                    borderColor="orange.300"
                     borderRadius="md"
                     px={3}
                     py={2}
                     gap={2}
                     align="flex-start"
                   >
-                    <Box color="pink.300" mt={0.5} flexShrink={0}>
-                      <FaInfoCircle size={13} />
+                    <Box color="orange.300" mt={0.5} flexShrink={0}>
+                      <FaExclamationTriangle size={13} />
                     </Box>
-                    <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6" flex={1}>
-                      {note}
+                    <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6">
+                      Tené en cuenta que algunos libros pueden no aparecer ni
+                      en inglés: en Japón a veces usan un nombre distinto al
+                      habitual y también hay otros títulos que solo figuran en japonés. Si no
+                      lo encontrás, consultanos por Instagram y lo buscamos
+                      nosotros.
                     </Text>
                   </Flex>
-                ))}
-              </VStack>
+                  {/* Cada recomendación en su propio recuadro */}
+                  {[
+                    'Este catálogo muestra solo una parte de lo que podemos conseguir: hay muchísimos más libros disponibles. Si buscás algo puntual que no aparece, consultanos por Instagram — las ediciones normales de mangas y novelas suelen poder traerse todas, por eso no se muestran en el catalogo',
+                    'Los rangos de precio son un promedio basado en las últimas veces que el producto estuvo en stock — el precio final puede ser distinto.',
+                    'No todo está en stock en Japón: es un catálogo de productos que podemos traer. Al consultarnos te confirmamos disponibilidad y precio final.',
+                  ].map((note) => (
+                    <Flex
+                      key={note}
+                      bg="whiteAlpha.100"
+                      borderLeft="3px solid"
+                      borderColor="pink.400"
+                      borderRadius="md"
+                      px={3}
+                      py={2}
+                      gap={2}
+                      align="flex-start"
+                    >
+                      <Box color="pink.300" mt={0.5} flexShrink={0}>
+                        <FaInfoCircle size={13} />
+                      </Box>
+                      <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6" flex={1}>
+                        {note}
+                      </Text>
+                    </Flex>
+                  ))}
+                </VStack>
+              </Collapse>
 
               {/* Categoría: segmented control. En celular el ancho
                   puede no alcanzar: se compacta y, si aún no entra,
