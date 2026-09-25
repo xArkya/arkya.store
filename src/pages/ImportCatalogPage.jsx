@@ -46,6 +46,7 @@ import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChe
 import { SEO } from '../components/SEO';
 import { useSearchParams } from 'react-router-dom';
 import { JP_CATEGORY_TREE, JP_PRICE_BANDS, JP_SEARCH_ALIASES } from '../data/jpCatalogFilters';
+import { reportCatalogSearch } from '../data/searchLog';
 
 // El catálogo se lee directo de Supabase (tabla `products` que llena
 // scripts/jp-crawl.mjs). La anon key es pública: la tabla tiene RLS de
@@ -525,6 +526,19 @@ export default function ImportCatalogPage() {
     const t = setTimeout(() => setQuery(inputValue.trim()), 600);
     return () => clearTimeout(t);
   }, [inputValue]);
+
+  // Reportar cada búsqueda aplicada al Google Form (acción "Busqueda").
+  // La categoría se lee por ref para no re-reportar al cambiar de tab.
+  const categoryRef = useRef(category);
+  categoryRef.current = category;
+  useEffect(() => {
+    const term = query.trim();
+    if (!term) return;
+    const catLabel =
+      CATEGORY_TABS.find((t) => t.id === categoryRef.current)?.label ||
+      categoryRef.current;
+    reportCatalogSearch(term, `cat: ${catLabel}`);
+  }, [query]);
 
   // Si la categoría tiene un solo tipo (Doujin → solo "Doujin magazine"),
   // el filtro TIPO muestra directamente sus subtipos y la búsqueda queda
