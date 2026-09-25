@@ -41,19 +41,10 @@ import {
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
-import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle, FaTimes } from 'react-icons/fa';
+import { FaSearch, FaBookOpen, FaInstagram, FaChevronLeft, FaChevronRight, FaChevronDown, FaCheck, FaCheckCircle, FaClipboard, FaExclamationTriangle, FaInfoCircle, FaTimes, FaBan } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
 import { useSearchParams } from 'react-router-dom';
 import { JP_CATEGORY_TREE, JP_PRICE_BANDS, JP_SEARCH_ALIASES } from '../data/jpCatalogFilters';
-
-const CATEGORY_TABS = [
-  { id: 'books', label: 'Libros' },
-  // Por ahora el catálogo doujin no se expone al público: ambas tabs
-  // quedan "Próximamente" aunque las env vars estén configuradas. Para
-  // habilitarlas hay que sacar el `soon` fijo.
-  { id: 'doujin', label: 'Doujinshi', soon: true },
-  { id: 'all', label: 'Libros + Doujinshi', soon: true },
-];
 
 // El catálogo se lee directo de Supabase (tabla `products` que llena
 // scripts/jp-crawl.mjs). La anon key es pública: la tabla tiene RLS de
@@ -61,14 +52,21 @@ const CATEGORY_TABS = [
 const SUPA_URL = (import.meta.env.VITE_SUPABASE_URL || '').replace(/\/$/, '');
 const SUPA_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 // Doujin vive en un proyecto Supabase aparte (~1M items: no entra en el
-// free tier junto a los libros). Mismo schema de `products`; la pestaña
-// se habilita sola cuando la env var está configurada.
+// free tier junto a los libros). Mismo schema de `products`; las tabs de
+// doujin se habilitan solas cuando la env var está configurada.
 const SUPA_DOUJIN_URL = (import.meta.env.VITE_SUPABASE_DOUJIN_URL || '').replace(/\/$/, '');
 const SUPA_DOUJIN_KEY = import.meta.env.VITE_SUPABASE_DOUJIN_ANON_KEY || '';
+const HAS_DOUJIN = Boolean(SUPA_DOUJIN_URL && SUPA_DOUJIN_KEY);
 const supaFor = (cat) =>
   cat === 'doujin'
     ? { url: SUPA_DOUJIN_URL, key: SUPA_DOUJIN_KEY }
     : { url: SUPA_URL, key: SUPA_KEY };
+
+const CATEGORY_TABS = [
+  { id: 'all', label: 'Libros + Doujinshi', soon: !HAS_DOUJIN },
+  { id: 'books', label: 'Libros' },
+  { id: 'doujin', label: 'Doujinshi', soon: !HAS_DOUJIN },
+];
 
 // Mapeo categoría/subcategoría -> códigos hoja crawleados. La UI puede
 // elegir un tipo de nivel 1 (p.ej. "Cómic") y el filtro cubre sus hojas.
@@ -90,6 +88,14 @@ function codesFor(cat, sub) {
   return map[sub] || LEAF_LOOKUP[cat]?.[sub] || [sub];
 }
 
+// Para 'all' el filtro se reparte entre las dos DBs: cada fuente recibe
+// solo los códigos de su árbol; si el sub elegido no le pertenece → []
+// (esa fuente no se consulta).
+function codesForSource(src, sub) {
+  if (!sub) return codesFor(src, '');
+  return LEAF_CODES[src]?.[sub] || LEAF_LOOKUP[src]?.[sub] || [];
+}
+
 // Código de sub -> "Tipo / Subtipo" para mostrar en las cards.
 const SUB_LABELS = {};
 for (const [cat, tree] of Object.entries(JP_CATEGORY_TREE)) {
@@ -99,6 +105,9 @@ for (const [cat, tree] of Object.entries(JP_CATEGORY_TREE)) {
       for (const c of leaf.codes || [leaf.code])
         SUB_LABELS[cat][c] = `${level1.label} / ${leaf.label}`;
 }
+// 'all' consulta ambas DBs: el label de una card puede venir de
+// cualquiera de los dos árboles (los códigos no se pisan).
+SUB_LABELS.all = { ...SUB_LABELS.books, ...SUB_LABELS.doujin };
 
 // Palabras que no sirven para el fallback OR de búsqueda: partículas
 // romanizadas (no/wa/ga...) y conectores comunes aparecen en cientos de
@@ -129,6 +138,38 @@ const translateTerm = async (text, target) => {
   return t;
 };
 
+// Comparador para mergear las dos fuentes de 'all': replica el `order`
+// que se manda a PostgREST (nulls last, desempate por id) para que el
+// merge de las listas respete el orden elegido.
+const cmpForSort = (sort) => {
+  const cmpId = (a, b) => String(a.id).localeCompare(String(b.id));
+  const byPrio = (a, b) => (b.prio ?? -1) - (a.prio ?? -1);
+  const byDate = (dir) => (a, b) => {
+    if (!a.release_date && !b.release_date) return 0;
+    if (!a.release_date) return 1;
+    if (!b.release_date) return -1;
+    return dir * String(a.release_date).localeCompare(String(b.release_date));
+  };
+  const byBand = (dir) => (a, b) => {
+    if (a.price_band == null && b.price_band == null) return 0;
+    if (a.price_band == null) return 1;
+    if (b.price_band == null) return -1;
+    return dir * (a.price_band - b.price_band);
+  };
+  switch (sort) {
+    case 'released_date_asc':
+      return (a, b) => byDate(1)(a, b) || cmpId(a, b);
+    case 'released_date_desc':
+      return (a, b) => byDate(-1)(a, b) || cmpId(a, b);
+    case 'price_asc':
+      return (a, b) => byBand(1)(a, b) || byPrio(a, b) || byDate(-1)(a, b) || cmpId(a, b);
+    case 'price_desc':
+      return (a, b) => byBand(-1)(a, b) || byPrio(a, b) || byDate(-1)(a, b) || cmpId(a, b);
+    default:
+      return (a, b) => byPrio(a, b) || byDate(-1)(a, b) || cmpId(a, b);
+  }
+};
+
 const SORT_OPTIONS = [
   { value: 'released_date_desc', label: 'Más recientes' },
   { value: 'released_date_asc', label: 'Más antiguos' },
@@ -148,25 +189,58 @@ const YEAR_RANGES = [
   { value: '[2025, 2026]', label: '2025 – 2026' },
 ];
 
-// Dropdown custom (los <select> nativos se ven feos en el tema oscuro)
-function FilterSelect({ placeholder, value, options, groups, onChange, allowClear = true }) {
+// Dropdown custom (los <select> nativos se ven feos en el tema oscuro).
+// allowExclude: cada opción suma un ícono de prohibido que la togglea en
+// el set de excluidas (se muestran tachadas; el botón dice "Sin A, B" o
+// "<incluida> · −n" cuando hay inclusión y exclusiones juntas).
+function FilterSelect({ placeholder, value, options, groups, onChange, allowClear = true, allowExclude = false, excludedValues = [], onToggleExclude }) {
   const flat = groups ? groups.flatMap((g) => g.items) : options;
   const current = flat.find((o) => o.value === value);
+  const excludedLabels = excludedValues
+    .map((v) => flat.find((o) => o.value === v)?.label)
+    .filter(Boolean);
 
-  const renderItem = (o) => (
-    <MenuItem
-      key={o.value}
-      bg="transparent"
-      pl={groups ? 5 : 3}
-      fontSize="md"
-      color={value === o.value ? 'pink.300' : 'whiteAlpha.800'}
-      fontWeight={value === o.value ? 600 : 400}
-      _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
-      onClick={() => onChange(o.value)}
-    >
-      {o.label}
-    </MenuItem>
-  );
+  const renderItem = (o) => {
+    const isSel = value === o.value;
+    const isEx = excludedValues.includes(o.value);
+    return (
+      <MenuItem
+        key={o.value}
+        bg="transparent"
+        pl={groups ? 5 : 3}
+        fontSize="md"
+        color={isEx ? 'orange.300' : isSel ? 'pink.300' : 'whiteAlpha.800'}
+        fontWeight={isSel || isEx ? 600 : 400}
+        _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
+        onClick={() => onChange(o.value)}
+      >
+        <Flex w="100%" align="center" justify="space-between" gap={2}>
+          <Text as="span" noOfLines={1} textDecoration={isEx ? 'line-through' : 'none'}>
+            {o.label}
+          </Text>
+          {allowExclude && (
+            <IconButton
+              aria-label={`Excluir ${o.label}`}
+              title={isEx ? `Dejar de excluir ${o.label}` : `Excluir ${o.label}`}
+              icon={<FaBan size={12} />}
+              size="xs"
+              variant="ghost"
+              borderRadius="full"
+              color={isEx ? 'orange.300' : 'whiteAlpha.500'}
+              bg={isEx ? 'whiteAlpha.200' : undefined}
+              _hover={{ color: 'orange.300', bg: 'whiteAlpha.200' }}
+              onClick={(e) => {
+                // No burbujear: el item no selecciona ni cierra el menú,
+                // así se pueden excluir varias opciones de una.
+                e.stopPropagation();
+                onToggleExclude(o.value);
+              }}
+            />
+          )}
+        </Flex>
+      </MenuItem>
+    );
+  };
 
   return (
     <Menu placement="bottom-start" autoSelect={false}>
@@ -176,17 +250,21 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
         w="100%"
         rightIcon={<FaChevronDown size={9} />}
         bg="whiteAlpha.100"
-        color={current ? 'white' : 'whiteAlpha.600'}
+        color={current ? 'white' : excludedLabels.length ? 'orange.300' : 'whiteAlpha.600'}
         border="1px solid"
-        borderColor={current ? 'pink.400' : 'whiteAlpha.200'}
+        borderColor={excludedLabels.length ? 'orange.400' : current ? 'pink.400' : 'whiteAlpha.200'}
         borderRadius="lg"
         fontWeight={500}
         px={4}
-        _hover={{ borderColor: 'pink.400', bg: 'whiteAlpha.200' }}
+        _hover={{ borderColor: excludedLabels.length ? 'orange.400' : 'pink.400', bg: 'whiteAlpha.200' }}
         _active={{ bg: 'whiteAlpha.200' }}
       >
         <Text as="span" noOfLines={1}>
-          {current ? current.label : placeholder}
+          {current
+            ? `${current.label}${excludedLabels.length ? ` · −${excludedLabels.length}` : ''}`
+            : excludedLabels.length
+              ? `Sin ${excludedLabels.join(', ')}`
+              : placeholder}
         </Text>
       </MenuButton>
       <MenuList
@@ -373,13 +451,29 @@ export default function ImportCatalogPage() {
   const [inputValue, setInputValue] = useState(() => searchParams.get('q') || '');
   const [query, setQuery] = useState(() => searchParams.get('q') || '');
   const [category, setCategory] = useState(() => {
-    const c = searchParams.get('cat') || 'books';
-    // Tabs "Próximamente" no se pueden activar ni por URL directa.
+    // Default: Libros + Doujinshi. Si la DB de doujin no está configurada
+    // (tab "Próximamente"), cae a Libros.
+    const c = searchParams.get('cat') || 'all';
     const tab = CATEGORY_TABS.find((t) => t.id === c);
     return tab && !tab.soon ? c : 'books';
   });
-  const [sub1, setSub1] = useState(() => searchParams.get('tipo') || ''); // nivel 1
-  const [sub2, setSub2] = useState(() => searchParams.get('sub') || ''); // nivel 2
+  // Los filtros tipo/subtipo aceptan exclusión múltiple: en la URL van
+  // como ?xtipo=702,703 / ?xsub=70201. Compat: un link viejo con
+  // ?tipo=!702 se lee como una exclusión más.
+  const [sub1, setSub1] = useState(() => (searchParams.get('tipo') || '').replace(/^!/, '')); // nivel 1 incluido
+  const [sub1X, setSub1X] = useState(() => [
+    ...((searchParams.get('tipo') || '').startsWith('!')
+      ? [(searchParams.get('tipo') || '').slice(1)]
+      : []),
+    ...(searchParams.get('xtipo') || '').split(','),
+  ].filter(Boolean)); // nivel 1 excluidos
+  const [sub2, setSub2] = useState(() => (searchParams.get('sub') || '').replace(/^!/, '')); // nivel 2 incluido
+  const [sub2X, setSub2X] = useState(() => [
+    ...((searchParams.get('sub') || '').startsWith('!')
+      ? [(searchParams.get('sub') || '').slice(1)]
+      : []),
+    ...(searchParams.get('xsub') || '').split(','),
+  ].filter(Boolean)); // nivel 2 excluidos
   const [year, setYear] = useState(() => searchParams.get('a') || '');
   const [band, setBand] = useState(() => searchParams.get('precio') || ''); // índice de JP_PRICE_BANDS
   const [sort, setSort] = useState(() => searchParams.get('orden') || '');
@@ -411,7 +505,12 @@ export default function ImportCatalogPage() {
   // Si la categoría tiene un solo tipo (Doujin → solo "Doujin magazine"),
   // el filtro TIPO muestra directamente sus subtipos y la búsqueda queda
   // acotada a ese tipo aunque no se elija nada.
-  const catTree = JP_CATEGORY_TREE[category] || [];
+  // En 'all' el TIPO muestra los dos árboles juntos (Libro/Manga/Revista/
+  // Panfleto + Para mujeres/Para hombres).
+  const catTree =
+    category === 'all'
+      ? [...JP_CATEGORY_TREE.books, ...JP_CATEGORY_TREE.doujin]
+      : JP_CATEGORY_TREE[category] || [];
   const singleType = catTree.length === 1 ? catTree[0] : null;
   const sub1Options = singleType ? singleType.children : catTree;
   const sub2Options = singleType
@@ -423,7 +522,7 @@ export default function ImportCatalogPage() {
   // Reset a página 1 como estado derivado: si cambió búsqueda/filtros, este
   // render ya usa página 1 (evita el fetch con offset viejo → 416). En el
   // primer render la key coincide, así la ?p= de la URL se respeta.
-  const filtersKey = `${query}|${category}|${sub}|${year}|${band}|${sort}`;
+  const filtersKey = `${query}|${category}|${sub}|${sub1X.join(',')}|${sub2X.join(',')}|${year}|${band}|${sort}`;
   const [prevFiltersKey, setPrevFiltersKey] = useState(filtersKey);
   let effPage = page;
   if (prevFiltersKey !== filtersKey) {
@@ -437,15 +536,17 @@ export default function ImportCatalogPage() {
   useEffect(() => {
     const p = {};
     if (query) p.q = query;
-    if (category !== 'books') p.cat = category;
+    if (category !== 'all') p.cat = category;
     if (sub1) p.tipo = sub1;
+    if (sub1X.length) p.xtipo = sub1X.join(',');
     if (sub2) p.sub = sub2;
+    if (sub2X.length) p.xsub = sub2X.join(',');
     if (year) p.a = year;
     if (band !== '') p.precio = band;
     if (sort) p.orden = sort;
     if (effPage > 1) p.p = String(effPage);
     setSearchParams(p, { replace: true });
-  }, [query, category, sub1, sub2, year, band, sort, effPage, setSearchParams]);
+  }, [query, category, sub1, sub1X, sub2, sub2X, year, band, sort, effPage, setSearchParams]);
 
   // Scroll al tope de los resultados al cambiar de página — instantáneo:
   // el smooth se cortaba por el lazy-load de las imágenes.
@@ -462,8 +563,13 @@ export default function ImportCatalogPage() {
     if (sub1 && !sub1Options.some((s) => s.code === sub1)) {
       setSub1('');
       setSub2('');
+      setSub2X([]);
     }
-  }, [category, sub1, sub1Options]);
+    // Lo mismo para exclusiones que quedaron huérfanas de la categoría.
+    const valid = new Set(sub1Options.flatMap((s) => [s.code, ...(s.children || []).map((c) => c.code)]));
+    if (sub1X.some((c) => !valid.has(c))) setSub1X((x) => x.filter((c) => valid.has(c)));
+    if (sub2X.some((c) => !valid.has(c))) setSub2X((x) => x.filter((c) => valid.has(c)));
+  }, [category, sub1, sub1X, sub2X, sub1Options]);
 
   useEffect(() => {
     abortRef.current?.abort();
@@ -471,6 +577,10 @@ export default function ImportCatalogPage() {
     abortRef.current = controller;
 
     setStatus('loading');
+
+    // Códigos excluidos (nivel 1 + nivel 2) — se mandan como not.in
+    // aparte del in. de inclusión: PostgREST AND-ea ambos parámetros.
+    const exCodes = [...sub1X, ...sub2X];
 
     const applyResults = (list, total, approx, more) => {
       setItems(list);
@@ -574,6 +684,14 @@ export default function ImportCatalogPage() {
           offset: String((effPage - 1) * 24),
         });
         if (pid) params.set('id', `eq.${pid}`);
+        // Exclusiones: segundo parámetro sub=not.in — se AND-ea con el
+        // in. de inclusión ("todas las revistas menos Militaria").
+        if (!pid && exCodes.length) {
+          params.append(
+            'sub',
+            `not.in.(${exCodes.flatMap((c) => codesFor(category, c)).join(',')})`
+          );
+        }
         if (!pid && words.length) {
           const seen = new Set();
           const groups = [words, ...aliasGroups, ...extraGroups]
@@ -586,7 +704,10 @@ export default function ImportCatalogPage() {
               if (seen.has(k)) return false;
               seen.add(k);
               return true;
-            });
+            })
+            // Cada grupo OR es un ilike '%..%' sobre ~1M de filas: más de
+            // 4 y el statement timeoutea (500) — se cortan los extras.
+            .slice(0, 4);
           if (groups.length > 1) params.set('or', `(${groups.map(andGroup).join(',')})`);
           else words.forEach((w) => params.append('title', `ilike.*${w}*`));
         }
@@ -612,9 +733,12 @@ export default function ImportCatalogPage() {
       const load = async () => {
         // Traducción del query → grupo OR extra: junta en una sola búsqueda
         // los resultados del texto escrito, sus aliases y su versión en
-        // japonés (o en inglés si el input ya era japonés).
+        // japonés (o en inglés si el input ya era japonés). Si el query ya
+        // matcheó un alias, el nombre japonés ya está cubierto — traducir
+        // sumaría otro ilike de ruido (ej. fate→運命) y encarece la query
+        // hasta el timeout (500).
         let extraGroups = [];
-        if (!pid && query.trim()) {
+        if (!pid && query.trim() && !aliasGroups.length) {
           const t = await translateTerm(query.trim(), JP_CHARS.test(query) ? 'en' : 'ja');
           // Misma limpieza que `words`: un ( ) * , % ' " suelto rompe el
           // parser del or(...) de PostgREST → 500.
@@ -636,7 +760,7 @@ export default function ImportCatalogPage() {
         // curado "de anime" que intercala las tres subs — Anime (mujeres),
         // Parodias y Originales (hombres) — 8 de cada una por página.
         // Cuando el mix se agota, continúan el resto de las subs.
-        if (category === 'doujin' && !pid && !sub && !query.trim() && !sort) {
+        if (category === 'doujin' && !pid && !sub && !exCodes.length && !query.trim() && !sort) {
           const DOUJIN_MIX_SUBS = ['11000100', '11000000', '11000001'];
           const restCodes = codesFor(category, '').filter(
             (c) => !DOUJIN_MIX_SUBS.includes(c)
@@ -738,25 +862,121 @@ export default function ImportCatalogPage() {
         // en ese caso se reintenta la misma query sin conteo — la paginación
         // sigue con la fila extra y el último total conocido. Un 500 sin
         // conteo también reintenta una vez: cubre timeouts transitorios.
-        const fetchRows = (p, prefer, isRetry = false) =>
-          fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
+        const fetchRows = (p, prefer, srcDb = db, isRetry = false) =>
+          fetch(`${srcDb.url}/rest/v1/products?${p.toString()}`, {
             signal: controller.signal,
             headers: {
-              apikey: db.key,
-              Authorization: `Bearer ${db.key}`,
+              apikey: srcDb.key,
+              Authorization: `Bearer ${srcDb.key}`,
               Prefer: prefer,
             },
           }).then(async (r) => {
             // 416 = offset fuera de rango (página vieja al cambiar filtros o
             // un ?p= alto en la URL): se trata como "sin resultados", no error.
             if (r.status === 416) return { rows: [], total: 0 };
-            if (!r.ok && !isRetry) return fetchRows(p, 'count=none', true);
+            if (!r.ok && !isRetry) return fetchRows(p, 'count=none', srcDb, true);
             if (!r.ok) throw new Error(`HTTP ${r.status}`);
             const cr = r.headers.get('content-range') || '';
             // count=none devuelve '0-24/*' — el total queda desconocido
             const total = cr.endsWith('/*') ? null : Number(cr.split('/')[1]) || 0;
             return { rows: await r.json(), total };
           });
+        // 'all' = libros + doujin en dos proyectos Supabase: cada fuente
+        // se consulta con los códigos de su árbol y las listas (ya con el
+        // mismo order) se mergean. Para la página N hace falta el prefijo
+        // offset+25 de cada fuente — una ventana por fuente no alcanza
+        // porque los items de una pueden ir todos después de la otra.
+        if (category === 'all' && !pid) {
+          const sources = ['books', 'doujin']
+            .map((src) => ({
+              src,
+              srcDb: supaFor(src),
+              codes: codesForSource(src, sub),
+            }))
+            // La fuente sin códigos del filtro incluido se saltea.
+            .filter((s) => s.srcDb.url && s.srcDb.key && s.codes.length);
+          if (!sources.length) {
+            applyResults([], 0, false, false);
+            return undefined;
+          }
+          const start = (effPage - 1) * 24;
+          const need = start + 25;
+          const cmp = cmpForSort(sort);
+          // allSettled: si una DB timeoutea se muestran los resultados de
+          // la otra en vez de la pantalla de error. Solo falla si las dos
+          // caen juntas.
+          return Promise.allSettled(
+            sources.map(({ src, srcDb, codes }) => {
+              const p = new URLSearchParams(params);
+              p.set(
+                'sub',
+                codes.length === 1 ? `eq.${codes[0]}` : `in.(${codes.join(',')})`
+              );
+              // Exclusiones: solo las de ESTE árbol — las de la otra
+              // fuente no aplican acá.
+              const ownX = exCodes.flatMap((c) => codesForSource(src, c));
+              if (ownX.length) p.append('sub', `not.in.(${ownX.join(',')})`);
+              p.set('limit', String(need));
+              p.set('offset', '0');
+              return fetchRows(p, wantCount ? 'count=exact' : 'count=none', srcDb);
+            })
+          ).then((settled) => {
+            const parts = settled
+              .filter((s) => s.status === 'fulfilled')
+              .map((s) => s.value);
+            if (!parts.length) throw new Error('HTTP 500');
+            const lists = parts.map((x) => x.rows);
+            const merged = [];
+            const idx = lists.map(() => 0);
+            for (;;) {
+              let best = -1;
+              for (let k = 0; k < lists.length; k++) {
+                if (idx[k] >= lists[k].length) continue;
+                if (best < 0 || cmp(lists[k][idx[k]], lists[best][idx[best]]) < 0)
+                  best = k;
+              }
+              if (best < 0) break;
+              merged.push(lists[best][idx[best]++]);
+            }
+            const pageRows = merged.slice(start, start + 24);
+            const total = parts.every((x) => x.total != null)
+              ? parts.reduce((a, x) => a + x.total, 0)
+              : null;
+            if (total != null) lastTotalRef.current = { key: filtersKey, total };
+            const inferred =
+              start + pageRows.length + (merged.length > start + 24 ? 1 : 0);
+            const cached =
+              lastTotalRef.current?.key === filtersKey
+                ? lastTotalRef.current.total
+                : null;
+            const knownTotal = total ?? Math.max(cached ?? 0, inferred);
+            const more =
+              merged.length > start + 24 ||
+              effPage * 24 < knownTotal ||
+              (total == null && parts.some((x) => x.rows.length === need));
+            applyResults(
+              pageRows.map(mapRow),
+              knownTotal,
+              total == null,
+              more
+            );
+          });
+        }
+        // Lookup por ID en 'all': el producto puede estar en cualquiera de
+        // las dos DBs — se prueba primero libros, después doujin.
+        if (pid && category === 'all') {
+          return (async () => {
+            for (const srcDb of [supaFor('books'), supaFor('doujin')]) {
+              if (!srcDb.url || !srcDb.key) continue;
+              const { rows } = await fetchRows(params, 'count=exact', srcDb);
+              if (rows.length) {
+                applyResults(rows.slice(0, 24).map(mapRow), rows.length, false, false);
+                return;
+              }
+            }
+            applyResults([], 0, false, false);
+          })();
+        }
         return fetchRows(params, wantCount ? 'count=exact' : 'count=none')
           .then(({ rows, total }) => {
             if (total != null) lastTotalRef.current = { key: filtersKey, total };
@@ -795,16 +1015,24 @@ export default function ImportCatalogPage() {
       };
 
       // Si el crawler está saturando la DB, Supabase devuelve 500
-      // transitorios: un retry a los 1.5s suele alcanzar
+      // transitorios: dos retries con backoff (1.5s, 3s) suelen alcanzar
       load().catch((err) => {
         if (err.name === 'AbortError' || controller.signal.aborted) return;
-        setTimeout(() => {
-          if (!controller.signal.aborted) load().catch(onError);
-        }, 1500);
+        const delays = [1500, 3000];
+        const attempt = (i) =>
+          setTimeout(() => {
+            if (controller.signal.aborted) return;
+            load().catch((e2) => {
+              if (e2.name === 'AbortError' || controller.signal.aborted) return;
+              if (i + 1 < delays.length) attempt(i + 1);
+              else onError(e2);
+            });
+          }, delays[i]);
+        attempt(0);
       });
     }
     return () => controller.abort();
-  }, [query, category, sub, year, band, sort, effPage, retryTick]);
+  }, [query, category, sub, sub1X, sub2X, year, band, sort, effPage, retryTick]);
 
   const toggleSelect = (p) => {
     setSelected((prev) => {
@@ -1074,7 +1302,17 @@ export default function ImportCatalogPage() {
                     value={sub1}
                     onChange={(v) => {
                       setSub1(v);
+                      setSub1X((x) => x.filter((c) => c !== v));
                       setSub2('');
+                      setSub2X([]);
+                    }}
+                    allowExclude
+                    excludedValues={sub1X}
+                    onToggleExclude={(v) => {
+                      if (v === sub1) setSub1('');
+                      setSub1X((x) =>
+                        x.includes(v) ? x.filter((c) => c !== v) : [...x, v]
+                      );
                     }}
                     options={toOptions(sub1Options)}
                   />
@@ -1090,7 +1328,18 @@ export default function ImportCatalogPage() {
                     <FilterSelect
                       placeholder="Todos"
                       value={sub2}
-                      onChange={setSub2}
+                      onChange={(v) => {
+                        setSub2(v);
+                        setSub2X((x) => x.filter((c) => c !== v));
+                      }}
+                      allowExclude
+                      excludedValues={sub2X}
+                      onToggleExclude={(v) => {
+                        if (v === sub2) setSub2('');
+                        setSub2X((x) =>
+                          x.includes(v) ? x.filter((c) => c !== v) : [...x, v]
+                        );
+                      }}
                       options={toOptions(sub2Options)}
                     />
                   </Box>
@@ -1443,7 +1692,10 @@ export default function ImportCatalogPage() {
                           }
                         }
 
-                        if (totalPages > 1) {
+                        // La última página se muestra solo si entra sin
+                        // puntos suspensivos: catálogo corto (≤7 páginas)
+                        // o cuando ya está al alcance de la ventana actual.
+                        if (totalPages <= 7 || page >= totalPages - 3) {
                           pageButtons.push(
                             <Button
                               key={totalPages}
@@ -1470,6 +1722,19 @@ export default function ImportCatalogPage() {
                     </ButtonGroup>
                   </Flex>
                 )}
+
+                {/* Aviso de catálogo en crecimiento */}
+                <Text
+                  color="whiteAlpha.500"
+                  fontSize="md"
+                  textAlign="center"
+                  mt={8}
+                  mb={4}
+                  px={4}
+                >
+                  Vamos a ir agregando más libros y doujinshis con el tiempo —
+                  el catálogo se actualiza periódicamente.
+                </Text>
               </>
             )}
           </Box>

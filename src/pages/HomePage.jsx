@@ -2546,7 +2546,10 @@ export default function HomePage({ storeOnly = false }) {
                           }
                         }
 
-                        if (totalPages > 1) {
+                        // La última página se muestra solo si entra sin
+                        // puntos suspensivos: pocas páginas (≤7) o cuando
+                        // ya está al alcance de la ventana actual.
+                        if (totalPages <= 7 || currentPage >= totalPages - 3) {
                           pageButtons.push(
                             <Button
                               key={totalPages}
