@@ -519,6 +519,7 @@ export default function ImportCatalogPage() {
   const resultsRef = useRef(null);
   const lastTotalRef = useRef(null);
   const mixInfoRef = useRef(null);
+  const shuffleRef = useRef(null); // anclas del modo barajado, por filtersKey
   const toast = useToast();
 
   // Debounce del input
@@ -808,6 +809,28 @@ export default function ImportCatalogPage() {
         // siguientes se usa el total ya conocido y la fila extra del limit.
         const wantCount =
           effPage === 1 || lastTotalRef.current?.key !== filtersKey;
+        // Modo barajado: sin búsqueda ni orden explícito, el listado se
+        // recorre como un anillo que arranca en un punto aleatorio — cada
+        // visita muestra otra parte del catálogo. Buscar o elegir un ORDEN
+        // vuelve al modo determinista (ahí importa la relevancia).
+        const shuffleMode = !pid && !query.trim() && !sort;
+        // Ventana circular: con el total conocido, el offset envuelve al
+        // inicio del listado cuando cruza el final — la página siempre
+        // vuelve llena y el anillo cubre el catálogo entero.
+        const windowFetch = (doFetch, p, offset, total, lmt) => {
+          if (total <= 0) return Promise.resolve([]);
+          const off = ((offset % total) + total) % total;
+          const p1 = new URLSearchParams(p);
+          p1.set('limit', String(Math.min(lmt, total - off)));
+          p1.set('offset', String(off));
+          return doFetch(p1).then((rows) => {
+            if (rows.length >= lmt || off + lmt <= total) return rows;
+            const p2 = new URLSearchParams(p);
+            p2.set('limit', String(lmt - rows.length));
+            p2.set('offset', '0');
+            return doFetch(p2).then((rest) => rows.concat(rest));
+          });
+        };
         // Vista default de Doujinshi (sin orden, sub ni búsqueda): feed
         // curado "de anime" que intercala las tres subs — Anime (mujeres),
         // Parodias y Originales (hombres) — 8 de cada una por página.
@@ -858,13 +881,21 @@ export default function ImportCatalogPage() {
               const totals = rs
                 .slice(0, DOUJIN_MIX_SUBS.length)
                 .map((r) => r.total || 0);
+              const restTotal = restCodes.length
+                ? rs[DOUJIN_MIX_SUBS.length]?.total || 0
+                : 0;
               mixInfoRef.current = {
                 key: filtersKey,
                 max: Math.max(...totals, 0),
                 sum: totals.reduce((a, b) => a + b, 0),
-                rest: restCodes.length
-                  ? rs[DOUJIN_MIX_SUBS.length]?.total || 0
-                  : 0,
+                rest: restTotal,
+                // Anillo por sub: cada listado arranca en un punto
+                // aleatorio — el feed curado rota en cada visita.
+                totalsArr: totals,
+                anchors: totals.map((t) =>
+                  t ? Math.floor(Math.random() * t) : 0
+                ),
+                restAnchor: restTotal ? Math.floor(Math.random() * restTotal) : 0,
               };
             }
             const mix = mixInfoRef.current;
@@ -872,15 +903,17 @@ export default function ImportCatalogPage() {
             if (effPage <= mixPages) {
               // Frame del mix: 8 slots por sub intercalados; si una sub se
               // agota sus slots quedan vacíos en las páginas finales.
-              const results = await Promise.all(
-                DOUJIN_MIX_SUBS.map((c) =>
-                  fetchP(
-                    subParams([c], per + 1, (effPage - 1) * per),
-                    'count=none'
+              const lists = await Promise.all(
+                DOUJIN_MIX_SUBS.map((c, i) =>
+                  windowFetch(
+                    (pp) => fetchP(pp, 'count=none').then((r) => r.rows),
+                    subParams([c], per, 0),
+                    mix.anchors[i] + (effPage - 1) * per,
+                    mix.totalsArr[i],
+                    per
                   )
                 )
               );
-              const lists = results.map((r) => r.rows.slice(0, per));
               const rows = [];
               for (let i = 0; i < per; i++)
                 for (const l of lists) if (l[i]) rows.push(l[i]);
@@ -898,15 +931,18 @@ export default function ImportCatalogPage() {
               return;
             }
             const restPage = effPage - mixPages;
-            const r = await fetchP(
-              subParams(restCodes, 25, (restPage - 1) * 24),
-              'count=none'
+            const rows = await windowFetch(
+              (pp) => fetchP(pp, 'count=none').then((x) => x.rows),
+              subParams(restCodes, 25, 0),
+              mix.restAnchor + (restPage - 1) * 24,
+              mix.rest,
+              Math.min(25, mix.rest)
             );
             applyResults(
-              r.rows.slice(0, 24).map(mapRow),
+              rows.slice(0, 24).map(mapRow),
               mix.sum + mix.rest,
               false,
-              r.rows.length > 24 || restPage * 24 < mix.rest
+              restPage * 24 < mix.rest
             );
           })();
         }
@@ -954,6 +990,106 @@ export default function ImportCatalogPage() {
           const start = (effPage - 1) * 24;
           const need = start + 25;
           const cmp = cmpForSort(sort);
+          if (shuffleMode) {
+            // Anclas aleatorias por fuente, persistentes por combinación
+            // de filtros: cada DB arranca en otro punto y sus anillos se
+            // mergean — la página siempre trae una mezcla distinta.
+            if (shuffleRef.current?.key !== filtersKey) {
+              const probed = await Promise.all(
+                sources.map((s) => {
+                  const p = new URLSearchParams(params);
+                  p.set(
+                    'sub',
+                    s.codes.length === 1
+                      ? `eq.${s.codes[0]}`
+                      : `in.(${s.codes.join(',')})`
+                  );
+                  const ownX = exCodes.flatMap((c) => codesForSource(s.src, c));
+                  if (ownX.length) p.append('sub', `not.in.(${ownX.join(',')})`);
+                  p.set('limit', '0');
+                  return fetchRows(p, 'count=exact', s.srcDb).then(
+                    ({ total }) => ({
+                      ...s,
+                      total: total ?? null,
+                      anchor: total ? Math.floor(Math.random() * total) : 0,
+                    })
+                  );
+                })
+              );
+              shuffleRef.current = {
+                key: filtersKey,
+                parts: probed.every((x) => x.total != null)
+                  ? probed.filter((x) => x.total > 0)
+                  : null,
+              };
+            }
+            const parts = shuffleRef.current.parts;
+            if (parts) {
+              const totalAll = parts.reduce((a, x) => a + x.total, 0);
+              if (!totalAll) {
+                applyResults([], 0, false, false);
+                return;
+              }
+              // Prefijo de cada anillo: para mergear las primeras `need`
+              // posiciones hacen falta como mucho `need` items por fuente
+              // (mismo costo que la vista ordenada, pero con offset).
+              const lists = await Promise.all(
+                parts.map((part) => {
+                  const p = new URLSearchParams(params);
+                  p.set(
+                    'sub',
+                    part.codes.length === 1
+                      ? `eq.${part.codes[0]}`
+                      : `in.(${part.codes.join(',')})`
+                  );
+                  const ownX = exCodes.flatMap((c) =>
+                    codesForSource(part.src, c)
+                  );
+                  if (ownX.length)
+                    p.append('sub', `not.in.(${ownX.join(',')})`);
+                  return windowFetch(
+                    (pp) =>
+                      fetchRows(pp, 'count=none', part.srcDb).then(
+                        (r) => r.rows
+                      ),
+                    p,
+                    part.anchor,
+                    part.total,
+                    need
+                  );
+                })
+              );
+              const merged = [];
+              const idx = lists.map(() => 0);
+              for (;;) {
+                let best = -1;
+                for (let k = 0; k < lists.length; k++) {
+                  if (idx[k] >= lists[k].length) continue;
+                  if (
+                    best < 0 ||
+                    cmp(lists[k][idx[k]], lists[best][idx[best]]) < 0
+                  )
+                    best = k;
+                }
+                if (best < 0) break;
+                merged.push(lists[best][idx[best]++]);
+              }
+              // Un anillo chico puede envolver y traer ids repetidos en la
+              // misma ventana (total < need) — se dedupan al mostrar.
+              const dedup = new Set();
+              const pageRows = merged
+                .slice(start, start + 24)
+                .filter((r) => !dedup.has(r.id) && dedup.add(r.id));
+              applyResults(
+                pageRows.map(mapRow),
+                totalAll,
+                false,
+                effPage * 24 < totalAll
+              );
+              return;
+            }
+            // count=exact no respondió en alguna fuente → merge normal.
+          }
           // allSettled: si una DB timeoutea se muestran los resultados de
           // la otra en vez de la pantalla de error. Solo falla si las dos
           // caen juntas.
@@ -1028,6 +1164,42 @@ export default function ImportCatalogPage() {
             }
             applyResults([], 0, false, false);
           })();
+        }
+        // Barajado single-source (libros, o doujin con filtros): anillo
+        // desde un punto aleatorio del resultado ya filtrado.
+        if (shuffleMode) {
+          if (shuffleRef.current?.key !== filtersKey) {
+            const probe = new URLSearchParams(params);
+            probe.set('limit', '0');
+            const { total } = await fetchRows(probe, 'count=exact');
+            shuffleRef.current = {
+              key: filtersKey,
+              total: total ?? null,
+              anchor: total ? Math.floor(Math.random() * total) : 0,
+            };
+          }
+          const { total: ringTotal, anchor } = shuffleRef.current;
+          if (ringTotal != null) {
+            if (!ringTotal) {
+              applyResults([], 0, false, false);
+              return;
+            }
+            const rows = await windowFetch(
+              (pp) => fetchRows(pp, 'count=none').then((r) => r.rows),
+              params,
+              anchor + (effPage - 1) * 24,
+              ringTotal,
+              Math.min(25, ringTotal)
+            );
+            applyResults(
+              rows.slice(0, 24).map(mapRow),
+              ringTotal,
+              false,
+              effPage * 24 < ringTotal
+            );
+            return;
+          }
+          // count=exact timeouteó → sigue el flujo normal, sin anillo.
         }
         return fetchRows(params, wantCount ? 'count=exact' : 'count=none')
           .then(({ rows, total }) => {
@@ -1626,46 +1798,26 @@ export default function ImportCatalogPage() {
                             _groupHover={{ opacity: 1 }}
                             pointerEvents="none"
                           />
-                          {/* Banda de precio sobre la imagen, como los badges del main */}
-                          {p.priceBand != null && JP_PRICE_BANDS[p.priceBand] ? (
-                            <Badge
-                              position="absolute"
-                              top={2}
-                              left={2}
-                              zIndex={2}
-                              bg="pink.400"
-                              color="white"
-                              borderRadius="full"
-                              px={3}
-                              py={1}
-                              fontWeight="bold"
-                              fontSize={{ base: 'sm', md: 'md' }}
-                              boxShadow="md"
-                              opacity={0.95}
-                            >
-                              {JP_PRICE_BANDS[p.priceBand].label}
-                            </Badge>
-                          ) : (
-                            // Sin banda: el origen no recuerda precio para este
-                            // item — la consulta confirma el precio real.
-                            <Badge
-                              position="absolute"
-                              top={2}
-                              left={2}
-                              zIndex={2}
-                              bg="gray.600"
-                              color="white"
-                              borderRadius="full"
-                              px={3}
-                              py={1}
-                              fontWeight="bold"
-                              fontSize={{ base: 'sm', md: 'md' }}
-                              boxShadow="md"
-                              opacity={0.95}
-                            >
-                              A consultar
-                            </Badge>
-                          )}
+                          {/* Banda de precio sobre la imagen, como los badges del main.
+                              Sin banda (el origen no recuerda precio) muestra la
+                              banda media ~$35–70k como referencia. */}
+                          <Badge
+                            position="absolute"
+                            top={2}
+                            left={2}
+                            zIndex={2}
+                            bg="pink.400"
+                            color="white"
+                            borderRadius="full"
+                            px={3}
+                            py={1}
+                            fontWeight="bold"
+                            fontSize={{ base: 'sm', md: 'md' }}
+                            boxShadow="md"
+                            opacity={0.95}
+                          >
+                            {JP_PRICE_BANDS[p.priceBand ?? 3]?.label}
+                          </Badge>
                         </Box>
                         <VStack align="stretch" p={4} spacing={2} flex={1}>
                           {p.subLabel && (
@@ -2075,15 +2227,10 @@ export default function ImportCatalogPage() {
                         {previewItem.releaseDate}
                       </Badge>
                     )}
-                    {previewItem.priceBand != null ? (
-                      <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
-                        {JP_PRICE_BANDS[previewItem.priceBand]?.label}
-                      </Badge>
-                    ) : (
-                      <Badge bg="gray.600" color="white" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
-                        A consultar
-                      </Badge>
-                    )}
+                    {/* Sin banda conocida se muestra la media ~$35–70k */}
+                    <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
+                      {JP_PRICE_BANDS[previewItem.priceBand ?? 3]?.label}
+                    </Badge>
                   </HStack>
                   <HStack spacing={3} flexWrap="wrap" justify="center">
                     <Button
