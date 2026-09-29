@@ -145,7 +145,6 @@ const translateTerm = async (text, target) => {
 // merge de las listas respete el orden elegido.
 const cmpForSort = (sort) => {
   const cmpId = (a, b) => String(a.id).localeCompare(String(b.id));
-  const byPrio = (a, b) => (b.prio ?? -1) - (a.prio ?? -1);
   const byDate = (dir) => (a, b) => {
     if (!a.release_date && !b.release_date) return 0;
     if (!a.release_date) return 1;
@@ -164,11 +163,11 @@ const cmpForSort = (sort) => {
     case 'released_date_desc':
       return (a, b) => byDate(-1)(a, b) || cmpId(a, b);
     case 'price_asc':
-      return (a, b) => byBand(1)(a, b) || byPrio(a, b) || byDate(-1)(a, b) || cmpId(a, b);
+      return (a, b) => byBand(1)(a, b) || byDate(-1)(a, b) || cmpId(a, b);
     case 'price_desc':
-      return (a, b) => byBand(-1)(a, b) || byPrio(a, b) || byDate(-1)(a, b) || cmpId(a, b);
+      return (a, b) => byBand(-1)(a, b) || byDate(-1)(a, b) || cmpId(a, b);
     default:
-      return (a, b) => byPrio(a, b) || byDate(-1)(a, b) || cmpId(a, b);
+      return (a, b) => byDate(-1)(a, b) || cmpId(a, b);
   }
 };
 
@@ -719,18 +718,18 @@ export default function ImportCatalogPage() {
         const params = new URLSearchParams({
           select: 'id,title,image,release_date,price_band,sub',
           ...(pid ? {} : { sub: `in.(${codesFor(category, sub).join(',')})` }),
-          // "relevant"/desc: manga y cómics primero (prio), luego por fecha.
-          // precio: ordena por la banda (0-5 ≈ barato→caro), sin banda al final.
+          // Sin prioridad editorial: todo ordena por fecha. precio: ordena
+          // por la banda (0-5 ≈ barato→caro), sin banda al final.
           order:
             sort === 'released_date_asc'
               ? 'release_date.asc.nullslast,id.asc'
               : sort === 'released_date_desc'
                 ? 'release_date.desc.nullslast,id.asc'
                 : sort === 'price_asc'
-                ? 'price_band.asc.nullslast,prio.desc,release_date.desc.nullslast,id.asc'
+                ? 'price_band.asc.nullslast,release_date.desc.nullslast,id.asc'
                 : sort === 'price_desc'
-                  ? 'price_band.desc.nullslast,prio.desc,release_date.desc.nullslast,id.asc'
-                  : 'prio.desc,release_date.desc.nullslast,id.asc',
+                  ? 'price_band.desc.nullslast,release_date.desc.nullslast,id.asc'
+                  : 'release_date.desc.nullslast,id.asc',
           // Se piden 25 y se muestran 24: la fila extra dice si hay página
           // siguiente sin necesitar count=exact en cada request.
           limit: '25',
@@ -831,32 +830,61 @@ export default function ImportCatalogPage() {
             return doFetch(p2).then((rest) => rows.concat(rest));
           });
         };
-        // Vista default de Doujinshi (sin orden, sub ni búsqueda): feed
-        // curado "de anime" que intercala las tres subs — Anime (mujeres),
-        // Parodias y Originales (hombres) — 8 de cada una por página.
-        // Cuando el mix se agota, continúan el resto de las subs.
-        if (category === 'doujin' && !pid && !sub && !exCodes.length && !query.trim() && !sort) {
-          const DOUJIN_MIX_SUBS = ['11000100', '11000000', '11000001'];
-          const restCodes = codesFor(category, '').filter(
-            (c) => !DOUJIN_MIX_SUBS.includes(c)
-          );
-          const per = 8;
-          const subParams = (codes, lmt, off) => {
+        // Vista default sin orden, sub ni búsqueda: feed mezclado que
+        // intercala TODAS las categorías a partes iguales — ninguna va
+        // primero (el orden prio del origen se ignora). Cada grupo es un
+        // anillo que arranca en un punto aleatorio, así cada visita y cada
+        // página muestran una mezcla distinta:
+        //   books  → 4 grupos nivel-1 (Libro, Manga, Revista, Panfleto)
+        //   doujin → sus 5 subs hoja
+        //   all    → los 4 de libros + las 5 de doujin (9 grupos, 2 DBs)
+        const mixGroups = (() => {
+          if (
+            pid || sub || sub1X.length || sub2X.length ||
+            exCodes.length || query.trim() || sort
+          )
+            return null;
+          const leafGroups = (cat, srcDb) =>
+            JP_CATEGORY_TREE[cat].flatMap((l1) =>
+              l1.children.map((leaf) => ({
+                srcDb,
+                codes: leaf.codes || [leaf.code],
+              }))
+            );
+          const levelGroups = (cat, srcDb) =>
+            JP_CATEGORY_TREE[cat].map((l1) => ({
+              srcDb,
+              codes: l1.children.flatMap((c) => c.codes || [c.code]),
+            }));
+          if (category === 'books') return levelGroups('books', db);
+          if (category === 'doujin') return leafGroups('doujin', db);
+          if (category === 'all')
+            return [
+              ...levelGroups('books', supaFor('books')),
+              ...leafGroups('doujin', supaFor('doujin')),
+            ].filter((g) => g.srcDb.url && g.srcDb.key);
+          return null;
+        })();
+        if (mixGroups?.length) {
+          // Slots por página repartidos parejo entre grupos (los primeros
+          // reciben el resto de la división — nunca quedan slots vacíos).
+          const base = Math.floor(24 / mixGroups.length);
+          const extra = 24 % mixGroups.length;
+          const slots = mixGroups.map((_, i) => base + (i < extra ? 1 : 0));
+          const groupParams = (codes) => {
             const p = new URLSearchParams(params);
             p.set(
               'sub',
               codes.length === 1 ? `eq.${codes[0]}` : `in.(${codes.join(',')})`
             );
-            p.set('limit', String(lmt));
-            p.set('offset', String(off));
             return p;
           };
-          const fetchP = (p, prefer) =>
-            fetch(`${db.url}/rest/v1/products?${p.toString()}`, {
+          const fetchP = (p, prefer, srcDb) =>
+            fetch(`${srcDb.url}/rest/v1/products?${p.toString()}`, {
               signal: controller.signal,
               headers: {
-                apikey: db.key,
-                Authorization: `Bearer ${db.key}`,
+                apikey: srcDb.key,
+                Authorization: `Bearer ${srcDb.key}`,
                 Prefer: prefer,
               },
             }).then(async (r) => {
@@ -867,82 +895,59 @@ export default function ImportCatalogPage() {
               return { rows: await r.json(), total };
             });
           return (async () => {
-            // Totales del mix + del resto, cacheados por combinación de
-            // filtros: definen en qué página termina el feed intercalado.
+            // Totales y anclas por grupo, cacheados por combinación de
+            // filtros: definen cuántas páginas dura el feed intercalado.
             if (mixInfoRef.current?.key !== filtersKey) {
-              const rs = await Promise.all([
-                ...DOUJIN_MIX_SUBS.map((c) =>
-                  fetchP(subParams([c], 1, 0), 'count=exact')
-                ),
-                ...(restCodes.length
-                  ? [fetchP(subParams(restCodes, 1, 0), 'count=exact')]
-                  : []),
-              ]);
-              const totals = rs
-                .slice(0, DOUJIN_MIX_SUBS.length)
-                .map((r) => r.total || 0);
-              const restTotal = restCodes.length
-                ? rs[DOUJIN_MIX_SUBS.length]?.total || 0
-                : 0;
+              const totals = await Promise.all(
+                mixGroups.map((g) => {
+                  const probe = groupParams(g.codes);
+                  probe.set('limit', '0');
+                  return fetchP(probe, 'count=exact', g.srcDb).then(
+                    (r) => r.total || 0
+                  );
+                })
+              );
               mixInfoRef.current = {
                 key: filtersKey,
-                max: Math.max(...totals, 0),
-                sum: totals.reduce((a, b) => a + b, 0),
-                rest: restTotal,
-                // Anillo por sub: cada listado arranca en un punto
-                // aleatorio — el feed curado rota en cada visita.
                 totalsArr: totals,
-                anchors: totals.map((t) =>
-                  t ? Math.floor(Math.random() * t) : 0
-                ),
-                restAnchor: restTotal ? Math.floor(Math.random() * restTotal) : 0,
+                sum: totals.reduce((a, b) => a + b, 0),
+                anchors: totals.map((t) => (t ? Math.floor(Math.random() * t) : 0)),
               };
             }
             const mix = mixInfoRef.current;
-            const mixPages = Math.ceil(mix.max / per);
-            if (effPage <= mixPages) {
-              // Frame del mix: 8 slots por sub intercalados; si una sub se
-              // agota sus slots quedan vacíos en las páginas finales.
-              const lists = await Promise.all(
-                DOUJIN_MIX_SUBS.map((c, i) =>
-                  windowFetch(
-                    (pp) => fetchP(pp, 'count=none').then((r) => r.rows),
-                    subParams([c], per, 0),
-                    mix.anchors[i] + (effPage - 1) * per,
-                    mix.totalsArr[i],
-                    per
-                  )
-                )
-              );
-              const rows = [];
-              for (let i = 0; i < per; i++)
-                for (const l of lists) if (l[i]) rows.push(l[i]);
-              applyResults(
-                rows.map(mapRow),
-                mix.sum + mix.rest,
-                false,
-                effPage < mixPages || mix.rest > 0
-              );
-              return;
-            }
-            // Mix agotado → el resto de las subs en query normal de a 24.
-            if (!restCodes.length) {
+            // El feed dura hasta agotar el grupo más largo (en sus slots).
+            const mixPages = Math.max(
+              ...mix.totalsArr.map((t, i) => Math.ceil(t / slots[i])),
+              0
+            );
+            if (effPage > mixPages) {
               applyResults([], mix.sum, false, false);
               return;
             }
-            const restPage = effPage - mixPages;
-            const rows = await windowFetch(
-              (pp) => fetchP(pp, 'count=none').then((x) => x.rows),
-              subParams(restCodes, 25, 0),
-              mix.restAnchor + (restPage - 1) * 24,
-              mix.rest,
-              Math.min(25, mix.rest)
+            const lists = await Promise.all(
+              mixGroups.map((g, i) =>
+                windowFetch(
+                  (pp) => fetchP(pp, 'count=none', g.srcDb).then((r) => r.rows),
+                  groupParams(g.codes),
+                  mix.anchors[i] + (effPage - 1) * slots[i],
+                  mix.totalsArr[i],
+                  slots[i]
+                )
+              )
             );
+            // Round-robin: slot 0 de cada grupo, slot 1 de cada uno, ...
+            // Un anillo chico que envuelve puede repetir ids — se dedupan.
+            const rows = [];
+            const dedup = new Set();
+            for (let i = 0; i < Math.max(...slots); i++)
+              for (const l of lists)
+                if (l[i] && !dedup.has(l[i].id) && dedup.add(l[i].id))
+                  rows.push(l[i]);
             applyResults(
               rows.slice(0, 24).map(mapRow),
-              mix.sum + mix.rest,
+              mix.sum,
               false,
-              restPage * 24 < mix.rest
+              effPage < mixPages
             );
           })();
         }

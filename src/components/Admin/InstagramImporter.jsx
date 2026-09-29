@@ -40,7 +40,7 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
 
   // Función para extraer el shortcode del URL de Instagram
   const extractShortcode = (url) => {
-    const regex = /instagram\.com\/p\/([A-Za-z0-9_-]+)/i;
+    const regex = /instagram\.com\/(?:[\w.-]+\/)?(?:p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i;
     const match = url.match(regex);
     return match ? match[1] : null;
   };

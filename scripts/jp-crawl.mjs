@@ -333,6 +333,32 @@ function toRows(items, category, sub, band = null, minPrice = null) {
     });
 }
 
+// Verifica si un target filtrado muestra el MISMO listado que su padre
+// (origen ignoró el filtro) comparando los ids de la página 1. Los targets
+// de corridas viejas no tienen huella del padre: se comparan contra la
+// base de la sub (superset de cualquier padre) — si ahí también matchea,
+// el filtro sí estaba siendo ignorado.
+async function isSameAsParent(target) {
+  const ids = target._firstIds;
+  if (!ids?.length) return false;
+  let parentIds = target._parentFirstIds;
+  if (!parentIds?.length) {
+    try {
+      const base = await fetchProductsHtml(target.sub, '', {
+        page: 1,
+        sort: 'released_date_desc',
+        includeOos: true,
+        lang: 'en',
+        price: target.minPrice ? `${target.minPrice}-` : '',
+      });
+      parentIds = parseProducts(base).slice(0, 12).map((p) => p.id);
+    } catch {
+      return false; // sin forma de verificar: se crawlea igual
+    }
+  }
+  return ids.slice(0, 8).join() === parentIds.slice(0, 8).join();
+}
+
 // Pide una página del stream completo (con y sin stock mezclados) y la
 // upsertea. Devuelve cuántos items crudos trajo (para detectar el fin),
 // o 'same' si un target de año devolvió el mismo total que el listado
@@ -361,13 +387,21 @@ async function crawlPage(target, page) {
   const { count } = parseTotal(html);
   const firstSeen = target._total == null;
   target._total ??= count;
-  // Si un target filtrado reporta el mismo total que su padre, el origen
-  // ignoró el filtro -> no gastar más páginas acá.
+  // Huella de la página 1 (primeros ids): sirve para distinguir "filtro
+  // ignorado por el origen" de "mismo total por casualidad".
+  if (page === 1) {
+    target._firstIds = parseProducts(html).slice(0, 12).map((p) => p.id);
+  }
+  // Si un target filtrado reporta el mismo total que su padre, puede ser
+  // que el origen ignoró el filtro O que el subrango contiene todo
+  // legítimamente (ej. nadie usa ¥649 exacto -> 649-655 == 650-655).
+  // Solo es "ignorado" si la página 1 muestra los mismos items.
   if (
     (target.year || target.price) &&
     page === 1 &&
     count != null &&
-    count === target._parentTotal
+    count === target._parentTotal &&
+    (await isSameAsParent(target))
   ) {
     target._same = true; // filtro ignorado por el origen
     return 'same';
@@ -553,6 +587,7 @@ function maybeSplit(t) {
       year: dim.year ?? t.year,
       minPrice: t.minPrice,
       _parentTotal: t._total,
+      _parentFirstIds: t._firstIds,
     };
     const key = keyOf(d.sub, d.price, d.year);
     if (state.targets[key]) continue;

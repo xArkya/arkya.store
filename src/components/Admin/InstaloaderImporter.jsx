@@ -73,8 +73,9 @@ const InstaloaderImporter = ({ onProductDataExtracted, onEditMultipleProducts })
     if (!url || typeof url !== 'string') return false;
     // Limpiar la URL primero
     const cleanUrl = cleanInstagramUrl(url);
-    // Solo permitir URLs de Instagram válidas
-    const regex = /^https?:\/\/(www\.)?instagram\.com\/p\/[A-Za-z0-9_-]+\/?$/i;
+    // Permitir URLs de posts/reels/tv, con o sin username en la ruta
+    // (instagram.com/<user>/p/<code> es igual de válida que /p/<code>)
+    const regex = /^https?:\/\/(www\.)?instagram\.com\/(?:[\w.-]+\/)?(?:p|reel|reels|tv)\/[A-Za-z0-9_-]+\/?$/i;
     return regex.test(cleanUrl);
   };
 
@@ -86,7 +87,7 @@ const InstaloaderImporter = ({ onProductDataExtracted, onEditMultipleProducts })
     if (!isValidInstagramUrl(cleanUrl)) {
       return null;
     }
-    const regex = /instagram\.com\/p\/([A-Za-z0-9_-]+)/i;
+    const regex = /instagram\.com\/(?:[\w.-]+\/)?(?:p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i;
     const match = cleanUrl.match(regex);
     return match ? match[1] : null;
   };

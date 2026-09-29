@@ -10,6 +10,7 @@ import json
 import time
 import re
 import os
+import subprocess
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -32,6 +33,49 @@ def install_selenium():
         from webdriver_manager.chrome import ChromeDriverManager
         return True
 
+def dismiss_instagram_popups(driver, attempts=2):
+    """Cerrar el modal de registro/login de Instagram.
+
+    Intenta clickear el botón X del diálogo y, si quedan overlays,
+    los remueve del DOM y restaura el scroll del body (Instagram pone
+    overflow:hidden cuando muestra el modal — eso también traba el
+    carrusel de imágenes).
+    """
+    for _ in range(attempts):
+        clicked = False
+        try:
+            for svg in driver.find_elements(By.CSS_SELECTOR, "div[role='dialog'] svg[aria-label]"):
+                try:
+                    label = (svg.get_attribute('aria-label') or '').lower()
+                    if label in ('close', 'cerrar'):
+                        btn = svg.find_element(By.XPATH, "./ancestor::*[@role='button' or self::button][1]")
+                        driver.execute_script("arguments[0].click();", btn)
+                        clicked = True
+                except Exception:
+                    pass
+        except Exception:
+            pass
+        try:
+            removed = driver.execute_script("""
+                let n = 0;
+                document.querySelectorAll("div[role='dialog']").forEach(d => { d.remove(); n++; });
+                // barra inferior "Entrar / Regístrate"
+                document.querySelectorAll("div[class*='xdt5ytf']").forEach(d => {
+                    if (d.textContent && /reg(i|í)strate|sign up|entrar|log in/i.test(d.textContent) && d.textContent.length < 300) {
+                        d.remove(); n++;
+                    }
+                });
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
+                return n;
+            """)
+        except Exception:
+            removed = 0
+        if not clicked and not removed:
+            break
+        time.sleep(1)
+
+
 def extract_with_selenium(post_url):
     """Extraer datos usando Selenium con Brave Browser"""
     try:
@@ -45,8 +89,9 @@ def extract_with_selenium(post_url):
         from selenium.common.exceptions import TimeoutException, WebDriverException
         from webdriver_manager.chrome import ChromeDriverManager
         
-        # Extraer shortcode del URL
-        shortcode = post_url.split('/p/')[-1].split('/')[0]
+        # Extraer shortcode del URL (acepta /p/, /reel/, /reels/, /tv/ con o sin username)
+        m = re.search(r'instagram\.com/(?:[\w.-]+/)?(?:p|reel|reels|tv)/([A-Za-z0-9_-]+)', post_url)
+        shortcode = m.group(1) if m else post_url.split('/p/')[-1].split('/')[0]
         
         # Configurar opciones de Chrome para Brave
         chrome_options = Options()
@@ -89,6 +134,57 @@ def extract_with_selenium(post_url):
                 except:
                     continue
         
+        # Perfil de Chrome por proceso. El user-data-dir NO se puede compartir
+        # entre instancias — Chrome lo lockea y las instancias paralelas
+        # crashean al arrancar ("DevToolsActivePort file doesn't exist"). Así:
+        # - con sesión guardada (.ig-cookies.json): perfil temporal propio +
+        #   cookies inyectadas -> extracciones EN PARALELO con login activo.
+        # - sin sesión: solo el proceso que gana el lock usa el perfil
+        #   compartido (para loguearse una vez y volcar las cookies); el resto
+        #   va anónimo con perfil temporal (el popup se cierra solo).
+        import tempfile
+        try:
+            import msvcrt
+        except ImportError:
+            msvcrt = None  # no-Windows: sin lock, perfil temporal siempre
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        cookie_file = os.path.join(script_dir, '.ig-cookies.json')
+        shared_profile = os.path.join(script_dir, '.chrome-ig-profile')
+        lock_path = os.path.join(script_dir, '.ig-profile.lock')
+        saved_cookies = None
+        if os.path.exists(cookie_file):
+            try:
+                with open(cookie_file, 'r', encoding='utf-8') as f:
+                    saved_cookies = json.load(f)
+            except Exception:
+                saved_cookies = None
+        temp_profile = None
+        profile_lock = None
+        if saved_cookies:
+            profile_dir = tempfile.mkdtemp(prefix='ig-scrape-')
+            temp_profile = profile_dir
+        else:
+            try:
+                profile_lock = open(lock_path, 'a+b')
+                if msvcrt:
+                    profile_lock.seek(0)
+                    msvcrt.locking(profile_lock.fileno(), msvcrt.LK_NBLCK, 1)
+                profile_dir = shared_profile  # ganó el lock: perfil con login
+            except OSError:
+                profile_dir = tempfile.mkdtemp(prefix='ig-scrape-')
+                temp_profile = profile_dir
+        chrome_options.add_argument(f"--user-data-dir={profile_dir}")
+
+        # Escalonar el arranque: N Chromes lanzados en el mismo instante se
+        # pelean por CPU/RAM y algunos mueren antes de crear la sesión.
+        import random
+        time.sleep(random.uniform(0, 4))
+
+        # No esperar a que carguen todos los recursos (imágenes incluidas):
+        # con 'eager' driver.get vuelve cuando el DOM está listo — la parte
+        # lenta de la página no bloquea el arranque.
+        chrome_options.page_load_strategy = 'eager'
+
         # Opciones para estabilidad
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")
@@ -123,13 +219,18 @@ def extract_with_selenium(post_url):
             "profile.default_content_setting_values.notifications": 2
         })
         
-        # Iniciar WebDriver con reintentos
+        # Iniciar WebDriver con reintentos. Selenium Manager (built-in desde
+        # Selenium 4.6) resuelve el driver desde cache local — sin request de
+        # red en cada corrida. Fallback a ChromeDriverManager si falla.
         driver = None
         max_retries = 3
         for attempt in range(max_retries):
             try:
-                service = Service(ChromeDriverManager().install())
-                driver = webdriver.Chrome(service=service, options=chrome_options)
+                try:
+                    driver = webdriver.Chrome(options=chrome_options)
+                except Exception:
+                    service = Service(ChromeDriverManager().install())
+                    driver = webdriver.Chrome(service=service, options=chrome_options)
                 break
             except Exception as e:
                 if attempt < max_retries - 1:
@@ -143,11 +244,75 @@ def extract_with_selenium(post_url):
             raise Exception("No se pudo inicializar el WebDriver")
         
         try:
+            # Inyectar la sesión guardada (hay que estar en el dominio para
+            # poder setear cookies) y recién después ir al post
+            if saved_cookies:
+                driver.get('https://www.instagram.com/')
+                for c in saved_cookies:
+                    try:
+                        driver.add_cookie({
+                            k: v for k, v in c.items()
+                            if k in ('name', 'value', 'domain', 'path', 'secure',
+                                     'httpOnly', 'sameSite', 'expiry')
+                        })
+                    except Exception:
+                        try:
+                            driver.add_cookie({
+                                k: v for k, v in c.items()
+                                if k in ('name', 'value', 'domain', 'path',
+                                         'secure', 'httpOnly')
+                            })
+                        except Exception:
+                            pass
+
             # Visitar el post de Instagram
             driver.get(post_url)
-            
-            # Esperar a que cargue el contenido inicial
-            time.sleep(4)
+
+            # Esperar a que cargue el article del post (fallback a sleep)
+            try:
+                WebDriverWait(driver, 15).until(
+                    EC.presence_of_element_located((By.TAG_NAME, "article"))
+                )
+            except TimeoutException:
+                time.sleep(2)
+
+            # Cerrar el popup de "Regístrate/Entrar" si aparece (sesión sin login)
+            dismiss_instagram_popups(driver)
+
+            # Si Instagram redirigió a login, esperar a que el usuario inicie
+            # sesión en la ventana (primera vez con el perfil nuevo — la
+            # sesión queda guardada para todas las corridas siguientes)
+            if '/accounts/login' in driver.current_url:
+                print("AVISO: Instagram pide login. Iniciá sesión en la ventana "
+                      "de Chrome que abrió el script — esperando hasta 3 min...",
+                      file=sys.stderr)
+                try:
+                    WebDriverWait(driver, 180).until(
+                        lambda d: '/accounts/login' not in d.current_url
+                    )
+                    # Sesión iniciada: volver al post y esperar el article
+                    driver.get(post_url)
+                    WebDriverWait(driver, 15).until(
+                        EC.presence_of_element_located((By.TAG_NAME, "article"))
+                    )
+                except TimeoutException:
+                    pass
+                dismiss_instagram_popups(driver)
+
+            # Si estamos en una sesión logueada sobre el perfil compartido,
+            # volcar las cookies a .ig-cookies.json: las próximas corridas usan
+            # perfil temporal propio y pueden ir EN PARALELO.
+            if not saved_cookies:
+                try:
+                    cookies = driver.get_cookies()
+                    if any(c.get('name') == 'sessionid' for c in cookies):
+                        with open(cookie_file, 'w', encoding='utf-8') as f:
+                            json.dump(cookies, f)
+                        print("Sesión guardada en .ig-cookies.json — las "
+                              "próximas extracciones ya van en paralelo.",
+                              file=sys.stderr)
+                except Exception:
+                    pass
 
             # Hacer clic en botón "más" / "more" para expandir descripciones truncadas
             # Solo buscar DENTRO del article del post para evitar navegar fuera
@@ -211,6 +376,9 @@ def extract_with_selenium(post_url):
                 no_button_count = 0
                 
                 for i in range(max_images):
+                    # Instagram re-muestra el wall de login durante el
+                    # carrusel — removerlo para no perder clicks/imágenes
+                    dismiss_instagram_popups(driver, attempts=1)
                     # Extraer las imágenes visibles ANTES de navegar
                     try:
                         # Buscar todas las imágenes visibles
@@ -291,6 +459,20 @@ def extract_with_selenium(post_url):
             
         finally:
             driver.quit()
+            if temp_profile:
+                try:
+                    import shutil
+                    shutil.rmtree(temp_profile, ignore_errors=True)
+                except Exception:
+                    pass
+            if profile_lock:
+                try:
+                    if msvcrt:
+                        profile_lock.seek(0)
+                        msvcrt.locking(profile_lock.fileno(), msvcrt.LK_UNLCK, 1)
+                    profile_lock.close()
+                except Exception:
+                    pass
             
     except Exception as e:
         print(f"ERROR GENERAL: {str(e)}", file=sys.stderr)

@@ -71,3 +71,8 @@ r1.json
 jp_check.json
 probe_result.json
 px_test.html
+
+# Perfil de Chrome para el scraper de Instagram (sesión local)
+scripts/.chrome-ig-profile/
+scripts/.ig-cookies.json
+scripts/.ig-profile.lock

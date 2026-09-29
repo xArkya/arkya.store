@@ -1972,7 +1972,7 @@ export const products = [
     ],
     "category": "Artbooks",
     "subcategory": "",
-    "isNew": true,
+    "isNew": false,
     "inStock": false,
     "adultContent": true,
     "details": "",
@@ -6029,7 +6029,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Incluye 4 stands de acrílico, también se pueden conseguir por separado!",
     "instagram": "https://instagram.com/arkya.store",
@@ -6045,11 +6045,8 @@ export const products = [
       "stand"
     ],
     "id": 1775624696800,
-    "isOnOffer": true,
-    "discountPercentage": 0,
-    "originalPrice": 64999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Ruri-Hime Summer 2012",
@@ -6500,7 +6497,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "anime",
@@ -6685,7 +6682,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "dragonball",
@@ -6891,7 +6888,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "ffxiii",
@@ -7123,7 +7120,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "inStock": false,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "jojobizarreadventure",
@@ -7318,7 +7315,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "astroboy",
@@ -8730,7 +8727,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "ecchi",
@@ -9691,7 +9688,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "yugioh",
@@ -9731,7 +9728,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "finalfantasy",
@@ -11081,7 +11078,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "nier",
@@ -14901,7 +14898,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "moe",
@@ -14936,7 +14933,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": false,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "onepiece",
@@ -15292,7 +15289,7 @@ export const products = [
     "category": "Otros",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "onepiece",
@@ -15719,7 +15716,7 @@ export const products = [
     ],
     "category": "Artbooks",
     "subcategory": "",
-    "isNew": true,
+    "isNew": false,
     "inStock": true,
     "tags": [
       "doujin",
@@ -15839,7 +15836,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": false,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "steinsgate",
@@ -15885,7 +15882,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "inStock": false,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "bleach",
@@ -15997,7 +15994,7 @@ export const products = [
     "category": "Doujinshis",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "artbook",
@@ -16197,7 +16194,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": false,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "ecchi",
@@ -16229,8 +16226,8 @@ export const products = [
     "price": 14999,
     "category": "Mangas",
     "subcategory": "",
-    "inStock": true,
-    "isNew": true,
+    "inStock": false,
+    "isNew": false,
     "isOnOffer": false,
     "tags": [
       "pokemon",
@@ -16357,7 +16354,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "visualnovel",
@@ -16429,14 +16426,14 @@ export const products = [
       "/images/products/product-1787080338709-3.webp",
       "/images/products/product-1787080338709-4.webp"
     ],
-    "name": "Ordermade (SIN CD)",
+    "name": "Ordermade",
     "description": "Doujinshi de Pocket Factory que incluye CD con fondos de pantalla!\n\nDISPONIBLE SIN CD",
-    "details": "Doujinshi de Pocket Factory que incluye CD con fondos de pantalla!",
+    "details": "Doujinshi de Pocket Factory que incluye CD con fondos de pantalla!\n\nDISPONIBLE SIN CD",
     "price": 16999.32,
     "category": "Doujinshis",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "haruhi",
@@ -16560,7 +16557,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "bekanko",
@@ -16997,8 +16994,8 @@ export const products = [
     ],
     "category": "Artbooks",
     "subcategory": "",
-    "isNew": true,
-    "inStock": true,
+    "isNew": false,
+    "inStock": false,
     "tags": [
       "nikke",
       "rappi",
@@ -17012,11 +17009,8 @@ export const products = [
       "Videojuegos"
     ],
     "id": 1788482167015,
-    "isOnOffer": true,
-    "discountPercentage": 0,
-    "originalPrice": 79999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Yozakura Quartet Vol.20 Edición Limitada",
@@ -17510,6 +17504,397 @@ export const products = [
     "extractionDate": "2026-09-17T05:11:52.095Z",
     "categories": [
       "Artbooks"
+    ]
+  },
+  {
+    "id": 1790643955648,
+    "image": "/images/products/product-1790643955648-0.webp",
+    "images": [
+      "/images/products/product-1790643955648-0.webp",
+      "/images/products/product-1790643955648-1.webp",
+      "/images/products/product-1790643955648-2.webp",
+      "/images/products/product-1790643955648-3.webp",
+      "/images/products/product-1790643955648-4.webp",
+      "/images/products/product-1790643955648-5.webp",
+      "/images/products/product-1790643955648-6.webp"
+    ],
+    "name": "MAHO-GAKU Official Guide Book Set",
+    "description": "Pack de 2 libros y un CD del artista japonés John Hathway.",
+    "details": "Pack de 2 libros y un CD del artista japonés John Hathway.",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "johnhathway",
+      "kawaii",
+      "cutecore",
+      "moe",
+      "animeart"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd1sd00FNl-/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:05:55.077Z",
+    "categories": [
+      "Artbooks",
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1790645445055,
+    "image": "/images/products/product-1790645445055-0.webp",
+    "images": [
+      "/images/products/product-1790645445055-0.webp",
+      "/images/products/product-1790645445055-1.webp",
+      "/images/products/product-1790645445055-2.webp",
+      "/images/products/product-1790645445055-3.webp",
+      "/images/products/product-1790645445055-4.webp",
+      "/images/products/product-1790645445055-5.webp"
+    ],
+    "name": "BE-PAL 4/2003",
+    "description": "Revista enfocada en la vida al aire libre y naturaleza, este volumen está centrado en herramientas para sobrevivir.\nIncluye un catálogo de artículos!",
+    "details": "Revista enfocada en la vida al aire libre y naturaleza, este volumen está centrado en herramientas para sobrevivir.\nIncluye un catálogo de artículos!",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "bepal",
+      "camping",
+      "outdoor",
+      "mudskipper",
+      "mudkip"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Ddz2_mXFAaY/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1790645444587,
+    "image": "/images/products/product-1790645444587-0.webp",
+    "images": [
+      "/images/products/product-1790645444587-0.webp",
+      "/images/products/product-1790645444587-1.webp",
+      "/images/products/product-1790645444587-2.webp",
+      "/images/products/product-1790645444587-3.webp"
+    ],
+    "name": "Kami nomi zo Shiru Sekai Vol.15 Edición Limitada",
+    "description": "Edición especial del manga de The World God Only Knows, que incluye un llavero de Elucia que tiene un botoncito para prender luz!",
+    "details": "Edición especial del manga de The World God Only Knows, que incluye un llavero de Elucia que tiene un botoncito para prender luz!",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "kaminomi",
+      "elsie",
+      "anime",
+      "manga",
+      "ecchi"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdxRc23lAya/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1790645444549,
+    "image": "/images/products/product-1790645444549-0.webp",
+    "images": [
+      "/images/products/product-1790645444549-0.webp",
+      "/images/products/product-1790645444549-1.webp",
+      "/images/products/product-1790645444549-2.webp",
+      "/images/products/product-1790645444549-3.webp"
+    ],
+    "name": "MANABURN Vol. 6",
+    "description": "Revista especializada en el juego de cartas \"Magic: The Gathering\"!",
+    "details": "Revista especializada en el juego de cartas \"Magic: The Gathering\"!",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "magic",
+      "tcg",
+      "magicthegathering",
+      "cardgame",
+      "retro"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdurMZfFIYO/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Revistas",
+      "Cartas"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 29999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1790645444609,
+    "image": "/images/products/product-1790645444609-0.webp",
+    "images": [
+      "/images/products/product-1790645444609-0.webp",
+      "/images/products/product-1790645444609-1.webp",
+      "/images/products/product-1790645444609-2.webp",
+      "/images/products/product-1790645444609-3.webp"
+    ],
+    "name": "Neon Genesis Evangelion Collector's Edition Original Illustration Book Part. II",
+    "description": "Artbook de Evangelion que originalmente viene incluído con la edición limitada del Volumen 6 de la edición coleccionista!",
+    "details": "Artbook de Evangelion que originalmente viene incluído con la edición limitada del Volumen 6 de la edición coleccionista!",
+    "price": 44999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "evangelion",
+      "asuka",
+      "artbook",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdsFGtDFCuU/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1790645445095,
+    "image": "/images/products/product-1790645445095-0.webp",
+    "images": [
+      "/images/products/product-1790645445095-0.webp",
+      "/images/products/product-1790645445095-1.webp",
+      "/images/products/product-1790645445095-2.webp",
+      "/images/products/product-1790645445095-3.webp",
+      "/images/products/product-1790645445095-4.webp",
+      "/images/products/product-1790645445095-5.webp",
+      "/images/products/product-1790645445095-6.webp",
+      "/images/products/product-1790645445095-7.webp"
+    ],
+    "name": "Replicant Vol.17 Summer 2004",
+    "description": "Revista enfocada en figuras garage kits de personajes femeninos.\nIncluye Desplegable!",
+    "details": "Revista enfocada en figuras garage kits de personajes femeninos.\nIncluye Desplegable!",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "evangelion",
+      "animefigure",
+      "garagekit"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdpiUyVlEOV/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Revistas",
+      "Figuras"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1790645444763,
+    "image": "/images/products/product-1790645444763-0.webp",
+    "images": [
+      "/images/products/product-1790645444763-0.webp",
+      "/images/products/product-1790645444763-1.webp",
+      "/images/products/product-1790645444763-2.webp",
+      "/images/products/product-1790645444763-3.webp",
+      "/images/products/product-1790645444763-4.webp",
+      "/images/products/product-1790645444763-5.webp",
+      "/images/products/product-1790645444763-6.webp",
+      "/images/products/product-1790645444763-7.webp"
+    ],
+    "name": "Rebo to Dlive",
+    "description": "Colección de ilustraciones de más de 180 páginas de las obras emblemáticas de Akira Amano, como Katekyō Hitman Reborn! y ēlDLIVE, además de diseños de personajes que realizó para la serie de anime Psycho-Pass!",
+    "details": "Colección de ilustraciones de más de 180 páginas de las obras emblemáticas de Akira Amano, como Katekyō Hitman Reborn! y ēlDLIVE, además de diseños de personajes que realizó para la serie de anime Psycho-Pass!",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "katekyohitmanreborn",
+      "psychopass",
+      "artbook",
+      "manga",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdkUkMBlADI/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1790645444412,
+    "image": "/images/products/product-1790645444412-0.webp",
+    "images": [
+      "/images/products/product-1790645444412-0.webp",
+      "/images/products/product-1790645444412-1.webp",
+      "/images/products/product-1790645444412-2.webp",
+      "/images/products/product-1790645444412-3.webp"
+    ],
+    "name": "OrangeMaru Special 08",
+    "description": "Colección de Ilustraciones ecchi del artista OrangeMaru, con chicas de F/GO (Jeanne D'arc, Consort Yu, Rin Tohsaka, y más!) disfrazadas de conejitas!",
+    "details": "Colección de Ilustraciones ecchi del artista OrangeMaru, con chicas de F/GO (Jeanne D'arc, Consort Yu, Rin Tohsaka, y más!) disfrazadas de conejitas!",
+    "price": 45999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "doujinshi",
+      "fgo",
+      "bunnygirl"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Ddh4TwelF3r/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1790645444270,
+    "image": "/images/products/product-1790645444270-0.webp",
+    "images": [
+      "/images/products/product-1790645444270-0.webp",
+      "/images/products/product-1790645444270-1.webp",
+      "/images/products/product-1790645444270-2.webp",
+      "/images/products/product-1790645444270-3.webp"
+    ],
+    "name": "Colorful Box ~to Love~ Artbook",
+    "description": "Colección de Ilustraciones de la novela visual, incluye CD con un artbook digital!\n\nDISPONIBLE SIN CD",
+    "details": "Colección de Ilustraciones de la novela visual, incluye CD con un artbook digital!\n\nDISPONIBLE SIN CD",
+    "price": 14999.4,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "ps2",
+      "visualnovel",
+      "romcom",
+      "colorfulbox",
+      "retrogames"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdctUrVFEO9/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Artbooks",
+      "CD/DVD"
+    ],
+    "discountPercentage": 40,
+    "originalPrice": 24999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1790645444684,
+    "image": "/images/products/product-1790645444684-0.webp",
+    "images": [
+      "/images/products/product-1790645444684-0.webp",
+      "/images/products/product-1790645444684-1.webp",
+      "/images/products/product-1790645444684-2.webp",
+      "/images/products/product-1790645444684-3.webp"
+    ],
+    "name": "Dragon Quest Official Best Album",
+    "description": "Libro de partituras para piano que incluye composiciones de Koichi Sugiyama que abarcan desde Dragon Quest I hasta IX.",
+    "details": "Libro de partituras para piano que incluye composiciones de Koichi Sugiyama que abarcan desde Dragon Quest I hasta IX.",
+    "price": 59999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "piano",
+      "pianosheets",
+      "dragonquest",
+      "music",
+      "koichisugiyama"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdaKQSClL07/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:30:44.139Z",
+    "categories": [
+      "Otros"
+    ]
+  },
+  {
+    "id": 1790645689712,
+    "image": "/images/products/product-1790645689712-0.webp",
+    "images": [
+      "/images/products/product-1790645689712-0.webp",
+      "/images/products/product-1790645689712-1.webp"
+    ],
+    "name": "Catálogo de BE-PAL 4/2003",
+    "description": "Sólo catálogo de Artículos\n\nFormaba parte de una revista enfocada en la vida al aire libre y naturaleza.",
+    "details": "Sólo catálogo de Artículos\n\nFormaba parte de una revista enfocada en la vida al aire libre y naturaleza.",
+    "price": 9999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "bepal",
+      "camping",
+      "outdoor",
+      "mudskipper",
+      "mudkip"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Ddz2_mXFAaY/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-09-29T01:34:48.744Z",
+    "categories": [
+      "Revistas"
     ]
   }
 ];
