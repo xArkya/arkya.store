@@ -221,6 +221,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
           </Text>
           {allowExclude && (
             <IconButton
+              as="span"
               aria-label={`Excluir ${o.label}`}
               title={isEx ? `Dejar de excluir ${o.label}` : `Excluir ${o.label}`}
               icon={<FaBan size={12} />}
@@ -519,6 +520,7 @@ export default function ImportCatalogPage() {
   const lastTotalRef = useRef(null);
   const mixInfoRef = useRef(null);
   const shuffleRef = useRef(null); // anclas del modo barajado, por filtersKey
+  const lastUrlRef = useRef(searchParams.toString()); // última URL escrita/leída por este componente
   const toast = useToast();
 
   // Debounce del input
@@ -583,8 +585,12 @@ export default function ImportCatalogPage() {
     if (page !== 1) setPage(1);
   }
 
-  // Persistir estado en la URL (replace: no ensucia el historial, pero
-  // recargar o volver desde otra página restaura búsqueda + página)
+  // Persistir estado en la URL: cada cambio pushea una entrada al
+  // historial, así "atrás" del navegador vuelve a la página/filtros
+  // anteriores. Si la URL ya refleja el estado actual (carga inicial o
+  // navegación atrás/adelante, que sincroniza el efecto de abajo) no se
+  // agrega entrada — sin eso el atrás pushearía de nuevo la página de
+  // la que se viene.
   useEffect(() => {
     const p = {};
     if (query) p.q = query;
@@ -597,8 +603,62 @@ export default function ImportCatalogPage() {
     if (band !== '') p.precio = band;
     if (sort) p.orden = sort;
     if (effPage > 1) p.p = String(effPage);
-    setSearchParams(p, { replace: true });
+    const next = new URLSearchParams(p).toString();
+    if (next === lastUrlRef.current) return;
+    lastUrlRef.current = next;
+    setSearchParams(p);
   }, [query, category, sub1, sub1X, sub2, sub2X, year, band, sort, effPage, setSearchParams]);
+
+  // Atrás/adelante del navegador: la URL es la fuente — se vuelca a los
+  // estados (mismo parseo que el useState inicial). Si es la URL que el
+  // efecto de arriba acaba de escribir, no hay nada que sincronizar.
+  useEffect(() => {
+    const s = searchParams.toString();
+    if (s === lastUrlRef.current) return;
+    lastUrlRef.current = s;
+    const q = searchParams.get('q') || '';
+    const cat = searchParams.get('cat') || 'all';
+    const tab = CATEGORY_TABS.find((t) => t.id === cat);
+    const catOk = tab && !tab.soon ? cat : 'books';
+    const tipo = searchParams.get('tipo') || '';
+    const subP = searchParams.get('sub') || '';
+    const s1 = tipo.replace(/^!/, '');
+    const s1x = [
+      ...(tipo.startsWith('!') ? [tipo.slice(1)] : []),
+      ...(searchParams.get('xtipo') || '').split(','),
+    ].filter(Boolean);
+    const s2 = subP.replace(/^!/, '');
+    const s2x = [
+      ...(subP.startsWith('!') ? [subP.slice(1)] : []),
+      ...(searchParams.get('xsub') || '').split(','),
+    ].filter(Boolean);
+    const y = searchParams.get('a') || '';
+    const b = searchParams.get('precio') || '';
+    const so = searchParams.get('orden') || '';
+    // El render resetea a página 1 cuando cambia filtersKey: al restaurar
+    // por atrás/adelante la key ya corresponde a la URL, así que se
+    // actualiza acá para que no pise la ?p= recuperada.
+    const tree =
+      catOk === 'all'
+        ? [...JP_CATEGORY_TREE.books, ...JP_CATEGORY_TREE.doujin]
+        : JP_CATEGORY_TREE[catOk] || [];
+    const single = tree.length === 1 ? tree[0] : null;
+    const subNew = s2 || s1 || (single?.code ?? '');
+    setPrevFiltersKey(
+      `${q}|${catOk}|${subNew}|${s1x.join(',')}|${s2x.join(',')}|${y}|${b}|${so}`
+    );
+    setInputValue(q);
+    setQuery(q);
+    setCategory(catOk);
+    setSub1(s1);
+    setSub1X(s1x);
+    setSub2(s2);
+    setSub2X(s2x);
+    setYear(y);
+    setBand(b);
+    setSort(so);
+    setPage(Math.max(1, Number(searchParams.get('p')) || 1));
+  }, [searchParams]);
 
   // Scroll al tope de los resultados al cambiar de página — instantáneo:
   // el smooth se cortaba por el lazy-load de las imágenes.
@@ -877,6 +937,7 @@ export default function ImportCatalogPage() {
               'sub',
               codes.length === 1 ? `eq.${codes[0]}` : `in.(${codes.join(',')})`
             );
+            p.set('order', 'id.asc');
             return p;
           };
           const fetchP = (p, prefer, srcDb) =>
@@ -902,6 +963,7 @@ export default function ImportCatalogPage() {
                 mixGroups.map((g) => {
                   const probe = groupParams(g.codes);
                   probe.set('limit', '0');
+                  probe.set('offset', '0');
                   return fetchP(probe, 'count=exact', g.srcDb).then(
                     (r) => r.total || 0
                   );
@@ -932,7 +994,11 @@ export default function ImportCatalogPage() {
                   mix.anchors[i] + (effPage - 1) * slots[i],
                   mix.totalsArr[i],
                   slots[i]
-                )
+                ).catch((e) => {
+                  if (e.name === 'AbortError' || controller.signal.aborted)
+                    throw e;
+                  return [];
+                })
               )
             );
             // Round-robin: slot 0 de cada grupo, slot 1 de cada uno, ...
@@ -1012,6 +1078,7 @@ export default function ImportCatalogPage() {
                   const ownX = exCodes.flatMap((c) => codesForSource(s.src, c));
                   if (ownX.length) p.append('sub', `not.in.(${ownX.join(',')})`);
                   p.set('limit', '0');
+                  p.set('offset', '0');
                   return fetchRows(p, 'count=exact', s.srcDb).then(
                     ({ total }) => ({
                       ...s,
