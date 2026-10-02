@@ -355,7 +355,9 @@ export const products = [
     "isNew": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
-    "tags": [],
+    "tags": [
+      "fate"
+    ],
     "id": 1757984413967,
     "category": "Videojuegos",
     "isOnOffer": false,
@@ -743,7 +745,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [
@@ -1327,7 +1329,7 @@ export const products = [
   {
     "name": "Fate/Grand Order Memories II ",
     "description": "Explora el mundo de Fate/Grand Order con esta edición especial que reúne contenido exclusivo para los verdaderos fans.\n\nIncluye:\n- Una colección de arte conceptual y trajes formales.\n- Textos.\n- Ilustraciones de Craft Essences.\n\nPáginas: 200 aprox; Y 30 aprox.",
-    "price": 33999.15,
+    "price": 39999,
     "image": "/images/products/product-1758056673789-0.webp",
     "images": [
       "/images/products/product-1758056673789-0.webp",
@@ -1346,16 +1348,13 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
     "id": 1758056673789,
-    "isOnOffer": true,
-    "discountPercentage": 15,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Blue Lock Vol. 29 - Edición especial ",
@@ -17874,14 +17873,14 @@ export const products = [
       "/images/products/product-1790645689712-1.webp"
     ],
     "name": "Catálogo de BE-PAL 4/2003",
-    "description": "Sólo catálogo de Artículos\n\nFormaba parte de una revista enfocada en la vida al aire libre y naturaleza.",
-    "details": "Sólo catálogo de Artículos\n\nFormaba parte de una revista enfocada en la vida al aire libre y naturaleza.",
+    "description": "Formaba parte de una revista enfocada en la vida al aire libre y naturaleza.",
+    "details": "Formaba parte de una revista enfocada en la vida al aire libre y naturaleza.",
     "price": 9999,
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
     "isNew": true,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "bepal",
       "camping",
@@ -17895,6 +17894,343 @@ export const products = [
     "extractionDate": "2026-09-29T01:34:48.744Z",
     "categories": [
       "Revistas"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 9999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1790981508777,
+    "image": "/images/products/product-1790981508777-0.webp",
+    "images": [
+      "/images/products/product-1790981508777-0.webp",
+      "/images/products/product-1790981508777-1.webp",
+      "/images/products/product-1790981508777-2.webp"
+    ],
+    "name": "Sumikko Gurashi no Masukotto Tsukuro! Deluxe",
+    "description": "Libro de manualidades japonés que incluye un creador de pompones, pegatinas para las caras y estambres en 7 colores para hacer muñecos de los personajes Sumikko Gurashi, y contiene la maquina fabricante de pompones!",
+    "details": "Libro de manualidades japonés que incluye un creador de pompones, pegatinas para las caras y estambres en 7 colores para hacer muñecos de los personajes Sumikko Gurashi, y contiene la maquina fabricante de pompones!",
+    "price": 34999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "sumikkogurashi",
+      "kawaii",
+      "cute",
+      "diy",
+      "japanesemagazine"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dd_3T55FGUH/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Otros",
+      "Peluches"
     ]
+  },
+  {
+    "id": 1790981508595,
+    "image": "/images/products/product-1790981508595-0.webp",
+    "images": [
+      "/images/products/product-1790981508595-0.webp",
+      "/images/products/product-1790981508595-1.webp",
+      "/images/products/product-1790981508595-2.webp",
+      "/images/products/product-1790981508595-3.webp",
+      "/images/products/product-1790981508595-4.webp",
+      "/images/products/product-1790981508595-5.webp",
+      "/images/products/product-1790981508595-6.webp",
+      "/images/products/product-1790981508595-7.webp"
+    ],
+    "name": "C81 Keiji Mizoguchi Oreimo Pack",
+    "description": "Set de artículos del círculo de doujinshi NtyPe del ilustrador Keiji Mizoguchi (Diseñador de personajes Bunny Girl Senpai)\nEstá dedicado al personaje Ayase Aragaki de Ore no Imouto ga Konnan ni Kawaii Wake ga Nai.\n\nIncluye:\n- Bolso \"Tsun-uke Ayase Bag\"\n- Doujinshi My Angel Ayase ga Konnan ni Kawaii.\n- Carpeta para documentos.",
+    "details": "Set de artículos del círculo de doujinshi NtyPe del ilustrador Keiji Mizoguchi (Diseñador de personajes Bunny Girl Senpai)\nEstá dedicado al personaje Ayase Aragaki de Ore no Imouto ga Konnan ni Kawaii Wake ga Nai.\n\nIncluye:\n- Bolso \"Tsun-uke Ayase Bag\"\n- Doujinshi My Angel Ayase ga Konnan ni Kawaii.\n- Carpeta para documentos.",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "oreimo",
+      "bunnygirlsenpai",
+      "totebag",
+      "doujinshi",
+      "maisakurajima",
+      "mai sakurajima",
+      "bunny girl",
+      "rascal"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd-LXj7FJLz/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1790981509329,
+    "image": "/images/products/product-1790981509329-0.webp",
+    "images": [
+      "/images/products/product-1790981509329-0.webp",
+      "/images/products/product-1790981509329-1.webp",
+      "/images/products/product-1790981509329-2.webp",
+      "/images/products/product-1790981509329-3.webp",
+      "/images/products/product-1790981509329-4.webp",
+      "/images/products/product-1790981509329-5.webp",
+      "/images/products/product-1790981509329-6.webp",
+      "/images/products/product-1790981509329-7.webp"
+    ],
+    "name": "Bakemonogatari Vol.11 Edición Limitada",
+    "description": "Edición especial del manga que contiene parte del arco de Kizumonogatari, páginas a color adicionales, un cuento corto escrito por Nisio Isin (\"Suruga Earthworm\") y la galería de ilustraciones «Bakemogallery» con postales de invitados especiales!",
+    "details": "Edición especial del manga que contiene parte del arco de Kizumonogatari, páginas a color adicionales, un cuento corto escrito por Nisio Isin (\"Suruga Earthworm\") y la galería de ilustraciones «Bakemogallery» con postales de invitados especiales!",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "bakemonogatari",
+      "hanekawatsubasa",
+      "monogatari",
+      "kizumonogatari",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd9Y3Z-FJwZ/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1790981509014,
+    "image": "/images/products/product-1790981509014-0.webp",
+    "images": [
+      "/images/products/product-1790981509014-0.webp",
+      "/images/products/product-1790981509014-1.webp",
+      "/images/products/product-1790981509014-2.webp",
+      "/images/products/product-1790981509014-3.webp",
+      "/images/products/product-1790981509014-4.webp",
+      "/images/products/product-1790981509014-5.webp"
+    ],
+    "name": "joei by avogado6",
+    "description": "Artbook del ilustrador @avogado6",
+    "details": "Artbook del ilustrador @avogado6",
+    "price": 34999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "manga",
+      "avogado6",
+      "animeart",
+      "depression"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd2a4szFDx8/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1790981509521,
+    "image": "/images/products/product-1790981509521-0.webp",
+    "images": [
+      "/images/products/product-1790981509521-0.webp",
+      "/images/products/product-1790981509521-1.webp",
+      "/images/products/product-1790981509521-2.webp"
+    ],
+    "name": "Hayate no Gotoku! Vol.39 Edición Limitada",
+    "description": "Tomo 39 de Hayate, the combat butler! que incluye un mazo de cartas personalizadas!",
+    "details": "Tomo 39 de Hayate, the combat butler! que incluye un mazo de cartas personalizadas!",
+    "price": 24999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "anime",
+      "cartas",
+      "poker",
+      "hayate"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd4L9IElP2J/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Mangas",
+      "Cartas"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1790981509497,
+    "image": "/images/products/product-1790981509497-0.webp",
+    "images": [
+      "/images/products/product-1790981509497-0.webp",
+      "/images/products/product-1790981509497-1.webp",
+      "/images/products/product-1790981509497-2.webp",
+      "/images/products/product-1790981509497-3.webp",
+      "/images/products/product-1790981509497-4.webp",
+      "/images/products/product-1790981509497-5.webp"
+    ],
+    "name": "Otona no Kagaku (Adult Science Magazine) Vol.9",
+    "description": "Revista de ciencia, centrada en la astronomía, que incluye un proyector de estrellas para armar!\n\nDISPONIBLE SOLO LA REVISTA SIN PROYECTOR",
+    "details": "Revista de ciencia, centrada en la astronomía, que incluye un proyector de estrellas para armar!\n\nDISPONIBLE SOLO LA REVISTA SIN PROYECTOR",
+    "price": 9999.6,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "astronomy",
+      "science",
+      "stars",
+      "japanesemagazine",
+      "universe"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd4-vKFFEYV/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ],
+    "discountPercentage": 60,
+    "originalPrice": 24999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1790981508987,
+    "image": "/images/products/product-1790981508987-0.webp",
+    "images": [
+      "/images/products/product-1790981508987-0.webp",
+      "/images/products/product-1790981508987-1.webp",
+      "/images/products/product-1790981508987-2.webp",
+      "/images/products/product-1790981508987-3.webp",
+      "/images/products/product-1790981508987-4.webp",
+      "/images/products/product-1790981508987-5.webp",
+      "/images/products/product-1790981508987-6.webp"
+    ],
+    "name": "Hatsune Miku MIXING BOX",
+    "description": "Este set es un producto oficial de 2008 que incluye:\n• Figura: Una figura exclusiva de Hatsune Miku a escala pequeña fabricada por la compañía Yujin con un característico estilo moe!\n• Special Fan Book: Un libro de fans de unas 97 páginas con perfiles de personajes, gráficos de popularidad e ilustraciones recopiladas de Piapro.\n• Mixing Box Premium DVD: Un disco con canciones y archivos PDF para imprimir un escenario interactivo con figuras de papel (papercraft).\n• Caja contenedora: El empaque original decorado con ilustraciones de Hatsune Miku.",
+    "details": "Este set es un producto oficial de 2008 que incluye:\n• Figura: Una figura exclusiva de Hatsune Miku a escala pequeña fabricada por la compañía Yujin con un característico estilo moe!\n• Special Fan Book: Un libro de fans de unas 97 páginas con perfiles de personajes, gráficos de popularidad e ilustraciones recopiladas de Piapro.\n• Mixing Box Premium DVD: Un disco con canciones y archivos PDF para imprimir un escenario interactivo con figuras de papel (papercraft).\n• Caja contenedora: El empaque original decorado con ilustraciones de Hatsune Miku.",
+    "price": 119999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "hatsunemiku",
+      "vocaloid",
+      "miku",
+      "mikuhatsune",
+      "animefigure"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd6xBpKFHhS/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Artbooks",
+      "Figuras",
+      "CD/DVD",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1790981508996,
+    "image": "/images/products/product-1790981508996-0.webp",
+    "images": [
+      "/images/products/product-1790981508996-0.webp",
+      "/images/products/product-1790981508996-1.webp",
+      "/images/products/product-1790981508996-2.webp",
+      "/images/products/product-1790981508996-3.webp"
+    ],
+    "name": "RAITA FGO 02",
+    "description": "Colección de Ilustraciones ecchi de Honjo Raita, uno de los ilustradores oficiales de F/GO!",
+    "details": "Colección de Ilustraciones ecchi de Honjo Raita, uno de los ilustradores oficiales de F/GO!",
+    "price": 29999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "fate",
+      "fgo",
+      "doujinshi",
+      "ecchihentai"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dd7jeYhFGfX/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:51:48.574Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1790981787664,
+    "image": "/images/products/product-1790981787664-0.webp",
+    "images": [
+      "/images/products/product-1790981787664-0.webp",
+      "/images/products/product-1790981787664-1.webp",
+      "/images/products/product-1790981787664-2.webp"
+    ],
+    "name": "My Angel Ayase ga Konnan ni Kawaii",
+    "description": "Doujinshi del ilustrador Keiji Mizoguchi (Diseñador de personajes Bunny Girl Senpai)!\n",
+    "details": "Doujinshi del ilustrador Keiji Mizoguchi (Diseñador de personajes Bunny Girl Senpai)!\n",
+    "price": 14999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "oreimo",
+      "bunnygirlsenpai",
+      "totebag",
+      "doujinshi",
+      "maisakurajima"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/Dd-LXj7FJLz/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-02T22:56:27.185Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 14999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   }
 ];
