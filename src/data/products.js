@@ -3133,13 +3133,18 @@ export const products = [
     ],
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
-    "isNew": false,
-    "inStock": false,
+    "isNew": true,
+    "inStock": true,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
-    "id": 1760085083549
+    "id": 1760085083549,
+    "isOnOffer": true,
+    "discountPercentage": 0,
+    "originalPrice": 44999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "name": "Tokyo Revengers TV Anime Official Guidebook",
@@ -8546,7 +8551,7 @@ export const products = [
     "price": 24999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
     "isOnOffer": false,
     "tags": [
@@ -15716,7 +15721,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "tags": [
       "doujin",
       "bocchi the rock",
@@ -15735,11 +15740,8 @@ export const products = [
       "Doujinshis"
     ],
     "id": 1785367498403,
-    "isOnOffer": true,
-    "discountPercentage": 0,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Dorohedoro Bon",
@@ -17302,7 +17304,8 @@ export const products = [
     "categories": [
       "Doujinshis",
       "Artbooks",
-      "CD/DVD"
+      "CD/DVD",
+      "Videojuegos"
     ]
   },
   {
@@ -17790,7 +17793,8 @@ export const products = [
     "extractionDate": "2026-09-29T01:30:44.139Z",
     "categories": [
       "Doujinshis",
-      "Artbooks"
+      "Artbooks",
+      "Videojuegos"
     ],
     "adultContent": true
   },
@@ -17825,7 +17829,8 @@ export const products = [
     "extractionDate": "2026-09-29T01:30:44.139Z",
     "categories": [
       "Artbooks",
-      "CD/DVD"
+      "CD/DVD",
+      "Videojuegos"
     ],
     "discountPercentage": 40,
     "originalPrice": 24999,
@@ -17862,7 +17867,8 @@ export const products = [
     "extractedWith": "Instaloader Server",
     "extractionDate": "2026-09-29T01:30:44.139Z",
     "categories": [
-      "Otros"
+      "Otros",
+      "Videojuegos"
     ]
   },
   {
@@ -18192,7 +18198,8 @@ export const products = [
     "extractionDate": "2026-10-02T22:51:48.574Z",
     "categories": [
       "Doujinshis",
-      "Artbooks"
+      "Artbooks",
+      "Videojuegos"
     ],
     "adultContent": true
   },
@@ -18230,6 +18237,664 @@ export const products = [
     ],
     "discountPercentage": 0,
     "originalPrice": 14999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1791602525881,
+    "image": "/images/products/product-1791602525881-0.webp",
+    "images": [
+      "/images/products/product-1791602525881-0.webp",
+      "/images/products/product-1791602525881-1.webp",
+      "/images/products/product-1791602525881-2.webp",
+      "/images/products/product-1791602525881-3.webp",
+      "/images/products/product-1791602525881-4.webp",
+      "/images/products/product-1791602525881-5.webp",
+      "/images/products/product-1791602525881-6.webp"
+    ],
+    "name": "Megami Magazine Vol.111 Agosto 2009",
+    "description": "Revista de anime y juegos centrada en personajes femeninos, incluye muchos posters, y este volumen está dedicado a la película de Neon Genesis Evangelion!\nSIN LIBRO EXTRA DE K-ON, se puede conseguir con el libro a un precio mayor",
+    "details": "Revista de anime y juegos centrada en personajes femeninos, incluye muchos posters, y este volumen está dedicado a la película de Neon Genesis Evangelion!\nSIN LIBRO EXTRA DE K-ON, se puede conseguir con el libro a un precio mayor",
+    "price": 54999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "evangelion",
+      "reiayanami",
+      "anime",
+      "megami",
+      "magazine"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeAtHYylO7a/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1791602526010,
+    "image": "/images/products/product-1791602526010-0.webp",
+    "images": [
+      "/images/products/product-1791602526010-0.webp",
+      "/images/products/product-1791602526010-1.webp",
+      "/images/products/product-1791602526010-2.webp",
+      "/images/products/product-1791602526010-3.webp",
+      "/images/products/product-1791602526010-4.webp",
+      "/images/products/product-1791602526010-5.webp",
+      "/images/products/product-1791602526010-6.webp",
+      "/images/products/product-1791602526010-7.webp",
+      "/images/products/product-1791602526010-8.webp",
+      "/images/products/product-1791602526010-9.webp"
+    ],
+    "name": "Azur Lane 4th Anniversary Illustration Art Book Box",
+    "description": "Caja de productos oficial del cuarto aniversario de Azur Lane que incluye:\n- Artbook del cuarto aniversario\n- Ilustración de acrílico\n- Anotador A4\n- Medallita\n- Postales\n- Postales transparentes\n- Posavasos",
+    "details": "Caja de productos oficial del cuarto aniversario de Azur Lane que incluye:\n- Artbook del cuarto aniversario\n- Ilustración de acrílico\n- Anotador A4\n- Medallita\n- Postales\n- Postales transparentes\n- Posavasos",
+    "price": 89999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "azurlane",
+      "ecchi",
+      "ecchihentai",
+      "gachagames",
+      "videogames"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeChNplFNkO/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Artbooks",
+      "Otros",
+      "Videojuegos"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1791602526519,
+    "image": "/images/products/product-1791602526519-0.webp",
+    "images": [
+      "/images/products/product-1791602526519-0.webp",
+      "/images/products/product-1791602526519-1.webp",
+      "/images/products/product-1791602526519-2.webp",
+      "/images/products/product-1791602526519-3.webp",
+      "/images/products/product-1791602526519-4.webp",
+      "/images/products/product-1791602526519-5.webp",
+      "/images/products/product-1791602526519-6.webp",
+      "/images/products/product-1791602526519-7.webp"
+    ],
+    "name": "Yasu Illustrations",
+    "description": "Libro de arte de más de 130 páginas que recopila los trabajos del ilustrador Yasu, famoso por el diseño de personajes de novelas ligeras y animes como Toradora!",
+    "details": "Libro de arte de más de 130 páginas que recopila los trabajos del ilustrador Yasu, famoso por el diseño de personajes de novelas ligeras y animes como Toradora!",
+    "price": 34999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "toradora",
+      "yasu",
+      "anime",
+      "artbook",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeFE6glDehb/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1791602526424,
+    "image": "/images/products/product-1791602526424-0.jpg",
+    "images": [
+      "/images/products/product-1791602526424-0.jpg",
+      "/images/products/product-1791602526424-1.jpg",
+      "/images/products/product-1791602526424-2.jpg",
+      "/images/products/product-1791602526424-3.jpg",
+      "/images/products/product-1791602526424-4.jpg"
+    ],
+    "name": "Arknights - Illustration Collection Vol. 2",
+    "description": "Esta artbook recopila cerca de 70 ilustraciones e imágenes promocionales creadas por más de 60 artistas del juego!",
+    "details": "Esta artbook recopila cerca de 70 ilustraciones e imágenes promocionales creadas por más de 60 artistas del juego!",
+    "price": 59999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "arknights",
+      "amiya",
+      "anime",
+      "videogames",
+      "art"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeHm1RpFMrk/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1791602525877,
+    "image": "/images/products/product-1791602525877-0.jpg",
+    "images": [
+      "/images/products/product-1791602525877-0.jpg",
+      "/images/products/product-1791602525877-1.jpg",
+      "/images/products/product-1791602525877-2.jpg",
+      "/images/products/product-1791602525877-3.jpg",
+      "/images/products/product-1791602525877-4.jpg",
+      "/images/products/product-1791602525877-5.jpg",
+      "/images/products/product-1791602525877-6.jpg"
+    ],
+    "name": "Type-Moon Ace Vol. 6",
+    "description": "Revista de la franquicia Type-Moon (Fate, Tsukihime, etc) del 2011!\nIncluye DVD con el famoso video de Padoru Padoru y varios cortos más!",
+    "details": "Revista de la franquicia Type-Moon (Fate, Tsukihime, etc) del 2011!\nIncluye DVD con el famoso video de Padoru Padoru y varios cortos más!",
+    "price": 31999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "typemoon",
+      "padoru",
+      "anime",
+      "visualnovel"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeK_udVFsCb/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1791602525718,
+    "image": "/images/products/product-1791602525718-0.jpg",
+    "images": [
+      "/images/products/product-1791602525718-0.jpg",
+      "/images/products/product-1791602525718-1.jpg",
+      "/images/products/product-1791602525718-2.jpg",
+      "/images/products/product-1791602525718-3.jpg"
+    ],
+    "name": "Editado\n•\nChara Parfait Vol. 104",
+    "description": "Revista infantil que incluye como obsequio especial una máquina para hacer stickers con temática de Chiikawa!\nTambién incluye muchos stickers!",
+    "details": "Revista infantil que incluye como obsequio especial una máquina para hacer stickers con temática de Chiikawa!\nTambién incluye muchos stickers!",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "chiikawa",
+      "usagi",
+      "hachiware",
+      "anime",
+      "stickers"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeKLqETlnBk/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1791602526395,
+    "image": "/images/products/product-1791602526395-0.jpg",
+    "images": [
+      "/images/products/product-1791602526395-0.jpg",
+      "/images/products/product-1791602526395-1.jpg",
+      "/images/products/product-1791602526395-2.jpg",
+      "/images/products/product-1791602526395-3.jpg",
+      "/images/products/product-1791602526395-4.jpg",
+      "/images/products/product-1791602526395-5.jpg",
+      "/images/products/product-1791602526395-6.jpg",
+      "/images/products/product-1791602526395-7.jpg",
+      "/images/products/product-1791602526395-8.jpg"
+    ],
+    "name": "Mimipuru Touhou C84 Pack",
+    "description": "Incluye:\n- Artbook \"SHERBET\"\n- Posavasos\n- Carpeta para documentos\n- Totebag\n- Sketch book",
+    "details": "Incluye:\n- Artbook \"SHERBET\"\n- Posavasos\n- Carpeta para documentos\n- Totebag\n- Sketch book",
+    "price": 44999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "touhou",
+      "doujinshi",
+      "touhouproject",
+      "kawaii",
+      "moe"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeK_sEMFNGy/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Artbooks",
+      "Doujinshis",
+      "Otros",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1791602526215,
+    "image": "/images/products/product-1791602526215-0.jpg",
+    "images": [
+      "/images/products/product-1791602526215-0.jpg",
+      "/images/products/product-1791602526215-1.jpg",
+      "/images/products/product-1791602526215-2.jpg",
+      "/images/products/product-1791602526215-3.jpg",
+      "/images/products/product-1791602526215-4.jpg",
+      "/images/products/product-1791602526215-5.jpg",
+      "/images/products/product-1791602526215-6.jpg",
+      "/images/products/product-1791602526215-7.jpg"
+    ],
+    "name": "Libro del 25.º aniversario de Tamagotchi/Tamagotchi Smart Special BOOK",
+    "description": "Libro dedicado a conmemorar los 25 años de la franquicia y al lanzamiento del dispositivo Tamagotchi Smart. Incluye información detallada sobre las funciones del reloj, una enciclopedia con la historia y evolución de los personajes clásicos y modernos, y guías de juego.\nIncluye 4 planchas de stickers con un total de 85 stickers!",
+    "details": "Libro dedicado a conmemorar los 25 años de la franquicia y al lanzamiento del dispositivo Tamagotchi Smart. Incluye información detallada sobre las funciones del reloj, una enciclopedia con la historia y evolución de los personajes clásicos y modernos, y guías de juego.\nIncluye 4 planchas de stickers con un total de 85 stickers!",
+    "price": 49999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "tamagotchi",
+      "tamagochi",
+      "anime",
+      "kawaii",
+      "stickers"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeMwYNYlMAk/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Guide Books",
+      "Otros",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1791602526189,
+    "image": "/images/products/product-1791602526189-0.jpg",
+    "images": [
+      "/images/products/product-1791602526189-0.jpg",
+      "/images/products/product-1791602526189-1.jpg",
+      "/images/products/product-1791602526189-2.jpg",
+      "/images/products/product-1791602526189-3.jpg",
+      "/images/products/product-1791602526189-4.jpg",
+      "/images/products/product-1791602526189-5.jpg",
+      "/images/products/product-1791602526189-6.jpg",
+      "/images/products/product-1791602526189-7.jpg",
+      "/images/products/product-1791602526189-8.jpg",
+      "/images/products/product-1791602526189-9.jpg"
+    ],
+    "name": "TYPE-MOON Ace Vol. 9",
+    "description": "Revista de 2014 del 10.º aniversario de Fate/stay night, incluye el Fate/Ace Royal, un juego de cartas de la Guerra del Santo Grial!",
+    "details": "Revista de 2014 del 10.º aniversario de Fate/stay night, incluye el Fate/Ace Royal, un juego de cartas de la Guerra del Santo Grial!",
+    "price": 59999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "typemoon",
+      "fatestaynight",
+      "fgo",
+      "visualnovel",
+      "tcg"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeNkhralKNZ/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "Cartas",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1791602525727,
+    "image": "/images/products/product-1791602525727-0.jpg",
+    "images": [
+      "/images/products/product-1791602525727-0.jpg",
+      "/images/products/product-1791602525727-1.jpg",
+      "/images/products/product-1791602525727-2.jpg",
+      "/images/products/product-1791602525727-3.jpg",
+      "/images/products/product-1791602525727-4.jpg",
+      "/images/products/product-1791602525727-5.jpg",
+      "/images/products/product-1791602525727-6.jpg",
+      "/images/products/product-1791602525727-7.jpg"
+    ],
+    "name": "Comptiq Junio 2004",
+    "description": "Revista de Anime y videojuegos con portada de Da Capo, celebrando el lanzamiento de Da Capo Plus Communication.\nEntre los contenidos principales destacados se encuentran CLANNAD Fate/stay night, incluye una carta y un cartón ilustrado!",
+    "details": "Revista de Anime y videojuegos con portada de Da Capo, celebrando el lanzamiento de Da Capo Plus Communication.\nEntre los contenidos principales destacados se encuentran CLANNAD Fate/stay night, incluye una carta y un cartón ilustrado!",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "magazine",
+      "anime",
+      "manga",
+      "clannad"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DePVwCxlF0K/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "Otros",
+      "Cartas",
+      "Videojuegos"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1791602526075,
+    "image": "/images/products/product-1791602526075-0.webp",
+    "images": [
+      "/images/products/product-1791602526075-0.webp",
+      "/images/products/product-1791602526075-1.webp",
+      "/images/products/product-1791602526075-2.webp",
+      "/images/products/product-1791602526075-3.webp",
+      "/images/products/product-1791602526075-4.webp",
+      "/images/products/product-1791602526075-5.webp",
+      "/images/products/product-1791602526075-6.webp"
+    ],
+    "name": "Mukuchi na Miyashita-san no Shikiyoku Channel Vol.1 & 2",
+    "description": "Pack de los dos volumenes del manga de Mitsudoue \"El canal de la lujuria de la silenciosa Miyashita-san\".\nLa historia sigue a un estudiante de secundaria llamado Sakai, quien descubre el secreto de su reservada compañera de trabajo a tiempo parcial, Miyashita. Ella es la identidad real detrás de \"Yami\", una popular e idol virtual de internet que publica contenido sugerente.",
+    "details": "Pack de los dos volumenes del manga de Mitsudoue \"El canal de la lujuria de la silenciosa Miyashita-san\".\nLa historia sigue a un estudiante de secundaria llamado Sakai, quien descubre el secreto de su reservada compañera de trabajo a tiempo parcial, Miyashita. Ella es la identidad real detrás de \"Yami\", una popular e idol virtual de internet que publica contenido sugerente.",
+    "price": 39999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "manga",
+      "anime",
+      "jav"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeQKck7lqSA/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Mangas"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1791602526192,
+    "image": "/images/products/product-1791602526192-0.webp",
+    "images": [
+      "/images/products/product-1791602526192-0.webp",
+      "/images/products/product-1791602526192-1.webp",
+      "/images/products/product-1791602526192-2.webp",
+      "/images/products/product-1791602526192-3.webp",
+      "/images/products/product-1791602526192-4.webp",
+      "/images/products/product-1791602526192-5.webp",
+      "/images/products/product-1791602526192-6.webp",
+      "/images/products/product-1791602526192-7.webp",
+      "/images/products/product-1791602526192-8.webp",
+      "/images/products/product-1791602526192-9.webp"
+    ],
+    "name": "Nagi Minase C104 Set",
+    "description": "Colección de artículos lanzado en el Comic Market 104 bajo su círculo personal de doujinshi llamado pecora room, incluye:\n• Stand Acrílico\n• Libro de ilustraciones (Artbook) principal: Titulado \"pecora note 13 KEMOTSUNO reboot\"\n• Rough book: Libro de bocetos titulado \"pecorough! vol.8\"\n• Carpeta para documentos\n• Sobre para documentos\n• Postal",
+    "details": "Colección de artículos lanzado en el Comic Market 104 bajo su círculo personal de doujinshi llamado pecora room, incluye:\n• Stand Acrílico\n• Libro de ilustraciones (Artbook) principal: Titulado \"pecora note 13 KEMOTSUNO reboot\"\n• Rough book: Libro de bocetos titulado \"pecorough! vol.8\"\n• Carpeta para documentos\n• Sobre para documentos\n• Postal",
+    "price": 39999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "kawaii",
+      "anime",
+      "doujinshi"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeR6iosFrjQ/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Doujinshis",
+      "Otros",
+      "Figuras",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1791602526065,
+    "image": "/images/products/product-1791602526065-0.webp",
+    "images": [
+      "/images/products/product-1791602526065-0.webp",
+      "/images/products/product-1791602526065-1.webp",
+      "/images/products/product-1791602526065-2.webp",
+      "/images/products/product-1791602526065-3.webp",
+      "/images/products/product-1791602526065-4.webp",
+      "/images/products/product-1791602526065-5.webp",
+      "/images/products/product-1791602526065-6.webp",
+      "/images/products/product-1791602526065-7.webp",
+      "/images/products/product-1791602526065-8.webp"
+    ],
+    "name": "TYPE-MOON Ace Vol. 12",
+    "description": "Revista de la franquicia TYPE-MOON, con información de FGO, Fate/EXTELLA, y más!\nIncluye Fate/Grand Order Servant Storage II, un libro que sirve como una enciclopedia visual con ilustraciones y datos estadísticos detallados de los servants del juego!",
+    "details": "Revista de la franquicia TYPE-MOON, con información de FGO, Fate/EXTELLA, y más!\nIncluye Fate/Grand Order Servant Storage II, un libro que sirve como una enciclopedia visual con ilustraciones y datos estadísticos detallados de los servants del juego!",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "fgo",
+      "typemoon",
+      "anime",
+      "videogames"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeSuFCSFt3L/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1791602525856,
+    "image": "/images/products/product-1791602525856-0.webp",
+    "images": [
+      "/images/products/product-1791602525856-0.webp",
+      "/images/products/product-1791602525856-1.webp",
+      "/images/products/product-1791602525856-2.webp",
+      "/images/products/product-1791602525856-3.webp"
+    ],
+    "name": "Air Gear Vol.14 Edición Limitada",
+    "description": "Incluye sobrecubierta alternativa y 3 pines metálicos que representan los emblemas de los equipos de la serie: Kogarasumaru, Sleeping Forest y Yaō.",
+    "details": "Incluye sobrecubierta alternativa y 3 pines metálicos que representan los emblemas de los equipos de la serie: Kogarasumaru, Sleeping Forest y Yaō.",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "airgear",
+      "bakemonogatari",
+      "manga",
+      "pins",
+      "ohgreat"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DdfdbcBjPBN/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1791602526206,
+    "image": "/images/products/product-1791602526206-0.webp",
+    "images": [
+      "/images/products/product-1791602526206-0.webp",
+      "/images/products/product-1791602526206-1.webp",
+      "/images/products/product-1791602526206-2.webp",
+      "/images/products/product-1791602526206-3.webp",
+      "/images/products/product-1791602526206-4.webp"
+    ],
+    "name": "TYPE-MOON Ace Vol. 12 SIN EXTRAS",
+    "description": "Sólo Revista de la franquicia TYPE-MOON, con información de FGO, Fate/EXTELLA, y más!\n\nNO Incluye Fate/Grand Order Servant Storage II",
+    "details": "Sólo revista ($19999)\nRevista de la franquicia TYPE-MOON, con información de FGO, Fate/EXTELLA, y más!\nIncluye Fate/Grand Order Servant Storage II, un libro que sirve como una enciclopedia visual con ilustraciones y datos estadísticos detallados de los servants del juego!",
+    "price": 19999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "fate",
+      "fgo",
+      "typemoon",
+      "anime",
+      "videogames"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeSuFCSFt3L/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "Videojuegos"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 19999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1791602526179,
+    "image": "/images/products/product-1791602526179-0.jpg",
+    "images": [
+      "/images/products/product-1791602526179-0.jpg",
+      "/images/products/product-1791602526179-1.jpg",
+      "/images/products/product-1791602526179-2.jpg"
+    ],
+    "name": "Mimipuru Touhou C84 Pack",
+    "description": "Doujinshi Artbook de Touhou",
+    "details": "Doujinshi Artbook de Touhou",
+    "price": 16999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "touhou",
+      "doujinshi",
+      "touhouproject",
+      "kawaii",
+      "moe"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeK_sEMFNGy/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks",
+      "Videojuegos"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 16999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1791602525984,
+    "image": "/images/products/product-1791602525984-0.jpg",
+    "images": [
+      "/images/products/product-1791602525984-0.jpg",
+      "/images/products/product-1791602525984-1.jpg",
+      "/images/products/product-1791602525984-2.jpg",
+      "/images/products/product-1791602525984-3.jpg",
+      "/images/products/product-1791602525984-4.jpg",
+      "/images/products/product-1791602525984-5.jpg",
+      "/images/products/product-1791602525984-6.jpg",
+      "/images/products/product-1791602525984-7.jpg"
+    ],
+    "name": "TYPE-MOON Ace Vol. 9 SIN EXTRAS",
+    "description": "Solo la Revista de 2014 del 10.º aniversario de Fate/stay night\n\nNO incluye el Fate/Ace Royal, un juego de cartas de la Guerra del Santo Grial!",
+    "details": "Solo la Revista de 2014 del 10.º aniversario de Fate/stay night\n\nNO incluye el Fate/Ace Royal, un juego de cartas de la Guerra del Santo Grial!",
+    "price": 39999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "typemoon",
+      "fatestaynight",
+      "fgo",
+      "visualnovel",
+      "tcg"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeNkhralKNZ/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-10T03:22:05.691Z",
+    "categories": [
+      "Revistas",
+      "Videojuegos"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 39999,
     "offerStartDate": "",
     "offerEndDate": ""
   }
