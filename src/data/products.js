@@ -376,7 +376,7 @@ export const products = [
       "/images/products/product-1757988375923-4.webp",
       "/images/products/product-1757988375923-5.webp",
       "/images/products/product-1757988375923-6.webp",
-      "/images/products/product-1757988375923-0.jpg"
+      "/images/products/product-1757988375923-0.webp"
     ],
     "categories": [
       "Guide Books",
@@ -526,7 +526,7 @@ export const products = [
       "/images/products/product-1757990116478-3.webp",
       "/images/products/product-1757990116478-4.webp",
       "/images/products/product-1757990116478-5.webp",
-      "/images/products/product-1757990116478-0.jpg"
+      "/images/products/product-1757990116478-0.webp"
     ],
     "categories": [
       "Revistas",
@@ -4965,7 +4965,7 @@ export const products = [
       "/images/products/product-1774934670703-3.webp",
       "/images/products/product-1774934670703-4.webp",
       "/images/products/product-1774934670703-5.webp",
-      "/images/products/product-1774934670703-0.jpg"
+      "/images/products/product-1774934670703-0.webp"
     ],
     "categories": [
       "Revistas"
@@ -18358,13 +18358,13 @@ export const products = [
   },
   {
     "id": 1791602526424,
-    "image": "/images/products/product-1791602526424-0.jpg",
+    "image": "/images/products/product-1791602526424-0.webp",
     "images": [
-      "/images/products/product-1791602526424-0.jpg",
-      "/images/products/product-1791602526424-1.jpg",
-      "/images/products/product-1791602526424-2.jpg",
-      "/images/products/product-1791602526424-3.jpg",
-      "/images/products/product-1791602526424-4.jpg"
+      "/images/products/product-1791602526424-0.webp",
+      "/images/products/product-1791602526424-1.webp",
+      "/images/products/product-1791602526424-2.webp",
+      "/images/products/product-1791602526424-3.webp",
+      "/images/products/product-1791602526424-4.webp"
     ],
     "name": "Arknights - Illustration Collection Vol. 2",
     "description": "Esta artbook recopila cerca de 70 ilustraciones e imágenes promocionales creadas por más de 60 artistas del juego!",
@@ -18393,15 +18393,15 @@ export const products = [
   },
   {
     "id": 1791602525877,
-    "image": "/images/products/product-1791602525877-0.jpg",
+    "image": "/images/products/product-1791602525877-0.webp",
     "images": [
-      "/images/products/product-1791602525877-0.jpg",
-      "/images/products/product-1791602525877-1.jpg",
-      "/images/products/product-1791602525877-2.jpg",
-      "/images/products/product-1791602525877-3.jpg",
-      "/images/products/product-1791602525877-4.jpg",
-      "/images/products/product-1791602525877-5.jpg",
-      "/images/products/product-1791602525877-6.jpg"
+      "/images/products/product-1791602525877-0.webp",
+      "/images/products/product-1791602525877-1.webp",
+      "/images/products/product-1791602525877-2.webp",
+      "/images/products/product-1791602525877-3.webp",
+      "/images/products/product-1791602525877-4.webp",
+      "/images/products/product-1791602525877-5.webp",
+      "/images/products/product-1791602525877-6.webp"
     ],
     "name": "Type-Moon Ace Vol. 6",
     "description": "Revista de la franquicia Type-Moon (Fate, Tsukihime, etc) del 2011!\nIncluye DVD con el famoso video de Padoru Padoru y varios cortos más!",
@@ -18431,12 +18431,12 @@ export const products = [
   },
   {
     "id": 1791602525718,
-    "image": "/images/products/product-1791602525718-0.jpg",
+    "image": "/images/products/product-1791602525718-0.webp",
     "images": [
-      "/images/products/product-1791602525718-0.jpg",
-      "/images/products/product-1791602525718-1.jpg",
-      "/images/products/product-1791602525718-2.jpg",
-      "/images/products/product-1791602525718-3.jpg"
+      "/images/products/product-1791602525718-0.webp",
+      "/images/products/product-1791602525718-1.webp",
+      "/images/products/product-1791602525718-2.webp",
+      "/images/products/product-1791602525718-3.webp"
     ],
     "name": "Editado\n•\nChara Parfait Vol. 104",
     "description": "Revista infantil que incluye como obsequio especial una máquina para hacer stickers con temática de Chiikawa!\nTambién incluye muchos stickers!",
@@ -18465,17 +18465,17 @@ export const products = [
   },
   {
     "id": 1791602526395,
-    "image": "/images/products/product-1791602526395-0.jpg",
+    "image": "/images/products/product-1791602526395-0.webp",
     "images": [
-      "/images/products/product-1791602526395-0.jpg",
-      "/images/products/product-1791602526395-1.jpg",
-      "/images/products/product-1791602526395-2.jpg",
-      "/images/products/product-1791602526395-3.jpg",
-      "/images/products/product-1791602526395-4.jpg",
-      "/images/products/product-1791602526395-5.jpg",
-      "/images/products/product-1791602526395-6.jpg",
-      "/images/products/product-1791602526395-7.jpg",
-      "/images/products/product-1791602526395-8.jpg"
+      "/images/products/product-1791602526395-0.webp",
+      "/images/products/product-1791602526395-1.webp",
+      "/images/products/product-1791602526395-2.webp",
+      "/images/products/product-1791602526395-3.webp",
+      "/images/products/product-1791602526395-4.webp",
+      "/images/products/product-1791602526395-5.webp",
+      "/images/products/product-1791602526395-6.webp",
+      "/images/products/product-1791602526395-7.webp",
+      "/images/products/product-1791602526395-8.webp"
     ],
     "name": "Mimipuru Touhou C84 Pack",
     "description": "Incluye:\n- Artbook \"SHERBET\"\n- Posavasos\n- Carpeta para documentos\n- Totebag\n- Sketch book",
@@ -18506,16 +18506,16 @@ export const products = [
   },
   {
     "id": 1791602526215,
-    "image": "/images/products/product-1791602526215-0.jpg",
+    "image": "/images/products/product-1791602526215-0.webp",
     "images": [
-      "/images/products/product-1791602526215-0.jpg",
-      "/images/products/product-1791602526215-1.jpg",
-      "/images/products/product-1791602526215-2.jpg",
-      "/images/products/product-1791602526215-3.jpg",
-      "/images/products/product-1791602526215-4.jpg",
-      "/images/products/product-1791602526215-5.jpg",
-      "/images/products/product-1791602526215-6.jpg",
-      "/images/products/product-1791602526215-7.jpg"
+      "/images/products/product-1791602526215-0.webp",
+      "/images/products/product-1791602526215-1.webp",
+      "/images/products/product-1791602526215-2.webp",
+      "/images/products/product-1791602526215-3.webp",
+      "/images/products/product-1791602526215-4.webp",
+      "/images/products/product-1791602526215-5.webp",
+      "/images/products/product-1791602526215-6.webp",
+      "/images/products/product-1791602526215-7.webp"
     ],
     "name": "Libro del 25.º aniversario de Tamagotchi/Tamagotchi Smart Special BOOK",
     "description": "Libro dedicado a conmemorar los 25 años de la franquicia y al lanzamiento del dispositivo Tamagotchi Smart. Incluye información detallada sobre las funciones del reloj, una enciclopedia con la historia y evolución de los personajes clásicos y modernos, y guías de juego.\nIncluye 4 planchas de stickers con un total de 85 stickers!",
@@ -18545,18 +18545,18 @@ export const products = [
   },
   {
     "id": 1791602526189,
-    "image": "/images/products/product-1791602526189-0.jpg",
+    "image": "/images/products/product-1791602526189-0.webp",
     "images": [
-      "/images/products/product-1791602526189-0.jpg",
-      "/images/products/product-1791602526189-1.jpg",
-      "/images/products/product-1791602526189-2.jpg",
-      "/images/products/product-1791602526189-3.jpg",
-      "/images/products/product-1791602526189-4.jpg",
-      "/images/products/product-1791602526189-5.jpg",
-      "/images/products/product-1791602526189-6.jpg",
-      "/images/products/product-1791602526189-7.jpg",
-      "/images/products/product-1791602526189-8.jpg",
-      "/images/products/product-1791602526189-9.jpg"
+      "/images/products/product-1791602526189-0.webp",
+      "/images/products/product-1791602526189-1.webp",
+      "/images/products/product-1791602526189-2.webp",
+      "/images/products/product-1791602526189-3.webp",
+      "/images/products/product-1791602526189-4.webp",
+      "/images/products/product-1791602526189-5.webp",
+      "/images/products/product-1791602526189-6.webp",
+      "/images/products/product-1791602526189-7.webp",
+      "/images/products/product-1791602526189-8.webp",
+      "/images/products/product-1791602526189-9.webp"
     ],
     "name": "TYPE-MOON Ace Vol. 9",
     "description": "Revista de 2014 del 10.º aniversario de Fate/stay night, incluye el Fate/Ace Royal, un juego de cartas de la Guerra del Santo Grial!",
@@ -18586,16 +18586,16 @@ export const products = [
   },
   {
     "id": 1791602525727,
-    "image": "/images/products/product-1791602525727-0.jpg",
+    "image": "/images/products/product-1791602525727-0.webp",
     "images": [
-      "/images/products/product-1791602525727-0.jpg",
-      "/images/products/product-1791602525727-1.jpg",
-      "/images/products/product-1791602525727-2.jpg",
-      "/images/products/product-1791602525727-3.jpg",
-      "/images/products/product-1791602525727-4.jpg",
-      "/images/products/product-1791602525727-5.jpg",
-      "/images/products/product-1791602525727-6.jpg",
-      "/images/products/product-1791602525727-7.jpg"
+      "/images/products/product-1791602525727-0.webp",
+      "/images/products/product-1791602525727-1.webp",
+      "/images/products/product-1791602525727-2.webp",
+      "/images/products/product-1791602525727-3.webp",
+      "/images/products/product-1791602525727-4.webp",
+      "/images/products/product-1791602525727-5.webp",
+      "/images/products/product-1791602525727-6.webp",
+      "/images/products/product-1791602525727-7.webp"
     ],
     "name": "Comptiq Junio 2004",
     "description": "Revista de Anime y videojuegos con portada de Da Capo, celebrando el lanzamiento de Da Capo Plus Communication.\nEntre los contenidos principales destacados se encuentran CLANNAD Fate/stay night, incluye una carta y un cartón ilustrado!",
@@ -18820,11 +18820,11 @@ export const products = [
   },
   {
     "id": 1791602526179,
-    "image": "/images/products/product-1791602526179-0.jpg",
+    "image": "/images/products/product-1791602526179-0.webp",
     "images": [
-      "/images/products/product-1791602526179-0.jpg",
-      "/images/products/product-1791602526179-1.jpg",
-      "/images/products/product-1791602526179-2.jpg"
+      "/images/products/product-1791602526179-0.webp",
+      "/images/products/product-1791602526179-1.webp",
+      "/images/products/product-1791602526179-2.webp"
     ],
     "name": "Mimipuru Touhou C84 Pack",
     "description": "Doujinshi Artbook de Touhou",
@@ -18858,16 +18858,16 @@ export const products = [
   },
   {
     "id": 1791602525984,
-    "image": "/images/products/product-1791602525984-0.jpg",
+    "image": "/images/products/product-1791602525984-0.webp",
     "images": [
-      "/images/products/product-1791602525984-0.jpg",
-      "/images/products/product-1791602525984-1.jpg",
-      "/images/products/product-1791602525984-2.jpg",
-      "/images/products/product-1791602525984-3.jpg",
-      "/images/products/product-1791602525984-4.jpg",
-      "/images/products/product-1791602525984-5.jpg",
-      "/images/products/product-1791602525984-6.jpg",
-      "/images/products/product-1791602525984-7.jpg"
+      "/images/products/product-1791602525984-0.webp",
+      "/images/products/product-1791602525984-1.webp",
+      "/images/products/product-1791602525984-2.webp",
+      "/images/products/product-1791602525984-3.webp",
+      "/images/products/product-1791602525984-4.webp",
+      "/images/products/product-1791602525984-5.webp",
+      "/images/products/product-1791602525984-6.webp",
+      "/images/products/product-1791602525984-7.webp"
     ],
     "name": "TYPE-MOON Ace Vol. 9 SIN EXTRAS",
     "description": "Solo la Revista de 2014 del 10.º aniversario de Fate/stay night\n\nNO incluye el Fate/Ace Royal, un juego de cartas de la Guerra del Santo Grial!",
@@ -18897,5 +18897,148 @@ export const products = [
     "originalPrice": 39999,
     "offerStartDate": "",
     "offerEndDate": ""
+  },
+  {
+    "id": 1791823104367,
+    "image": "/images/products/product-1791823104367-0.webp",
+    "images": [
+      "/images/products/product-1791823104367-0.webp",
+      "/images/products/product-1791823104367-1.webp",
+      "/images/products/product-1791823104367-2.webp",
+      "/images/products/product-1791823104367-3.webp",
+      "/images/products/product-1791823104367-4.webp"
+    ],
+    "name": "Fullmetal Alchemist Vol.13 Edición Limitada",
+    "description": "Edición especial del manga que incluye un mazo de cartas de Poker ilustradas!",
+    "details": "Edición especial del manga que incluye un mazo de cartas de Poker ilustradas!",
+    "price": 39999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fma",
+      "fullmetalalchemist",
+      "fmab",
+      "poker",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeUdokslhdv/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-12T16:38:23.574Z",
+    "categories": [
+      "Mangas",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1791823104347,
+    "image": "/images/products/product-1791823104347-0.webp",
+    "images": [
+      "/images/products/product-1791823104347-0.webp",
+      "/images/products/product-1791823104347-1.webp",
+      "/images/products/product-1791823104347-2.webp",
+      "/images/products/product-1791823104347-3.webp",
+      "/images/products/product-1791823104347-4.webp",
+      "/images/products/product-1791823104347-5.webp",
+      "/images/products/product-1791823104347-6.webp",
+      "/images/products/product-1791823104347-7.webp",
+      "/images/products/product-1791823104347-8.webp"
+    ],
+    "name": "To Love-Ru Darkness Venus Collection Artbook",
+    "description": "Colección de Ilustraciones de tapa dura de To Love-Ru Darkness!\nIncluye caja contenedora y muchas ilustraciones +18 a todo color!",
+    "details": "Colección de Ilustraciones de tapa dura de To Love-Ru Darkness!\nIncluye caja contenedora y muchas ilustraciones +18 a todo color!",
+    "price": 69999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "toloveru",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeVS3TZFkI8/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-12T16:38:23.574Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1791823104353,
+    "image": "/images/products/product-1791823104353-0.webp",
+    "images": [
+      "/images/products/product-1791823104353-0.webp",
+      "/images/products/product-1791823104353-1.webp",
+      "/images/products/product-1791823104353-2.webp",
+      "/images/products/product-1791823104353-3.webp"
+    ],
+    "name": "Chobits Vol.7 Edicion Limitada",
+    "description": "Edición especial del manga de Chobits que incluye una figura de Chii!",
+    "details": "Edición especial del manga de Chobits que incluye una figura de Chii!",
+    "price": 149999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "chobits",
+      "retro",
+      "animefigures",
+      "manga",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeXF7-VFiWX/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-12T16:38:23.574Z",
+    "categories": [
+      "Mangas",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1791823103978,
+    "image": "/images/products/product-1791823103978-0.webp",
+    "images": [
+      "/images/products/product-1791823103978-0.webp",
+      "/images/products/product-1791823103978-1.webp",
+      "/images/products/product-1791823103978-2.webp",
+      "/images/products/product-1791823103978-3.webp",
+      "/images/products/product-1791823103978-4.webp"
+    ],
+    "name": "Seitokai no Ichizon \"Taiiku suru Seitokai\"",
+    "description": "Set de articulos llamado \"El Consejo Estudiantil hace educación física\", incluye un fanbook y un set de cuatro minifiguras de las protagonistas vestidas con uniformes de gimnasia!",
+    "details": "Set de articulos llamado \"El Consejo Estudiantil hace educación física\", incluye un fanbook y un set de cuatro minifiguras de las protagonistas vestidas con uniformes de gimnasia!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "seitokainoichizon",
+      "animefigures",
+      "anime",
+      "manga",
+      "ecchi"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeX4RXjlLJf/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-12T16:38:23.574Z",
+    "categories": [
+      "Artbooks",
+      "Figuras"
+    ]
   }
 ];
