@@ -1,10 +1,21 @@
-const CACHE_NAME = 'arkya-store-v2';
+const CACHE_NAME = 'arkya-store-v3';
+// Límite de entradas en caché dinámico: el catálogo tiene miles de
+// imágenes y sin límite el storage del navegador crece sin control.
+const MAX_CACHE_ITEMS = 250;
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/images/logo.png',
-  '/images/hero.webp',
+  '/images/hero1.webp',
 ];
+
+async function trimCache(cache) {
+  const keys = await cache.keys();
+  if (keys.length <= MAX_CACHE_ITEMS) return;
+  await Promise.all(
+    keys.slice(0, keys.length - MAX_CACHE_ITEMS).map((k) => cache.delete(k))
+  );
+}
 
 // Instalar: cachear assets estáticos básicos
 self.addEventListener('install', (event) => {
@@ -50,14 +61,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Para imágenes y estáticos: cache-first
+  // Para imágenes y estáticos: cache-first con límite de tamaño
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) return cached;
       return fetch(request).then((response) => {
         if (response.ok) {
           const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          caches.open(CACHE_NAME).then(async (cache) => {
+            await cache.put(request, clone);
+            trimCache(cache);
+          });
         }
         return response;
       });

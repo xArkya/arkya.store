@@ -18826,7 +18826,7 @@ export const products = [
       "/images/products/product-1791602526179-1.webp",
       "/images/products/product-1791602526179-2.webp"
     ],
-    "name": "Mimipuru Touhou C84 Pack",
+    "name": "SHERBET toho project fun book",
     "description": "Doujinshi Artbook de Touhou",
     "details": "Doujinshi Artbook de Touhou",
     "price": 16999,

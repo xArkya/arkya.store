@@ -1386,7 +1386,7 @@ export default function ProductPage() {
                 </Text>
                 
                 <Text fontSize="sm" color={descriptionColor} fontWeight="medium">
-                  👀 {getDailyViewers(product.id)} personas vieron este producto hoy
+                  {getDailyViewers(product.id)} personas vieron este producto hoy
                 </Text>
                 
                 {/* Mostrar categorías del producto */}

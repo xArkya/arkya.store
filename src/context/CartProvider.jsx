@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { CartContext } from './CartContext';
 import { useToast } from '@chakra-ui/react';
 
@@ -166,6 +166,16 @@ export const CartProvider = ({ children }) => {
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [couponDiscount, setCouponDiscount] = useState(0);
 
+  // Set de ids para chequear duplicados de forma síncrona (evita
+  // agregar dos veces el mismo producto con clicks rápidos)
+  const cartIdsRef = useRef(null);
+  if (cartIdsRef.current === null) {
+    cartIdsRef.current = new Set(cart.map(item => item.id));
+  }
+  useEffect(() => {
+    cartIdsRef.current = new Set(cart.map(item => item.id));
+  }, [cart]);
+
   // Guardar el carrito en localStorage cada vez que cambie
   useEffect(() => {
     if (cart.length > 0) {
@@ -250,20 +260,18 @@ export const CartProvider = ({ children }) => {
     }));
     
     // Verificar si el producto ya está en el carrito antes de intentar agregarlo
-    const existingItemIndex = cart.findIndex(item => item.id === product.id);
-    
-    // Si el producto ya existe en el carrito, devolvemos false para indicar que no se agregó
-    if (existingItemIndex >= 0) {
+    // (usamos el ref porque el state puede estar desactualizado en clicks rápidos)
+    if (cartIdsRef.current.has(product.id)) {
       return false;
     }
-    
+    cartIdsRef.current.add(product.id);
+
     // Si el producto no existe en el carrito, lo agregamos
     setCart(prevCart => {
+      if (prevCart.some(item => item.id === product.id)) return prevCart;
       // Si el producto no existe, agregarlo al carrito con datos ultra-optimizados
       const optimizedProduct = optimizeProductData(product);
-      const result = [...prevCart, { ...optimizedProduct, quantity: 1 }];
-      
-      return result;
+      return [...prevCart, { ...optimizedProduct, quantity: 1 }];
     });
     
     // Devolvemos true para indicar que el producto se agregó correctamente
@@ -272,6 +280,7 @@ export const CartProvider = ({ children }) => {
 
   // Eliminar un producto del carrito
   const removeFromCart = (productId) => {
+    cartIdsRef.current.delete(productId);
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
   };
 
@@ -279,6 +288,7 @@ export const CartProvider = ({ children }) => {
 
   // Limpiar el carrito
   const clearCart = () => {
+    cartIdsRef.current.clear();
     setCart([]);
   };
 
@@ -310,8 +320,8 @@ export const CartProvider = ({ children }) => {
     setCouponDiscount(0);
   };
   
-  // Total final con cupón aplicado
-  const finalTotal = cartTotal - couponDiscount;
+  // Total final con cupón aplicado (nunca negativo)
+  const finalTotal = Math.max(0, cartTotal - couponDiscount);
 
   // Valores y funciones que se proporcionarán a través del contexto
   const value = {

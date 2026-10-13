@@ -37,7 +37,9 @@ export default function CatalogPromoPopup() {
     setOpen(false);
     try {
       localStorage.setItem(STORAGE_KEY, '1');
-    } catch {}
+    } catch {
+      // storage bloqueado — ignorar
+    }
   };
 
   return (

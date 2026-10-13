@@ -115,7 +115,6 @@ const ProductSearch = ({ products, onFilterChange }) => {
           return (product.tags || []).some(tag => tag.toLowerCase().includes(term));
 
         case 'all':
-
         default:
 
           return (

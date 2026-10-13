@@ -135,7 +135,9 @@ const translateTerm = async (text, target) => {
     const u = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${target}&dt=t&q=${encodeURIComponent(text)}`;
     const r = await fetch(u, { signal: AbortSignal.timeout(2000) });
     if (r.ok) t = (await r.json())?.[0]?.map((s) => s?.[0] || '').join('').trim() || '';
-  } catch {}
+  } catch {
+    // traducción no disponible — devolver string vacío
+  }
   GT_CACHE.set(ck, t);
   return t;
 };
