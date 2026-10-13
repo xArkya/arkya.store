@@ -14,17 +14,10 @@ export default defineConfig({
         manualChunks(id) {
           // Catálogo de productos en chunk separado: cambia con cada
           // actualización de productos, así conviene cachearlo aparte
-          // del código de la app.
+          // del código de la app. No tocar node_modules: separar React
+          // de las libs que lo usan rompe el orden de evaluación de los
+          // chunks (TypeError: useLayoutEffect of undefined).
           if (id.includes('src/data/products.js')) return 'products-data';
-          if (id.includes('node_modules')) {
-            if (id.includes('@chakra-ui') || id.includes('@emotion') || id.includes('framer-motion')) {
-              return 'vendor-ui';
-            }
-            if (id.includes('react-dom') || id.includes('react-router') || id.includes('/react/')) {
-              return 'vendor-react';
-            }
-            return 'vendor';
-          }
         }
       }
     }
