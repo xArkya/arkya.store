@@ -19043,10 +19043,10 @@ export const products = [
   },
   {
     "id": 1791853683832,
-    "image": "/images/products/product-1791853683832-0.jpg",
+    "image": "/images/products/product-1791853683832-0.webp",
     "images": [
-      "/images/products/product-1791853683832-0.jpg",
-      "/images/products/product-1791853683832-1.jpg"
+      "/images/products/product-1791853683832-0.webp",
+      "/images/products/product-1791853683832-1.webp"
     ],
     "name": "Chobits Vol. 2 Edición limitada",
     "description": "Incluye llavero!",

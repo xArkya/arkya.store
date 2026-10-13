@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
+const sharp = require('sharp');
 
 const app = express();
 const PORT = 3001;
@@ -170,8 +171,16 @@ app.post('/api/instagram/download-images', async (req, res) => {
       try {
         console.log(`  [${i + 1}/${imageUrls.length}] Descargando: ${filename}`);
         await downloadImage(url, filepath);
-        
-        const localUrl = `/images/products/${filename}`;
+
+        let finalFilename = filename;
+        if (ext !== '.webp') {
+          const webpFilename = filename.replace(/\.[^.]+$/, '.webp');
+          await sharp(filepath).webp({ quality: 85 }).toFile(path.join(imagesDir, webpFilename));
+          fs.unlinkSync(filepath);
+          finalFilename = webpFilename;
+        }
+
+        const localUrl = `/images/products/${finalFilename}`;
         downloadedImages.push(localUrl);
         successCount++;
         console.log(`  ✅ Guardado: ${localUrl}`);
