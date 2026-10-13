@@ -19040,5 +19040,39 @@ export const products = [
       "Artbooks",
       "Figuras"
     ]
+  },
+  {
+    "id": 1791853683832,
+    "image": "/images/products/product-1791853683832-0.jpg",
+    "images": [
+      "/images/products/product-1791853683832-0.jpg",
+      "/images/products/product-1791853683832-1.jpg"
+    ],
+    "name": "Chobits Vol. 2 Edición limitada",
+    "description": "Incluye llavero!",
+    "details": "",
+    "price": 34999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "chii",
+      "chobits",
+      "llavero"
+    ],
+    "instagramUrl": "https://www.instagram.com/p/DKMwZWINEL7/?img_index=1",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-10-13T01:08:03.645Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 39999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   }
 ];
