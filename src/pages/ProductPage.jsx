@@ -37,7 +37,7 @@ import {
   IconButton,
   HStack,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt, FaPlane } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt, FaPlane, FaStore, FaTruck } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
@@ -107,6 +107,25 @@ export default function ProductPage() {
   const toast = useToast();
   // Modal para compra por Instagram
   const { isOpen: isInstagramOpen, onOpen: onInstagramOpen, onClose: onInstagramClose } = useDisclosure();
+
+  // Método de entrega: 'retiro' (Monte Castro) o 'envio' (Correo Argentino)
+  const [deliveryMethod, setDeliveryMethod] = useState(null);
+  const [shippingLocalidad, setShippingLocalidad] = useState('');
+  const [shippingCP, setShippingCP] = useState('');
+
+  const deliveryValid =
+    deliveryMethod === 'retiro' ||
+    (deliveryMethod === 'envio' && shippingLocalidad.trim() !== '' && shippingCP.trim() !== '');
+
+  const buildDeliveryMessage = () => {
+    if (deliveryMethod === 'envio') {
+      return `\n━━━━━━━━━━━━━━━━━━━━\n📦 ENVÍO POR CORREO ARGENTINO\nLocalidad: ${shippingLocalidad.trim()}\nCódigo Postal: ${shippingCP.trim()}\n(a cotizar el envío)`;
+    }
+    if (deliveryMethod === 'retiro') {
+      return `\n━━━━━━━━━━━━━━━━━━━━\n📍 RETIRO POR MONTE CASTRO`;
+    }
+    return '';
+  };
   // Modal para consulta por Instagram (para productos sin stock)
   const { isOpen: isConsultOpen, onOpen: onConsultOpen, onClose: onConsultClose } = useDisclosure();
   // Modal para verificación de edad
@@ -308,7 +327,7 @@ export default function ProductPage() {
   const handleCopyAndOpenInstagram = () => {
     try {
       const productUrl = `https://arkya.store/product/${getProductSlug(product)}`;
-      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.round(product.price).toLocaleString()}\n ${productUrl}`;
+      const message = `Hola! Me interesa el siguiente producto:\n ${product.name}\n $${Math.round(product.price).toLocaleString()}\n ${productUrl}\n${buildDeliveryMessage()}`;
       
       // Usar la API moderna de Clipboard
       navigator.clipboard.writeText(message)
@@ -693,7 +712,76 @@ export default function ProductPage() {
               <Text fontSize="md" color={modalTextColorLight}>
                 Para comprar este producto a través de Instagram, sigue estos sencillos pasos:
               </Text>
-              
+
+              {/* Método de entrega */}
+              <Box
+                bg={modalBoxBg}
+                p={4}
+                borderRadius="lg"
+                borderWidth="1px"
+                borderColor={modalBoxBorder}
+              >
+                <Text fontWeight="bold" mb={3} fontSize="md" color="brand.500">
+                  📦 ¿Cómo querés recibir tu pedido?
+                </Text>
+                <HStack spacing={3} align="stretch">
+                  <Button
+                    flex="1"
+                    height="auto"
+                    py={3}
+                    flexDirection="column"
+                    gap={1}
+                    whiteSpace="normal"
+                    variant={deliveryMethod === 'retiro' ? 'solid' : 'outline'}
+                    colorScheme={deliveryMethod === 'retiro' ? 'brand' : 'gray'}
+                    onClick={() => setDeliveryMethod('retiro')}
+                  >
+                    <FaStore />
+                    Retiro por Monte Castro
+                  </Button>
+                  <Button
+                    flex="1"
+                    height="auto"
+                    py={3}
+                    flexDirection="column"
+                    gap={1}
+                    whiteSpace="normal"
+                    variant={deliveryMethod === 'envio' ? 'solid' : 'outline'}
+                    colorScheme={deliveryMethod === 'envio' ? 'brand' : 'gray'}
+                    onClick={() => setDeliveryMethod('envio')}
+                  >
+                    <FaTruck />
+                    Envío por Correo Argentino
+                  </Button>
+                </HStack>
+
+                {deliveryMethod === 'envio' && (
+                  <VStack mt={3} spacing={2}>
+                    <Input
+                      placeholder="Localidad (ej: La Plata)"
+                      value={shippingLocalidad}
+                      onChange={(e) => setShippingLocalidad(e.target.value)}
+                      size="sm"
+                    />
+                    <Input
+                      placeholder="Código postal (ej: 1900)"
+                      value={shippingCP}
+                      onChange={(e) => setShippingCP(e.target.value)}
+                      size="sm"
+                    />
+                    <Text fontSize="xs" color={modalTextColorDark} alignSelf="start">
+                      Con tu localidad y CP te cotizamos el envío por Instagram.
+                    </Text>
+                  </VStack>
+                )}
+
+                {deliveryMethod === 'retiro' && (
+                  <Text mt={3} fontSize="xs" color={modalTextColorDark}>
+                    Coordinamos día y horario por Instagram una vez hecho el pedido.
+                  </Text>
+                )}
+              </Box>
+
               <List spacing={4}>
                 <ListItem display="flex" alignItems="flex-start">
                   <ListIcon as={FaClipboard} color="brand.500" mt={1} fontSize="xl" />
@@ -765,6 +853,7 @@ export default function ProductPage() {
                       {i < arr.length - 1 && <br />}
                     </span>
                   ))}
+                  {buildDeliveryMessage()}
                 </Box>
               </Box>
             </VStack>
@@ -783,13 +872,14 @@ export default function ProductPage() {
               size="lg"
               leftIcon={<FaInstagram />}
               onClick={handleCopyAndOpenInstagram}
+              isDisabled={!deliveryValid}
               _hover={{
                 bg: 'pink.500',
                 transform: 'translateY(-2px)',
                 boxShadow: 'xl',
               }}
             >
-              Copiar y abrir Instagram
+              {deliveryValid ? 'Copiar y abrir Instagram' : 'Elegí método de entrega'}
             </Button>
           </ModalFooter>
         </ModalContent>

@@ -34,7 +34,7 @@ import {
   InputGroup,
   InputRightElement
 } from '@chakra-ui/react';
-import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes, FaShieldAlt, FaPlane } from 'react-icons/fa';
+import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes, FaShieldAlt, FaPlane, FaStore, FaTruck } from 'react-icons/fa';
 import { useCart } from '../../context/useCart';
 import { Link as RouterLink } from 'react-router-dom';
 import { validateCoupon } from '../../data/coupons';
@@ -50,6 +50,15 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const { isOpen: isInstructionsOpen, onOpen: onInstructionsOpen, onClose: onInstructionsClose } = useDisclosure();
   const [couponCode, setCouponCode] = useState('');
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
+
+  // Método de entrega: 'retiro' (Monte Castro) o 'envio' (Correo Argentino)
+  const [deliveryMethod, setDeliveryMethod] = useState(null);
+  const [shippingLocalidad, setShippingLocalidad] = useState('');
+  const [shippingCP, setShippingCP] = useState('');
+
+  const deliveryValid =
+    deliveryMethod === 'retiro' ||
+    (deliveryMethod === 'envio' && shippingLocalidad.trim() !== '' && shippingCP.trim() !== '');
   
   // Color mode values
   const bgColor = useColorModeValue('white', '#241521');
@@ -59,6 +68,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const modalBgColor = useColorModeValue('white', '#241521');
   const modalTextColor = useColorModeValue('gray.800', 'gray.100');
   const modalHighlightColor = useColorModeValue('brand.500', 'brand.300');
+  const deliveryHintColor = useColorModeValue('gray.600', 'gray.400');
   
   // Función para generar el mensaje para Instagram
   const generateInstagramMessage = () => {
@@ -86,7 +96,18 @@ const CartDrawer = ({ isOpen, onClose }) => {
     } else {
       message += `TOTAL: $${Math.round(cartTotal).toLocaleString()}`;
     }
-    
+
+    if (deliveryMethod === 'envio') {
+      message += `\n\n━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `📦 ENVÍO POR CORREO ARGENTINO\n`;
+      message += `Localidad: ${shippingLocalidad.trim()}\n`;
+      message += `Código Postal: ${shippingCP.trim()}\n`;
+      message += `(a cotizar el envío)`;
+    } else if (deliveryMethod === 'retiro') {
+      message += `\n\n━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `📍 RETIRO POR MONTE CASTRO`;
+    }
+
     return message;
   };
   
@@ -441,7 +462,78 @@ const CartDrawer = ({ isOpen, onClose }) => {
               <Text fontSize="md" color={useColorModeValue('gray.600', 'gray.300')}>
                 Estás a punto de realizar tu compra a través de Instagram. Sigue estos sencillos pasos:
               </Text>
-              
+
+              {/* Método de entrega */}
+              <Box
+                bg={useColorModeValue('gray.50', 'whiteAlpha.100')}
+                p={4}
+                borderRadius="lg"
+                borderWidth="1px"
+                borderColor={useColorModeValue('gray.200', 'whiteAlpha.200')}
+              >
+                <Text fontWeight="bold" mb={3} fontSize="md" color={modalHighlightColor}>
+                  📦 ¿Cómo querés recibir tu pedido?
+                </Text>
+                <HStack spacing={3} align="stretch">
+                  <Button
+                    flex="1"
+                    height="auto"
+                    py={3}
+                    flexDirection="column"
+                    gap={1}
+                    whiteSpace="normal"
+                    variant={deliveryMethod === 'retiro' ? 'solid' : 'outline'}
+                    colorScheme={deliveryMethod === 'retiro' ? 'brand' : 'gray'}
+                    onClick={() => setDeliveryMethod('retiro')}
+                  >
+                    <FaStore />
+                    Retiro por Monte Castro
+                  </Button>
+                  <Button
+                    flex="1"
+                    height="auto"
+                    py={3}
+                    flexDirection="column"
+                    gap={1}
+                    whiteSpace="normal"
+                    variant={deliveryMethod === 'envio' ? 'solid' : 'outline'}
+                    colorScheme={deliveryMethod === 'envio' ? 'brand' : 'gray'}
+                    onClick={() => setDeliveryMethod('envio')}
+                  >
+                    <FaTruck />
+                    Envío por Correo Argentino
+                  </Button>
+                </HStack>
+
+                {deliveryMethod === 'envio' && (
+                  <VStack mt={3} spacing={2}>
+                    <Input
+                      placeholder="Localidad (ej: La Plata)"
+                      value={shippingLocalidad}
+                      onChange={(e) => setShippingLocalidad(e.target.value)}
+                      size="sm"
+                      color={modalTextColor}
+                    />
+                    <Input
+                      placeholder="Código postal (ej: 1900)"
+                      value={shippingCP}
+                      onChange={(e) => setShippingCP(e.target.value)}
+                      size="sm"
+                      color={modalTextColor}
+                    />
+                    <Text fontSize="xs" color={deliveryHintColor} alignSelf="start">
+                      Con tu localidad y CP te cotizamos el envío por Instagram.
+                    </Text>
+                  </VStack>
+                )}
+
+                {deliveryMethod === 'retiro' && (
+                  <Text mt={3} fontSize="xs" color={deliveryHintColor}>
+                    Coordinamos día y horario por Instagram una vez hecho el pedido.
+                  </Text>
+                )}
+              </Box>
+
               <List spacing={4}>
                 <ListItem display="flex" alignItems="flex-start">
                   <ListIcon as={FaClipboard} color={modalHighlightColor} mt={1} fontSize="xl" />
@@ -526,13 +618,14 @@ const CartDrawer = ({ isOpen, onClose }) => {
               size="lg"
               leftIcon={<FaInstagram />}
               onClick={handleCopyAndOpenInstagram}
+              isDisabled={!deliveryValid}
               _hover={{
                 bg: 'pink.500',
                 transform: 'translateY(-2px)',
                 boxShadow: 'xl',
               }}
             >
-              Copiar y abrir Instagram
+              {deliveryValid ? 'Copiar y abrir Instagram' : 'Elegí método de entrega'}
             </Button>
           </ModalFooter>
         </ModalContent>
