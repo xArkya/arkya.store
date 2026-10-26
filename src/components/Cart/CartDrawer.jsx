@@ -458,7 +458,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
       {/* Modal de instrucciones para compra por Instagram */}
       <Modal isOpen={isInstructionsOpen} onClose={onInstructionsClose} isCentered size="lg" scrollBehavior="inside">
         <ModalOverlay />
-        <ModalContent bg={modalBgColor} color={modalTextColor} mx={4} maxH="85vh" overflowY="auto">
+        <ModalContent bg={modalBgColor} color={modalTextColor} mx={4}>
           <ModalHeader fontSize="2xl" fontWeight="bold" pb={2}>
             Comprar por Instagram
           </ModalHeader>

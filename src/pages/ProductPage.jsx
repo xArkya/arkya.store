@@ -707,7 +707,7 @@ export default function ProductPage() {
       </Modal>
       
       {/* Modal de instrucciones para comprar por Instagram */}
-      <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="lg">
+      <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="lg" scrollBehavior="inside">
         <ModalOverlay backdropFilter="blur(4px)" />
         <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl" mx={4}>
           <ModalHeader fontSize="2xl" fontWeight="bold" pb={2} color={modalHeaderColor}>
@@ -918,7 +918,7 @@ export default function ProductPage() {
       </Modal>
       
       {/* Modal de consulta por Instagram para productos sin stock */}
-      <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="md">
+      <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="md" scrollBehavior="inside">
         <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
         <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
           <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
