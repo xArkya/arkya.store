@@ -174,7 +174,16 @@ const CartDrawer = ({ isOpen, onClose }) => {
   
   // Función para abrir el modal instructivo
   const handleBuyClick = () => {
+    // Cerrar el drawer antes de abrir el modal: con dos overlays anidados,
+    // el scroll-lock queda en el drawer y bloquea el scroll del modal en táctil
+    onClose();
     onInstructionsOpen();
+  };
+
+  // Al cerrar el modal sin comprar, volver al carrito
+  const handleInstructionsCancel = () => {
+    onInstructionsClose();
+    window.dispatchEvent(new CustomEvent('open-cart'));
   };
 
   // Función para copiar el mensaje y abrir Instagram
@@ -456,7 +465,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
       </Drawer>
 
       {/* Modal de instrucciones para compra por Instagram */}
-      <Modal isOpen={isInstructionsOpen} onClose={onInstructionsClose} isCentered size="lg" scrollBehavior="inside">
+      <Modal isOpen={isInstructionsOpen} onClose={handleInstructionsCancel} isCentered size="lg" scrollBehavior="inside">
         <ModalOverlay />
         <ModalContent bg={modalBgColor} color={modalTextColor} mx={4}>
           <ModalHeader fontSize="2xl" fontWeight="bold" pb={2}>
@@ -639,7 +648,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
             <Button 
               variant="ghost" 
               size="lg"
-              onClick={onInstructionsClose}
+              onClick={handleInstructionsCancel}
             >
               Cancelar
             </Button>
