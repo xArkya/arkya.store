@@ -37,7 +37,7 @@ import {
   IconButton,
   HStack,
 } from '@chakra-ui/react';
-import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt, FaPlane, FaStore, FaTruck } from 'react-icons/fa';
+import { FaInstagram, FaArrowLeft, FaHeart, FaShoppingBag, FaHome, FaStar, FaCheck, FaChevronLeft, FaChevronRight, FaExclamationTriangle, FaClipboard, FaCheckCircle, FaExpand, FaTimes, FaShareAlt, FaPlane, FaStore, FaTruck, FaCalendarAlt } from 'react-icons/fa';
 import { products } from '../data/products';
 import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
@@ -108,21 +108,28 @@ export default function ProductPage() {
   // Modal para compra por Instagram
   const { isOpen: isInstagramOpen, onOpen: onInstagramOpen, onClose: onInstagramClose } = useDisclosure();
 
-  // Método de entrega: 'retiro' (Monte Castro) o 'envio' (Correo Argentino)
+  // Método de entrega: 'retiro' (Monte Castro), 'retro' (Retro Market,
+  // solo hasta el 7/11/2026) o 'envio' (Correo Argentino)
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [shippingLocalidad, setShippingLocalidad] = useState('');
   const [shippingCP, setShippingCP] = useState('');
 
+  const showRetroMarket = Date.now() <= new Date('2026-11-07T23:59:59-03:00').getTime();
+
   const deliveryValid =
     deliveryMethod === 'retiro' ||
+    (deliveryMethod === 'retro' && showRetroMarket) ||
     (deliveryMethod === 'envio' && shippingLocalidad.trim() !== '' && shippingCP.trim() !== '');
 
   const buildDeliveryMessage = () => {
     if (deliveryMethod === 'envio') {
-      return `\n━━━━━━━━━━━━━━━━━━━━\n📦 ENVÍO POR CORREO ARGENTINO\nLocalidad: ${shippingLocalidad.trim()}\nCódigo Postal: ${shippingCP.trim()}\n(a cotizar el envío)`;
+      return `\n━━━━━━━━━━━━━━━━━━━━\n📦 ENVÍO POR CORREO ARGENTINO\nLocalidad: ${shippingLocalidad.trim()}\nCódigo Postal: ${shippingCP.trim()}`;
     }
     if (deliveryMethod === 'retiro') {
       return `\n━━━━━━━━━━━━━━━━━━━━\n📍 RETIRO POR MONTE CASTRO`;
+    }
+    if (deliveryMethod === 'retro') {
+      return `\n━━━━━━━━━━━━━━━━━━━━\n📍 RETIRO EN RETRO MARKET (evento hasta el 7/11)`;
     }
     return '';
   };
@@ -755,6 +762,25 @@ export default function ProductPage() {
                   </Button>
                 </HStack>
 
+                {showRetroMarket && (
+                  <Button
+                    mt={3}
+                    w="100%"
+                    height="auto"
+                    py={3}
+                    whiteSpace="normal"
+                    variant={deliveryMethod === 'retro' ? 'solid' : 'outline'}
+                    colorScheme={deliveryMethod === 'retro' ? 'pink' : 'gray'}
+                    onClick={() => setDeliveryMethod('retro')}
+                    leftIcon={<FaCalendarAlt />}
+                  >
+                    Retiro en Retro Market
+                    <Badge ml={2} colorScheme="pink" variant={deliveryMethod === 'retro' ? 'solid' : 'subtle'}>
+                      ¡Solo hasta el 7/11!
+                    </Badge>
+                  </Button>
+                )}
+
                 {deliveryMethod === 'envio' && (
                   <VStack mt={3} spacing={2}>
                     <Input
@@ -778,6 +804,12 @@ export default function ProductPage() {
                 {deliveryMethod === 'retiro' && (
                   <Text mt={3} fontSize="xs" color={modalTextColorDark}>
                     Coordinamos día y horario por Instagram una vez hecho el pedido.
+                  </Text>
+                )}
+
+                {deliveryMethod === 'retro' && (
+                  <Text mt={3} fontSize="xs" color={modalTextColorDark}>
+                    Lo retirás en nuestro stand de Retro Market. Coordinamos por Instagram una vez hecho el pedido.
                   </Text>
                 )}
               </Box>

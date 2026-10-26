@@ -34,7 +34,7 @@ import {
   InputGroup,
   InputRightElement
 } from '@chakra-ui/react';
-import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes, FaShieldAlt, FaPlane, FaStore, FaTruck } from 'react-icons/fa';
+import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, FaTag, FaTimes, FaShieldAlt, FaPlane, FaStore, FaTruck, FaCalendarAlt } from 'react-icons/fa';
 import { useCart } from '../../context/useCart';
 import { Link as RouterLink } from 'react-router-dom';
 import { validateCoupon } from '../../data/coupons';
@@ -51,13 +51,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
   const [couponCode, setCouponCode] = useState('');
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
 
-  // Método de entrega: 'retiro' (Monte Castro) o 'envio' (Correo Argentino)
+  // Método de entrega: 'retiro' (Monte Castro), 'retro' (Retro Market,
+  // solo hasta el 7/11/2026) o 'envio' (Correo Argentino)
   const [deliveryMethod, setDeliveryMethod] = useState(null);
   const [shippingLocalidad, setShippingLocalidad] = useState('');
   const [shippingCP, setShippingCP] = useState('');
 
+  const showRetroMarket = Date.now() <= new Date('2026-11-07T23:59:59-03:00').getTime();
+
   const deliveryValid =
     deliveryMethod === 'retiro' ||
+    (deliveryMethod === 'retro' && showRetroMarket) ||
     (deliveryMethod === 'envio' && shippingLocalidad.trim() !== '' && shippingCP.trim() !== '');
   
   // Color mode values
@@ -101,11 +105,13 @@ const CartDrawer = ({ isOpen, onClose }) => {
       message += `\n\n━━━━━━━━━━━━━━━━━━━━\n`;
       message += `📦 ENVÍO POR CORREO ARGENTINO\n`;
       message += `Localidad: ${shippingLocalidad.trim()}\n`;
-      message += `Código Postal: ${shippingCP.trim()}\n`;
-      message += `(a cotizar el envío)`;
+      message += `Código Postal: ${shippingCP.trim()}`;
     } else if (deliveryMethod === 'retiro') {
       message += `\n\n━━━━━━━━━━━━━━━━━━━━\n`;
       message += `📍 RETIRO POR MONTE CASTRO`;
+    } else if (deliveryMethod === 'retro') {
+      message += `\n\n━━━━━━━━━━━━━━━━━━━━\n`;
+      message += `📍 RETIRO EN RETRO MARKET (evento hasta el 7/11)`;
     }
 
     return message;
@@ -505,6 +511,25 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   </Button>
                 </HStack>
 
+                {showRetroMarket && (
+                  <Button
+                    mt={3}
+                    w="100%"
+                    height="auto"
+                    py={3}
+                    whiteSpace="normal"
+                    variant={deliveryMethod === 'retro' ? 'solid' : 'outline'}
+                    colorScheme={deliveryMethod === 'retro' ? 'pink' : 'gray'}
+                    onClick={() => setDeliveryMethod('retro')}
+                    leftIcon={<FaCalendarAlt />}
+                  >
+                    Retiro en Retro Market
+                    <Badge ml={2} colorScheme="pink" variant={deliveryMethod === 'retro' ? 'solid' : 'subtle'}>
+                      ¡Solo hasta el 7/11!
+                    </Badge>
+                  </Button>
+                )}
+
                 {deliveryMethod === 'envio' && (
                   <VStack mt={3} spacing={2}>
                     <Input
@@ -530,6 +555,12 @@ const CartDrawer = ({ isOpen, onClose }) => {
                 {deliveryMethod === 'retiro' && (
                   <Text mt={3} fontSize="xs" color={deliveryHintColor}>
                     Coordinamos día y horario por Instagram una vez hecho el pedido.
+                  </Text>
+                )}
+
+                {deliveryMethod === 'retro' && (
+                  <Text mt={3} fontSize="xs" color={deliveryHintColor}>
+                    Lo retirás en nuestro stand de Retro Market. Coordinamos por Instagram una vez hecho el pedido.
                   </Text>
                 )}
               </Box>
