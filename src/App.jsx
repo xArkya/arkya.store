@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import { Suspense, lazy } from 'react'
+import { Routes, Route, useParams } from 'react-router-dom'
+import { Suspense, lazy, useEffect } from 'react'
 import { Box, Spinner, Center } from '@chakra-ui/react'
 import { useAnalytics } from './hooks/useAnalytics'
 import HomePage from './pages/HomePage'
@@ -7,6 +7,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import FloatingCartButton from './components/Cart/FloatingCartButton'
 import CatalogPromoPopup from './components/CatalogPromoPopup'
+import { products } from './data/products'
+import { findProductBySlugOrId } from './utils/slugify'
 
 // Code splitting: las rutas que no son el home se cargan bajo demanda.
 // El prerender solo inyecta meta tags en el HTML estático, así que esto
@@ -34,6 +36,16 @@ const PageFallback = (
   </Center>
 )
 
+// /product/<slug>/instagram redirige al post de Instagram del producto
+const ProductInstagramRedirect = () => {
+  const { slug } = useParams();
+  useEffect(() => {
+    const product = findProductBySlugOrId(slug, products);
+    window.location.replace(product?.instagramUrl || `/product/${slug}`);
+  }, [slug]);
+  return PageFallback;
+};
+
 function App() {
   useAnalytics()
   return (
@@ -53,6 +65,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/tienda" element={<HomePage storeOnly />} />
+            <Route path="/product/:slug/instagram" element={<ProductInstagramRedirect />} />
             <Route path="/product/:slug" element={<ProductPage />} />
             {import.meta.env.VITE_ENABLE_ADMIN === 'true' && AdminPage && (
               <Route path="/admin" element={<AdminPage />} />

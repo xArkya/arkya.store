@@ -36,8 +36,9 @@ import {
   useColorModeValue,
   Switch,
   Image,
+  Input,
 } from '@chakra-ui/react';
-import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle, FaTicketAlt, FaStore } from 'react-icons/fa';
+import { FaPlus, FaEdit, FaTrash, FaDownload, FaUpload, FaTag, FaExclamationTriangle, FaTicketAlt, FaStore, FaInstagram } from 'react-icons/fa';
 import ProductForm from '../components/Admin/ProductForm';
 import OfferForm from '../components/Admin/OfferForm';
 import ProductOfferManager from '../components/Admin/ProductOfferManager';
@@ -427,6 +428,13 @@ const AdminPage = () => {
     }
   };
 
+  const handleUpdateInstagramUrl = (productId, url) => {
+    const trimmed = url.trim();
+    setProducts(products.map(p =>
+      p.id === productId ? { ...p, instagramUrl: trimmed } : p
+    ));
+  };
+
   const handleEditProduct = (product) => {
     setSelectedProduct(product);
     onOpen();
@@ -766,6 +774,7 @@ const AdminPage = () => {
                         <Th>Stock</Th>
                         <Th>Estado</Th>
                         <Th>Oferta</Th>
+                        <Th>Instagram</Th>
                         <Th>Acciones</Th>
                       </Tr>
                     </Thead>
@@ -845,6 +854,30 @@ const AdminPage = () => {
                           ) : (
                             <Badge colorScheme="gray" variant="outline">Sin Oferta</Badge>
                           )}
+                        </Td>
+                        <Td>
+                          <HStack spacing={1}>
+                            <Input
+                              size="sm"
+                              w="230px"
+                              placeholder="https://instagram.com/p/..."
+                              defaultValue={product.instagramUrl || ''}
+                              onBlur={(e) => handleUpdateInstagramUrl(product.id, e.target.value)}
+                            />
+                            {product.instagramUrl && (
+                              <IconButton
+                                as="a"
+                                href={product.instagramUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                icon={<FaInstagram />}
+                                size="sm"
+                                aria-label="Abrir post de Instagram"
+                                colorScheme="pink"
+                                variant="ghost"
+                              />
+                            )}
+                          </HStack>
                         </Td>
                         <Td>
                           <HStack spacing={2}>

@@ -50,6 +50,7 @@ const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) =>
     tags: [],
     adultContent: false,
     instagram: '',
+    instagramUrl: '',
     categories: [],
     ...initialValues
   });
@@ -1116,6 +1117,19 @@ const ProductForm = ({ onSaveProduct, initialValues = null, onClose = null }) =>
             placeholder="Descripción detallada del producto, materiales, tallas disponibles, etc."
             rows={4}
           />
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Link del post de Instagram</FormLabel>
+          <Input
+            name="instagramUrl"
+            value={product.instagramUrl || ''}
+            onChange={handleChange}
+            placeholder="https://instagram.com/p/... (opcional)"
+          />
+          <FormHelperText>
+            Si el producto salió de un post de Instagram, pegá el link acá. La página del producto va a tener /instagram para redirigir al post.
+          </FormHelperText>
         </FormControl>
 
         <FormControl>
