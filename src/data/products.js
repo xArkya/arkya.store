@@ -1070,7 +1070,7 @@ export const products = [
   {
     "name": "Blue lock Vol.25 edición limitada",
     "description": "Incluye:\n- 4 postales de acrilico (Bachira Meguru e Isagi Yoichi).\n- 2 Planchas de stickers (Bachira Meguru e Isagi Yoichi).\n- 2 Pines (Bachira Meguru e Isagi Yoichi).",
-    "price": 42499.15,
+    "price": 39999.2,
     "image": "/images/products/product-1758040947754-main.webp",
     "images": [
       "/images/products/product-1758040947754-0.webp",
@@ -1088,7 +1088,7 @@ export const products = [
     "tags": [],
     "id": 1758040947754,
     "isOnOffer": true,
-    "discountPercentage": 15,
+    "discountPercentage": 20,
     "originalPrice": 49999,
     "offerStartDate": "",
     "offerEndDate": ""
@@ -1151,7 +1151,7 @@ export const products = [
   {
     "name": "Blue Lock Vol. 28 - Edición especial",
     "description": "Incluye:\n• Tomo de manga.\n• 4 postales de acrilico (Rin y Sae).\n• 2 Planchas de stickers (Rin y Sae).\n• 2 Pines (Rin y Sae).\n\n- Edición: Formato TANKOBON, con sobrecubierta.\n- Idioma: Japonés.",
-    "price": 42499.15,
+    "price": 39999.2,
     "image": "/images/products/product-1758041245606-main.webp",
     "images": [
       "/images/products/product-1758041245606-0.webp",
@@ -1169,7 +1169,7 @@ export const products = [
     "tags": [],
     "id": 1758041245606,
     "isOnOffer": true,
-    "discountPercentage": 15,
+    "discountPercentage": 20,
     "originalPrice": 49999,
     "offerStartDate": "",
     "offerEndDate": ""
@@ -1359,7 +1359,7 @@ export const products = [
   {
     "name": "Blue Lock Vol. 29 - Edición especial ",
     "description": "Incluye:\n• Tomo de manga.\n• 4 postales de acrilico (Kaiser y Ness).\n• 2 Planchas de stickers (Kaiser y Ness).\n• 2 Pines (Kaiser y Ness).\n\n- Edición: Formato TANKOBON, con sobrecubierta.\n- Idioma: Japonés.",
-    "price": 50999.15,
+    "price": 49799.17,
     "image": "/images/products/product-1758056709499-main.webp",
     "images": [
       "/images/products/product-1758056709499-0.webp",
@@ -1377,7 +1377,7 @@ export const products = [
     "tags": [],
     "id": 1758056709499,
     "isOnOffer": true,
-    "discountPercentage": 15,
+    "discountPercentage": 17,
     "originalPrice": 59999,
     "offerStartDate": "",
     "offerEndDate": ""
@@ -1758,8 +1758,8 @@ export const products = [
   {
     "name": "Naruto Uzumaki Illustrated Collection 1",
     "description": "Colección de Ilustraciones en formato A4 de Naruto, también contiene un tutorial de dibujo al final del libro.",
-    "price": 39999,
-    "image": "/images/products/product-1759241395885-main.webp",
+    "price": 49999,
+    "image": "/images/products/product-1759241395885-0.webp",
     "images": [
       "/images/products/product-1759241395885-0.webp",
       "/images/products/product-1759241395885-1.webp",
@@ -1777,13 +1777,18 @@ export const products = [
     ],
     "category": "Artbooks",
     "subcategory": "",
-    "isNew": false,
-    "inStock": false,
+    "isNew": true,
+    "inStock": true,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
-    "id": 1759241395885
+    "id": 1759241395885,
+    "isOnOffer": true,
+    "discountPercentage": 0,
+    "originalPrice": 49999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "name": "My Dress-Up Darling Vol.10 Edición especial",
@@ -3178,7 +3183,7 @@ export const products = [
   {
     "name": "Zero no Tsukaima Illustration Collection",
     "description": "Incluye desplegable bifaz",
-    "price": 79999,
+    "price": 84999,
     "image": "/images/products/product-1760085270170-0.webp",
     "images": [
       "/images/products/product-1760085270170-0.webp",
@@ -3201,7 +3206,12 @@ export const products = [
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
-    "id": 1760085270170
+    "id": 1760085270170,
+    "isOnOffer": true,
+    "discountPercentage": 0,
+    "originalPrice": 84999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "name": "Brutus Edición especial de Takehiko Inoue",
@@ -4956,7 +4966,7 @@ export const products = [
   {
     "name": "Dragon Magazine 1994 Vol.3",
     "description": "Revista japonesa Dragon Magazine con ilustraciones, contenido de anime y novelas ligeras.\n\nEN OFERTA POR DETALLE EN PORTADA (ULTIMA FOTO)",
-    "price": 25499.15,
+    "price": 24899.17,
     "image": "/images/products/product-1774934670703-0.webp",
     "images": [
       "/images/products/product-1774934670703-0.webp",
@@ -4986,7 +4996,7 @@ export const products = [
     ],
     "id": 1774934670703,
     "isOnOffer": true,
-    "discountPercentage": 15,
+    "discountPercentage": 17,
     "originalPrice": 29999,
     "offerStartDate": "",
     "offerEndDate": ""
@@ -5783,7 +5793,7 @@ export const products = [
     "name": "Pixiv Yearbook 2010",
     "description": "Colección de Ilustraciones de distintos artistas de Pixiv con datos interesantes de cada uno.",
     "price": 37999,
-    "image": "/images/products/img_1776143646101_l6c45u_0.webp",
+    "image": "/images/products/img_1776143646102_7jyzr8_0.webp",
     "images": [
       "/images/products/img_1776143646102_7jyzr8_0.webp",
       "/images/products/img_1776143646103_gljheq_1.webp",
@@ -5803,8 +5813,8 @@ export const products = [
     ],
     "category": "Artbooks",
     "subcategory": "",
-    "isNew": false,
-    "inStock": false,
+    "isNew": true,
+    "inStock": true,
     "adultContent": false,
     "isFeria": false,
     "details": "Colección de Ilustraciones de distintos artistas de Pixiv con datos interesantes de cada uno.",
@@ -5815,7 +5825,12 @@ export const products = [
       "made in abyss",
       "nekopara"
     ],
-    "id": 1775608590641
+    "id": 1775608590641,
+    "isOnOffer": true,
+    "discountPercentage": 0,
+    "originalPrice": 37999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "name": "Hatsune Miku Coloring Book All Stars",
@@ -5999,7 +6014,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "Antología de SAO con varias mini historias.",
     "instagram": "https://instagram.com/arkya.store",
@@ -6180,7 +6195,7 @@ export const products = [
     "category": "Doujinshis",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "Artbook Doujin de No Game No Life (y más) de Yuu Kamiya\n",
     "instagram": "https://instagram.com/arkya.store",
@@ -7047,12 +7062,12 @@ export const products = [
     ],
     "name": "Haruhi Suzumiya no Garoku",
     "description": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
-    "price": 14999.25,
+    "price": 19999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "haruhi",
       "retroanime",
@@ -7068,10 +7083,7 @@ export const products = [
       "Artbooks"
     ],
     "details": "Libro de arte de Haruhi Suzumiya ilustrado por Noizi Ito!\n\nEN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)",
-    "discountPercentage": 25,
-    "originalPrice": 19999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1782278507752,
@@ -8876,12 +8888,12 @@ export const products = [
     "name": "Jump-Ryu! 23 (Gintama)",
     "description": "Incluye revista, DVD, 1  Dibujo de Gintoki, y un panel del manga en A4, y la caja para guardar todo.",
     "details": "Incluye revista, DVD, 1  Dibujo de Gintoki, y un panel del manga en A4, y la caja para guardar todo.",
-    "price": 49999,
+    "price": 44999.1,
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
     "isNew": false,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "gintama",
       "gintoki",
@@ -8896,7 +8908,11 @@ export const products = [
       "Revistas",
       "CD/DVD",
       "Otros"
-    ]
+    ],
+    "discountPercentage": 10,
+    "originalPrice": 49999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782451148836,
@@ -11078,12 +11094,12 @@ export const products = [
     "name": "Nier:Automata World Guide",
     "description": "Guía del famoso videojuego de Yoko Taro, Nier:Automata.",
     "details": "Guía del famoso videojuego de Yoko Taro, Nier:Automata.",
-    "price": 39999,
+    "price": 49999,
     "category": "Guide Books",
     "subcategory": "",
     "inStock": true,
     "isNew": false,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "nier",
       "nierautomata",
@@ -11098,7 +11114,11 @@ export const products = [
     "categories": [
       "Guide Books",
       "Videojuegos"
-    ]
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 49999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782608389326,
@@ -12902,7 +12922,7 @@ export const products = [
     "name": "Demon Slayer Vol.23 Edición Limitada",
     "description": "Este tomo número 23 de edición limitada viene con 4 figuras y accesorios que le encantarían a cualquier fan de la serie.\n\nEspecificaciones del producto:\n- 4 Figuras Q-Posket de Nezuko, Tanjiro, Zenitsu e Inosuke\n- Accesorios para cada figura",
     "details": "Este tomo número 23 de edición limitada viene con 4 figuras y accesorios que le encantarían a cualquier fan de la serie.\n\nEspecificaciones del producto:\n- 4 Figuras Q-Posket de Nezuko, Tanjiro, Zenitsu e Inosuke\n- Accesorios para cada figura",
-    "price": 39999,
+    "price": 54999,
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "inStock": true,
@@ -13241,15 +13261,15 @@ export const products = [
       "/images/products/product-1782684571383-4.webp",
       "/images/products/product-1782684571383-5.webp"
     ],
-    "name": "Hunter x Hunter Treasure 3",
-    "description": "Esta revista es el volumen 3 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de Yorknew City\n- Tapa de manga alternativa para alguno de tus mangas\n- Páginas: 480",
+    "name": "(SIN EXTRA) Hunter x Hunter Treasure 3",
+    "description": "Esta revista es el volumen 3 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de Yorknew City\n- Páginas: 480\n\nEN OFERTA SIN Tapa de manga alternativa para alguno de tus mangas",
     "details": "Esta revista es el volumen 3 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.\nEspecificaciones del producto:\n- Algunos momentos importantes del arco de Yorknew City\n- Tapa de manga alternativa para alguno de tus mangas\n- Páginas: 480\n- Idioma: Japonés",
-    "price": 24999,
+    "price": 29749.15,
     "category": "Revistas",
     "subcategory": "",
-    "inStock": false,
-    "isNew": false,
-    "isOnOffer": false,
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
     "tags": [
       "hxh"
     ],
@@ -13260,7 +13280,11 @@ export const products = [
     "categories": [
       "Revistas",
       "Mangas"
-    ]
+    ],
+    "discountPercentage": 15,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782684571575,
@@ -13468,9 +13492,9 @@ export const products = [
     "price": 39999,
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [],
     "instagramUrl": "https://www.instagram.com/p/DHPMvsPPixS/?img_index=1",
     "extractedFrom": "instagram",
@@ -13480,10 +13504,7 @@ export const products = [
       "Mangas",
       "Otros"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1782684714412,
@@ -13648,12 +13669,12 @@ export const products = [
     "name": "Jujutsu Kaisen Vol.18 Edición limitada",
     "description": "Está edición viene con 32 llaveros de acrílico de muchos personajes, y un soporte de acrílico con un calendario",
     "details": "Está edición viene con 32 llaveros de acrílico de muchos personajes, y un soporte de acrílico con un calendario",
-    "price": 34999,
+    "price": 59999,
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
-    "inStock": false,
-    "isNew": false,
-    "isOnOffer": false,
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
     "tags": [],
     "instagramUrl": "https://www.instagram.com/p/DGcDeJvs6l2/?img_index=1",
     "extractedFrom": "instagram",
@@ -13662,7 +13683,11 @@ export const products = [
     "categories": [
       "Mangas",
       "Otros"
-    ]
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 59999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1782684950200,
@@ -17055,9 +17080,9 @@ export const products = [
     "price": 49999,
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "touhou",
       "touhouproject",
@@ -17074,10 +17099,7 @@ export const products = [
       "Figuras",
       "Videojuegos"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 49999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "name": "Kazuhiro Takamura Animation Works",
@@ -17177,7 +17199,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "backgammon",
@@ -17631,7 +17653,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "magic",
@@ -17814,7 +17836,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "ps2",
@@ -17885,7 +17907,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "bepal",
@@ -18106,7 +18128,7 @@ export const products = [
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "astronomy",
@@ -18218,7 +18240,7 @@ export const products = [
     "category": "Doujinshis",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "oreimo",
@@ -18438,7 +18460,7 @@ export const products = [
       "/images/products/product-1791602525718-2.webp",
       "/images/products/product-1791602525718-3.webp"
     ],
-    "name": "Editado\n•\nChara Parfait Vol. 104",
+    "name": "Chara Parfait Vol. 104",
     "description": "Revista infantil que incluye como obsequio especial una máquina para hacer stickers con temática de Chiikawa!\nTambién incluye muchos stickers!",
     "details": "Revista infantil que incluye como obsequio especial una máquina para hacer stickers con temática de Chiikawa!\nTambién incluye muchos stickers!",
     "price": 34999,
@@ -18833,7 +18855,7 @@ export const products = [
     "category": "Doujinshis",
     "subcategory": "",
     "inStock": true,
-    "isNew": true,
+    "isNew": false,
     "isOnOffer": true,
     "tags": [
       "touhou",
@@ -19074,5 +19096,1540 @@ export const products = [
     "originalPrice": 39999,
     "offerStartDate": "",
     "offerEndDate": ""
+  },
+  {
+    "id": 1793554532142,
+    "image": "/images/products/product-1793554532142-0.webp",
+    "images": [
+      "/images/products/product-1793554532142-0.webp",
+      "/images/products/product-1793554532142-1.webp",
+      "/images/products/product-1793554532142-2.webp",
+      "/images/products/product-1793554532142-3.webp"
+    ],
+    "name": "Chiikawa Mogumogu Cooking Book",
+    "description": "Este libro de Chiikawa te enseña recetas de galletitas inspiradas en el manga!\nIncluye 4 moldes/cortadores de plástico rosa, con forma de la cara de Chiikawa, Hachiware, Usagi y una de cuerpo entero de Chiikawa!",
+    "details": "Este libro de Chiikawa te enseña recetas de galletitas inspiradas en el manga!\nIncluye 4 moldes/cortadores de plástico rosa, con forma de la cara de Chiikawa, Hachiware, Usagi y una de cuerpo entero de Chiikawa!",
+    "price": 59999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "chiikawa",
+      "cooking",
+      "usagi",
+      "hachiware",
+      "kawaii"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DecMrdJlBHb/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:35:31.736Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793554532490,
+    "image": "/images/products/product-1793554532490-0.webp",
+    "images": [
+      "/images/products/product-1793554532490-0.webp",
+      "/images/products/product-1793554532490-1.webp",
+      "/images/products/product-1793554532490-2.webp",
+      "/images/products/product-1793554532490-3.webp",
+      "/images/products/product-1793554532490-4.webp",
+      "/images/products/product-1793554532490-5.webp",
+      "/images/products/product-1793554532490-6.webp",
+      "/images/products/product-1793554532490-7.webp"
+    ],
+    "name": "Fate/Grand Order material IV",
+    "description": "Libro oficial de arte enfocado en el videojuego Fate/Grand Order. Incluye perfiles detallados de los Servants e Ilustraciones (Bocetos, expresiones faciales, diseños de armas y material visual inédito).",
+    "details": "Libro oficial de arte enfocado en el videojuego Fate/Grand Order. Incluye perfiles detallados de los Servants e Ilustraciones (Bocetos, expresiones faciales, diseños de armas y material visual inédito).",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "fgo",
+      "fategrandorder",
+      "videogames",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeSuHoAlAtH/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:35:31.736Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1793554532273,
+    "image": "/images/products/product-1793554532273-0.webp",
+    "images": [
+      "/images/products/product-1793554532273-0.webp",
+      "/images/products/product-1793554532273-1.webp",
+      "/images/products/product-1793554532273-2.webp",
+      "/images/products/product-1793554532273-3.webp",
+      "/images/products/product-1793554532273-4.webp"
+    ],
+    "name": "Minami-ke Vol.12 Edición Limitada",
+    "description": "Edición especial del manga que incluye un set conmemorativo por el 10.° aniversario de la serie con figuras de las tres hermanas Minami (Haruka, Kana y Chiaki), postales y desplegables!",
+    "details": "Edición especial del manga que incluye un set conmemorativo por el 10.° aniversario de la serie con figuras de las tres hermanas Minami (Haruka, Kana y Chiaki), postales y desplegables!",
+    "price": 24999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "animefigures",
+      "figures",
+      "anime",
+      "minami"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeZxlDXlF0V/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:35:31.736Z",
+    "categories": [
+      "Mangas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793554531789,
+    "image": "/images/products/product-1793554531789-0.webp",
+    "images": [
+      "/images/products/product-1793554531789-0.webp",
+      "/images/products/product-1793554531789-1.webp",
+      "/images/products/product-1793554531789-2.webp",
+      "/images/products/product-1793554531789-3.webp",
+      "/images/products/product-1793554531789-4.webp",
+      "/images/products/product-1793554531789-5.webp",
+      "/images/products/product-1793554531789-6.webp",
+      "/images/products/product-1793554531789-7.webp",
+      "/images/products/product-1793554531789-8.webp"
+    ],
+    "name": "Shitenrin",
+    "description": "Set de items de la mangaka Minene Sakurano, creadora de Mamotte Shugogetten!\nIncluye:\n• Libro de arte\n• Una tarjeta holográfica con stand para mostrarla\n• Un póster\n• Caja contenedora",
+    "details": "Set de items de la mangaka Minene Sakurano, creadora de Mamotte Shugogetten!\nIncluye:\n• Libro de arte\n• Una tarjeta holográfica con stand para mostrarla\n• Un póster\n• Caja contenedora",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "mamotteshugogetten",
+      "artbook",
+      "anime",
+      "manga",
+      "retro"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DehdtBslJkZ/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:35:31.736Z",
+    "categories": [
+      "Artbooks",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1793554532617,
+    "image": "/images/products/product-1793554532617-0.webp",
+    "images": [
+      "/images/products/product-1793554532617-0.webp",
+      "/images/products/product-1793554532617-1.webp",
+      "/images/products/product-1793554532617-2.webp",
+      "/images/products/product-1793554532617-3.webp",
+      "/images/products/product-1793554532617-4.webp",
+      "/images/products/product-1793554532617-5.webp",
+      "/images/products/product-1793554532617-6.webp"
+    ],
+    "name": "Fate/Grand Order material I",
+    "description": "Primer libro oficial de arte enfocado en el videojuego Fate/Grand Order. Incluye perfiles detallados de los Servants e Ilustraciones (Bocetos, expresiones faciales, diseños de armas y material visual inédito).",
+    "details": "Primer libro oficial de arte enfocado en el videojuego Fate/Grand Order. Incluye perfiles detallados de los Servants e Ilustraciones (Bocetos, expresiones faciales, diseños de armas y material visual inédito).",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fate",
+      "fgo",
+      "fategrandorder",
+      "videogames",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DefmDMHlMcC/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:35:31.736Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793554532171,
+    "image": "/images/products/product-1793554532171-0.webp",
+    "images": [
+      "/images/products/product-1793554532171-0.webp",
+      "/images/products/product-1793554532171-1.webp",
+      "/images/products/product-1793554532171-2.webp",
+      "/images/products/product-1793554532171-3.webp"
+    ],
+    "name": "Dengeki PlayStation Vol. 221 de 2002",
+    "description": "Revista retro de videojuegos con portada de Yuna, la protagonista de Final Fantasy X-2!",
+    "details": "Revista retro de videojuegos con portada de Yuna, la protagonista de Final Fantasy X-2!",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "finalfantasyxiii2",
+      "ffxiii2",
+      "videogames",
+      "magazine",
+      "finalfantasy"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Deezt5hlHrp/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:35:31.736Z",
+    "categories": [
+      "Revistas",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793554762065,
+    "image": "/images/products/product-1793554762065-0.webp",
+    "images": [
+      "/images/products/product-1793554762065-0.webp",
+      "/images/products/product-1793554762065-1.webp",
+      "/images/products/product-1793554762065-2.webp",
+      "/images/products/product-1793554762065-3.webp",
+      "/images/products/product-1793554762065-4.webp",
+      "/images/products/product-1793554762065-5.webp"
+    ],
+    "name": "Metal Gear Solid Perfect Guide",
+    "description": "La guía de estrategia oficial de Konami publicada en septiembre de 1998 para el Metal Gear Solid de Playstation 1!",
+    "details": "La guía de estrategia oficial de Konami publicada en septiembre de 1998 para el Metal Gear Solid de Playstation 1!",
+    "price": 44999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books",
+      "mgs",
+      "snake"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfNJIcrlKmT/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:39:21.841Z",
+    "categories": [
+      "Guide Books",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793554762725,
+    "image": "/images/products/product-1793554762725-0.webp",
+    "images": [
+      "/images/products/product-1793554762725-0.webp",
+      "/images/products/product-1793554762725-1.webp",
+      "/images/products/product-1793554762725-2.webp",
+      "/images/products/product-1793554762725-3.webp",
+      "/images/products/product-1793554762725-4.webp",
+      "/images/products/product-1793554762725-5.webp"
+    ],
+    "name": "Animage Junio 2021",
+    "description": "Revista de anime con portada de Zombie Land Saga Revenge, incluye Posters y postales!",
+    "details": "Revista de anime con portada de Zombie Land Saga Revenge, incluye Posters y postales!",
+    "price": 49999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "magazine",
+      "zombieland",
+      "balance",
+      "unlimited"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfLaLM2FAwS/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:39:21.841Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1793554762831,
+    "image": "/images/products/product-1793554762831-0.webp",
+    "images": [
+      "/images/products/product-1793554762831-0.webp",
+      "/images/products/product-1793554762831-1.webp",
+      "/images/products/product-1793554762831-2.webp",
+      "/images/products/product-1793554762831-3.webp",
+      "/images/products/product-1793554762831-4.webp",
+      "/images/products/product-1793554762831-5.webp",
+      "/images/products/product-1793554762831-6.webp"
+    ],
+    "name": "Atelier Ryza: Official Visual Collection",
+    "description": "El libro de arte oficial del videojuego \"Atelier Ryza: Ever Darkness & the Secret Hideout\".\nRecopila el trabajo del diseñador de personajes Toridamono, e incluye ilustraciones promocionales, bocetos de diseño, conceptos de armas y monstruos, además de entrevistas con los desarrolladores!",
+    "details": "El libro de arte oficial del videojuego \"Atelier Ryza: Ever Darkness & the Secret Hideout\".\nRecopila el trabajo del diseñador de personajes Toridamono, e incluye ilustraciones promocionales, bocetos de diseño, conceptos de armas y monstruos, además de entrevistas con los desarrolladores!",
+    "price": 59999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfKp0eoFMY0/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:39:21.841Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793554762637,
+    "image": "/images/products/product-1793554762637-0.webp",
+    "images": [
+      "/images/products/product-1793554762637-0.webp",
+      "/images/products/product-1793554762637-1.webp",
+      "/images/products/product-1793554762637-2.webp",
+      "/images/products/product-1793554762637-3.webp",
+      "/images/products/product-1793554762637-4.webp",
+      "/images/products/product-1793554762637-5.webp",
+      "/images/products/product-1793554762637-6.webp",
+      "/images/products/product-1793554762637-7.webp",
+      "/images/products/product-1793554762637-8.webp",
+      "/images/products/product-1793554762637-9.webp"
+    ],
+    "name": "The Art and Making of Arcane",
+    "description": "El libro de arte oficial de la serie animada de League of Legends: Arcane.\nRecopila material gráfico de las dos temporadas de la serie. Incluye bocetos de producción, la evolución del diseño de los personajes, un poster de WANTED de Jynx, replica de los planos que aparecen en la serie, un mapa, una carta, y más!",
+    "details": "El libro de arte oficial de la serie animada de League of Legends: Arcane.\nRecopila material gráfico de las dos temporadas de la serie. Incluye bocetos de producción, la evolución del diseño de los personajes, un poster de WANTED de Jynx, replica de los planos que aparecen en la serie, un mapa, una carta, y más!",
+    "price": 149999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "leagueoflegends",
+      "books",
+      "lol"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfI0boTFFXn/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:39:21.841Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793554762124,
+    "image": "/images/products/product-1793554762124-0.webp",
+    "images": [
+      "/images/products/product-1793554762124-0.webp",
+      "/images/products/product-1793554762124-1.webp",
+      "/images/products/product-1793554762124-2.webp",
+      "/images/products/product-1793554762124-3.webp",
+      "/images/products/product-1793554762124-4.webp",
+      "/images/products/product-1793554762124-5.webp",
+      "/images/products/product-1793554762124-6.webp",
+      "/images/products/product-1793554762124-7.webp",
+      "/images/products/product-1793554762124-8.webp"
+    ],
+    "name": "Megami Magazine Creators Vol.1",
+    "description": "Esta revista es una publicación especial derivada de la famosa Megami Magazine enfocada en ilustradores de personajes de anime y videojuegos con estilo bishōjo.\nIncluye un poster grande bifaz!",
+    "details": "Esta revista es una publicación especial derivada de la famosa Megami Magazine enfocada en ilustradores de personajes de anime y videojuegos con estilo bishōjo.\nIncluye un poster grande bifaz!",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "books",
+      "rod",
+      "read or die"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfIEN0nlGBR/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:39:21.841Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1793554762552,
+    "image": "/images/products/product-1793554762552-0.webp",
+    "images": [
+      "/images/products/product-1793554762552-0.webp",
+      "/images/products/product-1793554762552-1.webp",
+      "/images/products/product-1793554762552-2.webp",
+      "/images/products/product-1793554762552-3.webp",
+      "/images/products/product-1793554762552-4.webp",
+      "/images/products/product-1793554762552-5.webp",
+      "/images/products/product-1793554762552-6.webp"
+    ],
+    "name": "Kimi ni Todoke Illustrations: High School Days",
+    "description": "Libro de arte oficial de Karuho Shiina, es una recopilación que celebra los 12 años de serialización del manga Kimi ni Todoke, con más de 200 imágenes, abarcando la trayectoria de los tres años de secundaria de los protagonistas, las portadas de los 30 volúmenes del manga, bocetos exclusivos y más!",
+    "details": "Libro de arte oficial de Karuho Shiina, es una recopilación que celebra los 12 años de serialización del manga Kimi ni Todoke, con más de 200 imágenes, abarcando la trayectoria de los tres años de secundaria de los protagonistas, las portadas de los 30 volúmenes del manga, bocetos exclusivos y más!",
+    "price": 89999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfGNq6iFJOv/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T17:39:21.841Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1793559945875,
+    "image": "/images/products/product-1793559945875-0.webp",
+    "images": [
+      "/images/products/product-1793559945875-0.webp",
+      "/images/products/product-1793559945875-1.webp",
+      "/images/products/product-1793559945875-2.webp",
+      "/images/products/product-1793559945875-3.webp",
+      "/images/products/product-1793559945875-4.webp",
+      "/images/products/product-1793559945875-5.webp",
+      "/images/products/product-1793559945875-6.webp",
+      "/images/products/product-1793559945875-7.webp",
+      "/images/products/product-1793559945875-8.webp",
+      "/images/products/product-1793559945875-9.webp"
+    ],
+    "name": "(INCOMPLETA) Megami Magazine Vol. 25 - Junio 2002",
+    "description": "Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!\n\nEN OFERTA SIN FIGURA DE CHIYO NI OSAKA",
+    "details": "Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!",
+    "price": 34799.13,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "anime",
+      "magazine"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfFbKIelPw4/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:05:45.718Z",
+    "categories": [
+      "Revistas",
+      "Otros",
+      "Figuras"
+    ],
+    "discountPercentage": 13,
+    "originalPrice": 39999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1793559945763,
+    "image": "/images/products/product-1793559945763-0.webp",
+    "images": [
+      "/images/products/product-1793559945763-0.webp",
+      "/images/products/product-1793559945763-1.webp",
+      "/images/products/product-1793559945763-2.webp",
+      "/images/products/product-1793559945763-3.webp",
+      "/images/products/product-1793559945763-4.webp",
+      "/images/products/product-1793559945763-5.webp",
+      "/images/products/product-1793559945763-6.webp"
+    ],
+    "name": "THE DOG Photo Book Collection: Chihuahua",
+    "description": "Libro de fotos de perritos que se caracteriza por fotografiar a cachorros desde una perspectiva muy cercana utilizando un lente ojo de pez, en este caso de la raza Chihuahua!",
+    "details": "Libro de fotos de perritos que se caracteriza por fotografiar a cachorros desde una perspectiva muy cercana utilizando un lente ojo de pez, en este caso de la raza Chihuahua!",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "dogs",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfDtmbalJf1/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:05:45.718Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793559945723,
+    "image": "/images/products/product-1793559945723-0.webp",
+    "images": [
+      "/images/products/product-1793559945723-0.webp",
+      "/images/products/product-1793559945723-1.webp",
+      "/images/products/product-1793559945723-2.webp",
+      "/images/products/product-1793559945723-3.webp",
+      "/images/products/product-1793559945723-4.webp",
+      "/images/products/product-1793559945723-5.webp"
+    ],
+    "name": "Animage Febrero 2021",
+    "description": "Revista de anime con portada de Gintama, incluye Posters y carpeta!",
+    "details": "Revista de anime con portada de Gintama, incluye Posters y carpeta!",
+    "price": 64999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "magazine"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfC4WJIFDUS/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:05:45.718Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1793559945969,
+    "image": "/images/products/product-1793559945969-0.webp",
+    "images": [
+      "/images/products/product-1793559945969-0.webp",
+      "/images/products/product-1793559945969-1.webp",
+      "/images/products/product-1793559945969-2.webp",
+      "/images/products/product-1793559945969-3.webp",
+      "/images/products/product-1793559945969-4.webp"
+    ],
+    "name": "Minami-ke Vol.7 Edición Limitada",
+    "description": "Edición especial del manga que viene con 3 llaveros de las protagonistas!",
+    "details": "Edición especial del manga que viene con 3 llaveros de las protagonistas!",
+    "price": 19999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "keychain",
+      "anime",
+      "cgdct",
+      "otaku"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfBGXf4FAKu/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:05:45.718Z",
+    "categories": [
+      "Mangas",
+      "Figuras",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793559946001,
+    "image": "/images/products/product-1793559946001-0.webp",
+    "images": [
+      "/images/products/product-1793559946001-0.webp",
+      "/images/products/product-1793559946001-1.webp",
+      "/images/products/product-1793559946001-2.webp",
+      "/images/products/product-1793559946001-3.webp",
+      "/images/products/product-1793559946001-4.webp",
+      "/images/products/product-1793559946001-5.webp",
+      "/images/products/product-1793559946001-6.webp"
+    ],
+    "name": "Yoshitomo Nara: Moonlight Serenade",
+    "description": "Catálogo oficial de la exposición \"Moonlight Serenade\" realizada por el artista contemporáneo japonés Yoshitomo Nara. Esta muestra tuvo lugar entre el 30 de septiembre de 2006 y el 21 de marzo de 2007 en el Museo de Arte Contemporáneo del Siglo XXI de Kanazawa en Japón!",
+    "details": "Catálogo oficial de la exposición \"Moonlight Serenade\" realizada por el artista contemporáneo japonés Yoshitomo Nara. Esta muestra tuvo lugar entre el 30 de septiembre de 2006 y el 21 de marzo de 2007 en el Museo de Arte Contemporáneo del Siglo XXI de Kanazawa en Japón!",
+    "price": 44999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "art",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfAVnzFFMpv/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:05:45.718Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793559946603,
+    "image": "/images/products/product-1793559946603-0.webp",
+    "images": [
+      "/images/products/product-1793559946603-0.webp",
+      "/images/products/product-1793559946603-1.webp",
+      "/images/products/product-1793559946603-2.webp",
+      "/images/products/product-1793559946603-3.webp",
+      "/images/products/product-1793559946603-4.webp",
+      "/images/products/product-1793559946603-5.webp",
+      "/images/products/product-1793559946603-6.webp",
+      "/images/products/product-1793559946603-7.webp"
+    ],
+    "name": "Movie Edition Slayers Great",
+    "description": "Guía de la pelicula de Slayers: \"Slayers Great\", contiene arte conceptual, perfiles de personajes e información detallada de la tercera película de la franquicia!",
+    "details": "Guía de la pelicula de Slayers: \"Slayers Great\", contiene arte conceptual, perfiles de personajes e información detallada de la tercera película de la franquicia!",
+    "price": 44999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De-mNXKFLND/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:05:45.718Z",
+    "categories": [
+      "Guide Books"
+    ],
+    "adultContent": false
+  },
+  {
+    "id": 1793560481855,
+    "image": "/images/products/product-1793560481855-0.webp",
+    "images": [
+      "/images/products/product-1793560481855-0.webp",
+      "/images/products/product-1793560481855-1.webp",
+      "/images/products/product-1793560481855-2.webp",
+      "/images/products/product-1793560481855-3.webp",
+      "/images/products/product-1793560481855-4.webp",
+      "/images/products/product-1793560481855-5.webp"
+    ],
+    "name": "Aku no Musume: Ki no Kuroatyūru",
+    "description": "Novela ligera escrita por el productor de Vocaloid mothy (Akuno-P) e ilustrada por Ichika!\nEsta obra expande la \"Saga del Mal\", un universo musical de fantasía y drama originalmente narrado a través de canciones de Kagamine Rin y Len.",
+    "details": "Novela ligera escrita por el productor de Vocaloid mothy (Akuno-P) e ilustrada por Ichika!\nEsta obra expande la \"Saga del Mal\", un universo musical de fantasía y drama originalmente narrado a través de canciones de Kagamine Rin y Len.",
+    "price": 19999,
+    "category": "Novela Ligera",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "vocaloid",
+      "lightnovel",
+      "rinkagamine",
+      "hatsunemiku",
+      "lenkagamine"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De915B7FJ2_/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:14:40.941Z",
+    "categories": [
+      "Novela Ligera"
+    ]
+  },
+  {
+    "id": 1793560481450,
+    "image": "/images/products/product-1793560481450-0.webp",
+    "images": [
+      "/images/products/product-1793560481450-0.webp",
+      "/images/products/product-1793560481450-1.webp"
+    ],
+    "name": "Azumanga Standees de cartón ",
+    "description": "4999 C/U\n\nSIN STOCK DE CHIYO Y OSAKA",
+    "details": "Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!",
+    "price": 4999,
+    "category": "Figuras",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "anime",
+      "magazine"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfFbKIelPw4/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:14:40.941Z",
+    "categories": [
+      "Figuras"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 4999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1793560481264,
+    "image": "/images/products/product-1793560481264-0.webp",
+    "images": [
+      "/images/products/product-1793560481264-0.webp",
+      "/images/products/product-1793560481264-1.webp",
+      "/images/products/product-1793560481264-2.webp",
+      "/images/products/product-1793560481264-3.webp",
+      "/images/products/product-1793560481264-4.webp",
+      "/images/products/product-1793560481264-5.webp",
+      "/images/products/product-1793560481264-6.webp",
+      "/images/products/product-1793560481264-7.webp"
+    ],
+    "name": "Oekaki Parfait Especial Chiikawa",
+    "description": "Incluye un cuaderno archivador de 6 anillos con temática de Chiikawa, un bolígrafo azul decorado, una hoja de stickers de los personajes y 12 diseños de hojas para notas!\nLa revista está diseñada para niños y contiene páginas interactivas con actividades de dibujo, hojas para colorear, unir puntos, etc",
+    "details": "Incluye un cuaderno archivador de 6 anillos con temática de Chiikawa, un bolígrafo azul decorado, una hoja de stickers de los personajes y 12 diseños de hojas para notas!\nLa revista está diseñada para niños y contiene páginas interactivas con actividades de dibujo, hojas para colorear, unir puntos, etc",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "chikawa",
+      "chiikawa",
+      "hachiware",
+      "usagi"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De77at5FBo9/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:14:40.942Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793560481808,
+    "image": "/images/products/product-1793560481808-0.webp",
+    "images": [
+      "/images/products/product-1793560481808-0.webp",
+      "/images/products/product-1793560481808-1.webp",
+      "/images/products/product-1793560481808-2.webp",
+      "/images/products/product-1793560481808-3.webp",
+      "/images/products/product-1793560481808-4.webp",
+      "/images/products/product-1793560481808-5.webp",
+      "/images/products/product-1793560481808-6.webp",
+      "/images/products/product-1793560481808-7.webp"
+    ],
+    "name": "KOGADO Visual Works 1985-2008",
+    "description": "Libro de arte oficial que recopila más de dos décadas de historia visual, material promocional y diseños de personajes de los videojuegos desarrollados por Kogado Studio.\nIncluye más de 100 ilustraciones, con títulos clásicos como Cosmic Soldier, Haja no Fuuin, POWER DoLLS, y Aoi Umi no Tristia!",
+    "details": "Libro de arte oficial que recopila más de dos décadas de historia visual, material promocional y diseños de personajes de los videojuegos desarrollados por Kogado Studio.\nIncluye más de 100 ilustraciones, con títulos clásicos como Cosmic Soldier, Haja no Fuuin, POWER DoLLS, y Aoi Umi no Tristia!",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "videogames",
+      "books",
+      "tristia"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De7HE7hFLV5/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:14:40.942Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793560481777,
+    "image": "/images/products/product-1793560481777-0.webp",
+    "images": [
+      "/images/products/product-1793560481777-0.webp",
+      "/images/products/product-1793560481777-1.webp",
+      "/images/products/product-1793560481777-2.webp",
+      "/images/products/product-1793560481777-3.webp",
+      "/images/products/product-1793560481777-4.webp",
+      "/images/products/product-1793560481777-5.webp",
+      "/images/products/product-1793560481777-6.webp"
+    ],
+    "name": "R.O.D: Read or Die Manga Completo",
+    "description": "Colección de los 4 volumenes del manga de Read or Die, escrita por Hideyuki Kurata e ilustrada por Shutaro Yamada\nCada tomo $19999, todos por $64999",
+    "details": "Colección de los 4 volumenes del manga de Read or Die, escrita por Hideyuki Kurata e ilustrada por Shutaro Yamada\nCada tomo $19999, todos por $64999",
+    "price": 64999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "anime",
+      "rod",
+      "r.o.d.",
+      "read or die"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De5ZNbdlFaW/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:14:40.942Z",
+    "categories": [
+      "Mangas"
+    ]
+  },
+  {
+    "id": 1793560481609,
+    "image": "/images/products/product-1793560481609-0.webp",
+    "images": [
+      "/images/products/product-1793560481609-0.webp",
+      "/images/products/product-1793560481609-1.webp",
+      "/images/products/product-1793560481609-2.webp",
+      "/images/products/product-1793560481609-3.webp",
+      "/images/products/product-1793560481609-4.webp",
+      "/images/products/product-1793560481609-5.webp",
+      "/images/products/product-1793560481609-6.webp",
+      "/images/products/product-1793560481609-7.webp",
+      "/images/products/product-1793560481609-8.webp",
+      "/images/products/product-1793560481609-9.webp"
+    ],
+    "name": "ILLUSTRATION ARTIST 150",
+    "description": "Libro de arte de 320 páginas que reúne el trabajo de 150 ilustradores de la escena del anime, videojuegos y plataformas digitales de Japón, cómo Yoshitoshi ABe (Lain), KEI (Hatsune Miku) y pako (Un-go)!\nIncluye CD-ROM con archivos en formato PDF con las ilustraciones digitales en alta calidad!",
+    "details": "Libro de arte de 320 páginas que reúne el trabajo de 150 ilustradores de la escena del anime, videojuegos y plataformas digitales de Japón, cómo Yoshitoshi ABe (Lain), KEI (Hatsune Miku) y pako (Un-go)!\nIncluye CD-ROM con archivos en formato PDF con las ilustraciones digitales en alta calidad!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De4mpFmFKgu/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:14:40.942Z",
+    "categories": [
+      "Artbooks",
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1793560767997,
+    "image": "/images/products/product-1793560767997-0.webp",
+    "images": [
+      "/images/products/product-1793560767997-0.webp",
+      "/images/products/product-1793560767997-1.webp",
+      "/images/products/product-1793560767997-2.webp",
+      "/images/products/product-1793560767997-3.webp",
+      "/images/products/product-1793560767997-4.webp",
+      "/images/products/product-1793560767997-5.webp",
+      "/images/products/product-1793560767997-6.webp",
+      "/images/products/product-1793560767997-7.webp",
+      "/images/products/product-1793560767997-8.webp"
+    ],
+    "name": "Xenoblade Chronicles 3 Official Artworks: Aionios Moments",
+    "description": "El libro de arte oficial del videojuego \"Xenoblade Chronicles 3\", incluye 448 páginas en tamaño A4 con artes conceptuales, bocetos de personajes, diseños de los Ouroboros, materiales del juego base y su DLC Future Redeemed, entrevistas, y más!",
+    "details": "El libro de arte oficial del videojuego \"Xenoblade Chronicles 3\", incluye 448 páginas en tamaño A4 con artes conceptuales, bocetos de personajes, diseños de los Ouroboros, materiales del juego base y su DLC Future Redeemed, entrevistas, y más!",
+    "price": 99999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "xenoblade",
+      "nintendo",
+      "anime",
+      "videogames",
+      "xenobladechronicles"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De2yzF5lDwH/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:19:27.475Z",
+    "categories": [
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1793560768254,
+    "image": "/images/products/product-1793560768254-0.webp",
+    "images": [
+      "/images/products/product-1793560768254-0.webp",
+      "/images/products/product-1793560768254-1.webp",
+      "/images/products/product-1793560768254-2.webp",
+      "/images/products/product-1793560768254-3.webp",
+      "/images/products/product-1793560768254-4.webp",
+      "/images/products/product-1793560768254-5.webp"
+    ],
+    "name": "I Love Corgi",
+    "description": "Revista sobre el cuidado de la raza Corgi,  incluye conocimientos básicos del Corgi, guía de crianza y adiestramiento, y una galería fotográfica!",
+    "details": "Revista sobre el cuidado de la raza Corgi,  incluye conocimientos básicos del Corgi, guía de crianza y adiestramiento, y una galería fotográfica!",
+    "price": 24999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "dogs",
+      "corgi",
+      "kawaii",
+      "pet",
+      "magazine"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De2C5E1FBd4/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:19:27.475Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1793560767961,
+    "image": "/images/products/product-1793560767961-0.webp",
+    "images": [
+      "/images/products/product-1793560767961-0.webp",
+      "/images/products/product-1793560767961-1.webp",
+      "/images/products/product-1793560767961-2.webp",
+      "/images/products/product-1793560767961-3.webp",
+      "/images/products/product-1793560767961-4.webp",
+      "/images/products/product-1793560767961-5.webp",
+      "/images/products/product-1793560767961-6.webp",
+      "/images/products/product-1793560767961-7.webp",
+      "/images/products/product-1793560767961-8.webp",
+      "/images/products/product-1793560767961-9.webp"
+    ],
+    "name": "Nagasarete airantou set manga edición limitada",
+    "description": "Cada uno $34999\n\nPack de 7 mangas de edición especial de Nagasarete airantou, todos incluyen una figura y una carta (menos uno que no tiene carta)!\nLos volúmenes son el 3, 5, 8, 10, 12, 15, y 18.",
+    "details": "Cada uno $34999\n\nPack de 7 mangas de edición especial de Nagasarete airantou, todos incluyen una figura y una carta (menos uno que no tiene carta)!\nLos volúmenes son el 3, 5, 8, 10, 12, 15, y 18.",
+    "price": 199999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "animefigure",
+      "anime",
+      "ecchi",
+      "ecchihentai"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/De0LwtylIVN/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:19:27.475Z",
+    "categories": [
+      "Mangas",
+      "Figuras",
+      "Cartas"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1793560767897,
+    "image": "/images/products/product-1793560767897-0.webp",
+    "images": [
+      "/images/products/product-1793560767897-0.webp",
+      "/images/products/product-1793560767897-1.webp",
+      "/images/products/product-1793560767897-2.webp",
+      "/images/products/product-1793560767897-3.webp",
+      "/images/products/product-1793560767897-4.webp",
+      "/images/products/product-1793560767897-5.webp",
+      "/images/products/product-1793560767897-6.webp",
+      "/images/products/product-1793560767897-7.webp",
+      "/images/products/product-1793560767897-8.webp"
+    ],
+    "name": "Comp Selection Da Capo II Plus Situation",
+    "description": "Revista especial enfocada en Da Capo II P.S. que incluye:\n• Toalla de microfibra: Una toalla grande con ilustraciones de los personajes.\n• Banana Squishy: Un juguete antiestrés con forma de banana, que hace referencia a un personaje, tiene etiqueta con una ilustración.\n• Limpiador de pantalla: Un llavero con una ilustración que sirve para limpiar pantallas.",
+    "details": "Revista especial enfocada en Da Capo II P.S. que incluye:\n• Toalla de microfibra: Una toalla grande con ilustraciones de los personajes.\n• Banana Squishy: Un juguete antiestrés con forma de banana, que hace referencia a un personaje, tiene etiqueta con una ilustración.\n• Limpiador de pantalla: Un llavero con una ilustración que sirve para limpiar pantallas.",
+    "price": 39999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "dacapo",
+      "videogames",
+      "galge",
+      "romcom",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DezY5qSFpKy/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:19:27.475Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793560767943,
+    "image": "/images/products/product-1793560767943-0.webp",
+    "images": [
+      "/images/products/product-1793560767943-0.webp",
+      "/images/products/product-1793560767943-1.webp",
+      "/images/products/product-1793560767943-2.webp",
+      "/images/products/product-1793560767943-3.webp",
+      "/images/products/product-1793560767943-4.webp",
+      "/images/products/product-1793560767943-5.webp"
+    ],
+    "name": "Dengeki 5pb Diciembre 2010",
+    "description": "Revista de videojuegos con 12 pañuelos de distintos personajes y un cartón ilustrado!",
+    "details": "Revista de videojuegos con 12 pañuelos de distintos personajes y un cartón ilustrado!",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "visualnovel",
+      "retrogaming",
+      "retrogames",
+      "steinsgate",
+      "moe"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DexphBOlDk8/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:19:27.475Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793560768131,
+    "image": "/images/products/product-1793560768131-0.webp",
+    "images": [
+      "/images/products/product-1793560768131-0.webp",
+      "/images/products/product-1793560768131-1.webp",
+      "/images/products/product-1793560768131-2.webp",
+      "/images/products/product-1793560768131-3.webp",
+      "/images/products/product-1793560768131-4.webp",
+      "/images/products/product-1793560768131-5.webp",
+      "/images/products/product-1793560768131-6.webp"
+    ],
+    "name": "Recently, my sister is unusual: Mitsuki Co-Sleeping Box",
+    "description": "Set de articulos de Mitsuki Kanzaki de ImoCho para dormir, incluye:\n• Sábana\n• CD/Disco donde te habla simulando dormir con vos\n• Libro con arte e historias cortas.\n• Caja contenedora",
+    "details": "Set de articulos de Mitsuki Kanzaki de ImoCho para dormir, incluye:\n• Sábana\n• CD/Disco donde te habla simulando dormir con vos\n• Libro con arte e historias cortas.\n• Caja contenedora",
+    "price": 54999,
+    "category": "Mangas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dew2Fi0FIXn/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:19:27.475Z",
+    "categories": [
+      "Mangas",
+      "Artbooks",
+      "Otros",
+      "CD/DVD"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1793561000288,
+    "image": "/images/products/product-1793561000288-0.webp",
+    "images": [
+      "/images/products/product-1793561000288-0.webp",
+      "/images/products/product-1793561000288-1.webp",
+      "/images/products/product-1793561000288-2.webp",
+      "/images/products/product-1793561000288-3.webp",
+      "/images/products/product-1793561000288-4.webp",
+      "/images/products/product-1793561000288-5.webp",
+      "/images/products/product-1793561000288-6.webp",
+      "/images/products/product-1793561000288-7.webp"
+    ],
+    "name": "TYPE-MOON Ace Vol. 11",
+    "description": "Revista oficial de TYPE-MOON, con contenido de FGO, EXTELLA, EXTRA, y más! Incluye el libro Servant Storage I, que contiene las estadísticas e ilustraciones oficiales de los Servants del juego lanzados hasta el Capítulo 5",
+    "details": "Revista oficial de TYPE-MOON, con contenido de FGO, EXTELLA, EXTRA, y más! Incluye el libro Servant Storage I, que contiene las estadísticas e ilustraciones oficiales de los Servants del juego lanzados hasta el Capítulo 5",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DevGYvGlLBo/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:23:20.009Z",
+    "categories": [
+      "Revistas",
+      "Artbooks",
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1793561000287,
+    "image": "/images/products/product-1793561000287-0.webp",
+    "images": [
+      "/images/products/product-1793561000287-0.webp",
+      "/images/products/product-1793561000287-1.webp",
+      "/images/products/product-1793561000287-2.webp",
+      "/images/products/product-1793561000287-3.webp",
+      "/images/products/product-1793561000287-4.webp",
+      "/images/products/product-1793561000287-5.webp",
+      "/images/products/product-1793561000287-6.webp",
+      "/images/products/product-1793561000287-7.webp",
+      "/images/products/product-1793561000287-8.webp"
+    ],
+    "name": "Touhou Ikemen Matsuri/Festival de chicos guapos de Touhou",
+    "description": "Conjunto de una colección de música inspirada en el universo de Touhou Project. El paquete incluye discos de música y un DVD con videos relacionados.\nEl álbum es producido por varios artistas y cuenta con la participación de vocalistas como lily-an y Nana Takahashi.\nTambien incluye postales, un doujinshi, y un playmat!",
+    "details": "Conjunto de una colección de música inspirada en el universo de Touhou Project. El paquete incluye discos de música y un DVD con videos relacionados.\nEl álbum es producido por varios artistas y cuenta con la participación de vocalistas como lily-an y Nana Takahashi.\nTambien incluye postales, un doujinshi, y un playmat!",
+    "price": 34999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "touhou",
+      "touhouproject",
+      "ikemen",
+      "doujinshi",
+      "doujin"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeubNVslEhI/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:23:20.009Z",
+    "categories": [
+      "Otros",
+      "Mangas",
+      "Doujinshis",
+      "Videojuegos",
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1793561000604,
+    "image": "/images/products/product-1793561000604-0.webp",
+    "images": [
+      "/images/products/product-1793561000604-0.webp",
+      "/images/products/product-1793561000604-1.webp",
+      "/images/products/product-1793561000604-2.webp",
+      "/images/products/product-1793561000604-3.webp",
+      "/images/products/product-1793561000604-4.webp",
+      "/images/products/product-1793561000604-5.webp",
+      "/images/products/product-1793561000604-6.webp",
+      "/images/products/product-1793561000604-7.webp",
+      "/images/products/product-1793561000604-8.webp",
+      "/images/products/product-1793561000604-9.webp"
+    ],
+    "name": "Comptiq Vol.354 Septiembre 2008",
+    "description": "Revista retro de anime que incluye:\n- CD de drama de Fate/Zero\n- Inflable de Nyaamo de Lucky Star\n- 2 cartas de Lucky star\n- 1 Carta de Fate Kaleid",
+    "details": "Revista retro de anime que incluye:\n- CD de drama de Fate/Zero\n- Inflable de Nyaamo de Lucky Star\n- 2 cartas de Lucky star\n- 1 Carta de Fate Kaleid",
+    "price": 59999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "fatezero",
+      "magazine",
+      "luckystar",
+      "anime",
+      "fatestaynight"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dese9AklGFy/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:23:20.010Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD",
+      "Otros",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1793561000687,
+    "image": "/images/products/product-1793561000687-0.webp",
+    "images": [
+      "/images/products/product-1793561000687-0.webp",
+      "/images/products/product-1793561000687-1.webp",
+      "/images/products/product-1793561000687-2.webp",
+      "/images/products/product-1793561000687-3.webp",
+      "/images/products/product-1793561000687-4.webp",
+      "/images/products/product-1793561000687-5.webp"
+    ],
+    "name": "Gendai Shikaku Bunka Kenkyu Vol. 2",
+    "description": "Revista del 2008  Incluye entrevistas especiales (como una al actor de voz Shiraishi Minoru) y reportajes dedicados al análisis de los estudios de animación y las subculturas de Akihabara del momento.\n\nIncluye libro adjunto de 56 páginas titulado \"Majika-ru! 2008 SP\", centrado en la temática de las chicas yandere.\n\nEN OFERTA SIN LIBRO ADJUNTO (el de la chica de pelo azul oscuro)",
+    "details": "Revista del 2008  Incluye entrevistas especiales (como una al actor de voz Shiraishi Minoru) y reportajes dedicados al análisis de los estudios de animación y las subculturas de Akihabara del momento.\n\nIncluye libro adjunto de 56 páginas titulado \"Majika-ru! 2008 SP\", centrado en la temática de las chicas yandere.\n\nEN OFERTA SIN LIBRO ADJUNTO (el de la chica de pelo azul oscuro)",
+    "price": 14999.5,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "magazine",
+      "schooldays",
+      "yandere",
+      "anime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DersQmFlNdm/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:23:20.010Z",
+    "categories": [
+      "Revistas"
+    ],
+    "adultContent": true,
+    "discountPercentage": 50,
+    "originalPrice": 29999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1793561001004,
+    "image": "/images/products/product-1793561001004-0.webp",
+    "images": [
+      "/images/products/product-1793561001004-0.webp",
+      "/images/products/product-1793561001004-1.webp",
+      "/images/products/product-1793561001004-2.webp",
+      "/images/products/product-1793561001004-3.webp",
+      "/images/products/product-1793561001004-4.webp",
+      "/images/products/product-1793561001004-5.webp",
+      "/images/products/product-1793561001004-6.webp",
+      "/images/products/product-1793561001004-7.webp"
+    ],
+    "name": "Kure-nai Vol.3 Edición Limitada",
+    "description": "Incluye DVD del OVA \"Denpa-teki na Kanojo\" y una caja contenedora!",
+    "details": "Incluye DVD del OVA \"Denpa-teki na Kanojo\" y una caja contenedora!",
+    "price": 29999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "manga",
+      "anime",
+      "ova",
+      "dvd",
+      "limited"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dep57nBFPD4/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:23:20.010Z",
+    "categories": [
+      "Mangas",
+      "CD/DVD"
+    ]
+  },
+  {
+    "id": 1793561000989,
+    "image": "/images/products/product-1793561000989-0.webp",
+    "images": [
+      "/images/products/product-1793561000989-0.webp",
+      "/images/products/product-1793561000989-1.webp",
+      "/images/products/product-1793561000989-2.webp",
+      "/images/products/product-1793561000989-3.webp",
+      "/images/products/product-1793561000989-4.webp",
+      "/images/products/product-1793561000989-5.webp",
+      "/images/products/product-1793561000989-6.webp",
+      "/images/products/product-1793561000989-7.webp",
+      "/images/products/product-1793561000989-8.webp",
+      "/images/products/product-1793561000989-9.webp"
+    ],
+    "name": "FlagMents Full Order",
+    "description": "Doujinshi Artbook de F/GO (Fate/Grand Order) ilustrado por @lack_illustrator\nFue publicado originalmente durante el evento de anime y manga Comic Market 96!",
+    "details": "Doujinshi Artbook de F/GO (Fate/Grand Order) ilustrado por @lack_illustrator\nFue publicado originalmente durante el evento de anime y manga Comic Market 96!",
+    "price": 44999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "fgo",
+      "doujinshi",
+      "fategrandorder"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DepF0y7lDqY/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:23:20.010Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1793561393424,
+    "image": "/images/products/product-1793561393424-0.webp",
+    "images": [
+      "/images/products/product-1793561393424-0.webp",
+      "/images/products/product-1793561393424-1.webp",
+      "/images/products/product-1793561393424-2.webp",
+      "/images/products/product-1793561393424-3.webp",
+      "/images/products/product-1793561393424-4.webp",
+      "/images/products/product-1793561393424-5.webp"
+    ],
+    "name": "Dragon Magazine 7/1997",
+    "description": "Revista dedicada a novelas ligeras, manga y videojuegos de rol, con portada de Lina Inverse de la famosa franquicia Slayers!",
+    "details": "Revista dedicada a novelas ligeras, manga y videojuegos de rol, con portada de Lina Inverse de la famosa franquicia Slayers!",
+    "price": 26999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "slayers",
+      "lina",
+      "magazine",
+      "retro",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DenUkcrlOkU/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:29:52.834Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1793561393435,
+    "image": "/images/products/product-1793561393435-0.webp",
+    "images": [
+      "/images/products/product-1793561393435-0.webp",
+      "/images/products/product-1793561393435-1.webp",
+      "/images/products/product-1793561393435-2.webp",
+      "/images/products/product-1793561393435-3.webp",
+      "/images/products/product-1793561393435-4.webp",
+      "/images/products/product-1793561393435-5.webp"
+    ],
+    "name": "Chara Parfait Vol. 88 2022",
+    "description": "Revista infantil que incluye información de obras populares como Sumikko Gurashi, Animal Crossing, y Kirby\nIncluye:\n• Set de sellos: Varios sellos de goma de los personajes de Sumikko Gurashi, y tinta rosa para los sellos\n• Kira cards: Tarjetas decorativas con distintos personajes\n• Accesorios de papel: Pequeños sobres y cartas de origami temáticas de Sumikko Gurashi",
+    "details": "Revista infantil que incluye información de obras populares como Sumikko Gurashi, Animal Crossing, y Kirby\nIncluye:\n• Set de sellos: Varios sellos de goma de los personajes de Sumikko Gurashi, y tinta rosa para los sellos\n• Kira cards: Tarjetas decorativas con distintos personajes\n• Accesorios de papel: Pequeños sobres y cartas de origami temáticas de Sumikko Gurashi",
+    "price": 44999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DemiEEllO24/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:29:52.834Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1793561393479,
+    "image": "/images/products/product-1793561393479-0.webp",
+    "images": [
+      "/images/products/product-1793561393479-0.webp",
+      "/images/products/product-1793561393479-1.webp",
+      "/images/products/product-1793561393479-2.webp",
+      "/images/products/product-1793561393479-3.webp",
+      "/images/products/product-1793561393479-4.webp",
+      "/images/products/product-1793561393479-5.webp",
+      "/images/products/product-1793561393479-6.webp"
+    ],
+    "name": "Young Animal Arashi 1/5/2018",
+    "description": "Revista de manga con portada de Nana Asakawa, incluye carpeta para documentos!",
+    "details": "Revista de manga con portada de Nana Asakawa, incluye carpeta para documentos!",
+    "price": 29999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ecchi",
+      "ecchihentai",
+      "jav",
+      "idol",
+      "nanaasakawa"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dekvnq5lNdU/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:29:52.834Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1793561393201,
+    "image": "/images/products/product-1793561393201-0.webp",
+    "images": [
+      "/images/products/product-1793561393201-0.webp",
+      "/images/products/product-1793561393201-1.webp",
+      "/images/products/product-1793561393201-2.webp"
+    ],
+    "name": "(INCOMPLETO) Touhou Ikemen Matsuri/Festival de chicos guapos de Touhou",
+    "description": "Conjunto de una colección de música inspirada en el universo de Touhou Project. El paquete incluye 3 postales, un doujinshi, y una caja contenedora!",
+    "details": "Conjunto de una colección de música inspirada en el universo de Touhou Project. El paquete incluye 3 postales, un doujinshi, y una caja contenedora!",
+    "price": 14999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "touhou",
+      "touhouproject",
+      "ikemen",
+      "doujinshi",
+      "doujin"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeubNVslEhI/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:29:52.834Z",
+    "categories": [
+      "Doujinshis",
+      "Otros",
+      "Mangas"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 14999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1793561393257,
+    "image": "/images/products/product-1793561393257-0.webp",
+    "images": [
+      "/images/products/product-1793561393257-0.webp",
+      "/images/products/product-1793561393257-1.webp",
+      "/images/products/product-1793561393257-2.webp",
+      "/images/products/product-1793561393257-3.webp",
+      "/images/products/product-1793561393257-4.webp",
+      "/images/products/product-1793561393257-5.webp",
+      "/images/products/product-1793561393257-6.webp",
+      "/images/products/product-1793561393257-7.webp",
+      "/images/products/product-1793561393257-8.webp"
+    ],
+    "name": "Magi-Cu Premium 03/2003",
+    "description": "Revista de novelas visuales, mangas, novelas ligeras y más, relacionado a bishoujos, con portada de World's End!\nIncluye:\n• CD-ROM\n• Carta exclusiva con una ilustración del personaje Nero Belutino de World's End.\n• Póster con la misma ilustración de la carta",
+    "details": "Revista de novelas visuales, mangas, novelas ligeras y más, relacionado a bishoujos, con portada de World's End!\nIncluye:\n• CD-ROM\n• Carta exclusiva con una ilustración del personaje Nero Belutino de World's End.\n• Póster con la misma ilustración de la carta",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "bishoujo",
+      "magazine",
+      "anime",
+      "visualnovel",
+      "magicalgirl"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DekBKJCFPf5/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:29:52.834Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD",
+      "Cartas"
+    ]
+  },
+  {
+    "id": 1793561393713,
+    "image": "/images/products/product-1793561393713-0.webp",
+    "images": [
+      "/images/products/product-1793561393713-0.webp",
+      "/images/products/product-1793561393713-1.webp",
+      "/images/products/product-1793561393713-2.webp",
+      "/images/products/product-1793561393713-3.webp",
+      "/images/products/product-1793561393713-4.webp"
+    ],
+    "name": "Mahoromatic Vol. 8 Edición Limitada",
+    "description": "Edición especial del manga que incluye un bloque de cristal grabado con la figura de la protagonista y una base iluminada!",
+    "details": "Edición especial del manga que incluye un bloque de cristal grabado con la figura de la protagonista y una base iluminada!",
+    "price": 39999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "mahoromatic",
+      "retro",
+      "anime",
+      "retroanime",
+      "manga"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DeiNTUmlC8K/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-01T19:29:52.834Z",
+    "categories": [
+      "Mangas",
+      "Figuras",
+      "Otros"
+    ]
   }
 ];
