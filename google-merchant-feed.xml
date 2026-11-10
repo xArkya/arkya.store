@@ -405,7 +405,7 @@ NO incluye llavero</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1757984413967-2.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1757984413967-3.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>19999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
@@ -447,7 +447,7 @@ EN OFERTA POR DETALLE EN PORTADA (ULTIMA FOTO)</g:description>
       <g:price>23999.2 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>19199.2 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Guide Books</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -521,7 +521,7 @@ EN OFERTA POR DETALLE EN PORTADA (ULTIMA FOTO)</g:description>
       <g:price>42499.15 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>36124.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -597,7 +597,7 @@ EN OFERTA POR DETALLE EN PORTADA (ULTIMA FOTO)</g:description>
       <g:price>11999.2 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>9599.2 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -880,7 +880,7 @@ Especificaciones del producto:
       <g:price>14999.25 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>11249.25 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -924,7 +924,7 @@ Especificaciones del producto:
       <g:price>37999.05 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>36099.05 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Evangelion</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1227,10 +1227,10 @@ Especificaciones del producto:
       <g:additional_image_link>https://arkya.store/images/products/product-1758040947754-1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>42499.15 ARS</g:price>
+      <g:price>39999.2 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>36124.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price>31999.199999999997 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1265,7 +1265,7 @@ Especificaciones del producto:
       <g:price>29749.15 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>25287.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1348,10 +1348,10 @@ Especificaciones del producto:
       <g:additional_image_link>https://arkya.store/images/products/product-1758041245606-1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>42499.15 ARS</g:price>
+      <g:price>39999.2 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>36124.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price>31999.199999999997 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1393,7 +1393,7 @@ Especificaciones del producto:
       <g:price>29749.15 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>25287.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1506,7 +1506,7 @@ NO INCLUYE ACRÍLICO DE HAIKYU (Consultame al privado si lo buscas con el acríl
       <g:price>19999.2 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>15999.2 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -1543,7 +1543,7 @@ $7999 c/u o $13999 las dos</g:description>
       <g:price>10499.25 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>7874.25 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Otros</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Otros</g:product_type>
@@ -1625,10 +1625,10 @@ Páginas: 200 aprox; Y 30 aprox.</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1758056709499-1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>50999.15 ARS</g:price>
+      <g:price>49799.17 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>43349.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price>41333.17 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -1814,7 +1814,7 @@ Solo Vol. 1 Edición Kansai ($19999)</g:description>
       <g:price>29749.15 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>25287.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Attack on titan</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -2139,14 +2139,14 @@ Un imprescindible para los fans de la serie y sus personajes.</g:description>
       <g:title>Naruto Uzumaki Illustrated Collection 1</g:title>
       <g:description>Colección de Ilustraciones en formato A4 de Naruto, también contiene un tutorial de dibujo al final del libro.</g:description>
       <g:link>https://arkya.store/product/naruto-uzumaki-illustrated-collection-1-5885</g:link>
-      <g:image_link>https://arkya.store/images/products/product-1759241395885-main.webp</g:image_link>
+      <g:image_link>https://arkya.store/images/products/product-1759241395885-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1759241395885-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1759241395885-2.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1759241395885-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1759241395885-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>out_of_stock</g:availability>
-      <g:price>39999 ARS</g:price>
+      <g:price>49999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Naruto</g:brand>
       <g:google_product_category>784</g:google_product_category>
@@ -3978,7 +3978,7 @@ Especificaciones del producto:
       <g:additional_image_link>https://arkya.store/images/products/product-1760085270170-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>79999 ARS</g:price>
+      <g:price>84999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
@@ -4017,7 +4017,7 @@ Especificaciones del producto:
       <g:price>39599.34 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>26135.339999999997 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -4091,11 +4091,9 @@ Especificaciones del producto:
       <g:additional_image_link>https://arkya.store/images/products/product-1760085447301-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1760085447301-2.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>21249.15 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>24999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>18062.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
       <g:brand>Attack on titan</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
@@ -5895,11 +5893,9 @@ Artistas conocidos cómo Wada Arco, Chanxco, Raita, Yoneyamai, Kafka, huke, etc!
       <g:additional_image_link>https://arkya.store/images/products/product-1774745833774-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1774745833774-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>50999.15 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>43349.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
       <g:brand>Guide Books</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -6152,10 +6148,10 @@ EN OFERTA POR DETALLE EN PORTADA (ULTIMA FOTO)</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1774934670703-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>25499.15 ARS</g:price>
+      <g:price>24899.17 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>21674.15 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price>20666.17 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -6976,7 +6972,7 @@ Con arte y mangas cortos!</g:description>
       <g:image_link>https://arkya.store/images/products/img_1776143646082_nx4ctk_0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646085_6wqbxb_1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>19999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
@@ -7042,13 +7038,13 @@ Con arte y mangas cortos!</g:description>
       <g:title>Pixiv Yearbook 2010</g:title>
       <g:description>Colección de Ilustraciones de distintos artistas de Pixiv con datos interesantes de cada uno.</g:description>
       <g:link>https://arkya.store/product/pixiv-yearbook-2010-0641</g:link>
-      <g:image_link>https://arkya.store/images/products/img_1776143646101_l6c45u_0.webp</g:image_link>
+      <g:image_link>https://arkya.store/images/products/img_1776143646102_7jyzr8_0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646103_gljheq_1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646104_v7dmeb_2.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646105_glxmzo_3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646106_mtl2xx_4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>out_of_stock</g:availability>
+      <g:availability>in_stock</g:availability>
       <g:price>37999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
@@ -7153,7 +7149,7 @@ Con arte y mangas cortos!</g:description>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646125_y4n4zv_2.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646126_4d8f91_3.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>24999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
@@ -7260,7 +7256,7 @@ Con arte y mangas cortos!</g:description>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646139_uppcks_3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646140_zo6e5e_4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>21999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Sword art online</g:brand>
@@ -7440,7 +7436,7 @@ Con arte y mangas cortos!</g:description>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646166_ky48wk_3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646167_8qgey2_4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>39999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Doujinshis</g:brand>
@@ -7946,7 +7942,7 @@ Incluye poster de la portada c:</g:description>
       <g:price>39599.12 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>34847.12 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Dragon ball</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -8122,7 +8118,7 @@ Incluye poster de la portada c:</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1782274690933-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782274690933-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>34999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Final fantasy</g:brand>
@@ -8268,11 +8264,9 @@ EN STOCK CON DETALLE EN LA PORTADA (ULTIMA FOTO)</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1782278449043-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782278449043-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>14999.25 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>19999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>11249.25 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -10066,8 +10060,10 @@ Con muchos posters!</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1782451080308-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>49999 ARS</g:price>
+      <g:price>44999.1 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
+      <g:sale_price>40499.1 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -12504,7 +12500,7 @@ Además la caja tiene una rueda giratoria que muestra distintos personajes!</g:d
       <g:additional_image_link>https://arkya.store/images/products/product-1782608389558-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>39999 ARS</g:price>
+      <g:price>49999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Nier</g:brand>
       <g:google_product_category>784</g:google_product_category>
@@ -13045,7 +13041,7 @@ Se puede comprar en pack con el volumen 17 edición limitada a $34999</g:descrip
       <g:additional_image_link>https://arkya.store/images/products/product-1782634290278-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782634290278-2.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>19999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Attack on titan</g:brand>
@@ -14711,7 +14707,7 @@ Especificaciones del producto:
       <g:additional_image_link>https://arkya.store/images/products/product-1782678423782-2.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>39999 ARS</g:price>
+      <g:price>54999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Demon slayer</g:brand>
       <g:google_product_category>784</g:google_product_category>
@@ -15091,22 +15087,25 @@ Especificaciones del producto:
     </item>
     <item>
       <g:id>1782684571383</g:id>
-      <g:title>Hunter x Hunter Treasure 3</g:title>
+      <g:title>(SIN EXTRA) Hunter x Hunter Treasure 3</g:title>
       <g:description>Esta revista es el volumen 3 de una serie de compilaciones del manga de HxH destinadas a ser una opción asequible para que los nuevos lectores se pongan al día con la historia sin tener que comprar los volúmenes individuales.
 Especificaciones del producto:
 - Algunos momentos importantes del arco de Yorknew City
-- Tapa de manga alternativa para alguno de tus mangas
-- Páginas: 480</g:description>
-      <g:link>https://arkya.store/product/hunter-x-hunter-treasure-3-1383</g:link>
+- Páginas: 480
+
+EN OFERTA SIN Tapa de manga alternativa para alguno de tus mangas</g:description>
+      <g:link>https://arkya.store/product/sin-extra-hunter-x-hunter-treasure-3-1383</g:link>
       <g:image_link>https://arkya.store/images/products/product-1782684571383-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782684571383-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782684571383-2.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782684571383-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782684571383-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>24999 ARS</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:price>29749.15 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
+      <g:sale_price>25287.15 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Hunter x hunter</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -15376,7 +15375,7 @@ Especificaciones del producto:
       <g:additional_image_link>https://arkya.store/images/products/product-1782684714237-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782684714237-2.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>39999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Jujutsu kaisen</g:brand>
@@ -15564,8 +15563,8 @@ Especificaciones del producto:
       <g:image_link>https://arkya.store/images/products/product-1782684950197-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782684950197-1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>out_of_stock</g:availability>
-      <g:price>34999 ARS</g:price>
+      <g:availability>in_stock</g:availability>
+      <g:price>59999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Jujutsu kaisen</g:brand>
       <g:google_product_category>784</g:google_product_category>
@@ -15719,7 +15718,7 @@ Libro (tapa blanda): 196 páginas</g:description>
       <g:price>20999.3 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>14699.3 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Naruto</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Guide Books</g:product_type>
@@ -18209,7 +18208,7 @@ DISPONIBLE SIN CD</g:description>
       <g:price>24849.29 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>17643.29 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -18286,7 +18285,7 @@ DISPONIBLE SIN CD</g:description>
       <g:price>16999.32 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>11559.32 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Doujinshis</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Doujinshis</g:product_type>
@@ -18400,11 +18399,9 @@ DISPONIBLE SIN POSAVASOS</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1787547274913-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1787547274913-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>19799.34 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>13067.34 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -18906,7 +18903,7 @@ Incluye perfiles detallados de los personajes, bocetos e ilustraciones especiale
       <g:additional_image_link>https://arkya.store/images/products/product-1788664933472-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1788664933472-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>49999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
@@ -19628,11 +19625,9 @@ DISPONIBLE SIN CD</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1790645444270-2.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1790645444270-3.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>14999.4 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>24999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
-      <g:sale_price>8999.4 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Artbooks</g:product_type>
@@ -19922,7 +19917,7 @@ DISPONIBLE SOLO LA REVISTA SIN PROYECTOR</g:description>
       <g:price>9999.6 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:sale_price>3999.6000000000004 ARS</g:sale_price>
-      <g:sale_price_effective_date>2026-10-13/2025-12-31</g:sale_price_effective_date>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
       <g:brand>Revistas</g:brand>
       <g:google_product_category>783</g:google_product_category>
       <g:product_type>Revistas</g:product_type>
@@ -20245,12 +20240,10 @@ Incluye DVD con el famoso video de Padoru Padoru y varios cortos más!</g:descri
     </item>
     <item>
       <g:id>1791602525718</g:id>
-      <g:title>Editado
-•
-Chara Parfait Vol. 104</g:title>
+      <g:title>Chara Parfait Vol. 104</g:title>
       <g:description>Revista infantil que incluye como obsequio especial una máquina para hacer stickers con temática de Chiikawa!
 También incluye muchos stickers!</g:description>
-      <g:link>https://arkya.store/product/editado-chara-parfait-vol-104-5718</g:link>
+      <g:link>https://arkya.store/product/chara-parfait-vol-104-5718</g:link>
       <g:image_link>https://arkya.store/images/products/product-1791602525718-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1791602525718-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1791602525718-2.webp</g:additional_image_link>
@@ -20623,9 +20616,9 @@ NO Incluye Fate/Grand Order Servant Storage II</g:description>
     </item>
     <item>
       <g:id>1791602526179</g:id>
-      <g:title>Mimipuru Touhou C84 Pack</g:title>
+      <g:title>SHERBET toho project fun book</g:title>
       <g:description>Doujinshi Artbook de Touhou</g:description>
-      <g:link>https://arkya.store/product/mimipuru-touhou-c84-pack-6179</g:link>
+      <g:link>https://arkya.store/product/sherbet-toho-project-fun-book-6179</g:link>
       <g:image_link>https://arkya.store/images/products/product-1791602526179-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1791602526179-1.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1791602526179-2.webp</g:additional_image_link>
@@ -20845,14 +20838,1901 @@ Incluye caja contenedora y muchas ilustraciones +18 a todo color!</g:description
       <g:image_link>https://arkya.store/images/products/product-1791853683832-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1791853683832-1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>34999 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Mangas</g:brand>
       <g:google_product_category>784</g:google_product_category>
       <g:product_type>Mangas</g:product_type>
       <g:identifier_exists>yes</g:identifier_exists>
       <g:mpn>1791853683832</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554532142</g:id>
+      <g:title>Chiikawa Mogumogu Cooking Book</g:title>
+      <g:description>Este libro de Chiikawa te enseña recetas de galletitas inspiradas en el manga!
+Incluye 4 moldes/cortadores de plástico rosa, con forma de la cara de Chiikawa, Hachiware, Usagi y una de cuerpo entero de Chiikawa!</g:description>
+      <g:link>https://arkya.store/product/chiikawa-mogumogu-cooking-book-2142</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554532142-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532142-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532142-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532142-3.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554532142</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554532490</g:id>
+      <g:title>Fate/Grand Order material IV</g:title>
+      <g:description>Libro oficial de arte enfocado en el videojuego Fate/Grand Order. Incluye perfiles detallados de los Servants e Ilustraciones (Bocetos, expresiones faciales, diseños de armas y material visual inédito).</g:description>
+      <g:link>https://arkya.store/product/fate-grand-order-material-iv-2490</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554532490-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532490-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532490-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532490-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532490-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Fate</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554532490</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554532273</g:id>
+      <g:title>Minami-ke Vol.12 Edición Limitada</g:title>
+      <g:description>Edición especial del manga que incluye un set conmemorativo por el 10.° aniversario de la serie con figuras de las tres hermanas Minami (Haruka, Kana y Chiaki), postales y desplegables!</g:description>
+      <g:link>https://arkya.store/product/minami-ke-vol-12-edicion-limitada-2273</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554532273-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532273-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532273-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532273-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532273-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554532273</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554531789</g:id>
+      <g:title>Shitenrin</g:title>
+      <g:description>Set de items de la mangaka Minene Sakurano, creadora de Mamotte Shugogetten!
+Incluye:
+• Libro de arte
+• Una tarjeta holográfica con stand para mostrarla
+• Un póster
+• Caja contenedora</g:description>
+      <g:link>https://arkya.store/product/shitenrin-1789</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554531789-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554531789-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554531789-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554531789-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554531789-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554531789</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554532617</g:id>
+      <g:title>Fate/Grand Order material I</g:title>
+      <g:description>Primer libro oficial de arte enfocado en el videojuego Fate/Grand Order. Incluye perfiles detallados de los Servants e Ilustraciones (Bocetos, expresiones faciales, diseños de armas y material visual inédito).</g:description>
+      <g:link>https://arkya.store/product/fate-grand-order-material-i-2617</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554532617-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532617-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532617-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532617-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532617-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Fate</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554532617</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554532171</g:id>
+      <g:title>Dengeki PlayStation Vol. 221 de 2002</g:title>
+      <g:description>Revista retro de videojuegos con portada de Yuna, la protagonista de Final Fantasy X-2!</g:description>
+      <g:link>https://arkya.store/product/dengeki-playstation-vol-221-de-2002-2171</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554532171-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532171-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532171-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554532171-3.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554532171</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554762065</g:id>
+      <g:title>Metal Gear Solid Perfect Guide</g:title>
+      <g:description>La guía de estrategia oficial de Konami publicada en septiembre de 1998 para el Metal Gear Solid de Playstation 1!</g:description>
+      <g:link>https://arkya.store/product/metal-gear-solid-perfect-guide-2065</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554762065-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762065-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762065-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762065-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762065-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Guide Books</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Guide Books</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554762065</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554762725</g:id>
+      <g:title>Animage Junio 2021</g:title>
+      <g:description>Revista de anime con portada de Zombie Land Saga Revenge, incluye Posters y postales!</g:description>
+      <g:link>https://arkya.store/product/animage-junio-2021-2725</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554762725-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762725-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762725-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762725-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762725-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>49999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554762725</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554762831</g:id>
+      <g:title>Atelier Ryza: Official Visual Collection</g:title>
+      <g:description>El libro de arte oficial del videojuego &quot;Atelier Ryza: Ever Darkness &amp; the Secret Hideout&quot;.
+Recopila el trabajo del diseñador de personajes Toridamono, e incluye ilustraciones promocionales, bocetos de diseño, conceptos de armas y monstruos, además de entrevistas con los desarrolladores!</g:description>
+      <g:link>https://arkya.store/product/atelier-ryza-official-visual-collection-2831</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554762831-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762831-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762831-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762831-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762831-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554762831</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554762637</g:id>
+      <g:title>The Art and Making of Arcane</g:title>
+      <g:description>El libro de arte oficial de la serie animada de League of Legends: Arcane.
+Recopila material gráfico de las dos temporadas de la serie. Incluye bocetos de producción, la evolución del diseño de los personajes, un poster de WANTED de Jynx, replica de los planos que aparecen en la serie, un mapa, una carta, y más!</g:description>
+      <g:link>https://arkya.store/product/the-art-and-making-of-arcane-2637</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554762637-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762637-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762637-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762637-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762637-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>149999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554762637</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554762124</g:id>
+      <g:title>Megami Magazine Creators Vol.1</g:title>
+      <g:description>Esta revista es una publicación especial derivada de la famosa Megami Magazine enfocada en ilustradores de personajes de anime y videojuegos con estilo bishōjo.
+Incluye un poster grande bifaz!</g:description>
+      <g:link>https://arkya.store/product/megami-magazine-creators-vol-1-2124</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554762124-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762124-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762124-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762124-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762124-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554762124</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793554762552</g:id>
+      <g:title>Kimi ni Todoke Illustrations: High School Days</g:title>
+      <g:description>Libro de arte oficial de Karuho Shiina, es una recopilación que celebra los 12 años de serialización del manga Kimi ni Todoke, con más de 200 imágenes, abarcando la trayectoria de los tres años de secundaria de los protagonistas, las portadas de los 30 volúmenes del manga, bocetos exclusivos y más!</g:description>
+      <g:link>https://arkya.store/product/kimi-ni-todoke-illustrations-high-school-days-2552</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793554762552-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762552-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762552-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762552-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793554762552-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>89999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793554762552</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793559945875</g:id>
+      <g:title>(SIN STANDEES) Megami Magazine Vol. 25 - Junio 2002</g:title>
+      <g:description>Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!
+
+EN OFERTA SIN FIGURAS</g:description>
+      <g:link>https://arkya.store/product/sin-standees-megami-magazine-vol-25-junio-2002-5875</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793559945875-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945875-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945875-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945875-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945875-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>29999.25 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:sale_price>22499.25 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793559945875</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793559945763</g:id>
+      <g:title>THE DOG Photo Book Collection: Chihuahua</g:title>
+      <g:description>Libro de fotos de perritos que se caracteriza por fotografiar a cachorros desde una perspectiva muy cercana utilizando un lente ojo de pez, en este caso de la raza Chihuahua!</g:description>
+      <g:link>https://arkya.store/product/the-dog-photo-book-collection-chihuahua-5763</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793559945763-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945763-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945763-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945763-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945763-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793559945763</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793559945723</g:id>
+      <g:title>Animage Febrero 2021</g:title>
+      <g:description>Revista de anime con portada de Gintama, incluye Posters y carpeta!</g:description>
+      <g:link>https://arkya.store/product/animage-febrero-2021-5723</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793559945723-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945723-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945723-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945723-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945723-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>64999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793559945723</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793559945969</g:id>
+      <g:title>Minami-ke Vol.7 Edición Limitada</g:title>
+      <g:description>Edición especial del manga que viene con 3 llaveros de las protagonistas!</g:description>
+      <g:link>https://arkya.store/product/minami-ke-vol-7-edicion-limitada-5969</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793559945969-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945969-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945969-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945969-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559945969-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793559945969</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793559946001</g:id>
+      <g:title>Yoshitomo Nara: Moonlight Serenade</g:title>
+      <g:description>Catálogo oficial de la exposición &quot;Moonlight Serenade&quot; realizada por el artista contemporáneo japonés Yoshitomo Nara. Esta muestra tuvo lugar entre el 30 de septiembre de 2006 y el 21 de marzo de 2007 en el Museo de Arte Contemporáneo del Siglo XXI de Kanazawa en Japón!</g:description>
+      <g:link>https://arkya.store/product/yoshitomo-nara-moonlight-serenade-6001</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793559946001-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946001-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946001-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946001-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946001-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793559946001</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793559946603</g:id>
+      <g:title>Movie Edition Slayers Great</g:title>
+      <g:description>Guía de la pelicula de Slayers: &quot;Slayers Great&quot;, contiene arte conceptual, perfiles de personajes e información detallada de la tercera película de la franquicia!</g:description>
+      <g:link>https://arkya.store/product/movie-edition-slayers-great-6603</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793559946603-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946603-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946603-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946603-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793559946603-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Guide Books</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Guide Books</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793559946603</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560481855</g:id>
+      <g:title>Aku no Musume: Ki no Kuroatyūru</g:title>
+      <g:description>Novela ligera escrita por el productor de Vocaloid mothy (Akuno-P) e ilustrada por Ichika!
+Esta obra expande la &quot;Saga del Mal&quot;, un universo musical de fantasía y drama originalmente narrado a través de canciones de Kagamine Rin y Len.</g:description>
+      <g:link>https://arkya.store/product/aku-no-musume-ki-no-kuroatyuru-1855</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560481855-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481855-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481855-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481855-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481855-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>19999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Novela Ligera</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Novela Ligera</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560481855</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560481450</g:id>
+      <g:title>Azumanga Standees de cartón </g:title>
+      <g:description>4999 C/U
+
+SIN STOCK DE CHIYO Y OSAKA</g:description>
+      <g:link>https://arkya.store/product/azumanga-standees-de-carton-1450</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560481450-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481450-1.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>4999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Figuras</g:brand>
+      <g:google_product_category>216</g:google_product_category>
+      <g:product_type>Figuras</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560481450</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560481264</g:id>
+      <g:title>Oekaki Parfait Especial Chiikawa</g:title>
+      <g:description>Incluye un cuaderno archivador de 6 anillos con temática de Chiikawa, un bolígrafo azul decorado, una hoja de stickers de los personajes y 12 diseños de hojas para notas!
+La revista está diseñada para niños y contiene páginas interactivas con actividades de dibujo, hojas para colorear, unir puntos, etc</g:description>
+      <g:link>https://arkya.store/product/oekaki-parfait-especial-chiikawa-1264</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560481264-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481264-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481264-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481264-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481264-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560481264</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560481808</g:id>
+      <g:title>KOGADO Visual Works 1985-2008</g:title>
+      <g:description>Libro de arte oficial que recopila más de dos décadas de historia visual, material promocional y diseños de personajes de los videojuegos desarrollados por Kogado Studio.
+Incluye más de 100 ilustraciones, con títulos clásicos como Cosmic Soldier, Haja no Fuuin, POWER DoLLS, y Aoi Umi no Tristia!</g:description>
+      <g:link>https://arkya.store/product/kogado-visual-works-1985-2008-1808</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560481808-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481808-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481808-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481808-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481808-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560481808</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560481777</g:id>
+      <g:title>R.O.D: Read or Die Manga Completo</g:title>
+      <g:description>Colección de los 4 volumenes del manga de Read or Die, escrita por Hideyuki Kurata e ilustrada por Shutaro Yamada
+Cada tomo $19999, todos por $64999</g:description>
+      <g:link>https://arkya.store/product/r-o-d-read-or-die-manga-completo-1777</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560481777-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481777-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481777-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481777-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481777-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>64999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560481777</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560481609</g:id>
+      <g:title>ILLUSTRATION ARTIST 150</g:title>
+      <g:description>Libro de arte de 320 páginas que reúne el trabajo de 150 ilustradores de la escena del anime, videojuegos y plataformas digitales de Japón, cómo Yoshitoshi ABe (Lain), KEI (Hatsune Miku) y pako (Un-go)!
+Incluye CD-ROM con archivos en formato PDF con las ilustraciones digitales en alta calidad!</g:description>
+      <g:link>https://arkya.store/product/illustration-artist-150-1609</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560481609-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481609-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481609-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481609-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560481609-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560481609</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560767997</g:id>
+      <g:title>Xenoblade Chronicles 3 Official Artworks: Aionios Moments</g:title>
+      <g:description>El libro de arte oficial del videojuego &quot;Xenoblade Chronicles 3&quot;, incluye 448 páginas en tamaño A4 con artes conceptuales, bocetos de personajes, diseños de los Ouroboros, materiales del juego base y su DLC Future Redeemed, entrevistas, y más!</g:description>
+      <g:link>https://arkya.store/product/xenoblade-chronicles-3-official-artworks-aionios-moments-7997</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560767997-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767997-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767997-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767997-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767997-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>99999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560767997</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560768254</g:id>
+      <g:title>I Love Corgi</g:title>
+      <g:description>Revista sobre el cuidado de la raza Corgi,  incluye conocimientos básicos del Corgi, guía de crianza y adiestramiento, y una galería fotográfica!</g:description>
+      <g:link>https://arkya.store/product/i-love-corgi-8254</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560768254-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768254-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768254-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768254-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768254-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560768254</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560767961</g:id>
+      <g:title>Nagasarete airantou set manga edición limitada</g:title>
+      <g:description>Cada uno $34999
+
+Pack de 7 mangas de edición especial de Nagasarete airantou, todos incluyen una figura y una carta (menos uno que no tiene carta)!
+Los volúmenes son el 3, 5, 8, 10, 12, 15, y 18.</g:description>
+      <g:link>https://arkya.store/product/nagasarete-airantou-set-manga-edicion-limitada-7961</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560767961-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767961-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767961-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767961-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767961-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>199999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560767961</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560767897</g:id>
+      <g:title>Comp Selection Da Capo II Plus Situation</g:title>
+      <g:description>Revista especial enfocada en Da Capo II P.S. que incluye:
+• Toalla de microfibra: Una toalla grande con ilustraciones de los personajes.
+• Banana Squishy: Un juguete antiestrés con forma de banana, que hace referencia a un personaje, tiene etiqueta con una ilustración.
+• Limpiador de pantalla: Un llavero con una ilustración que sirve para limpiar pantallas.</g:description>
+      <g:link>https://arkya.store/product/comp-selection-da-capo-ii-plus-situation-7897</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560767897-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767897-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767897-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767897-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767897-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560767897</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560767943</g:id>
+      <g:title>Dengeki 5pb Diciembre 2010</g:title>
+      <g:description>Revista de videojuegos con 12 pañuelos de distintos personajes y un cartón ilustrado!</g:description>
+      <g:link>https://arkya.store/product/dengeki-5pb-diciembre-2010-7943</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560767943-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767943-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767943-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767943-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560767943-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560767943</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793560768131</g:id>
+      <g:title>Recently, my sister is unusual: Mitsuki Co-Sleeping Box</g:title>
+      <g:description>Set de articulos de Mitsuki Kanzaki de ImoCho para dormir, incluye:
+• Sábana
+• CD/Disco donde te habla simulando dormir con vos
+• Libro con arte e historias cortas.
+• Caja contenedora</g:description>
+      <g:link>https://arkya.store/product/recently-my-sister-is-unusual-mitsuki-co-sleeping-box-8131</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793560768131-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768131-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768131-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768131-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793560768131-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>54999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793560768131</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561000288</g:id>
+      <g:title>TYPE-MOON Ace Vol. 11</g:title>
+      <g:description>Revista oficial de TYPE-MOON, con contenido de FGO, EXTELLA, EXTRA, y más! Incluye el libro Servant Storage I, que contiene las estadísticas e ilustraciones oficiales de los Servants del juego lanzados hasta el Capítulo 5</g:description>
+      <g:link>https://arkya.store/product/type-moon-ace-vol-11-0288</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561000288-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000288-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000288-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000288-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000288-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561000288</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561000287</g:id>
+      <g:title>Touhou Ikemen Matsuri/Festival de chicos guapos de Touhou</g:title>
+      <g:description>Conjunto de una colección de música inspirada en el universo de Touhou Project. El paquete incluye discos de música y un DVD con videos relacionados.
+El álbum es producido por varios artistas y cuenta con la participación de vocalistas como lily-an y Nana Takahashi.
+Tambien incluye postales, un doujinshi, y un playmat!</g:description>
+      <g:link>https://arkya.store/product/touhou-ikemen-matsuri-festival-de-chicos-guapos-de-touhou-0287</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561000287-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000287-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000287-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000287-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000287-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Otros</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Otros</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561000287</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561000604</g:id>
+      <g:title>Comptiq Vol.354 Septiembre 2008</g:title>
+      <g:description>Revista retro de anime que incluye:
+- CD de drama de Fate/Zero
+- Inflable de Nyaamo de Lucky Star
+- 2 cartas de Lucky star
+- 1 Carta de Fate Kaleid</g:description>
+      <g:link>https://arkya.store/product/comptiq-vol-354-septiembre-2008-0604</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561000604-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000604-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000604-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000604-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000604-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561000604</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561000687</g:id>
+      <g:title>Gendai Shikaku Bunka Kenkyu Vol. 2</g:title>
+      <g:description>Revista del 2008  Incluye entrevistas especiales (como una al actor de voz Shiraishi Minoru) y reportajes dedicados al análisis de los estudios de animación y las subculturas de Akihabara del momento.
+
+Incluye libro adjunto de 56 páginas titulado &quot;Majika-ru! 2008 SP&quot;, centrado en la temática de las chicas yandere.
+
+EN OFERTA SIN LIBRO ADJUNTO (el de la chica de pelo azul oscuro)</g:description>
+      <g:link>https://arkya.store/product/gendai-shikaku-bunka-kenkyu-vol-2-0687</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561000687-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000687-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000687-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000687-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000687-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>14999.5 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:sale_price>7499.5 ARS</g:sale_price>
+      <g:sale_price_effective_date>2026-11-10/2025-12-31</g:sale_price_effective_date>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561000687</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561001004</g:id>
+      <g:title>Kure-nai Vol.3 Edición Limitada</g:title>
+      <g:description>Incluye DVD del OVA &quot;Denpa-teki na Kanojo&quot; y una caja contenedora!</g:description>
+      <g:link>https://arkya.store/product/kure-nai-vol-3-edicion-limitada-1004</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561001004-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561001004-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561001004-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561001004-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561001004-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561001004</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561000989</g:id>
+      <g:title>FlagMents Full Order</g:title>
+      <g:description>Doujinshi Artbook de F/GO (Fate/Grand Order) ilustrado por @lack_illustrator
+Fue publicado originalmente durante el evento de anime y manga Comic Market 96!</g:description>
+      <g:link>https://arkya.store/product/flagments-full-order-0989</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561000989-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000989-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000989-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000989-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561000989-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Doujinshis</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Doujinshis</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561000989</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561393424</g:id>
+      <g:title>Dragon Magazine 7/1997</g:title>
+      <g:description>Revista dedicada a novelas ligeras, manga y videojuegos de rol, con portada de Lina Inverse de la famosa franquicia Slayers!</g:description>
+      <g:link>https://arkya.store/product/dragon-magazine-7-1997-3424</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561393424-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393424-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393424-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393424-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393424-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>26999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561393424</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561393435</g:id>
+      <g:title>Chara Parfait Vol. 88 2022</g:title>
+      <g:description>Revista infantil que incluye información de obras populares como Sumikko Gurashi, Animal Crossing, y Kirby
+Incluye:
+• Set de sellos: Varios sellos de goma de los personajes de Sumikko Gurashi, y tinta rosa para los sellos
+• Kira cards: Tarjetas decorativas con distintos personajes
+• Accesorios de papel: Pequeños sobres y cartas de origami temáticas de Sumikko Gurashi</g:description>
+      <g:link>https://arkya.store/product/chara-parfait-vol-88-2022-3435</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561393435-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393435-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393435-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393435-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393435-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561393435</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561393479</g:id>
+      <g:title>Young Animal Arashi 1/5/2018</g:title>
+      <g:description>Revista de manga con portada de Nana Asakawa, incluye carpeta para documentos!</g:description>
+      <g:link>https://arkya.store/product/young-animal-arashi-1-5-2018-3479</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561393479-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393479-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393479-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393479-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393479-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561393479</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561393201</g:id>
+      <g:title>(INCOMPLETO) Touhou Ikemen Matsuri/Festival de chicos guapos de Touhou</g:title>
+      <g:description>Conjunto de una colección de música inspirada en el universo de Touhou Project. El paquete incluye 3 postales, un doujinshi, y una caja contenedora!</g:description>
+      <g:link>https://arkya.store/product/incompleto-touhou-ikemen-matsuri-festival-de-chicos-guapos-de-touhou-3201</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561393201-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393201-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393201-2.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>14999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Doujinshis</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Doujinshis</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561393201</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561393257</g:id>
+      <g:title>Magi-Cu Premium 03/2003</g:title>
+      <g:description>Revista de novelas visuales, mangas, novelas ligeras y más, relacionado a bishoujos, con portada de World&apos;s End!
+Incluye:
+• CD-ROM
+• Carta exclusiva con una ilustración del personaje Nero Belutino de World&apos;s End.
+• Póster con la misma ilustración de la carta</g:description>
+      <g:link>https://arkya.store/product/magi-cu-premium-03-2003-3257</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561393257-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393257-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393257-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393257-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393257-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561393257</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1793561393713</g:id>
+      <g:title>Mahoromatic Vol. 8 Edición Limitada</g:title>
+      <g:description>Edición especial del manga que incluye un bloque de cristal grabado con la figura de la protagonista y una base iluminada!</g:description>
+      <g:link>https://arkya.store/product/mahoromatic-vol-8-edicion-limitada-3713</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1793561393713-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393713-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393713-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393713-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1793561393713-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1793561393713</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794265816163</g:id>
+      <g:title>Chaos;Head &amp; Steins;Gate Science Adventure Series Maniacs</g:title>
+      <g:description>Guía de Chaos;Head y Stein&apos;s Gate con entrevistas, ilustraciones y datos interesantes de las primeras Science Adventures!</g:description>
+      <g:link>https://arkya.store/product/chaos-head-and-steins-gate-science-adventure-series-maniacs-6163</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794265816163-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816163-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816163-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816163-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816163-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Steins;gate</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Guide Books</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794265816163</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794265815996</g:id>
+      <g:title>Cometary Origin Sense - ICHIKAWA HARUKO ILLUSTRATION BOOK...</g:title>
+      <g:description>El Segundo artbook de la autora de Houseki no Kuni (La tierra de las gemas/Land of the Lustrous)!
+Con más de 350 páginas de puro arte y un sistema de encuadernación que permite abrirlo 180°!
+Recopila arte desde el volumen 9 para adelante, sumado al contenido de todos los demás artbooks anteriores y algunas cosas más!</g:description>
+      <g:link>https://arkya.store/product/cometary-origin-sense-ichikawa-haruko-illustration-book-5996</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794265815996-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265815996-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265815996-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265815996-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265815996-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>109999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794265815996</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794265816165</g:id>
+      <g:title>Bocchi the Rock! Guitar Case Style Pouch Book</g:title>
+      <g:description>Fanbook con ilustraciones exclusivas de la autora Aki Hamaji y contenido enfocado en las integrantes de la Kessoku Band y sus instrumentos!
+Incluye un neceser de tela con forma de funda de guitarra c:</g:description>
+      <g:link>https://arkya.store/product/bocchi-the-rock-guitar-case-style-pouch-book-6165</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794265816165-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816165-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816165-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816165-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816165-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794265816165</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794265816358</g:id>
+      <g:title>Aku no Kansoukyoku 「Aku no Musume」 World Guide</g:title>
+      <g:description>Fanbook oficial de la popular franquicia basada en la canción de Vocaloid Aku no Musume!</g:description>
+      <g:link>https://arkya.store/product/aku-no-kansoukyoku-aku-no-musume-world-guide-6358</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794265816358-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816358-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816358-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816358-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816358-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Guide Books</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Guide Books</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794265816358</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794265816223</g:id>
+      <g:title>Newtype Mayo 2021</g:title>
+      <g:description>Revista de anime con portada de Zombie Land Saga Revenge, incluye Posters!</g:description>
+      <g:link>https://arkya.store/product/newtype-mayo-2021-6223</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794265816223-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816223-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816223-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816223-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794265816223-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>54999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Revistas</g:brand>
+      <g:google_product_category>783</g:google_product_category>
+      <g:product_type>Revistas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794265816223</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794266132206</g:id>
+      <g:title>Biohazard 4: The Fastest Official Guide</g:title>
+      <g:description>Guía del Resident Evil 4 publicada oficialmente por Capcom para la consola Nintendo GameCube en enero de 2005!</g:description>
+      <g:link>https://arkya.store/product/biohazard-4-the-fastest-official-guide-2206</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794266132206-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132206-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132206-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132206-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132206-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Guide Books</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Guide Books</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794266132206</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794266132494</g:id>
+      <g:title>Air Gear Vol. 12 &amp; 13 Edición Limitada</g:title>
+      <g:description>O individualmente Vol.12 a $39999 y vol.13 a $29999
+Ediciones especiales del manga de Air Gear que incluyen una figura de Ringo y una de Agito con ropa intercambiable en colaboración con Pinky:st (Pinky Street) y una cajita contenedora!</g:description>
+      <g:link>https://arkya.store/product/air-gear-vol-12-and-13-edicion-limitada-2494</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794266132494-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132494-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132494-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132494-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132494-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Mangas</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Mangas</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794266132494</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794266132695</g:id>
+      <g:title>Lucky Star Okiraku BOX Edición Kagami Hiiragi</g:title>
+      <g:description>Caja de edición limitada de 2007 que incluye:
+• Artbook
+• Figura de Kagami Hiiragi
+• CD-ROM.</g:description>
+      <g:link>https://arkya.store/product/lucky-star-okiraku-box-edicion-kagami-hiiragi-2695</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794266132695-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132695-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132695-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132695-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132695-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>74999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Figuras</g:brand>
+      <g:google_product_category>216</g:google_product_category>
+      <g:product_type>Figuras</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794266132695</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1794266132453</g:id>
+      <g:title>Neon Genesis Evangelion Sticker Book</g:title>
+      <g:description>Libro de stickers oficial lanzado como suplemento de la famosa revista japonesa Newtype en su edición de julio de 2003.</g:description>
+      <g:link>https://arkya.store/product/neon-genesis-evangelion-sticker-book-2453</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1794266132453-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132453-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132453-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132453-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1794266132453-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Evangelion</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Otros</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1794266132453</g:mpn>
       <g:shipping>
         <g:country>AR</g:country>
         <g:service>Standard</g:service>
