@@ -361,7 +361,8 @@ export const products = [
     "id": 1757984413967,
     "category": "Videojuegos",
     "isOnOffer": false,
-    "discountPercentage": 0
+    "discountPercentage": 0,
+    "inStock": false
   },
   {
     "name": "Guía de Houseki no Kuni",
@@ -1778,17 +1779,14 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": true,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
     "id": 1759241395885,
-    "isOnOffer": true,
-    "discountPercentage": 0,
-    "originalPrice": 49999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "My Dress-Up Darling Vol.10 Edición especial",
@@ -3274,7 +3272,7 @@ export const products = [
   {
     "name": "Attack on Titan: No regrets Vol. 2 Edición especial",
     "description": "Incluye cajita contenedora para los dos libros",
-    "price": 21249.15,
+    "price": 24999,
     "image": "/images/products/product-1760085447301-main.webp",
     "images": [
       "/images/products/product-1760085447301-0.webp",
@@ -3287,7 +3285,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
@@ -3297,11 +3295,8 @@ export const products = [
       "ataque"
     ],
     "id": 1760085447301,
-    "isOnOffer": true,
-    "discountPercentage": 15,
-    "originalPrice": 24999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "My dress-up Darling Vol. 11 Edición limitada",
@@ -4728,7 +4723,7 @@ export const products = [
   {
     "name": "Castlevania Official Perfect Guide",
     "description": "Guía oficial japonesa de Castlevania para PlayStation 2.",
-    "price": 50999.15,
+    "price": 59999,
     "image": "/images/products/product-1774745833774-0.webp",
     "images": [
       "/images/products/product-1774745833774-0.webp",
@@ -4745,7 +4740,7 @@ export const products = [
     "category": "Guide Books",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Guía oficial japonesa de Castlevania para PlayStation 2.\nIncluye estrategias, mapas, enemigos y contenido del juego.",
     "instagram": "https://instagram.com/arkya.store",
@@ -4754,11 +4749,8 @@ export const products = [
       "metroidvania"
     ],
     "id": 1774745833774,
-    "isOnOffer": true,
-    "discountPercentage": 15,
-    "originalPrice": 59999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Metal Gear Solid 3 Guía Oficial",
@@ -5742,7 +5734,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "La postal es original, viene con el tomo.",
     "instagram": "https://instagram.com/arkya.store",
@@ -5921,7 +5913,7 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "adultContent": true,
     "details": "Incluye Figura!",
     "instagram": "https://instagram.com/arkya.store",
@@ -6906,7 +6898,7 @@ export const products = [
     "price": 34999,
     "category": "Guide Books",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
     "isOnOffer": false,
     "tags": [
@@ -11572,7 +11564,7 @@ export const products = [
     "price": 19999,
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
     "isOnOffer": false,
     "tags": [
@@ -16579,12 +16571,12 @@ export const products = [
     "name": "Idol Fantasy RPG C91 Set",
     "description": "Colección de artículos ilustrados por Bekanko, incluye:\n- 12 Posavasos\n- Calendario\n- Artbook\n- Carpeta para documentos\n\nDISPONIBLE SIN POSAVASOS",
     "details": "Colección de artículos ilustrados por Bekanko, incluye:\n- 12 Posavasos\n- Calendario\n- Artbook\n- Carpeta para documentos\n\nDISPONIBLE SIN POSAVASOS",
-    "price": 19799.34,
+    "price": 29999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "bekanko",
       "anime",
@@ -16601,10 +16593,7 @@ export const products = [
       "Otros",
       "Doujinshis"
     ],
-    "discountPercentage": 34,
-    "originalPrice": 29999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1787547275299,
@@ -17832,12 +17821,12 @@ export const products = [
     "name": "Colorful Box ~to Love~ Artbook",
     "description": "Colección de Ilustraciones de la novela visual, incluye CD con un artbook digital!\n\nDISPONIBLE SIN CD",
     "details": "Colección de Ilustraciones de la novela visual, incluye CD con un artbook digital!\n\nDISPONIBLE SIN CD",
-    "price": 14999.4,
+    "price": 24999,
     "category": "Artbooks",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "ps2",
       "visualnovel",
@@ -17854,10 +17843,7 @@ export const products = [
       "CD/DVD",
       "Videojuegos"
     ],
-    "discountPercentage": 40,
-    "originalPrice": 24999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1790645444684,
@@ -19073,12 +19059,12 @@ export const products = [
     "name": "Chobits Vol. 2 Edición limitada",
     "description": "Incluye llavero!",
     "details": "",
-    "price": 34999,
+    "price": 39999,
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "chii",
       "chobits",
@@ -19092,10 +19078,7 @@ export const products = [
       "Mangas",
       "Otros"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1793554532142,
@@ -19542,10 +19525,10 @@ export const products = [
       "/images/products/product-1793559945875-8.webp",
       "/images/products/product-1793559945875-9.webp"
     ],
-    "name": "(INCOMPLETA) Megami Magazine Vol. 25 - Junio 2002",
-    "description": "Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!\n\nEN OFERTA SIN FIGURA DE CHIYO NI OSAKA",
+    "name": "(SIN STANDEES) Megami Magazine Vol. 25 - Junio 2002",
+    "description": "Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!\n\nEN OFERTA SIN FIGURAS",
     "details": "Revista de anime que incluye standees de cartón de Azumanga Daioh y 11 pósteres desplegables de doble cara!",
-    "price": 34799.13,
+    "price": 29999.25,
     "category": "Revistas",
     "subcategory": "",
     "inStock": true,
@@ -19564,7 +19547,7 @@ export const products = [
       "Otros",
       "Figuras"
     ],
-    "discountPercentage": 13,
+    "discountPercentage": 25,
     "originalPrice": 39999,
     "offerStartDate": "",
     "offerEndDate": ""
@@ -19788,9 +19771,9 @@ export const products = [
     "price": 4999,
     "category": "Figuras",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": true,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "anime",
       "magazine"
@@ -19802,10 +19785,7 @@ export const products = [
     "categories": [
       "Figuras"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 4999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1793560481264,
@@ -19940,7 +19920,7 @@ export const products = [
     "subcategory": "",
     "inStock": true,
     "isNew": true,
-    "isOnOffer": false,
+    "isOnOffer": true,
     "tags": [
       "anime",
       "books"
@@ -19952,7 +19932,11 @@ export const products = [
     "categories": [
       "Artbooks",
       "CD/DVD"
-    ]
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 39999,
+    "offerStartDate": "",
+    "offerEndDate": ""
   },
   {
     "id": 1793560767997,
@@ -20630,6 +20614,317 @@ export const products = [
       "Mangas",
       "Figuras",
       "Otros"
+    ]
+  },
+  {
+    "id": 1794265816163,
+    "image": "/images/products/product-1794265816163-0.webp",
+    "images": [
+      "/images/products/product-1794265816163-0.webp",
+      "/images/products/product-1794265816163-1.webp",
+      "/images/products/product-1794265816163-2.webp",
+      "/images/products/product-1794265816163-3.webp",
+      "/images/products/product-1794265816163-4.webp",
+      "/images/products/product-1794265816163-5.webp",
+      "/images/products/product-1794265816163-6.webp",
+      "/images/products/product-1794265816163-7.webp"
+    ],
+    "name": "Chaos;Head & Steins;Gate Science Adventure Series Maniacs",
+    "description": "Guía de Chaos;Head y Stein's Gate con entrevistas, ilustraciones y datos interesantes de las primeras Science Adventures!",
+    "details": "Guía de Chaos;Head y Stein's Gate con entrevistas, ilustraciones y datos interesantes de las primeras Science Adventures!",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "books",
+      "vn",
+      "steins",
+      "chaos"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfN-CNkFHZ4/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:10:15.430Z",
+    "categories": [
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1794265815996,
+    "image": "/images/products/product-1794265815996-0.webp",
+    "images": [
+      "/images/products/product-1794265815996-0.webp",
+      "/images/products/product-1794265815996-1.webp",
+      "/images/products/product-1794265815996-2.webp",
+      "/images/products/product-1794265815996-3.webp",
+      "/images/products/product-1794265815996-4.webp",
+      "/images/products/product-1794265815996-5.webp",
+      "/images/products/product-1794265815996-6.webp",
+      "/images/products/product-1794265815996-7.webp",
+      "/images/products/product-1794265815996-8.webp",
+      "/images/products/product-1794265815996-9.webp"
+    ],
+    "name": "Cometary Origin Sense - ICHIKAWA HARUKO ILLUSTRATION BOOK...",
+    "description": "El Segundo artbook de la autora de Houseki no Kuni (La tierra de las gemas/Land of the Lustrous)!\nCon más de 350 páginas de puro arte y un sistema de encuadernación que permite abrirlo 180°!\nRecopila arte desde el volumen 9 para adelante, sumado al contenido de todos los demás artbooks anteriores y algunas cosas más!",
+    "details": "El Segundo artbook de la autora de Houseki no Kuni (La tierra de las gemas/Land of the Lustrous)!\nCon más de 350 páginas de puro arte y un sistema de encuadernación que permite abrirlo 180°!\nRecopila arte desde el volumen 9 para adelante, sumado al contenido de todos los demás artbooks anteriores y algunas cosas más!",
+    "price": 109999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dfcn7GxFH3X/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:10:15.430Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1794265816165,
+    "image": "/images/products/product-1794265816165-0.webp",
+    "images": [
+      "/images/products/product-1794265816165-0.webp",
+      "/images/products/product-1794265816165-1.webp",
+      "/images/products/product-1794265816165-2.webp",
+      "/images/products/product-1794265816165-3.webp",
+      "/images/products/product-1794265816165-4.webp",
+      "/images/products/product-1794265816165-5.webp"
+    ],
+    "name": "Bocchi the Rock! Guitar Case Style Pouch Book",
+    "description": "Fanbook con ilustraciones exclusivas de la autora Aki Hamaji y contenido enfocado en las integrantes de la Kessoku Band y sus instrumentos!\nIncluye un neceser de tela con forma de funda de guitarra c:",
+    "details": "Fanbook con ilustraciones exclusivas de la autora Aki Hamaji y contenido enfocado en las integrantes de la Kessoku Band y sus instrumentos!\nIncluye un neceser de tela con forma de funda de guitarra c:",
+    "price": 39999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dfa2UkrFLOa/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:10:15.430Z",
+    "categories": [
+      "Revistas",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1794265816358,
+    "image": "/images/products/product-1794265816358-0.webp",
+    "images": [
+      "/images/products/product-1794265816358-0.webp",
+      "/images/products/product-1794265816358-1.webp",
+      "/images/products/product-1794265816358-2.webp",
+      "/images/products/product-1794265816358-3.webp",
+      "/images/products/product-1794265816358-4.webp",
+      "/images/products/product-1794265816358-5.webp",
+      "/images/products/product-1794265816358-6.webp"
+    ],
+    "name": "Aku no Kansoukyoku 「Aku no Musume」 World Guide",
+    "description": "Fanbook oficial de la popular franquicia basada en la canción de Vocaloid Aku no Musume!",
+    "details": "Fanbook oficial de la popular franquicia basada en la canción de Vocaloid Aku no Musume!",
+    "price": 29999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "vocaloid",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfYPEJDlPy9/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:10:15.430Z",
+    "categories": [
+      "Guide Books",
+      "Novela Ligera"
+    ]
+  },
+  {
+    "id": 1794265816223,
+    "image": "/images/products/product-1794265816223-0.webp",
+    "images": [
+      "/images/products/product-1794265816223-0.webp",
+      "/images/products/product-1794265816223-1.webp",
+      "/images/products/product-1794265816223-2.webp",
+      "/images/products/product-1794265816223-3.webp",
+      "/images/products/product-1794265816223-4.webp",
+      "/images/products/product-1794265816223-5.webp"
+    ],
+    "name": "Newtype Mayo 2021",
+    "description": "Revista de anime con portada de Zombie Land Saga Revenge, incluye Posters!",
+    "details": "Revista de anime con portada de Zombie Land Saga Revenge, incluye Posters!",
+    "price": 54999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "magazines"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfVuWW7lGiC/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:10:15.430Z",
+    "categories": [
+      "Revistas"
+    ]
+  },
+  {
+    "id": 1794266132206,
+    "image": "/images/products/product-1794266132206-0.webp",
+    "images": [
+      "/images/products/product-1794266132206-0.webp",
+      "/images/products/product-1794266132206-1.webp",
+      "/images/products/product-1794266132206-2.webp",
+      "/images/products/product-1794266132206-3.webp",
+      "/images/products/product-1794266132206-4.webp"
+    ],
+    "name": "Biohazard 4: The Fastest Official Guide",
+    "description": "Guía del Resident Evil 4 publicada oficialmente por Capcom para la consola Nintendo GameCube en enero de 2005!",
+    "details": "Guía del Resident Evil 4 publicada oficialmente por Capcom para la consola Nintendo GameCube en enero de 2005!",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books",
+      "biohazard"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfU5OYgFMqo/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:15:31.797Z",
+    "categories": [
+      "Guide Books",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1794266132494,
+    "image": "/images/products/product-1794266132494-0.webp",
+    "images": [
+      "/images/products/product-1794266132494-0.webp",
+      "/images/products/product-1794266132494-1.webp",
+      "/images/products/product-1794266132494-2.webp",
+      "/images/products/product-1794266132494-3.webp",
+      "/images/products/product-1794266132494-4.webp",
+      "/images/products/product-1794266132494-5.webp",
+      "/images/products/product-1794266132494-6.webp",
+      "/images/products/product-1794266132494-7.webp",
+      "/images/products/product-1794266132494-8.webp",
+      "/images/products/product-1794266132494-9.webp"
+    ],
+    "name": "Air Gear Vol. 12 & 13 Edición Limitada",
+    "description": "O individualmente Vol.12 a $39999 y vol.13 a $29999\nEdiciones especiales del manga de Air Gear que incluyen una figura de Ringo y una de Agito con ropa intercambiable en colaboración con Pinky:st (Pinky Street) y una cajita contenedora!",
+    "details": "O individualmente Vol.12 a $39999 y vol.13 a $29999\nEdiciones especiales del manga de Air Gear que incluyen una figura de Ringo y una de Agito con ropa intercambiable en colaboración con Pinky:st (Pinky Street) y una cajita contenedora!",
+    "price": 59999,
+    "category": "Mangas",
+    "subcategory": "Ediciones Especiales",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "animefigure",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfTH7uYFGvO/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:15:31.797Z",
+    "categories": [
+      "Mangas",
+      "Figuras"
+    ]
+  },
+  {
+    "id": 1794266132695,
+    "image": "/images/products/product-1794266132695-0.webp",
+    "images": [
+      "/images/products/product-1794266132695-0.webp",
+      "/images/products/product-1794266132695-1.webp",
+      "/images/products/product-1794266132695-2.webp",
+      "/images/products/product-1794266132695-3.webp",
+      "/images/products/product-1794266132695-4.webp",
+      "/images/products/product-1794266132695-5.webp",
+      "/images/products/product-1794266132695-6.webp",
+      "/images/products/product-1794266132695-7.webp",
+      "/images/products/product-1794266132695-8.webp",
+      "/images/products/product-1794266132695-9.webp"
+    ],
+    "name": "Lucky Star Okiraku BOX Edición Kagami Hiiragi",
+    "description": "Caja de edición limitada de 2007 que incluye:\n• Artbook\n• Figura de Kagami Hiiragi\n• CD-ROM.",
+    "details": "Caja de edición limitada de 2007 que incluye:\n• Artbook\n• Figura de Kagami Hiiragi\n• CD-ROM.",
+    "price": 74999,
+    "category": "Figuras",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "anime",
+      "moe"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfSXAnaFF9B/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:15:31.797Z",
+    "categories": [
+      "Figuras",
+      "Artbooks",
+      "CD/DVD",
+      "Otros"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 74999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1794266132453,
+    "image": "/images/products/product-1794266132453-0.webp",
+    "images": [
+      "/images/products/product-1794266132453-0.webp",
+      "/images/products/product-1794266132453-1.webp",
+      "/images/products/product-1794266132453-2.webp",
+      "/images/products/product-1794266132453-3.webp",
+      "/images/products/product-1794266132453-4.webp",
+      "/images/products/product-1794266132453-5.webp"
+    ],
+    "name": "Neon Genesis Evangelion Sticker Book",
+    "description": "Libro de stickers oficial lanzado como suplemento de la famosa revista japonesa Newtype en su edición de julio de 2003.",
+    "details": "Libro de stickers oficial lanzado como suplemento de la famosa revista japonesa Newtype en su edición de julio de 2003.",
+    "price": 34999,
+    "category": "Otros",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "evangelion",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfQlyFglLkr/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-09T23:15:31.797Z",
+    "categories": [
+      "Otros",
+      "Artbooks"
     ]
   }
 ];

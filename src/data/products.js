@@ -1178,7 +1178,7 @@ export const products = [
   {
     "name": "Blue Lock Vol. 26 - Edición especial",
     "description": "Incluye:\n• Tomo de manga.\n• 4 postales de acrilico (Kunigami y Chigiri).\n• 2 Planchas de stickers (Kunigami y Chigiri).\n• 2 Pines (Kunigami y Chigiri).\n\n- Edición: Formato TANKOBON, con sobrecubierta.\n- Idioma: Japonés.",
-    "price": 29749.15,
+    "price": 34999,
     "image": "/images/products/product-1758041544758-main.webp",
     "images": [
       "/images/products/product-1758041544758-0.webp",
@@ -1190,16 +1190,13 @@ export const products = [
     "category": "Mangas",
     "subcategory": "Ediciones Especiales",
     "isNew": false,
-    "inStock": true,
+    "inStock": false,
     "details": "",
     "instagram": "https://instagram.com/arkya.store",
     "tags": [],
     "id": 1758041544758,
-    "isOnOffer": true,
-    "discountPercentage": 15,
-    "originalPrice": 34999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Attack on titan volumen 11 edición limitada",
@@ -15309,9 +15306,9 @@ export const products = [
     "price": 19999,
     "category": "Otros",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "onepiece",
       "naruto",
@@ -15334,10 +15331,7 @@ export const products = [
       "Otros",
       "Revistas"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 19999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1784503942566,
@@ -18840,9 +18834,9 @@ export const products = [
     "price": 16999,
     "category": "Doujinshis",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "touhou",
       "doujinshi",
@@ -18859,10 +18853,7 @@ export const products = [
       "Artbooks",
       "Videojuegos"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 16999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1791602525984,
@@ -20924,6 +20915,367 @@ export const products = [
     "extractionDate": "2026-11-09T23:15:31.797Z",
     "categories": [
       "Otros",
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1794711377807,
+    "image": "/images/products/product-1794711377807-0.webp",
+    "images": [
+      "/images/products/product-1794711377807-0.webp",
+      "/images/products/product-1794711377807-1.webp",
+      "/images/products/product-1794711377807-2.webp",
+      "/images/products/product-1794711377807-3.webp",
+      "/images/products/product-1794711377807-4.webp",
+      "/images/products/product-1794711377807-5.webp",
+      "/images/products/product-1794711377807-6.webp"
+    ],
+    "name": ".hack//G.U. TRILOGY New World Guide",
+    "description": "Incluye un CD de audios/banda sonora especial, material de análisis de la película CGI '.hack//G.U. Trilogy', resúmenes de la historia, personajes y secciones de cómics!",
+    "details": "Incluye un CD de audios/banda sonora especial, material de análisis de la película CGI '.hack//G.U. Trilogy', resúmenes de la historia, personajes y secciones de cómics!",
+    "price": 34999,
+    "category": "Revistas",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books",
+      "hack"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfpdJv2lKgT/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T02:56:17.242Z",
+    "categories": [
+      "Revistas",
+      "CD/DVD",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1794711377751,
+    "image": "/images/products/product-1794711377751-0.webp",
+    "images": [
+      "/images/products/product-1794711377751-0.webp",
+      "/images/products/product-1794711377751-1.webp",
+      "/images/products/product-1794711377751-2.webp",
+      "/images/products/product-1794711377751-3.webp",
+      "/images/products/product-1794711377751-4.webp",
+      "/images/products/product-1794711377751-5.webp"
+    ],
+    "name": "Pokémon Daizenshuu Rubí/Zafiro",
+    "description": "Guía publicada en 2003 que funciona principalmente como una Pokédex y libro de estrategia oficial para los juegos de Game Boy Advance de la tercera generación: Pokémon Rubí y Pokémon Zafiro.",
+    "details": "Guía publicada en 2003 que funciona principalmente como una Pokédex y libro de estrategia oficial para los juegos de Game Boy Advance de la tercera generación: Pokémon Rubí y Pokémon Zafiro.",
+    "price": 34999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "pokemon",
+      "books",
+      "ruby",
+      "zafiro",
+      "hoenn",
+      "pokémon",
+      "pocket monster",
+      "esmeralda"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dfnu--_FJ5k/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T02:56:17.243Z",
+    "categories": [
+      "Guide Books",
+      "Videojuegos"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1794711377482,
+    "image": "/images/products/product-1794711377482-0.webp",
+    "images": [
+      "/images/products/product-1794711377482-0.webp",
+      "/images/products/product-1794711377482-1.webp",
+      "/images/products/product-1794711377482-2.webp",
+      "/images/products/product-1794711377482-3.webp",
+      "/images/products/product-1794711377482-4.webp",
+      "/images/products/product-1794711377482-5.webp",
+      "/images/products/product-1794711377482-6.webp"
+    ],
+    "name": "TV Anime Guide: Dragon Ball Z Son Goku Densetsu",
+    "description": "Libro guía de 2003 del anime enfocado en la historia y evolución de Goku, cubre las batallas principales y el crecimiento de Goku a lo largo de Dragon Ball Z. Incluye bocetos de producción, ilustraciones, 3 planchas de stickers, y más!",
+    "details": "Libro guía de 2003 del anime enfocado en la historia y evolución de Goku, cubre las batallas principales y el crecimiento de Goku a lo largo de Dragon Ball Z. Incluye bocetos de producción, ilustraciones, 3 planchas de stickers, y más!",
+    "price": 59999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "anime",
+      "books",
+      "dbz"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DflNB2MlOux/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T02:56:17.243Z",
+    "categories": [
+      "Guide Books",
+      "Otros"
+    ]
+  },
+  {
+    "id": 1794711377773,
+    "image": "/images/products/product-1794711377773-0.webp",
+    "images": [
+      "/images/products/product-1794711377773-0.webp",
+      "/images/products/product-1794711377773-1.webp",
+      "/images/products/product-1794711377773-2.webp",
+      "/images/products/product-1794711377773-3.webp",
+      "/images/products/product-1794711377773-4.webp",
+      "/images/products/product-1794711377773-5.webp",
+      "/images/products/product-1794711377773-6.webp"
+    ],
+    "name": "Street Fighter II Official Book Edición Especial Limitada",
+    "description": "Libro de tapa dura oficial editado por Capcom en 1994, incluye biografías detalladas de los personajes, ilustraciones del material artístico de producción, y más!",
+    "details": "Libro de tapa dura oficial editado por Capcom en 1994, incluye biografías detalladas de los personajes, ilustraciones del material artístico de producción, y más!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfkZ8YdlLHO/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T02:56:17.243Z",
+    "categories": [
+      "Artbooks",
+      "Otros",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1794711377658,
+    "image": "/images/products/product-1794711377658-0.webp",
+    "images": [
+      "/images/products/product-1794711377658-0.webp",
+      "/images/products/product-1794711377658-1.webp",
+      "/images/products/product-1794711377658-2.webp",
+      "/images/products/product-1794711377658-3.webp",
+      "/images/products/product-1794711377658-4.webp",
+      "/images/products/product-1794711377658-5.webp"
+    ],
+    "name": "Guía Metal Gear Solid 2: Sons of Liberty",
+    "description": "La guía oficial de Konami para el Metal Gear Solid 2 de Playstation 2!",
+    "details": "La guía oficial de Konami para el Metal Gear Solid 2 de Playstation 2!",
+    "price": 39999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "videogames",
+      "books",
+      "msg",
+      "kojima"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfilDVHFJEC/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T02:56:17.243Z",
+    "categories": [
+      "Guide Books",
+      "Videojuegos"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1794711664287,
+    "image": "/images/products/product-1794711664287-0.webp",
+    "images": [
+      "/images/products/product-1794711664287-0.webp",
+      "/images/products/product-1794711664287-1.webp",
+      "/images/products/product-1794711664287-2.webp",
+      "/images/products/product-1794711664287-3.webp",
+      "/images/products/product-1794711664287-4.webp",
+      "/images/products/product-1794711664287-5.webp",
+      "/images/products/product-1794711664287-6.webp"
+    ],
+    "name": "Final Fantasy X-2 Ultimania",
+    "description": "Este libro guía del juego abarca de forma exhaustiva el contenido de Final Fantasy X-2, incluyendo mapas, estadísticas, rutas de la historia, secretos y los requisitos exactos para alcanzar el 100% de finalización y el final especial!",
+    "details": "Este libro guía del juego abarca de forma exhaustiva el contenido de Final Fantasy X-2, incluyendo mapas, estadísticas, rutas de la historia, secretos y los requisitos exactos para alcanzar el 100% de finalización y el final especial!",
+    "price": 24999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books",
+      "ffx2",
+      "ffx-2"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfvdBvoFM-c/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T03:01:03.770Z",
+    "categories": [
+      "Guide Books",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1794711664676,
+    "image": "/images/products/product-1794711664676-0.webp",
+    "images": [
+      "/images/products/product-1794711664676-0.webp",
+      "/images/products/product-1794711664676-1.webp",
+      "/images/products/product-1794711664676-2.webp",
+      "/images/products/product-1794711664676-3.webp",
+      "/images/products/product-1794711664676-4.webp",
+      "/images/products/product-1794711664676-5.webp",
+      "/images/products/product-1794711664676-6.webp"
+    ],
+    "name": "Nanairo Ice / Seven Colors Ice",
+    "description": "Este es el primer libro de arte del ilustrador japonés Nanao Naru (famoso por sus diseños en novelas visuales como Shuffle!, Da Capo y ef - a tale of memories), publicado en marzo de 2005 con más de 100 páginas!",
+    "details": "Este es el primer libro de arte del ilustrador japonés Nanao Naru (famoso por sus diseños en novelas visuales como Shuffle!, Da Capo y ef - a tale of memories), publicado en marzo de 2005 con más de 100 páginas!",
+    "price": 34999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "anime",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfuqjvtFOcB/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T03:01:03.770Z",
+    "categories": [
+      "Artbooks"
+    ],
+    "adultContent": true,
+    "discountPercentage": 0,
+    "originalPrice": 34999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1794711664722,
+    "image": "/images/products/product-1794711664722-0.webp",
+    "images": [
+      "/images/products/product-1794711664722-0.webp",
+      "/images/products/product-1794711664722-1.webp",
+      "/images/products/product-1794711664722-2.webp",
+      "/images/products/product-1794711664722-3.webp",
+      "/images/products/product-1794711664722-4.webp",
+      "/images/products/product-1794711664722-5.webp"
+    ],
+    "name": "Ponyo: This Is Animation",
+    "description": "Guía completa de la historia que incluye perfiles de los personajes y galerías de arte con escenas clave de la película!",
+    "details": "Guía completa de la historia que incluye perfiles de los personajes y galerías de arte con escenas clave de la película!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ghibli",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Dfs3daplAxV/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T03:01:03.770Z",
+    "categories": [
+      "Artbooks",
+      "Guide Books"
+    ]
+  },
+  {
+    "id": 1794711664620,
+    "image": "/images/products/product-1794711664620-0.webp",
+    "images": [
+      "/images/products/product-1794711664620-0.webp",
+      "/images/products/product-1794711664620-1.webp",
+      "/images/products/product-1794711664620-2.webp",
+      "/images/products/product-1794711664620-3.webp",
+      "/images/products/product-1794711664620-4.webp",
+      "/images/products/product-1794711664620-5.webp",
+      "/images/products/product-1794711664620-6.webp",
+      "/images/products/product-1794711664620-7.webp"
+    ],
+    "name": "Dino Crisis Official Guide Book",
+    "description": "Guía de 1999 para PlayStation, incluye mapas detallados de las instalaciones, estrategias de combate contra los distintos dinosaurios, ubicación de todos los objetos y condiciones para desbloquear los diferentes finales, trajes ocultos, una enciclopedia biológica sobre los dinosaurios del juego y una sección educativa llamada Aprende inglés con Dino Crisis que compara los diálogos originales en inglés con los subtítulos en japonés!",
+    "details": "Guía de 1999 para PlayStation, incluye mapas detallados de las instalaciones, estrategias de combate contra los distintos dinosaurios, ubicación de todos los objetos y condiciones para desbloquear los diferentes finales, trajes ocultos, una enciclopedia biológica sobre los dinosaurios del juego y una sección educativa llamada Aprende inglés con Dino Crisis que compara los diálogos originales en inglés con los subtítulos en japonés!",
+    "price": 24999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "videogames",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfsHsQnlLdQ/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T03:01:03.770Z",
+    "categories": [
+      "Guide Books",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1794711664419,
+    "image": "/images/products/product-1794711664419-0.webp",
+    "images": [
+      "/images/products/product-1794711664419-0.webp",
+      "/images/products/product-1794711664419-1.webp",
+      "/images/products/product-1794711664419-2.webp",
+      "/images/products/product-1794711664419-3.webp",
+      "/images/products/product-1794711664419-4.webp"
+    ],
+    "name": "Chrno Crusade Art Book",
+    "description": "Libro de arte promocional ilustrado por Daisuke Moriyama. Se publicó en Japón como un suplemento especial incluido en la edición de julio de la revista Monthly Dragon Age!",
+    "details": "Libro de arte promocional ilustrado por Daisuke Moriyama. Se publicó en Japón como un suplemento especial incluido en la edición de julio de la revista Monthly Dragon Age!",
+    "price": 34999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "books",
+      "anime"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DfqS3SCFP7S/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-15T03:01:03.770Z",
+    "categories": [
       "Artbooks"
     ]
   }
