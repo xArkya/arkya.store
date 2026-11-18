@@ -9705,9 +9705,9 @@ export const products = [
     "price": 34999,
     "category": "Guide Books",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "yugioh",
       "yugi",
@@ -9723,10 +9723,7 @@ export const products = [
       "Guide Books",
       "Character Books"
     ],
-    "discountPercentage": 0,
-    "originalPrice": 34999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1782596551909,

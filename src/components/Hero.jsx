@@ -139,14 +139,15 @@ export default function Hero() {
             position={"relative"}
             w={"full"}
           >
+            <Box position="relative">
             {/* Mascota de Arkya asomando desde la esquina del carrusel */}
             <MotionImage
               src="/images/mascot.webp"
               alt="Arkya, la mascota de Arkya Store"
               position="absolute"
               bottom={{ base: "-8px", md: "-15px" }}
-              left={{ base: "calc(50% + 55px)", md: "calc(50% + 95px)" }}
-              h={{ base: "110px", md: "165px" }}
+              right={{ base: "-8px", md: "-15px" }}
+              h={{ base: "170px", md: "165px" }}
               zIndex={4}
               pointerEvents="none"
               filter="drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55))"
@@ -162,11 +163,14 @@ export default function Hero() {
               href="https://www.instagram.com/arkya.store/"
               target="_blank"
               rel="noopener noreferrer"
+              display="block"
               position={"relative"}
               rounded={"2xl"}
               boxShadow={"2xl"}
-              width={"400px"}
-              height={"400px"}
+              width={{ base: "82vw", sm: "400px" }}
+              height={{ base: "82vw", sm: "400px" }}
+              maxW="400px"
+              maxH="400px"
               overflow={"hidden"}
               backgroundImage="linear-gradient(45deg, #453641, #1a1017)"
               transform={"perspective(1000px) rotateY(-5deg)"}
@@ -281,6 +285,7 @@ export default function Hero() {
                   />
                 ))}
               </HStack>
+            </Box>
             </Box>
           </Flex>
         </Stack>

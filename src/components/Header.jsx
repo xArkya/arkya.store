@@ -168,7 +168,7 @@ export default function Header() {
         <Flex
           flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
-          display={{ base: 'flex', lg: 'none' }}>
+          display={{ base: 'flex', xl: 'none' }}>
           <IconButton
             onClick={onToggle}
             icon={
@@ -210,14 +210,14 @@ export default function Header() {
             </Flex>
           </RouterLink>
 
-          <Flex display={{ base: 'none', lg: 'flex' }} ml={10}>
+          <Flex display={{ base: 'none', xl: 'flex' }} ml={10}>
             <DesktopNav onHomeClick={() => { setSearchValue(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
           </Flex>
         </Flex>
 
         {/* Buscador en desktop */}
         <Box
-          display={{ base: 'none', lg: 'block' }}
+          display={{ base: 'none', xl: 'block' }}
           mx={4}
           flex="1"
           maxW="500px"
@@ -347,7 +347,7 @@ export default function Header() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={{ base: 1, lg: 6 }}
+          spacing={{ base: 1, xl: 6 }}
           align="center">
           <Button
             as={RouterLink}
@@ -369,11 +369,11 @@ export default function Header() {
             overflow="visible"
           >
             <FaGamepad size={22} />
-            <Text display={{ base: 'none', lg: 'inline' }} ml={2}>
+            <Text display={{ base: 'none', xl: 'inline' }} ml={2}>
               GANÁ DESCUENTOS
             </Text>
             <Box
-              display={{ base: 'block', lg: 'none' }}
+              display={{ base: 'block', xl: 'none' }}
               position="absolute"
               bottom="-8px"
               left="50%"
@@ -404,7 +404,7 @@ export default function Header() {
             size={{ base: 'sm', md: 'md' }}
             px={{ base: 1, md: 4 }}>
             <FaInstagram size={16} />
-            <Text display={{ base: 'none', lg: 'inline' }} ml={2}>Instagram</Text>
+            <Text display={{ base: 'none', xl: 'inline' }} ml={2}>Instagram</Text>
           </Button>
 
           <IconButton
@@ -422,7 +422,7 @@ export default function Header() {
       </Flex>
 
       {/* Buscador en mobile */}
-      <Box display={{ lg: 'none' }} px={2} pb={2} bg="arkya.surface" position="relative">
+      <Box display={{ xl: 'none' }} px={2} pb={2} bg="arkya.surface" position="relative">
         <InputGroup size="md">
           <InputLeftElement pointerEvents="none" h="100%">
             <Icon as={FaSearch} color="whiteAlpha.500" boxSize={4} />
@@ -569,6 +569,7 @@ const DesktopNav = ({ onHomeClick }) => {
                 fontSize={'sm'}
                 fontWeight={isActive ? 700 : 500}
                 color={isActive ? 'teal.300' : linkColor}
+                whiteSpace="nowrap"
                 borderBottom="2px solid"
                 borderColor={isActive ? 'teal.300' : 'transparent'}
                 _hover={{
@@ -721,7 +722,7 @@ const MobileNav = ({ onHomeClick }) => {
       borderBottom="1px solid"
       borderColor="teal.400"
       p={4}
-      display={{ lg: 'none' }}>
+      display={{ xl: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} onHomeClick={onHomeClick} />
       ))}
