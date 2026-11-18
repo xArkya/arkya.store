@@ -1,4 +1,4 @@
-const CACHE_NAME = 'arkya-store-v3';
+const CACHE_NAME = 'arkya-store-v6';
 // Límite de entradas en caché dinámico: el catálogo tiene miles de
 // imágenes y sin límite el storage del navegador crece sin control.
 const MAX_CACHE_ITEMS = 250;

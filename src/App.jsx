@@ -32,7 +32,7 @@ const AdminPage = import.meta.env.VITE_ENABLE_ADMIN === 'true'
 
 const PageFallback = (
   <Center py={20}>
-    <Spinner size="xl" color="pink.300" thickness="4px" />
+    <Spinner size="xl" color="arkya.accent" thickness="4px" />
   </Center>
 )
 
@@ -53,7 +53,7 @@ function App() {
       minH="100vh" 
       display="flex" 
       flexDirection="column" 
-      bg="#453641" 
+      bg="transparent"
       width="100%" 
       margin="0" 
       padding="0"

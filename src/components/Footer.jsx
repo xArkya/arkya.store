@@ -10,6 +10,7 @@ import {
   IconButton,
   HStack,
   Flex,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
@@ -17,7 +18,7 @@ import { Link as RouterLink } from 'react-router-dom';
 const navLinkStyle = {
   color: 'whiteAlpha.800',
   fontSize: 'sm',
-  _hover: { color: 'pink.300', textDecoration: 'none' },
+  _hover: { color: 'teal.300', textDecoration: 'none' },
   transition: 'color 0.2s',
 };
 
@@ -25,7 +26,7 @@ const SectionTitle = ({ children }) => (
   <Text
     fontSize="md"
     fontWeight="bold"
-    bgGradient="linear(to-r, pink.400, brand.400)"
+    bgGradient="linear(to-r, teal.200, teal.400)"
     bgClip="text"
     mb={4}
   >
@@ -34,9 +35,13 @@ const SectionTitle = ({ children }) => (
 );
 
 export default function Footer() {
+  const footerBg = useColorModeValue(
+    'linear-gradient(180deg, #453641 0%, #342730 100%)',
+    'linear-gradient(180deg, #241521 0%, #1a1017 100%)'
+  );
   return (
     <Box
-      bg="linear-gradient(180deg, #241521 0%, #1a1017 100%)"
+      bg={footerBg}
       color="white"
       pt={16}
       pb={8}
@@ -55,14 +60,17 @@ export default function Footer() {
               <Image
                 src="/images/logo2.webp"
                 alt="Arkya Store"
-                boxSize="40px"
+                boxSize="56px"
                 objectFit="contain"
-                borderRadius="md"
+                borderRadius="full"
+                border="2px solid"
+                borderColor="teal.400"
+                boxShadow="0 0 12px rgba(99, 211, 194, 0.45)"
               />
               <Text
                 fontSize="xl"
                 fontWeight="bold"
-                bgGradient="linear(to-r, pink.400, brand.400)"
+                bgGradient="linear(to-r, teal.200, teal.400)"
                 bgClip="text"
               >
                 Arkya Store
@@ -110,10 +118,10 @@ export default function Footer() {
                 aria-label="Instagram"
                 icon={<FaInstagram />}
                 size="lg"
-                colorScheme="pink"
+                colorScheme="teal"
                 variant="solid"
                 rounded="full"
-                _hover={{ transform: 'scale(1.1)', boxShadow: '0 0 15px rgba(237, 100, 166, 0.4)' }}
+                _hover={{ transform: 'scale(1.1)', boxShadow: '0 0 15px rgba(65, 191, 169, 0.4)' }}
                 transition="all 0.2s"
               />
               <IconButton
@@ -122,10 +130,10 @@ export default function Footer() {
                 aria-label="Email"
                 icon={<FaEnvelope />}
                 size="lg"
-                colorScheme="brand"
+                colorScheme="teal"
                 variant="solid"
                 rounded="full"
-                _hover={{ transform: 'scale(1.1)', boxShadow: '0 0 15px rgba(190, 120, 160, 0.4)' }}
+                _hover={{ transform: 'scale(1.1)', boxShadow: '0 0 15px rgba(65, 191, 169, 0.4)' }}
                 transition="all 0.2s"
               />
             </HStack>
@@ -135,8 +143,8 @@ export default function Footer() {
               rel="noopener noreferrer"
               fontSize="sm"
               fontWeight="semibold"
-              color="pink.300"
-              _hover={{ color: 'pink.200' }}
+              color="teal.300"
+              _hover={{ color: 'teal.200' }}
             >
               @arkya.store
             </Link>

@@ -105,13 +105,15 @@ export default function GuidesPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const bgColor = '#453641';
-  const cardBg = '#2d1e2a';
-  const textColor = 'white';
-  const subTextColor = 'whiteAlpha.700';
+  
+  const cardBg = 'arkya.modal';
+  const pageText = 'arkya.text';
+  const pageSub = 'arkya.textSoft';
+  const cardText = 'white';
+  const cardSub = 'whiteAlpha.800';
 
   return (
-    <Box minH="100vh" bg={bgColor} pt={8} pb={20}>
+    <Box minH="100vh" bg="transparent" pt={8} pb={20}>
       <SEO
         title="Guías de Compra | Arkya Store"
         description="Aprendé todo sobre artbooks, dōjinshi, mangas y figuras. Guías prácticas para comprar productos importados de Japón."
@@ -132,13 +134,14 @@ export default function GuidesPage() {
         <VStack spacing={4} align="start" mb={12}>
           <Heading
             as="h1"
-            color={textColor}
+            bgGradient="linear(to-r, teal.500, pink.500)"
+            bgClip="text"
             fontSize={{ base: '2xl', md: '4xl' }}
             fontWeight={600}
           >
             Guías de Compra
           </Heading>
-          <Text color={subTextColor} fontSize="lg" maxW="2xl">
+          <Text color={pageSub} fontSize="lg" maxW="2xl">
             Todo lo que necesitás saber sobre nuestros productos, envíos y cómo hacer tu pedido. Si no encontrás tu duda, escribinos por Instagram.
           </Text>
         </VStack>
@@ -158,47 +161,45 @@ export default function GuidesPage() {
               spacing={4}
               align="stretch"
               borderWidth="1px"
-              borderColor="whiteAlpha.50"
+              borderColor="whiteAlpha.100"
               transition="all 0.3s"
               cursor="pointer"
               textAlign="left"
               _hover={{
                 transform: 'translateY(-4px)',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                borderColor: 'pink.400',
+                borderColor: 'teal.400',
               }}
             >
               <Flex justify="space-between" align="center">
-                <Box color="pink.400">
+                <Box color="teal.300">
                   <guide.icon size={28} />
                 </Box>
-                <Badge colorScheme="purple" size="sm" borderRadius="full">
+                <Badge colorScheme="teal" size="sm" borderRadius="full">
                   {guide.category}
                 </Badge>
               </Flex>
-              <Heading as="h3" fontSize="lg" color={textColor}>
+              <Heading as="h3" fontSize="lg" color={cardText}>
                 {guide.title}
               </Heading>
-              <Text color={subTextColor} fontSize="sm" lineHeight="tall">
+              <Text color={cardSub} fontSize="sm" lineHeight="tall">
                 {guide.summary}
               </Text>
             </VStack>
           ))}
         </SimpleGrid>
 
-        <Divider borderColor="whiteAlpha.100" mb={12} />
-
-        <VStack spacing={12} align="stretch">
+        <VStack spacing={8} align="stretch">
           {guides.map((guide) => (
             <Box key={guide.id} id={guide.id}>
               <Flex align="center" gap={3} mb={4}>
-                <Box color="pink.400">
+                <Box color="arkya.accent">
                   <guide.icon size={24} />
                 </Box>
-                <Heading as="h2" fontSize="xl" color={textColor}>
+                <Heading as="h2" fontSize="xl" color={pageText}>
                   {guide.title}
                 </Heading>
-                <Badge colorScheme="purple" size="sm">
+                <Badge colorScheme="teal" size="sm">
                   {guide.category}
                 </Badge>
               </Flex>
@@ -206,16 +207,16 @@ export default function GuidesPage() {
                 {guide.content.map((item, idx) => (
                   <AccordionItem
                     key={idx}
-                    borderColor="whiteAlpha.50"
+                    borderColor="whiteAlpha.100"
                     _last={{ borderBottomWidth: 0 }}
                   >
-                    <AccordionButton py={4} _hover={{ bg: 'whiteAlpha.50' }}>
-                      <Box flex="1" textAlign="left" fontWeight="semibold" color={textColor}>
+                    <AccordionButton py={4} _hover={{ bg: 'whiteAlpha.100' }}>
+                      <Box flex="1" textAlign="left" fontWeight="semibold" color={cardText}>
                         {item.question}
                       </Box>
-                      <AccordionIcon color="pink.400" />
+                      <AccordionIcon color="teal.300" />
                     </AccordionButton>
-                    <AccordionPanel pb={4} color={subTextColor} lineHeight="tall">
+                    <AccordionPanel pb={4} color={cardSub} lineHeight="tall">
                       {item.answer}
                     </AccordionPanel>
                   </AccordionItem>
@@ -226,17 +227,19 @@ export default function GuidesPage() {
         </VStack>
 
         <Box
-          mt={16}
+          mt={10}
           p={8}
-          bg="linear-gradient(135deg, #453641 0%, #2d1e2a 100%)"
+          bg="linear-gradient(135deg, #453641 0%, #2a1c29 100%)"
           borderRadius="xl"
+          border="1px solid"
+          borderColor="whiteAlpha.200"
           textAlign="center"
         >
           <VStack spacing={4}>
-            <Text fontSize="xl" fontWeight="bold" color={textColor}>
+            <Text fontSize="xl" fontWeight="bold" color={cardText}>
               ¿Todavía tenés dudas?
             </Text>
-            <Text color={subTextColor}>
+            <Text color={cardSub}>
               Escribinos directo por Instagram y te ayudamos con tu consulta personalizada.
             </Text>
             <Button
@@ -244,7 +247,7 @@ export default function GuidesPage() {
               href="https://instagram.com/arkya.store"
               target="_blank"
               rel="noopener noreferrer"
-              colorScheme="pink"
+              colorScheme="teal"
               size="lg"
               leftIcon={<FaShoppingBag />}
             >

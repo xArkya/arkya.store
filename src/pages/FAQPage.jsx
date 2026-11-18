@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   VStack,
-  useColorModeValue,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -81,7 +80,7 @@ const faqCategories = [
   {
     icon: FaCreditCard,
     title: 'Pagos',
-    color: 'purple.400',
+    color: 'teal.300',
     faqs: [
       {
         question: '¿Qué métodos de pago aceptan?',
@@ -96,7 +95,7 @@ const faqCategories = [
   {
     icon: FaHeadset,
     title: 'Atención al Cliente',
-    color: 'pink.400',
+    color: 'teal.400',
     faqs: [
       {
         question: '¿Cómo puedo contactar atención al cliente?',
@@ -134,7 +133,7 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
-  const bgColor = useColorModeValue('white', '#2a1c29');
+  const bgColor = 'arkya.cardAlt';
 
   // Extraer todas las FAQs para structured data
   const allFaqs = faqCategories.flatMap(cat => cat.faqs);
@@ -148,7 +147,7 @@ export default function FAQPage() {
         keywords="preguntas frecuentes, FAQ, artbooks, doujinshi, manga, japón, envíos, pagos, pedidos, importados, tienda, argentina"
         faqData={allFaqs}
       />
-      <Box bg="#453641" py={8}>
+      <Box bg="transparent" py={8}>
       <Container maxW="6xl">
         <VStack spacing={8} align="stretch">
           {/* Header */}
@@ -156,13 +155,13 @@ export default function FAQPage() {
             <Heading
               as="h1"
               size="2xl"
-              color="white"
-              bgGradient="linear(to-r, pink.400, purple.500)"
+              color="arkya.text"
+              bgGradient="linear(to-r, teal.300, teal.500)"
               bgClip="text"
             >
               Preguntas Frecuentes
             </Heading>
-            <Text fontSize="xl" color="gray.300" maxW="3xl">
+            <Text fontSize="xl" color="arkya.textSoft" maxW="3xl">
               Encuentra respuestas rápidas a las preguntas más comunes sobre 
               nuestros productos, envíos, devoluciones y más.
             </Text>
@@ -172,13 +171,13 @@ export default function FAQPage() {
           <Card bg={bgColor}>
             <CardBody textAlign="center">
               <VStack spacing={3}>
-                <Icon as={FaHeadset} boxSize={8} color="purple.400" />
-                <Heading size="md">¿No encuentras lo que buscas?</Heading>
-                <Text color="gray.400">
+                <Icon as={FaHeadset} boxSize={8} color="teal.300" />
+                <Heading size="md" color="white">¿No encuentras lo que buscas?</Heading>
+                <Text color="whiteAlpha.600">
                   Nuestro equipo de atención al cliente está aquí para ayudarte
                 </Text>
                 <HStack spacing={4} flexWrap="wrap" justify="center">
-                  <Badge colorScheme="purple" p={2}>
+                  <Badge colorScheme="teal" p={2}>
                     arkya.store@gmail.com
                   </Badge>
                   <Badge colorScheme="blue" p={2}>
@@ -208,12 +207,12 @@ export default function FAQPage() {
                       {category.faqs.map((faq, faqIndex) => (
                         <AccordionItem key={faqIndex} border="none">
                           <AccordionButton
-                            _hover={{ bg: '#453641' }}
+                            _hover={{ bg: 'whiteAlpha.100' }}
                             borderRadius="md"
                             px={0}
                           >
                             <Box flex="1" textAlign="left">
-                              <Text fontWeight="semibold" fontSize="sm">
+                              <Text fontWeight="semibold" fontSize="sm" color="white">
                                 {faq.question}
                               </Text>
                             </Box>
@@ -221,7 +220,7 @@ export default function FAQPage() {
                           </AccordionButton>
                           <AccordionPanel px={0} pb={4}>
                             <Text 
-                              color="gray.300" 
+                              color="whiteAlpha.800" 
                               fontSize="sm" 
                               lineHeight="tall"
                             >

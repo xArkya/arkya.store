@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Box,
-  useColorModeValue,
   Heading,
   Text,
   Image,
@@ -103,11 +102,11 @@ export default function ProductCard({ product }) {
   };
   
   // Define color variables
-  const cardBg = useColorModeValue('white', '#2a1c29');
-  const textColor = useColorModeValue('gray.700', 'white');
-  const priceColor = useColorModeValue('#241521', 'brand.200');
-  const categoryBg = useColorModeValue('#f8f6f7', 'whiteAlpha.200');
-  const categoryColor = useColorModeValue('#241521', 'gray.200');
+  const cardBg = 'arkya.card';
+  const textColor = 'white';
+  const priceColor = 'brand.200';
+  const categoryBg = 'whiteAlpha.200';
+  const categoryColor = 'gray.200';
   
   // Funciones para el carrusel
   const nextImage = (e) => {
@@ -184,11 +183,11 @@ export default function ProductCard({ product }) {
           <Box
             color="white"
             p={5}
-            bg="#2a1c29"
+            bg="arkya.cardAlt"
             borderRadius="xl"
             boxShadow="0 10px 40px rgba(0,0,0,0.5)"
             borderLeft="4px solid"
-            borderLeftColor="pink.400"
+            borderLeftColor="teal.400"
             minW="380px"
             borderWidth="1px"
             borderColor="whiteAlpha.100"
@@ -200,7 +199,7 @@ export default function ProductCard({ product }) {
                 borderRadius="md"
                 overflow="hidden"
                 flexShrink={0}
-                bg="gray.700"
+                bg="whiteAlpha.200"
                 borderWidth="1px"
                 borderColor="whiteAlpha.100"
               >
@@ -217,7 +216,7 @@ export default function ProductCard({ product }) {
                 <Text fontWeight="bold" fontSize="md" noOfLines={1} color="white">
                   ¡Agregado al carrito!
                 </Text>
-                <Text fontSize="sm" color="pink.200" noOfLines={1}>
+                <Text fontSize="sm" color="teal.300" noOfLines={1}>
                   {name}
                 </Text>
               </Box>
@@ -228,11 +227,11 @@ export default function ProductCard({ product }) {
               </Button>
               <Button
                 size="sm"
-                bg="#d53f8c"
+                bg="#2a8c7c"
                 color="white"
                 fontSize="sm"
                 fontWeight="bold"
-                _hover={{ bg: '#b83280' }}
+                _hover={{ bg: '#247165' }}
                 onClick={() => {
                   onClose();
                   window.dispatchEvent(new CustomEvent('open-cart'));
@@ -356,7 +355,7 @@ export default function ProductCard({ product }) {
             <Button 
               mt={3} 
               size="sm" 
-              colorScheme="pink"
+              colorScheme="teal"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -468,7 +467,7 @@ export default function ProductCard({ product }) {
           )}
           {isOnOffer && discountPercentage > 0 && inStock && (
             <Badge
-              bg="pink.400"
+              bg="teal.400"
               color="white"
               borderRadius="full"
               px={{ base: 1.5, md: 2 }}
@@ -540,7 +539,7 @@ export default function ProductCard({ product }) {
             aria-label="Me gusta"
             variant="ghost"
             bg="transparent"
-            color={isLiked(id) ? 'pink.400' : 'white'}
+            color={isLiked(id) ? 'teal.400' : 'white'}
             _hover={{ bg: 'blackAlpha.400' }}
             onClick={(e) => {
               e?.preventDefault();
@@ -656,12 +655,12 @@ export default function ProductCard({ product }) {
           <VStack align="start" spacing={0}>
             {isOnOffer && discountPercentage > 0 && inStock ? (
               <>
-                <Text fontWeight="bold" fontSize="xl" color="pink.400">
+                <Text fontWeight="bold" fontSize="xl" color="teal.300">
                   ${parseInt(price).toLocaleString()}
                 </Text>
                 <Text
                   fontSize="sm"
-                  color="gray.500"
+                  color="whiteAlpha.500"
                   textDecoration="line-through"
                 >
                   ${parseInt(originalPrice || 0).toLocaleString()}
@@ -673,7 +672,7 @@ export default function ProductCard({ product }) {
               </Text>
             )}
             {!inStock && (
-              <Text fontSize="xs" color="gray.500" fontStyle="italic">
+              <Text fontSize="xs" color="whiteAlpha.500" fontStyle="italic">
                 (puede bajar o subir)
               </Text>
             )}
@@ -682,7 +681,9 @@ export default function ProductCard({ product }) {
           <HStack spacing={2}>
             <Button
               size="sm"
-              colorScheme="pink"
+              colorScheme="teal"
+              borderWidth="1px"
+              borderColor="teal.300"
               leftIcon={inStock ? <FaShoppingBag /> : <FaInstagram />}
               onClick={(e) => {
                 e?.preventDefault();
@@ -696,7 +697,7 @@ export default function ProductCard({ product }) {
               }}
               borderRadius="md"
               _hover={{
-                bg: "pink.500",
+                bg: "teal.500",
                 transform: 'translateY(-2px)',
                 boxShadow: 'md'
               }}
@@ -712,10 +713,10 @@ export default function ProductCard({ product }) {
       <Modal isOpen={isOpen} onClose={onClose} isCentered closeOnOverlayClick={false} size="md">
         <ModalOverlay 
           bg="blackAlpha.800" 
-          backdropFilter="blur(12px)" 
+ 
         />
         <ModalContent 
-          bg="#241521" 
+          bg="arkya.card" 
           color="white" 
           borderRadius="xl" 
           borderWidth="2px" 
@@ -759,7 +760,7 @@ export default function ProductCard({ product }) {
                   justifyContent="center"
                   fontWeight="bold"
                   fontSize="lg"
-                  border="3px solid #241521"
+                  border="3px solid arkya.card"
                   boxShadow="lg"
                 >
                   18+
@@ -767,13 +768,13 @@ export default function ProductCard({ product }) {
               </Box>
               
               <VStack spacing={3}>
-                <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" color="gray.200">
+                <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" color="white">
                   Este producto contiene contenido exclusivo para adultos.
                 </Text>
                 <Text fontWeight="bold" fontSize={{ base: 'xl', md: '2xl' }} textAlign="center">
                   ¿Confirmas que eres mayor de 18 años?
                 </Text>
-                <Text fontSize="sm" color="gray.400" textAlign="center" px={4}>
+                <Text fontSize="sm" color="whiteAlpha.500" textAlign="center" px={4}>
                   Al confirmar, declaras que tienes la edad legal para ver este contenido.
                 </Text>
               </VStack>
@@ -819,8 +820,8 @@ export default function ProductCard({ product }) {
       
       {/* Modal de consulta por Instagram */}
       <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="md">
-        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-        <ModalContent bg="#241521" color="white" borderRadius="lg" boxShadow="xl">
+        <ModalOverlay bg="blackAlpha.600" />
+        <ModalContent bg="arkya.card" color="white" borderRadius="lg" boxShadow="xl">
           <ModalHeader borderBottomWidth="1px" borderColor="whiteAlpha.300">
             <Flex align="center" gap={2}>
               <Icon as={FaInstagram} />
@@ -868,7 +869,7 @@ export default function ProductCard({ product }) {
                   <Text fontStyle="italic" fontSize="sm" wordBreak="break-all">
                     {`https://arkya.store/product/${getProductSlug(product)}`}
                   </Text>
-                  <Text fontStyle="italic" fontSize="sm" color="gray.400">
+                  <Text fontStyle="italic" fontSize="sm" color="whiteAlpha.500">
                     (actualmente sin stock)
                   </Text>
                 </VStack>
@@ -961,8 +962,8 @@ export default function ProductCard({ product }) {
 
       {/* Modal para pedir Instagram/Email al dar like */}
       <Modal isOpen={isLikeModalOpen} onClose={onLikeModalClose} isCentered size="sm">
-        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-        <ModalContent bg="#241521" color="white" borderRadius="lg" boxShadow="xl">
+        <ModalOverlay bg="blackAlpha.600" />
+        <ModalContent bg="arkya.card" color="white" borderRadius="lg" boxShadow="xl">
           <ModalHeader borderBottomWidth="1px" borderColor="whiteAlpha.300">
             <Flex align="center" gap={2}>
               <FaHeart />
@@ -981,14 +982,14 @@ export default function ProductCard({ product }) {
                 onChange={(e) => setLikeUserInput(e.target.value)}
                 bg="whiteAlpha.100"
                 borderColor="whiteAlpha.300"
-                _focus={{ borderColor: 'pink.400' }}
+                _focus={{ borderColor: 'teal.400' }}
                 color="white"
               />
             </VStack>
           </ModalBody>
           <ModalFooter borderTopWidth="1px" borderColor="whiteAlpha.300">
             <Button
-              colorScheme="pink"
+              colorScheme="teal"
               mr={3}
               onClick={() => {
                 if (!likeUserInput.trim()) {

@@ -14,6 +14,7 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
+  useColorMode,
   useBreakpointValue,
   useDisclosure,
   Container,
@@ -30,7 +31,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import { FaInstagram, FaShoppingBag, FaGamepad, FaBookOpen, FaSearch } from 'react-icons/fa';
+import { FaInstagram, FaShoppingBag, FaGamepad, FaBookOpen, FaSearch, FaSun, FaMoon } from 'react-icons/fa';
 import { products } from '../data/products';
 
 function slugify(text) {
@@ -60,6 +61,7 @@ export default function Header() {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const navigate = useNavigate();
   const location = useLocation();
+  const { colorMode, toggleColorMode } = useColorMode();
   const searchRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -150,14 +152,14 @@ export default function Header() {
   return (
     <Box ref={searchRef}>
       <Flex
-        bg={useColorModeValue('#241521', '#241521')}
+        bg={useColorModeValue('arkya.surface', 'arkya.surface')}
         color={useColorModeValue('white', 'white')}
         minH={{ base: '50px', md: '60px' }}
         py={{ base: 1, md: 2 }}
         px={{ base: 2, md: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('#342730', 'gray.900')}
+        borderColor={useColorModeValue('arkya.surfaceEdge', 'gray.900')}
         align={'center'}
         position="sticky"
         top="0"
@@ -179,18 +181,28 @@ export default function Header() {
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} align="center">
           <RouterLink to="/" onClick={() => { setSearchValue(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             <Flex align="center">
-              <Box mr={{ base: 1, md: 2 }}>
+              <Box
+                mr={{ base: 2, md: 3 }}
+                borderRadius="full"
+                border="2px solid"
+                borderColor="teal.400"
+                boxShadow="0 0 12px rgba(99, 211, 194, 0.45)"
+                overflow="hidden"
+                flexShrink={0}
+              >
                 <img
                   src="/images/logo2.webp"
                   alt="Arkya Store Logo"
-                  width={useBreakpointValue({ base: 24, md: 30 })}
-                  height={useBreakpointValue({ base: 24, md: 30 })}
+                  width={useBreakpointValue({ base: 38, md: 46 })}
+                  height={useBreakpointValue({ base: 38, md: 46 })}
+                  style={{ display: 'block' }}
                 />
               </Box>
               <Heading
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                 fontFamily={'heading'}
-                color={useColorModeValue('white', 'white')}
+                bgGradient="linear(to-r, teal.200, teal.400)"
+                bgClip="text"
                 fontSize={{ base: 'md', md: 'xl' }}>
                 Arkya Store
               </Heading>
@@ -234,12 +246,12 @@ export default function Header() {
                 }, 200);
               }}
               onKeyDown={handleKeyDown}
-              bg="pink.900"
+              bg="teal.900"
               color="white"
-              borderColor="pink.400"
-              _placeholder={{ color: 'pink.200' }}
-              _hover={{ borderColor: 'pink.300', bg: 'pink.800' }}
-              _focus={{ borderColor: 'pink.200', boxShadow: '0 0 0 2px rgba(236, 72, 153, 0.6)' }}
+              borderColor="teal.400"
+              _placeholder={{ color: 'teal.200' }}
+              _hover={{ borderColor: 'teal.300', bg: 'teal.800' }}
+              _focus={{ borderColor: 'teal.200', boxShadow: '0 0 0 2px rgba(65, 191, 169, 0.6)' }}
               borderRadius="full"
               pl={10}
               h="35px"
@@ -271,7 +283,7 @@ export default function Header() {
               top="calc(100% + 8px)"
               left={0}
               right={0}
-              bg="#241521"
+              bg="arkya.surface"
               borderRadius="xl"
               boxShadow="0 8px 32px rgba(0,0,0,0.5)"
               border="1px solid"
@@ -306,7 +318,7 @@ export default function Header() {
                     <Text fontSize="sm" color="white" fontWeight="medium" noOfLines={1}>
                       {s.name}
                     </Text>
-                    <Text fontSize="xs" color="pink.300">
+                    <Text fontSize="xs" color="teal.300">
                       ${s.price?.toLocaleString('es-AR', { maximumFractionDigits: 0 }) || '0'}
                     </Text>
                   </Box>
@@ -322,7 +334,7 @@ export default function Header() {
                 borderColor="whiteAlpha.200"
                 textAlign="center"
               >
-                <Text fontSize="sm" color="pink.300" fontWeight="medium">
+                <Text fontSize="sm" color="teal.300" fontWeight="medium">
                   Ver todos los resultados
                 </Text>
               </Box>
@@ -341,17 +353,17 @@ export default function Header() {
             to="/adivina-el-anime"
             fontSize={{ base: 'xs', md: 'sm' }}
             fontWeight={700}
-            colorScheme="pink"
+            colorScheme="teal"
             size={{ base: 'sm', md: 'md' }}
             px={{ base: 0, md: 4 }}
             py={{ base: 0, md: 2 }}
             w={{ base: '44px', sm: 'auto' }}
             h={{ base: '44px', sm: 'auto' }}
             borderRadius="full"
-            bg="pink.500"
+            bg="teal.500"
             color="white"
-            boxShadow="0 0 20px rgba(236, 72, 153, 0.7)"
-            _hover={{ transform: 'translateY(-1px)', boxShadow: '0 0 30px rgba(236, 72, 153, 1)', bg: 'pink.400' }}
+            boxShadow="0 0 20px rgba(65, 191, 169, 0.7)"
+            _hover={{ transform: 'translateY(-1px)', boxShadow: '0 0 30px rgba(65, 191, 169, 1)', bg: 'teal.400' }}
             position="relative"
             overflow="visible"
           >
@@ -365,7 +377,7 @@ export default function Header() {
               bottom="-8px"
               left="50%"
               transform="translateX(-50%)"
-              bg="pink.400"
+              bg="teal.400"
               color="white"
               fontSize="10px"
               fontWeight="bold"
@@ -373,7 +385,7 @@ export default function Header() {
               py="2px"
               borderRadius="full"
               lineHeight="1"
-              boxShadow="0 0 10px rgba(236, 72, 153, 0.8)"
+              boxShadow="0 0 10px rgba(65, 191, 169, 0.8)"
             >
               JUGAR
             </Box>
@@ -394,11 +406,22 @@ export default function Header() {
             <Text display={{ base: 'none', md: 'inline' }} ml={2}>Instagram</Text>
           </Button>
 
+          <IconButton
+            aria-label={colorMode === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+            icon={colorMode === 'dark' ? <FaSun /> : <FaMoon />}
+            onClick={toggleColorMode}
+            variant={'ghost'}
+            color={'white'}
+            size={{ base: 'sm', md: 'md' }}
+            fontSize={{ base: 'md', md: 'lg' }}
+            _hover={{ bg: 'whiteAlpha.200' }}
+          />
+
         </Stack>
       </Flex>
 
       {/* Buscador en mobile */}
-      <Box display={{ md: 'none' }} px={2} pb={2} bg="#241521" position="relative">
+      <Box display={{ md: 'none' }} px={2} pb={2} bg="arkya.surface" position="relative">
         <InputGroup size="md">
           <InputLeftElement pointerEvents="none" h="100%">
             <Icon as={FaSearch} color="whiteAlpha.500" boxSize={4} />
@@ -427,7 +450,7 @@ export default function Header() {
             borderColor="whiteAlpha.300"
             _placeholder={{ color: 'whiteAlpha.500' }}
             _hover={{ borderColor: 'whiteAlpha.400' }}
-            _focus={{ borderColor: 'pink.400', boxShadow: '0 0 0 2px rgba(236, 72, 153, 0.4)' }}
+            _focus={{ borderColor: 'teal.400', boxShadow: '0 0 0 2px rgba(65, 191, 169, 0.4)' }}
             borderRadius="md"
             pl={10}
             h="44px"
@@ -458,7 +481,7 @@ export default function Header() {
             top="calc(100% + 4px)"
             left={2}
             right={2}
-            bg="#241521"
+            bg="arkya.surface"
             borderRadius="xl"
             boxShadow="0 8px 32px rgba(0,0,0,0.5)"
             border="1px solid"
@@ -493,7 +516,7 @@ export default function Header() {
                   <Text fontSize="sm" color="white" fontWeight="medium" noOfLines={1}>
                     {s.name}
                   </Text>
-                  <Text fontSize="xs" color="pink.300">
+                  <Text fontSize="xs" color="teal.300">
                     ${s.price?.toLocaleString('es-AR', { maximumFractionDigits: 0 }) || '0'}
                   </Text>
                 </Box>
@@ -509,7 +532,7 @@ export default function Header() {
               borderColor="whiteAlpha.200"
               textAlign="center"
             >
-              <Text fontSize="sm" color="pink.300" fontWeight="medium">
+              <Text fontSize="sm" color="teal.300" fontWeight="medium">
                 Ver todos los resultados
               </Text>
             </Box>
@@ -526,12 +549,15 @@ export default function Header() {
 
 const DesktopNav = ({ onHomeClick }) => {
   const linkColor = useColorModeValue('white', 'gray.200');
-  const linkHoverColor = useColorModeValue('pink.300', 'white');
+  const linkHoverColor = useColorModeValue('teal.300', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const { pathname } = useLocation();
 
   return (
     <Stack direction={'row'} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS.map((navItem) => {
+        const isActive = pathname === navItem.href;
+        return (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
@@ -540,8 +566,10 @@ const DesktopNav = ({ onHomeClick }) => {
                 p={2}
                 to={navItem.href ?? '#'}
                 fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
+                fontWeight={isActive ? 700 : 500}
+                color={isActive ? 'teal.300' : linkColor}
+                borderBottom="2px solid"
+                borderColor={isActive ? 'teal.300' : 'transparent'}
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
@@ -568,7 +596,8 @@ const DesktopNav = ({ onHomeClick }) => {
             )}
           </Popover>
         </Box>
-      ))}
+        );
+      })}
     </Stack>
   );
 };
@@ -577,7 +606,7 @@ const DesktopSubNav = ({ label, href, subLabel, children }) => {
   // Definir los valores de color fuera de las condiciones para evitar errores de lint
   const hoverBgColor = useColorModeValue('brand.50', 'gray.900');
   const popoverBgColor = useColorModeValue('white', 'gray.800');
-  const childHoverBgColor = useColorModeValue('pink.50', 'gray.900');
+  const childHoverBgColor = useColorModeValue('teal.50', 'gray.900');
 
   // Si tiene subcategorías, mostrar un popover anidado
   if (children) {
@@ -635,7 +664,7 @@ const DesktopSubNav = ({ label, href, subLabel, children }) => {
                   <Box>
                     <Text
                       transition={'all .3s ease'}
-                      _groupHover={{ color: 'pink.400' }}
+                      _groupHover={{ color: 'teal.400' }}
                       fontWeight={500}>
                       {child.label}
                     </Text>
@@ -687,9 +716,9 @@ const DesktopSubNav = ({ label, href, subLabel, children }) => {
 const MobileNav = ({ onHomeClick }) => {
   return (
     <Stack
-      bg="#241521"
+      bg="arkya.surface"
       borderBottom="1px solid"
-      borderColor="pink.400"
+      borderColor="teal.400"
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
@@ -701,6 +730,9 @@ const MobileNav = ({ onHomeClick }) => {
 
 const MobileNavItem = ({ label, children, href, onHomeClick }) => {
   const { isOpen, onToggle } = useDisclosure();
+  const { pathname } = useLocation();
+  const textColor = useColorModeValue('gray.600', 'gray.200');
+  const isActive = pathname === href;
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
@@ -715,8 +747,8 @@ const MobileNavItem = ({ label, children, href, onHomeClick }) => {
         }}
         onClick={label === 'Inicio' ? onHomeClick : undefined}>
         <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          fontWeight={isActive ? 800 : 600}
+          color={isActive ? 'teal.300' : textColor}>
           {label}
         </Text>
         {children && (

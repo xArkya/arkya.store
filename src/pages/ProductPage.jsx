@@ -17,8 +17,7 @@ import {
   Heading,
   SimpleGrid,
   StackDivider,
-  useColorModeValue,
-  Input,
+    Input,
   List,
   ListItem,
   ListIcon,
@@ -95,14 +94,14 @@ export default function ProductPage() {
   const { isOpen: isLikeModalOpen, onOpen: onLikeModalOpen, onClose: onLikeModalClose } = useDisclosure();
   
   // Color mode values - definidos al inicio para evitar errores de hooks
-  const modalTextColorLight = useColorModeValue('gray.600', 'gray.300');
-  const modalTextColorDark = useColorModeValue('gray.600', 'gray.400');
-  const modalBoxBg = useColorModeValue('gray.50', 'whiteAlpha.100');
-  const modalBoxBorder = useColorModeValue('gray.200', 'whiteAlpha.200');
-  const modalInnerBoxBg = useColorModeValue('white', 'gray.800');
-  const scrollbarTrackBg = useColorModeValue('white', '#1a202c');
-  const scrollbarThumbBg = useColorModeValue('#cbd5e0', '#4a5568');
-  const scrollbarThumbHoverBg = useColorModeValue('#a0aec0', '#718096');
+  const modalTextColorLight = 'whiteAlpha.800';
+  const modalTextColorDark = 'whiteAlpha.600';
+  const modalBoxBg = 'whiteAlpha.100';
+  const modalBoxBorder = 'whiteAlpha.200';
+  const modalInnerBoxBg = 'gray.800';
+  const scrollbarTrackBg = '#1a202c';
+  const scrollbarThumbBg = '#4a5568';
+  const scrollbarThumbHoverBg = '#718096';
   
   const toast = useToast();
   // Modal para compra por Instagram
@@ -140,18 +139,16 @@ export default function ProductPage() {
   const { addToCart } = useCart();
   
   // Define all color mode values at the top level
-  const textColor = useColorModeValue('gray.900', 'gray.400');
-  const dividerColor = useColorModeValue('gray.200', 'gray.600');
-  const descriptionColor = useColorModeValue('gray.500', 'gray.400');
-  const likeBtnBg = useColorModeValue('gray.900', 'gray.50');
-  const likeBtnColor = useColorModeValue('white', 'gray.900');
-  const instaBtnBg = useColorModeValue('brand.500', 'brand.400');
-  const instaBtnHoverBg = useColorModeValue('brand.600', 'brand.500');
-  const modalBgColor = useColorModeValue('white', '#241521');
-  const modalHeaderColor = useColorModeValue('gray.00', 'white');
-  const modalBoxBgColor = useColorModeValue('gray.100', 'whiteAlpha.100');
-  const likeInputBg = useColorModeValue('gray.50', 'whiteAlpha.100');
-  const likeInputBorder = useColorModeValue('gray.200', 'whiteAlpha.300');
+  const textColor = 'gray.400';
+  const dividerColor = 'gray.600';
+  const descriptionColor = 'gray.400';
+  const instaBtnBg = 'brand.400';
+  const instaBtnHoverBg = 'brand.500';
+  const modalBgColor = 'arkya.card';
+  const modalHeaderColor = 'white';
+  const modalBoxBgColor = 'whiteAlpha.100';
+  const likeInputBg = 'whiteAlpha.100';
+  const likeInputBorder = 'whiteAlpha.300';
   
   // Función para generar un número de vistas pseudoaleatorio basado en fecha + id del producto
   const getDailyViewers = (productId) => {
@@ -166,8 +163,8 @@ export default function ProductPage() {
   };
   
   // Nuevos valores de color para el diseño mejorado
-  const pageBgColor = useColorModeValue('gray.50', '#453641');
-  const productCardBgColor = useColorModeValue('#241521', '#241521');
+  
+  const productCardBgColor = 'arkya.card';
 
   // Redireccionar si el slug es un ID numérico (compatibilidad hacia atrás)
   // Esto evita redirecciones HTTP que Google penaliza
@@ -281,16 +278,18 @@ export default function ProductPage() {
   if (loading) {
     return (
       <Container maxW={'7xl'} py={12}>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 8, md: 10 }}>
-          <Skeleton height="400px" />
-          <Stack spacing={{ base: 6, md: 10 }}>
-            <Skeleton height="40px" width="70%" />
-            <Skeleton height="30px" width="40%" />
-            <Skeleton height="20px" width="30%" />
-            <Skeleton height="100px" />
-            <Skeleton height="50px" />
-          </Stack>
-        </SimpleGrid>
+        <Box bg="arkya.card" borderRadius="xl" p={{ base: 4, md: 8 }} boxShadow="lg" overflow="hidden">
+          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 8, md: 10 }}>
+            <Skeleton height="400px" borderRadius="lg" startColor="whiteAlpha.100" endColor="whiteAlpha.300" />
+            <Stack spacing={{ base: 6, md: 10 }}>
+              <Skeleton height="40px" width="70%" startColor="whiteAlpha.100" endColor="whiteAlpha.300" />
+              <Skeleton height="30px" width="40%" startColor="whiteAlpha.100" endColor="whiteAlpha.300" />
+              <Skeleton height="20px" width="30%" startColor="whiteAlpha.100" endColor="whiteAlpha.300" />
+              <Skeleton height="100px" startColor="whiteAlpha.100" endColor="whiteAlpha.300" />
+              <Skeleton height="50px" startColor="whiteAlpha.100" endColor="whiteAlpha.300" />
+            </Stack>
+          </SimpleGrid>
+        </Box>
       </Container>
     );
   }
@@ -301,7 +300,7 @@ export default function ProductPage() {
         <VStack spacing={4} align="center">
           <Heading>Producto no encontrado</Heading>
           <Text>{error || 'Lo sentimos, el producto que buscas no existe.'}</Text>
-          <Text fontSize="sm" color="gray.500">
+          <Text fontSize="sm" color="arkya.textMute">
             URL actual: /product/{slug}
           </Text>
           <Button 
@@ -614,12 +613,12 @@ export default function ProductPage() {
           />
         );
       })()}
-      <Box bg={pageBgColor}>
+      <Box bg="transparent">
       {/* Modal de verificación de edad */}
       <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
-        <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(12px)" />
+        <ModalOverlay bg="blackAlpha.800" />
         <ModalContent 
-          bg="#241521" 
+          bg="arkya.card" 
           color="white" 
           borderRadius="xl" 
           borderWidth="2px" 
@@ -662,7 +661,7 @@ export default function ProductPage() {
                   justifyContent="center"
                   fontWeight="bold"
                   fontSize="lg"
-                  border="3px solid #241521"
+                  border="3px solid arkya.card"
                   boxShadow="lg"
                 >
                   18+
@@ -670,13 +669,13 @@ export default function ProductPage() {
               </Box>
               
               <VStack spacing={3}>
-                <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" color="gray.200">
+                <Text fontSize={{ base: 'md', md: 'lg' }} textAlign="center" color="white">
                   Este producto contiene contenido exclusivo para adultos.
                 </Text>
                 <Text fontWeight="bold" fontSize={{ base: 'xl', md: '2xl' }} textAlign="center">
                   ¿Confirmas que eres mayor de 18 años?
                 </Text>
-                <Text fontSize="sm" color="gray.400" textAlign="center" px={4}>
+                <Text fontSize="sm" color="whiteAlpha.500" textAlign="center" px={4}>
                   Al confirmar, declaras que tienes la edad legal para ver este contenido.
                 </Text>
               </VStack>
@@ -689,13 +688,13 @@ export default function ProductPage() {
             px={6}
           >
             <Button
-              bg="pink.400"
+              bg="teal.400"
               color="white"
               onClick={handleConfirmAge}
               size="lg"
               width="full"
               _hover={{
-                bg: 'pink.500',
+                bg: 'teal.500',
                 transform: 'translateY(-2px)',
                 boxShadow: 'lg',
               }}
@@ -708,12 +707,12 @@ export default function ProductPage() {
       
       {/* Modal de instrucciones para comprar por Instagram */}
       <Modal isOpen={isInstagramOpen} onClose={onInstagramClose} isCentered size="lg" scrollBehavior="inside">
-        <ModalOverlay backdropFilter="blur(4px)" />
-        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl" mx={4}>
+        <ModalOverlay />
+        <ModalContent bg={modalBgColor} color="white" borderRadius="lg" boxShadow="xl" mx={4}>
           <ModalHeader fontSize="2xl" fontWeight="bold" pb={2} color={modalHeaderColor}>
             Comprar por Instagram
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton color="white" />
           <ModalBody pb={6}>
             <VStack spacing={5} align="stretch">
               <Text fontSize="md" color={modalTextColorLight}>
@@ -728,7 +727,7 @@ export default function ProductPage() {
                 borderWidth="1px"
                 borderColor={modalBoxBorder}
               >
-                <Text fontWeight="bold" mb={3} fontSize="md" color="brand.500">
+                <Text fontWeight="bold" mb={3} fontSize="md" color="teal.300">
                   📦 ¿Cómo querés recibir tu pedido?
                 </Text>
                 <HStack spacing={3} align="stretch">
@@ -739,8 +738,13 @@ export default function ProductPage() {
                     flexDirection="column"
                     gap={1}
                     whiteSpace="normal"
-                    variant={deliveryMethod === 'retiro' ? 'solid' : 'outline'}
-                    colorScheme={deliveryMethod === 'retiro' ? 'brand' : 'gray'}
+                    variant="solid"
+                    colorScheme={deliveryMethod === 'retiro' ? 'teal' : undefined}
+                    bg={deliveryMethod === 'retiro' ? undefined : 'whiteAlpha.150'}
+                    borderWidth="1px"
+                    borderColor={deliveryMethod === 'retiro' ? 'teal.300' : 'whiteAlpha.300'}
+                    color="white"
+                    _hover={deliveryMethod === 'retiro' ? undefined : { bg: 'whiteAlpha.200' }}
                     onClick={() => setDeliveryMethod('retiro')}
                   >
                     <FaStore />
@@ -753,8 +757,13 @@ export default function ProductPage() {
                     flexDirection="column"
                     gap={1}
                     whiteSpace="normal"
-                    variant={deliveryMethod === 'envio' ? 'solid' : 'outline'}
-                    colorScheme={deliveryMethod === 'envio' ? 'brand' : 'gray'}
+                    variant="solid"
+                    colorScheme={deliveryMethod === 'envio' ? 'teal' : undefined}
+                    bg={deliveryMethod === 'envio' ? undefined : 'whiteAlpha.150'}
+                    borderWidth="1px"
+                    borderColor={deliveryMethod === 'envio' ? 'teal.300' : 'whiteAlpha.300'}
+                    color="white"
+                    _hover={deliveryMethod === 'envio' ? undefined : { bg: 'whiteAlpha.200' }}
                     onClick={() => setDeliveryMethod('envio')}
                   >
                     <FaTruck />
@@ -769,13 +778,18 @@ export default function ProductPage() {
                     height="auto"
                     py={3}
                     whiteSpace="normal"
-                    variant={deliveryMethod === 'retro' ? 'solid' : 'outline'}
-                    colorScheme={deliveryMethod === 'retro' ? 'pink' : 'gray'}
+                    variant="solid"
+                    colorScheme={deliveryMethod === 'retro' ? 'teal' : undefined}
+                    bg={deliveryMethod === 'retro' ? undefined : 'whiteAlpha.150'}
+                    borderWidth="1px"
+                    borderColor={deliveryMethod === 'retro' ? 'teal.300' : 'whiteAlpha.300'}
+                    color="white"
+                    _hover={deliveryMethod === 'retro' ? undefined : { bg: 'whiteAlpha.200' }}
                     onClick={() => setDeliveryMethod('retro')}
                     leftIcon={<FaCalendarAlt />}
                   >
                     Retiro en Retro Market
-                    <Badge ml={2} colorScheme="pink" variant={deliveryMethod === 'retro' ? 'solid' : 'subtle'}>
+                    <Badge ml={2} colorScheme="teal" variant={deliveryMethod === 'retro' ? 'solid' : 'subtle'}>
                       ¡Solo hasta el 7/11!
                     </Badge>
                   </Button>
@@ -788,12 +802,24 @@ export default function ProductPage() {
                       value={shippingLocalidad}
                       onChange={(e) => setShippingLocalidad(e.target.value)}
                       size="sm"
+                      bg="whiteAlpha.100"
+                      borderColor="whiteAlpha.300"
+                      color="white"
+                      _placeholder={{ color: 'whiteAlpha.500' }}
+                      _hover={{ borderColor: 'whiteAlpha.400' }}
+                      _focus={{ borderColor: 'teal.300' }}
                     />
                     <Input
                       placeholder="Código postal (ej: 1900)"
                       value={shippingCP}
                       onChange={(e) => setShippingCP(e.target.value)}
                       size="sm"
+                      bg="whiteAlpha.100"
+                      borderColor="whiteAlpha.300"
+                      color="white"
+                      _placeholder={{ color: 'whiteAlpha.500' }}
+                      _hover={{ borderColor: 'whiteAlpha.400' }}
+                      _focus={{ borderColor: 'teal.300' }}
                     />
                     <Text fontSize="xs" color={modalTextColorDark} alignSelf="start">
                       Con tu localidad y CP te cotizamos el envío por Instagram.
@@ -816,7 +842,7 @@ export default function ProductPage() {
 
               <List spacing={4}>
                 <ListItem display="flex" alignItems="flex-start">
-                  <ListIcon as={FaClipboard} color="brand.500" mt={1} fontSize="xl" />
+                  <ListIcon as={FaClipboard} color="teal.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 1: Copiar mensaje</Text>
                     <Text fontSize="sm" color={modalTextColorDark}>
@@ -825,7 +851,7 @@ export default function ProductPage() {
                   </Box>
                 </ListItem>
                 <ListItem display="flex" alignItems="flex-start">
-                  <ListIcon as={FaInstagram} color="brand.500" mt={1} fontSize="xl" />
+                  <ListIcon as={FaInstagram} color="teal.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 2: Abrir Instagram</Text>
                     <Text fontSize="sm" color={modalTextColorDark}>
@@ -834,7 +860,7 @@ export default function ProductPage() {
                   </Box>
                 </ListItem>
                 <ListItem display="flex" alignItems="flex-start">
-                  <ListIcon as={FaCheckCircle} color="brand.500" mt={1} fontSize="xl" />
+                  <ListIcon as={FaCheckCircle} color="teal.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
                     <Text fontSize="sm" color={modalTextColorDark}>
@@ -851,7 +877,7 @@ export default function ProductPage() {
                 borderWidth="1px"
                 borderColor={modalBoxBorder}
               >
-                <Text fontWeight="bold" mb={3} fontSize="md" color="brand.500">
+                <Text fontWeight="bold" mb={3} fontSize="md" color="teal.300">
                   📋 Vista previa del mensaje:
                 </Text>
                 <Box 
@@ -893,20 +919,23 @@ export default function ProductPage() {
 
           <ModalFooter gap={3} justifyContent="center">
             <Button 
-              variant="ghost" 
+              variant="outline" 
               size="lg"
+              color="white"
+              borderColor="whiteAlpha.400"
+              _hover={{ bg: 'whiteAlpha.100', borderColor: 'whiteAlpha.600' }}
               onClick={onInstagramClose}
             >
               Cancelar
             </Button>
             <Button
-              colorScheme="pink"
+              colorScheme="teal"
               size="lg"
               leftIcon={<FaInstagram />}
               onClick={handleCopyAndOpenInstagram}
               isDisabled={!deliveryValid}
               _hover={{
-                bg: 'pink.500',
+                bg: 'teal.500',
                 transform: 'translateY(-2px)',
                 boxShadow: 'xl',
               }}
@@ -919,15 +948,15 @@ export default function ProductPage() {
       
       {/* Modal de consulta por Instagram para productos sin stock */}
       <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="md" scrollBehavior="inside">
-        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
+        <ModalOverlay bg="blackAlpha.600" />
+        <ModalContent bg={modalBgColor} color="white" borderRadius="lg" boxShadow="xl">
           <ModalHeader color={modalHeaderColor} borderBottomWidth="1px" borderColor={dividerColor}>
             <Flex align="center" gap={2}>
               <Icon as={FaInstagram} />
               <Text>Consultar por Instagram</Text>
             </Flex>
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton color="white" />
           <ModalBody pb={6} pt={4}>
             <VStack spacing={4} align="start">
               <Text>
@@ -960,7 +989,7 @@ export default function ProductPage() {
                 borderRadius="md"
                 width="100%"
                 borderLeft="4px solid"
-                borderColor="brand.500">
+                borderColor="teal.300">
                 <VStack align="start" spacing={2}>
                   <Text fontStyle="italic">
                     Hola, me interesa el producto: {product?.name}
@@ -968,7 +997,7 @@ export default function ProductPage() {
                   <Text fontStyle="italic" fontSize="sm" wordBreak="break-all">
                     {`https://arkya.store/product/${getProductSlug(product)}`}
                   </Text>
-                  <Text fontStyle="italic" fontSize="sm" color="gray.400">
+                  <Text fontStyle="italic" fontSize="sm" color="whiteAlpha.500">
                     (actualmente sin stock)
                   </Text>
                 </VStack>
@@ -1054,22 +1083,22 @@ export default function ProductPage() {
               }}>
               Copiar y abrir Instagram
             </Button>
-            <Button variant="ghost" onClick={onConsultClose}>Cancelar</Button>
+            <Button variant="ghost" color="white" _hover={{ bg: 'whiteAlpha.100' }} onClick={onConsultClose}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
 
       {/* Modal para pedir Instagram/Email al dar like */}
       <Modal isOpen={isLikeModalOpen} onClose={onLikeModalClose} isCentered size="sm">
-        <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
-        <ModalContent bg={modalBgColor} borderRadius="lg" boxShadow="xl">
+        <ModalOverlay bg="blackAlpha.600" />
+        <ModalContent bg={modalBgColor} color="white" borderRadius="lg" boxShadow="xl">
           <ModalHeader borderBottomWidth="1px" borderColor={dividerColor}>
             <Flex align="center" gap={2}>
-              <FaHeart />
+              <Icon as={FaHeart} color="teal.300" />
               <Text>Dejanos tu contacto</Text>
             </Flex>
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton color="white" />
           <ModalBody pb={6} pt={4}>
             <VStack spacing={4} align="start">
               <Text fontSize="sm">
@@ -1081,13 +1110,15 @@ export default function ProductPage() {
                 onChange={(e) => setLikeUserInput(e.target.value)}
                 bg={likeInputBg}
                 borderColor={likeInputBorder}
-                _focus={{ borderColor: 'pink.400' }}
+                color="white"
+                _placeholder={{ color: 'whiteAlpha.500' }}
+                _focus={{ borderColor: 'teal.300' }}
               />
             </VStack>
           </ModalBody>
           <ModalFooter borderTopWidth="1px" borderColor={dividerColor}>
             <Button
-              colorScheme="pink"
+              colorScheme="teal"
               mr={3}
               onClick={() => {
                 if (!likeUserInput.trim()) {
@@ -1116,7 +1147,7 @@ export default function ProductPage() {
             >
               Guardar
             </Button>
-            <Button variant="ghost" onClick={() => { setPendingLike(false); onLikeModalClose(); }}>Cancelar</Button>
+            <Button variant="ghost" color="white" _hover={{ bg: 'whiteAlpha.100' }} onClick={() => { setPendingLike(false); onLikeModalClose(); }}>Cancelar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -1148,6 +1179,7 @@ export default function ProductPage() {
           spacing={{ base: 8, md: 10 }}
           justifyItems={{ base: 'center', md: 'start' }}
           bg={productCardBgColor}
+          color="white"
           p={{ base: 4, md: 8 }}
           borderRadius="xl"
           boxShadow="lg"
@@ -1214,7 +1246,7 @@ export default function ProductPage() {
                   top={4}
                   left={4}
                   size="sm"
-                  colorScheme="whiteAlpha"
+                  colorScheme="blackAlpha"
                   bg="blackAlpha.600"
                   color="white"
                   _hover={{ bg: 'blackAlpha.800' }}
@@ -1246,7 +1278,7 @@ export default function ProductPage() {
                     Este producto contiene contenido para adultos.
                   </Text>
                   <Button
-                    bg="pink.400"
+                    bg="teal.400"
                     color="white"
                     onClick={handleConfirmAge}
                     size="lg"
@@ -1267,7 +1299,7 @@ export default function ProductPage() {
                     top="50%"
                     transform="translateY(-50%)"
                     size="lg"
-                    colorScheme="whiteAlpha"
+                    colorScheme="blackAlpha"
                     bg="blackAlpha.600"
                     color="white"
                     _hover={{ bg: 'blackAlpha.800' }}
@@ -1283,7 +1315,7 @@ export default function ProductPage() {
                     top="50%"
                     transform="translateY(-50%)"
                     size="lg"
-                    colorScheme="whiteAlpha"
+                    colorScheme="blackAlpha"
                     bg="blackAlpha.600"
                     color="white"
                     _hover={{ bg: 'blackAlpha.800' }}
@@ -1339,11 +1371,11 @@ export default function ProductPage() {
                     borderRadius: '3px',
                   },
                   '&::-webkit-scrollbar-thumb': {
-                    background: '#D53F8C',
+                    background: '#2a8c7c',
                     borderRadius: '3px',
                   },
                   '&::-webkit-scrollbar-thumb:hover': {
-                    background: '#B83280',
+                    background: '#247165',
                   },
                 }}
               >
@@ -1386,7 +1418,7 @@ export default function ProductPage() {
                   lineHeight={1.1}
                   fontWeight={600}
                   fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
-                  bgGradient="linear(to-r, brand.400, pink.400)"
+                  bgGradient="linear(to-r, brand.400, teal.400)"
                   bgClip="text"
                   flex={1}
                   wordBreak="break-word">
@@ -1397,10 +1429,10 @@ export default function ProductPage() {
                     aria-label="Me gusta"
                     icon={<FaHeart />}
                     size="md"
-                    colorScheme="pink"
-                    bg={isLiked(product.id) ? 'pink.600' : 'transparent'}
-                    color={isLiked(product.id) ? 'white' : 'white'}
-                    variant={isLiked(product.id) ? "solid" : "ghost"}
+                    variant="ghost"
+                    bg="whiteAlpha.100"
+                    color={isLiked(product.id) ? 'teal.300' : 'white'}
+                    _hover={{ bg: 'whiteAlpha.200' }}
                     borderRadius="full"
                     onClick={() => {
                       if (!getLikeUser()) {
@@ -1452,7 +1484,7 @@ export default function ProductPage() {
                         ${parseInt(product.originalPrice)}
                       </Text>
                       {product.inStock === false && (
-                        <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
+                        <Text fontSize="sm" color="whiteAlpha.500" fontStyle="italic" ml={2}>
                           (puede bajar o subir)
                         </Text>
                       )}
@@ -1477,7 +1509,7 @@ export default function ProductPage() {
                         ${parseInt(product.price)}
                       </Text>
                       {product.inStock === false && (
-                        <Text fontSize="sm" color="gray.500" fontStyle="italic" ml={2}>
+                        <Text fontSize="sm" color="whiteAlpha.500" fontStyle="italic" ml={2}>
                           (puede bajar o subir)
                         </Text>
                       )}
@@ -1559,15 +1591,17 @@ export default function ProductPage() {
                 rounded={'md'}
                 size={'lg'}
                 py={'7'}
-                colorScheme={product.inStock !== false ? "green" : "brand"}
+                colorScheme={product.inStock !== false ? "teal" : "brand"}
                 fontWeight="bold"
                 w="full"
-                bg={product.inStock !== false ? likeBtnBg : instaBtnBg}
-                color={product.inStock !== false ? likeBtnColor : 'white'}
+                bg={product.inStock !== false ? 'teal.500' : instaBtnBg}
+                color="white"
+                borderWidth="1px"
+                borderColor={product.inStock !== false ? 'teal.300' : 'whiteAlpha.300'}
                 _hover={{
                   transform: 'translateY(-2px)',
                   boxShadow: 'xl',
-                  bg: product.inStock !== false ? undefined : instaBtnHoverBg,
+                  bg: product.inStock !== false ? 'teal.600' : instaBtnHoverBg,
                 }}
                 onClick={() => {
                   if (product.inStock !== false) {
@@ -1612,9 +1646,11 @@ export default function ProductPage() {
                   size={'lg'}
                   py={'7'}
                   bg="pink.400"
-                  color={'white'}
+                  color="white"
                   fontWeight="bold"
                   w="full"
+                  borderWidth="1px"
+                  borderColor="pink.300"
                   _hover={{
                     bg: 'pink.500',
                     transform: 'translateY(-2px)',
@@ -1828,7 +1864,7 @@ export default function ProductPage() {
                 fontSize={{ base: '2xl', md: '3xl' }}
                 fontWeight="bold"
                 mb={6}
-                bgGradient="linear(to-r, brand.400, pink.400)"
+                bgGradient="linear(to-r, brand.400, teal.400)"
                 bgClip="text"
               >
                 Productos Similares
@@ -1849,7 +1885,7 @@ export default function ProductPage() {
 
     {/* Lightbox - Modal para ver imagen ampliada */}
     <Modal isOpen={isLightboxOpen} onClose={() => { setIsLightboxOpen(false); setIsZoomed(false); setZoomPan({ x: 0, y: 0 }); }} size="full" isCentered>
-      <ModalOverlay bg="blackAlpha.900" backdropFilter="blur(8px)" />
+      <ModalOverlay bg="blackAlpha.900" />
       <ModalContent bg="transparent" boxShadow="none" maxW="100vw" maxH="100vh" pointerEvents="none">
         <ModalCloseButton color="white" size="lg" zIndex={2} pointerEvents="auto" />
         <ModalBody
@@ -1929,13 +1965,14 @@ export default function ProductPage() {
                   top="50%"
                   transform="translateY(-50%)"
                   size="lg"
-                  colorScheme="whiteAlpha"
+                  colorScheme="blackAlpha"
                   bg="blackAlpha.600"
                   color="white"
                   _hover={{ bg: 'blackAlpha.800' }}
                   onClick={(e) => { e.stopPropagation(); prevImage(); }}
                   zIndex={2}
                   borderRadius="full"
+                  pointerEvents="auto"
                 >
                   <FaChevronLeft />
                 </Button>
@@ -1945,13 +1982,14 @@ export default function ProductPage() {
                   top="50%"
                   transform="translateY(-50%)"
                   size="lg"
-                  colorScheme="whiteAlpha"
+                  colorScheme="blackAlpha"
                   bg="blackAlpha.600"
                   color="white"
                   _hover={{ bg: 'blackAlpha.800' }}
                   onClick={(e) => { e.stopPropagation(); nextImage(); }}
                   zIndex={2}
                   borderRadius="full"
+                  pointerEvents="auto"
                 >
                   <FaChevronRight />
                 </Button>

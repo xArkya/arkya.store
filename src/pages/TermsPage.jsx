@@ -5,7 +5,6 @@ import {
   Text,
   VStack,
   Divider,
-  useColorModeValue,
   Card,
   CardBody,
   OrderedList,
@@ -15,8 +14,8 @@ import {
 import { SEO } from '../components/SEO';
 
 export default function TermsPage() {
-  const bgColor = useColorModeValue('white', '#2a1c29');
-  const textColor = useColorModeValue('gray.600', 'gray.300');
+  const bgColor = 'arkya.cardAlt';
+  const textColor = 'gray.300';
 
   return (
     <>
@@ -26,7 +25,7 @@ export default function TermsPage() {
         url="https://arkya.store/terminos"
         keywords="términos de servicio, condiciones, artbooks, doujinshi, manga, japón, importados, tienda, argentina"
       />
-      <Box bg="#453641" minH="100vh" py={8}>
+      <Box bg="transparent" minH="100vh" py={8}>
         <Container maxW="4xl">
           <VStack spacing={8} align="stretch">
             {/* Header */}
@@ -34,13 +33,13 @@ export default function TermsPage() {
               <Heading
                 as="h1"
                 size="2xl"
-                color="white"
-                bgGradient="linear(to-r, pink.400, purple.500)"
+                color="arkya.text"
+                bgGradient="linear(to-r, teal.300, teal.500)"
                 bgClip="text"
               >
                 Términos de Servicio
               </Heading>
-            <Text color="gray.300">
+            <Text color="arkya.textSoft">
               Última actualización: 20 de Julio, 2025
             </Text>
           </VStack>
@@ -50,7 +49,7 @@ export default function TermsPage() {
               <VStack spacing={6} align="stretch">
                 {/* Introducción */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     1. Introducción
                   </Heading>
                   <Text color={textColor} lineHeight="tall">
@@ -65,7 +64,7 @@ export default function TermsPage() {
 
                 {/* Definiciones */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     2. Definiciones
                   </Heading>
                   <UnorderedList spacing={2} color={textColor}>
@@ -88,7 +87,7 @@ export default function TermsPage() {
 
                 {/* Uso del Sitio */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     3. Uso del Sitio Web
                   </Heading>
                   <Text color={textColor} mb={4} lineHeight="tall">
@@ -107,7 +106,7 @@ export default function TermsPage() {
 
                 {/* Compras y Pagos */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     4. Compras y Pagos
                   </Heading>
                   <VStack spacing={4} align="stretch">
@@ -136,7 +135,7 @@ export default function TermsPage() {
 
                 {/* Envíos y Entregas */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     5. Envíos y Entregas
                   </Heading>
                   <VStack spacing={4} align="stretch">
@@ -163,7 +162,7 @@ export default function TermsPage() {
 
                 {/* Devoluciones */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     6. Devoluciones y Reembolsos
                   </Heading>
                   <VStack spacing={4} align="stretch">
@@ -199,7 +198,7 @@ export default function TermsPage() {
 
                 {/* Propiedad Intelectual */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     7. Propiedad Intelectual
                   </Heading>
                   <Text color={textColor} lineHeight="tall">
@@ -214,7 +213,7 @@ export default function TermsPage() {
 
                 {/* Limitación de Responsabilidad */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     8. Limitación de Responsabilidad
                   </Heading>
                   <Text color={textColor} lineHeight="tall">
@@ -228,7 +227,7 @@ export default function TermsPage() {
 
                 {/* Modificaciones */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     9. Modificaciones de los Términos
                   </Heading>
                   <Text color={textColor} lineHeight="tall">
@@ -243,7 +242,7 @@ export default function TermsPage() {
 
                 {/* Contacto */}
                 <Box>
-                  <Heading size="md" mb={4} color="purple.500">
+                  <Heading size="md" mb={4} color="teal.300">
                     10. Contacto
                   </Heading>
                   <Text color={textColor} lineHeight="tall">

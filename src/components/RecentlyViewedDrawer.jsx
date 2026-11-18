@@ -59,15 +59,15 @@ export default function RecentlyViewedDrawer() {
       </Tooltip>
 
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="md">
-        <DrawerOverlay backdropFilter="blur(2px)" />
-        <DrawerContent bg="#241521" color="white" borderLeftColor="whiteAlpha.100">
+        <DrawerOverlay />
+        <DrawerContent bg="arkya.surface" color="white" borderLeftColor="whiteAlpha.100">
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px" borderColor="whiteAlpha.100">
             <HStack spacing={3}>
-              <FaEye color="#ec4899" />
+              <FaEye color="#41bfa9" />
               <Text>Visto recientemente</Text>
               {recentlyViewed.length > 0 && (
-                <Badge colorScheme="pink" borderRadius="full" px={2}>
+                <Badge colorScheme="teal" borderRadius="full" px={2}>
                   {recentlyViewed.length}
                 </Badge>
               )}
@@ -84,7 +84,7 @@ export default function RecentlyViewedDrawer() {
                 <Button
                   as={RouterLink}
                   to="/"
-                  colorScheme="pink"
+                  colorScheme="teal"
                   leftIcon={<FaShoppingBag />}
                   onClick={onClose}
                 >
@@ -127,7 +127,7 @@ export default function RecentlyViewedDrawer() {
                           fontWeight="semibold"
                           color="white"
                           noOfLines={2}
-                          _hover={{ color: 'pink.300' }}
+                          _hover={{ color: 'teal.300' }}
                           transition="color 0.2s"
                           display="block"
                           mb={1}
@@ -136,7 +136,7 @@ export default function RecentlyViewedDrawer() {
                         </Text>
 
                         <HStack spacing={2} mb={1}>
-                          <Text fontSize="sm" fontWeight="bold" color="pink.400">
+                          <Text fontSize="sm" fontWeight="bold" color="teal.400">
                             ${Math.round(product.price).toLocaleString()}
                           </Text>
                           <Text fontSize="xs" color="whiteAlpha.500">
@@ -168,8 +168,8 @@ export default function RecentlyViewedDrawer() {
                           icon={<FaHeart />}
                           size="xs"
                           variant="ghost"
-                          color={isLiked(product.id) ? 'pink.400' : 'whiteAlpha.400'}
-                          _hover={{ color: 'pink.400' }}
+                          color={isLiked(product.id) ? 'teal.400' : 'whiteAlpha.400'}
+                          _hover={{ color: 'teal.400' }}
                           onClick={() => {
                             // Necesitamos reconstruir el producto mínimo para toggleLike
                             toggleLike({ id: product.id, name: product.name, price: product.price });

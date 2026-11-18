@@ -48,7 +48,7 @@ export default function PromoBanner({ offer }) {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      bg="linear-gradient(135deg, #d53f8c 0%, #b83280 100%)"
+      bg="linear-gradient(135deg, #2a8c7c 0%, #247165 100%)"
       py={4}
       position="relative"
       overflow="hidden"
@@ -90,7 +90,7 @@ export default function PromoBanner({ offer }) {
               px={4}
               py={2}
               borderRadius="full"
-              backdropFilter="blur(10px)"
+
             >
               <FaClock color="white" />
               <Box>

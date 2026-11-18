@@ -873,7 +873,7 @@ const AdminPage = () => {
                                 icon={<FaInstagram />}
                                 size="sm"
                                 aria-label="Abrir post de Instagram"
-                                colorScheme="pink"
+                                colorScheme="teal"
                                 variant="ghost"
                               />
                             )}

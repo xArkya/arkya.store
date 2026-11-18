@@ -71,97 +71,123 @@ export default function Hero() {
   }, [startAutoplay, stopAutoplay]);
 
   return (
-    <Box bg="#453641" w="full" color="white">
-      <Container maxW={'7xl'} >
+    <Box bg="transparent" w="full" color="arkya.text">
+      <Container maxW={"7xl"}>
         <Stack
-          align={'center'}
+          align={"center"}
           spacing={{ base: 8, md: 10 }}
           py={{ base: 10, md: 10 }}
-          direction={{ base: 'column', md: 'row' }}>
+          direction={{ base: "column", md: "row" }}
+        >
           <Stack flex={1} spacing={{ base: 5, md: 10 }}>
             <Heading
               as="h1"
               lineHeight={1.1}
               fontWeight={700}
-              fontSize={{ base: '3xl', sm: '4xl', lg: '5xl' }}>
-              <Text
-                as={'span'}
-                position={'relative'}
-                color="white">
+              fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
+            >
+              <Text as={"span"} position={"relative"} color="arkya.text">
                 Arkya Store
               </Text>
               <br />
-              <Text as={'span'} color={'pink.300'} fontStyle="italic">
+              <Text
+                as={"span"}
+                bgGradient="linear(to-r, teal.500, pink.500)"
+                bgClip="text"
+                fontStyle="italic"
+              >
                 Artículos Importados de Japón
               </Text>
             </Heading>
-            <Text color={'gray.300'} fontSize={"md"}>
-              Descubrí Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras,
-              Revistas (Jump, etc.), Figuras y merchandising exclusivo importado directamente desde
-              Japón. Productos originales de calidad que no encontrás en ningún otro lado.
-              Hacemos envíos a todo el país y también traemos artículos a pedido.
-              Contactanos por Instagram @arkya.store
+            <Text color={"arkya.text"} fontSize={"md"}>
+              Descubrí Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales,
+              Novelas Ligeras, Revistas (Jump, etc.), Figuras y merchandising
+              exclusivo importado directamente desde Japón. Productos originales
+              de calidad que no encontrás en ningún otro lado. Hacemos envíos a
+              todo el país y también traemos libros a pedido. Contactanos por
+              Instagram @arkya.store
             </Text>
             <Stack
               spacing={{ base: 4, sm: 6 }}
-              direction={{ base: 'column', sm: 'row' }}>
-
+              direction={{ base: "column", sm: "row" }}
+            >
               <Button
-                as={'a'}
-                href={'https://instagram.com/arkya.store'}
+                as={"a"}
+                href={"https://instagram.com/arkya.store"}
                 target="_blank"
                 rel="noopener noreferrer"
-                rounded={'md'}
-                size={'md'}
-                fontWeight={'medium'}
+                rounded={"md"}
+                size={"md"}
+                fontWeight={"medium"}
                 px={6}
                 leftIcon={<Icon as={FaInstagram} h={4} w={4} />}
-                colorScheme={'gray'}
-                bg={'transparent'}
+                colorScheme={"gray"}
+                bg={"transparent"}
                 border="1px"
-                borderColor="white"
-                color="white"
-                _hover={{ bg: 'whiteAlpha.200' }}>
+                borderColor="alpha.500"
+                color="arkya.text"
+                _hover={{ bg: "alpha.200" }}
+              >
                 Instagram
               </Button>
             </Stack>
           </Stack>
           <Flex
             flex={1}
-            justify={'center'}
-            align={'center'}
-            position={'relative'}
-            w={'full'}>
+            justify={"center"}
+            align={"center"}
+            position={"relative"}
+            w={"full"}
+          >
+            {/* Mascota de Arkya asomando desde la esquina del carrusel */}
+            <MotionImage
+              src="/images/mascot.webp"
+              alt="Arkya, la mascota de Arkya Store"
+              position="absolute"
+              bottom={{ base: "-8px", md: "-15px" }}
+              left={{ base: "calc(50% + 55px)", md: "calc(50% + 95px)" }}
+              h={{ base: "110px", md: "165px" }}
+              zIndex={4}
+              pointerEvents="none"
+              filter="drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55))"
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
             <Box
               as="a"
               href="https://www.instagram.com/arkya.store/"
               target="_blank"
               rel="noopener noreferrer"
-              position={'relative'}
-              rounded={'2xl'}
-              boxShadow={'2xl'}
-              width={'400px'}
-              height={'400px'}
-              overflow={'hidden'}
-              backgroundImage="linear-gradient(45deg, #241521, #3a2235)"
-              transform={'perspective(1000px) rotateY(-5deg)'}
-              transition={'all 0.5s ease'}
+              position={"relative"}
+              rounded={"2xl"}
+              boxShadow={"2xl"}
+              width={"400px"}
+              height={"400px"}
+              overflow={"hidden"}
+              backgroundImage="linear-gradient(45deg, #453641, #1a1017)"
+              transform={"perspective(1000px) rotateY(-5deg)"}
+              transition={"all 0.5s ease"}
               cursor="pointer"
               _hover={{
-                transform: 'perspective(1000px) rotateY(0deg)',
-              }}>
+                transform: "perspective(1000px) rotateY(0deg)",
+              }}
+            >
               <Box position="relative" w="100%" h="100%">
                 <AnimatePresence initial={false}>
                   <MotionImage
                     key={currentIndex}
-                    alt={'Artículos importados de Japón - Arkya Store'}
-                    fit={'cover'}
-                    align={'center'}
+                    alt={"Artículos importados de Japón - Arkya Store"}
+                    fit={"cover"}
+                    align={"center"}
                     position="absolute"
                     top={0}
                     left={0}
-                    w={'100%'}
-                    h={'100%'}
+                    w={"100%"}
+                    h={"100%"}
                     src={HERO_IMAGES[currentIndex]}
                     htmlWidth={500}
                     htmlHeight={500}
@@ -171,7 +197,7 @@ export default function Hero() {
                     initial={{ opacity: 0, x: direction * 60 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: direction * -60 }}
-                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                   />
                 </AnimatePresence>
               </Box>
@@ -183,7 +209,7 @@ export default function Hero() {
                 left={0}
                 right={0}
                 bottom={0}
-                bgGradient="linear(to-tr, pink.600, purple.600)"
+                bgGradient="linear(to-tr, teal.500, pink.600)"
                 opacity={0.45}
                 mixBlendMode="overlay"
                 pointerEvents="none"
@@ -198,10 +224,14 @@ export default function Hero() {
                 transform="translateY(-50%)"
                 zIndex={3}
                 cursor="pointer"
-                _hover={{ transform: 'translateY(-50%) scale(1.2)' }}
+                _hover={{ transform: "translateY(-50%) scale(1.2)" }}
                 transition="all 0.2s ease"
                 p={2}
-                onClick={(e) => { e.stopPropagation(); e.preventDefault(); goPrev(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  goPrev();
+                }}
               >
                 <Icon as={FaChevronLeft} color="white" boxSize={6} />
               </Box>
@@ -214,10 +244,14 @@ export default function Hero() {
                 transform="translateY(-50%)"
                 zIndex={3}
                 cursor="pointer"
-                _hover={{ transform: 'translateY(-50%) scale(1.2)' }}
+                _hover={{ transform: "translateY(-50%) scale(1.2)" }}
                 transition="all 0.2s ease"
                 p={2}
-                onClick={(e) => { e.stopPropagation(); e.preventDefault(); goNext(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  goNext();
+                }}
               >
                 <Icon as={FaChevronRight} color="white" boxSize={6} />
               </Box>
@@ -236,10 +270,14 @@ export default function Hero() {
                     w={idx === currentIndex ? 6 : 2}
                     h={2}
                     borderRadius="full"
-                    bg={idx === currentIndex ? 'pink.400' : 'whiteAlpha.500'}
+                    bg={idx === currentIndex ? "pink.400" : "whiteAlpha.500"}
                     transition="all 0.3s ease"
                     cursor="pointer"
-                    onClick={(e) => { e.stopPropagation(); e.preventDefault(); goToIndex(idx); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      goToIndex(idx);
+                    }}
                   />
                 ))}
               </HStack>

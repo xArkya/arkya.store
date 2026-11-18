@@ -7,41 +7,53 @@ import {
   VStack,
   HStack,
   Icon,
-  useColorModeValue,
+  Image,
 } from '@chakra-ui/react';
 import { FaHome, FaSearch, FaArrowLeft, FaHeart, FaInstagram } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router-dom';
 
 export default function NotFoundPage() {
-  const bgColor = useColorModeValue('gray.50', '#241521');
-  const textColor = useColorModeValue('gray.700', 'white');
-  const subTextColor = useColorModeValue('gray.500', 'gray.400');
-  const cardBg = useColorModeValue('white', '#2a1c29');
+  
+  const pageText = 'arkya.text';
+  const pageSub = 'arkya.textSoft';
+  const cardText = 'white';
+  const cardBg = 'arkya.cardAlt';
 
   return (
-    <Box minH="100vh" bg={bgColor} py={20} px={4}>
+    <Box minH="100vh" bg="transparent" py={20} px={4}>
       <Container maxW="4xl" textAlign="center">
         <VStack spacing={8}>
-          <Box
-            fontSize={{ base: '6xl', md: '9xl' }}
-            fontWeight="bold"
-            color="pink.400"
-            lineHeight={1}
-            textShadow="0 0 40px rgba(237, 100, 166, 0.3)"
-          >
-            404
+          <Box position="relative">
+            <Image
+              src="/images/mascot.webp"
+              alt="Arkya, la mascota de Arkya Store"
+              h={{ base: '140px', md: '180px' }}
+              mx="auto"
+              filter="drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4))"
+            />
+            <Box
+              fontSize={{ base: '6xl', md: '9xl' }}
+              fontWeight="bold"
+              bgGradient="linear(to-r, teal.200, teal.400)"
+              bgClip="text"
+              lineHeight={1}
+              mt={-4}
+              filter="drop-shadow(0 0 30px rgba(65, 191, 169, 0.35))"
+            >
+              404
+            </Box>
           </Box>
 
           <Heading
             as="h1"
             fontSize={{ base: '2xl', md: '4xl' }}
-            color={textColor}
+            color={pageText}
             fontWeight={700}
           >
             Página no encontrada
           </Heading>
 
-          <Text fontSize={{ base: 'md', md: 'lg' }} color={subTextColor} maxW="600px">
+          <Text fontSize={{ base: 'md', md: 'lg' }} color={pageSub} maxW="600px">
             Lo sentimos, la página que buscás no existe o fue movida.
             Te invitamos a explorar nuestro catálogo de productos importados de Japón.
           </Text>
@@ -56,7 +68,7 @@ export default function NotFoundPage() {
               as={RouterLink}
               to="/"
               leftIcon={<Icon as={FaHome} />}
-              colorScheme="pink"
+              colorScheme="teal"
               size="lg"
               borderRadius="full"
               px={8}
@@ -69,7 +81,7 @@ export default function NotFoundPage() {
               to="/"
               leftIcon={<Icon as={FaSearch} />}
               variant="outline"
-              colorScheme="pink"
+              colorScheme="teal"
               size="lg"
               borderRadius="full"
               px={8}
@@ -88,7 +100,7 @@ export default function NotFoundPage() {
             boxShadow="lg"
           >
             <VStack spacing={6}>
-              <Text fontSize="lg" fontWeight="bold" color={textColor}>
+              <Text fontSize="lg" fontWeight="bold" color={cardText}>
                 ¿Buscabas algo en particular?
               </Text>
 
@@ -99,11 +111,11 @@ export default function NotFoundPage() {
                   spacing={2}
                   p={4}
                   borderRadius="xl"
-                  _hover={{ bg: 'pink.50', color: 'pink.600' }}
+                  _hover={{ bg: 'whiteAlpha.100', color: 'teal.300' }}
                   transition="all 0.2s"
-                  color={textColor}
+                  color={cardText}
                 >
-                  <Icon as={FaHeart} boxSize={6} color="pink.400" />
+                  <Icon as={FaHeart} boxSize={6} color="teal.300" />
                   <Text fontSize="sm" fontWeight="medium">Mis favoritos</Text>
                 </VStack>
 
@@ -115,11 +127,11 @@ export default function NotFoundPage() {
                   spacing={2}
                   p={4}
                   borderRadius="xl"
-                  _hover={{ bg: 'pink.50', color: 'pink.600' }}
+                  _hover={{ bg: 'whiteAlpha.100', color: 'teal.300' }}
                   transition="all 0.2s"
-                  color={textColor}
+                  color={cardText}
                 >
-                  <Icon as={FaInstagram} boxSize={6} color="pink.400" />
+                  <Icon as={FaInstagram} boxSize={6} color="teal.300" />
                   <Text fontSize="sm" fontWeight="medium">Instagram</Text>
                 </VStack>
               </HStack>
@@ -128,7 +140,7 @@ export default function NotFoundPage() {
                 as={RouterLink}
                 to="/contacto"
                 variant="ghost"
-                colorScheme="pink"
+                colorScheme="teal"
                 size="sm"
               >
                 Contactanos
@@ -136,7 +148,7 @@ export default function NotFoundPage() {
             </VStack>
           </Box>
 
-          <Text fontSize="sm" color={subTextColor} mt={4}>
+          <Text fontSize="sm" color={pageSub} mt={4}>
             Arkya Store — Artículos importados de Japón
           </Text>
         </VStack>

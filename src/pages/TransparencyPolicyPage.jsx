@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   VStack,
-  useColorModeValue,
   Card,
   CardBody,
   UnorderedList,
@@ -13,8 +12,8 @@ import {
 import { SEO } from '../components/SEO';
 
 export default function TransparencyPolicyPage() {
-  const bgColor = useColorModeValue('white', '#2a1c29');
-  const textColor = useColorModeValue('gray.600', 'gray.300');
+  const bgColor = 'arkya.cardAlt';
+  const textColor = 'gray.300';
 
   return (
     <>
@@ -24,20 +23,20 @@ export default function TransparencyPolicyPage() {
         url="https://arkya.store/politica-informacion"
         keywords="política, información, transparencia, productos, disponibilidad, arkya store"
       />
-      <Box bg="#453641" minH="100vh" py={8}>
+      <Box bg="transparent" minH="100vh" py={8}>
         <Container maxW="4xl">
           <VStack spacing={8} align="stretch">
             <VStack spacing={4} textAlign="center">
               <Heading
                 as="h1"
                 size="2xl"
-                color="white"
-                bgGradient="linear(to-r, pink.400, purple.500)"
+                color="arkya.text"
+                bgGradient="linear(to-r, teal.300, teal.500)"
                 bgClip="text"
               >
                 Política de Información Transparente
               </Heading>
-              <Text color="gray.300">
+              <Text color="arkya.textSoft">
                 Última actualización: 19 de Julio, 2026
               </Text>
             </VStack>
@@ -46,7 +45,7 @@ export default function TransparencyPolicyPage() {
               <CardBody>
                 <VStack spacing={6} align="stretch">
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Compromiso con la Transparencia
                     </Heading>
                     <Text color={textColor} lineHeight="tall">
@@ -55,7 +54,7 @@ export default function TransparencyPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Información de Productos
                     </Heading>
                     <Text color={textColor} lineHeight="tall" mb={3}>
@@ -71,7 +70,7 @@ export default function TransparencyPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Disponibilidad y Stock
                     </Heading>
                     <Text color={textColor} lineHeight="tall" mb={3}>
@@ -86,7 +85,7 @@ export default function TransparencyPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Precios y Ofertas
                     </Heading>
                     <Text color={textColor} lineHeight="tall" mb={3}>
@@ -101,7 +100,7 @@ export default function TransparencyPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Políticas Claras
                     </Heading>
                     <Text color={textColor} lineHeight="tall" mb={3}>
@@ -116,7 +115,7 @@ export default function TransparencyPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Contenido Adulto
                     </Heading>
                     <Text color={textColor} lineHeight="tall">
@@ -125,7 +124,7 @@ export default function TransparencyPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Contacto y Reclamos
                     </Heading>
                     <Text color={textColor} lineHeight="tall" mb={3}>

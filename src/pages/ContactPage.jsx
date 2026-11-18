@@ -10,7 +10,6 @@ import {
   Input,
   Textarea,
   Button,
-  useColorModeValue,
   Icon,
   Link,
   Flex,
@@ -32,11 +31,13 @@ import { SEO } from '../components/SEO';
 export default function ContactPage() {
   
   // Color mode values
-  const bgColor = useColorModeValue('gray.50', '#453641');
-  const cardBg = useColorModeValue('white', '#2a1c29');
-  const textColor = useColorModeValue('gray.700', 'gray.200');
-  const headingColor = useColorModeValue('gray.800', 'white');
-  const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
+  
+  const cardBg = 'arkya.cardAlt';
+  const pageText = 'arkya.textSoft';
+  const pageHeading = 'arkya.text';
+  const textColor = 'gray.200';
+  const headingColor = 'white';
+  const borderColor = 'whiteAlpha.300';
   
   
   const contactInfo = [
@@ -45,7 +46,7 @@ export default function ContactPage() {
       title: 'Instagram',
       value: '@arkya.store',
       link: 'https://instagram.com/arkya.store',
-      color: 'pink.500',
+      color: 'teal.500',
     },
     {
       icon: FaEnvelope,
@@ -70,14 +71,14 @@ export default function ContactPage() {
         url="https://arkya.store/contacto"
         keywords="contacto, arkya store, artbooks, doujinshi, manga, japón, importados, tienda, instagram, comprar, envíos, argentina"
       />
-      <Box bg={bgColor} py={12}>
+      <Box bg="transparent" py={12}>
         <Container maxW="7xl">
         {/* Header */}
         <VStack spacing={6} textAlign="center" mb={12}>
           <Heading
             as="h1"
             fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-            bgGradient="linear(to-r, brand.400, pink.400)"
+            bgGradient="linear(to-r, brand.400, teal.400)"
             bgClip="text"
             fontWeight="bold"
           >
@@ -85,7 +86,7 @@ export default function ContactPage() {
           </Heading>
           <Text
             fontSize={{ base: 'lg', md: 'xl' }}
-            color={textColor}
+            color={pageText}
             maxW="2xl"
             lineHeight="tall"
           >
@@ -98,7 +99,7 @@ export default function ContactPage() {
           {/* Información de contacto */}
           <VStack spacing={8} align="stretch">
             <Box>
-              <Heading size="lg" mb={6} color={headingColor}>
+              <Heading size="lg" mb={6} color={pageHeading}>
                 Información de Contacto
               </Heading>
               <VStack spacing={6} align="stretch">
@@ -151,8 +152,8 @@ export default function ContactPage() {
                     align="center"
                     justify="center"
                     borderRadius="full"
-                    bg="purple.50"
-                    color="purple.500"
+                    bg="alpha.200"
+                    color="arkya.accent"
                   >
                     <Icon as={FaClock} boxSize={5} />
                   </Flex>

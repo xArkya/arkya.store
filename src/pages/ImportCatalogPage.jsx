@@ -212,9 +212,9 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
         bg="transparent"
         pl={groups ? 5 : 3}
         fontSize="md"
-        color={isEx ? 'orange.300' : isSel ? 'pink.300' : 'whiteAlpha.800'}
+        color={isEx ? 'orange.300' : isSel ? 'teal.300' : 'alpha.800'}
         fontWeight={isSel || isEx ? 600 : 400}
-        _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
+        _hover={{ bg: 'alpha.100', color: 'arkya.text' }}
         onClick={() => onChange(o.value)}
       >
         <Flex w="100%" align="center" justify="space-between" gap={2}>
@@ -230,9 +230,9 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
               size="xs"
               variant="ghost"
               borderRadius="full"
-              color={isEx ? 'orange.300' : 'whiteAlpha.500'}
-              bg={isEx ? 'whiteAlpha.200' : undefined}
-              _hover={{ color: 'orange.300', bg: 'whiteAlpha.200' }}
+              color={isEx ? 'orange.300' : 'alpha.500'}
+              bg={isEx ? 'alpha.200' : undefined}
+              _hover={{ color: 'orange.300', bg: 'alpha.200' }}
               onClick={(e) => {
                 // No burbujear: el item no selecciona ni cierra el menú,
                 // así se pueden excluir varias opciones de una.
@@ -260,11 +260,11 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
         bg="whiteAlpha.100"
         color={current ? 'white' : excludedLabels.length ? 'orange.300' : 'whiteAlpha.600'}
         border="1px solid"
-        borderColor={excludedLabels.length ? 'orange.400' : current ? 'pink.400' : 'whiteAlpha.200'}
+        borderColor={excludedLabels.length ? 'orange.400' : current ? 'teal.400' : 'whiteAlpha.200'}
         borderRadius="lg"
         fontWeight={500}
         px={4}
-        _hover={{ borderColor: excludedLabels.length ? 'orange.400' : 'pink.400', bg: 'whiteAlpha.200' }}
+        _hover={{ borderColor: excludedLabels.length ? 'orange.400' : 'teal.400', bg: 'whiteAlpha.200' }}
         _active={{ bg: 'whiteAlpha.200' }}
       >
         <Text as="span" noOfLines={1}>
@@ -278,7 +278,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
         </Text>
       </MenuButton>
       <MenuList
-        bg="#2d1e2a"
+        bg="arkya.modal"
         border="1px solid"
         borderColor="whiteAlpha.200"
         borderRadius="xl"
@@ -293,7 +293,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
           <MenuItem
             bg="transparent"
             fontSize="md"
-            color={!value ? 'pink.300' : 'whiteAlpha.600'}
+            color={!value ? 'teal.300' : 'whiteAlpha.600'}
             fontWeight={!value ? 600 : 400}
             _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
             onClick={() => onChange('')}
@@ -310,7 +310,7 @@ function FilterSelect({ placeholder, value, options, groups, onChange, allowClea
                   pb={1}
                   fontSize="sm"
                   fontWeight={700}
-                  color="pink.400"
+                  color="teal.300"
                   letterSpacing="wider"
                 >
                   {g.label.toUpperCase()}
@@ -356,11 +356,11 @@ function PriceRangeSelect({ value, onChange }) {
         bg="whiteAlpha.100"
         color={value ? 'white' : 'whiteAlpha.600'}
         border="1px solid"
-        borderColor={value ? 'pink.400' : 'whiteAlpha.200'}
+        borderColor={value ? 'teal.400' : 'whiteAlpha.200'}
         borderRadius="lg"
         fontWeight={500}
         px={4}
-        _hover={{ borderColor: 'pink.400', bg: 'whiteAlpha.200' }}
+        _hover={{ borderColor: 'teal.400', bg: 'whiteAlpha.200' }}
         _active={{ bg: 'whiteAlpha.200' }}
       >
         <Text as="span" noOfLines={1}>
@@ -368,7 +368,7 @@ function PriceRangeSelect({ value, onChange }) {
         </Text>
       </MenuButton>
       <MenuList
-        bg="#2d1e2a"
+        bg="arkya.modal"
         border="1px solid"
         borderColor="whiteAlpha.200"
         borderRadius="xl"
@@ -380,7 +380,7 @@ function PriceRangeSelect({ value, onChange }) {
         <MenuItem
           bg="transparent"
           fontSize="md"
-          color={!value ? 'pink.300' : 'whiteAlpha.600'}
+          color={!value ? 'teal.300' : 'whiteAlpha.600'}
           fontWeight={!value ? 600 : 400}
           _hover={{ bg: 'whiteAlpha.100', color: 'white' }}
           onClick={() => onChange('')}
@@ -390,7 +390,7 @@ function PriceRangeSelect({ value, onChange }) {
         <Box px={4} pt={3} pb={2}>
           <Text fontSize="sm" color="whiteAlpha.500" mb={2}>
             Rango:{' '}
-            <Text as="span" color="pink.300" fontWeight={600}>
+            <Text as="span" color="teal.300" fontWeight={600}>
               {range[0] === 0 && range[1] === PRICE_MAX_BAND
                 ? 'todos'
                 : `${BAND_LO[range[0]]} a ${BAND_HI[range[1]]}`}
@@ -414,7 +414,7 @@ function PriceRangeSelect({ value, onChange }) {
                     : `${r[0]}-${r[1]}`
               )
             }
-            colorScheme="pink"
+            colorScheme="teal"
           >
             <RangeSliderTrack bg="whiteAlpha.200">
               <RangeSliderFilledTrack />
@@ -1400,8 +1400,8 @@ export default function ImportCatalogPage() {
     if (newPage >= 1 && (newPage <= totalPages || hasMore)) setPage(newPage);
   };
 
-  const bgColor = '#453641';
-  const cardBg = '#2a1c29'; // mismo bg que las cards del catálogo principal
+  const bgColor = 'transparent';
+  const cardBg = 'arkya.cardAlt'; // mismo bg que las cards del catálogo principal
 
   return (
     <>
@@ -1415,16 +1415,22 @@ export default function ImportCatalogPage() {
         <Container maxW="6xl">
           <VStack spacing={2} mb={8} textAlign="center">
             <Flex align="center" gap={2}>
-              <FaBookOpen color="#ec4899" size={24} />
-              <Heading as="h1" color="white" fontSize={{ base: '2xl', md: '4xl' }} fontWeight={600}>
+              <FaBookOpen color="#41bfa9" size={24} />
+              <Heading
+                as="h1"
+                bgGradient="linear(to-r, teal.500, pink.500)"
+                bgClip="text"
+                fontSize={{ base: '2xl', md: '4xl' }}
+                fontWeight={800}
+              >
                 Catálogo Para Traer a Pedido
               </Heading>
             </Flex>
-            <Text color="whiteAlpha.600" fontSize="lg" maxW="xl">
+            <Text color="alpha.600" fontSize="lg" maxW="xl">
               Buscá libros y doujinshis. Marcá los que te interesen y consultanos
               por Instagram para que los cotizemos!
             </Text>
-            <Text color="whiteAlpha.600" fontSize="lg" maxW="xl">
+            <Text color="alpha.600" fontSize="lg" maxW="xl">
               La disponibilidad y el precio final de cada producto se confirman al momento de la consulta.
             </Text>
           </VStack>
@@ -1434,7 +1440,7 @@ export default function ImportCatalogPage() {
             maxW="3xl"
             mx="auto"
             mb={10}
-            bg="#2d1e2a"
+            bg="arkya.modal"
             border="1px solid"
             borderColor="whiteAlpha.100"
             borderRadius="2xl"
@@ -1467,8 +1473,8 @@ export default function ImportCatalogPage() {
                   h="52px"
                   fontSize="lg"
                   _placeholder={{ color: 'whiteAlpha.400' }}
-                  _hover={{ borderColor: 'pink.400' }}
-                  _focus={{ borderColor: 'pink.400', boxShadow: '0 0 0 1px #ec4899' }}
+                  _hover={{ borderColor: 'teal.400' }}
+                  _focus={{ borderColor: 'teal.400', boxShadow: '0 0 0 1px #41bfa9' }}
                   borderRadius="xl"
                 />
                 {inputValue && (
@@ -1545,14 +1551,14 @@ export default function ImportCatalogPage() {
                       key={note}
                       bg="whiteAlpha.100"
                       borderLeft="3px solid"
-                      borderColor="pink.400"
+                      borderColor="teal.400"
                       borderRadius="md"
                       px={3}
                       py={2}
                       gap={2}
                       align="flex-start"
                     >
-                      <Box color="pink.300" mt={0.5} flexShrink={0}>
+                      <Box color="teal.300" mt={0.5} flexShrink={0}>
                         <FaInfoCircle size={13} />
                       </Box>
                       <Text color="whiteAlpha.900" fontSize="md" lineHeight="1.6" flex={1}>
@@ -1591,7 +1597,7 @@ export default function ImportCatalogPage() {
                       flexShrink={0}
                       whiteSpace="nowrap"
                       variant={category === tab.id ? 'solid' : 'ghost'}
-                      colorScheme="pink"
+                      colorScheme="teal"
                       color={category === tab.id ? 'white' : 'whiteAlpha.600'}
                       _hover={category === tab.id || tab.soon ? undefined : { color: 'white', bg: 'whiteAlpha.100' }}
                       onClick={() => !tab.soon && setCategory(tab.id)}
@@ -1601,7 +1607,7 @@ export default function ImportCatalogPage() {
                     >
                       {tab.label}
                       {tab.soon && (
-                        <Badge ml={{ base: 1, md: 2 }} px={{ base: 1.5, md: 2 }} colorScheme="purple" fontSize="xs" borderRadius="full">
+                        <Badge ml={{ base: 1, md: 2 }} px={{ base: 1.5, md: 2 }} colorScheme="teal" fontSize="xs" borderRadius="full">
                           <Box as="span" display={{ base: 'none', sm: 'inline' }}>Próximamente</Box>
                           <Box as="span" display={{ base: 'inline', sm: 'none' }}>Pronto</Box>
                         </Badge>
@@ -1723,12 +1729,12 @@ export default function ImportCatalogPage() {
           <Box ref={resultsRef} scrollMarginTop="80px">
             {status === 'loading' && (
               <VStack spacing={4} align="stretch">
-                <Text color="whiteAlpha.500" fontSize="md" textAlign="center">
+                <Text color="alpha.500" fontSize="md" textAlign="center">
                   Cargando resultados...
                 </Text>
                 <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={4}>
                   {Array.from({ length: 8 }).map((_, i) => (
-                    <Skeleton key={i} height="300px" borderRadius="xl" startColor="#2d1e2a" endColor="#3d2a38" />
+                    <Skeleton key={i} height="300px" borderRadius="xl" startColor="arkya.modal" endColor="arkya.deep" />
                   ))}
                 </SimpleGrid>
               </VStack>
@@ -1736,15 +1742,15 @@ export default function ImportCatalogPage() {
 
             {status === 'error' && (
               <VStack py={10} spacing={3} textAlign="center">
-                <Text color="whiteAlpha.700" fontSize="xl">
+                <Text color="alpha.700" fontSize="xl">
                   No pudimos cargar el catálogo en este momento.
                 </Text>
-                <Text color="whiteAlpha.500" fontSize="md">
+                <Text color="alpha.500" fontSize="md">
                   Probá de nuevo en unos segundos.
                 </Text>
                 <Button
                   size="md"
-                  colorScheme="pink"
+                  colorScheme="teal"
                   variant="outline"
                   mt={2}
                   onClick={() => setRetryTick((t) => t + 1)}
@@ -1756,10 +1762,10 @@ export default function ImportCatalogPage() {
 
             {status === 'ok' && items.length === 0 && (
               <VStack py={10} spacing={3} textAlign="center">
-                <Text color="whiteAlpha.700" fontSize="xl">
+                <Text color="alpha.700" fontSize="xl">
                   {query ? `No hay resultados para “${query}”.` : 'No hay resultados.'}
                 </Text>
-                <Text color="whiteAlpha.500" fontSize="md">
+                <Text color="alpha.500" fontSize="md">
                   Si no lo encontrás, consultanos por Instagram y lo buscamos nosotros.
                 </Text>
               </VStack>
@@ -1767,7 +1773,7 @@ export default function ImportCatalogPage() {
 
             {status === 'ok' && items.length > 0 && (
               <>
-                <Text color="whiteAlpha.500" fontSize="md" mb={4} textAlign="center">
+                <Text color="alpha.500" fontSize="md" mb={4} textAlign="center">
                   {`Mostrando ${(page - 1) * 24 + 1}–${(page - 1) * 24 + items.length} de ${
                     totalApprox ? 'más de ' : ''
                   }${totalCount.toLocaleString('es-AR')} resultados`}
@@ -1782,10 +1788,10 @@ export default function ImportCatalogPage() {
                         borderRadius="lg"
                         overflow="hidden"
                         border="2px solid"
-                        borderColor={isSelected ? 'pink.400' : 'transparent'}
+                        borderColor={isSelected ? 'teal.400' : 'transparent'}
                         boxShadow="md"
                         transition="all 0.2s"
-                        _hover={{ borderColor: 'pink.400', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.04)' }}
+                        _hover={{ borderColor: 'teal.400', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.04)' }}
                         display="flex"
                         flexDirection="column"
                         cursor="pointer"
@@ -1805,11 +1811,11 @@ export default function ImportCatalogPage() {
                           justify="center"
                           borderRadius="md"
                           border="2px solid"
-                          borderColor={isSelected ? 'pink.400' : 'whiteAlpha.500'}
-                          bg={isSelected ? 'pink.400' : 'blackAlpha.600'}
+                          borderColor={isSelected ? 'teal.400' : 'whiteAlpha.500'}
+                          bg={isSelected ? 'teal.400' : 'blackAlpha.600'}
                           cursor="pointer"
                           transition="all 0.15s"
-                          _hover={{ borderColor: 'pink.300' }}
+                          _hover={{ borderColor: 'teal.300' }}
                           onClick={(e) => {
                             e.stopPropagation();
                             toggleSelect(p);
@@ -1851,11 +1857,11 @@ export default function ImportCatalogPage() {
                               onError={() =>
                                 setBrokenImages((prev) => ({ ...prev, [p.id]: true }))
                               }
-                              fallback={<Spinner color="pink.400" />}
+                              fallback={<Spinner color="teal.300" />}
                             />
                           ) : (
                             // Placeholder para items sin foto en el origen
-                            <VStack spacing={2} color="whiteAlpha.400" h="100%" justify="center">
+                            <VStack spacing={2} color="whiteAlpha.500" h="100%" justify="center">
                               <FaBookOpen size={34} />
                               <Text fontSize="sm" letterSpacing="wider" textTransform="uppercase">
                                 Sin imagen
@@ -1880,7 +1886,7 @@ export default function ImportCatalogPage() {
                             top={2}
                             left={2}
                             zIndex={2}
-                            bg="pink.400"
+                            bg="teal.400"
                             color="white"
                             borderRadius="full"
                             px={3}
@@ -1897,7 +1903,7 @@ export default function ImportCatalogPage() {
                           {p.subLabel && (
                             <Text
                               fontSize="xs"
-                              color="pink.300"
+                              color="teal.300"
                               fontWeight={700}
                               textTransform="uppercase"
                               letterSpacing="wider"
@@ -1922,8 +1928,10 @@ export default function ImportCatalogPage() {
                           )}
                           <Button
                             size="md"
-                            colorScheme="pink"
                             variant="outline"
+                            borderColor="teal.400"
+                            color="teal.300"
+                            _hover={{ bg: 'whiteAlpha.100', borderColor: 'teal.300' }}
                             leftIcon={<FaInstagram />}
                             mt={p.releaseDate ? 0 : 'auto'}
                             onClick={(e) => {
@@ -1942,7 +1950,7 @@ export default function ImportCatalogPage() {
                 {/* Paginación numerada (mismo estilo que el catálogo principal) */}
                 {totalPages > 1 && (
                   <Flex justify="center" mt={8} mb={4} overflowX="auto" px={2}>
-                    <ButtonGroup variant="outline" spacing={{ base: 1, md: 2 }} colorScheme="pink" size="md">
+                    <ButtonGroup variant="outline" spacing={{ base: 1, md: 2 }} colorScheme="teal" size="md">
                       <IconButton
                         icon={<FaChevronLeft />}
                         onClick={() => goToPage(page - 1)}
@@ -1958,7 +1966,7 @@ export default function ImportCatalogPage() {
                             key={1}
                             onClick={() => goToPage(1)}
                             variant={page === 1 ? 'solid' : 'outline'}
-                            colorScheme="pink"
+                            colorScheme="teal"
                             size="md"
                           >
                             1
@@ -1969,7 +1977,7 @@ export default function ImportCatalogPage() {
                           if (page <= 4) {
                             for (let i = 2; i <= Math.min(5, totalPages - 1); i++) {
                               pageButtons.push(
-                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="md">{i}</Button>
+                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="teal" size="md">{i}</Button>
                               );
                             }
                             pageButtons.push(
@@ -1981,7 +1989,7 @@ export default function ImportCatalogPage() {
                             );
                             for (let i = Math.max(2, totalPages - 4); i < totalPages; i++) {
                               pageButtons.push(
-                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="md">{i}</Button>
+                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="teal" size="md">{i}</Button>
                               );
                             }
                           } else {
@@ -1990,7 +1998,7 @@ export default function ImportCatalogPage() {
                             );
                             for (let i = page - 2; i <= page + 2; i++) {
                               pageButtons.push(
-                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="pink" size="md">{i}</Button>
+                                <Button key={i} onClick={() => goToPage(i)} variant={page === i ? 'solid' : 'outline'} colorScheme="teal" size="md">{i}</Button>
                               );
                             }
                             pageButtons.push(
@@ -2004,7 +2012,7 @@ export default function ImportCatalogPage() {
                                 key={i}
                                 onClick={() => goToPage(i)}
                                 variant={page === i ? 'solid' : 'outline'}
-                                colorScheme="pink"
+                                colorScheme="teal"
                                 size="md"
                               >
                                 {i}
@@ -2022,7 +2030,7 @@ export default function ImportCatalogPage() {
                               key={totalPages}
                               onClick={() => goToPage(totalPages)}
                               variant={page === totalPages ? 'solid' : 'outline'}
-                              colorScheme="pink"
+                              colorScheme="teal"
                               size="md"
                             >
                               {totalPages}
@@ -2046,7 +2054,7 @@ export default function ImportCatalogPage() {
 
                 {/* Aviso de catálogo en crecimiento */}
                 <Text
-                  color="whiteAlpha.500"
+                  color="alpha.500"
                   fontSize="md"
                   textAlign="center"
                   mt={8}
@@ -2072,9 +2080,9 @@ export default function ImportCatalogPage() {
           left={{ base: 3, md: '50%' }}
           transform={{ base: 'none', md: 'translateX(-50%)' }}
           zIndex={1000}
-          bg="pink.400"
+          bg="teal.400"
           border="1px solid"
-          borderColor="pink.400"
+          borderColor="teal.400"
           borderRadius={{ base: 'xl', md: 'full' }}
           px={{ base: 3, md: 5 }}
           py={3}
@@ -2104,13 +2112,13 @@ export default function ImportCatalogPage() {
           <Button
             size="md"
             bg="white"
-            color="pink.600"
+            color="teal.600"
             borderRadius="full"
             leftIcon={<FaInstagram />}
             onClick={() => openConsult(selectedList)}
             whiteSpace="nowrap"
             w={{ base: 'full', md: 'auto' }}
-            _hover={{ bg: 'pink.50' }}
+            _hover={{ bg: 'teal.50' }}
           >
             Consultar por Instagram
           </Button>
@@ -2131,7 +2139,7 @@ export default function ImportCatalogPage() {
       {/* Modal de consulta por Instagram (mismo estilo que "Comprar por Instagram") */}
       <Modal isOpen={isConsultOpen} onClose={onConsultClose} isCentered size="lg" scrollBehavior="inside">
         <ModalOverlay />
-        <ModalContent bg="#2d1e2a" color="white" mx={4} maxH="85vh" overflowY="auto">
+        <ModalContent bg="arkya.modal" color="white" mx={4} maxH="85vh" overflowY="auto">
           <ModalHeader fontSize="3xl" fontWeight="bold" pb={2}>
             Consultar por Instagram
           </ModalHeader>
@@ -2145,7 +2153,7 @@ export default function ImportCatalogPage() {
 
               <List spacing={4}>
                 <ListItem display="flex" alignItems="flex-start">
-                  <ListIcon as={FaClipboard} color="pink.300" mt={1} fontSize="xl" />
+                  <ListIcon as={FaClipboard} color="teal.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 1: Copiar mensaje</Text>
                     <Text fontSize="md" color="whiteAlpha.600">
@@ -2154,7 +2162,7 @@ export default function ImportCatalogPage() {
                   </Box>
                 </ListItem>
                 <ListItem display="flex" alignItems="flex-start">
-                  <ListIcon as={FaInstagram} color="pink.300" mt={1} fontSize="xl" />
+                  <ListIcon as={FaInstagram} color="teal.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 2: Abrir Instagram</Text>
                     <Text fontSize="md" color="whiteAlpha.600">
@@ -2163,7 +2171,7 @@ export default function ImportCatalogPage() {
                   </Box>
                 </ListItem>
                 <ListItem display="flex" alignItems="flex-start">
-                  <ListIcon as={FaCheckCircle} color="pink.300" mt={1} fontSize="xl" />
+                  <ListIcon as={FaCheckCircle} color="teal.300" mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
                     <Text fontSize="md" color="whiteAlpha.600">
@@ -2180,11 +2188,11 @@ export default function ImportCatalogPage() {
                 borderWidth="1px"
                 borderColor="whiteAlpha.200"
               >
-                <Text fontWeight="bold" mb={3} fontSize="lg" color="pink.300">
+                <Text fontWeight="bold" mb={3} fontSize="lg" color="teal.300">
                   📋 Vista previa del mensaje:
                 </Text>
                 <Box
-                  bg="gray.800"
+                  bg="arkya.cardAlt"
                   p={3}
                   borderRadius="md"
                   fontSize="md"
@@ -2203,12 +2211,12 @@ export default function ImportCatalogPage() {
               Cancelar
             </Button>
             <Button
-              bg="pink.400"
+              bg="teal.400"
               color="white"
               size="lg"
               leftIcon={<FaInstagram />}
               onClick={handleCopyAndOpenInstagram}
-              _hover={{ bg: 'pink.500' }}
+              _hover={{ bg: 'teal.500' }}
             >
               Copiar y abrir Instagram
             </Button>
@@ -2225,7 +2233,7 @@ export default function ImportCatalogPage() {
         size="full"
         motionPreset="scale"
       >
-        <ModalOverlay bg="rgba(36, 21, 33, 0.92)" backdropFilter="blur(10px)" />
+        <ModalOverlay bg="rgba(36, 21, 33, 0.92)" />
         <ModalContent bg="transparent" boxShadow="none" onClick={onPreviewClose} cursor="zoom-out">
           <ModalCloseButton
             color="white"
@@ -2302,14 +2310,14 @@ export default function ImportCatalogPage() {
                       </Badge>
                     )}
                     {/* Sin banda conocida se muestra la media ~$35–70k */}
-                    <Badge colorScheme="pink" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
+                    <Badge colorScheme="teal" borderRadius="full" px={4} py={1} fontSize={{ base: 'md', md: 'lg' }}>
                       {JP_PRICE_BANDS[previewItem.priceBand ?? 3]?.label}
                     </Badge>
                   </HStack>
                   <HStack spacing={3} flexWrap="wrap" justify="center">
                     <Button
                       size="md"
-                      colorScheme="pink"
+                      colorScheme="teal"
                       borderRadius="full"
                       leftIcon={<FaInstagram />}
                       onClick={() => {
@@ -2321,7 +2329,7 @@ export default function ImportCatalogPage() {
                     </Button>
                     <Button
                       size="md"
-                      colorScheme="pink"
+                      colorScheme="teal"
                       variant={selected[previewItem.id] ? 'solid' : 'outline'}
                       borderRadius="full"
                       onClick={() => toggleSelect(previewItem)}

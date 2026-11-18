@@ -70,7 +70,7 @@ function GameBannerActions() {
     >
       {showCountdown && (
         <VStack spacing={0} align={{ base: 'start', md: 'flex-end' }}>
-          <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.100" display={{ base: 'block', md: 'none' }}>
+          <Text fontSize={{ base: 'xs', md: 'sm' }} color="teal.100" display={{ base: 'block', md: 'none' }}>
             Termina en:
           </Text>
           <GameCountdownBadge />
@@ -80,13 +80,13 @@ function GameBannerActions() {
         display={{ base: 'none', md: 'inline-flex' }}
         size={{ base: 'md', md: 'lg' }}
         bg="white"
-        color="#702963"
+        color="#1d584f"
         fontWeight="extrabold"
         borderRadius="full"
         px={8}
         py={6}
         fontSize={{ base: 'md', md: 'lg' }}
-        _hover={{ bg: 'pink.50', transform: 'scale(1.05)' }}
+        _hover={{ bg: 'teal.50', transform: 'scale(1.05)' }}
         flexShrink={0}
         boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
       >
@@ -103,9 +103,9 @@ function GameCountdownBadge({ variant = 'large' }) {
     <Text
       fontSize={variant === 'small' ? { base: 'sm', md: 'md' } : { base: 'lg', md: '4xl' }}
       fontWeight="extrabold"
-      color="whiteAlpha.900"
+      color="alpha.900"
       lineHeight="1"
-      textShadow="0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(236,72,153,0.3)"
+      textShadow="0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(65, 191, 169,0.3)"
       letterSpacing="widest"
       whiteSpace="nowrap"
     >
@@ -121,15 +121,15 @@ function GameInviteModal({ isOpen, onClose }) {
     <Modal isOpen={isOpen} onClose={onClose} size={{ base: 'sm', md: 'md' }} isCentered motionPreset="slideInBottom">
       <ModalOverlay
         bg="blackAlpha.800"
-        backdropFilter="blur(8px)"
+
       />
       <ModalContent
-        bg="linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 25%, #702963 60%, #b83280 100%)"
+        bg="linear-gradient(135deg, #241521 0%, #3a2e3a 25%, #1d584f 60%, #247165 100%)"
         color="white"
         borderRadius="3xl"
         border="3px solid"
-        borderColor="pink.300"
-        boxShadow="0 0 30px rgba(236, 72, 153, 0.6), 0 25px 50px rgba(0, 0, 0, 0.5)"
+        borderColor="teal.300"
+        boxShadow="0 0 30px rgba(65, 191, 169, 0.6), 0 25px 50px rgba(0, 0, 0, 0.5)"
         overflow="hidden"
         position="relative"
       >
@@ -141,7 +141,7 @@ function GameInviteModal({ isOpen, onClose }) {
           width="300px"
           height="300px"
           borderRadius="full"
-          bg="rgba(255, 182, 206, 0.12)"
+          bg="rgba(192, 240, 232, 0.12)"
           filter="blur(60px)"
           pointerEvents="none"
         />
@@ -152,7 +152,7 @@ function GameInviteModal({ isOpen, onClose }) {
           width="350px"
           height="350px"
           borderRadius="full"
-          bg="rgba(236, 72, 153, 0.15)"
+          bg="rgba(65, 191, 169, 0.15)"
           filter="blur(80px)"
           pointerEvents="none"
         />
@@ -162,7 +162,7 @@ function GameInviteModal({ isOpen, onClose }) {
           zIndex={2}
           borderRadius="full"
           size="lg"
-          _hover={{ bg: 'whiteAlpha.200', transform: 'rotate(90deg)' }}
+          _hover={{ bg: 'alpha.200', transform: 'rotate(90deg)' }}
           transition="all 0.3s ease"
         />
 
@@ -174,7 +174,7 @@ function GameInviteModal({ isOpen, onClose }) {
               top={10}
               right={{ base: 24, md: 0 }}
               bg="linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)"
-              color="#1a0b2e"
+              color="#241521"
               px={3}
               py={1}
               borderRadius="full"
@@ -199,25 +199,25 @@ function GameInviteModal({ isOpen, onClose }) {
                 width="110px"
                 height="110px"
                 borderRadius="full"
-                bg="rgba(251, 182, 206, 0.3)"
+                bg="rgba(192, 240, 232, 0.3)"
                 filter="blur(20px)"
                 animation="pulse 2s ease-in-out infinite"
               />
               <Box
-                bg="whiteAlpha.200"
+                bg="alpha.200"
                 p={{ base: 5, md: 6 }}
                 borderRadius="full"
-                backdropFilter="blur(12px)"
+
                 border="2px solid"
-                borderColor="pink.200"
-                boxShadow="0 0 40px rgba(251, 182, 206, 0.4)"
+                borderColor="teal.200"
+                boxShadow="0 0 40px rgba(192, 240, 232, 0.4)"
                 position="relative"
                 zIndex={1}
                 as={motion.div}
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <FaGamepad size={56} color="#fbb6ce" />
+                <FaGamepad size={56} color="#94e4d7" />
               </Box>
             </Box>
 
@@ -228,16 +228,16 @@ function GameInviteModal({ isOpen, onClose }) {
                 mb={3}
                 fontWeight="extrabold"
                 lineHeight="1.1"
-                textShadow="0 0 30px rgba(236, 72, 153, 0.8)"
+                textShadow="0 0 30px rgba(65, 191, 169, 0.8)"
               >
                 ¡Adiviná el anime
-                <Box as="span" display="block" color="pink.200">
+                <Box as="span" display="block" color="arkya.accent">
                   y GANÁ descuentos!
                 </Box>
               </Heading>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
-                color="pink.100"
+                color="teal.100"
                 fontWeight="medium"
               >
                 5 niveles de dificultad
@@ -245,16 +245,16 @@ function GameInviteModal({ isOpen, onClose }) {
             </Box>
 
             <Box
-              bg="whiteAlpha.150"
+              bg="alpha.150"
               px={6}
               py={3}
               borderRadius="2xl"
-              backdropFilter="blur(8px)"
+
               border="1px solid"
-              borderColor="whiteAlpha.200"
+              borderColor="alpha.200"
               boxShadow="0 4px 20px rgba(0, 0, 0, 0.2)"
             >
-              <Text fontSize={{ base: 'xs', md: 'sm' }} color="pink.200" mb={1} fontWeight="semibold" letterSpacing="wide">
+              <Text fontSize={{ base: 'xs', md: 'sm' }} color="arkya.accent" mb={1} fontWeight="semibold" letterSpacing="wide">
                 TIEMPO RESTANTE
               </Text>
               <GameCountdownBadge variant="small" />
@@ -262,7 +262,7 @@ function GameInviteModal({ isOpen, onClose }) {
 
             <Text
               fontSize={{ base: 'sm', md: 'md' }}
-              color="whiteAlpha.900"
+              color="alpha.900"
               maxW="280px"
               lineHeight="relaxed"
             >
@@ -277,17 +277,17 @@ function GameInviteModal({ isOpen, onClose }) {
               as={Link}
               to="/adivina-el-anime"
               width="100%"
-              bg="linear-gradient(135deg, #ffffff 0%, #fce7f3 100%)"
-              color="#702963"
+              bg="linear-gradient(135deg, #ffffff 0%, #e6faf6 100%)"
+              color="#1d584f"
               fontWeight="extrabold"
               borderRadius="full"
               px={8}
               py={7}
               fontSize={{ base: 'lg', md: 'xl' }}
               _hover={{
-                bg: 'linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)',
+                bg: 'linear-gradient(135deg, #e6faf6 0%, #c0f0e8 100%)',
                 transform: 'translateY(-2px) scale(1.02)',
-                boxShadow: '0 10px 30px rgba(236, 72, 153, 0.4)'
+                boxShadow: '0 10px 30px rgba(65, 191, 169, 0.4)'
               }}
               boxShadow="0 4px 20px rgba(0, 0, 0, 0.3)"
               onClick={onClose}
@@ -296,9 +296,9 @@ function GameInviteModal({ isOpen, onClose }) {
             </Button>
             <Button
               variant="ghost"
-              color="pink.100"
+              color="teal.100"
               fontWeight="semibold"
-              _hover={{ bg: 'whiteAlpha.200', color: 'white' }}
+              _hover={{ bg: 'alpha.200', color: 'arkya.text' }}
               borderRadius="full"
               size="sm"
               onClick={onClose}
@@ -1038,7 +1038,7 @@ export default function HomePage({ storeOnly = false }) {
           todos: {
             title:
               "Arkya Store - Artbooks, Doujinshi, Mangas y Revistas Importadas de Japón",
-            desc: "Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos a pedido.",
+            desc: "Hacé tu pedido de Artbooks, Dōjinshi (Doujinshi), Mangas, Guías oficiales, Novelas Ligeras, Revistas (Jump, etc.) y merchandising importado desde Japón. Envíos a todo el país. También traemos libros a pedido.",
             url: "https://arkya.store/",
           },
           artbooks: {
@@ -1138,7 +1138,7 @@ export default function HomePage({ storeOnly = false }) {
             <Box
               py={2}
               px={4}
-              bg="pink.100"
+              bg="teal.100"
               color="gray.700"
               textAlign="center"
               fontSize="md"
@@ -1169,15 +1169,15 @@ export default function HomePage({ storeOnly = false }) {
               mb={0}
               p={{ base: 6, md: 8 }}
               borderRadius="3xl"
-              bgGradient="linear(to-r, #702963, #b83280)"
+              bgGradient="linear(to-r, #247165, #d53f8c)"
               border="3px solid"
-              borderColor="pink.300"
-              boxShadow="0 0 40px rgba(236, 72, 153, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1)"
+              borderColor="teal.300"
+              boxShadow="0 0 40px rgba(65, 191, 169, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.1)"
               _hover={{
                 transform: "translateY(-5px) scale(1.02)",
                 boxShadow:
-                  "0 0 60px rgba(236, 72, 153, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.15)",
-                bgGradient: "linear(to-r, #8a3a7f, #d63d96)",
+                  "0 0 60px rgba(213, 63, 140, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.15)",
+                bgGradient: "linear(to-r, #2a8c7c, #ed64a6)",
               }}
               transition="all 0.3s ease"
               position="relative"
@@ -1190,7 +1190,7 @@ export default function HomePage({ storeOnly = false }) {
                 left={0}
                 right={0}
                 bottom={0}
-                bgGradient="radial(circle at 20% 50%, rgba(255, 182, 206, 0.1) 0%, transparent 50%)"
+                bgGradient="radial(circle at 20% 50%, rgba(192, 240, 232, 0.1) 0%, transparent 50%)"
                 pointerEvents="none"
               />
 
@@ -1211,13 +1211,13 @@ export default function HomePage({ storeOnly = false }) {
                 >
                   <HStack spacing={{ base: 3, md: 5 }} align="center">
                     <Box
-                      bg="whiteAlpha.300"
+                      bg="alpha.300"
                       p={{ base: 3, md: 4 }}
                       borderRadius="full"
-                      backdropFilter="blur(8px)"
-                      boxShadow="0 0 20px rgba(251, 182, 206, 0.3)"
+
+                      boxShadow="0 0 20px rgba(192, 240, 232, 0.3)"
                     >
-                      <FaGamepad size={32} color="#fbb6ce" />
+                      <FaGamepad size={32} color="#94e4d7" />
                     </Box>
                     <VStack align="start" spacing={1}>
                       <Text
@@ -1230,7 +1230,7 @@ export default function HomePage({ storeOnly = false }) {
                       </Text>
                       <Text
                         fontSize={{ base: "xs", md: "md" }}
-                        color="pink.100"
+                        color="teal.100"
                         fontWeight="600"
                       >
                         5 niveles · Hasta {GAME_CONFIG.maxDiscount}% OFF
@@ -1241,13 +1241,13 @@ export default function HomePage({ storeOnly = false }) {
                     display={{ base: "inline-flex", md: "none" }}
                     size="md"
                     bg="white"
-                    color="#702963"
+                    color="#1d584f"
                     fontWeight="extrabold"
                     borderRadius="full"
                     px={8}
                     py={6}
                     fontSize="md"
-                    _hover={{ bg: "pink.50", transform: "scale(1.05)" }}
+                    _hover={{ bg: "teal.50", transform: "scale(1.05)" }}
                     flexShrink={0}
                     boxShadow="0 4px 15px rgba(0, 0, 0, 0.2)"
                   >
@@ -1277,10 +1277,17 @@ export default function HomePage({ storeOnly = false }) {
           id="productos"
           name="productos"
           py={isHeaderSearch ? 4 : 10}
-          bg="#453641"
+          bg="transparent"
         >
           <Container maxW={"7xl"}>
-            <Heading as="h2" size="xl" mb={3} textAlign="center" color="white">
+            <Heading
+              as="h2"
+              size="xl"
+              mb={3}
+              textAlign="center"
+              bgGradient="linear(to-r, teal.500, pink.500)"
+              bgClip="text"
+            >
               {activeCategory === "todos"
                 ? "Todos los Productos"
                 : activeCategory === "adultos"
@@ -1353,10 +1360,10 @@ export default function HomePage({ storeOnly = false }) {
                   py={2}
                   minW="80px"
                   height="40px"
-                  bg={activeCategory === "todos" ? "pink.400" : "white"}
+                  bg={activeCategory === "todos" ? "teal.400" : "white"}
                   color={activeCategory === "todos" ? "white" : "gray.800"}
                   borderColor={
-                    activeCategory === "todos" ? "pink.400" : "gray.300"
+                    activeCategory === "todos" ? "teal.400" : "gray.300"
                   }
                   variant={activeCategory === "todos" ? "solid" : "outline"}
                   onClick={() => {
@@ -1364,7 +1371,7 @@ export default function HomePage({ storeOnly = false }) {
                     setAdultFilterActive(false);
                   }}
                   _hover={{
-                    bg: activeCategory === "todos" ? "pink.500" : "gray.100",
+                    bg: activeCategory === "todos" ? "teal.500" : "gray.100",
                   }}
                   fontWeight="medium"
                 >
@@ -1443,7 +1450,7 @@ export default function HomePage({ storeOnly = false }) {
                           excludedCategories.includes(category.id)
                             ? "red.600"
                             : activeCategory === category.id
-                              ? "pink.400"
+                              ? "teal.400"
                               : "white"
                         }
                         color={
@@ -1456,7 +1463,7 @@ export default function HomePage({ storeOnly = false }) {
                           excludedCategories.includes(category.id)
                             ? "red.600"
                             : activeCategory === category.id
-                              ? "pink.400"
+                              ? "teal.400"
                               : "gray.300"
                         }
                         variant="solid"
@@ -1464,7 +1471,7 @@ export default function HomePage({ storeOnly = false }) {
                           bg: excludedCategories.includes(category.id)
                             ? "red.700"
                             : activeCategory === category.id
-                              ? "pink.500"
+                              ? "teal.500"
                               : "gray.100",
                         }}
                         fontWeight="medium"
@@ -1490,7 +1497,7 @@ export default function HomePage({ storeOnly = false }) {
                               bg={
                                 activeCategory === category.id &&
                                 activeSubcategory === subcategory.id
-                                  ? "pink.100"
+                                  ? "teal.100"
                                   : undefined
                               }
                             >
@@ -1512,7 +1519,7 @@ export default function HomePage({ storeOnly = false }) {
                         excludedCategories.includes(category.id)
                           ? "red.600"
                           : activeCategory === category.id
-                            ? "pink.400"
+                            ? "teal.400"
                             : "white"
                       }
                       color={
@@ -1525,7 +1532,7 @@ export default function HomePage({ storeOnly = false }) {
                         excludedCategories.includes(category.id)
                           ? "red.600"
                           : activeCategory === category.id
-                            ? "pink.400"
+                            ? "teal.400"
                             : "gray.300"
                       }
                       variant="solid"
@@ -1534,7 +1541,7 @@ export default function HomePage({ storeOnly = false }) {
                         bg: excludedCategories.includes(category.id)
                           ? "red.700"
                           : activeCategory === category.id
-                            ? "pink.500"
+                            ? "teal.500"
                             : "gray.100",
                       }}
                       fontWeight="medium"
@@ -1561,18 +1568,18 @@ export default function HomePage({ storeOnly = false }) {
                       variant="outline"
                       bg={
                         excludedCategories.length > 0
-                          ? "pink.500"
-                          : "whiteAlpha.200"
+                          ? "teal.500"
+                          : "alpha.200"
                       }
-                      color="white"
-                      borderColor="whiteAlpha.300"
+                      color={excludedCategories.length > 0 ? "white" : "arkya.text"}
+                      borderColor="alpha.300"
                       _hover={{
                         bg:
                           excludedCategories.length > 0
-                            ? "pink.600"
-                            : "whiteAlpha.300",
+                            ? "teal.600"
+                            : "alpha.300",
                       }}
-                      fontWeight="medium"
+                      fontWeight="bold"
                     >
                       {excludedCategories.length > 0
                         ? `✓ Excluir (${excludedCategories.length})`
@@ -1580,11 +1587,11 @@ export default function HomePage({ storeOnly = false }) {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent
-                    bg="gray.800"
-                    borderColor="gray.700"
+                    bg="arkya.modal"
+                    borderColor="whiteAlpha.300"
                     width="260px"
                   >
-                    <PopoverArrow bg="gray.800" />
+                    <PopoverArrow bg="arkya.modal" />
                     <PopoverBody p={4}>
                       <VStack spacing={3} align="stretch">
                         <Text color="white" fontWeight="bold" fontSize="sm">
@@ -1593,7 +1600,7 @@ export default function HomePage({ storeOnly = false }) {
                         {excludedCategories.length > 0 && (
                           <Button
                             size="sm"
-                            colorScheme="pink"
+                            colorScheme="teal"
                             variant="ghost"
                             onClick={() => {
                               setExcludedCategories([]);
@@ -1631,8 +1638,8 @@ export default function HomePage({ storeOnly = false }) {
                                   return newExcluded;
                                 });
                               }}
-                              colorScheme="pink"
-                              color="gray.200"
+                              colorScheme="teal"
+                              color="white"
                               size="sm"
                             >
                               {category.name}
@@ -1656,7 +1663,7 @@ export default function HomePage({ storeOnly = false }) {
                               });
                             }}
                             colorScheme="red"
-                            color="gray.200"
+                            color="white"
                             size="sm"
                           >
                             Contenido +18
@@ -1697,7 +1704,7 @@ export default function HomePage({ storeOnly = false }) {
                   >
                     <InputGroup>
                       <InputLeftElement pointerEvents="none">
-                        <FaSearch color="white" />
+                        <FaSearch color="arkya.text" />
                       </InputLeftElement>
                       <Input
                         placeholder="Buscar productos..."
@@ -1779,14 +1786,14 @@ export default function HomePage({ storeOnly = false }) {
                           }
                         }}
                         borderRadius="md"
-                        bg="whiteAlpha.200"
-                        color="white"
-                        borderColor="whiteAlpha.300"
-                        _placeholder={{ color: "whiteAlpha.700" }}
-                        _hover={{ borderColor: "whiteAlpha.400" }}
+                        bg="alpha.200"
+                        color="arkya.text"
+                        borderColor="alpha.300"
+                        _placeholder={{ color: "alpha.700" }}
+                        _hover={{ borderColor: "alpha.400" }}
                         _focus={{
-                          borderColor: "pink.300",
-                          boxShadow: "0 0 0 1px #d53f8c",
+                          borderColor: "teal.300",
+                          boxShadow: "0 0 0 1px #2a8c7c",
                         }}
                         pr="2.5rem"
                       />
@@ -1806,9 +1813,9 @@ export default function HomePage({ storeOnly = false }) {
                               }
                             }}
                             variant="ghost"
-                            colorScheme="whiteAlpha"
+                            colorScheme="blackAlpha"
                             aria-label="Limpiar búsqueda"
-                            _hover={{ bg: "whiteAlpha.300" }}
+                            _hover={{ bg: "alpha.300" }}
                           />
                         </InputRightElement>
                       )}
@@ -1822,7 +1829,7 @@ export default function HomePage({ storeOnly = false }) {
                         left={0}
                         right={0}
                         mt={2}
-                        bg="#241521"
+                        bg="arkya.card"
                         borderRadius="xl"
                         boxShadow="0 8px 32px rgba(0,0,0,0.5)"
                         zIndex={1000}
@@ -1841,11 +1848,11 @@ export default function HomePage({ storeOnly = false }) {
                                 px={4}
                                 py={2}
                                 borderBottom="1px solid"
-                                borderColor="gray.700"
+                                borderColor="whiteAlpha.300"
                               >
                                 <Text
                                   fontSize="xs"
-                                  color="gray.400"
+                                  color="whiteAlpha.500"
                                   fontWeight="bold"
                                 >
                                   BÚSQUEDAS RECIENTES
@@ -1853,7 +1860,7 @@ export default function HomePage({ storeOnly = false }) {
                                 <Button
                                   size="xs"
                                   variant="ghost"
-                                  colorScheme="pink"
+                                  colorScheme="teal"
                                   onClick={clearSearchHistory}
                                 >
                                   Limpiar
@@ -1896,12 +1903,12 @@ export default function HomePage({ storeOnly = false }) {
                             <Box>
                               <Text
                                 fontSize="xs"
-                                color="gray.400"
+                                color="whiteAlpha.500"
                                 fontWeight="bold"
                                 px={4}
                                 py={2}
                                 borderBottom="1px solid"
-                                borderColor="gray.700"
+                                borderColor="whiteAlpha.300"
                               >
                                 SUGERENCIAS
                               </Text>
@@ -1961,7 +1968,7 @@ export default function HomePage({ storeOnly = false }) {
                                       {suggestion.text}
                                     </Text>
                                     <Text
-                                      color="pink.300"
+                                      color="teal.300"
                                       fontSize="xs"
                                       fontWeight="bold"
                                     >
@@ -1981,7 +1988,7 @@ export default function HomePage({ storeOnly = false }) {
                         {searchTerm.length >= 2 &&
                           searchSuggestions.length === 0 && (
                             <Box px={4} py={6} textAlign="center">
-                              <Text color="gray.400" fontSize="sm">
+                              <Text color="whiteAlpha.500" fontSize="sm">
                                 No se encontraron productos
                               </Text>
                             </Box>
@@ -2003,13 +2010,13 @@ export default function HomePage({ storeOnly = false }) {
                 >
                   {/* Botón para filtrar productos en oferta */}
                   <Button
-                    colorScheme={filterOffersOnly ? "pink" : "gray"}
+                    colorScheme="teal"
                     variant={filterOffersOnly ? "solid" : "outline"}
                     size={{ base: "sm", md: "md" }}
-                    bg={filterOffersOnly ? "pink.500" : "whiteAlpha.200"}
-                    color="white"
+                    bg={filterOffersOnly ? "teal.500" : "alpha.200"}
+                    color={filterOffersOnly ? "white" : "arkya.text"}
                     _hover={{
-                      bg: filterOffersOnly ? "pink.600" : "whiteAlpha.300",
+                      bg: filterOffersOnly ? "teal.600" : "alpha.300",
                     }}
                     onClick={() => {
                       setFilterOffersOnly(!filterOffersOnly);
@@ -2031,10 +2038,10 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         variant="outline"
                         size={{ base: "sm", md: "md" }}
-                        bg="whiteAlpha.200"
-                        color="white"
-                        borderColor="whiteAlpha.300"
-                        _hover={{ bg: "whiteAlpha.300" }}
+                        bg="alpha.200"
+                        color="arkya.text"
+                        borderColor="alpha.300"
+                        _hover={{ bg: "alpha.300" }}
                         width="auto"
                       >
                         <Box
@@ -2054,11 +2061,11 @@ export default function HomePage({ storeOnly = false }) {
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent
-                      bg="gray.800"
-                      borderColor="gray.700"
+                      bg="arkya.modal"
+                      borderColor="whiteAlpha.300"
                       width="300px"
                     >
-                      <PopoverArrow bg="gray.800" />
+                      <PopoverArrow bg="arkya.modal" />
                       <PopoverBody p={6}>
                         <VStack spacing={4} align="stretch">
                           <Text color="white" fontWeight="bold" fontSize="sm">
@@ -2074,23 +2081,23 @@ export default function HomePage({ storeOnly = false }) {
                               setPriceRange(val);
                               setCurrentPage(1);
                             }}
-                            colorScheme="pink"
+                            colorScheme="teal"
                           >
                             <RangeSliderTrack bg="gray.600">
-                              <RangeSliderFilledTrack bg="pink.400" />
+                              <RangeSliderFilledTrack bg="teal.400" />
                             </RangeSliderTrack>
                             <RangeSliderThumb index={0} boxSize={6}>
-                              <Box color="pink.400" />
+                              <Box color="teal.300" />
                             </RangeSliderThumb>
                             <RangeSliderThumb index={1} boxSize={6}>
-                              <Box color="pink.400" />
+                              <Box color="teal.300" />
                             </RangeSliderThumb>
                           </RangeSlider>
                           <HStack justify="space-between">
-                            <Text color="gray.300" fontSize="sm">
+                            <Text color="white" fontSize="sm">
                               ${tempPriceRange[0].toLocaleString()}
                             </Text>
-                            <Text color="gray.300" fontSize="sm">
+                            <Text color="white" fontSize="sm">
                               ${tempPriceRange[1].toLocaleString()}
                             </Text>
                           </HStack>
@@ -2098,7 +2105,7 @@ export default function HomePage({ storeOnly = false }) {
                             priceRange[1] !== maxPrice) && (
                             <Button
                               size="sm"
-                              colorScheme="pink"
+                              colorScheme="teal"
                               variant="ghost"
                               onClick={() => {
                                 priceFromUrlRef.current = false;
@@ -2122,10 +2129,10 @@ export default function HomePage({ storeOnly = false }) {
                       rightIcon={<ChevronDownIcon />}
                       variant="outline"
                       size={{ base: "sm", md: "md" }}
-                      bg="whiteAlpha.200"
-                      color="white"
-                      borderColor="whiteAlpha.300"
-                      _hover={{ bg: "whiteAlpha.300" }}
+                      bg="alpha.200"
+                      color="arkya.text"
+                      borderColor="alpha.300"
+                      _hover={{ bg: "alpha.300" }}
                       width="auto"
                       sx={{
                         ".chakra-button__icon": {
@@ -2279,10 +2286,10 @@ export default function HomePage({ storeOnly = false }) {
                       rightIcon={<ChevronDownIcon />}
                       variant="outline"
                       size={{ base: "sm", md: "md" }}
-                      bg="whiteAlpha.200"
-                      color="white"
-                      borderColor="whiteAlpha.300"
-                      _hover={{ bg: "whiteAlpha.300" }}
+                      bg="alpha.200"
+                      color="arkya.text"
+                      borderColor="alpha.300"
+                      _hover={{ bg: "alpha.300" }}
                       width="auto"
                     >
                       {productsPerPage === 9999
@@ -2315,7 +2322,7 @@ export default function HomePage({ storeOnly = false }) {
                   </Menu>
                 </Flex>
               </Flex>
-              <Text fontSize="sm" color="gray.300" textAlign="center" mb={0}>
+              <Text fontSize="sm" color="arkya.text" textAlign="center" mb={0}>
                 Mostrando {currentProducts.length} de {sortedProducts.length}{" "}
                 {sortedProducts.length === 1 ? "resultado" : "resultados"}
                 {totalPages > 1 && ` • Página ${currentPage} de ${totalPages}`}
@@ -2364,23 +2371,23 @@ export default function HomePage({ storeOnly = false }) {
                   align="center"
                   justify="space-between"
                   gap={4}
-                  bg="whiteAlpha.50"
+                  bg="alpha.50"
                   border="1px solid"
-                  borderColor="whiteAlpha.100"
+                  borderColor="alpha.100"
                   borderLeft="4px solid"
-                  borderLeftColor="pink.400"
+                  borderLeftColor="teal.400"
                   borderRadius="lg"
                   p={5}
                 >
                   <Flex align="center" gap={3}>
-                    <Box color="pink.300" flexShrink={0}>
+                    <Box color="arkya.accent" flexShrink={0}>
                       <FaBookOpen size={20} />
                     </Box>
                     <Box textAlign={{ base: "center", md: "left" }}>
-                      <Text color="white" fontWeight={600}>
+                      <Text color="arkya.text" fontWeight={600}>
                         ¿No encontrás el libro que buscás?
                       </Text>
-                      <Text color="gray.400" fontSize="sm">
+                      <Text color="arkya.textMute" fontSize="sm">
                         Explorá el catálogo de productos que podés traer a pedido y consultá
                         por los que no están en la
                         tienda.
@@ -2390,7 +2397,7 @@ export default function HomePage({ storeOnly = false }) {
                   <Button
                     as={Link}
                     to="/catalogo"
-                    colorScheme="pink"
+                    colorScheme="teal"
                     size="sm"
                     flexShrink={0}
                   >
@@ -2403,7 +2410,7 @@ export default function HomePage({ storeOnly = false }) {
                     <ButtonGroup
                       variant="outline"
                       spacing={{ base: 1, md: 2 }}
-                      colorScheme="pink"
+                      colorScheme="teal"
                       size={{ base: "sm", md: "md" }}
                     >
                       <IconButton
@@ -2422,7 +2429,7 @@ export default function HomePage({ storeOnly = false }) {
                             key={1}
                             onClick={() => handlePageChange(1)}
                             variant={currentPage === 1 ? "solid" : "outline"}
-                            colorScheme="pink"
+                            colorScheme="teal"
                             size={{ base: "sm", md: "md" }}
                           >
                             1
@@ -2443,7 +2450,7 @@ export default function HomePage({ storeOnly = false }) {
                                   variant={
                                     currentPage === i ? "solid" : "outline"
                                   }
-                                  colorScheme="pink"
+                                  colorScheme="teal"
                                   size={{ base: "sm", md: "md" }}
                                 >
                                   {i}
@@ -2485,7 +2492,7 @@ export default function HomePage({ storeOnly = false }) {
                                   variant={
                                     currentPage === i ? "solid" : "outline"
                                   }
-                                  colorScheme="pink"
+                                  colorScheme="teal"
                                   size={{ base: "sm", md: "md" }}
                                 >
                                   {i}
@@ -2516,7 +2523,7 @@ export default function HomePage({ storeOnly = false }) {
                                   variant={
                                     currentPage === i ? "solid" : "outline"
                                   }
-                                  colorScheme="pink"
+                                  colorScheme="teal"
                                   size={{ base: "sm", md: "md" }}
                                 >
                                   {i}
@@ -2544,7 +2551,7 @@ export default function HomePage({ storeOnly = false }) {
                                 variant={
                                   currentPage === i ? "solid" : "outline"
                                 }
-                                colorScheme="pink"
+                                colorScheme="teal"
                                 size={{ base: "sm", md: "md" }}
                               >
                                 {i}
@@ -2564,7 +2571,7 @@ export default function HomePage({ storeOnly = false }) {
                               variant={
                                 currentPage === totalPages ? "solid" : "outline"
                               }
-                              colorScheme="pink"
+                              colorScheme="teal"
                               size={{ base: "sm", md: "md" }}
                             >
                               {totalPages}
@@ -2588,18 +2595,18 @@ export default function HomePage({ storeOnly = false }) {
               </>
             ) : (
               <Box textAlign="center" py={10}>
-                <Text fontSize="xl" color="white">
+                <Text fontSize="xl" color="arkya.text">
                   No se encontraron productos que coincidan con tu búsqueda.
                 </Text>
-                <Text mt={3} color="gray.400" fontSize="sm">
+                <Text mt={3} color="arkya.textMute" fontSize="sm">
                   Si es un libro o doujinshi, podés buscarlo en nuestro{' '}
                   <Text
                     as={Link}
                     to="/catalogo"
-                    color="pink.300"
+                    color="arkya.accent"
                     fontWeight={600}
                     textDecoration="underline"
-                    _hover={{ color: 'pink.200' }}
+                    _hover={{ color: 'teal.200' }}
                   >
                     catálogo de Japón
                   </Text>{' '}
@@ -2615,67 +2622,43 @@ export default function HomePage({ storeOnly = false }) {
             <InstagramFeed />
 
             {/* Sección SEO - Contenido textual para motores de búsqueda */}
-            <Box bg="#241521" py={12} color="white">
+            <Box bg="arkya.card" py={12} color="white">
               <Container maxW="7xl">
                 <Stack spacing={8}>
-                  <Heading as="h2" size="xl" color="pink.300">
+                  <Heading as="h2" size="xl" color="teal.300">
                     Sobre Arkya Store
                   </Heading>
-                  <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-                    Arkya Store es tu tienda online especializada en artículos
-                    importados directamente desde Japón. Ofrecemos una cuidada
-                    selección de Artbooks japoneses oficiales, Dōjinshi
-                    (Doujinshi) de artistas independientes, Mangas en japonés
-                    originales, Novelas Ligeras (Light Novels) japonesas,
-                    Revistas japonesas semanales como Weekly Shōnen Jump, Guías
-                    oficiales de videojuegos japoneses, figuras coleccionables
-                    de anime japonesas y merchandising exclusivo. Todos nuestros
-                    productos son 100% originales y se importan directamente
-                    desde Japón para garantizar la máxima calidad y
-                    autenticidad.
+                  <Text fontSize="md" color="white" lineHeight={1.8}>
+                    Arkya Store es tu tienda de libros y artículos importados
+                    directamente desde Japón: Artbooks oficiales, Dōjinshi,
+                    Mangas en japonés, Novelas Ligeras, Revistas Jump, Guías de
+                    videojuegos, figuras y merchandising exclusivo. Todo 100%
+                    original.
                   </Text>
-                  <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-                    Nuestro catálogo incluye títulos de las principales
-                    editoriales japonesas como Shueisha, Kodansha y Square Enix,
-                    además de obras de círculos independientes reconocidos.
-                    Encontrá las últimas revistas Jump con los capítulos más
-                    recientes de One Piece, Jujutsu Kaisen, My Hero Academia y
-                    más. Si buscás material específico que no tenemos en stock,
-                    ofrecemos el servicio de pedidos personalizados: contactanos
-                    por{" "}
+                  <Text fontSize="md" color="white" lineHeight={1.8}>
+                    ¿Buscás algo que no está en el catálogo? Pedinoslo por{" "}
                     <a
                       href="https://instagram.com/arkya.store"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: "#d53f8c", textDecoration: "underline" }}
+                      style={{ color: "#63d3c2", textDecoration: "underline" }}
                     >
                       Instagram
                     </a>{" "}
-                    y nos encargamos de conseguirlo por vos. Realizamos envíos a
-                    todo el territorio argentino con seguimiento y embalaje
-                    seguro para proteger tus productos durante el traslado.
-                  </Text>
-                  <Text fontSize="md" color="gray.300" lineHeight={1.8}>
-                    En Arkya Store entendemos la pasión por la cultura japonesa.
-                    Por eso trabajamos constantemente para ampliar nuestro
-                    inventario con los lanzamientos más recientes y las
-                    ediciones más buscadas por coleccionistas. Desde Artbooks de
-                    anime y manga hasta Doujinshi de eventos como Comiket,
-                    Novelas Ligeras de las series más populares y Revistas Jump
-                    semanales, traemos lo mejor del mercado japonés para los
-                    fans de Argentina.
+                    y lo conseguimos por vos. Enviamos a todo el país con
+                    seguimiento y embalaje seguro.
                   </Text>
 
                   {/* Links internos de categorías para SEO */}
                   <Box>
-                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                    <Heading as="h3" size="md" color="teal.300" mb={3}>
                       Categorías de productos
                     </Heading>
                     <Flex wrap="wrap" gap={3}>
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("todos");
                           document
@@ -2688,7 +2671,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("artbooks");
                           document
@@ -2701,7 +2684,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("mangas");
                           document
@@ -2714,7 +2697,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("revistas");
                           document
@@ -2727,7 +2710,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("doujinshis");
                           document
@@ -2740,7 +2723,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("guide-books");
                           document
@@ -2753,7 +2736,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("character-books");
                           document
@@ -2766,7 +2749,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("novela-ligera");
                           document
@@ -2779,7 +2762,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("figuras");
                           document
@@ -2792,7 +2775,7 @@ export default function HomePage({ storeOnly = false }) {
                       <Button
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                         onClick={() => {
                           handleCategoryClick("cd-dvd");
                           document
@@ -2807,7 +2790,7 @@ export default function HomePage({ storeOnly = false }) {
 
                   {/* Links internos */}
                   <Box>
-                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                    <Heading as="h3" size="md" color="teal.300" mb={3}>
                       Navegación del sitio
                     </Heading>
                     <Flex wrap="wrap" gap={3}>
@@ -2819,7 +2802,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Inicio
                       </Button>
@@ -2833,7 +2816,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Catálogo de Productos
                       </Button>
@@ -2845,7 +2828,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Catálogo Japonés
                       </Button>
@@ -2857,7 +2840,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Contacto
                       </Button>
@@ -2869,7 +2852,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Términos y Condiciones
                       </Button>
@@ -2881,7 +2864,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Preguntas Frecuentes
                       </Button>
@@ -2893,7 +2876,7 @@ export default function HomePage({ storeOnly = false }) {
                         }
                         size="sm"
                         variant="outline"
-                        colorScheme="pink"
+                        colorScheme="teal"
                       >
                         Mis Favoritos
                       </Button>
@@ -2902,7 +2885,7 @@ export default function HomePage({ storeOnly = false }) {
 
                   {/* Links externos */}
                   <Box>
-                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                    <Heading as="h3" size="md" color="teal.300" mb={3}>
                       Seguinos en redes sociales
                     </Heading>
                     <Flex wrap="wrap" gap={3}>
@@ -2912,7 +2895,7 @@ export default function HomePage({ storeOnly = false }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         leftIcon={<FaInstagram />}
-                        colorScheme="pink"
+                        colorScheme="teal"
                         variant="solid"
                       >
                         Instagram @arkya.store
@@ -2922,7 +2905,7 @@ export default function HomePage({ storeOnly = false }) {
 
                   {/* Botones de compartir */}
                   <Box>
-                    <Heading as="h3" size="md" color="pink.300" mb={3}>
+                    <Heading as="h3" size="md" color="teal.300" mb={3}>
                       Compartí Arkya Store
                     </Heading>
                     <Flex wrap="wrap" gap={3}>
@@ -2971,9 +2954,9 @@ export default function HomePage({ storeOnly = false }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         leftIcon={<FaInstagram />}
-                        bg="#E4405F"
+                        bg="#41bfa9"
                         color="white"
-                        _hover={{ bg: "#c13584" }}
+                        _hover={{ bg: "#63d3c2" }}
                         size="sm"
                       >
                         Instagram
@@ -2997,13 +2980,13 @@ export default function HomePage({ storeOnly = false }) {
             zIndex={9999}
             size="lg"
             borderRadius="full"
-            bg="pink.500"
+            bg="teal.500"
             color="white"
-            boxShadow="0 0 20px rgba(236, 72, 153, 0.6)"
+            boxShadow="0 0 20px rgba(65, 191, 169, 0.6)"
             _hover={{
-              bg: "pink.400",
+              bg: "teal.400",
               transform: "translateY(-2px)",
-              boxShadow: "0 0 30px rgba(236, 72, 153, 0.9)",
+              boxShadow: "0 0 30px rgba(65, 191, 169, 0.9)",
             }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           />

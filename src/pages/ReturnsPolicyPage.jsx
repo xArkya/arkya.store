@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   VStack,
-  useColorModeValue,
   Card,
   CardBody,
   UnorderedList,
@@ -13,8 +12,8 @@ import {
 import { SEO } from '../components/SEO';
 
 export default function ReturnsPolicyPage() {
-  const bgColor = useColorModeValue('white', '#2a1c29');
-  const textColor = useColorModeValue('gray.600', 'gray.300');
+  const bgColor = 'arkya.cardAlt';
+  const textColor = 'gray.300';
 
   return (
     <>
@@ -24,20 +23,20 @@ export default function ReturnsPolicyPage() {
         url="https://arkya.store/devoluciones"
         keywords="devoluciones, política de devolución, artbooks, doujinshi, manga, japón, tienda, argentina"
       />
-      <Box bg="#453641" minH="100vh" py={8}>
+      <Box bg="transparent" minH="100vh" py={8}>
         <Container maxW="4xl">
           <VStack spacing={8} align="stretch">
             <VStack spacing={4} textAlign="center">
               <Heading
                 as="h1"
                 size="2xl"
-                color="white"
-                bgGradient="linear(to-r, pink.400, purple.500)"
+                color="arkya.text"
+                bgGradient="linear(to-r, teal.300, teal.500)"
                 bgClip="text"
               >
                 Política de Devoluciones
               </Heading>
-              <Text color="gray.300">
+              <Text color="arkya.textSoft">
                 Última actualización: 3 de Julio, 2026
               </Text>
             </VStack>
@@ -46,7 +45,7 @@ export default function ReturnsPolicyPage() {
               <CardBody>
                 <VStack spacing={6} align="stretch">
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       No se aceptan devoluciones ni cambios
                     </Heading>
                     <Text color={textColor} lineHeight="tall">
@@ -55,7 +54,7 @@ export default function ReturnsPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Única excepción: producto dañado en el envío desde Japón
                     </Heading>
                     <Text color={textColor} lineHeight="tall">
@@ -69,7 +68,7 @@ export default function ReturnsPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Casos que NO aplican
                     </Heading>
                     <Text color={textColor} lineHeight="tall">
@@ -83,7 +82,7 @@ export default function ReturnsPolicyPage() {
                   </Box>
 
                   <Box>
-                    <Heading size="md" mb={4} color="purple.500">
+                    <Heading size="md" mb={4} color="teal.300">
                       Contacto
                     </Heading>
                     <Text color={textColor} lineHeight="tall">

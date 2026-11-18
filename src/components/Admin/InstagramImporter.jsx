@@ -840,7 +840,7 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
           />
           <Button
             leftIcon={<FaDownload />}
-            colorScheme="pink"
+            colorScheme="teal"
             onClick={handleExtractData}
             isLoading={isLoading}
             isDisabled={!urls.trim()}
@@ -863,12 +863,12 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
         {isLoading && (
           <VStack spacing={2} py={4} align="stretch">
             <HStack spacing={3} justify="center">
-              <Spinner size="md" color="pink.500" />
+              <Spinner size="md" color="teal.500" />
               <Text fontSize="sm" color="gray.600">
                 Extrayendo {urls.split(/\n|,/).filter(u => u.trim().length > 0).length} posts en paralelo...
               </Text>
             </HStack>
-            <Progress size="xs" colorScheme="pink" w="full" isIndeterminate />
+            <Progress size="xs" colorScheme="teal" w="full" isIndeterminate />
             <Text fontSize="xs" color="gray.500" textAlign="center">
               Todos los posts se procesan al mismo tiempo para mayor velocidad
             </Text>
@@ -882,7 +882,7 @@ const InstagramImporter = ({ onProductDataExtracted, onEditMultipleProducts }) =
         <ModalContent maxH="90vh">
           <ModalHeader>
             <HStack spacing={2}>
-              <Icon as={FaInstagram} color="pink.500" />
+              <Icon as={FaInstagram} color="teal.500" />
               <Text>Resultados de extracción</Text>
               <Badge colorScheme="green">{extractionResults.filter(r => r && r.data).length}/{extractionResults.length} exitosos</Badge>
             </HStack>

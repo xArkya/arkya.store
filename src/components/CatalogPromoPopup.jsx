@@ -44,12 +44,12 @@ export default function CatalogPromoPopup() {
 
   return (
     <Modal isOpen={open} onClose={close} isCentered size="md">
-      <ModalOverlay bg="rgba(36, 21, 33, 0.85)" backdropFilter="blur(6px)" />
-      <ModalContent bg="#2d1e2a" color="white" mx={4} borderRadius="xl">
+      <ModalOverlay bg="rgba(36, 21, 33, 0.85)" />
+      <ModalContent bg="arkya.modal" color="white" mx={4} borderRadius="xl">
         <ModalCloseButton />
         <ModalBody py={10} px={8}>
           <VStack spacing={5} textAlign="center">
-            <Badge colorScheme="pink" borderRadius="full" px={3} py={1} fontSize="sm">
+            <Badge colorScheme="teal" borderRadius="full" px={3} py={1} fontSize="sm">
               Nuevo
             </Badge>
             <Heading size="lg" lineHeight="1.3">
@@ -62,7 +62,7 @@ export default function CatalogPromoPopup() {
             <Button
               as={RouterLink}
               to="/catalogo"
-              colorScheme="pink"
+              colorScheme="teal"
               size="lg"
               borderRadius="full"
               leftIcon={<FaBookOpen />}

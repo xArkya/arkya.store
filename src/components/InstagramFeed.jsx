@@ -17,15 +17,15 @@ import { useInstagramFeed } from '../hooks/useInstagramFeed';
 export default function InstagramFeed() {
   const { posts, loading, hasPosts } = useInstagramFeed();
 
-  const bgColor = '#241521';
-  const cardBg = '#2d1e2a';
+  const bgColor = 'arkya.card';
+  const cardBg = 'arkya.modal';
 
   return (
     <Box bg={bgColor} py={16} borderTopWidth="1px" borderColor="whiteAlpha.100">
       <Container maxW="6xl">
         <VStack spacing={2} mb={10} textAlign="center">
           <Flex align="center" gap={2}>
-            <FaInstagram color="#ec4899" size={24} />
+            <FaInstagram color="#41bfa9" size={24} />
             <Heading
               as="h2"
               color="white"
@@ -43,7 +43,7 @@ export default function InstagramFeed() {
             href="https://instagram.com/arkya.store"
             target="_blank"
             rel="noopener noreferrer"
-            colorScheme="pink"
+            colorScheme="teal"
             variant="outline"
             size="sm"
             leftIcon={<FaInstagram />}
@@ -60,14 +60,14 @@ export default function InstagramFeed() {
               Pronto vas a ver tus posts reales de Instagram acá.
             </Text>
             <Text color="whiteAlpha.500" fontSize="sm" maxW="md">
-              Para configurarlos, editá el archivo <Code bg="whiteAlpha.200" color="pink.300">src/data/instagramConfig.js</Code> y seguí las instrucciones.
+              Para configurarlos, editá el archivo <Code bg="whiteAlpha.200" color="teal.300">src/data/instagramConfig.js</Code> y seguí las instrucciones.
             </Text>
             <Button
               as="a"
               href="https://instagram.com/arkya.store"
               target="_blank"
               rel="noopener noreferrer"
-              colorScheme="pink"
+              colorScheme="teal"
               size="sm"
             >
               Ver perfil de Instagram

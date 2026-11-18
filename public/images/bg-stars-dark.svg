@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <g fill="#fecee0">
+    <path fill-opacity="0.18" d="M36 22Q40.5 35.5 54 40Q40.5 44.5 36 58Q31.5 44.5 18 40Q31.5 35.5 36 22Z">
+      <animate attributeName="fill-opacity" values="0.18;0.04;0.18" dur="3.2s" begin="0s" repeatCount="indefinite"/>
+    </path>
+    <path fill-opacity="0.14" d="M214 23Q216.2 29.8 223 32Q216.2 34.2 214 41Q211.8 34.2 205 32Q211.8 29.8 214 23Z">
+      <animate attributeName="fill-opacity" values="0.14;0.03;0.14" dur="2.6s" begin="0.7s" repeatCount="indefinite"/>
+    </path>
+    <path fill-opacity="0.16" d="M188 76Q191 85 200 88Q191 91 188 100Q185 91 176 88Q185 85 188 76Z">
+      <animate attributeName="fill-opacity" values="0.16;0.04;0.16" dur="2.9s" begin="1.3s" repeatCount="indefinite"/>
+    </path>
+    <path fill-opacity="0.17" d="M96 176Q99.5 186.5 110 190Q99.5 193.5 96 204Q92.5 193.5 82 190Q92.5 186.5 96 176Z">
+      <animate attributeName="fill-opacity" values="0.17;0.05;0.17" dur="3.5s" begin="0.4s" repeatCount="indefinite"/>
+    </path>
+    <path fill-opacity="0.12" d="M30 143Q31.8 148.2 37 150Q31.8 151.8 30 157Q28.2 151.8 23 150Q28.2 148.2 30 143Z">
+      <animate attributeName="fill-opacity" values="0.12;0.03;0.12" dur="2.4s" begin="1.8s" repeatCount="indefinite"/>
+    </path>
+    <circle fill-opacity="0.15" cx="205" cy="205" r="3">
+      <animate attributeName="fill-opacity" values="0.15;0.04;0.15" dur="3.8s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle fill-opacity="0.11" cx="150" cy="44" r="2.4">
+      <animate attributeName="fill-opacity" values="0.11;0.02;0.11" dur="2.7s" begin="2.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle fill-opacity="0.09" cx="124" cy="118" r="2">
+      <animate attributeName="fill-opacity" values="0.09;0.02;0.09" dur="3.1s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle fill-opacity="0.13" cx="62" cy="216" r="2.6">
+      <animate attributeName="fill-opacity" values="0.13;0.03;0.13" dur="2.3s" begin="0.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

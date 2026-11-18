@@ -39,13 +39,13 @@ const FloatingCartButton = () => {
                 aria-label="Carrito de compras"
                 icon={<FaShoppingCart size="24px" />}
                 size="lg"
-                colorScheme="pink"
+                colorScheme="teal"
                 borderRadius="full"
                 boxShadow="2xl"
                 onClick={onOpen}
                 _hover={{
                   transform: 'scale(1.1)',
-                  boxShadow: '0 0 20px rgba(236, 72, 153, 0.6)',
+                  boxShadow: '0 0 20px rgba(65, 191, 169, 0.6)',
                 }}
                 _active={{
                   transform: 'scale(0.95)',
@@ -82,17 +82,17 @@ const FloatingCartButton = () => {
                 aria-label="Mis me gusta"
                 icon={<FaHeart size="22px" />}
                 size="lg"
-                colorScheme="pink"
+                colorScheme="teal"
                 borderRadius="full"
                 boxShadow="2xl"
                 variant={likedProducts.length > 0 ? 'solid' : 'ghost'}
-                bg={likedProducts.length > 0 ? 'pink.500' : '#241521'}
+                bg={likedProducts.length > 0 ? 'teal.500' : 'arkya.surface'}
                 onClick={() => {
                   navigate('/mis-me-gustas');
                 }}
                 _hover={{
                   transform: 'scale(1.1)',
-                  boxShadow: '0 0 20px rgba(236, 72, 153, 0.6)',
+                  boxShadow: '0 0 20px rgba(65, 191, 169, 0.6)',
                 }}
                 _active={{
                   transform: 'scale(0.95)',

@@ -54,7 +54,7 @@ const AdminLoginPage = ({ onLogin }) => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      bg="#241521"
+      bg="#453641"
       py={8}
     >
       <Container maxW="sm">
@@ -62,7 +62,7 @@ const AdminLoginPage = ({ onLogin }) => {
           {/* Header */}
           <VStack spacing={2} textAlign="center">
             <Box
-              bg="pink.500"
+              bg="teal.500"
               borderRadius="full"
               p={4}
               display="flex"
@@ -125,8 +125,8 @@ const AdminLoginPage = ({ onLogin }) => {
                   bg={useColorModeValue('gray.50', '#1a1a1a')}
                   borderColor={borderColor}
                   _focus={{
-                    borderColor: 'pink.500',
-                    boxShadow: '0 0 0 1px pink.500',
+                    borderColor: 'teal.500',
+                    boxShadow: '0 0 0 1px teal.500',
                   }}
                   autoFocus
                   onKeyPress={(e) => {
@@ -149,7 +149,7 @@ const AdminLoginPage = ({ onLogin }) => {
 
               <Button
                 type="submit"
-                colorScheme="pink"
+                colorScheme="teal"
                 width="100%"
                 isLoading={isLoading}
                 loadingText="Verificando..."

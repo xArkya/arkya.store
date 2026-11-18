@@ -10,7 +10,6 @@ import {
   Flex,
   VStack,
   Icon,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import { FaHeart, FaArrowLeft, FaHome } from 'react-icons/fa';
 import { useLikes } from '../hooks/useLikes';
@@ -19,8 +18,8 @@ import ProductCard from '../components/ProductCard';
 
 export default function MisLikesPage() {
   const { likedProducts } = useLikes();
-  const textColor = useColorModeValue('gray.900', 'white');
-  const subTextColor = useColorModeValue('gray.500', 'gray.400');
+  const textColor = 'arkya.text';
+  const subTextColor = 'arkya.textSoft';
 
   const likedItems = useMemo(() => {
     return products.filter(p => likedProducts.includes(String(p.id)));
@@ -31,7 +30,7 @@ export default function MisLikesPage() {
   }, []);
 
   return (
-    <Box minH="100vh" bg="#453641" pt={8} pb={20}>
+    <Box minH="100vh" bg="transparent" pt={8} pb={20}>
       <Container maxW="7xl">
         <Flex mb={6} gap={4}>
           <Button
@@ -47,7 +46,7 @@ export default function MisLikesPage() {
 
         <VStack spacing={4} align="start" mb={10}>
           <Flex align="center" gap={3}>
-            <Icon as={FaHeart} color="pink.500" boxSize={8} />
+            <Icon as={FaHeart} color="teal.500" boxSize={8} />
             <Heading
               as="h1"
               color={textColor}
@@ -72,7 +71,7 @@ export default function MisLikesPage() {
           </SimpleGrid>
         ) : (
           <VStack spacing={6} py={20}>
-            <Icon as={FaHeart} color="pink.300" boxSize={16} opacity={0.5} />
+            <Icon as={FaHeart} color="arkya.accent" boxSize={16} opacity={0.5} />
             <Text color={subTextColor} fontSize="xl" textAlign="center">
               No tenés productos guardados todavía
             </Text>
@@ -80,7 +79,7 @@ export default function MisLikesPage() {
               as={RouterLink}
               to="/"
               leftIcon={<FaHome />}
-              colorScheme="pink"
+              colorScheme="teal"
               size="lg"
             >
               Ver productos

@@ -7,7 +7,7 @@ export default function ProductCardSkeleton() {
       h="100%"
       borderRadius="lg"
       overflow="hidden"
-      bg="whiteAlpha.100"
+      bg="arkya.card"
       boxShadow="md"
     >
       <Skeleton height="220px" width="100%" />

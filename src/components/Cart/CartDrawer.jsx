@@ -16,7 +16,6 @@ import {
   IconButton,
   Box,
   Divider,
-  useColorModeValue,
   Badge,
   useToast,
   Modal,
@@ -38,6 +37,7 @@ import { FaTrash, FaInstagram, FaClipboard, FaCheckCircle, FaExclamationCircle, 
 import { useCart } from '../../context/useCart';
 import { Link as RouterLink } from 'react-router-dom';
 import { validateCoupon } from '../../data/coupons';
+import { products } from '../../data/products';
 import { getProductSlug } from '../../utils/slugify';
 
 const CART_PLACEHOLDER_IMAGE = `data:image/svg+xml;utf8,${encodeURIComponent(
@@ -65,14 +65,14 @@ const CartDrawer = ({ isOpen, onClose }) => {
     (deliveryMethod === 'envio' && shippingLocalidad.trim() !== '' && shippingCP.trim() !== '');
   
   // Color mode values
-  const bgColor = useColorModeValue('white', '#241521');
-  const textColor = useColorModeValue('gray.900', 'gray.100');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const itemBgColor = useColorModeValue('gray.50', 'whiteAlpha.100');
-  const modalBgColor = useColorModeValue('white', '#241521');
-  const modalTextColor = useColorModeValue('gray.800', 'gray.100');
-  const modalHighlightColor = useColorModeValue('brand.500', 'brand.300');
-  const deliveryHintColor = useColorModeValue('gray.600', 'gray.400');
+  const bgColor = 'arkya.surface';
+  const textColor = 'gray.100';
+  const borderColor = 'gray.700';
+  const itemBgColor = 'whiteAlpha.100';
+  const modalBgColor = 'arkya.surface';
+  const modalTextColor = 'gray.100';
+  const modalHighlightColor = 'brand.300';
+  const deliveryHintColor = 'gray.400';
   
   // Función para generar el mensaje para Instagram
   const generateInstagramMessage = () => {
@@ -86,7 +86,9 @@ const CartDrawer = ({ isOpen, onClose }) => {
     
     cart.forEach((item, index) => {
       const itemSlug = getProductSlug(item);
-      message += `${index + 1}. ${item.name}\n`;
+      const liveProduct = products.find((p) => p.id === item.id);
+      const oosFlag = liveProduct && liveProduct.inStock === false ? ' ⚠️ SIN STOCK' : '';
+      message += `${index + 1}. ${item.name}${oosFlag}\n`;
       message += `   $${Math.round(item.price).toLocaleString()}\n`;
       message += `   https://arkya.store/product/${itemSlug}\n\n`;
     });
@@ -263,6 +265,27 @@ const CartDrawer = ({ isOpen, onClose }) => {
               </Flex>
             ) : (
               <VStack spacing={4} align="stretch" divider={<Divider />}>
+                {cart.some((item) => {
+                  const live = products.find((p) => p.id === item.id);
+                  return live && live.inStock === false;
+                }) && (
+                  <Flex
+                    align="center"
+                    gap={2}
+                    bg="red.900"
+                    color="red.100"
+                    borderRadius="md"
+                    px={3}
+                    py={2}
+                    fontSize="sm"
+                  >
+                    <FaExclamationCircle />
+                    <Text>
+                      Algún producto del carrito ya no tiene stock. Te confirmamos
+                      disponibilidad por Instagram.
+                    </Text>
+                  </Flex>
+                )}
                 {cart.map((item) => {
                   const resolveImage = () => {
                     if (!item) return CART_PLACEHOLDER_IMAGE;
@@ -295,6 +318,8 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   };
 
                   const imageSrc = resolveImage();
+                  const liveProduct = products.find((p) => p.id === item.id);
+                  const outOfStock = liveProduct && liveProduct.inStock === false;
 
                   return (
                     <Box key={item.id} p={3} borderRadius="md" bg={itemBgColor}>
@@ -318,12 +343,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
                               {item.name}
                             </Text>
                           </RouterLink>
+                          {outOfStock && (
+                            <Badge colorScheme="red" variant="solid" w="fit-content" fontSize="2xs">
+                              Sin stock
+                            </Badge>
+                          )}
                           {item.isOnOffer && item.discountPercentage > 0 ? (
                             <VStack align="start" spacing={0}>
                               <Text color={textColor} fontWeight="bold">
                                 ${Math.round(item.price).toLocaleString()}
                               </Text>
-                              <Text color="gray.500" fontSize="sm" textDecoration="line-through">
+                              <Text color="whiteAlpha.500" fontSize="sm" textDecoration="line-through">
                                 ${Math.round(item.price / (1 - item.discountPercentage / 100)).toLocaleString()}
                               </Text>
                             </VStack>
@@ -417,41 +447,48 @@ const CartDrawer = ({ isOpen, onClose }) => {
               </VStack>
               
               {/* Badges de confianza */}
-              <HStack
+              <Flex
                 w="100%"
                 justify="center"
-                spacing={4}
-                py={2}
+                gap={6}
+                py={2.5}
                 px={3}
-                borderRadius="md"
+                borderRadius="lg"
                 bg="whiteAlpha.100"
               >
-                <HStack spacing={1}>
-                  <FaShieldAlt color="#68D391" size={14} />
-                  <Text fontSize="xs" color="green.200" fontWeight="medium">
+                <HStack spacing={2}>
+                  <FaShieldAlt color="#68D391" size={16} />
+                  <Text fontSize="sm" color="green.200" fontWeight="medium">
                     Compra segura
                   </Text>
                 </HStack>
-                <HStack spacing={1}>
-                  <FaPlane color="#F6AD55" size={14} />
-                  <Text fontSize="xs" color="orange.200" fontWeight="medium">
+                <HStack spacing={2}>
+                  <FaPlane color="#F6AD55" size={16} />
+                  <Text fontSize="sm" color="orange.200" fontWeight="medium">
                     Importado desde Japón
                   </Text>
                 </HStack>
-              </HStack>
+              </Flex>
 
               <HStack spacing={4} w="100%">
-                <Button variant="outline" onClick={clearCart} size="sm">
+                <Button
+                  variant="outline"
+                  onClick={clearCart}
+                  size="sm"
+                  color="white"
+                  borderColor="whiteAlpha.400"
+                  _hover={{ bg: 'whiteAlpha.100' }}
+                >
                   Vaciar carrito
                 </Button>
                 <Button
-                  bg="pink.400"
+                  bg="teal.400"
                   color="white"
                   leftIcon={<FaInstagram />}
                   onClick={handleBuyClick}
                   flex="1"
                   _hover={{
-                    bg: 'pink.500',
+                    bg: 'teal.500',
                     transform: 'translateY(-2px)',
                     boxShadow: 'md',
                   }}
@@ -474,17 +511,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <VStack spacing={5} align="stretch">
-              <Text fontSize="md" color={useColorModeValue('gray.600', 'gray.300')}>
+              <Text fontSize="md" color={'gray.300'}>
                 Estás a punto de realizar tu compra a través de Instagram. Sigue estos sencillos pasos:
               </Text>
 
               {/* Método de entrega */}
               <Box
-                bg={useColorModeValue('gray.50', 'whiteAlpha.100')}
+                bg={'whiteAlpha.100'}
                 p={4}
                 borderRadius="lg"
                 borderWidth="1px"
-                borderColor={useColorModeValue('gray.200', 'whiteAlpha.200')}
+                borderColor={'whiteAlpha.200'}
               >
                 <Text fontWeight="bold" mb={3} fontSize="md" color={modalHighlightColor}>
                   📦 ¿Cómo querés recibir tu pedido?
@@ -528,12 +565,12 @@ const CartDrawer = ({ isOpen, onClose }) => {
                     py={3}
                     whiteSpace="normal"
                     variant={deliveryMethod === 'retro' ? 'solid' : 'outline'}
-                    colorScheme={deliveryMethod === 'retro' ? 'pink' : 'gray'}
+                    colorScheme={deliveryMethod === 'retro' ? 'teal' : 'gray'}
                     onClick={() => setDeliveryMethod('retro')}
                     leftIcon={<FaCalendarAlt />}
                   >
                     Retiro en Retro Market
-                    <Badge ml={2} colorScheme="pink" variant={deliveryMethod === 'retro' ? 'solid' : 'subtle'}>
+                    <Badge ml={2} colorScheme="teal" variant={deliveryMethod === 'retro' ? 'solid' : 'subtle'}>
                       ¡Solo hasta el 7/11!
                     </Badge>
                   </Button>
@@ -579,7 +616,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   <ListIcon as={FaClipboard} color={modalHighlightColor} mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 1: Copiar mensaje</Text>
-                    <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                    <Text fontSize="sm" color={'gray.400'}>
                       Al hacer clic en el botón, el mensaje con tu pedido se copiará automáticamente.
                     </Text>
                   </Box>
@@ -588,7 +625,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   <ListIcon as={FaInstagram} color={modalHighlightColor} mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 2: Abrir Instagram</Text>
-                    <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                    <Text fontSize="sm" color={'gray.400'}>
                       Se abrirá automáticamente el chat de @arkya.store en una nueva pestaña.
                     </Text>
                   </Box>
@@ -597,7 +634,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
                   <ListIcon as={FaCheckCircle} color={modalHighlightColor} mt={1} fontSize="xl" />
                   <Box flex="1">
                     <Text fontWeight="semibold" mb={1}>Paso 3: Pegar y enviar</Text>
-                    <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+                    <Text fontSize="sm" color={'gray.400'}>
                       Pega el mensaje en el chat (Ctrl+V en PC o Cmd+V en MAC) y envíalo para completar tu pedido.
                     </Text>
                   </Box>
@@ -605,17 +642,17 @@ const CartDrawer = ({ isOpen, onClose }) => {
               </List>
               
               <Box 
-                bg={useColorModeValue('gray.50', 'whiteAlpha.100')} 
+                bg={'whiteAlpha.100'} 
                 p={4} 
                 borderRadius="lg" 
                 borderWidth="1px"
-                borderColor={useColorModeValue('gray.200', 'whiteAlpha.200')}
+                borderColor={'whiteAlpha.200'}
               >
                 <Text fontWeight="bold" mb={3} fontSize="md" color={modalHighlightColor}>
                   📋 Vista previa del mensaje:
                 </Text>
                 <Box 
-                  bg={useColorModeValue('white', 'gray.800')} 
+                  bg={'gray.800'} 
                   p={3} 
                   borderRadius="md"
                   fontSize="sm"
@@ -628,14 +665,14 @@ const CartDrawer = ({ isOpen, onClose }) => {
                       width: '8px',
                     },
                     '&::-webkit-scrollbar-track': {
-                      background: useColorModeValue('white', '#1a202c'),
+                      background: '#1a202c',
                     },
                     '&::-webkit-scrollbar-thumb': {
-                      background: useColorModeValue('#cbd5e0', '#4a5568'),
+                      background: '#4a5568',
                       borderRadius: '4px',
                     },
                     '&::-webkit-scrollbar-thumb:hover': {
-                      background: useColorModeValue('#a0aec0', '#718096'),
+                      background: '#718096',
                     },
                   }}
                 >
@@ -653,14 +690,14 @@ const CartDrawer = ({ isOpen, onClose }) => {
               Cancelar
             </Button>
             <Button
-              bg="pink.400"
+              bg="teal.400"
               color="white"
               size="lg"
               leftIcon={<FaInstagram />}
               onClick={handleCopyAndOpenInstagram}
               isDisabled={!deliveryValid}
               _hover={{
-                bg: 'pink.500',
+                bg: 'teal.500',
                 transform: 'translateY(-2px)',
                 boxShadow: 'xl',
               }}
