@@ -683,6 +683,15 @@ export default function HomePage({ storeOnly = false }) {
       return product;
     });
   }, [allProducts]);
+
+  // Índice de búsqueda precomputado: un solo string en minúsculas por producto.
+  // Evita hacer toLowerCase() sobre nombre+descripción+tags en cada tecla.
+  const productsWithSearch = useMemo(() => {
+    return productsWithOffers.map(p => ({
+      ...p,
+      _search: `${p.name || ''} ${p.description || ''} ${(p.tags || []).join(' ')} ${p.id || ''}`.toLowerCase()
+    }));
+  }, [productsWithOffers]);
   
   // Estado para el filtro de rango de precios
   const [priceRange, setPriceRange] = useState([0, 100000]);
@@ -717,13 +726,10 @@ export default function HomePage({ storeOnly = false }) {
     if (inputValue.length >= 2) {
       const searchLower = inputValue.toLowerCase();
       
-      // Buscar en nombres de productos, respetando exclusiones
-      const suggestions = productsWithOffers
+      // Buscar en el índice precomputado (nombre + tags + id), respetando exclusiones
+      const suggestions = productsWithSearch
         .filter(product => {
-          const matchesSearch = 
-            product.name.toLowerCase().includes(searchLower) ||
-            (product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchLower))) ||
-            (product.id && product.id.toString().includes(inputValue));
+          const matchesSearch = product._search.includes(searchLower);
           
           // Aplicar filtro de categorías excluidas
           let matchesExcluded = true;
@@ -757,7 +763,7 @@ export default function HomePage({ storeOnly = false }) {
       setSearchSuggestions([]);
       setShowSuggestions(false);
     }
-  }, [inputValue, productsWithOffers, excludedCategories]);
+  }, [inputValue, productsWithSearch, excludedCategories]);
   
   // Función para agregar al historial
   const addToSearchHistory = (term) => {
@@ -776,14 +782,10 @@ export default function HomePage({ storeOnly = false }) {
   
   // Filtrar productos según la búsqueda, categoría, subcategoría y contenido adulto
   const filteredProducts = useMemo(() => {
-    return productsWithOffers.filter(product => {
-      // Buscar en nombre, descripción y etiquetas
-      const searchTermLower = searchTerm.toLowerCase();
-      const matchesSearch = 
-        product.name.toLowerCase().includes(searchTermLower) || 
-        product.description.toLowerCase().includes(searchTermLower) ||
-        // Buscar en etiquetas si existen
-        (product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchTermLower)));
+    const searchTermLower = searchTerm.toLowerCase();
+    return productsWithSearch.filter(product => {
+      // Buscar en el índice precomputado (nombre + descripción + tags + id)
+      const matchesSearch = !searchTermLower || product._search.includes(searchTermLower);
       
       // Verificar si coincide con la categoría
       let matchesCategory = false;
@@ -845,7 +847,7 @@ export default function HomePage({ storeOnly = false }) {
       
       return matchesSearch && matchesCategory && matchesSubcategory && matchesAdultFilter && matchesPriceRange && matchesOffersFilter && matchesExcludedCategories;
     });
-  }, [productsWithOffers, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterOffersOnly, excludedCategories]);
+  }, [productsWithSearch, searchTerm, activeCategory, activeSubcategory, showAdultContent, adultFilterActive, priceRange, filterOffersOnly, excludedCategories]);
   
   // Ordenar productos según la opción seleccionada
   const sortedProducts = useMemo(() => {

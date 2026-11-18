@@ -65,11 +65,11 @@ export default function Header() {
   const searchRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Debounce para búsqueda en tiempo real (100ms para ser más responsive)
+  // Debounce para búsqueda en tiempo real (350ms evita re-render por tecla)
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDebouncedValue(searchValue);
-    }, 100);
+    }, 350);
     return () => clearTimeout(timeout);
   }, [searchValue]);
 
@@ -81,24 +81,27 @@ export default function Header() {
     const hasText = debouncedValue.trim().length >= 1;
     const hadText = prevDebouncedRef.current.trim().length >= 1;
     if (hasText) {
-      navigate(`/?headerSearch=${encodeURIComponent(debouncedValue.trim())}`);
+      navigate(`/?headerSearch=${encodeURIComponent(debouncedValue.trim())}`, { replace: true });
     } else if (!hasText && hadText) {
-      navigate('/');
+      navigate('/', { replace: true });
     }
     prevDebouncedRef.current = debouncedValue;
   }, [debouncedValue, navigate, location.pathname]);
+
+  // Índice de búsqueda precomputado una sola vez (no por tecla)
+  const searchIndex = useMemo(() =>
+    products.map(p => ({
+      p,
+      haystack: `${p.name || ''} ${(p.tags || []).join(' ')} ${p.description || ''}`.toLowerCase(),
+    })), []);
 
   // Filtrar sugerencias de productos
   const suggestions = useMemo(() => {
     if (!debouncedValue.trim() || debouncedValue.trim().length < 1) return [];
     const term = debouncedValue.toLowerCase();
-    const filtered = products
-      .filter(p => {
-        const nameMatch = p.name.toLowerCase().includes(term);
-        const tagMatch = p.tags && p.tags.some(t => t.toLowerCase().includes(term));
-        const descMatch = p.description && p.description.toLowerCase().includes(term);
-        return nameMatch || tagMatch || descMatch;
-      })
+    const filtered = searchIndex
+      .filter(({ haystack }) => haystack.includes(term))
+      .map(({ p }) => p)
       .slice(0, 6);
     return filtered.map(p => ({
       id: p.id,
@@ -107,7 +110,7 @@ export default function Header() {
       price: p.price,
       slug: getProductSlug(p),
     }));
-  }, [debouncedValue]);
+  }, [debouncedValue, searchIndex]);
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
