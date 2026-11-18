@@ -46,7 +46,11 @@ body {
   scroll-behavior: smooth;
   width: 100%;
   min-height: 100vh;
-  background-color: #fecee0;
+  /* Default = oscuro (initialColorMode 'dark'): ciruela + estrellas rosas
+     antes de que Chakra agregue la clase, así no hay flash rosa */
+  background-color: #453641;
+  background-image: url('/images/bg-stars-dark.svg');
+  background-repeat: repeat;
   overflow-x: hidden;
 }
 
@@ -57,7 +61,8 @@ body.chakra-ui-dark {
 }
 
 /* Estrellas/sparkles ciruela sobre el fondo rosa (solo modo claro) */
-body:not(.chakra-ui-dark) {
+body.chakra-ui-light {
+  background-color: #fecee0;
   background-image: url('/images/bg-stars.svg');
   background-repeat: repeat;
 }

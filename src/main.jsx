@@ -19,7 +19,7 @@ if ('serviceWorker' in navigator) {
 // Extend the theme to include custom colors, fonts, etc
 const theme = extendTheme({
   config: {
-    initialColorMode: 'light',
+    initialColorMode: 'dark',
     useSystemColorMode: false,
   },
   semanticTokens: {

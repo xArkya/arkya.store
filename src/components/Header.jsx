@@ -168,7 +168,7 @@ export default function Header() {
         <Flex
           flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
+          display={{ base: 'flex', lg: 'none' }}>
           <IconButton
             onClick={onToggle}
             icon={
@@ -203,20 +203,21 @@ export default function Header() {
                 fontFamily={'heading'}
                 bgGradient="linear(to-r, teal.200, teal.400)"
                 bgClip="text"
+                whiteSpace="nowrap"
                 fontSize={{ base: 'md', md: 'xl' }}>
                 Arkya Store
               </Heading>
             </Flex>
           </RouterLink>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <Flex display={{ base: 'none', lg: 'flex' }} ml={10}>
             <DesktopNav onHomeClick={() => { setSearchValue(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
           </Flex>
         </Flex>
 
         {/* Buscador en desktop */}
         <Box
-          display={{ base: 'none', md: 'block' }}
+          display={{ base: 'none', lg: 'block' }}
           mx={4}
           flex="1"
           maxW="500px"
@@ -346,7 +347,7 @@ export default function Header() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={{ base: 1, md: 6 }}
+          spacing={{ base: 1, lg: 6 }}
           align="center">
           <Button
             as={RouterLink}
@@ -368,11 +369,11 @@ export default function Header() {
             overflow="visible"
           >
             <FaGamepad size={22} />
-            <Text display={{ base: 'none', md: 'inline' }} ml={2}>
+            <Text display={{ base: 'none', lg: 'inline' }} ml={2}>
               GANÁ DESCUENTOS
             </Text>
             <Box
-              display={{ base: 'block', md: 'none' }}
+              display={{ base: 'block', lg: 'none' }}
               position="absolute"
               bottom="-8px"
               left="50%"
@@ -403,7 +404,7 @@ export default function Header() {
             size={{ base: 'sm', md: 'md' }}
             px={{ base: 1, md: 4 }}>
             <FaInstagram size={16} />
-            <Text display={{ base: 'none', md: 'inline' }} ml={2}>Instagram</Text>
+            <Text display={{ base: 'none', lg: 'inline' }} ml={2}>Instagram</Text>
           </Button>
 
           <IconButton
@@ -421,7 +422,7 @@ export default function Header() {
       </Flex>
 
       {/* Buscador en mobile */}
-      <Box display={{ md: 'none' }} px={2} pb={2} bg="arkya.surface" position="relative">
+      <Box display={{ lg: 'none' }} px={2} pb={2} bg="arkya.surface" position="relative">
         <InputGroup size="md">
           <InputLeftElement pointerEvents="none" h="100%">
             <Icon as={FaSearch} color="whiteAlpha.500" boxSize={4} />
@@ -720,7 +721,7 @@ const MobileNav = ({ onHomeClick }) => {
       borderBottom="1px solid"
       borderColor="teal.400"
       p={4}
-      display={{ md: 'none' }}>
+      display={{ lg: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} onHomeClick={onHomeClick} />
       ))}
