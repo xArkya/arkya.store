@@ -16,8 +16,8 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#453641",
-  "background_color": "#453641",
+  "theme_color": "#fecee0",
+  "background_color": "#fecee0",
   "orientation": "portrait",
   "categories": ["shopping", "anime", "entertainment"],
   "lang": "es-AR"
