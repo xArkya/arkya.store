@@ -104,7 +104,7 @@ export default function Header() {
         setShowSuggestions(false);
         setSelectedIndex(-1);
       } else if (searchValue.trim()) {
-        navigate(`/?headerSearch=${encodeURIComponent(searchValue.trim())}`);
+        navigate(`/tienda?headerSearch=${encodeURIComponent(searchValue.trim())}`);
         setShowSuggestions(false);
         setSelectedIndex(-1);
       }
@@ -130,7 +130,7 @@ export default function Header() {
 
   const handleSeeAllResults = () => {
     if (searchValue.trim()) {
-      navigate(`/?headerSearch=${encodeURIComponent(searchValue.trim())}`);
+      navigate(`/tienda?headerSearch=${encodeURIComponent(searchValue.trim())}`);
       setSearchValue('');
       setShowSuggestions(false);
     }
