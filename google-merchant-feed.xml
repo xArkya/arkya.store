@@ -7362,8 +7362,8 @@ Con arte y mangas cortos!</g:description>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646156_7vyiww_3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/img_1776143646157_cwalbj_4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
-      <g:price>54999 ARS</g:price>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Artbooks</g:brand>
       <g:google_product_category>784</g:google_product_category>
@@ -9913,7 +9913,7 @@ Con muchos posters!</g:description>
       <g:additional_image_link>https://arkya.store/images/products/product-1782450760938-3.webp</g:additional_image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782450760938-4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>39999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Revistas</g:brand>
@@ -13354,7 +13354,7 @@ iden 8,5cm de largo y 5cm de ancho</g:description>
       <g:image_link>https://arkya.store/images/products/product-1782634458967-0.webp</g:image_link>
       <g:additional_image_link>https://arkya.store/images/products/product-1782634458967-1.webp</g:additional_image_link>
       <g:condition>new</g:condition>
-      <g:availability>in_stock</g:availability>
+      <g:availability>out_of_stock</g:availability>
       <g:price>24999 ARS</g:price>
       <g:price_currency>ARS</g:price_currency>
       <g:brand>Peluches</g:brand>
@@ -23307,6 +23307,296 @@ Ediciones especiales del manga de Air Gear que incluyen una figura de Ringo y un
       <g:product_type>Artbooks</g:product_type>
       <g:identifier_exists>yes</g:identifier_exists>
       <g:mpn>1795031552847</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523865319</g:id>
+      <g:title>One Piece Color Walk 3: Lion</g:title>
+      <g:description>El tercer libro de arte oficial de la obra de Eiichiro Oda, reúne más de 60 ilustraciones a todo color creadas entre los años 2001 y 2003, que abarcan el material del manga desde los capítulos 175 al 284. Esto incluye portadas de revistas, páginas cromáticas de los arcos de Alabasta, Jaya y Skypiea, bocetos conceptuales y una entrevista!</g:description>
+      <g:link>https://arkya.store/product/one-piece-color-walk-3-lion-5319</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523865319-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865319-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865319-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865319-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865319-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>24999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>One piece</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523865319</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523864850</g:id>
+      <g:title>esquisse Melange</g:title>
+      <g:description>Artbook doujinshi de Mitsumi Misato (CUT A DASH!!) y Itsuki Kanru (Blazer One), ilustradores de Leaf / Aquaplus.</g:description>
+      <g:link>https://arkya.store/product/esquisse-melange-4850</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523864850-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864850-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864850-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864850-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864850-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>34999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Doujinshis</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Doujinshis</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523864850</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523864396</g:id>
+      <g:title>Memory of jade</g:title>
+      <g:description>Artbook ilustrado a todo color con ~140 páginas por Tsubasu Izumi para su círculo doujin Hisuitei, con ilustraciones originales de obras cómo Fate, Higurashi, y Haruhi, y trabajos comerciales de obras como Mashiroiro Symphony, Ragnarok Online y Aquarian Age!</g:description>
+      <g:link>https://arkya.store/product/memory-of-jade-4396</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523864396-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864396-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864396-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864396-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864396-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>49999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Doujinshis</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Doujinshis</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523864396</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523864608</g:id>
+      <g:title>JoJo 6251: The World of Hirohiko Araki</g:title>
+      <g:description>El primer libro de arte oficial de tapa dura del manga JoJo&apos;s Bizarre Adventure, con portada de Josuke Higashikata, el protagonista de la cuarta parte!
+Recopila ilustraciones a todo color de las primeras cuatro partes, además de trabajos previos del autor. Incluye perfiles detallados de personajes, un glosario de términos de la franquicia y pósteres desplegables!</g:description>
+      <g:link>https://arkya.store/product/jojo-6251-the-world-of-hirohiko-araki-4608</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523864608-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864608-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864608-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864608-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864608-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>59999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523864608</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523864840</g:id>
+      <g:title>Tonari no Totoro: This Is Animation New Edition</g:title>
+      <g:description>Guía completa de la historia que incluye perfiles de los personajes y galerías de arte con escenas clave de la película de 1988!</g:description>
+      <g:link>https://arkya.store/product/tonari-no-totoro-this-is-animation-new-edition-4840</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523864840-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864840-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864840-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864840-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864840-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>39999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523864840</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523864787</g:id>
+      <g:title>Yu Yu Hakusho: Perfect File No. 1 y No. 2</g:title>
+      <g:description>Estas guías/fanbooks incluyen fichas de personajes, resúmenes detallados de la historia del anime (el primer tomo abarca hasta el episodio 60 y el segundo del 61 al final), bocetos de producción, ilustraciones a color y entrevistas exclusivas!
+$69999 por los dos, el precio individual es $42999 por el 1 y $34999 por el 2!</g:description>
+      <g:link>https://arkya.store/product/yu-yu-hakusho-perfect-file-no-1-y-no-2-4787</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523864787-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864787-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864787-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864787-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864787-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>69999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Guide Books</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Guide Books</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523864787</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523864843</g:id>
+      <g:title>Final Fantasy VII Remake Post Card Book</g:title>
+      <g:description>Libro oficial de ilustraciones en formato postal, incluye 24 postales de alta calidad brillante con diseños y modelados CG de los personajes principales y sus escenarios más icónicos!</g:description>
+      <g:link>https://arkya.store/product/final-fantasy-vii-remake-post-card-book-4843</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523864843-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864843-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864843-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864843-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523864843-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>44999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Final fantasy</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523864843</g:mpn>
+      <g:shipping>
+        <g:country>AR</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 ARS</g:price>
+      </g:shipping>
+      <g:shipping_label>Argentina</g:shipping_label>
+      <g:shipping_weight>
+        <g:value>0.5</g:value>
+        <g:unit>kg</g:unit>
+      </g:shipping_weight>
+      <g:return_policy_link>https://arkya.store/devoluciones</g:return_policy_link>
+      <g:return_policy>
+        <g:country>AR</g:country>
+        <g:policy_days>5</g:policy_days>
+        <g:restocking_fee>no</g:restocking_fee>
+      </g:return_policy>
+    </item>
+    <item>
+      <g:id>1795523865265</g:id>
+      <g:title>THE DOG Photo Book Collection: Welsh Corgi</g:title>
+      <g:description>Libro de fotos de perritos que se caracteriza por fotografiar a cachorros desde una perspectiva muy cercana utilizando un lente ojo de pez, en este caso de la raza Corgi!</g:description>
+      <g:link>https://arkya.store/product/the-dog-photo-book-collection-welsh-corgi-5265</g:link>
+      <g:image_link>https://arkya.store/images/products/product-1795523865265-0.webp</g:image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865265-1.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865265-2.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865265-3.webp</g:additional_image_link>
+      <g:additional_image_link>https://arkya.store/images/products/product-1795523865265-4.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>29999 ARS</g:price>
+      <g:price_currency>ARS</g:price_currency>
+      <g:brand>Artbooks</g:brand>
+      <g:google_product_category>784</g:google_product_category>
+      <g:product_type>Artbooks</g:product_type>
+      <g:identifier_exists>yes</g:identifier_exists>
+      <g:mpn>1795523865265</g:mpn>
       <g:shipping>
         <g:country>AR</g:country>
         <g:service>Standard</g:service>
