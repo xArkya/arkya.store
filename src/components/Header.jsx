@@ -246,20 +246,24 @@ export default function Header() {
               fontSize="md"
             />
             {searchValue && (
-              <InputRightElement h="100%">
-                <IconButton
-                  icon={<CloseIcon boxSize={3} />}
-                  size="sm"
-                  variant="ghost"
-                  colorScheme="whiteAlpha"
-                  aria-label="Limpiar"
+              <InputRightElement h="100%" w="auto" pr={4}>
+                <Box
+                  as="button"
+                  type="button"
+                  aria-label="Limpiar búsqueda"
+                  display="flex"
+                  alignItems="center"
+                  color="whiteAlpha.700"
+                  transition="color 0.2s"
+                  _hover={{ color: 'white' }}
                   onClick={() => {
                     setSearchValue('');
                     setShowSuggestions(false);
                     inputRef.current?.focus();
                   }}
-                  mr={1}
-                />
+                >
+                  <CloseIcon boxSize={3} />
+                </Box>
               </InputRightElement>
             )}
           </InputGroup>
@@ -445,19 +449,23 @@ export default function Header() {
             fontSize="md"
           />
           {searchValue && (
-            <InputRightElement h="100%">
-              <IconButton
-                icon={<CloseIcon boxSize={3} />}
-                size="sm"
-                variant="ghost"
-                colorScheme="whiteAlpha"
-                aria-label="Limpiar"
+            <InputRightElement h="100%" w="auto" pr={4}>
+              <Box
+                as="button"
+                type="button"
+                aria-label="Limpiar búsqueda"
+                display="flex"
+                alignItems="center"
+                color="whiteAlpha.700"
+                transition="color 0.2s"
+                _hover={{ color: 'white' }}
                 onClick={() => {
                   setSearchValue('');
                   setShowSuggestions(false);
                 }}
-                mr={1}
-              />
+              >
+                <CloseIcon boxSize={3} />
+              </Box>
             </InputRightElement>
           )}
         </InputGroup>
