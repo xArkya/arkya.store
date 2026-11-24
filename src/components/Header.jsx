@@ -60,7 +60,6 @@ export default function Header() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const navigate = useNavigate();
-  const location = useLocation();
   const { colorMode, toggleColorMode } = useColorMode();
   const searchRef = useRef(null);
   const inputRef = useRef(null);
@@ -72,21 +71,6 @@ export default function Header() {
     }, 350);
     return () => clearTimeout(timeout);
   }, [searchValue]);
-
-  // Navegar automáticamente al escribir (solo cuando estamos en home)
-  const prevDebouncedRef = useRef('');
-  useEffect(() => {
-    const isHome = location.pathname === '/';
-    if (!isHome) return;
-    const hasText = debouncedValue.trim().length >= 1;
-    const hadText = prevDebouncedRef.current.trim().length >= 1;
-    if (hasText) {
-      navigate(`/?headerSearch=${encodeURIComponent(debouncedValue.trim())}`, { replace: true });
-    } else if (!hasText && hadText) {
-      navigate('/', { replace: true });
-    }
-    prevDebouncedRef.current = debouncedValue;
-  }, [debouncedValue, navigate, location.pathname]);
 
   // Índice de búsqueda precomputado una sola vez (no por tecla)
   const searchIndex = useMemo(() =>

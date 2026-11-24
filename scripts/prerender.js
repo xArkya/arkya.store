@@ -13,6 +13,7 @@ const BASE_URL = 'https://arkya.store';
 
 // Importar slugify para generar slugs amigables
 const { getProductSlug } = await import('../src/utils/slugify.js');
+const { extractBrand } = await import('../src/utils/brand.js');
 
 // Rutas estáticas
 const staticRoutes = [
@@ -243,17 +244,18 @@ async function prerender() {
       : [product.image].filter(Boolean);
 
     const offerEndDate = getOfferEndDate(product);
+    const imageUrls = (productImages.length > 0 ? productImages : ['/images/logo.png']).map(toAbsoluteUrl);
     const jsonLd = {
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: product.name,
-      image: toAbsoluteUrl(firstImage),
+      image: imageUrls,
       description: rawDescription,
       sku: String(product.id),
-      itemCondition: 'https://schema.org/UsedCondition',
+      mpn: String(product.id),
       brand: {
         '@type': 'Brand',
-        name: product.brand || 'Arkya Store',
+        name: extractBrand(product),
       },
       offers: {
         '@type': 'Offer',
@@ -263,6 +265,7 @@ async function prerender() {
         availability: product.inStock !== false
           ? 'https://schema.org/InStock'
           : 'https://schema.org/OutOfStock',
+        itemCondition: 'https://schema.org/NewCondition',
         seller: {
           '@type': 'Organization',
           name: 'Arkya Store',
@@ -297,12 +300,13 @@ async function prerender() {
         hasMerchantReturnPolicy: {
           '@type': 'MerchantReturnPolicy',
           returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-          merchantReturnDays: 5,
+          merchantReturnDays: 1,
           returnMethod: 'https://schema.org/ReturnByMail',
           returnFees: 'https://schema.org/FreeReturn',
           applicableCountry: 'AR',
+          description: 'Solo se aceptan devoluciones si el producto llegó dañado por el envío internacional desde Japón. Se debe reportar dentro de las 24 horas de recepción con foto o video.',
         },
-        ...(offerEndDate ? { priceValidUntil: offerEndDate } : {}),
+        priceValidUntil: offerEndDate || `${new Date().getFullYear() + 1}-12-31`,
       },
     };
 

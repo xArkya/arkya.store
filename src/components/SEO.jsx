@@ -44,7 +44,9 @@ export function SEO({
     updateProperty('og:image', image);
     updateProperty('og:image:width', '1200');
     updateProperty('og:image:height', '630');
-    updateProperty('og:image:type', 'image/webp');
+    const imageExt = image.split('?')[0].split('.').pop().toLowerCase();
+    const mimeTypes = { webp: 'image/webp', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', avif: 'image/avif' };
+    updateProperty('og:image:type', mimeTypes[imageExt] || 'image/webp');
     updateProperty('og:url', url);
     updateProperty('og:type', type);
     updateProperty('og:locale', 'es_AR');
@@ -68,29 +70,7 @@ export function SEO({
     let jsonLdScript = document.querySelector('script[data-seo="jsonld"]');
     if (jsonLdScript) jsonLdScript.remove();
 
-    if (type === 'product' && price !== null) {
-      const productSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: title.replace(' | Arkya Store', ''),
-        description,
-        image,
-        brand: { '@type': 'Brand', name: 'Arkya Store' },
-        offers: {
-          '@type': 'Offer',
-          url,
-          priceCurrency: currency,
-          price: String(Math.floor(price)),
-          availability,
-          seller: { '@type': 'Organization', name: 'Arkya Store' },
-        },
-      };
-      jsonLdScript = document.createElement('script');
-      jsonLdScript.setAttribute('type', 'application/ld+json');
-      jsonLdScript.setAttribute('data-seo', 'jsonld');
-      jsonLdScript.textContent = JSON.stringify(productSchema);
-      document.head.appendChild(jsonLdScript);
-    } else if (type === 'website' && url === 'https://arkya.store/') {
+    if (type === 'website' && url === 'https://arkya.store/') {
       // Structured data Organization + WebSite para homepage
       const orgSchema = {
         '@context': 'https://schema.org',

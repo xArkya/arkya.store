@@ -42,34 +42,6 @@ import { offers } from '../data/offers';
 import ProductCard from '../components/ProductCard';
 import { findProductBySlugOrId, getProductSlug } from '../utils/slugify';
 
-// Extraer marca del producto desde nombre/descripción para schema.org
-function extractBrand(product) {
-  if (!product) return 'Importado de Japón';
-  const text = `${product.name || ''} ${product.description || ''} ${product.details || ''}`;
-  const knownBrands = [
-    'Bandai', 'Sega', 'Furyu', 'Taito', 'Good Smile Company', 'Kotobukiya',
-    'Max Factory', 'Alter', 'Megahouse', 'Banpresto', 'Plex', 'Bellfine',
-    'Orange Rouge', 'Aniplex', 'Kadokawa', 'Broccoli', 'Aquamarine',
-    'Phat Company', 'FREEing', 'Union Creative', 'Mimeyoi', 'Wing',
-    'Native', 'Orchid Seed', 'Alphamax', 'Daiki Kougyou', 'Skytube',
-    'Ques Q', 'Amakuni', 'Revolve', 'Stronger', 'Easy Eight',
-    'Sentinel', 'Hobby Japan', 'Di molto bene', 'Emontoys',
-    'Shueisha', 'Kodansha', 'Square Enix', 'Viz Media', 'Yen Press',
-    'Dark Horse', 'Tokyo Pop', 'Panini', 'Ivrea', 'Norma',
-    'Medicom Toy', 'Funko', 'Nendoroid', 'Figma', 'SH Figuarts',
-    'Robot Spirits', 'Metal Build', 'Model Kit', 'Gunpla',
-    'Ichiban Kuji', 'Prize Figure', 'Desktop Cute', 'Coreful',
-    'Luminasta', 'AMP', 'Trio-Try-iT', 'Hi-Touch', 'Noodle Stopper',
-    'Pop Up Parade', 'Look Up', 'Nendoroid',
-  ];
-  for (const brand of knownBrands) {
-    if (text.toLowerCase().includes(brand.toLowerCase())) {
-      return brand;
-    }
-  }
-  return 'Importado de Japón';
-}
-
 export default function ProductPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -494,7 +466,7 @@ export default function ProductPage() {
             title={title}
             description={productDescription}
             image={absoluteImage}
-            url={`https://arkya.store/product/${product ? getProductSlug(product) : ''}`}
+            url={`https://arkya.store/product/${product ? getProductSlug(product) : ''}/`}
             type="product"
             price={product?.price || 0}
             currency="ARS"
@@ -535,84 +507,6 @@ export default function ProductPage() {
           }}
         />
       )}
-      {/* Product JSON-LD */}
-      {product && (() => {
-        const firstImage = product?.images?.[0] || product?.image || '/images/logo.png';
-        const absoluteImage = firstImage.startsWith('http')
-          ? firstImage
-          : `https://arkya.store${firstImage}`;
-        return (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'Product',
-                name: product.name,
-                description: product.description || product.details || '',
-                image: absoluteImage,
-                sku: String(product.id),
-                mpn: String(product.id),
-                brand: {
-                  '@type': 'Brand',
-                  name: extractBrand(product),
-                },
-                offers: {
-                  '@type': 'Offer',
-                  url: `https://arkya.store/product/${getProductSlug(product)}`,
-                  priceCurrency: 'ARS',
-                  price: product.price && product.price > 0 ? String(product.price) : '0',
-                  availability: product.inStock !== false
-                    ? 'https://schema.org/InStock'
-                    : 'https://schema.org/OutOfStock',
-                  priceValidUntil: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-                  hasMerchantReturnPolicy: {
-                    '@type': 'MerchantReturnPolicy',
-                    returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-                    merchantReturnDays: 1,
-                    returnMethod: 'https://schema.org/ReturnByMail',
-                    returnFees: 'https://schema.org/FreeReturn',
-                    applicableCountry: 'AR',
-                    returnShippingFeesAmount: {
-                      '@type': 'MonetaryAmount',
-                      value: '0',
-                      currency: 'ARS',
-                    },
-                    description: 'Solo se aceptan devoluciones si el producto llegó dañado por el envío internacional desde Japón. Se debe reportar dentro de las 24 horas de recepción con foto o video.',
-                  },
-                  shippingDetails: {
-                    '@type': 'OfferShippingDetails',
-                    shippingRate: {
-                      '@type': 'MonetaryAmount',
-                      value: '0',
-                      currency: 'ARS',
-                    },
-                    shippingDestination: {
-                      '@type': 'DefinedRegion',
-                      addressCountry: 'AR',
-                    },
-                    deliveryTime: {
-                      '@type': 'ShippingDeliveryTime',
-                      handlingTime: {
-                        '@type': 'QuantitativeValue',
-                        minValue: 1,
-                        maxValue: 3,
-                        unitCode: 'DAY',
-                      },
-                      transitTime: {
-                        '@type': 'QuantitativeValue',
-                        minValue: 3,
-                        maxValue: 7,
-                        unitCode: 'DAY',
-                      },
-                    },
-                  },
-                },
-              }),
-            }}
-          />
-        );
-      })()}
       <Box bg="transparent">
       {/* Modal de verificación de edad */}
       <Modal isOpen={isAgeModalOpen} onClose={() => {}} isCentered size="md" closeOnOverlayClick={false} closeOnEsc={false}>
