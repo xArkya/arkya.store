@@ -6092,7 +6092,7 @@ export const products = [
   {
     "name": "Touhou Project Tribute Arts Edición Especial",
     "description": "Incluye 22 Cartas de Tarot, un Artbook, y una caja contenedora",
-    "price": 54999,
+    "price": 44999,
     "image": "/images/products/img_1776143646154_vham26_0.webp",
     "images": [
       "/images/products/img_1776143646154_vham26_0.webp",
@@ -6112,7 +6112,7 @@ export const products = [
     "category": "Artbooks",
     "subcategory": "",
     "isNew": true,
-    "inStock": true,
+    "inStock": false,
     "adultContent": false,
     "details": "Incluye 22 Cartas de Tarot, un Artbook, y una caja contenedora",
     "instagram": "https://instagram.com/arkya.store",
@@ -6126,11 +6126,8 @@ export const products = [
       "doujinshi"
     ],
     "id": 1775628134670,
-    "isOnOffer": true,
-    "discountPercentage": 0,
-    "originalPrice": 44999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "isOnOffer": false,
+    "discountPercentage": 0
   },
   {
     "name": "Bakemonogatari Vol.1 Edición Limitada",
@@ -8740,9 +8737,9 @@ export const products = [
     "price": 39999,
     "category": "Revistas",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
-    "isOnOffer": true,
+    "isOnOffer": false,
     "tags": [
       "ecchi",
       "ecchihentai",
@@ -8763,10 +8760,7 @@ export const products = [
       "Otros"
     ],
     "adultContent": true,
-    "discountPercentage": 0,
-    "originalPrice": 39999,
-    "offerStartDate": "",
-    "offerEndDate": ""
+    "discountPercentage": 0
   },
   {
     "id": 1782450875753,
@@ -11832,7 +11826,7 @@ export const products = [
     "price": 24999,
     "category": "Peluches",
     "subcategory": "",
-    "inStock": true,
+    "inStock": false,
     "isNew": false,
     "isOnOffer": false,
     "tags": [
@@ -21498,5 +21492,294 @@ export const products = [
     "originalPrice": 39999,
     "offerStartDate": "",
     "offerEndDate": ""
+  },
+  {
+    "id": 1795523865319,
+    "image": "/images/products/product-1795523865319-0.webp",
+    "images": [
+      "/images/products/product-1795523865319-0.webp",
+      "/images/products/product-1795523865319-1.webp",
+      "/images/products/product-1795523865319-2.webp",
+      "/images/products/product-1795523865319-3.webp",
+      "/images/products/product-1795523865319-4.webp",
+      "/images/products/product-1795523865319-5.webp",
+      "/images/products/product-1795523865319-6.webp",
+      "/images/products/product-1795523865319-7.webp"
+    ],
+    "name": "One Piece Color Walk 3: Lion",
+    "description": "El tercer libro de arte oficial de la obra de Eiichiro Oda, reúne más de 60 ilustraciones a todo color creadas entre los años 2001 y 2003, que abarcan el material del manga desde los capítulos 175 al 284. Esto incluye portadas de revistas, páginas cromáticas de los arcos de Alabasta, Jaya y Skypiea, bocetos conceptuales y una entrevista!",
+    "details": "El tercer libro de arte oficial de la obra de Eiichiro Oda, reúne más de 60 ilustraciones a todo color creadas entre los años 2001 y 2003, que abarcan el material del manga desde los capítulos 175 al 284. Esto incluye portadas de revistas, páginas cromáticas de los arcos de Alabasta, Jaya y Skypiea, bocetos conceptuales y una entrevista!",
+    "price": 24999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "onepiece",
+      "books",
+      "luffy",
+      "zoro",
+      "nami"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Df5rDdgJXqq/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1795523864850,
+    "image": "/images/products/product-1795523864850-0.webp",
+    "images": [
+      "/images/products/product-1795523864850-0.webp",
+      "/images/products/product-1795523864850-1.webp",
+      "/images/products/product-1795523864850-2.webp",
+      "/images/products/product-1795523864850-3.webp",
+      "/images/products/product-1795523864850-4.webp"
+    ],
+    "name": "esquisse Melange",
+    "description": "Artbook doujinshi de Mitsumi Misato (CUT A DASH!!) y Itsuki Kanru (Blazer One), ilustradores de Leaf / Aquaplus.",
+    "details": "Artbook doujinshi de Mitsumi Misato (CUT A DASH!!) y Itsuki Kanru (Blazer One), ilustradores de Leaf / Aquaplus.",
+    "price": 34999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "doujinshi",
+      "books",
+      "final fantasy",
+      "code geass",
+      "moetan"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Df7h5pYFDJd/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks",
+      "Videojuegos"
+    ],
+    "adultContent": true
+  },
+  {
+    "id": 1795523864396,
+    "image": "/images/products/product-1795523864396-0.webp",
+    "images": [
+      "/images/products/product-1795523864396-0.webp",
+      "/images/products/product-1795523864396-1.webp",
+      "/images/products/product-1795523864396-2.webp",
+      "/images/products/product-1795523864396-3.webp",
+      "/images/products/product-1795523864396-4.webp",
+      "/images/products/product-1795523864396-5.webp",
+      "/images/products/product-1795523864396-6.webp",
+      "/images/products/product-1795523864396-7.webp",
+      "/images/products/product-1795523864396-8.webp",
+      "/images/products/product-1795523864396-9.webp"
+    ],
+    "name": "Memory of jade",
+    "description": "Artbook ilustrado a todo color con ~140 páginas por Tsubasu Izumi para su círculo doujin Hisuitei, con ilustraciones originales de obras cómo Fate, Higurashi, y Haruhi, y trabajos comerciales de obras como Mashiroiro Symphony, Ragnarok Online y Aquarian Age!",
+    "details": "Artbook ilustrado a todo color con ~140 páginas por Tsubasu Izumi para su círculo doujin Hisuitei, con ilustraciones originales de obras cómo Fate, Higurashi, y Haruhi, y trabajos comerciales de obras como Mashiroiro Symphony, Ragnarok Online y Aquarian Age!",
+    "price": 49999,
+    "category": "Doujinshis",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "doujinshi",
+      "books",
+      "fate",
+      "higurashi",
+      "when they cry",
+      "ef"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/Df3FnZqJfC5/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Doujinshis",
+      "Artbooks",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1795523864608,
+    "image": "/images/products/product-1795523864608-0.webp",
+    "images": [
+      "/images/products/product-1795523864608-0.webp",
+      "/images/products/product-1795523864608-1.webp",
+      "/images/products/product-1795523864608-2.webp",
+      "/images/products/product-1795523864608-3.webp",
+      "/images/products/product-1795523864608-4.webp",
+      "/images/products/product-1795523864608-5.webp",
+      "/images/products/product-1795523864608-6.webp",
+      "/images/products/product-1795523864608-7.webp",
+      "/images/products/product-1795523864608-8.webp"
+    ],
+    "name": "JoJo 6251: The World of Hirohiko Araki",
+    "description": "El primer libro de arte oficial de tapa dura del manga JoJo's Bizarre Adventure, con portada de Josuke Higashikata, el protagonista de la cuarta parte!\nRecopila ilustraciones a todo color de las primeras cuatro partes, además de trabajos previos del autor. Incluye perfiles detallados de personajes, un glosario de términos de la franquicia y pósteres desplegables!",
+    "details": "El primer libro de arte oficial de tapa dura del manga JoJo's Bizarre Adventure, con portada de Josuke Higashikata, el protagonista de la cuarta parte!\nRecopila ilustraciones a todo color de las primeras cuatro partes, además de trabajos previos del autor. Incluye perfiles detallados de personajes, un glosario de términos de la franquicia y pósteres desplegables!",
+    "price": 59999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "jojos",
+      "books",
+      "jojo"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DgArKmlJbiU/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1795523864840,
+    "image": "/images/products/product-1795523864840-0.webp",
+    "images": [
+      "/images/products/product-1795523864840-0.webp",
+      "/images/products/product-1795523864840-1.webp",
+      "/images/products/product-1795523864840-2.webp",
+      "/images/products/product-1795523864840-3.webp",
+      "/images/products/product-1795523864840-4.webp"
+    ],
+    "name": "Tonari no Totoro: This Is Animation New Edition",
+    "description": "Guía completa de la historia que incluye perfiles de los personajes y galerías de arte con escenas clave de la película de 1988!",
+    "details": "Guía completa de la historia que incluye perfiles de los personajes y galerías de arte con escenas clave de la película de 1988!",
+    "price": 39999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "ghibli",
+      "books",
+      "totoro"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DgBcwNkFEh-/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Artbooks"
+    ]
+  },
+  {
+    "id": 1795523864787,
+    "image": "/images/products/product-1795523864787-0.webp",
+    "images": [
+      "/images/products/product-1795523864787-0.webp",
+      "/images/products/product-1795523864787-1.webp",
+      "/images/products/product-1795523864787-2.webp",
+      "/images/products/product-1795523864787-3.webp",
+      "/images/products/product-1795523864787-4.webp",
+      "/images/products/product-1795523864787-5.webp",
+      "/images/products/product-1795523864787-6.webp",
+      "/images/products/product-1795523864787-7.webp",
+      "/images/products/product-1795523864787-8.webp",
+      "/images/products/product-1795523864787-9.webp"
+    ],
+    "name": "Yu Yu Hakusho: Perfect File No. 1 y No. 2",
+    "description": "Estas guías/fanbooks incluyen fichas de personajes, resúmenes detallados de la historia del anime (el primer tomo abarca hasta el episodio 60 y el segundo del 61 al final), bocetos de producción, ilustraciones a color y entrevistas exclusivas!\n$69999 por los dos, el precio individual es $42999 por el 1 y $34999 por el 2!",
+    "details": "Estas guías/fanbooks incluyen fichas de personajes, resúmenes detallados de la historia del anime (el primer tomo abarca hasta el episodio 60 y el segundo del 61 al final), bocetos de producción, ilustraciones a color y entrevistas exclusivas!\n$69999 por los dos, el precio individual es $42999 por el 1 y $34999 por el 2!",
+    "price": 69999,
+    "category": "Guide Books",
+    "subcategory": "",
+    "inStock": true,
+    "isNew": true,
+    "isOnOffer": true,
+    "tags": [
+      "anime",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DgDUYW4JSzP/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Guide Books"
+    ],
+    "discountPercentage": 0,
+    "originalPrice": 69999,
+    "offerStartDate": "",
+    "offerEndDate": ""
+  },
+  {
+    "id": 1795523864843,
+    "image": "/images/products/product-1795523864843-0.webp",
+    "images": [
+      "/images/products/product-1795523864843-0.webp",
+      "/images/products/product-1795523864843-1.webp",
+      "/images/products/product-1795523864843-2.webp",
+      "/images/products/product-1795523864843-3.webp",
+      "/images/products/product-1795523864843-4.webp"
+    ],
+    "name": "Final Fantasy VII Remake Post Card Book",
+    "description": "Libro oficial de ilustraciones en formato postal, incluye 24 postales de alta calidad brillante con diseños y modelados CG de los personajes principales y sus escenarios más icónicos!",
+    "details": "Libro oficial de ilustraciones en formato postal, incluye 24 postales de alta calidad brillante con diseños y modelados CG de los personajes principales y sus escenarios más icónicos!",
+    "price": 44999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "finalfantasy",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DgEDtYVmCOv/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Artbooks",
+      "Otros",
+      "Videojuegos"
+    ]
+  },
+  {
+    "id": 1795523865265,
+    "image": "/images/products/product-1795523865265-0.webp",
+    "images": [
+      "/images/products/product-1795523865265-0.webp",
+      "/images/products/product-1795523865265-1.webp",
+      "/images/products/product-1795523865265-2.webp",
+      "/images/products/product-1795523865265-3.webp",
+      "/images/products/product-1795523865265-4.webp"
+    ],
+    "name": "THE DOG Photo Book Collection: Welsh Corgi",
+    "description": "Libro de fotos de perritos que se caracteriza por fotografiar a cachorros desde una perspectiva muy cercana utilizando un lente ojo de pez, en este caso de la raza Corgi!",
+    "details": "Libro de fotos de perritos que se caracteriza por fotografiar a cachorros desde una perspectiva muy cercana utilizando un lente ojo de pez, en este caso de la raza Corgi!",
+    "price": 29999,
+    "category": "Artbooks",
+    "subcategory": "",
+    "inStock": false,
+    "isNew": false,
+    "isOnOffer": false,
+    "tags": [
+      "dogs",
+      "books"
+    ],
+    "instagramUrl": "https://www.instagram.com/arkya.store/p/DgGn_NXGP4d/",
+    "extractedFrom": "instagram",
+    "extractedWith": "Instaloader Server",
+    "extractionDate": "2026-11-24T12:37:44.352Z",
+    "categories": [
+      "Artbooks",
+      "Otros"
+    ]
   }
 ];
