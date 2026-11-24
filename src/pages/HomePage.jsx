@@ -337,7 +337,7 @@ export default function HomePage({ storeOnly = false }) {
   });
   const [searchParams, setSearchParams] = useSearchParams();
   const hasMounted = useRef(false);
-  const isWritingUrl = useRef(false);
+  const lastWrittenParams = useRef(null);
   const priceFromUrlRef = useRef(false);
   const [currentPage, setCurrentPage] = useState(() => {
     // Intentar recuperar la página actual del sessionStorage al cargar
@@ -518,10 +518,9 @@ export default function HomePage({ storeOnly = false }) {
   
   // Leer filtros desde URL (evita loops cuando escribimos nosotros mismos)
   useEffect(() => {
-    if (isWritingUrl.current) {
-      isWritingUrl.current = false;
-      return;
-    }
+    const lastWritten = lastWrittenParams.current;
+    lastWrittenParams.current = null;
+    if (searchParams.toString() === lastWritten) return;
 
     const categoryFromUrl = searchParams.get('category');
     const subcategoryFromUrl = searchParams.get('subcategory');
@@ -942,7 +941,9 @@ export default function HomePage({ storeOnly = false }) {
       }
     }
 
-    isWritingUrl.current = true;
+    const nextParams = params.toString();
+    if (nextParams === searchParams.toString()) return;
+    lastWrittenParams.current = nextParams;
     setSearchParams(params, { replace: true });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, activeCategory, activeSubcategory, sortOption, filterOffersOnly, excludedCategories, currentPage, productsPerPage, priceRange, minPrice, maxPrice]);
